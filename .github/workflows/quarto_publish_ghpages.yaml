@@ -1,9 +1,12 @@
-on:
-  push:
-    branches:
-      - main
+# Disabled: This workflow conflicts with the PreTeXt GitHub Pages deployment
+# The repository uses GitHub Actions-based deployment for PreTeXt book
+# Quarto book is deployed to Netlify via build_book.yaml
+# on:
+#   push:
+#     branches:
+#       - main
 
-name: Render and Publish to gh-pages
+name: Render and Publish to gh-pages (DISABLED)
 
 # you need these permissions to publish to GitHub pages
 # permissions: 

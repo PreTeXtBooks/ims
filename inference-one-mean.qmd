@@ -1001,7 +1001,7 @@ But first, we check the conditions.
 ::: {.guidedpractice data-latex=""}
 The data come from a simple random sample of all participants, so the observations are independent.
 A histogram of the race times is given below to evaluate if we can move forward with a t-test.
-Is the normality condition met?[^19-inference-one-mean-10]
+Is the normality condition met?
 
 ```{r}
 #| out-width: 60%
@@ -1022,6 +1022,13 @@ ggplot(run17_sample_100, aes(x = time)) +
   geom_histogram(binwidth = 5) +
   labs(x = "Time (minutes)", y = "Count")
 ```
+
+::: {.callout-note collapse="true"}
+## Solution
+
+With a sample of 100, we should only be concerned if there is are particularly extreme outliers.
+The histogram of the data does not show any outliers of concern (and arguably, no outliers at all).
+:::
 :::
 
 ```{r}

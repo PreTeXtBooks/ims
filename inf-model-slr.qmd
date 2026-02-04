@@ -938,10 +938,19 @@ elmhurst |>
 
 ::: {.guidedpractice data-latex=""}
 @tbl-rOutputForIncomeAidLSRLineInInferenceSection shows statistical software output from fitting the least squares regression line shown in @fig-elmhurstScatterWLine.
-Use the output to formally evaluate the following hypotheses.[^24-inf-model-slr-2]
+Use the output to formally evaluate the following hypotheses.
 
 -   $H_0$: The true coefficient for family income is zero.
 -   $H_A$: The true coefficient for family income is not zero.
+
+::: {.callout-note collapse="true"}
+## Solution
+
+We look in the second row corresponding to the family income variable.
+We see the point estimate of the slope of the line is -0.0431, the standard error of this estimate is 0.0108, and the $t$-test statistic is $T = -3.98$.
+The p-value corresponds exactly to the two-sided test we are interested in: 0.0002.
+The p-value is so small that we reject the null hypothesis and conclude that family income and financial aid at Elmhurst College for freshman entering in the year 2011 are negatively correlated and the true slope parameter is indeed less than 0, just as we believed in our analysis of @fig-elmhurstScatterWLine.
+:::
 :::
 
 \vspace{-5mm}

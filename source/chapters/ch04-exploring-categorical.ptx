@@ -3,11 +3,6 @@
 <chapter xml:id="ch04-exploring-categorical">
   <title>Exploring categorical data</title>
   
-  <section xml:id="sec-explore-categorical">
-    <title>Exploring categorical data</title>
-    <p>
-      Content to be added from explore-categorical.qmd
-    </p>
   <introduction>
     <p>
       This chapter focuses on exploring <alert>categorical</alert> data using summary statistics and visualizations.

@@ -3,7 +3,7 @@
 <publication>
   <common>
     <tableofcontents level="2" />
-    <exercise-inline hint="yes" answer="no" solution="no"/>
+    <exercise-inline hint="yes" answer="no" solution="yes"/>
     <exercise-divisional hint="yes" answer="no" solution="no"/>
   </common>
   

@@ -614,7 +614,7 @@
 
       <figure xml:id="fig-variables">
         <caption>Breakdown of variables into their respective types</caption>
-        <image source="images/variables-diagram.png" width="80%">
+        <image source="images/fig-variables-1.png" width="80%">
           <description>Types of variables are broken down into numerical (which can be discrete or continuous) and categorical (which can be ordinal or nominal).</description>
         </image>
       </figure>
@@ -695,7 +695,7 @@
 
       <figure xml:id="fig-county-multi-unit-homeownership">
         <caption>A scatterplot of homeownership versus the percent of housing units that are in multi-unit structures for US counties. The highlighted dot represents Chattahoochee County, Georgia, which has a multi-unit rate of 39.4% and a homeownership rate of 31.3%.</caption>
-        <image source="images/county-multi-unit-homeownership.png" width="80%">
+        <image source="images/fig-county-multi-unit-homeownership-1.png" width="80%">
           <description>A scatterplot of homeownership (on the y-axis) versus the percent of housing units that are in multi-unit structures (on the x-axis) for US counties. The observation from Chattahoochee County, Georgia is highlighted as having a multi-unit rate of 39.4% and a homeownership rate of 31.3%.</description>
         </image>
       </figure>
@@ -740,7 +740,7 @@
 
       <figure xml:id="fig-county-pop-change-med-hh-income">
         <caption>A scatterplot showing population change against median household income. Owsley County of Kentucky is highlighted, which lost 3.63% of its population from 2010 to 2017 and had median household income of $22,736.</caption>
-        <image source="images/county-pop-change-med-hh-income.png" width="80%">
+        <image source="images/fig-county-pop-change-med-hh-income-1.png" width="80%">
           <description>A scatterplot showing population change (on the y-axis) against median household income (on the x-axis). Owsley County of Kentucky is highlighted, which lost 3.63% of its population from 2010 to 2017 and had median household income of $22,736.</description>
         </image>
       </figure>
@@ -928,8 +928,52 @@
       Answers to odd-numbered exercises can be found in Appendix A.
     </p>
 
+    <exercise xml:id="ex-mcu-films">
+      <statement>
+        <p>
+          <alert>Marvel Cinematic Universe films.</alert> The data frame below contains information on Marvel Cinematic Universe films through the Infinity saga (a movie storyline spanning from Ironman in 2008 to Endgame in 2019).
+          Box office totals are given in millions of US Dollars.
+          How many observations and how many variables does this data frame have?
+        </p>
+        <p>
+          [Table showing MCU films data with columns for Title, Length (Hrs, Mins), Release Date, Opening Wknd US, and Gross (US, World)]
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-cherry-blossom">
+      <statement>
+        <p>
+          <alert>Cherry Blossom Run.</alert> The data frame below contains information on runners in the 2017 Cherry Blossom Run, which is an annual road race that takes place in Washington, DC. Most runners participate in a 10-mile run while a smaller fraction take part in a 5k run or walk.
+          How many observations and how many variables does this data frame have?
+        </p>
+        <p>
+          [Table showing runners data with various variables]
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-air-pollution">
+      <statement>
+        <p>
+          <alert>Air pollution and birth outcomes, study components.</alert> Researchers collected data to examine the relationship between air pollutants and preterm births in Southern California.
+          During the study, air pollution levels were measured by air quality monitoring stations.
+          Specifically, levels of carbon monoxide were recorded in parts per million, nitrogen dioxide and ozone in parts per hundred million, and inhalable particulate matter (PM<m>_{10}</m>) in <m>\mu g/m^3</m>.
+          Length of gestation data were collected on 143,196 births between the years 1989 and 1993, and air pollution exposure during gestation was calculated for each birth.
+          The analysis suggested that increased ambient PM<m>_{10}</m> and, to a lesser degree, CO concentrations may be associated with the occurrence of preterm births.
+        </p>
+        <p>
+          <ol>
+            <li><p>Identify the main research question of the study.</p></li>
+            <li><p>Who are the subjects in this study, and how many are included?</p></li>
+            <li><p>What are the variables in the study? Identify each variable as numerical or categorical. If numerical, state whether the variable is discrete or continuous. If categorical, state whether the variable is ordinal.</p></li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+
     <p>
-      <em>[Note: Exercises would be included here from the _01-ex-data-hello.qmd file]</em>
+      <em>[Note: Additional exercises 4-20 from the original chapter would be included here. The complete conversion of all 20 exercises with their complex tables and R-generated content requires additional processing.]</em>
     </p>
 
   </exercises>

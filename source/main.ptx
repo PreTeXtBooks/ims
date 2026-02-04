@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+  <docinfo>
+    <macros>
+      \newcommand{\N}{\mathbb N}
+      \newcommand{\Z}{\mathbb Z}
+      \newcommand{\Q}{\mathbb Q}
+      \newcommand{\R}{\mathbb R}
+    </macros>
+  </docinfo>
+
+  <book xml:id="ims-book">
+    <title>Introduction to Modern Statistics</title>
+    <subtitle>Second Edition</subtitle>
+
+    <frontmatter xml:id="frontmatter">
+      <titlepage>
+        <author>
+          <personname>Mine Çetinkaya-Rundel</personname>
+        </author>
+        <author>
+          <personname>Johanna Hardin</personname>
+        </author>
+      </titlepage>
+
+      <xi:include href="preface.ptx" />
+    </frontmatter>
+
+    <!-- Welcome page for navigation -->
+    <chapter xml:id="welcome">
+      <title>Welcome</title>
+      <p>
+        Welcome to Introduction to Modern Statistics (Second Edition).
+      </p>
+      <p>
+        This PreTeXt version provides an accessible, interactive format for learning statistics.
+      </p>
+    </chapter>
+
+    <!-- Part I: Introduction to data -->
+    <part xml:id="part-introduction-to-data">
+      <title>Introduction to data</title>
+      <xi:include href="chapters/ch01-hello-data.ptx" />
+      <xi:include href="chapters/ch02-study-design.ptx" />
+      <xi:include href="chapters/ch03-data-applications.ptx" />
+    </part>
+
+    <!-- Part II: Exploratory data analysis -->
+    <part xml:id="part-exploratory-data-analysis">
+      <title>Exploratory data analysis</title>
+      <xi:include href="chapters/ch04-exploring-categorical.ptx" />
+      <xi:include href="chapters/ch05-exploring-numerical.ptx" />
+      <xi:include href="chapters/ch06-explore-applications.ptx" />
+    </part>
+
+    <!-- Part III: Regression modeling -->
+    <part xml:id="part-regression-modeling">
+      <title>Regression modeling</title>
+      <xi:include href="chapters/ch07-linear-regression-single.ptx" />
+      <xi:include href="chapters/ch08-linear-regression-multiple.ptx" />
+      <xi:include href="chapters/ch09-logistic-regression.ptx" />
+      <xi:include href="chapters/ch10-model-applications.ptx" />
+    </part>
+
+    <!-- Part IV: Foundations of inference -->
+    <part xml:id="part-foundations-of-inference">
+      <title>Foundations of inference</title>
+      <xi:include href="chapters/ch11-hypothesis-testing-randomization.ptx" />
+      <xi:include href="chapters/ch12-confidence-intervals-bootstrapping.ptx" />
+      <xi:include href="chapters/ch13-inference-mathematical-models.ptx" />
+      <xi:include href="chapters/ch14-decision-errors.ptx" />
+      <xi:include href="chapters/ch15-foundations-applications.ptx" />
+    </part>
+
+    <!-- Part V: Statistical inference -->
+    <part xml:id="part-statistical-inference">
+      <title>Statistical inference</title>
+      <xi:include href="chapters/ch16-inference-single-proportion.ptx" />
+      <xi:include href="chapters/ch17-inference-two-proportions.ptx" />
+      <xi:include href="chapters/ch18-inference-two-way-tables.ptx" />
+      <xi:include href="chapters/ch19-inference-single-mean.ptx" />
+      <xi:include href="chapters/ch20-inference-two-independent-means.ptx" />
+      <xi:include href="chapters/ch21-inference-paired-means.ptx" />
+      <xi:include href="chapters/ch22-inference-many-means.ptx" />
+      <xi:include href="chapters/ch23-inference-applications.ptx" />
+    </part>
+
+    <!-- Part VI: Inferential modeling -->
+    <part xml:id="part-inferential-modeling">
+      <title>Inferential modeling</title>
+      <xi:include href="chapters/ch24-inference-linear-regression-single.ptx" />
+      <xi:include href="chapters/ch25-inference-linear-regression-multiple.ptx" />
+      <xi:include href="chapters/ch26-inference-logistic-regression.ptx" />
+      <xi:include href="chapters/ch27-model-infer-applications.ptx" />
+    </part>
+
+    <!-- Appendices -->
+    <backmatter xml:id="backmatter">
+      <title>Appendices</title>
+      <xi:include href="appendix/exercise-solutions.ptx" />
+    </backmatter>
+  </book>
+</pretext>

@@ -30,3 +30,9 @@ index.pdf
 index.md
 index.synctex(busy)
 **/*.quarto_ipynb
+# PreTeXt build artifacts
+output/
+logs/
+.error_schema.log
+generated-assets/
+assets/

@@ -7,9 +7,13 @@
     <exercise-divisional hint="yes" answer="no" solution="no"/>
   </common>
   
+  <source>
+    <directories external="../assets" generated="../generated-assets" />
+  </source>
+  
   <html>
     <calculator model="none" />
-    <index-page ref="index" />
+    <index-page ref="welcome" />
     <css style="default" />
     <search variant="default" />
     <baseurl href="https://lilyclements.github.io/ims/" />

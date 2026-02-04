@@ -1,0 +1,2 @@
+# PreTeXt CLI - automatically generated requirement
+pretext == 2.35.0

@@ -174,6 +174,27 @@ ggplot(loan50, aes(x = interest_rate)) +
 
 <p>The mean is useful because it allows us to rescale or standardize a metric into something more easily interpretable and comparable. Suppose we would like to understand if a new drug is more effective at treating asthma attacks than the standard drug. A trial of 1,500 adults is set up, where 500 receive the new drug, and 1000 receive a standard drug in the control group. Results of this trial are summarized in <xref ref="tbl-drug-asthma-results" />.</p>
 
+<table xml:id="tbl-drug-asthma-results">
+  <title>Results of a trial of 1500 adults that suffer from asthma.</title>
+  <tabular>
+    <row header="yes">
+      <cell></cell>
+      <cell>New drug</cell>
+      <cell>Standard drug</cell>
+    </row>
+    <row>
+      <cell>Number of patients</cell>
+      <cell>500</cell>
+      <cell>1000</cell>
+    </row>
+    <row>
+      <cell>Total asthma attacks</cell>
+      <cell>200</cell>
+      <cell>300</cell>
+    </row>
+  </tabular>
+</table>
+
 <p>Comparing the raw counts of 200 to 300 asthma attacks would make it appear that the new drug is better, but this is an artifact of the imbalanced group sizes.</p>
 
 <p>Instead, we should look at the average number of asthma attacks per patient in each group:</p>
@@ -210,6 +231,51 @@ ggplot(loan50, aes(x = interest_rate)) +
 
 <p>Dot plots show the exact value for each observation. They are useful for small datasets but can become hard to read with larger samples. Rather than showing the value of each observation, we prefer to think of the value as belonging to a <em>bin</em>. For example, in the <c>loan50</c> dataset, we created a table of counts for the number of loans with interest rates between 5.0% and 7.5%, then the number of loans with rates between 7.5% and 10.0%, and so on. Observations that fall on the boundary of a bin (e.g., 10.00%) are allocated to the lower bin. The tabulation is shown in <xref ref="tbl-binnedIntRateAmountTable" />, and the binned counts are plotted as bars in <xref ref="fig-loan50IntRateHist" /> into what is called a <alert>histogram</alert>. Note that the histogram resembles a more heavily binned version of the stacked dot plot shown in <xref ref="fig-loan-int-rate-dotplot" />.</p>
 
+<table xml:id="tbl-binnedIntRateAmountTable">
+  <title>Counts for the binned interest rate data.</title>
+  <tabular>
+    <row header="yes">
+      <cell>Interest rate</cell>
+      <cell>Count</cell>
+    </row>
+    <row>
+      <cell>(5% - 7.5%]</cell>
+      <cell>11</cell>
+    </row>
+    <row>
+      <cell>(7.5% - 10%]</cell>
+      <cell>15</cell>
+    </row>
+    <row>
+      <cell>(10% - 12.5%]</cell>
+      <cell>8</cell>
+    </row>
+    <row>
+      <cell>(12.5% - 15%]</cell>
+      <cell>4</cell>
+    </row>
+    <row>
+      <cell>(15% - 17.5%]</cell>
+      <cell>5</cell>
+    </row>
+    <row>
+      <cell>(17.5% - 20%]</cell>
+      <cell>4</cell>
+    </row>
+    <row>
+      <cell>(20% - 22.5%]</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>(22.5% - 25%]</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell>(25% - 27.5%]</cell>
+      <cell>1</cell>
+    </row>
+  </tabular>
+</table>
 
 <program language="r">
   <input>
@@ -446,7 +512,107 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
 
 <p>A <alert>box plot</alert> summarizes a dataset using five statistics while also identifying unusual observations. <xref ref="fig-loan-int-rate-boxplot-dotplot" /> provides a dot plot and a box plot of the <c>interest_rate</c> variable from the <c>loan50</c> dataset.</p>
 
+<figure xml:id="fig-loan-int-rate-boxplot-dotplot">
+  <caption>Distribution of interest rates from the <c>loan50</c> dataset.</caption>
+  <sidebyside widths="100%">
+    <figure xml:id="fig-loan-int-rate-boxplot-dotplot-1">
+      <caption>Dot plot</caption>
+      <image source="images/fig-loan-int-rate-boxplot-dotplot-1.png" />
+    </figure>
+  </sidebyside>
+  <sidebyside widths="100%">
+    <figure xml:id="fig-loan-int-rate-boxplot-dotplot-2">
+      <caption>Box plot</caption>
+      <image source="images/fig-loan-int-rate-boxplot-dotplot-2.png" />
+    </figure>
+  </sidebyside>
+</figure>
+
 <p>The dark line inside the box represents the <alert>median</alert>, which splits the data in half. 50% of the data fall below this value and 50% fall above it. Since in the <c>loan50</c> dataset there are 50 observations (an even number), the median is defined as the average of the two observations closest to the $50^{th}$ percentile. <xref ref="tbl-loan50-int-rate-sorted" /> shows all interest rates, arranged in ascending order. We can see that the $25^{th}$ and the $26^{th}$ values are both <c>r sort(loan50$interest_rate)[25]</c>, which corresponds to the thick line in  <xref ref="fig-loan-int-rate-boxplot-dotplot-2" />.</p>
+
+<table xml:id="tbl-loan50-int-rate-sorted">
+  <title>Interest rates from the <c>loan50</c> dataset, arranged in ascending order.</title>
+  <tabular>
+    <row header="yes">
+      <cell></cell>
+      <cell>1</cell>
+      <cell>2</cell>
+      <cell>3</cell>
+      <cell>4</cell>
+      <cell>5</cell>
+      <cell>6</cell>
+      <cell>7</cell>
+      <cell>8</cell>
+      <cell>9</cell>
+      <cell>10</cell>
+    </row>
+    <row>
+      <cell>1</cell>
+      <cell>5.31</cell>
+      <cell>5.31</cell>
+      <cell>5.32</cell>
+      <cell>6.08</cell>
+      <cell>6.08</cell>
+      <cell>6.71</cell>
+      <cell>6.71</cell>
+      <cell>7.34</cell>
+      <cell>7.35</cell>
+      <cell>7.35</cell>
+    </row>
+    <row>
+      <cell>11</cell>
+      <cell>7.96</cell>
+      <cell>7.96</cell>
+      <cell>7.96</cell>
+      <cell>7.97</cell>
+      <cell>9.43</cell>
+      <cell>9.43</cell>
+      <cell>9.43</cell>
+      <cell>9.43</cell>
+      <cell>9.44</cell>
+      <cell>9.44</cell>
+    </row>
+    <row>
+      <cell>21</cell>
+      <cell>9.44</cell>
+      <cell>9.92</cell>
+      <cell>10.42</cell>
+      <cell>10.42</cell>
+      <cell>10.90</cell>
+      <cell>10.90</cell>
+      <cell>10.91</cell>
+      <cell>10.91</cell>
+      <cell>11.98</cell>
+      <cell>12.62</cell>
+    </row>
+    <row>
+      <cell>31</cell>
+      <cell>12.62</cell>
+      <cell>14.08</cell>
+      <cell>15.04</cell>
+      <cell>16.02</cell>
+      <cell>17.09</cell>
+      <cell>17.09</cell>
+      <cell>17.09</cell>
+      <cell>18.06</cell>
+      <cell>18.45</cell>
+      <cell>19.42</cell>
+    </row>
+    <row>
+      <cell>41</cell>
+      <cell>20.00</cell>
+      <cell>21.45</cell>
+      <cell>21.45</cell>
+      <cell>21.45</cell>
+      <cell>21.99</cell>
+      <cell>24.85</cell>
+      <cell>25.80</cell>
+      <cell>26.30</cell>
+      <cell>26.30</cell>
+      <cell>28.99</cell>
+    </row>
+  </tabular>
+</table>
 
 <p>When there are an odd number of observations, there will be exactly one observation that splits the data into two halves, and in such a case that observation is the median (no average needed).</p>
 
@@ -494,6 +660,62 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
 
 <p>How are the <alert>sample statistics</alert>  of the <c>interest_rate</c> dataset affected by the observation, 26.3%? What would have happened if this loan had instead been only 15%? What would happen to these summary statistics  if the observation at 26.3% had been even larger, say 35%? The three conjectured scenarios are plotted alongside the original data in <xref ref="fig-loan-int-rate-robust-ex" />, and sample statistics are computed under each scenario in <xref ref="tbl-robustOrNotTable" />.</p>
 
+<table xml:id="tbl-robustOrNotTable">
+  <title>A comparison of how the median, IQR, mean, and standard deviation change as the value of an extreme observation from the original interest data changes.</title>
+  <tabular>
+    <row header="yes">
+      <cell>Scenario</cell>
+      <cell>Median</cell>
+      <cell>IQR</cell>
+      <cell>Mean</cell>
+      <cell>SD</cell>
+    </row>
+    <row>
+      <cell>Original data</cell>
+      <cell>9.93</cell>
+      <cell>7.42</cell>
+      <cell>11.57</cell>
+      <cell>5.05</cell>
+    </row>
+    <row>
+      <cell>Move 26.3% to 15%</cell>
+      <cell>9.93</cell>
+      <cell>7.42</cell>
+      <cell>11.34</cell>
+      <cell>4.61</cell>
+    </row>
+    <row>
+      <cell>Move 26.3% to 35%</cell>
+      <cell>9.93</cell>
+      <cell>7.42</cell>
+      <cell>11.74</cell>
+      <cell>5.68</cell>
+    </row>
+  </tabular>
+</table>
+
+<figure xml:id="fig-loan-int-rate-robust-ex">
+  <caption>Dot plots of the original interest rate data and two modified datasets.</caption>
+  <sidebyside widths="100%">
+    <figure xml:id="fig-loan-int-rate-robust-ex-1">
+      <caption>Original data</caption>
+      <image source="images/fig-loan-int-rate-robust-ex-1.png" />
+    </figure>
+  </sidebyside>
+  <sidebyside widths="100%">
+    <figure xml:id="fig-loan-int-rate-robust-ex-2">
+      <caption>Move 26.3% to 15%</caption>
+      <image source="images/fig-loan-int-rate-robust-ex-2.png" />
+    </figure>
+  </sidebyside>
+  <sidebyside widths="100%">
+    <figure xml:id="fig-loan-int-rate-robust-ex-3">
+      <caption>Move 26.3% to 35%</caption>
+      <image source="images/fig-loan-int-rate-robust-ex-3.png" />
+    </figure>
+  </sidebyside>
+</figure>
+
 <exercise>
   <statement>
     <p>Which is more affected by extreme observations, the mean or median? Is the standard deviation or IQR more affected by extreme observations?</p>
@@ -537,6 +759,30 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
   <title>Transforming data</title>
 
 <p>When data are very strongly skewed, we sometimes transform them, so they are easier to model. <xref ref="fig-county-unemployed-pop-transform-1" /> and <xref ref="fig-county-unemployed-pop-transform-2" /> show right-skewed distributions: distribution of the percentage of unemployed people and the distribution of the population in all counties in the United States. The distribution of population is more strongly skewed than the distribution of percentage unemployed, hence the log transformation results in a much bigger change in the shape of the distribution.</p>
+
+<figure xml:id="fig-county-unemployed-pop-transform">
+  <caption>Histograms of percentage unenmployed, population, and their log transformed versions in all US counties. For the plots of transformed variables, the x-value corresponds to the power of 10, e.g., 1 on the x-axis corresponds to $10^1 =$ 10 and 5 on the x-axis corresponds to $10^5=$ 100,000. Data are from 2017.</caption>
+  <sidebyside widths="45% 45%">
+    <figure xml:id="fig-county-unemployed-pop-transform-1">
+      <caption>Percentage unemployed</caption>
+      <image source="images/fig-county-unemployed-pop-transform-1.png" />
+    </figure>
+    <figure xml:id="fig-county-unemployed-pop-transform-2">
+      <caption>log$_{10}$-transformed percentage unemployed</caption>
+      <image source="images/fig-county-unemployed-pop-transform-2.png" />
+    </figure>
+  </sidebyside>
+  <sidebyside widths="45% 45%">
+    <figure xml:id="fig-county-unemployed-pop-transform-3">
+      <caption>Population</caption>
+      <image source="images/fig-county-unemployed-pop-transform-3.png" />
+    </figure>
+    <figure xml:id="fig-county-unemployed-pop-transform-4">
+      <caption>log$_{10}$-transformed populations</caption>
+      <image source="images/fig-county-unemployed-pop-transform-4.png" />
+    </figure>
+  </sidebyside>
+</figure>
 
 <example>
   <statement>
@@ -609,7 +855,16 @@ ggplot(county, aes(y = pop_change, x = log(pop2010, base = 10))) +
 
 <figure xml:id="fig-county-pop-change-transform">
   <caption>Scatterplots of population change and log$_{10}$-transformed population change vs. population before change.</caption>
-  <image source="images/fig-county-pop-change-transform-1.png" width="70%" />
+  <sidebyside widths="45% 45%">
+    <figure xml:id="fig-county-pop-change-transform-1">
+      <caption>Population change</caption>
+      <image source="images/fig-county-pop-change-transform-1.png" />
+    </figure>
+    <figure xml:id="fig-county-pop-change-transform-2">
+      <caption>log$_{10}$-transformed population change</caption>
+      <image source="images/fig-county-pop-change-transform-2.png" />
+    </figure>
+  </sidebyside>
 </figure>
 
 <p>Transformations other than the logarithm can be useful, too. For instance, the square root $(\sqrt{\text{original observation}})$ and inverse $\bigg ( \frac{1}{\text{original observation}} \bigg )$ are commonly used by data scientists. Common goals in transforming data are to see the data structure differently, reduce skew, assist in modeling, or straighten a nonlinear relationship in a scatterplot.</p>
@@ -620,6 +875,30 @@ ggplot(county, aes(y = pop_change, x = log(pop2010, base = 10))) +
   <title>Mapping data</title>
 
 <p>The <c>county</c> dataset offers many numerical variables that we could plot using dot plots, scatterplots, or box plots, but they can miss the true nature of the data as geographic. When we encounter geographic data, we should create an <alert>intensity map</alert>, where colors are used to show higher and lower values of a variable. <xref ref="fig-county-intensity-maps" /> shows intensity maps for poverty rate in percent (<c>poverty</c>), unemployment rate in percent (<c>unemployment_rate</c>), homeownership rate in percent (<c>homeownership</c>), and median household income in \$1000s (<c>median_hh_income</c>). The color key indicates which colors correspond to which values. The intensity maps are not generally very helpful for getting precise values in any given county, but they are very helpful for seeing geographic trends and generating interesting research questions or hypotheses.</p>
+
+<figure xml:id="fig-county-intensity-maps">
+  <caption>Intensity maps of US counties</caption>
+  <sidebyside widths="45% 45%">
+    <figure xml:id="fig-county-intensity-maps-1">
+      <caption>Poverty rate</caption>
+      <image source="images/fig-county-intensity-maps-1.png" />
+    </figure>
+    <figure xml:id="fig-county-intensity-maps-2">
+      <caption>Unemployment rate</caption>
+      <image source="images/fig-county-intensity-maps-2.png" />
+    </figure>
+  </sidebyside>
+  <sidebyside widths="45% 45%">
+    <figure xml:id="fig-county-intensity-maps-3">
+      <caption>Homeownership rate</caption>
+      <image source="images/fig-county-intensity-maps-3.png" />
+    </figure>
+    <figure xml:id="fig-county-intensity-maps-4">
+      <caption>Median household income, in thousands of USD</caption>
+      <image source="images/fig-county-intensity-maps-4.png" />
+    </figure>
+  </sidebyside>
+</figure>
 
 <example>
   <statement>
@@ -655,6 +934,67 @@ ggplot(county, aes(y = pop_change, x = log(pop2010, base = 10))) +
   <title>Terms</title>
 
 <p>The terms introduced in this chapter are presented in <xref ref="tbl-terms-chp-05" />. If you're not sure what some of these terms mean, we recommend you go back in the text and review their definitions. You should be able to easily spot them as <alert>bolded text</alert>.</p>
+
+<table xml:id="tbl-terms-chp-05">
+  <title>Terms introduced in this chapter.</title>
+  <tabular>
+    <row>
+      <cell>average</cell>
+      <cell>bimodal</cell>
+      <cell>box plot</cell>
+    </row>
+    <row>
+      <cell>data density</cell>
+      <cell>density plot</cell>
+      <cell>deviation</cell>
+    </row>
+    <row>
+      <cell>distribution</cell>
+      <cell>dot plot</cell>
+      <cell>first quartile</cell>
+    </row>
+    <row>
+      <cell>histogram</cell>
+      <cell>interquartile range</cell>
+      <cell>IQR</cell>
+    </row>
+    <row>
+      <cell>left skewed</cell>
+      <cell>mean</cell>
+      <cell>median</cell>
+    </row>
+    <row>
+      <cell>multimodal</cell>
+      <cell>nonlinear</cell>
+      <cell>outlier</cell>
+    </row>
+    <row>
+      <cell>percentile</cell>
+      <cell>point estimate</cell>
+      <cell>right skewed</cell>
+    </row>
+    <row>
+      <cell>robust statistics</cell>
+      <cell>scatterplot</cell>
+      <cell>standard deviation</cell>
+    </row>
+    <row>
+      <cell>symmetric</cell>
+      <cell>tail</cell>
+      <cell>third quartile</cell>
+    </row>
+    <row>
+      <cell>transformation</cell>
+      <cell>unimodal</cell>
+      <cell>variability</cell>
+    </row>
+    <row>
+      <cell>variance</cell>
+      <cell>weighted mean</cell>
+      <cell>whiskers</cell>
+    </row>
+  </tabular>
+</table>
 
 </subsection>
 

@@ -99,6 +99,26 @@
     <backmatter xml:id="backmatter">
       <title>Appendices</title>
       <xi:include href="appendix/exercise-solutions.ptx" />
+      
+      <!-- References -->
+      <references xml:id="references">
+        <title>References</title>
+        
+        <biblio type="raw" xml:id="chimowitz2011stenting">
+          Chimowitz, M. I., Lynn, M. J., Derdeyn, C. P., Turan, T. N., Fiorella, D., Lane, B. F., Janis, L. S., Lutsep, H. L., Barnwell, S. L., Waters, M. F., et al. (2011). 
+          Stenting versus aggressive medical therapy for intracranial arterial stenosis. 
+          <em>New England Journal of Medicine</em>, 365(11):993-1003. 
+          <url href="http://www.nejm.org/doi/full/10.1056/NEJMoa1105335">http://www.nejm.org/doi/full/10.1056/NEJMoa1105335</url>
+        </biblio>
+        
+        <biblio type="raw" xml:id="wickham2014">
+          Wickham, H. (2014). 
+          Tidy Data. 
+          <em>Journal of Statistical Software</em>, 59(10). 
+          DOI: 10.18637/jss.v059.i10. 
+          <url href="http://dx.doi.org/10.18637/jss.v059.i10">http://dx.doi.org/10.18637/jss.v059.i10</url>
+        </biblio>
+      </references>
     </backmatter>
   </book>
 </pretext>

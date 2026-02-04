@@ -34,6 +34,10 @@ jobs:
           pip install -r requirements.txt
           pretext --version
       
+      - name: Setup PreTeXt cache
+        run: |
+          bash .github/scripts/setup-pretext-cache.sh
+      
       - name: Build PreTeXt book
         run: |
           pretext build html

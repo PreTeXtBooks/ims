@@ -59,10 +59,10 @@
         </statement>
         <solution>
           <p>
-            The question <em><q>Over the last five years, what is the average time to complete a degree for Duke undergrads?</q></em> is only relevant to students who complete their degree; the average cannot be computed using a student who never finished their degree.
+            The question <q>Over the last five years, what is the average time to complete a degree for Duke undergrads?</q> is only relevant to students who complete their degree; the average cannot be computed using a student who never finished their degree.
             Thus, only Duke undergrads who graduated in the last five years represent cases in the population under consideration.
             Each such student is an individual case.
-            For the question <em><q>Does a new drug reduce the number of deaths in patients with severe heart disease?</q></em>, a person with severe heart disease represents a case.
+            For the question <q>Does a new drug reduce the number of deaths in patients with severe heart disease?</q>, a person with severe heart disease represents a case.
             The population includes all people with severe heart disease.
           </p>
         </solution>
@@ -325,7 +325,7 @@
         <ol>
           <li>
             <p>
-              <alert>Controlling.</alert> Researchers assign treatments to cases, and they do their best to <term>control</term><idx>control</idx> any other differences in the groups.<fn>This is a different concept than a <em>control group</em>, which we discuss in the second principle and in <xref ref="sec-reducing-bias-human-experiments" />.</fn>
+              <alert>Controlling.</alert> Researchers assign treatments to cases, and they do their best to <term>control</term><idx>control</idx> any other differences in the groups.<fn>This is a different concept than a <em>control group</em>, which we discuss in the following principle (Randomization) and in <xref ref="sec-reducing-bias-human-experiments" />.</fn>
               For example, when patients take a drug in pill form, some patients take the pill with only a sip of water while others may have it with an entire glass of water.
               To control for the effect of water consumption, a doctor may instruct every patient to drink a 12-ounce glass of water with the pill.
             </p>

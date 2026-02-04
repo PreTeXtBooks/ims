@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- This file, the project manifest, provides the overall configuration for your PreTeXt project. -->
-<project ptx-version="2">
+<project ptx-version="2" output-dir="output">
   <targets>
-    <target name="html" format="html" source="main.ptx" publication="publication.ptx" output-dir="output/html" />
-    <target name="pdf" format="pdf" source="main.ptx" publication="publication.ptx" output-dir="output/pdf" />
+    <target name="html" format="html" source="main.ptx" publication="publication.ptx" output-dir="html" />
+    <target name="pdf" format="pdf" source="main.ptx" publication="publication.ptx" output-dir="pdf" />
   </targets>
 </project>

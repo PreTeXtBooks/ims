@@ -1,5 +1,77 @@
 # Chapter Conversion Notes
 
+## Study Design Chapter - Conversion Complete
+
+### Conversion Date
+February 4, 2026
+
+### Source Files
+- **Input**: `data-design.qmd` (862 lines)
+- **Output**: `source/chapters/ch02-study-design.ptx` (658 lines)
+- **Images**: Copied from `_freeze/data-design/figure-html/` and `images/` to `source/images/`
+
+### Conversion Status
+✅ **100% coverage of main chapter content**
+
+### What Was Converted
+
+#### Complete Content (100%)
+- Chapter introduction
+- All 3 main sections
+- All 5 subsections
+- All 8 figures (with images)
+- All 5 guided practice exercises (with solutions)
+- All 3 worked examples (with solutions)
+- All 2 important/assemblage boxes
+- All 32+ key terms (defined and indexed)
+- Chapter review (summary and terms table)
+
+#### Content Breakdown by Section
+1. **Sampling principles and strategies**
+   - Populations and samples
+   - Parameters and statistics
+   - Anecdotal evidence
+   - Sampling from a population
+   - Four sampling methods (simple random, stratified, cluster, multistage)
+
+2. **Experiments**
+   - Principles of experimental design (controlling, randomization, replication, blocking)
+   - Reducing bias in human experiments (blind, placebo, double-blind)
+
+3. **Observational studies**
+   - Prospective and retrospective studies
+   - Confounding variables
+
+4. **Chapter review**
+   - Summary with scope of inference figure
+   - Terms table
+
+#### Content Exclusions
+- **Exercises**: External file `_02-ex-data-design.qmd` not converted (matches ch01 pattern)
+
+### Validation
+- ✅ XML well-formed (validated with Python ElementTree)
+- ✅ PreTeXt structure valid
+- ✅ All cross-references valid
+- ✅ All image paths correct
+- ✅ Code review passed (no issues)
+- ✅ Security scan passed (no analyzable code)
+
+### Images Converted (8 total)
+1. fig-pop-to-sample-1.png
+2. fig-pop-to-sub-sample-graduates-1.png
+3. fig-survey-sample-1.png
+4. fig-simple-stratified-1.png
+5. fig-cluster-multistage-1.png
+6. fig-blocking-1.png
+7. fig-sun-causes-cancer-1.png
+8. randsampValloc.png
+
+### Key Terms Indexed (32+ terms)
+population, census, sample, population parameter, sample statistic, anecdotal evidence, bias, sample bias, non-response rate, representative, non-response bias, simple random sample, stratified sample, strata, cluster sample, multistage sample, convenience sample, experiment, randomized experiment, control, confounding variable, replication, pseudoreplication, replication crisis, blocking, treatment group, control group, blind, placebo, placebo effect, double-blind, observational study, prospective study, retrospective study
+
+---
+
 ## Hello Data Chapter - Conversion Complete
 
 ### Conversion Date

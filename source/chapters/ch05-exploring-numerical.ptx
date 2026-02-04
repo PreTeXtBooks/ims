@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<chapter xml:id="ch05-exploring-numerical">
+<chapter xml:id="sec-explore-numerical">
   <title>Exploring numerical data</title>
   
-  <p>
-    Content to be added from explore-numerical.qmd
-  </p>
+  <introduction>
+    <p>
+      Content to be added from explore-numerical.qmd
+    </p>
+  </introduction>
+  
+  <section xml:id="sec-histograms">
+    <title>Histograms and shape</title>
+    <p>
+      Content to be added from explore-numerical.qmd
+    </p>
+  </section>
+  
+  <section xml:id="sec-boxplots">
+    <title>Box plots, quartiles, and the median</title>
+    <p>
+      Content to be added from explore-numerical.qmd
+    </p>
+  </section>
 </chapter>

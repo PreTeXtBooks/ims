@@ -3,7 +3,16 @@
 <appendix xml:id="appendix-exercise-solutions">
   <title>Exercise solutions</title>
   
-  <p>
-    Content to be added from exercise-solutions.qmd
-  </p>
+  <introduction>
+    <p>
+      Content to be added from exercise-solutions.qmd
+    </p>
+  </introduction>
+  
+  <section xml:id="sec-exercise-solutions-04">
+    <title>Chapter 4</title>
+    <p>
+      Solutions to be added from exercise-solutions.qmd
+    </p>
+  </section>
 </appendix>

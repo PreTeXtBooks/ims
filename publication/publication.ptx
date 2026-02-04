@@ -17,5 +17,6 @@
     <css style="default" />
     <search variant="default" />
     <baseurl href="https://lilyclements.github.io/ims/" />
+    <knowl listing="yes" />
   </html>
 </publication>

@@ -41,8 +41,10 @@
         Typically, a bar plot will be easier for the reader to digest than a pie chart, especially if the categorical data being plotted has more than just a few levels.
       </p>
       
-      <program language="r">
-        <input>
+      <listing xml:id="listing-keep-it-simple">
+        <caption>R code for creating pie chart and bar plot comparison</caption>
+        <program language="r">
+          <code>
 expenses &lt;- tribble(
   ~category,                     ~value,
   "Cutting tools"                , 0.03,
@@ -63,8 +65,9 @@ ggplot(expenses, aes(x = fct_infreq(category))) +
   theme_minimal() +
   coord_flip() +
   labs(x = NULL, y = NULL)
-        </input>
-      </program>
+          </code>
+        </program>
+      </listing>
       
       <figure xml:id="fig-pie-to-bar">
         <caption>Same information displayed with two very different visualizations.</caption>
@@ -100,8 +103,10 @@ ggplot(expenses, aes(x = fct_infreq(category))) +
         Also note that not everyone sees color the same way, often it's useful to add color and one more feature (e.g., pattern) so that you can refer to the features you're drawing attention to in multiple ways, as shown in <xref ref="fig-red-bar-3" />.
       </p>
       
-      <program language="r">
-        <input>
+      <listing xml:id="listing-use-color">
+        <caption>R code for demonstrating effective use of color to draw attention</caption>
+        <program language="r">
+          <code>
 # Default coloring
 ggplot(expenses, aes(y = fct_infreq(category), fill = category)) +
   geom_bar(show.legend = FALSE) +
@@ -128,8 +133,9 @@ expenses |&gt;
   scale_color_manual(values = c(IMSCOL["lgray", "full"], "white")) +
   scale_size_manual(values = c(0, 0.8)) +
   scale_y_discrete(labels = label_wrap(14))
-        </input>
-      </program>
+          </code>
+        </program>
+      </listing>
       
       <figure xml:id="fig-red-bar">
         <caption>Three bar charts visualizing the same information with different coloring to highlight different aspects.</caption>
@@ -172,8 +178,10 @@ expenses |&gt;
         Sometimes the additional information may be a diagonal line given by <m>y = x</m>, points above the line quickly show the reader which values have a <m>y</m> coordinate larger than the <m>x</m> coordinate; points below the line show the opposite.
       </p>
       
-      <program language="r">
-        <input>
+      <listing xml:id="listing-tell-a-story">
+        <caption>R code for creating time series plots with effective storytelling</caption>
+        <program language="r">
+          <code>
 duke_hires_raw &lt;- read_csv("data/duke-hires.csv")
 
 set.seed(1234)
@@ -233,8 +241,9 @@ ggplot(duke_hires, aes(x = month, y = n, group = year)) +
     label = "Hires always peak in\nJuly, which is the start\nof Duke's fiscal year.",
     hjust = -0.1
   )
-        </input>
-      </program>
+          </code>
+        </program>
+      </listing>
       
       <figure xml:id="fig-duke-hires">
         <caption>Time series plot showing monthly Duke University hiring trends over five calendar years.</caption>
@@ -287,8 +296,10 @@ ggplot(duke_hires, aes(x = month, y = n, group = year)) +
         </p>
       </blockquote>
       
-      <program language="r">
-        <input>
+      <listing xml:id="listing-order-matters">
+        <caption>R code for demonstrating different ordering strategies for bar plots</caption>
+        <program language="r">
+          <code>
 brexit &lt;- tibble(
   opinion = c(
     rep("Very well", 123), rep("Fairly well", 219), rep("Fairly badly", 332),
@@ -319,8 +330,9 @@ brexit |&gt;
   ggplot(aes(y = opinion)) +
   geom_bar() + 
   labs(y = "Opinion", x = "Count")
-        </input>
-      </program>
+          </code>
+        </program>
+      </listing>
       
       <figure xml:id="fig-brexit-bars">
         <caption>Three bar charts visualizing the same information with arrangement of levels.</caption>
@@ -362,8 +374,10 @@ brexit |&gt;
         Remember, the goal is to convey as much information as possible in a succinct and clear manner.
       </p>
       
-      <program language="r">
-        <input>
+      <listing xml:id="listing-make-labels-easy">
+        <caption>R code for creating readable labels and horizontal bar plots</caption>
+        <program language="r">
+          <code>
 brexit &lt;- brexit |&gt;
   mutate(
     region = fct_relevel(
@@ -393,8 +407,9 @@ ggplot(brexit, aes(y = region, fill = Opinion)) +
   labs(x = "Count", y = NULL) +
   scale_fill_openintro("five") +
   theme(legend.position = "bottom")
-        </input>
-      </program>
+          </code>
+        </program>
+      </listing>
       
       <figure xml:id="fig-brexit-region">
         <caption>Stacked bar plots. Horizontal orientation makes the region labels easier to read.</caption>
@@ -432,8 +447,10 @@ ggplot(brexit, aes(y = region, fill = Opinion)) +
         Other deliberate decisions to consider include using informative labels and avoiding redundancy.
       </p>
       
-      <program language="r">
-        <input>
+      <listing xml:id="listing-pick-a-purpose">
+        <caption>R code for comparing different visualization approaches</caption>
+        <program language="r">
+          <code>
 # Stacked bar plot showing percentages
 ggplot(brexit, aes(y = region,  fill = Opinion)) +
   geom_bar(position = "fill") +
@@ -461,8 +478,9 @@ ggplot(brexit, aes(y = Opinion)) +
     x = NULL, y = NULL
   ) +
   theme(plot.title.position = "plot")
-        </input>
-      </program>
+          </code>
+        </program>
+      </listing>
       
       <figure xml:id="fig-seg-three-ways">
         <caption>Three different representations of two variables from the survey, region and opinion.</caption>
@@ -501,8 +519,10 @@ ggplot(brexit, aes(y = Opinion)) +
         <xref ref="fig-brexit-viridis" /> shows the same plot with two different color themes.
       </p>
       
-      <program language="r">
-        <input>
+      <listing xml:id="listing-select-meaningful-colors">
+        <caption>R code for demonstrating color scale selection</caption>
+        <program language="r">
+          <code>
 p &lt;- ggplot(brexit, aes(y = region, fill = Opinion)) +
   geom_bar(position = "fill") +
   labs(
@@ -520,8 +540,9 @@ p +
 # Cividis scale
 p +
   scale_fill_viridis_d(option = "E")
-        </input>
-      </program>
+          </code>
+        </program>
+      </listing>
       
       <figure xml:id="fig-brexit-viridis">
         <caption>Identical bar plots with two different coloring options.</caption>

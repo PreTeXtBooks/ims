@@ -3,7 +3,935 @@
 <chapter xml:id="ch01-hello-data">
   <title>Hello data</title>
   
-  <p>
-    Content to be added from data-hello.qmd
-  </p>
+  <introduction>
+    <p>
+      Scientists seek to answer questions using rigorous methods and careful observations.
+      These observations<mdash/>collected from the likes of field notes, surveys, and experiments<mdash/>form the backbone of a statistical investigation and are called <term>data</term>.
+      Statistics is the study of how best to collect, analyze, and draw conclusions from data.
+      In this first chapter, we focus on both the properties of data and on the collection of data.
+    </p>
+  </introduction>
+
+  <section xml:id="sec-case-study-stents-strokes">
+    <title>Case study: Using stents to prevent strokes</title>
+    
+    <p>
+      In this section we introduce a classic challenge in statistics: evaluating the efficacy of a medical treatment.
+      Terms in this section, and indeed much of this chapter, will all be revisited later in the text.
+      The plan for now is simply to get a sense of the role statistics can play in practice.
+    </p>
+
+    <p>
+      An experiment is designed to study the effectiveness of stents in treating patients at risk of stroke <xref ref="chimowitz2011stenting" />.
+      Stents are small mesh tubes that are placed inside narrow or weak arteries to assist in patient recovery after cardiac events and reduce the risk of an additional heart attack or death.
+    </p>
+
+    <p>
+      Many doctors have hoped that there would be similar benefits for patients at risk of stroke.
+      We start by writing the principal question the researchers hope to answer:
+    </p>
+
+    <blockquote>
+      <p>Does the use of stents reduce the risk of stroke?</p>
+    </blockquote>
+
+    <p>
+      The researchers who asked this question conducted an experiment with 451 at-risk patients.
+      Each volunteer patient was randomly assigned to one of two groups:
+    </p>
+
+    <p>
+      <ul>
+        <li>
+          <p><alert>Treatment group</alert>. Patients in the treatment group received a stent and medical management. The medical management included medications, management of risk factors, and help in lifestyle modification.</p>
+        </li>
+        <li>
+          <p><alert>Control group</alert>. Patients in the control group received the same medical management as the treatment group, but they did not receive stents.</p>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      Researchers randomly assigned 224 patients to the treatment group and 227 to the control group.
+      In this study, the control group provides a reference point against which we can measure the medical impact of stents in the treatment group.
+    </p>
+
+    <p>
+      Researchers studied the effect of stents at two time points: 30 days after enrollment and 365 days after enrollment.
+      The results of 5 patients are summarized in <xref ref="tbl-stentStudyResultsDF" />.
+      Patient outcomes are recorded as <c>stroke</c> or <c>no event</c>, representing whether the patient had a stroke during that time period.
+    </p>
+
+    <note>
+      <title>Data</title>
+      <p>
+        The <url href="http://openintrostat.github.io/openintro/reference/stent30.html"><c>stent30</c></url> data and <url href="http://openintrostat.github.io/openintro/reference/stent365.html"><c>stent365</c></url> data can be found in the <url href="http://openintrostat.github.io/openintro"><term>openintro</term></url> R package.
+      </p>
+    </note>
+
+    <table xml:id="tbl-stentStudyResultsDF">
+      <title>Results for five patients from the stent study</title>
+      <tabular>
+        <row header="yes">
+          <cell>patient</cell>
+          <cell>group</cell>
+          <cell>30 days</cell>
+          <cell>365 days</cell>
+        </row>
+        <row>
+          <cell>1</cell>
+          <cell>control</cell>
+          <cell>no event</cell>
+          <cell>no event</cell>
+        </row>
+        <row>
+          <cell>2</cell>
+          <cell>control</cell>
+          <cell>no event</cell>
+          <cell>no event</cell>
+        </row>
+        <row>
+          <cell>3</cell>
+          <cell>control</cell>
+          <cell>no event</cell>
+          <cell>no event</cell>
+        </row>
+        <row>
+          <cell>4</cell>
+          <cell>treatment</cell>
+          <cell>no event</cell>
+          <cell>no event</cell>
+        </row>
+        <row>
+          <cell>5</cell>
+          <cell>treatment</cell>
+          <cell>no event</cell>
+          <cell>no event</cell>
+        </row>
+      </tabular>
+    </table>
+
+    <p>
+      It would be difficult to answer a question on the impact of stents on the occurrence of strokes for <alert>all</alert> study patients using these <em>individual</em> observations.
+      This question is better addressed by performing a statistical data analysis of <em>all</em> observations.
+      <xref ref="tbl-stentStudyResultsDFsummary" /> summarizes the raw data in a more helpful way.
+      In this table, we can quickly see what happened over the entire study.
+      For instance, to identify the number of patients in the treatment group who had a stroke within 30 days after the treatment, we look in the leftmost column (30 days), at the intersection of treatment and stroke: 33.
+      To identify the number of control patients who did not have a stroke after 365 days after receiving treatment, we look at the rightmost column (365 days), at the intersection of control and no event: 199.
+    </p>
+
+    <table xml:id="tbl-stentStudyResultsDFsummary">
+      <title>Descriptive statistics for the stent study</title>
+      <tabular>
+        <row header="yes">
+          <cell></cell>
+          <cell colspan="2" halign="center">30 days</cell>
+          <cell colspan="2" halign="center">365 days</cell>
+        </row>
+        <row header="yes">
+          <cell>Group</cell>
+          <cell>Stroke</cell>
+          <cell>No event</cell>
+          <cell>Stroke</cell>
+          <cell>No event</cell>
+        </row>
+        <row>
+          <cell>Control</cell>
+          <cell>13</cell>
+          <cell>214</cell>
+          <cell>28</cell>
+          <cell>199</cell>
+        </row>
+        <row>
+          <cell>Treatment</cell>
+          <cell>33</cell>
+          <cell>191</cell>
+          <cell>45</cell>
+          <cell>179</cell>
+        </row>
+        <row>
+          <cell>Total</cell>
+          <cell>46</cell>
+          <cell>405</cell>
+          <cell>73</cell>
+          <cell>378</cell>
+        </row>
+      </tabular>
+    </table>
+
+    <exercise>
+      <title>Guided Practice</title>
+      <statement>
+        <p>
+          Of the 224 patients in the treatment group, 45 had a stroke by the end of the first year.
+          Using these two numbers, compute the proportion of patients in the treatment group who had a stroke by the end of their first year.
+          (Note: answers to all Guided Practice exercises are provided in footnotes!)
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The proportion of the 224 patients who had a stroke within 365 days: <m>45/224 = 0.20</m>.
+        </p>
+      </solution>
+    </exercise>
+
+    <p>
+      We can compute summary statistics from the table to give us a better idea of how the impact of the stent treatment differed between the two groups.
+      A <term>summary statistic</term><idx>summary statistic</idx> is a single number summarizing data from a sample.
+      For instance, the primary results of the study after 1 year could be described by two summary statistics: the proportion of people who had a stroke in the treatment and control groups.
+    </p>
+
+    <p>
+      <ul>
+        <li>
+          <p>Proportion who had a stroke in the treatment (stent) group: <m>45/224 = 0.20 = 20\%</m>.</p>
+        </li>
+        <li>
+          <p>Proportion who had a stroke in the control group: <m>28/227 = 0.12 = 12\%</m>.</p>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      These two summary statistics are useful in looking for differences in the groups, and we are in for a surprise: an additional 8% of patients in the treatment group had a stroke!
+      This is important for two reasons.
+      First, it is contrary to what doctors expected, which was that stents would <em>reduce</em> the rate of strokes.
+      Second, it leads to a statistical question: do the data show a <q>real</q> difference between the groups?
+    </p>
+
+    <p>
+      This second question is subtle.
+      Suppose you flip a coin 100 times.
+      While the chance a coin lands heads in any given coin flip is 50%, we probably won't observe exactly 50 heads.
+      This type of variation is part of almost any type of data generating process.
+      It is possible that the 8% difference in the stent study is due to this natural variation.
+      However, the larger the difference we observe (for a particular sample size), the less believable it is that the difference is due to chance.
+      So, what we are really asking is the following: if in fact stents have no effect, how likely is it that we observe such a large difference?
+    </p>
+
+    <p>
+      While we do not yet have statistical tools to fully address this question on our own, we can comprehend the conclusions of the published analysis: there was compelling evidence of harm by stents in this study of stroke patients.
+    </p>
+
+    <p>
+      <alert>Be careful:</alert> Do not generalize the results of this study to all patients and all stents.
+      This study looked at patients with very specific characteristics who volunteered to be a part of this study and who may not be representative of all stroke patients.
+      In addition, there are many types of stents, and this study only considered the self-expanding Wingspan stent (Boston Scientific).
+      However, this study does leave us with an important lesson: we should keep our eyes open for surprises.
+    </p>
+
+  </section>
+
+  <section xml:id="sec-data-basics">
+    <title>Data basics</title>
+    
+    <p>
+      Effective presentation and description of data is a first step in most analyses.
+      This section introduces one structure for organizing data as well as some terminology that will be used throughout this book.
+    </p>
+
+    <subsection xml:id="subsec-observations-variables-data-matrices">
+      <title>Observations, variables, and data matrices</title>
+      
+      <p>
+        <xref ref="tbl-loan50-df" /> displays six rows of a dataset for 50 randomly sampled loans offered through Lending Club, which is a peer-to-peer lending company.
+        This dataset will be referred to as <c>loan50</c>.
+      </p>
+
+      <note>
+        <title>Data</title>
+        <p>
+          The <url href="http://openintrostat.github.io/openintro/reference/loans_full_schema.html"><c>loan50</c></url> data can be found in the <url href="http://openintrostat.github.io/openintro"><term>openintro</term></url> R package.
+        </p>
+      </note>
+
+      <p>
+        Each row in the table represents a single loan.
+        The formal name for a row is a <term>case</term><idx>case</idx> or <term>observation</term><idx>observation</idx> or <term>unit of observation</term><idx>unit of observation</idx>.
+        The columns represent characteristics of each loan, where each column is referred to as a <term>variable</term><idx>variable</idx>.
+        For example, the first row represents a loan of $22,000 with an interest rate of 10.90%, where the borrower is based in New Jersey (NJ) and has an income of $59,000.
+      </p>
+
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            What is the grade of the first loan in <xref ref="tbl-loan50-df" />?
+            And what is the home ownership status of the borrower for that first loan?
+            Reminder: for these Guided Practice questions, you can check your answer in the footnote.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The loan's grade is B, and the borrower rents their residence.
+          </p>
+        </solution>
+      </exercise>
+
+      <p>
+        In practice, it is especially important to ask clarifying questions to ensure important aspects of the data are understood.
+        For instance, it is always important to be sure we know what each variable means and its units of measurement.
+        Descriptions of the variables in the <c>loan50</c> dataset are given in <xref ref="tbl-loan-50-variables" />.
+      </p>
+
+      <table xml:id="tbl-loan50-df">
+        <title>Six observations from the <c>loan50</c> dataset</title>
+        <tabular>
+          <row header="yes">
+            <cell></cell>
+            <cell>loan_amount</cell>
+            <cell>interest_rate</cell>
+            <cell>term</cell>
+            <cell>grade</cell>
+            <cell>state</cell>
+            <cell>total_income</cell>
+            <cell>homeownership</cell>
+          </row>
+          <row>
+            <cell>1</cell>
+            <cell>22,000</cell>
+            <cell>10.90</cell>
+            <cell>60</cell>
+            <cell>B</cell>
+            <cell>NJ</cell>
+            <cell>59,000</cell>
+            <cell>rent</cell>
+          </row>
+          <row>
+            <cell>2</cell>
+            <cell>6,000</cell>
+            <cell>9.92</cell>
+            <cell>36</cell>
+            <cell>B</cell>
+            <cell>CA</cell>
+            <cell>60,000</cell>
+            <cell>rent</cell>
+          </row>
+          <row>
+            <cell>3</cell>
+            <cell>25,000</cell>
+            <cell>26.30</cell>
+            <cell>36</cell>
+            <cell>E</cell>
+            <cell>SC</cell>
+            <cell>75,000</cell>
+            <cell>mortgage</cell>
+          </row>
+          <row>
+            <cell>4</cell>
+            <cell>6,000</cell>
+            <cell>9.92</cell>
+            <cell>36</cell>
+            <cell>B</cell>
+            <cell>CA</cell>
+            <cell>75,000</cell>
+            <cell>rent</cell>
+          </row>
+          <row>
+            <cell>5</cell>
+            <cell>25,000</cell>
+            <cell>9.43</cell>
+            <cell>60</cell>
+            <cell>B</cell>
+            <cell>OH</cell>
+            <cell>254,000</cell>
+            <cell>mortgage</cell>
+          </row>
+          <row>
+            <cell>6</cell>
+            <cell>6,400</cell>
+            <cell>9.92</cell>
+            <cell>36</cell>
+            <cell>B</cell>
+            <cell>IN</cell>
+            <cell>67,000</cell>
+            <cell>mortgage</cell>
+          </row>
+        </tabular>
+      </table>
+
+      <table xml:id="tbl-loan-50-variables">
+        <title>Variables and their descriptions for the <c>loan50</c> dataset</title>
+        <tabular>
+          <row header="yes">
+            <cell>Variable</cell>
+            <cell>Description</cell>
+          </row>
+          <row>
+            <cell><c>loan_amount</c></cell>
+            <cell>Amount of the loan received, in US dollars.</cell>
+          </row>
+          <row>
+            <cell><c>interest_rate</c></cell>
+            <cell>Interest rate on the loan, in an annual percentage.</cell>
+          </row>
+          <row>
+            <cell><c>term</c></cell>
+            <cell>The length of the loan, which is always set as a whole number of months.</cell>
+          </row>
+          <row>
+            <cell><c>grade</c></cell>
+            <cell>Loan grade, which takes a values A through G and represents the quality of the loan and its likelihood of being repaid.</cell>
+          </row>
+          <row>
+            <cell><c>state</c></cell>
+            <cell>US state where the borrower resides.</cell>
+          </row>
+          <row>
+            <cell><c>total_income</c></cell>
+            <cell>Borrower's total income, including any second income, in US dollars.</cell>
+          </row>
+          <row>
+            <cell><c>homeownership</c></cell>
+            <cell>Indicates whether the person owns, owns but has a mortgage, or rents.</cell>
+          </row>
+        </tabular>
+      </table>
+
+      <p>
+        The data in <xref ref="tbl-loan50-df" /> represent a <term>data frame</term><idx>data frame</idx>, which is a convenient and common way to organize data, especially if collecting data in a spreadsheet.
+        A data frame where each row is a unique case (observational unit), each column is a variable, and each cell is a single value is commonly referred to as <term>tidy data</term><idx>tidy data</idx> <xref ref="wickham2014" />.
+      </p>
+
+      <p>
+        When recording data, use a tidy data frame unless you have a very good reason to use a different structure.
+        This structure allows new cases to be added as rows or new variables as new columns and facilitates visualization, summarization, and other statistical analyses.
+      </p>
+
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            The grades for assignments, quizzes, and exams in a course are often recorded in a gradebook that takes the form of a data frame.
+            How might you organize a course's grade data using a data frame?
+            Describe the observational units and variables.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            There are multiple strategies that can be followed.
+            One common strategy is to have each student represented by a row, and then add a column for each assignment, quiz, or exam.
+            Under this setup, it is easy to review a single line to understand the grade history of a student.
+            There should also be columns to include student information, such as one column to list student names.
+          </p>
+        </solution>
+      </exercise>
+
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            We consider data for 3,142 counties in the United States, which includes the name of each county, the state where it resides, its population in 2017, the population change from 2010 to 2017, poverty rate, and nine additional characteristics.
+            How might these data be organized in a data frame?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Each county may be viewed as a case, and there are eleven pieces of information recorded for each case.
+            A table with 3,142 rows and 14 columns could hold these data, where each row represents a county and each column represents a particular piece of information.
+          </p>
+        </solution>
+      </exercise>
+
+      <p>
+        The data described in the Guided Practice above represents the <c>county</c> dataset, which is shown as a data frame in <xref ref="tbl-county-df" />.
+        The variables as well as the variables in the dataset that did not fit in <xref ref="tbl-county-df" /> are described in <xref ref="tbl-county-variables" />.
+      </p>
+
+      <table xml:id="tbl-county-df">
+        <title>Six observations and six variables from the <c>county</c> dataset</title>
+        <tabular>
+          <row header="yes">
+            <cell>name</cell>
+            <cell>state</cell>
+            <cell>pop2017</cell>
+            <cell>pop_change</cell>
+            <cell>unemployment_rate</cell>
+            <cell>median_edu</cell>
+          </row>
+          <row>
+            <cell>Autauga County</cell>
+            <cell>Alabama</cell>
+            <cell>55,504</cell>
+            <cell>1.48</cell>
+            <cell>3.86</cell>
+            <cell>some_college</cell>
+          </row>
+          <row>
+            <cell>Baldwin County</cell>
+            <cell>Alabama</cell>
+            <cell>212,628</cell>
+            <cell>9.19</cell>
+            <cell>3.99</cell>
+            <cell>some_college</cell>
+          </row>
+          <row>
+            <cell>Barbour County</cell>
+            <cell>Alabama</cell>
+            <cell>25,270</cell>
+            <cell>-6.63</cell>
+            <cell>5.90</cell>
+            <cell>hs_diploma</cell>
+          </row>
+          <row>
+            <cell>Bibb County</cell>
+            <cell>Alabama</cell>
+            <cell>22,668</cell>
+            <cell>0.73</cell>
+            <cell>4.39</cell>
+            <cell>hs_diploma</cell>
+          </row>
+          <row>
+            <cell>Blount County</cell>
+            <cell>Alabama</cell>
+            <cell>57,826</cell>
+            <cell>1.38</cell>
+            <cell>4.02</cell>
+            <cell>hs_diploma</cell>
+          </row>
+          <row>
+            <cell>Bullock County</cell>
+            <cell>Alabama</cell>
+            <cell>10,309</cell>
+            <cell>-2.28</cell>
+            <cell>4.93</cell>
+            <cell>hs_diploma</cell>
+          </row>
+        </tabular>
+      </table>
+
+      <table xml:id="tbl-county-variables">
+        <title>Variables and their descriptions for the <c>county</c> dataset</title>
+        <tabular>
+          <row header="yes">
+            <cell>Variable</cell>
+            <cell>Description</cell>
+          </row>
+          <row>
+            <cell><c>name</c></cell>
+            <cell>Name of county.</cell>
+          </row>
+          <row>
+            <cell><c>state</c></cell>
+            <cell>Name of state.</cell>
+          </row>
+          <row>
+            <cell><c>pop2000</c></cell>
+            <cell>Population in 2000.</cell>
+          </row>
+          <row>
+            <cell><c>pop2010</c></cell>
+            <cell>Population in 2010.</cell>
+          </row>
+          <row>
+            <cell><c>pop2017</c></cell>
+            <cell>Population in 2017.</cell>
+          </row>
+          <row>
+            <cell><c>pop_change</c></cell>
+            <cell>Population change from 2010 to 2017 (in percent).</cell>
+          </row>
+          <row>
+            <cell><c>poverty</c></cell>
+            <cell>Percent of population in poverty in 2017.</cell>
+          </row>
+          <row>
+            <cell><c>homeownership</c></cell>
+            <cell>Homeownership rate, 2006-2010.</cell>
+          </row>
+          <row>
+            <cell><c>multi_unit</c></cell>
+            <cell>Multi-unit rate: percent of housing units that are in multi-unit structures, 2006-2010.</cell>
+          </row>
+          <row>
+            <cell><c>unemployment_rate</c></cell>
+            <cell>Unemployment rate in 2017.</cell>
+          </row>
+          <row>
+            <cell><c>metro</c></cell>
+            <cell>Whether the county contains a metropolitan area, taking one of the values yes or no.</cell>
+          </row>
+          <row>
+            <cell><c>median_edu</c></cell>
+            <cell>Median education level (2013-2017), taking one of the values below_hs, hs_diploma, some_college, or bachelors.</cell>
+          </row>
+          <row>
+            <cell><c>per_capita_income</c></cell>
+            <cell>Per capita (per person) income (2013-2017).</cell>
+          </row>
+          <row>
+            <cell><c>median_hh_income</c></cell>
+            <cell>Median household income.</cell>
+          </row>
+          <row>
+            <cell><c>smoking_ban</c></cell>
+            <cell>Describes the type of county-level smoking ban in place in 2010, taking one of the values none, partial, or comprehensive.</cell>
+          </row>
+        </tabular>
+      </table>
+
+      <note>
+        <title>Data</title>
+        <p>
+          The <url href="http://openintrostat.github.io/usdata/reference/county.html"><c>county</c></url> data can be found in the <url href="http://openintrostat.github.io/usdata"><term>usdata</term></url> R package.
+        </p>
+      </note>
+
+    </subsection>
+
+    <subsection xml:id="sec-variable-types">
+      <title>Types of variables</title>
+      
+      <p>
+        Examine the <c>unemployment_rate</c>, <c>pop2017</c>, <c>state</c>, and <c>median_edu</c> variables in the <c>county</c> dataset.
+        Each of these variables is inherently different from the other three, yet some share certain characteristics.
+      </p>
+
+      <p>
+        First consider <c>unemployment_rate</c>, which is said to be a <term>numerical</term><idx><h>variable</h><h>numerical</h></idx> variable since it can take a wide range of numerical values, and it is sensible to add, subtract, or take averages with those values.
+        On the other hand, we would not classify a variable reporting telephone area codes as numerical since the average, sum, and difference of area codes does not have any clear meaning.
+        Instead, we would consider area codes as a categorical variable.
+      </p>
+
+      <p>
+        The <c>pop2017</c> variable is also numerical, although it seems to be a little different than <c>unemployment_rate</c>.
+        This variable of the population count can only take whole non-negative numbers (0, 1, 2, ...).
+        For this reason, the population variable is said to be <term>discrete</term><idx><h>variable</h><h>discrete</h></idx> since it can only take numerical values with jumps.
+        On the other hand, the unemployment rate variable is said to be <term>continuous</term><idx><h>variable</h><h>continuous</h></idx>.
+      </p>
+
+      <p>
+        The variable <c>state</c> can take up to 51 values after accounting for Washington, DC: Alabama, Alaska, ..., and Wyoming.
+        Because the responses themselves are categories, <c>state</c> is called a <term>categorical</term><idx><h>variable</h><h>categorical</h></idx> variable, and the possible values (states) are called the variable's <term>levels</term><idx><h>variable</h><h>levels</h></idx> (e.g., District of Columbia, Alabama, Alaska, etc.).
+      </p>
+
+      <p>
+        Finally, consider the <c>median_edu</c> variable, which describes the median education level of county residents and takes values <c>below_hs</c>, <c>hs_diploma</c>, <c>some_college</c>, or <c>bachelors</c> in each county.
+        This variable seems to be a hybrid: it is a categorical variable, but the levels have a natural ordering.
+        A variable with these properties is called an <term>ordinal</term><idx><h>variable</h><h>ordinal</h></idx> variable, while a regular categorical variable without this type of special ordering is called a <term>nominal</term><idx><h>variable</h><h>nominal</h></idx> variable.
+        To simplify analyses, any categorical variable in this book will be treated as a nominal (unordered) categorical variable (see <xref ref="fig-variables" />).
+      </p>
+
+      <figure xml:id="fig-variables">
+        <caption>Breakdown of variables into their respective types</caption>
+        <image source="images/variables-diagram.png" width="80%">
+          <description>Types of variables are broken down into numerical (which can be discrete or continuous) and categorical (which can be ordinal or nominal).</description>
+        </image>
+      </figure>
+
+      <example>
+        <title>Worked Example</title>
+        <statement>
+          <p>
+            Data were collected about students in a statistics course.
+            Three variables were recorded for each student: number of siblings, student height, and whether the student had previously taken a statistics course.
+            Classify each of the variables as continuous numerical, discrete numerical, or categorical.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The number of siblings and student height represent numerical variables.
+            Because the number of siblings is a count, it is discrete.
+            Height varies continuously, so it is a continuous numerical variable.
+            The last variable classifies students into two categories<mdash/>those who have and those who have not taken a statistics course<mdash/>which makes this variable categorical.
+          </p>
+        </solution>
+      </example>
+
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            An experiment is evaluating the effectiveness of a new drug in treating migraines.
+            A <c>group</c> variable is used to indicate the experiment group for each patient: treatment or control.
+            The <c>num_migraines</c> variable represents the number of migraines the patient experienced during a 3-month period.
+            Classify each variable as either numerical or categorical?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The <c>group</c> variable can take just one of two group names, making it categorical.
+            The <c>num_migraines</c> variable describes a count of the number of migraines, which is an outcome where basic arithmetic is sensible, which means this is a numerical outcome; more specifically, since it represents a count, <c>num_migraines</c> is a discrete numerical variable.
+          </p>
+        </solution>
+      </exercise>
+
+    </subsection>
+
+    <subsection xml:id="sec-variable-relations">
+      <title>Relationships between variables</title>
+      
+      <p>
+        Many analyses are motivated by a researcher looking for a relationship between two or more variables.
+        A social scientist may like to answer some of the following questions:
+      </p>
+
+      <blockquote>
+        <p>Does a higher-than-average increase in county population tend to correspond to counties with higher or lower median household incomes?</p>
+      </blockquote>
+
+      <blockquote>
+        <p>If homeownership in one county is lower than the national average, will the percent of housing units that are in multi-unit structures in that county tend to be above or below the national average?</p>
+      </blockquote>
+
+      <blockquote>
+        <p>How much can the median education level explain the median household income for counties in the US?</p>
+      </blockquote>
+
+      <p>
+        To answer these questions, data must be collected, such as the <c>county</c> dataset shown in <xref ref="tbl-county-df" />.
+        Examining <term>summary statistics</term><idx>summary statistic</idx> can provide numerical insights about the specifics of each of these questions.
+        Alternatively, graphs can be used to visually explore the data, potentially providing more insight than a summary statistic.
+      </p>
+
+      <p>
+        <term>Scatterplots</term><idx>scatterplot</idx> are one type of graph used to study the relationship between two numerical variables.
+        <xref ref="fig-county-multi-unit-homeownership" /> displays the relationship between the variables <c>homeownership</c> and <c>multi_unit</c>, which is the percent of housing units that are in multi-unit structures (e.g., apartments, condos).
+        Each point on the plot represents a single county.
+        For instance, the highlighted dot corresponds to County 413 in the <c>county</c> dataset: Chattahoochee County, Georgia, which has 39.4% of housing units that are in multi-unit structures and a homeownership rate of 31.3%.
+        The scatterplot suggests a relationship between the two variables: counties with a higher rate of housing units that are in multi-unit structures tend to have lower homeownership rates.
+        We might brainstorm as to why this relationship exists and investigate each idea to determine which are the most reasonable explanations.
+      </p>
+
+      <figure xml:id="fig-county-multi-unit-homeownership">
+        <caption>A scatterplot of homeownership versus the percent of housing units that are in multi-unit structures for US counties. The highlighted dot represents Chattahoochee County, Georgia, which has a multi-unit rate of 39.4% and a homeownership rate of 31.3%.</caption>
+        <image source="images/county-multi-unit-homeownership.png" width="80%">
+          <description>A scatterplot of homeownership (on the y-axis) versus the percent of housing units that are in multi-unit structures (on the x-axis) for US counties. The observation from Chattahoochee County, Georgia is highlighted as having a multi-unit rate of 39.4% and a homeownership rate of 31.3%.</description>
+        </image>
+      </figure>
+
+      <p>
+        The multi-unit and homeownership rates are said to be associated because the plot shows a discernible pattern.
+        When two variables show some connection with one another, they are called <term>associated</term><idx>association</idx> variables.
+      </p>
+
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            Examine the variables in the <c>loan50</c> dataset, which are described in <xref ref="tbl-loan-50-variables" />.
+            Create two questions about possible relationships between variables in <c>loan50</c> that are of interest to you.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Two example questions: (1) What is the relationship between loan amount and total income?
+            (2) If someone's income is above the average, will their interest rate tend to be above or below the average?
+          </p>
+        </solution>
+      </exercise>
+
+      <example>
+        <title>Worked Example</title>
+        <statement>
+          <p>
+            This example examines the relationship between the percent change in population from 2010 to 2017 and median household income for counties, which is visualized as a scatterplot in <xref ref="fig-county-pop-change-med-hh-income" />.
+            Are these variables associated?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The larger the median household income for a county, the higher the population growth observed for the county.
+            While it isn't true that every county with a higher median household income has a higher population growth, the trend in the plot is evident.
+            Since there is some relationship between the variables, they are associated.
+          </p>
+        </solution>
+      </example>
+
+      <figure xml:id="fig-county-pop-change-med-hh-income">
+        <caption>A scatterplot showing population change against median household income. Owsley County of Kentucky is highlighted, which lost 3.63% of its population from 2010 to 2017 and had median household income of $22,736.</caption>
+        <image source="images/county-pop-change-med-hh-income.png" width="80%">
+          <description>A scatterplot showing population change (on the y-axis) against median household income (on the x-axis). Owsley County of Kentucky is highlighted, which lost 3.63% of its population from 2010 to 2017 and had median household income of $22,736.</description>
+        </image>
+      </figure>
+
+      <p>
+        Because there is a downward trend in <xref ref="fig-county-multi-unit-homeownership" /><mdash/>counties with more housing units that are in multi-unit structures are associated with lower homeownership<mdash/>these variables are said to be <term>negatively associated</term><idx>association</idx>.
+        A <term>positive association</term><idx>association</idx> is shown in the relationship between the <c>median_hh_income</c> and <c>pop_change</c> variables in <xref ref="fig-county-pop-change-med-hh-income" />, where counties with higher median household income tend to have higher rates of population growth.
+      </p>
+
+      <p>
+        If two variables are not associated, then they are said to be <term>independent</term><idx>independence</idx>.
+        That is, two variables are independent if there is no evident relationship between the two.
+      </p>
+
+      <assemblage>
+        <title>Associated or independent, not both</title>
+        <p>
+          A pair of variables are either related in some way (associated) or not (independent).
+          No pair of variables is both associated and independent.
+        </p>
+      </assemblage>
+
+    </subsection>
+
+    <subsection xml:id="subsec-explanatory-response-variables">
+      <title>Explanatory and response variables</title>
+      
+      <p>
+        When we ask questions about the relationship between two variables, we sometimes also want to determine if the change in one variable causes a change in the other.
+        Consider the following rephrasing of an earlier question about the <c>county</c> dataset:
+      </p>
+
+      <blockquote>
+        <p>If there is an increase in the median household income in a county, does this drive an increase in its population?</p>
+      </blockquote>
+
+      <p>
+        In this question, we are asking whether one variable affects another.
+        If this is our underlying belief, then <em>median household income</em> is the <term>explanatory variable</term><idx>explanatory variable</idx><idx><h>variable</h><h>explanatory</h></idx>, and the <em>population change</em> is the <term>response variable</term><idx>response variable</idx><idx><h>variable</h><h>response</h></idx> in the hypothesized relationship.<fn>In some disciplines, it's customary to refer to the explanatory variable as the <term>independent variable</term><idx>independent variable</idx><idx><h>variable</h><h>independent</h></idx> and the response variable as the <term>dependent variable</term><idx>dependent variable</idx><idx><h>variable</h><h>dependent</h></idx>. However, this becomes confusing since a <em>pair</em> of variables might be independent or dependent, so we avoid this language.</fn>
+      </p>
+
+      <assemblage>
+        <title>Explanatory and response variables</title>
+        <p>
+          When we suspect one variable might causally affect another, we label the first variable the explanatory variable and the second the response variable.
+          We also use the terms <alert>explanatory</alert> and <alert>response</alert> to describe variables where the <alert>response</alert> might be predicted using the <alert>explanatory</alert> even if there is no causal relationship.
+        </p>
+        <p>
+          <me>\text{explanatory variable} \rightarrow \text{\em might affect} \rightarrow \text{response variable}</me>
+        </p>
+        <p>
+          For many pairs of variables, there is no hypothesized relationship, and these labels would not be applied to either variable in such cases.
+        </p>
+      </assemblage>
+
+      <p>
+        Bear in mind that the act of labeling the variables in this way does nothing to guarantee that a causal relationship exists.
+        A formal evaluation to check whether one variable causes a change in another requires an experiment.
+      </p>
+
+    </subsection>
+
+    <subsection xml:id="subsec-observational-studies-experiments">
+      <title>Observational studies and experiments</title>
+      
+      <p>
+        There are two primary types of data collection: experiments and observational studies.
+      </p>
+
+      <p>
+        When researchers want to evaluate the effect of particular traits, treatments, or conditions, they conduct an <term>experiment</term><idx>experiment</idx><idx><h>study</h><h>experiment</h></idx>.
+        For instance, we may suspect drinking a high-calorie energy drink will improve performance in a race.
+        To check if there really is a causal relationship between the explanatory variable (whether the runner drank an energy drink or not) and the response variable (the race time), researchers identify a sample of individuals and split them into groups.
+        The individuals in each group are <em>assigned</em> a treatment.
+        When individuals are randomly assigned to a group, the experiment is called a <term>randomized experiment</term><idx><h>study</h><h>randomized experiment</h></idx><idx>randomized experiment</idx>.
+        Random assignment organizes the participants in a study into groups that are roughly equal on all aspects, thus allowing us to control for any confounding variables that might affect the outcome (e.g., fitness level, racing experience, etc.). (See Section 2.2 for more information on confounding variables.)
+        For example, each runner in the experiment could be randomly assigned, perhaps by flipping a coin, into one of two groups: the first group receives a <term>placebo</term><idx>placebo</idx> (fake treatment, in this case a no-calorie drink) and the second group receives the high-calorie energy drink.
+        See the case study in <xref ref="sec-case-study-stents-strokes" /> for another example of an experiment, though that study did not employ a placebo.
+      </p>
+
+      <p>
+        Researchers perform an <term>observational study</term><idx><h>study</h><h>observational</h></idx><idx>observational study</idx> when they collect data in a way that does not directly interfere with how the data arise.
+        For instance, researchers may collect information via surveys, review medical or company records, or follow a <term>cohort</term><idx>cohort</idx><idx><h>study</h><h>cohort</h></idx> of many similar individuals to form hypotheses about why certain diseases might develop.
+        In each of these situations, researchers merely observe the data that arise.
+        In general, observational studies can provide evidence of a naturally occurring association between variables, but they cannot by themselves show a causal connection as they do not offer a mechanism for controlling for confounding variables. (See Section 2.2 for more information on confounding variables.)
+      </p>
+
+      <assemblage>
+        <title>Association <m>\neq</m> Causation</title>
+        <p>
+          In general, association does not imply causation.
+          An advantage of a randomized experiment is that it is easier to establish causal relationships with such a study.
+          The main reason for this is that observational studies do not control for confounding variables, and hence establishing causal relationships with observational studies requires advanced statistical methods (that are beyond the scope of this book).
+          We revisit ideas of confounding when we discuss experiments in Section 2.2.
+        </p>
+      </assemblage>
+
+    </subsection>
+
+  </section>
+
+  <section xml:id="sec-chp1-review">
+    <title>Chapter review</title>
+    
+    <subsection xml:id="subsec-chp1-summary">
+      <title>Summary</title>
+      
+      <p>
+        This chapter introduced you to the world of data.
+        Data can be organized in many ways but tidy data, where each row represents an observation and each column represents a variable, lends itself most easily to statistical analysis.
+        Many of the ideas from this chapter will be revisited as we move on to doing end-to-end data analyses.
+        In the next chapter you're going to learn about how we can design studies to collect the data we need to make conclusions with the desired scope of inference.
+      </p>
+
+    </subsection>
+
+    <subsection xml:id="subsec-chp1-terms">
+      <title>Terms</title>
+      
+      <p>
+        The terms introduced in this chapter are presented in <xref ref="tbl-terms-chp-1" />.
+        If you're not sure what some of these terms mean, we recommend you go back in the text and review their definitions.
+        You should be able to easily spot them as <alert>bolded text</alert>.
+      </p>
+
+      <table xml:id="tbl-terms-chp-1">
+        <title>Terms introduced in this chapter</title>
+        <tabular>
+          <row>
+            <cell>data</cell>
+            <cell>summary statistic</cell>
+            <cell>case</cell>
+          </row>
+          <row>
+            <cell>unit of observation</cell>
+            <cell>observation</cell>
+            <cell>variable</cell>
+          </row>
+          <row>
+            <cell>data frame</cell>
+            <cell>tidy data</cell>
+            <cell>numerical</cell>
+          </row>
+          <row>
+            <cell>discrete</cell>
+            <cell>continuous</cell>
+            <cell>categorical</cell>
+          </row>
+          <row>
+            <cell>level</cell>
+            <cell>ordinal</cell>
+            <cell>nominal</cell>
+          </row>
+          <row>
+            <cell>associated</cell>
+            <cell>positive association</cell>
+            <cell>negative association</cell>
+          </row>
+          <row>
+            <cell>independent</cell>
+            <cell>explanatory variable</cell>
+            <cell>response variable</cell>
+          </row>
+          <row>
+            <cell>dependent</cell>
+            <cell>experiment</cell>
+            <cell>randomized experiment</cell>
+          </row>
+          <row>
+            <cell>placebo</cell>
+            <cell>observational study</cell>
+            <cell>cohort</cell>
+          </row>
+        </tabular>
+      </table>
+
+    </subsection>
+
+  </section>
+
+  <exercises xml:id="sec-chp1-exercises">
+    <title>Exercises</title>
+    
+    <p>
+      Answers to odd-numbered exercises can be found in Appendix A.
+    </p>
+
+    <p>
+      <em>[Note: Exercises would be included here from the _01-ex-data-hello.qmd file]</em>
+    </p>
+
+  </exercises>
+
 </chapter>

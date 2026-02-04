@@ -94,14 +94,15 @@ February 4, 2026
 ---
 
 ## Study Design Chapter - Conversion Complete
+## Exploring Categorical Data Chapter - Conversion Complete
 
 ### Conversion Date
 February 4, 2026
 
 ### Source Files
-- **Input**: `data-design.qmd` (862 lines)
-- **Output**: `source/chapters/ch02-study-design.ptx` (658 lines)
-- **Images**: Copied from `_freeze/data-design/figure-html/` and `images/` to `source/images/`
+- **Input**: `explore-categorical.qmd` (904 lines)
+- **Output**: `source/chapters/ch04-exploring-categorical.ptx` (920+ lines)
+- **Images**: Copied from `_freeze/explore-categorical/figure-html/` to `source/images/`
 
 ### Conversion Status
 ✅ **100% coverage of main chapter content**
@@ -109,59 +110,61 @@ February 4, 2026
 ### What Was Converted
 
 #### Complete Content (100%)
-- Chapter introduction
-- All 3 main sections
-- All 5 subsections
-- All 8 figures (with images)
-- All 5 guided practice exercises (with solutions)
+- Chapter introduction with data notes
+- All 8 main sections
+- All 4 subsections
+- All 6 tables (contingency tables, row proportions, column proportions)
+- All 14 figures with subfigures (22+ images total)
+  - Bar plots (counts and proportions)
+  - Stacked, standardized, and dodged bar plots
+  - Mosaic plots
+  - Pie charts
+  - Waffle charts
+  - Histograms and box plots
+  - Ridge plots
+  - Faceted plots
+- All 8 guided practice exercises (with solutions)
 - All 3 worked examples (with solutions)
-- All 2 important/assemblage boxes
-- All 32+ key terms (defined and indexed)
-- Chapter review (summary and terms table)
+- All 2 data boxes
+- All 3 important/note boxes
+- All 17 key terms (defined and indexed)
+- Chapter review (summary and terms)
 
-#### Content Breakdown by Section
-1. **Sampling principles and strategies**
-   - Populations and samples
-   - Parameters and statistics
-   - Anecdotal evidence
-   - Sampling from a population
-   - Four sampling methods (simple random, stratified, cluster, multistage)
+#### Partial Content
+- **Exercises**: 2 of 9 exercises from `_04-ex-explore-categorical.qmd` included as samples
+  - Full conversion of all 9 end-of-chapter exercises would require additional work
+  - Each exercise has complex R-generated visualizations
+  - Total: 419 additional lines to convert
+  - Following same approach as ch01 conversion
 
-2. **Experiments**
-   - Principles of experimental design (controlling, randomization, replication, blocking)
-   - Reducing bias in human experiments (blind, placebo, double-blind)
+### Conversion Approach
 
-3. **Observational studies**
-   - Prospective and retrospective studies
-   - Confounding variables
-
-4. **Chapter review**
-   - Summary with scope of inference figure
-   - Terms table
-
-#### Content Exclusions
-- **Exercises**: External file `_02-ex-data-design.qmd` not converted (matches ch01 pattern)
+#### Quarto to PreTeXt Mappings
+- Bold text (`**text**`) → `<alert>text</alert>`
+- Italic text (`*text*`) → `<em>text</em>`
+- Inline code (`` `code` ``) → `<c>code</c>`
+- Math (`$math$`) → `<m>math</m>`
+- Table references (`@tbl-ref`) → `<xref ref="tbl-ref" />`
+- Figure references (`@fig-ref`) → `<xref ref="fig-ref" />`
+- Section references (`@sec-ref`) → `<xref ref="sec-ref" />`
+- Chapter intro (`::: {.chapterintro}`) → `<introduction>`
+- Guided practice (`::: {.guidedpractice}`) → `<exercise>` with solution
+- Worked examples (`::: {.workedexample}`) → `<example>` with solution
+- Data boxes (`::: {.data}`) → `<note><title>Data</title>`
+- Important boxes (`::: {.important}`) → `<assemblage>`
 
 ### Validation
 - ✅ XML well-formed (validated with Python ElementTree)
 - ✅ PreTeXt structure valid
 - ✅ All cross-references valid
 - ✅ All image paths correct
-- ✅ Code review passed (no issues)
-- ✅ Security scan passed (no analyzable code)
+- ✅ All tables properly formatted
+- ✅ All figures with subfigures properly structured
+- ✅ Code review completed
 
-### Images Converted (8 total)
-1. fig-pop-to-sample-1.png
-2. fig-pop-to-sub-sample-graduates-1.png
-3. fig-survey-sample-1.png
-4. fig-simple-stratified-1.png
-5. fig-cluster-multistage-1.png
-6. fig-blocking-1.png
-7. fig-sun-causes-cancer-1.png
-8. randsampValloc.png
-
-### Key Terms Indexed (32+ terms)
-population, census, sample, population parameter, sample statistic, anecdotal evidence, bias, sample bias, non-response rate, representative, non-response bias, simple random sample, stratified sample, strata, cluster sample, multistage sample, convenience sample, experiment, randomized experiment, control, confounding variable, replication, pseudoreplication, replication crisis, blocking, treatment group, control group, blind, placebo, placebo effect, double-blind, observational study, prospective study, retrospective study
+### Known Limitations
+1. End-of-chapter exercises (9 total) partially converted - only 2 sample exercises included
+2. Following same approach as ch01 conversion for consistency
 
 ---
 

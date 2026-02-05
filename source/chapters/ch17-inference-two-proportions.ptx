@@ -2,8 +2,874 @@
 
 <chapter xml:id="ch17-inference-two-proportions">
   <title>Inference for comparing two proportions</title>
+
+  <introduction>
+    <p>We now extend the methods from <xref ref="sec-inference-one-prop" /> to apply confidence intervals and hypothesis tests to differences in population proportions that come from two groups, Group 1 and Group 2: <m>p_1 - p_2.</m></p>
+    <p>In our investigations, we'll identify a reasonable point estimate of <m>p_1 - p_2</m> based on the sample, and you may have already guessed its form: <m>\hat{p}_1 - \hat{p}_2.</m> <idx><h>point estimate</h><h>difference of proportions</h></idx><idx><h>difference of proportions</h><h>point estimate</h></idx> Then we'll look at the inferential analysis in three different ways: using a randomization test, applying bootstrapping for interval estimates, and, if we verify that the point estimate can be modeled using a normal distribution, we compute the estimate's standard error, and we apply the mathematical framework.</p>
+  </introduction>
   
-  <p>
-    Content to be added from inference-two-props.qmd
-  </p>
-</chapter>
+  <section xml:id="sec-two-prop-errors">
+    <title>Randomization test for the difference in proportions</title>
+    
+    <subsection>
+      <title>Observed data</title>
+      
+      <p>Let's take another look at the cardiopulmonary resuscitation (CPR) study we introduced in <xref ref="sec-two-sided-hypotheses" />.</p>
+      
+      <p>The experiment consisted of two treatments on patients who underwent CPR for a heart attack and were subsequently admitted to a hospital.</p>
+      
+      <p>Each patient was randomly assigned to either receive a blood thinner (treatment group) or not receive a blood thinner (control group).</p>
+      
+      <p>The outcome variable of interest was whether the patient survived for at least 24 hours.</p>
+      
+      <p><xref ref="biblio-Bottiger:2001" /></p>
+      
+      <note>
+        <title>Data</title>
+        <p>The <url href="http://openintrostat.github.io/openintro/reference/cpr.html"><c>cpr</c></url> data can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</p>
+      </note>
+      
+      <p>The results are summarized in <xref ref="tbl-cpr-summary-again" /> (which is a replica of <xref ref="tbl-cpr-summary" />).</p>
+      
+      <p>11 out of the 50 patients in the control group and 14 out of the 40 patients in the treatment group survived.</p>
+      
+      <table xml:id="tbl-cpr-summary-again">
+        <title>Results for the CPR study. Patients in the treatment group were given a blood thinner, and patients in the control group were not. tbl-pos: H</title>
+        <tabular>
+          <row><cell>Table content</cell></row>
+        </tabular>
+      </table>
+      
+      <exercise>
+        <statement>
+          <p>Is this an observational study or an experiment?</p>
+          <p>What implications does the study type have on what can be inferred from the results?</p>
+        </statement>
+        <solution>
+          <p>The study is an experiment, as patients were randomly assigned an experiment group.</p>
+          <p>Since this is an experiment, the results can be used to evaluate a causal relationship between blood thinner use after CPR and whether patients survived.</p>
+        </solution>
+      </exercise>
+      
+      <p>In this study, a larger proportion of patients who received blood thinner after CPR,<m>\hat{p}_T = \frac{14}{40} = 0.35,</m> survived compared to those who did not receive blood thinner, <m>\hat{p}_C = \frac{11}{50} = 0.22.</m> However, based on these observed proportions alone, we cannot determine whether the difference (<m>\hat{p}_T - \hat{p}_C = 0.35 - 0.22 = 0.13</m>) provides <em>convincing evidence</em> that blood thinner usage after CPR is effective.</p>
+      
+      <p>As we saw in <xref ref="sec-foundations-randomization" />, we can re-randomize the responses (<c>survived</c> or <c>died</c>) to the treatment conditions assuming the null hypothesis is true and compute possible differences in proportions.</p>
+      
+      <p>The process by which we randomize observations to two groups is summarized and visualized in <xref ref="fig-fullrand" />).</p>
+      
+    </subsection>
+    
+    <subsection>
+      <title>Variability of the statistic</title>
+      
+      <p><xref ref="fig-cpr-rand-dot-plot" /> shows a stacked plot of the differences found from 100 randomization simulations (i.e., repeated iterations as described in <xref ref="fig-fullrand" />, where each dot represents a simulated difference between the infection rates (control rate minus treatment rate).</p>
+      
+      <figure xml:id="fig-cpr-rand-dot-plot">
+        <caption>A stacked dot plot of differences from 100 simulations produced under the independence model <m>H_0,</m> where in these simulations survival is unaffected by the treatment. Twelve of the 100 simulations had a difference of at least 13%, the difference observed in the study. fig-alt: | A stacked dot plot of differences from 100 simulations produced under the independence model <m>H_0,</m> where in these simulations survival is unaffected by the treatment. Twelve of the 100 simulations had a difference of at least 13%, the difference observed in the study. fig-asp: 0.5</caption>
+        <image source="images/fig-cpr-rand-dot-plot-1.png" width="70%" />
+      </figure>
+      
+    </subsection>
+    
+    <subsection>
+      <title>Observed statistic vs null statistics</title>
+      
+      <p>Note that the distribution of these simulated differences is centered around 0.</p>
+      
+      <p>We simulated the differences assuming that the independence model was true, that blood thinners after CPR have no effect on survival.</p>
+      
+      <p>Under the null hypothesis, we expect the difference to be near zero with some random fluctuation, where <em>near</em> is pretty generous in this case since the sample sizes are so small in this study.</p>
+      
+      <example>
+        <statement>
+          <p>How often would you observe a difference of at least 13% (0.13) according to <xref ref="fig-cpr-rand-dot-plot" />?</p>
+          <p>Is this a rare event?</p>
+        </statement>
+        <solution>
+          <p>It appears that a difference of at least 13% due to chance alone, if the null hypothesis was true would happen about 12% of the time according to <xref ref="fig-cpr-rand-dot-plot" />.</p>
+          <p>This is not a very rare event.</p>
+        </solution>
+      </example>
+      
+      <p>The difference of 13% not being a rare event suggests two possible interpretations of the results of the study:</p>
+      
+      <ul>
+        <li><p>-   <m>H_0</m> Independence model. Blood thinners after CPR have no effect on survival, and we just happened to observe a difference that would only occur on a rare occasion.</p></li>
+        <li><p>-   <m>H_A</m> Alternative model. Blood thinners after CPR increase chance of survival, and the difference we observed was actually due to the blood thinners after CPR being effective at increasing the chance of survival, which explains the difference of 13%.</p></li>
+      </ul>
+      
+      <p>Since we determined that the outcome is not that rare (12% chance of observing a difference of 13% or more under the assumption that blood thinners after CPR have no effect on survival), we fail to reject <m>H_0</m>, and conclude that the study results do not provide strong evidence against the independence model.</p>
+      
+      <p>This does not mean that we have proved that blood thinners are not effective, it just means that this study does not provide convincing evidence that they are effective in this setting.</p>
+      
+      <p>Statistical inference, is built on evaluating how likely such differences are to occur due to chance if in fact the null hypothesis is true.</p>
+      
+      <p>In statistical inference, data scientists evaluate which model is most reasonable given the data.</p>
+      
+      <p>Errors do occur, just like rare events, and we might choose the wrong model.</p>
+      
+      <p>While we do not always choose correctly, statistical inference gives us tools to control and evaluate how often these errors occur.</p>
+      
+    </subsection>
+    
+  </section>
+  
+  <section xml:id="sec-two-prop-boot-ci">
+    <title>Bootstrap confidence interval for the difference in proportions</title>
+    
+    <p></p>
+    
+    <p>In <xref ref="sec-two-prop-errors" />, we worked with the randomization distribution to understand the distribution of <m>\hat{p}_1 - \hat{p}_2</m> when the null hypothesis <m>H_0: p_1 - p_2 = 0</m> is true.</p>
+    
+    <p>Now, through bootstrapping, we study the variability of <m>\hat{p}_1 - \hat{p}_2</m> without assuming the null hypothesis is true.</p>
+    
+    <subsection>
+      <title>Observed data</title>
+      
+      <p>Reconsider the CPR data from <xref ref="sec-two-prop-errors" /> which is provided in  <xref ref="tbl-cpr-summary" />.</p>
+      
+      <p>Again, we use the difference in sample proportions as the observed statistic of interest.</p>
+      
+      <p>Here, the value of the statistic is: <m>\hat{p}_T - \hat{p}_C = 0.35 - 0.22 = 0.13.</m></p>
+      
+    </subsection>
+    
+    <subsection>
+      <title>Variability of the difference in sample proportions</title>
+      
+      <p>The bootstrap method applied to two samples is an extension of the method described in <xref ref="sec-foundations-bootstrapping" />.</p>
+      
+      <p>Now, we have two samples, so each sample estimates the population from which they came.</p>
+      
+      <p>In the CPR setting, the <c>treatment</c> sample estimates the population of all individuals who have gotten (or will get) the treatment; the <c>control</c> sample estimates the population of all individuals who do not get the treatment and are controls.</p>
+      
+      <p><xref ref="fig-boot2proppops" /> extends <xref ref="fig-boot1" /> to show the bootstrapping process from two samples simultaneously.</p>
+      
+      <figure xml:id="fig-boot2proppops">
+        <caption>out-width: 100% fig-alt: | Sample 1 is taken from Population 1 (3 colored marbles out of 7); Sample 2 is taken from Population 2 (5 colored marbles out of 9). Each of the two samples is used to create separate infinitely large proxy populations. Proxy population 1 has 3/7 colored marbles; proxy population 2 has 4/9 colored marbles.</caption>
+        <image source="images/fig-boot2proppops-1.png" width="70%" />
+      </figure>
+      
+      <p>As before, once the population is estimated, we can randomly resample observations to create bootstrap samples, as seen in <xref ref="fig-boot2propresamps" />.</p>
+      
+      <figure xml:id="fig-boot2propresamps">
+        <caption>out-width: 100% fig-alt: | Sample 1 is taken from Population 1 (3 colored marbles out of 7); Sample 2 is taken from Population 2 (5 colored marbles out of 9). Each of the two samples is used to create separate infinitely large proxy populations. Proxy population 1 has 3/7 colored marbles; proxy population 2 has 4/9 colored marbles. Resamples are taken from each of the proxy populations. The three resamples from proxy population 1 have 2/7, 4/7 and 5/7 colored marbles, respectively. The three resamples from proxy population 2 have 5/9, 4/9, and 7/9 colored smarbles, respectively.</caption>
+        <image source="images/fig-boot2propresamps-1.png" width="70%" />
+      </figure>
+      
+      <p>The variability of the statistic (the difference in sample proportions) can be calculated by taking one bootstrap resample from Sample 1 and one bootstrap resample from Sample 2 and calculating the difference in the bootstrap proportions.</p>
+      
+      <figure xml:id="fig-boot2samp2">
+        <caption>For example, the first bootstrap resamples from Sample 1 and Sample 2 provide resample proportions of 2/7 and 5/9, respectively. out-width: 60% fig-alt: | The first resamples from each of the two proxy populations are compared. Resample 1 from proxy population 1 has 2/7 colored marbles; resample 1 from proxy population 2 has 5/9 colored marbles. The difference in bootstrap proportions is taken as 2/7 minus 5/9.</caption>
+        <image source="images/fig-boot2samp2-1.png" width="70%" />
+      </figure>
+      
+      <p>As always, the variability of the difference in proportions can only be estimated by repeated simulations, in this case, repeated bootstrap resamples.</p>
+      
+      <p><xref ref="fig-boot2samp2" /> shows multiple bootstrap differences calculated for each of the repeated bootstrap samples.</p>
+      
+      <figure xml:id="fig-boot2samp3">
+        <caption>For each pair of bootstrap samples, we calculate the difference in sample proportions. out-width: 100% fig-alt: | Shown are the two infinitely large proxy populations (created from sample 1 and sample 2). From each proxy population, three resamples are shown. For each pair of resamples, the difference in bootstrap proportions is taken. The first pair of resamples gives a difference in bootstrapped proportions of 2/7 minus 5/9; the second pair of resamples gives a difference in bootstrapped proportions of 4/7 minus 4/9; the last pair of resamples gives a difference in bootstrapped proportions of 5/7 minus 7/9. fig-asp: 0.6</caption>
+        <image source="images/fig-boot2samp3-1.png" width="70%" />
+      </figure>
+      
+      <p>Repeated bootstrap simulations lead to a bootstrap sampling distribution of the statistic of interest, here the difference in sample proportions.</p>
+      
+      <p><xref ref="fig-boot2samp1" /> visualizes the process and <xref ref="fig-bootCPR1000" /> shows 1,000 bootstrap differences in proportions for the CPR data.</p>
+      
+      <p>Note that the CPR data includes 40 and 50 people in the respective groups, and the illustrated example includes 7 and 9 people in the two groups.</p>
+      
+      <p>Accordingly, the variability in the distribution of sample proportions is higher for the illustrated example.</p>
+      
+      <p>As you will see in the mathematical models discussed in <xref ref="sec-math-2prop" />, large sample sizes lead to smaller standard errors for a difference in proportions.</p>
+      
+      <figure xml:id="fig-boot2samp1">
+        <caption>The differences in each bootstrapped pair of proportions are combined to create the sampling distribution of the differences in proportions. out-width: 100% fig-alt: | Shown are the two infinitely large proxy populations (created from sample 1 and sample 2). From each proxy population, three resamples are shown. For each pair of resamples, the difference in bootstrap proportions is taken. A dotplot displays many differences in bootstrap proportions. The differences range from roughly -0.6 to +0.3. fig-asp: 0.6</caption>
+        <image source="images/fig-boot2samp1-1.png" width="70%" />
+      </figure>
+      
+      <figure xml:id="fig-bootCPR1000">
+        <caption>A histogram of differences in proportions from 1,000 bootstrap simulations of the CPR data. Note that because the CPR data has a larger sample size than the illustrated example, the variability of the difference in proportions is much smaller with the CPR histogram. fig-alt: | A histogram of differences in proportions from 1000 bootstrap simulations of the CPR data. fig-asp: 0.5</caption>
+        <image source="images/fig-bootCPR1000-1.png" width="70%" />
+      </figure>
+      
+    </subsection>
+    
+    <subsection>
+      <title>Bootstrap percentile vs. SE confidence intervals</title>
+      
+      <p><xref ref="fig-bootCPR1000" /> provides an estimate for the variability of the difference in survival proportions from sample to sample.</p>
+      
+      <p>The values in the histogram can be used in two different ways to create a confidence interval for the parameter of interest: <m>p_1 - p_2</m>.</p>
+      
+      <p>As in <xref ref="sec-foundations-bootstrapping" />, the bootstrap confidence interval can be calculated directly from the bootstrapped differences in <xref ref="fig-bootCPR1000" />.</p>
+      
+      <p>The interval created from the percentiles of the distribution is called the <alert>percentile interval</alert><idx><h>bootstrap</h><h>percentile interval</h></idx><idx>percentile interval</idx>.</p>
+      
+      <p>Note that here we calculate the 90% confidence interval by finding the <m>5^{th}</m> and <m>95^{th}</m> percentile values from the bootstrapped differences.</p>
+      
+      <p>The bootstrap 5 percentile proportion is <c>r cpr_boot_90_lower_perc</c> and the 95 percentile is <c>r cpr_boot_90_upper_perc</c>.</p>
+      
+      <p>The result is: we are 90% confident that, in the population, the true difference in probability of survival for individuals receiving blood thinners after CPR is between <c>r cpr_boot_90_lower_perc</c> lower and <c>r cpr_boot_90_upper_perc</c> higher than those who did not receive blood thinners.</p>
+      
+      <p>The interval shows that we do not have much definitive evidence of the effect of blood thinners, one way or another.</p>
+      
+      <figure xml:id="fig-bootCPR1000CI">
+        <caption>The CPR data is bootstrapped 1,000 times. Each simulation creates a sample from the original data where the probability of survival in the treatment group is <m>\hat{p}_{T}  = 14/40</m> and the probability of survival in the control group is <m>\hat{p}_{C} = 11/50.</m> fig-alt: | A histogram of differences in proportions from 1000 bootstrap simulations of the CPR data. The 5th and 95th percentiles are shown as vertical lines.</caption>
+        <image source="images/fig-bootCPR1000CI-1.png" width="70%" />
+      </figure>
+      
+      <p>Alternatively, we can use the variability in the bootstrapped differences to calculate a standard error of the difference.</p>
+      
+      <p>The resulting interval is called the <alert>SE interval</alert><idx>SE interval</idx><idx><h>bootstrap</h><h>SE interval</h></idx>.</p>
+      
+      <p><xref ref="sec-math-2prop" /> details the mathematical model for the standard error of the difference in sample proportions, but the bootstrap distribution typically does an excellent job of estimating the variability of the sampling distribution of the sample statistic.</p>
+      
+      <me>
+        SE(\hat{p}_T - \hat{p}_C) \approx SE(\hat{p}_{T, boot} - \hat{p}_{C, boot}) = <c>r cpr_boot_se</c>
+      </me>
+      
+      <p>The variability of the difference in proportions was calculated in R using the <c>sd()</c> function, but any statistical software will calculate the standard deviation of the differences, here, the exact quantity we hope to approximate.</p>
+      
+      <p>Note that we do not know the true distribution of <m>\hat{p}_T - \hat{p}_C,</m> so we will use a rough approximation to find a confidence interval for <m>p_T - p_C.</m> As seen in the bootstrap histograms, the shape of the distribution is roughly symmetric and bell-shaped.</p>
+      
+      <p>So for a rough approximation, we will apply the 67-95-99.7 rule which tells us that 95% of observed differences should be roughly no farther than 2 SE from the true parameter (difference in proportions).</p>
+      
+      <p>A 95% confidence interval for <m>p_T - p_C</m> is given by:</p>
+      
+      <me>
+        \hat{p}_T - \hat{p}_C \pm 2 \cdot SE \rightarrow \ \ \ 14/40 - 11/50 \pm 2 \cdot <c>r cpr_boot_se</c> \ \ \  \rightarrow \ \ \  (<c>r cpr_boot_90_lower_se</c>, <c>r cpr_boot_90_upper_se</c>)
+      </me>
+      
+      <p>We are 95% confident that the true value of <m>p_T - p_C</m> is between <c>r cpr_boot_90_lower_se</c> and <c>r cpr_boot_90_upper_se</c>.</p>
+      
+      <p>Again, the wide confidence interval that contains zero indicates that the study provides very little evidence about the effectiveness of blood thinners.</p>
+      
+      <p>For other percentages, e.g., a 90% bootstrap SE confidence interval, we will use quantiles given by the standard normal distribution, as seen in <xref ref="sec-normalDist" /> and <xref ref="fig-er6895997" />.</p>
+      
+    </subsection>
+    
+    <subsection>
+      <title>What does 95% mean?</title>
+      
+      <p>Recall that the goal of a confidence interval is to find a plausible range of values for a <em>parameter</em> of interest.</p>
+      
+      <p>The estimated statistic is not the value of interest, but it is typically the best guess for the unknown parameter.</p>
+      
+      <p>The confidence level (often 95%) is a number that takes a while to get used to.</p>
+      
+      <p>Surprisingly, the percentage does not describe the dataset at hand, it describes many possible datasets.</p>
+      
+      <p>One way to understand a confidence interval is to think about all the confidence intervals that you have ever made or that you will ever make as a scientist, the confidence level describes <alert>those</alert> intervals.</p>
+      
+      <p><xref ref="fig-ci25ints" /> demonstrates a hypothetical situation in which 25 different studies are performed on the exact same population (with the same goal of estimating the true parameter value of <m>p_1 - p_2 = 0.47).</m> The study at hand represents one point estimate (a dot) and a corresponding interval.</p>
+      
+      <p>It is not possible to know whether the interval at hand is to the right of the unknown true parameter value (the black line) or to the left of that line.</p>
+      
+      <p>It is also impossible to know whether the interval captures the true parameter (is blue) or does not (is red).</p>
+      
+      <p>If we are making 95% intervals, then about 5% of the intervals we create over our lifetime will <em>not</em> capture the parameter of interest (e.g., will be red as in <xref ref="fig-ci25ints" />).</p>
+      
+      <p>What we know is that over our lifetimes as scientists, about 95% of the intervals created and reported on will capture the parameter value of interest: thus the language "95% confident."</p>
+      
+      <figure xml:id="fig-ci25ints">
+        <caption>One hypothetical population, parameter value of: <m>p_1 - p_2 = 0.47.</m> Twenty-five different studies all which led to a different point estimate, SE, and confidence interval. The study at hand is one of the horizontal lines (hopefully a blue line!).' out-width: 85% fig-alt: | A series of 25 horizontal lines are drawn, representing each of 25 different studies (where a study represents two samples, one from each of population 1 and population 2). Each vertical line starts at the value of the lower bound of the confidence interval and ends at the value of the upper bound of the confidence interval which was created from that particular sample. In the center of the line is a solid dot at the observed difference in proportion of successes for sample 1 minus sample 2. A dashed vertical line runs through the horizontal lines at p = 0.47 (which is the true value of the diffrence in population proportions). 24 of the 25 horizontal lines cross the vertical line at 0.47, but one of the horizontal lines is completely above than 0.47. The line that does not cross 0.47 is colored red because the confidence interval from that particular sample would not have captured the true difference in population proportions. fig-asp: 0.55</caption>
+        <image source="images/fig-ci25ints-1.png" width="70%" />
+      </figure>
+      
+      <p>The choice of 95% or 90% or even 99% as a confidence level is admittedly somewhat arbitrary; however, it is related to the logic we used when deciding that a p-value should be declared as "discernible" if it is lower than 0.05 (or 0.10 or 0.01, respectively).</p>
+      
+      <p>Indeed, one can show mathematically, that a 95% confidence interval and a two-sided hypothesis test at a cutoff of 0.05 will provide the same conclusion when the same data and mathematical tools are applied for the analysis.</p>
+      
+      <p>A full derivation of the explicit connection between confidence intervals and hypothesis tests is beyond the scope of this text.</p>
+      
+    </subsection>
+    
+  </section>
+  
+  <section xml:id="sec-math-2prop">
+    <title>Mathematical model for the difference in proportions</title>
+    
+    <subsection>
+      <title>Variability of the difference between two proportions</title>
+      
+      <p>Like with <m>\hat{p},</m> the difference of two sample proportions <m>\hat{p}_1 - \hat{p}_2</m> can be modeled using a normal distribution when certain conditions are met.</p>
+      
+      <p>First, we require a broader independence condition, and secondly, the success-failure condition must be met by both groups.</p>
+      
+      <p><alert>Conditions for the sampling distribution of</alert> <m>\hat{p}_1 -\hat{p}_2</m> <alert>to be normal.</alert></p>
+      
+      <p>The difference <m>\hat{p}_1 - \hat{p}_2</m> can be modeled using a normal distribution when</p>
+      
+      <ol>
+        <li><p><em>Independence</em> (extended). The data are independent within and between the two groups. Generally this is satisfied if the data come from two independent random samples or if the data come from a randomized experiment.</p></li>
+        <li><p><em>Success-failure condition.</em> The success-failure condition holds for both groups, where we check successes and failures in each group separately. That is, we should have at least 10 successes and 10 failures in each of the two groups.</p></li>
+      </ol>
+      
+      <p>When these conditions are satisfied, the standard error of <m>\hat{p}_1 - \hat{p}_2</m> is:</p>
+      
+      <p><me>SE(\hat{p}_1 - \hat{p}_2) = \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}
+      </me></p>
+      <p>where <m>p_1</m> and <m>p_2</m> represent the population proportions, and <m>n_1</m> and <m>n_2</m> represent the sample sizes.</p>
+      
+      <p>Note that in most cases, the standard error is approximated using the observed data:</p>
+      
+      <p><me>SE(\hat{p}_1 - \hat{p}_2) = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}
+      </me></p>
+      <p>where <m>\hat{p}_1</m> and <m>\hat{p}_2</m> represent the observed sample proportions, and <m>n_1</m> and <m>n_2</m> represent the sample sizes.</p>
+      
+      <p>Recall that the margin of error is defined by the standard error.</p>
+      
+      <p>The margin of error for <m>\hat{p}_1 - \hat{p}_2</m> can be directly obtained from <m>SE(\hat{p}_1 - \hat{p}_2).</m></p>
+      
+      <p><alert>Margin of error for</alert> <m>\hat{p}_1 - \hat{p}_2.</m></p>
+      
+      <p>The margin of error is <m>z^\star \times \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}</m> where <m>z^\star</m> is calculated from a specified percentile on the normal distribution.</p>
+      
+      <p><idx><h>standard error (SE)</h><h>difference in proportions</h></idx></p>
+      
+      <p><idx><h>difference in proportions</h><h>standard error (SE)</h></idx></p>
+      
+    </subsection>
+    
+    <subsection>
+      <title>Confidence interval for the difference between two proportions</title>
+      
+      <p><idx><h>Z-CI</h><h>difference in proportions</h></idx></p>
+      
+      <p>We can apply the generic confidence interval formula for a difference of two proportions, where we use <m>\hat{p}_1 - \hat{p}_2</m> as the point estimate and substitute the <m>SE</m> formula:</p>
+      
+      <me>
+        \begin{aligned}
+        \text{point estimate} \ &amp;\pm \  z^{\star} \ \times \ SE \\
+        (\hat{p}_1 - \hat{p}_2) \ &amp;\pm \ z^{\star} \times \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}
+      </me>
+            
+      <p><alert>Standard error of the difference in two proportions,</alert> <m>\hat{p}_1 -\hat{p}_2.</m>
+        When the conditions for the normal model are are met, the <alert>variability</alert> of the difference in proportions, <m>\hat{p}_1 -\hat{p}_2,</m> is well described by:
+        <me>SE(\hat{p}_1 -\hat{p}_2) = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}
+      </me>
+        <example>
+        <statement>
+        We reconsider the experiment for patients who underwent cardiopulmonary resuscitation (CPR) for a heart attack and were subsequently admitted to a hospital.
+        These patients were randomly divided into a treatment group where they received a blood thinner or the control group where they did not receive a blood thinner.
+        The outcome variable of interest was whether the patients survived for at least 24 hours.
+        The results are shown in <xref ref="tbl-cpr-summary" />.
+        Check whether we can model the difference in sample proportions using the normal distribution.
+        </statement>
+        <solution>
+        We first check for independence: since this is a randomized experiment, it seems reasonable to assume that the observations are idependent.
+        Next, we check the success-failure condition for each group.
+        We have at least 10 successes and 10 failures in each experiment arm (11, 14, 39, 26), so this condition is also satisfied.
+        With both conditions satisfied, the difference in sample proportions can be reasonably modeled using a normal distribution for these data.
+        </solution>
+        </example>
+        <example>
+        <statement>
+        Create and interpret a 90% confidence interval of the difference for the survival rates in the CPR study.
+        </statement>
+        <solution>
+        We'll use <m>p_T</m> for the survival rate in the treatment group and <m>p_C</m> for the control group:
+        <me>\hat{p}_{T} - \hat{p}_{C} = \frac{14}{40} - \frac{11}{50}  = 0.35 - 0.22 = 0.13\end{aligned}
+      </me>
+        As with the one-sample proportion case, we use the sample estimates of each proportion in the formula in the confidence interval context:
+        <me>SE \approx \sqrt{\frac{0.35 (1 - 0.35)}{40} + \frac{0.22 (1 - 0.22)}{50}}  = 0.095\end{aligned}
+      </me>
+      \end{aligned}
+      </me>
+          <p>\begin{aligned}</p>
+          <p>\text{point estimate} \ &amp;\pm \ z^{\star} \ \times \ SE \\</p>
+          <p>0.13 \ &amp;\pm \ 1.65 \ \times \ 0.095 \\</p>
+          <p>(-0.027 \ &amp;, \ 0.287)</p>
+                <me>
+        We are 90% confident that individuals receiving blood thinners have between a 2.7% less chance of survival to a 28.7% greater chance of survival than those in the control group.
+        Because 0% is contained in the interval, we do not have enough information to say whether blood thinners help or harm heart attack patients who have been admitted after they have undergone CPR.
+        Note, the problem was set up as 90% to indicate that there was not a need for a high level of confidence (such a 95% or 99%).
+        A lower degree of confidence increases potential for error, but it also produces a more narrow interval.
+        </solution>
+        </example>
+        <exercise>
+        <statement>
+        A 5-year experiment was conducted to evaluate the effectiveness of fish oils on reducing cardiovascular events, where each subject was randomized into one of two treatment groups <xref ref="biblio-Manson:2019" />.
+        We'll consider heart attack outcomes in the patients listed in <xref ref="tbl-fish-oil-data" />.
+        Create a 95% confidence interval for the effect of fish oils on heart attacks for patients who are well-represented by those in the study.
+        Also interpret the interval in the context of the study.
+        </statement>
+        <solution>
+        Because the patients were randomized, the subjects are independent, both within and between the two groups.
+        The success-failure condition is also met for both groups as all counts are at least 10.
+        This satisfies the conditions necessary to model the difference in proportions using a normal distribution.
+        Compute the sample proportions <m>(\hat{p}_{\text{fish oil}} = 0.0112,</m> <m>\hat{p}_{\text{placebo}} = 0.0155),</m> point estimate of the difference <m>(0.0112 - 0.0155 = -0.0043),</m> and standard error <m>SE = \sqrt{\frac{0.0112 \times 0.9888}{12933} + \frac{0.0155 \times 0.9845}{12938}},</m> <m>SE = 0.00145.</m> Next, plug the values into the general formula for a confidence interval, where we'll use a 95% confidence level with <m>z^{\star} = 1.96:</m> <m>-0.0043 \pm 1.96 \times 0.00145 = (-0.0071, -0.0015).</m> We are 95% confident that fish oils decreases heart attacks by 0.15 to 0.71 percentage points (off of a baseline of about 1.55%) over a 5-year period for subjects who are similar to those in the study.
+        Because the interval is entirely below 0, and the treatment was randomly assigned the data provide strong evidence that fish oil supplements reduce heart attacks in patients like those in the study.
+        </solution>
+        </exercise>
+        <table xml:id="tbl-fish-oil-data">
+        <title>Results for the study on n-3 fatty acid supplement and related health benefits. tbl-pos: H</title>
+        <tabular>
+        <row><cell>Table content</cell></row>
+        </tabular>
+        </table>
+        <note>
+        <title>Data</title>
+        The <url href="http://openintrostat.github.io/openintro/reference/fish_oil.html"><c>fish_oil_18</c></url> data can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.
+        </note>
+        </subsection>
+        <subsection xml:id="sec-test-prop-pool">
+        <title>Hypothesis test for the difference between two proportions</title>
+        The details for calculating a SE and for checking technical conditions are very similar to that of confidence intervals.
+        However, when the null hypothesis is that <m>p_1 - p_2 = 0,</m> we use a special proportion called the <alert>pooled proportion</alert><idx>pooled proportion</idx> to estimate the SE and to check the success-failure condition.
+        <alert>Use the pooled proportion when</alert> <m>H_0</m> is <m>p_1 - p_2 = 0.</m>
+        When the null hypothesis is that the proportions are equal, use the pooled proportion <m>(\hat{p}_{\textit{pool}})</m> of successes to verify the success-failure condition and estimate the standard error:
+        <me>\hat{p}_{\textit{pool}} = \frac{\text{number of successes}}{\text{number of cases}} = \frac{\hat{p}_1 n_1 + \hat{p}_2 n_2}{n_1 + n_2}\end{aligned}
+      </me>
+        Similarly, <m>\hat{p}_2 n_2</m> represents the number of successes in sample 2.
+        <alert>The test statistic for assessing two proportions is a Z.</alert>
+        The Z score<idx><h>Z score</h><h>difference in proportions</h></idx><idx><h>difference in proportions</h><h>Z score</h></idx> is a ratio of how the two sample proportions differ as compared to the expected variability of difference between the proportions.
+        <me>Z = \frac{(\hat{p}_1 - \hat{p}_2) - 0}{\sqrt{\hat{p}_{pool}(1-\hat{p}_{pool}) \bigg(\frac{1}{n_1} + \frac{1}{n_2} \bigg)}}
+      </me>
+        See the box below for calculation of the pooled proportion of successes.
+        Conditions:
+        <ul>
+        <li><p>-   Independent observations</p></li>
+        <li><p>-   Large samples: <m>(n_1 p_1 \geq 10</m> and <m>n_1 (1-p_1) \geq 10</m> and <m>n_2 p_2 \geq 10</m> and <m>n_2 (1-p_2) \geq 10)</m></p></li>
+        <li><p>-   Check conditions using: <m>(n_1 \hat{p}_{\textit{pool}} \geq 10</m> and <m>n_1 (1-\hat{p}_{\textit{pool}}) \geq 10</m> and <m>n_2 \hat{p}_{\textit{pool}}\geq 10</m> and <m>n_2 (1-\hat{p}_{\textit{pool}}) \geq 10)</m></p></li>
+        </ul>
+        A mammogram is an X-ray procedure used to check for breast cancer.
+        Whether mammograms should be used is part of a controversial discussion, and it's the topic of our next example where we learn about 2-proportion hypothesis tests when <m>H_0</m> is <m>p_1 - p_2 = 0</m> (or equivalently, <m>p_1 = p_2).</m>
+        A 30-year study was conducted with nearly 90,000 participants who identified as female.
+        During a 5-year screening period, each participant was randomized to one of two groups: in the first group, participants received regular mammograms to screen for breast cancer, and in the second group, participants received regular non-mammogram breast cancer exams.
+        No intervention was made during the following 25 years of the study, and we'll consider death resulting from breast cancer over the full 30-year period.
+        Results from the study are summarized in <xref ref="tbl-mammogramStudySummaryTable" />.
+        <note>
+        <title>Data</title>
+        The <url href="http://openintrostat.github.io/openintro/reference/mammogram.html"><c>mammogram</c></url> data can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.
+        </note>
+        If mammograms are much more effective than non-mammogram breast cancer exams, then we would expect to see additional deaths from breast cancer in the control group.
+        On the other hand, if mammograms are not as effective as regular breast cancer exams, we would expect to see an increase in breast cancer deaths in the mammogram group.
+        <table xml:id="tbl-mammogramStudySummaryTable">
+        <title>tbl-pos: H</title>
+        <tabular>
+        <row><cell>Table content</cell></row>
+        </tabular>
+        </table>
+        <exercise>
+        <statement>
+        Is this study an experiment or an observational study?
+        </statement>
+        <solution>
+        This is an experiment.
+        Patients were randomized to receive mammograms or a standard breast cancer exam.
+        We will be able to make causal conclusions based on this study.
+        </solution>
+        </exercise>
+        <exercise>
+        <statement>
+        Set up hypotheses to test whether there was a difference in breast cancer deaths in the mammogram and control groups.
+        </statement>
+        <solution>
+        <m>H_0:</m> the breast cancer death rate for patients screened using mammograms is the same as the breast cancer death rate for patients in the control, <m>p_{MGM} - p_{C} = 0.</m> <m>H_A:</m> the breast cancer death rate for patients screened using mammograms is different than the breast cancer death rate for patients in the control, <m>p_{MGM} - p_{C} \neq 0.</m>
+        </solution>
+        </exercise>
+        The research question describing mammograms is set up to address specific hypotheses (in contrast to a confidence interval for a parameter).
+        In order to fully take advantage of the hypothesis testing structure, we assess the randomness under the condition that the null hypothesis is true (as we always do for hypothesis testing).
+        Using the data from <xref ref="tbl-mammogramStudySummaryTable" />, we will check the conditions for using a normal distribution to analyze the results of the study using a hypothesis test.
+      </me>
+      
+      <p>\begin{aligned}</p>
+      
+      <p>\hat{p}_{\textit{pool}}</p>
+      
+      <p>&amp;= \frac</p>
+      
+      <p>{\text{number of patients who died from breast cancer in the entire study}}</p>
+      
+      <p>{\text{number of patients in the entire study}} \\</p>
+      
+      <p>&amp;= \frac{500 + 505}{500 + \text{44,425} + 505 + \text{44,405}} \\</p>
+      
+      <p>&amp;= 0.0112</p>
+      
+            
+      <me>
+        This proportion is an estimate of the breast cancer death rate across the entire study, and it's our best estimate of the proportions <m>p_{MGM}</m> and <m>p_{C}</m> <em>if the null hypothesis is true that</em> <m>p_{MGM} = p_{C}.</m> We will also use this pooled proportion when computing the standard error.
+        <example>
+        <statement>
+        Is it reasonable to model the difference in proportions using a normal distribution in this study?
+        </statement>
+        <solution>
+        Because the patients were randomized, observations can be assumed to be independent, both within each group and between treatment groups.
+        We also must check the success-failure condition for each group.
+        Under the null hypothesis, the proportions <m>p_{MGM}</m> and <m>p_{C}</m> are equal, so we check the success-failure condition with our best estimate of these values under <m>H_0,</m> the pooled proportion from the two samples, <m>\hat{p}_{\textit{pool}} = 0.0112:</m>
+      </me>
+          <p>\begin{aligned}</p>
+          <p>\hat{p}_{\textit{pool}} \times n_{MGM}</p>
+          <p>&amp;= 0.0112 \times \text{44,925} = 503\\</p>
+          <p>(1 - \hat{p}_{\textit{pool}}) \times n_{MGM}</p>
+          <p>&amp;= 0.9888 \times \text{44,925} = \text{44,422} \\</p>
+          <p>\hat{p}_{\textit{pool}} \times n_{C}</p>
+          <p>&amp;= 0.0112 \times \text{44,910} = 503\\</p>
+          <p>(1 - \hat{p}_{\textit{pool}}) \times n_{C}</p>
+          <p>&amp;= 0.9888 \times \text{44,910} = \text{44,407}</p>
+                <me>
+        The success-failure condition is satisfied since all values are at least 10.
+        With both conditions satisfied, we can safely model the difference in proportions using a normal distribution.
+        </solution>
+        </example>
+        In the previous example, the pooled proportion was used to check the success-failure condition[^17-inference-two-props-5].
+        In the next example, we see an additional place where the pooled proportion comes into play: the standard error calculation.
+        <example>
+        <statement>
+        Compute the point estimate of the difference in breast cancer death rates in the two groups, and use the pooled proportion <m>\hat{p}_{\textit{pool}} = 0.0112</m> to calculate the standard error.
+        </statement>
+        <solution>
+        The point estimate of the difference in breast cancer death rates is
+      </me>
+          <p>\hat{p}_{MGM} - \hat{p}_{C} = \frac{500}{500 + 44,425} - \frac{505}{505 + 44,405} = 0.01113 - 0.01125 = -0.00012</p>
+      <me>
+        The breast cancer death rate in the mammogram group was 0.012% less than in the control group.
+        Next, the standard error is calculated <em>using the pooled proportion,</em> <m>\hat{p}_{\textit{pool}}:</m>
+        <me>SE = \sqrt{\frac{\hat{p}_{\textit{pool}}(1-\hat{p}_{\textit{pool}})}{n_{MGM}} + \frac{\hat{p}_{\textit{pool}}(1-\hat{p}_{\textit{pool}})}{n_{C}}}= 0.00070\end{aligned}
+      </me>
+        </solution>
+        </example>
+        <example>
+        <statement>
+        Using the point estimate <m>\hat{p}_{MGM} - \hat{p}_{C} = -0.00012</m> and standard error <m>SE = 0.00070,</m> calculate a p-value for the hypothesis test and write a conclusion.
+        </statement>
+        <solution>
+        We first compute a test statistic and draw a picture:
+        <me>Z = \frac{\text{point estimate} - \text{null value}}{SE} = \frac{-0.00012 - 0}{0.00070} = -0.17\end{aligned}
+      </me>
+        par(mar = c(2, 0, 0, 0))
+        normTail(L = -0.17, U = 0.17, col = IMSCOL["blue", "full"])
+        The lower tail area is 0.4325, which we double to get the p-value: 0.8650.
+        Because this p-value is larger than 0.05, we do not reject the null hypothesis.
+        That is, the difference in breast cancer death rates is likely to have occurred just by chance, if the null hypothesis is true.
+        Thus, we do not observe benefits or harm from mammograms relative to a regular breast exam.
+        </solution>
+        </example>
+        Can we conclude that mammograms have no benefits or harm?
+        Here are a few considerations to keep in mind when reviewing the mammogram study as well as any other medical study:
+        <ul>
+        <li><p>-   We do not reject the null hypothesis, which means we do not have sufficient evidence to conclude that mammograms reduce or increase breast cancer deaths.</p></li>
+        <li><p>-   If mammograms are helpful or harmful, the data suggest the effect isn't very large.</p></li>
+        <li><p>-   Are mammograms more or less expensive than a non-mammogram breast exam? If one option is much more expensive than the other and does not offer clear benefits, then we should lean towards the less expensive option.</p></li>
+        <li><p>-   The study's authors also found that mammograms led to over-diagnosis of breast cancer, which means some breast cancers were found (or thought to be found) but that these cancers would not cause symptoms during patients' lifetimes. That is, something else would kill the patient before breast cancer symptoms appeared. This means some patients may have been treated for breast cancer unnecessarily, and this treatment is another cost to consider. It is also important to recognize that over-diagnosis can cause unnecessary physical or emotional harm to patients.</p></li>
+        </ul>
+        These considerations highlight the complexity around medical care and treatment recommendations.
+        Experts and medical boards who study medical treatments use considerations like those above to provide their best recommendation based on the current evidence.
+        </subsection>
+        </section>
+        <section xml:id="sec-chp17-review">
+        <title>Chapter review</title>
+        <subsection>
+        <title>Summary</title>
+        When the parameter of interest is the difference in population proportions across two groups, randomization tests, bootstrapping, and mathematical modeling can be applied.
+        For confidence intervals, bootstrapping from each group separately will provide a sampling distribution for the difference in sample proportions; the mathematical model shows a similar distributional shape as long as the sample size is large enough to fulfill the success-failure conditions and so that the data are representative of the entire population.
+        Keep in mind that some datasets will produce a confidence interval which does not capture the true parameter, this is the nature of variability!
+        Over your lifetime, about 95% of the confidence intervals you create will capture the parameter of interest, and about 5% won't.
+        For hypothesis testing, repeated randomization of the explanatory variable creates a null distribution of differences in sample proportions that could have occurred under the null hypothesis.
+        Randomization and the mathematical model will have similar null distributions, as long as the sample size is large enough to fulfill the success-failure conditions.
+        </subsection>
+        <subsection>
+        <title>Terms</title>
+        The terms introduced in this chapter are presented in <xref ref="tbl-terms-chp-17" />.
+        If you're not sure what some of these terms mean, we recommend you go back in the text and review their definitions.
+        You should be able to easily spot them as <alert>bolded text</alert>.
+        <table xml:id="tbl-terms-chp-17">
+        <title>Terms introduced in this chapter.</title>
+        <tabular>
+        <row><cell>point estimate</cell></row>
+        <row><cell>percentile interval</cell></row>
+        <row><cell>SE interval</cell></row>
+        <row><cell>pooled proportion estimate</cell></row>
+        </tabular>
+        </table>
+        </subsection>
+        </section>
+        <section xml:id="sec-chp17-exercises">
+        <title>Chapter exercises</title>
+        Answers to odd numbered exercises can be found in <xref ref="exercise-solutions" />.
+        <exercise>
+        <statement>
+        <alert>Disaggregating Asian American tobacco use, hypothesis testing.</alert>Understanding cultural differences in tobacco use across different demographic groups can lead to improved health care education and treatment.
+        A recent study disaggregated tobacco use across Asian American ethnic groups including Asian-Indian (n = 4,373), Chinese (n = 4,736), and Filipino (n = 4,912), in comparison to non-Hispanic Whites (n = 275,025).
+        The number of current smokers in each group was reported as Asian-Indian (n = 223), Chinese (n = 279), Filipino (n = 609), and non-Hispanic Whites (n = 50,880).
+        <xref ref="biblio-Rao:2021" />
+        To determine whether the proportion of Asian-Indian Americans who are current smokers is different from the proportion of Chinese Americans who are smokers, a randomization simulation was performed.
+        In both words and symbols provide the parameter and statistic of interest for this study.
+        Do you know the numerical value of either the parameter or statistic of interest?
+        If so, provide the numerical value.
+        The histogram above provides the sampling distribution (under randomization) for <m>\hat{p}_{Asian-Indian} - \hat{p}_{Chinese}</m> under repeated null randomizations (<m>\hat{p}</m> is the proportion in the sample who are current smokers).
+        Estimate the standard error of <m>\hat{p}_{Asian-Indian} - \hat{p}_{Chinese}</m> based on the randomization histogram.
+        Consider the hypothesis test to determine if there is a difference in proportion of Asian-Indian Americans as compared to Chinese Americans who are current smokers.
+        Write out the null and alternative hypotheses, estimate a p-value using the randomization histogram, and conclude the test in the context of the problem.
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Malaria vaccine effectiveness, hypothesis test.</alert>With no currently licensed vaccines to inhibit malaria, good news was welcomed with a recent study reporting long-awaited vaccine success for children in Burkina Faso.
+        With 450 children randomized to either one of two different doses of the malaria vaccine or a control vaccine, 89 of 292 malaria vaccine and 106 out of 147 control vaccine children contracted malaria within 12 months after the treatment.
+        <xref ref="biblio-Datoo:2021" />
+        In both words and symbols provide the parameter and statistic of interest for this study.
+        Do you know the numerical value of either the parameter or statisic of interest?
+        If so, provide the numerical value.
+        The histogram above provides the sampling distribution (under randomization) for <m>\hat{p}_{malaria} - \hat{p}_{control}</m> under repeated null randomizations (<m>\hat{p}</m> is the proportion of children in the sample who contracted malaria).
+        Estimate the standard error of <m>\hat{p}_{malaria} - \hat{p}_{control}</m> based on the randomization histogram.
+        Consider the hypothesis test constructed to show a lower proportion of children contracting malaria on the malaria vaccine as compared to the control vaccine.
+        Write out the null and alternative hypotheses, estimate a p-value using the randomization histogram, and conclude the test in the context of the problem.
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Disaggregating Asian American tobacco use, confidence interval.</alert>Based on a study on the degree to which smoking practices differ across ethnic groups.
+        a confidence interval for the difference in current smoking status for Filipino versus Chinese Americans is desired.
+        <xref ref="biblio-Rao:2021" />
+        Consider the bootstrap distribution of difference in sample proportions of current smokers (Filipino Americans minus Chinese Americans) in 1,000 bootstrap repetitions as above.
+        Estimate the standard error of the difference in sample proportions, as seen in the histogram.
+        Using the standard error from the bootstrap distribution, find a 95% bootstrap SE confidence interval for the true difference in proportion of current smokers (Filipino Americans minus Chinese Americans) in the population.
+        Interpret the interval in the context of the problem.
+        Using the entire bootstrap distribution, find a 95% bootstrap percentile confidence interval for the true difference in proportion of current smokers (Filipino Americans minus Chinese Americans) in the population.
+        Interpret the interval in the context of the problem.
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Malaria vaccine effectiveness, confidence interval.</alert>With no currently licensed vaccines to inhibit malaria, good news was welcomed with a recent study reporting long-awaited vaccine success for children in Burkina Faso.
+        With 450 children randomized to either one of two different doses of the malaria vaccine or a control vaccine, 89 of 292 malaria vaccine and 106 out of 147 control vaccine children contracted malaria within 12 months after the treatment.
+        <xref ref="biblio-Datoo:2021" />
+        Consider the bootstrap distribution of difference in sample proportions of children who contracted malaria (malaria vaccine minus control vaccine) in 1000 bootstrap repetitions as above.
+        Estimate the standard error of the difference in sample proportions, as seen in the histogram.
+        Using the standard error from the bootstrap distribution, find a 95% bootstrap SE confidence interval for the true difference in proportion of children who contract malaria (malaria vaccine minus control vaccine) in the population.
+        Interpret the interval in the context of the problem.
+        Using the entire bootstrap distribution, find a 95% bootstrap percentile confidence interval for the true difference in proportion of children who contract malaria (malaria vaccine minus control vaccine) in the population.
+        Interpret the interval in the context of the problem.
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>COVID-19 and degree completion.</alert>A 2021 Gallup poll surveyed 3,941 students pursuing a bachelor's degree and 2,064 students pursuing an associate degree (students were not randomly selected but were weighted so as to represent a random selection of currently enrolled US college students).
+        The poll found that 51% of the bachelor's degree students and 44% of associate degree students said that the COVID-19 pandemic will negatively impact their ability to complete the degree.
+        <xref ref="biblio-data:gallupcollegeimpact" />
+        Below are two histograms generated with different computational approaches (both use 1,000 repetitions) to research questions which could be asked of these data.
+        One of the histograms can be used to do a randomization test on whether the proportions of bachelor's and associate students who think the COVID-19 pandemic will negatively impact their ability to complete the degree.
+        The other histogram is a bootstrap distribution used to quantify the difference in the proportions of bachelor's and associate's students who feel this way.
+        Are the center and standard error of the two graphs approximately the same?
+        Explain.
+        Write a research question that can be addressed using the histogram generated with computational method A.
+        Write a research question that can addressed using the histogram generated with computational method B.
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Renewable energy.</alert>A 2021 Gallup poll surveyed 5,447 randomly sampled US adults who are Republican (or Republican leaning) and 7,962 who are Democrats (or Democrat leaning).
+        31% of Republicans and 81% of Democrats said "government regulations are necessary to encourage businesses and consumers to rely more on renewable energy sources".
+        <xref ref="biblio-data:gallupcollegeimpact" />
+        Below are two histograms generated with different computational approaches (both use 1,000 repetitions) to research questions which could be asked of these data.
+        One of the histograms can be used to do a randomization test on whether the proportions of Republicans and Democrats who think government regulations are necessary to encourage businesses and consumers to rely more on renewable energy sources are different.
+        The other histogram is a bootstrap distribution used to quantify the difference in the proportions of Republicans and Democrats who agree with this statement.
+        Are the center and standard error of the two graphs approximately the same?
+        Explain.
+        Write a research question that can addressed using the histogram generated with computational method A.
+        Write a research question that can addressed using the histogram generated with computational method B.
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>HIV in sub-Saharan Africa.</alert>In July 2008 the US National Institutes of Health announced that it was stopping a clinical study early because of unexpected results.
+        The study population consisted of HIV-infected women in sub-Saharan Africa who had been given single dose Nevaripine (a treatment for HIV) while giving birth, to prevent transmission of HIV to the infant.
+        The study was a randomized comparison of continued treatment of a woman (after successful childbirth) with Nevaripine vs Lopinavir, a second drug used to treat HIV.
+        240 women participated in the study; 120 were randomized to each of the two treatments.
+        Twenty-four weeks after starting the study treatment, each woman was tested to determine if the HIV infection was becoming worse (an outcome called <em>virologic failure</em>).
+        Twenty-six of the 120 women treated with Nevaripine experienced virologic failure, while 10 of the 120 women treated with the other drug experienced virologic failure.
+        <xref ref="biblio-Lockman:2007" />
+        Create a two-way table presenting the results of this study.
+        State appropriate hypotheses to test for difference in virologic failure rates between treatment groups.
+        Complete the hypothesis test and state an appropriate conclusion.
+        (Reminder: Verify any necessary conditions for the test.)
+        \vfill
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Supercommuters.</alert>The fraction of workers who are considered "supercommuters", because they commute more than 90 minutes to get to work, varies by state.
+        Suppose the 1% of Nebraska residents and 6% of New York residents are supercommuters.
+        Now suppose that we plan a study to survey 1000 people from each state, and we will compute the sample proportions <m>\hat{p}_{NE}</m> for Nebraska and <m>\hat{p}_{NY}</m> for New York.
+        What is the associated mean and standard deviation of <m>\hat{p}_{NE}</m> in repeated samples of size 1000?
+        What is the associated mean and standard deviation of <m>\hat{p}_{NY}</m> in repeated samples of size 1000?
+        Calculate and interpret the mean and standard deviation associated with the difference in sample proportions for the two groups, <m>\hat{p}_{NY} - \hat{p}_{NE}</m> in repeated samples of 1000 in each group.
+        How are the standard deviations from parts (a), (b), and (c) related?
+        \vfill
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>National Health Plan.</alert>A Kaiser Family Foundation poll for US adults in 2019 found that 79% of Democrats, 55% of Independents, and 24% of Republicans supported a generic “National Health Plan”.
+        There were 347 Democrats, 298 Republicans, and 617 Independents surveyed.
+        79% of 347 Democrats and 55% of 617 Independents support a National Health Plan.
+        <xref ref="biblio-data:KFF2019nathealthplan" />
+        Calculate a 95% confidence interval for the difference between the proportion of Democrats and Independents who support a National Health Plan <m>(p_{D} - p_{I})</m>, and interpret it in this context.
+        We have already checked conditions for you.
+        True or false: If we had picked a random Democrat and a random Independent at the time of this poll, it is more likely that the Democrat would support the National Health Plan than the Independent.
+        \vfill
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Sleep deprivation, CA vs. OR, confidence interval.</alert>According to a report on sleep deprivation by the Centers for Disease Control and Prevention, the proportion of California residents who reported insufficient rest or sleep during each of the preceding 30 days is 8.0%, while this proportion is 8.8% for Oregon residents.
+        These data are based on simple random samples of 11,545 California and 4,691 Oregon residents.
+        Calculate a 95% confidence interval for the difference between the proportions of Californians and Oregonians who are sleep deprived and interpret it in context of the data.
+        <xref ref="biblio-data:sleepCAandOR" />
+        \vfill
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Gender pay gap in medicine.</alert>A study examined the average pay for men and women entering the workforce as doctors for 21 different positions.
+        <xref ref="biblio-LoSassoMedicineGenderPayGap" />
+        If each gender was equally paid, then we would expect about half of those positions to have men paid more than women and women would be paid more than men in the other half of positions.
+        Write appropriate hypotheses to test this scenario.
+        Men were, on average, paid more in 19 of those 21 positions.
+        Complete a hypothesis test using your hypotheses from part (a).
+        \vfill
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Sleep deprivation, CA vs. OR, hypothesis test.</alert>A CDC report on sleep deprivation rates shows that the proportion of California residents who reported insufficient rest or sleep during each of the preceding 30 days is 8.0%, while this proportion is 8.8% for Oregon residents.
+        These data are based on simple random samples of 11,545 California and 4,691 Oregon residents.
+        Conduct a hypothesis test to determine if these data provide strong evidence that the rate of sleep deprivation is different for the two states.
+        (Reminder: Check conditions)
+        It is possible the conclusion of the test in part (a) is incorrect.
+        If this is the case, what type of error was made?
+        \vfill
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Is yawning contagious?</alert>An experiment conducted by the MythBusters, a science entertainment TV program on the Discovery Channel, tested if a person can be subconsciously influenced into yawning if another person near them yawns.
+        50 people were randomly assigned to two groups: 34 to a group where a person near them yawned (treatment) and 16 to a group where there wasn't a person yawning near them (control).
+        The visualization below displays how many participants yawned in each group.[^_17-ex-inference-two-props-1]
+        Suppose we are interested in estimating the difference in yawning rates between the control and treatment groups using a confidence interval.
+        Explain why we cannot construct such an interval using the normal approximation.
+        What might go wrong if we constructed the confidence interval despite this problem?
+        \vfill
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Heart transplant success.</alert>The Stanford University Heart Transplant Study was conducted to determine whether an experimental heart transplant program increased lifespan.
+        Each patient entering the program was officially designated a heart transplant candidate, meaning that he was gravely ill and might benefit from a new heart.
+        Patients were randomly assigned into treatment and control groups.
+        Patients in the treatment group received a transplant, and those in the control group did not.
+        The visualization below displays how many patients survived and died in each group.[^_17-ex-inference-two-props-2]
+        [@Turnbull+Brown+Hu:1974]
+        Suppose we are interested in estimating the difference in survival rate between the control and treatment groups using a confidence interval.
+        Explain why we cannot construct such an interval using the normal approximation.
+        What might go wrong if we constructed the confidence interval despite this problem?
+        \vfill
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Government shutdown.</alert>The United States federal government shutdown of 2018--2019 occurred from December 22, 2018 until January 25, 2019, a span of 35 days.
+        A Survey USA poll of 614 randomly sampled Americans during this time period reported that 48% of those who make less than \<m>40,000 per year and 55% of those who make \</m>40,000 or more per year said the government shutdown has not at all affected them personally.
+        A 95% confidence interval for <m>(p_\text{</m><<m>40K} - p_\text{</m>\ge<m>40K})</m>, where <m>p</m> is the proportion of those who said the government shutdown has not at all affected them personally, is (-0.16, 0.02).
+        Based on this information, determine if the following statements are true or false, and explain your reasoning if you identify the statement as false.
+        <xref ref="biblio-data:govtshuthown" />
+        At the 5% discernibility level, the data provide convincing evidence of a real difference in the proportion who are not affected personally between Americans who make less than \<m>40,000 annually and Americans who make \</m>40,000 annually.
+        We are 95% confident that 16% more to 2% fewer Americans who make less than \<m>40,000 per year are not at all personally affected by the government shutdown compared to those who make \</m>40,000 or more per year.
+        A 90% confidence interval for <m>(p_\text{</m><<m>40K} - p_\text{</m>\ge<m>40K})</m> would be wider than the <m>(-0.16, 0.02)</m> interval.
+        A 95% confidence interval for <m>(p_\text{</m>\ge<m>40K} - p_\text{</m><<m>40K})</m> is (-0.02, 0.16).
+        \vfill
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Online harassment.</alert>A Pew Research poll asked US adults aged 18-29 and 30-49 whether they have personally experienced harassment online.
+        A 95% confidence interval for the difference between the proportions of 18-29 year-olds and 30-49 year-olds who have personally experienced harassment online <m>(p_{18-29} - p_{30-49})</m> was calculated to be (0.115, 0.185).
+        Based on this information, determine if the following statements are true or false, and explain your reasoning for each statement you identify as false.
+        <xref ref="biblio-onlineharassment2021" />
+        We are 95% confident that the true proportion of 18-29 year-olds who have personally experienced harassment online is 11.5% to 18.5% lower than the true proportion of 30-49 year-olds who have personally experienced harassment online.
+        We are 95% confident that the true proportion of 18-29 year-olds who have personally experienced harassment online is 11.5% to 18.5% higher than the true proportion of 30-49 year-olds who have personally experienced harassment online.
+        95% of random samples will produce 95% confidence intervals that include the true difference between the population proportions of 18-29 year-olds and 30-49 year-olds who have personally experienced harassment online.
+        We can conclude that there is a discernible difference between the proportions of 18-29 year-olds and 30-49 year-olds who have personally experienced harassment online is too large to plausibly be due to chance, if in fact there is no difference between the two proportions.
+        The 90% confidence interval for <m>(p_{18-29} - p_{30-49})</m> cannot be calculated with only the information given in this exercise.
+        \vfill
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Decision errors and comparing proportions I.</alert>In the following research studies, conclusions were made based on the data provided.
+        It is always possible that the analysis conclusion could be wrong, although we will almost never actually know if an error has been made or not.
+        For each study conclusion, specify which of a Type I or Type II error could have been made, and state the error in the context of the problem.
+        The malaria vaccine was seen to be effective at lowering the rate of contracting malaria (when compared to the control vaccine).
+        In the US population, Asian-Indian Americans and Chinese Americans are not observed to have different proportions of current smokers.
+        There is no evidence to claim a difference in the proportion of Americans who are not affected personally by a government shutdown when comparing Americans who make less than \<m>40,000 annually and Americans who make \</m>40,000 annually.
+        \vfill
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Decision errors and comparing proportions II.</alert>In the following research studies, conclusions were made based on the data provided.
+        It is always possible that the analysis conclusion could be wrong, although we will almost never actually know if an error has been made or not.
+        For each study conclusion, specify which of a Type I or Type II error could have been made, and state the error in the context of the problem.
+        Of registered voters in California, the proportion who report not knowing enough to voice an opinion on whether they support off shore drilling is different across those who have a college degree and those who do not.
+        In comparing Californians and Oregonians, there is no evidence to support a difference in the proportion of each who are sleep deprived.
+        \vfill
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Active learning.</alert>A teacher wanting to increase the active learning component of her course is concerned about student reactions to changes she is planning to make.
+        She conducts a survey in her class, asking students whether they believe more active learning in the classroom (hands on exercises) instead of traditional lecture will helps improve their learning.
+        She does this at the beginning and end of the semester and wants to evaluate whether students' opinions have changed over the semester.
+        Can she used the methods we learned in this chapter for this analysis?
+        Explain your reasoning.
+        \vfill
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>An apple a day keeps the doctor away.</alert>A physical education teacher at a high school wanting to increase awareness on issues of nutrition and health asked her students at the beginning of the semester whether they believed the expression "an apple a day keeps the doctor away".
+        40% of the students responded yes.
+        Throughout the semester she started each class with a discussion of a study highlighting positive effects of eating more fruits and vegetables.
+        She conducted the same apple-a-day survey at the end of the semester, and this time 60% of the students responded yes.
+        Can she used a two-proportion method from this section for this analysis?
+        Explain your reasoning.
+        \vfill
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Malaria vaccine effectiveness, effect size.</alert>A randomized controlled trial on malaria vaccine effectiveness randomly assigned 450 children intro either one of two different doses of the malaria vaccine or a control vaccine.
+        89 of 292 malaria vaccine and 106 out of 147 control vaccine children contracted malaria within 12 months after the treatment.
+        <xref ref="biblio-Datoo:2021" />
+        Recall that in order to reject the null hypothesis that the two vaccines (malaria and control) are equivalent, we'd need the sample proportion to be about 2 standard errors below the hypothesized value of zero.
+        Say that the true difference (in the population) is given as <m>\delta,</m> the sample sizes are the same in both groups <m>(n_{malaria} = n_{control}),</m> and the true proportion who contract malaria on the control vaccine is <m>p_{control} = 0.7.</m> If you ran your own study (in the future), how likely is it that you would get a difference in sample proportions that was sufficiently far from zero that you could reject under each of the conditions below.
+        (<em>Hint:</em> Use the mathematical model.)
+        <m>\delta = -0.1</m> and <m>n_{malaria} = n_{control} = 20</m>
+        <m>\delta = -0.4</m> and <m>n_{malaria} = n_{control} = 20</m>
+        <m>\delta = -0.1</m> and <m>n_{malaria} = n_{control} = 100</m>
+        <m>\delta = -0.4</m> and <m>n_{malaria} = n_{control} = 100</m>
+        What can you conclude about values of <m>\delta</m> and the sample size?
+        \vfill
+        </statement>
+        </exercise>
+        <exercise>
+        <statement>
+        <alert>Diabetes and unemployment.</alert>A Gallup poll surveyed Americans about their employment status and whether they have diabetes.
+        The survey results indicate that 1.5% of the 47,774 employed (full or part time) and 2.5% of the 5,855 unemployed 18-29 year-olds have diabetes.
+        <xref ref="biblio-data:employmentDiabetes" />
+        Create a two-way table presenting the results of this study.
+        State appropriate hypotheses to test for difference in proportions of diabetes between employed and unemployed Americans.
+        The sample difference is about 1%.
+        If we completed the hypothesis test, we would find that the p-value is very small (about 0), meaning the difference is statistically discernible.
+        Use this result to explain the difference between statistically discernible and practically important findings.
+        \vfill
+        [^_17-ex-inference-two-props-1]: The <url href="http://openintrostat.github.io/openintro/reference/yawn.html"><c>yawn</c></url> data used in this exercise can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.
+        [^_17-ex-inference-two-props-2]: The <url href="http://openintrostat.github.io/openintro/reference/heart_transplant.html"><c>heart_transplant</c></url> data used in this exercise can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.
+        </statement>
+        </exercise>
+        </section>
+        </chapter>

@@ -162,8 +162,6 @@
 
     </assemblage>
 
-    <p>\vspace{-2mm}</p>
-
     <p>In this section, we will discuss the normal distribution in the context of data to become familiar with normal distribution techniques.</p>
 
     <p>In the following sections and beyond, we'll move our discussion to focus on applying the normal distribution and other related distributions to model point estimates for hypothesis tests and for constructing confidence intervals.</p>
@@ -181,8 +179,6 @@
     <p>A normal distribution with mean <m>19</m> and standard deviation <m>4</m> is shown on the right.</p>
 
     <p><xref ref="fig-twoSampleNormalsStacked" /> shows the same two normal distributions on the same axis.</p>
-
-    <p>\vspace{-3mm}</p>
 
     <figure xml:id="fig-twoSampleNormals">
       <caption>Two normal distributions with different centers and spreads.</caption>
@@ -289,8 +285,6 @@
     <p>We can use Z scores to roughly identify which observations are more unusual than others.</p>
 
     <p>One observation <m>x_1</m> is said to be more unusual than another observation <m>x_2</m> if the absolute value of its Z score is larger than the absolute value of the other observation's Z score: <m>|Z_1| > |Z_2|.</m> This technique is especially insightful when a distribution is symmetric.</p>
-
-    <p>\vspace{-5mm}</p>
 
     <example>
       <statement>
@@ -727,7 +721,7 @@
 
       <p>Very related to the standard error is the <alert>margin of error</alert>\index{margin of error}.</p>
 
-      <p>The margin of error describes how far away observations are from their mean.\</p>
+      <p>The margin of error describes how far away observations are from their mean.</p>
 
       <p>For example, to describe where most (i.e., 95%) observations lie, we say that the margin of error is approximately <m>2 \times SE</m>.</p>
 
@@ -929,8 +923,6 @@
 
       <p>Thus, a <alert>95% confidence interval</alert>\index{95\% confidence interval}\index{confidence interval} for such a point estimate can be constructed:</p>
 
-      <p>\vspace{-5mm}</p>
-
       <me>
         \text{point estimate} \pm 1.96 \times SE
       </me>
@@ -938,8 +930,6 @@
       <p>We can be <alert>95% confident</alert>\index{95\% confident} this interval captures the true value.</p>
 
     </assemblage>
-
-    <p>\vspace{-3mm}</p>
 
     <example>
       <statement>
@@ -950,8 +940,6 @@
       </statement>
       <solution>
         <p>Since we're told the point estimate can be modeled with a normal distribution:</p>
-
-        <p>\vspace{-5mm}</p>
 
         <me>
           \text{point estimate} \pm 1.96 \times SE = 0.20 \pm 1.96 \times 0.078 = (0.047, 0.353)

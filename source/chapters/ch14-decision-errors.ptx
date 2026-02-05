@@ -46,7 +46,7 @@
       </solution>
     </example>
     
-    <exercise xml:id="exercise-type-i-error-opportunity-cost">
+    <exercise>
       <title>Guided Practice</title>
       <statement>
         <p>Consider the opportunity cost study where we concluded students were less likely to make a DVD purchase if they were reminded that money not spent now could be spent later. What would a Type I error represent in this context?</p>
@@ -65,7 +65,7 @@
       </solution>
     </example>
     
-    <exercise xml:id="exercise-type-ii-error-courts">
+    <exercise>
       <title>Guided Practice</title>
       <statement>
         <p>How could we reduce the Type II error rate in US courts? What influence would this have on the Type I error rate?</p>

@@ -2,3 +2,36 @@ INFO    : PreTeXt project found in `/home/runner/work/ims/ims`.
 WARNING : Project's CLI version could not be detected from `requirements.txt`.
 WARNING : Try `pretext init --refresh` to produce a compatible file.
 INFO    : 
+WARNING : Assets like latex-images will not be regenerated for this build
+WARNING : (previously generated assets will be used if they exist).
+WARNING : To generate these assets before building, run `pretext build -g`.
+INFO    : Preparing to build into /home/runner/work/ims/ims/output/html.
+INFO    : 
+Now building HTML into /home/runner/work/ims/ims/output/html
+
+INFO    : discovering source file's directory name: /home/runner/work/ims/ims/source
+INFO    : verifying and expanding input directory: /home/runner/work/ims/ims/source/../generated-assets
+INFO    : input directory expanded to absolute path: /home/runner/work/ims/ims/generated-assets
+INFO    : verifying and expanding input directory: /home/runner/work/ims/ims/source/../assets
+INFO    : input directory expanded to absolute path: /home/runner/work/ims/ims/assets
+INFO    : converting /home/runner/work/ims/ims/source/main.ptx to HTML in /tmp/tmp45sblngb
+INFO    : XSL conversion of /home/runner/work/ims/ims/source/main.ptx by /home/runner/.ptx/xsl/pretext-html.xsl
+INFO    : comprehensive messages, warnings, and errors:
+INFO    :     * PTX:WARNING: There are apparent XML elements in locations that should be text only (6 times).
+INFO    :     * PTX:WARNING: There is an apparent XML element (<m>) inside an <c> element, which should only contain text.  Using an escaped "less than" ('&lt;') might be the solution, or using a CDATA section.
+INFO    :     *              located within: "describing-linear-relationships-with-correlation" (xml:id), "Describing linear relationships with correlation" (title)
+INFO    :     * PTX:WARNING: There is an apparent XML element (<m>) inside an <c> element, which should only contain text.  Using an escaped "less than" ('&lt;') might be the solution, or using a CDATA section.
+INFO    :     *              located within: "describing-linear-relationships-with-correlation" (xml:id), "Describing linear relationships with correlation" (title)
+INFO    :     * PTX:WARNING: There is an apparent XML element (<m>) inside an <c> element, which should only contain text.  Using an escaped "less than" ('&lt;') might be the solution, or using a CDATA section.
+INFO    :     *              located within: "describing-linear-relationships-with-correlation" (xml:id), "Describing linear relationships with correlation" (title)
+INFO    :     * PTX:WARNING: There is an apparent XML element (<m>) inside an <c> element, which should only contain text.  Using an escaped "less than" ('&lt;') might be the solution, or using a CDATA section.
+INFO    :     *              located within: "describing-linear-relationships-with-correlation" (xml:id), "Describing linear relationships with correlation" (title)
+INFO    :     * PTX:WARNING: There is an apparent XML element (<m>) inside an <c> element, which should only contain text.  Using an escaped "less than" ('&lt;') might be the solution, or using a CDATA section.
+INFO    :     *              located within: "describing-linear-relationships-with-correlation" (xml:id), "Describing linear relationships with correlation" (title)
+INFO    :     * PTX:WARNING: There is an apparent XML element (<m>) inside an <c> element, which should only contain text.  Using an escaped "less than" ('&lt;') might be the solution, or using a CDATA section.
+INFO    :     *              located within: "describing-linear-relationships-with-correlation" (xml:id), "Describing linear relationships with correlation" (title)
+INFO    : successful application of /home/runner/.ptx/xsl/pretext-html.xsl
+INFO    : 
+Success! Run `pretext view html` to see the results.
+
+INFO    : 

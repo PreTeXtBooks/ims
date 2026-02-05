@@ -4,10 +4,20 @@
     project. To edit the content of your document, open `source/main.ptx`
     (default location).
 -->
-<project ptx-version="2" source="source" publication="publication/publication.ptx" output-dir="output">
+<project>
   <targets>
-    <target name="html" format="html" />
-    <target name="pdf" format="pdf" />
-    <target name="web" format="html" deploy="yes" />
+    <!-- To build this target, run `pretext build html` -->
+    <target name="html">
+      <format>html</format>
+      <source>source/main.ptx</source>
+      <publication>publication/publication.ptx</publication>
+      <output-dir>output/html</output-dir>
+    </target>
+    <target name="web">
+      <format>html</format>
+      <source>source/main.ptx</source>
+      <publication>publication/publication.ptx</publication>
+      <output-dir>output/web</output-dir>
+    </target>
   </targets>
 </project>

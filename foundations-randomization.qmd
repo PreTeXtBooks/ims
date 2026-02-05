@@ -796,8 +796,8 @@ In each of these examples, the **point estimate** of the difference in proportio
 
 When the p-value is small, i.e., less than a previously set threshold, we say the results are **statistically discernible**\index{statistically significant}\index{statistically discernible}.
 This means the data provide such strong evidence against $H_0$ that we reject the null hypothesis in favor of the alternative hypothesis.[^11-foundations-randomization-8]
-The threshold is called the **discernibility level**\index{hypothesis testing!discernibility level}\index{significance level}\index{discernibility level} and often represented by $\alpha$ (the Greek letter *alpha*).
-[^11-foundations-randomization-9] The value of $\alpha$ represents how rare an event needs to be in order for the null hypothesis to be rejected. 
+The threshold is called the **discernibility level**\index{hypothesis testing!discernibility level}\index{significance level}\index{discernibility level} and often represented by $\alpha$ (the Greek letter *alpha*).[^11-foundations-randomization-9]
+The value of $\alpha$ represents how rare an event needs to be in order for the null hypothesis to be rejected. 
 Historically, many fields have set $\alpha = 0.05,$ if the null hypothesis is to be rejected. 
 The value of $\alpha$ can vary depending on the the field or the application.
 
@@ -850,6 +850,18 @@ We'll discuss when to choose a threshold different than 0.05 in [Chapter -@sec-f
 :::
 
 \clearpage
+
+[^11-foundations-randomization-3]: This procedure is formally called a **permutation test**.
+
+[^11-foundations-randomization-5]: This reasoning does not generally extend to anecdotal observations. Each of us observes incredibly rare events every day, events we could not possibly hope to predict. However, in the non-statistical setting, we should be cautious not to overinterpret such anecdotal evidence. In our daily lives, we should make decisions and reach conclusions based on evidence that is not only rare, but also trustworthy. Anecdotal evidence typically is not trustworthy evidence.
+
+[^11-foundations-randomization-6]: Notice that the study was conducted in the mid-2000s. At that time, video stores were still common and the price of a video was about $15. While these details may be dated, the results of the study are still relevant.
+
+[^11-foundations-randomization-7]: Success does not necessarily mean a positive or good outcome. Here a success refers to the outcome of interest, which is a student choosing not to buy the video.
+
+[^11-foundations-randomization-8]: This reasoning does not generally extend to anecdotal observations. Each of us observes incredibly rare events every day, events we could not possibly hope to predict. However, in the non-statistical setting, we should be cautious not to overinterpret such anecdotal evidence. In our daily lives, we should make decisions and reach conclusions based on evidence that is not only rare, but also trustworthy. Anecdotal evidence typically is not trustworthy evidence.
+
+[^11-foundations-randomization-9]: This discernibility level is sometimes also referred to as the **significance level**, but since we are trying to move away from the term "statistically significant" we will use "discernibility level" instead.
 
 ## Chapter review {#sec-chp11-review}
 

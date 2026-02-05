@@ -14,7 +14,7 @@
   <html>
     <calculator model="none" />
     <index-page ref="welcome" />
-    <css style="default" />
+    <css style="default" colors="blue_grey" />
     <search variant="default" />
     <baseurl href="https://lilyclements.github.io/ims/" />
     <knowl listing="yes" />

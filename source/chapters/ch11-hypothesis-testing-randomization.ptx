@@ -678,11 +678,11 @@ ggplot(opportunity_cost_rand_dist, aes(x = stat)) +
         </row>
         <row>
           <cell>What is the random process described in the context of the data?</cell>
-          <cell>Randomization - the explanatory variable (or treatment) being shuffled (or permuted) across the response variable (see Chapter <xref ref="sec-data-design" text="global" />)</cell>
+          <cell>Randomization - the explanatory variable (or treatment) being shuffled (or permuted) across the response variable (see <xref ref="sec-data-design" text="global" />)</cell>
         </row>
         <row bottom="medium">
           <cell>What other random processes can be approximated?</cell>
-          <cell>Can also be used to test whether two variables from an observational study are related (see Chapter <xref ref="sec-inference-tables" text="global" />)</cell>
+          <cell>Can also be used to test whether two variables from an observational study are related (see <xref ref="sec-inference-tables" text="global" />)</cell>
         </row>
       </tabular>
     </table>

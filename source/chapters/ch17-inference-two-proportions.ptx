@@ -339,16 +339,16 @@
       
       <p>We can apply the generic confidence interval formula for a difference of two proportions, where we use <m>\hat{p}_1 - \hat{p}_2</m> as the point estimate and substitute the <m>SE</m> formula:</p>
       
-      <me>
-        \begin{aligned}
-        \text{point estimate} \ &amp;\pm \  z^{\star} \ \times \ SE \\
-        (\hat{p}_1 - \hat{p}_2) \ &amp;\pm \ z^{\star} \times \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}
-      </me>
+      <md>
+        <mrow>\text{point estimate} \amp \pm z^{\star} \times SE</mrow>
+        <mrow>(\hat{p}_1 - \hat{p}_2) \amp \pm z^{\star} \times \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}</mrow>
+      </md>
             
-      <p><alert>Standard error of the difference in two proportions,</alert> <m>\hat{p}_1 -\hat{p}_2.</m>
+      <p>
+        <alert>Standard error of the difference in two proportions,</alert> <m>\hat{p}_1 -\hat{p}_2.</m>
         When the conditions for the normal model are are met, the <alert>variability</alert> of the difference in proportions, <m>\hat{p}_1 -\hat{p}_2,</m> is well described by:
-        <me>SE(\hat{p}_1 -\hat{p}_2) = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}
-      </me>
+      </p>
+      <me>SE(\hat{p}_1 -\hat{p}_2) = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}</me>
         <example>
         <statement>
         We reconsider the experiment for patients who underwent cardiopulmonary resuscitation (CPR) for a heart attack and were subsequently admitted to a hospital.
@@ -369,23 +369,28 @@
         Create and interpret a 90% confidence interval of the difference for the survival rates in the CPR study.
         </statement>
         <solution>
-        We'll use <m>p_T</m> for the survival rate in the treatment group and <m>p_C</m> for the control group:
-        <me>\hat{p}_{T} - \hat{p}_{C} = \frac{14}{40} - \frac{11}{50}  = 0.35 - 0.22 = 0.13\end{aligned}
-      </me>
-        As with the one-sample proportion case, we use the sample estimates of each proportion in the formula in the confidence interval context:
-        <me>SE \approx \sqrt{\frac{0.35 (1 - 0.35)}{40} + \frac{0.22 (1 - 0.22)}{50}}  = 0.095\end{aligned}
-      </me>
-      \end{aligned}
-      </me>
-          <p>\begin{aligned}</p>
-          <p>\text{point estimate} \ &amp;\pm \ z^{\star} \ \times \ SE \\</p>
-          <p>0.13 \ &amp;\pm \ 1.65 \ \times \ 0.095 \\</p>
-          <p>(-0.027 \ &amp;, \ 0.287)</p>
-                <me>
-        We are 90% confident that individuals receiving blood thinners have between a 2.7% less chance of survival to a 28.7% greater chance of survival than those in the control group.
-        Because 0% is contained in the interval, we do not have enough information to say whether blood thinners help or harm heart attack patients who have been admitted after they have undergone CPR.
-        Note, the problem was set up as 90% to indicate that there was not a need for a high level of confidence (such a 95% or 99%).
-        A lower degree of confidence increases potential for error, but it also produces a more narrow interval.
+          <p>
+            We'll use <m>p_T</m> for the survival rate in the treatment group and <m>p_C</m> for the control group:
+          </p>
+          <me>\hat{p}_{T} - \hat{p}_{C} = \frac{14}{40} - \frac{11}{50}  = 0.35 - 0.22 = 0.13</me>
+          <p>
+            As with the one-sample proportion case, we use the sample estimates of each proportion in the formula in the confidence interval context:
+          </p>
+          <me>SE \approx \sqrt{\frac{0.35 (1 - 0.35)}{40} + \frac{0.22 (1 - 0.22)}{50}}  = 0.095</me>
+          <p>
+            For a 90% confidence interval, we use <m>z^{\star} = 1.65</m>:
+          </p>
+          <md>
+            <mrow>\text{point estimate} \amp \pm z^{\star} \times SE</mrow>
+            <mrow>0.13 \amp \pm 1.65 \times 0.095</mrow>
+            <mrow>(-0.027 \amp , 0.287)</mrow>
+          </md>
+          <p>
+            We are 90% confident that individuals receiving blood thinners have between a 2.7% less chance of survival to a 28.7% greater chance of survival than those in the control group.
+            Because 0% is contained in the interval, we do not have enough information to say whether blood thinners help or harm heart attack patients who have been admitted after they have undergone CPR.
+            Note, the problem was set up as 90% to indicate that there was not a need for a high level of confidence (such a 95% or 99%).
+            A lower degree of confidence increases potential for error, but it also produces a more narrow interval.
+          </p>
         </solution>
         </example>
         <exercise>
@@ -420,8 +425,7 @@
         However, when the null hypothesis is that <m>p_1 - p_2 = 0,</m> we use a special proportion called the <alert>pooled proportion</alert><idx>pooled proportion</idx> to estimate the SE and to check the success-failure condition.
         <alert>Use the pooled proportion when</alert> <m>H_0</m> is <m>p_1 - p_2 = 0.</m>
         When the null hypothesis is that the proportions are equal, use the pooled proportion <m>(\hat{p}_{\textit{pool}})</m> of successes to verify the success-failure condition and estimate the standard error:
-        <me>\hat{p}_{\textit{pool}} = \frac{\text{number of successes}}{\text{number of cases}} = \frac{\hat{p}_1 n_1 + \hat{p}_2 n_2}{n_1 + n_2}\end{aligned}
-      </me>
+        <me>\hat{p}_{\textit{pool}} = \frac{\text{number of successes}}{\text{number of cases}} = \frac{\hat{p}_1 n_1 + \hat{p}_2 n_2}{n_1 + n_2}</me>
         Similarly, <m>\hat{p}_2 n_2</m> represents the number of successes in sample 2.
         <alert>The test statistic for assessing two proportions is a Z.</alert>
         The Z score<idx><h>Z score</h><h>difference in proportions</h></idx><idx><h>difference in proportions</h><h>Z score</h></idx> is a ratio of how the two sample proportions differ as compared to the expected variability of difference between the proportions.
@@ -470,49 +474,42 @@
         <m>H_0:</m> the breast cancer death rate for patients screened using mammograms is the same as the breast cancer death rate for patients in the control, <m>p_{MGM} - p_{C} = 0.</m> <m>H_A:</m> the breast cancer death rate for patients screened using mammograms is different than the breast cancer death rate for patients in the control, <m>p_{MGM} - p_{C} \neq 0.</m>
         </solution>
         </exercise>
-        The research question describing mammograms is set up to address specific hypotheses (in contrast to a confidence interval for a parameter).
-        In order to fully take advantage of the hypothesis testing structure, we assess the randomness under the condition that the null hypothesis is true (as we always do for hypothesis testing).
-        Using the data from <xref ref="tbl-mammogramStudySummaryTable" />, we will check the conditions for using a normal distribution to analyze the results of the study using a hypothesis test.
-      </me>
+        
+        <p>
+          The research question describing mammograms is set up to address specific hypotheses (in contrast to a confidence interval for a parameter).
+          In order to fully take advantage of the hypothesis testing structure, we assess the randomness under the condition that the null hypothesis is true (as we always do for hypothesis testing).
+          Using the data from <xref ref="tbl-mammogramStudySummaryTable" />, we will check the conditions for using a normal distribution to analyze the results of the study using a hypothesis test.
+        </p>
       
-      <p>\begin{aligned}</p>
-      
-      <p>\hat{p}_{\textit{pool}}</p>
-      
-      <p>&amp;= \frac</p>
-      
-      <p>{\text{number of patients who died from breast cancer in the entire study}}</p>
-      
-      <p>{\text{number of patients in the entire study}} \\</p>
-      
-      <p>&amp;= \frac{500 + 505}{500 + \text{44,425} + 505 + \text{44,405}} \\</p>
-      
-      <p>&amp;= 0.0112</p>
-      
+      <md>
+        <mrow>\hat{p}_{\textit{pool}} \amp = \frac{\text{number of patients who died from breast cancer in the entire study}}{\text{number of patients in the entire study}}</mrow>
+        <mrow>\amp = \frac{500 + 505}{500 + 44{,}425 + 505 + 44{,}405}</mrow>
+        <mrow>\amp = 0.0112</mrow>
+      </md>
             
-      <me>
+      <p>
         This proportion is an estimate of the breast cancer death rate across the entire study, and it's our best estimate of the proportions <m>p_{MGM}</m> and <m>p_{C}</m> <em>if the null hypothesis is true that</em> <m>p_{MGM} = p_{C}.</m> We will also use this pooled proportion when computing the standard error.
+      </p>
         <example>
         <statement>
         Is it reasonable to model the difference in proportions using a normal distribution in this study?
         </statement>
         <solution>
-        Because the patients were randomized, observations can be assumed to be independent, both within each group and between treatment groups.
-        We also must check the success-failure condition for each group.
-        Under the null hypothesis, the proportions <m>p_{MGM}</m> and <m>p_{C}</m> are equal, so we check the success-failure condition with our best estimate of these values under <m>H_0,</m> the pooled proportion from the two samples, <m>\hat{p}_{\textit{pool}} = 0.0112:</m>
-      </me>
-          <p>\begin{aligned}</p>
-          <p>\hat{p}_{\textit{pool}} \times n_{MGM}</p>
-          <p>&amp;= 0.0112 \times \text{44,925} = 503\\</p>
-          <p>(1 - \hat{p}_{\textit{pool}}) \times n_{MGM}</p>
-          <p>&amp;= 0.9888 \times \text{44,925} = \text{44,422} \\</p>
-          <p>\hat{p}_{\textit{pool}} \times n_{C}</p>
-          <p>&amp;= 0.0112 \times \text{44,910} = 503\\</p>
-          <p>(1 - \hat{p}_{\textit{pool}}) \times n_{C}</p>
-          <p>&amp;= 0.9888 \times \text{44,910} = \text{44,407}</p>
-                <me>
+          <p>
+            Because the patients were randomized, observations can be assumed to be independent, both within each group and between treatment groups.
+            We also must check the success-failure condition for each group.
+            Under the null hypothesis, the proportions <m>p_{MGM}</m> and <m>p_{C}</m> are equal, so we check the success-failure condition with our best estimate of these values under <m>H_0,</m> the pooled proportion from the two samples, <m>\hat{p}_{\textit{pool}} = 0.0112:</m>
+          </p>
+        <md>
+          <mrow>\hat{p}_{\textit{pool}} \times n_{MGM} \amp = 0.0112 \times 44{,}925 = 503</mrow>
+          <mrow>(1 - \hat{p}_{\textit{pool}}) \times n_{MGM} \amp = 0.9888 \times 44{,}925 = 44{,}422</mrow>
+          <mrow>\hat{p}_{\textit{pool}} \times n_{C} \amp = 0.0112 \times 44{,}910 = 503</mrow>
+          <mrow>(1 - \hat{p}_{\textit{pool}}) \times n_{C} \amp = 0.9888 \times 44{,}910 = 44{,}407</mrow>
+        </md>
+        <p>
         The success-failure condition is satisfied since all values are at least 10.
         With both conditions satisfied, we can safely model the difference in proportions using a normal distribution.
+        </p>
         </solution>
         </example>
         In the previous example, the pooled proportion was used to check the success-failure condition[^17-inference-two-props-5].
@@ -522,14 +519,13 @@
         Compute the point estimate of the difference in breast cancer death rates in the two groups, and use the pooled proportion <m>\hat{p}_{\textit{pool}} = 0.0112</m> to calculate the standard error.
         </statement>
         <solution>
-        The point estimate of the difference in breast cancer death rates is
-      </me>
-          <p>\hat{p}_{MGM} - \hat{p}_{C} = \frac{500}{500 + 44,425} - \frac{505}{505 + 44,405} = 0.01113 - 0.01125 = -0.00012</p>
-      <me>
-        The breast cancer death rate in the mammogram group was 0.012% less than in the control group.
-        Next, the standard error is calculated <em>using the pooled proportion,</em> <m>\hat{p}_{\textit{pool}}:</m>
-        <me>SE = \sqrt{\frac{\hat{p}_{\textit{pool}}(1-\hat{p}_{\textit{pool}})}{n_{MGM}} + \frac{\hat{p}_{\textit{pool}}(1-\hat{p}_{\textit{pool}})}{n_{C}}}= 0.00070\end{aligned}
-      </me>
+          <p>The point estimate of the difference in breast cancer death rates is</p>
+          <me>\hat{p}_{MGM} - \hat{p}_{C} = \frac{500}{500 + 44{,}425} - \frac{505}{505 + 44{,}405} = 0.01113 - 0.01125 = -0.00012</me>
+          <p>
+            The breast cancer death rate in the mammogram group was 0.012% less than in the control group.
+            Next, the standard error is calculated <em>using the pooled proportion,</em> <m>\hat{p}_{\textit{pool}}:</m>
+          </p>
+          <me>SE = \sqrt{\frac{\hat{p}_{\textit{pool}}(1-\hat{p}_{\textit{pool}})}{n_{MGM}} + \frac{\hat{p}_{\textit{pool}}(1-\hat{p}_{\textit{pool}})}{n_{C}}}= 0.00070</me>
         </solution>
         </example>
         <example>
@@ -538,8 +534,7 @@
         </statement>
         <solution>
         We first compute a test statistic and draw a picture:
-        <me>Z = \frac{\text{point estimate} - \text{null value}}{SE} = \frac{-0.00012 - 0}{0.00070} = -0.17\end{aligned}
-      </me>
+        <me>Z = \frac{\text{point estimate} - \text{null value}}{SE} = \frac{-0.00012 - 0}{0.00070} = -0.17</me>
         par(mar = c(2, 0, 0, 0))
         normTail(L = -0.17, U = 0.17, col = IMSCOL["blue", "full"])
         The lower tail area is 0.4325, which we double to get the p-value: 0.8650.
@@ -773,15 +768,15 @@
         <exercise>
         <statement>
         <alert>Government shutdown.</alert>The United States federal government shutdown of 2018--2019 occurred from December 22, 2018 until January 25, 2019, a span of 35 days.
-        A Survey USA poll of 614 randomly sampled Americans during this time period reported that 48% of those who make less than \<m>40,000 per year and 55% of those who make \</m>40,000 or more per year said the government shutdown has not at all affected them personally.
-        A 95% confidence interval for <m>(p_\text{</m><<m>40K} - p_\text{</m>\ge<m>40K})</m>, where <m>p</m> is the proportion of those who said the government shutdown has not at all affected them personally, is (-0.16, 0.02).
+        <alert>Government shutdown.</alert> The United States federal government shutdown of 2018--2019 occurred from December 22, 2018 until January 25, 2019, a span of 35 days.
+        A Survey USA poll of 614 randomly sampled Americans during this time period reported that 48% of those who make less than $40,000 per year and 55% of those who make $40,000 or more per year said the government shutdown has not at all affected them personally.
+        A 95% confidence interval for <m>(p_{\text{&lt;40K}} - p_{\text{&#8805;40K}})</m>, where <m>p</m> is the proportion of those who said the government shutdown has not at all affected them personally, is (-0.16, 0.02).
         Based on this information, determine if the following statements are true or false, and explain your reasoning if you identify the statement as false.
         <xref ref="biblio-data:govtshuthown" />
-        At the 5% discernibility level, the data provide convincing evidence of a real difference in the proportion who are not affected personally between Americans who make less than \<m>40,000 annually and Americans who make \</m>40,000 annually.
-        We are 95% confident that 16% more to 2% fewer Americans who make less than \<m>40,000 per year are not at all personally affected by the government shutdown compared to those who make \</m>40,000 or more per year.
-        A 90% confidence interval for <m>(p_\text{</m><<m>40K} - p_\text{</m>\ge<m>40K})</m> would be wider than the <m>(-0.16, 0.02)</m> interval.
-        A 95% confidence interval for <m>(p_\text{</m>\ge<m>40K} - p_\text{</m><<m>40K})</m> is (-0.02, 0.16).
-        \vfill
+        At the 5% discernibility level, the data provide convincing evidence of a real difference in the proportion who are not affected personally between Americans who make less than $40,000 annually and Americans who make $40,000 annually.
+        We are 95% confident that 16% more to 2% fewer Americans who make less than $40,000 per year are not at all personally affected by the government shutdown compared to those who make $40,000 or more per year.
+        A 90% confidence interval for <m>(p_{\text{&lt;40K}} - p_{\text{&#8805;40K}})</m> would be wider than the <m>(-0.16, 0.02)</m> interval.
+        A 95% confidence interval for <m>(p_{\text{&#8805;40K}} - p_{\text{&lt;40K}})</m> is (-0.02, 0.16).
         </statement>
         </exercise>
         <exercise>

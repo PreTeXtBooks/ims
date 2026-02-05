@@ -26,7 +26,7 @@
 <p>A <alert>scatterplot</alert> provides a case-by-case view of data for two numerical variables. In <xref ref="fig-county-multi-unit-homeownership" />, a scatterplot was used to examine the homeownership rate against the percentage of housing units that are in multi-unit structures (e.g., apartments) in the <c>county</c> dataset. Another scatterplot is shown in <xref ref="fig-loan50-amount-income" />, comparing the total income of a borrower <c>total_income</c> and the amount they borrowed <c>loan_amount</c> for the <c>loan50</c> dataset. In any scatterplot, each point represents a single case. Since there are 50 cases in <c>loan50</c>, there are 50 points in <xref ref="fig-loan50-amount-income" />.</p>
 
 <listing xml:id="listing-loan50-amount-income">
-  <caption>R code for scatterplot of loan amount versus total income</caption>
+  <caption><c>R</c> code for scatterplot of loan amount versus total income</caption>
   <program language="r">
     <code>
 ggplot(loan50, aes(x = total_income, y = loan_amount)) +
@@ -46,7 +46,7 @@ ggplot(loan50, aes(x = total_income, y = loan_amount)) +
 <p>Looking at <xref ref="fig-loan50-amount-income" />, we see that there are many borrowers with income below \$100,000 on the left side of the graph, while there are a handful of borrowers with income above \$250,000.</p>
 
 <listing xml:id="listing-median-hh-income-poverty">
-  <caption>R code for scatterplot of median household income versus poverty rate</caption>
+  <caption><c>R</c> code for scatterplot of median household income versus poverty rate</caption>
   <program language="r">
     <code>
 ggplot(county, aes(x = poverty / 100, y = median_hh_income)) +
@@ -102,7 +102,7 @@ ggplot(county, aes(x = poverty / 100, y = median_hh_income)) +
 <p>Sometimes we are interested in the distribution of a single variable. In these cases, a dot plot provides the most basic of displays. A <alert>dot plot</alert> is a one-variable scatterplot; an example using the interest rate of 50 loans is shown in <xref ref="fig-loan-int-rate-dotplot" />.</p>
 
 <listing xml:id="listing-loan-int-rate-dotplot">
-  <caption>R code for dot plot of interest rate</caption>
+  <caption><c>R</c> code for dot plot of interest rate</caption>
   <program language="r">
     <code>
 loan50_interest_rate_mean &lt;- mean(loan50$interest_rate)
@@ -138,7 +138,7 @@ ggplot(loan50, aes(x = interest_rate)) +
 
 <p>The <alert>mean</alert>, often called the <alert>average</alert> is a common way to measure the center of a <alert>distribution</alert> of data. To compute the mean interest rate, we add up all the interest rates and divide by the number of observations.</p>
 
-<p>The sample mean is often labeled $\bar{x}.$ The letter $x$ is being used as a generic placeholder for the variable of interest and the bar over the $x$ communicates we are looking at the average interest rate, which for these 50 loans is 11.57%. It's useful to think of the mean as the balancing point of the distribution, and it's shown as a triangle in <xref ref="fig-loan-int-rate-dotplot" />.</p>
+<p>The sample mean is often labeled <m>\bar{x}.</m> The letter <m>x</m> is being used as a generic placeholder for the variable of interest and the bar over the <m>x</m> communicates we are looking at the average interest rate, which for these 50 loans is 11.57%. It's useful to think of the mean as the balancing point of the distribution, and it's shown as a triangle in <xref ref="fig-loan-int-rate-dotplot" />.</p>
 
 <assemblage>
   <title>Mean</title>
@@ -148,23 +148,23 @@ ggplot(loan50, aes(x = interest_rate)) +
 
 <exercise>
   <statement>
-    <p>Examine the equation for the mean. What does $x_1$ correspond to? And $x_2$? Can you infer a general meaning to what $x_i$ might represent?</p>
+    <p>Examine the equation for the mean. What does <m>x_1</m> correspond to? And <m>x_2</m>? Can you infer a general meaning to what <m>x_i</m> might represent?</p>
   </statement>
   <solution>
-    <p>$x_1$ corresponds to the interest rate for the first loan in the sample, $x_2$ to the second loan's interest rate, and $x_i$ corresponds to the interest rate for the $i^{th}$ loan in the dataset.     For example, if $i = 4,$ then we are examining $x_4,$ which refers to the fourth observation in the dataset.</p>
+    <p><m>x_1</m> corresponds to the interest rate for the first loan in the sample, <m>x_2</m> to the second loan's interest rate, and <m>x_i</m> corresponds to the interest rate for the <m>i^{th}</m> loan in the dataset.     For example, if <m>i = 4,</m> then we are examining <m>x_4,</m> which refers to the fourth observation in the dataset.</p>
   </solution>
 </exercise>
 
 <exercise>
   <statement>
-    <p>What was $n$ in this sample of loans?</p>
+    <p>What was <m>n</m> in this sample of loans?</p>
   </statement>
   <solution>
-    <p>The sample size was $n = 50.$</p>
+    <p>The sample size was <m>n = 50.</m></p>
   </solution>
 </exercise>
 
-<p>The <c>loan50</c> dataset represents a sample from a larger population of loans made through Lending Club. We could compute a mean for the entire population in the same way as the sample mean. However, the population mean has a special label: $\mu.$ The symbol $\mu$ is the Greek letter <em>mu</em> and represents the average of all observations in the population. Sometimes a subscript, such as $_x,$ is used to represent which variable the population mean refers to, e.g., $\mu_x.$ Oftentimes it is too expensive to measure the population mean precisely, so we often estimate $\mu$ using the sample mean, $\bar{x}.$</p>
+<p>The <c>loan50</c> dataset represents a sample from a larger population of loans made through Lending Club. We could compute a mean for the entire population in the same way as the sample mean. However, the population mean has a special label: <m>\mu.</m> The symbol <m>\mu</m> is the Greek letter <em>mu</em> and represents the average of all observations in the population. Sometimes a subscript, such as <m>_x,</m> is used to represent which variable the population mean refers to, e.g., <m>\mu_x.</m> Oftentimes it is too expensive to measure the population mean precisely, so we often estimate <m>\mu</m> using the sample mean, <m>\bar{x}.</m></p>
 
 <p>:::</p>
 
@@ -172,10 +172,10 @@ ggplot(loan50, aes(x = interest_rate)) +
 
 <example>
   <statement>
-    <p>Although we do not have an ability to <em>calculate</em> the average interest rate across all loans in the populations, we can <em>estimate</em> the population value using the sample data. Based on the sample of 50 loans, what would be a reasonable estimate of $\mu_x,$ the mean interest rate for all loans in the full dataset?</p>
+    <p>Although we do not have an ability to <em>calculate</em> the average interest rate across all loans in the populations, we can <em>estimate</em> the population value using the sample data. Based on the sample of 50 loans, what would be a reasonable estimate of <m>\mu_x,</m> the mean interest rate for all loans in the full dataset?</p>
   </statement>
   <solution>
-    <p>The sample mean, 11.57, provides a rough estimate of $\mu_x.$ While it is not perfect, this is our single best guess <alert>point estimate</alert> of the average interest rate of all the loans in the population under study. In <xref ref="sec-foundations-randomization" /> and beyond, we will develop tools to characterize the accuracy of point estimates, like the sample mean. As you might have guessed, point estimates based on larger samples tend to be more accurate than those based on smaller samples.</p>
+    <p>The sample mean, 11.57, provides a rough estimate of <m>\mu_x.</m> While it is not perfect, this is our single best guess <alert>point estimate</alert> of the average interest rate of all the loans in the population under study. In <xref ref="sec-foundations-randomization" /> and beyond, we will develop tools to characterize the accuracy of point estimates, like the sample mean. As you might have guessed, point estimates based on larger samples tend to be more accurate than those based on smaller samples.</p>
   </solution>
 </example>
 
@@ -207,8 +207,8 @@ ggplot(loan50, aes(x = interest_rate)) +
 <p>Instead, we should look at the average number of asthma attacks per patient in each group:</p>
 
 <ul>
-  <li><p>New drug: $200 / 500 = 0.4$ asthma attacks per patient</p></li>
-  <li><p>Standard drug: $300 / 1000 = 0.3$ asthma attacks per patient</p></li>
+  <li><p>New drug: <m>200 / 500 = 0.4</m> asthma attacks per patient</p></li>
+  <li><p>Standard drug: <m>300 / 1000 = 0.3</m> asthma attacks per patient</p></li>
 </ul>
 
 <p>The standard drug has a lower average number of asthma attacks per patient than the average in the treatment group.</p>
@@ -287,7 +287,7 @@ ggplot(loan50, aes(x = interest_rate)) +
 </table>
 
 <listing xml:id="listing-loan50IntRateHist">
-  <caption>R code for histogram of interest rate</caption>
+  <caption><c>R</c> code for histogram of interest rate</caption>
   <program language="r">
     <code>
 ggplot(loan50, aes(x = interest_rate)) +
@@ -311,7 +311,7 @@ ggplot(loan50, aes(x = interest_rate)) +
 <p>Histograms are especially convenient for understanding the shape of the data distribution. <xref ref="fig-loan50IntRateHist" /> suggests that most loans have rates under 15%, while only a handful of loans have rates above 20%. When the distribution of a variable trails off to the right in this way and has a longer right <alert>tail</alert>, the shape is said to be <alert>right skewed</alert>.[^05-explore-numerical-5]</p>
 
 <listing xml:id="listing-loan50IntRateDensity">
-  <caption>R code for density plot of interest rate</caption>
+  <caption><c>R</c> code for density plot of interest rate</caption>
   <program language="r">
     <code>
 ggplot(loan50, aes(x = interest_rate)) +
@@ -355,7 +355,7 @@ ggplot(loan50, aes(x = interest_rate)) +
 <p><xref ref="fig-singleBiMultiModalPlots" /> shows histograms that have one, two, or three prominent peaks. Such distributions are called <alert>unimodal</alert>, <alert>bimodal</alert>, and <alert>multimodal</alert>, respectively. Any distribution with more than two prominent peaks is called multimodal. Notice that there was one prominent peak in the unimodal distribution with a second less prominent peak that was not counted since it only differs from its neighboring bins by a few observations.</p>
 
 <listing xml:id="listing-singleBiMultiModalPlots">
-  <caption>R code for histograms with different modality</caption>
+  <caption><c>R</c> code for histograms with different modality</caption>
   <program language="r">
     <code>
 df_modes &lt;- tibble(
@@ -431,7 +431,7 @@ x_{50} - \bar{x} \amp= 6.08 - 11.57 = -5.49
 
 <me>s^2 = \frac{(-0.67)^2 + (-1.65)^2 + (14.73)^2 + \cdots + (-5.49)^2}{50 - 1} = \frac{0.45 + 2.72 + \cdots + 30.14}{49} = 26.21</me>
 
-<p>We divide by $n - 1,$ rather than dividing by $n,$ when computing a sample's variance. There's some mathematical nuance here, but the end result is that doing this makes this statistic slightly more reliable and useful.</p>
+<p>We divide by <m>n - 1,</m> rather than dividing by <m>n,</m> when computing a sample's variance. There's some mathematical nuance here, but the end result is that doing this makes this statistic slightly more reliable and useful.</p>
 
 <p>Notice that squaring the deviations does two things. First, it makes large values relatively much larger. Second, it gets rid of any negative signs.</p>
 
@@ -445,14 +445,14 @@ x_{50} - \bar{x} \amp= 6.08 - 11.57 = -5.49
 
 <me>s = \sqrt{26.21} = 5.12</me>
 
-<p>While often omitted, a subscript of $_x$ may be added to the variance and standard deviation, i.e., $s_x^2$ and $s_x^{},$ if it is useful as a reminder that these are the variance and standard deviation of the observations represented by $x_1,$ $x_2,$ ..., $x_n.$</p>
+<p>While often omitted, a subscript of <m>_x</m> may be added to the variance and standard deviation, i.e., <m>s_x^2</m> and <m>s_x^{},</m> if it is useful as a reminder that these are the variance and standard deviation of the observations represented by <m>x_1,</m> <m>x_2,</m> ..., <m>x_n.</m></p>
 
 <assemblage>
   <title>Variance and standard deviation</title>
   <p>The variance is the average squared distance from the mean. The standard deviation is the square root of the variance. The standard deviation is useful when considering how far the data are distributed from the mean. The standard deviation represents the typical deviation of observations from the mean. Often about 68% of the data will be within one standard deviation of the mean and about 95% will be within two standard deviations. However, these percentages are not strict rules.</p>
 </assemblage>
 
-<p>Like the mean, the population values for variance and standard deviation have special symbols: $\sigma^2$ for the variance and $\sigma$ for the standard deviation.</p>
+<p>Like the mean, the population values for variance and standard deviation have special symbols: <m>\sigma^2</m> for the variance and <m>\sigma</m> for the standard deviation.</p>
 
 <p>:::</p>
 
@@ -468,7 +468,7 @@ x_{50} - \bar{x} \amp= 6.08 - 11.57 = -5.49
 </exercise>
 
 <listing xml:id="listing-severalDiffDistWithSdOf1">
-  <caption>R code for distributions with same mean and standard deviation</caption>
+  <caption><c>R</c> code for distributions with same mean and standard deviation</caption>
   <program language="r">
     <code>
 x1 &lt;- c(rep(-0.975, 1000), rep(0.975, 1000))
@@ -555,7 +555,7 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
   </sidebyside>
 </figure>
 
-<p>The dark line inside the box represents the <alert>median</alert>, which splits the data in half. 50% of the data fall below this value and 50% fall above it. Since in the <c>loan50</c> dataset there are 50 observations (an even number), the median is defined as the average of the two observations closest to the $50^{th}$ percentile. <xref ref="tbl-loan50-int-rate-sorted" /> shows all interest rates, arranged in ascending order. We can see that the $25^{th}$ and the $26^{th}$ values are both <c>r sort(loan50$interest_rate)[25]</c>, which corresponds to the thick line in  <xref ref="fig-loan-int-rate-boxplot-dotplot-2" />.</p>
+<p>The dark line inside the box represents the <alert>median</alert>, which splits the data in half. 50% of the data fall below this value and 50% fall above it. Since in the <c>loan50</c> dataset there are 50 observations (an even number), the median is defined as the average of the two observations closest to the <m>50^{th}</m> percentile. <xref ref="tbl-loan50-int-rate-sorted" /> shows all interest rates, arranged in ascending order. We can see that the <m>25^{th}</m> and the <m>26^{th}</m> values are both <c>r sort(loan50$interest_rate)[25]</c>, which corresponds to the thick line in  <xref ref="fig-loan-int-rate-boxplot-dotplot-2" />.</p>
 
 <table xml:id="tbl-loan50-int-rate-sorted">
   <title>Interest rates from the <c>loan50</c> dataset, arranged in ascending order.</title>
@@ -648,7 +648,7 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
   <p>If the data are ordered from smallest to largest, the <alert>median</alert> is the observation right in the middle. If there are an even number of observations, there will be two values in the middle, and the median is taken as their average.</p>
 </assemblage>
 
-<p>The second step in building a box plot is drawing a rectangle to represent the middle 50% of the data. The length of the box is called the <alert>interquartile range</alert>, or <alert>IQR</alert> for short. It, like the standard deviation, is a measure of variability in data. The more variable the data, the larger the standard deviation and IQR tend to be. The two boundaries of the box are called the <alert>first quartile</alert> (the $25^{th}$ percentile, i.e., 25% of the data fall below this value) and the <alert>third quartile</alert> (the $75^{th}$ percentile, i.e., 75% of the data fall below this value), and these are often labeled $Q_1$ and $Q_3,$ respectively.</p>
+<p>The second step in building a box plot is drawing a rectangle to represent the middle 50% of the data. The length of the box is called the <alert>interquartile range</alert>, or <alert>IQR</alert> for short. It, like the standard deviation, is a measure of variability in data. The more variable the data, the larger the standard deviation and IQR tend to be. The two boundaries of the box are called the <alert>first quartile</alert> (the <m>25^{th}</m> percentile, i.e., 25% of the data fall below this value) and the <alert>third quartile</alert> (the <m>75^{th}</m> percentile, i.e., 75% of the data fall below this value), and these are often labeled <m>Q_1</m> and <m>Q_3,</m> respectively.</p>
 
 <assemblage>
   <title>Interquartile range (IQR)</title>
@@ -657,14 +657,14 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
 
 <exercise>
   <statement>
-    <p>What percent of the data fall between $Q_1$ and the median? What percent is between the median and $Q_3$?</p>
+    <p>What percent of the data fall between <m>Q_1</m> and the median? What percent is between the median and <m>Q_3</m>?</p>
   </statement>
   <solution>
-    <p>Since $Q_1$ and $Q_3$ capture the middle 50% of the data and the median splits the data in the middle, 25% of the data fall between $Q_1$ and the median, and another 25% falls between the median and $Q_3.$</p>
+    <p>Since <m>Q_1</m> and <m>Q_3</m> capture the middle 50% of the data and the median splits the data in the middle, 25% of the data fall between <m>Q_1</m> and the median, and another 25% falls between the median and <m>Q_3.</m></p>
   </solution>
 </exercise>
 
-<p>Extending out from the box, the <alert>whiskers</alert> attempt to capture the data outside of the box. The whiskers of a box plot reach to the minimum and the maximum values in the data, unless there are points that are considered unusually high or unusually low, which are identified as potential <alert>outliers</alert> by the box plot. These are labeled with a dot on the box plot. The purpose of labeling the outlying points -- instead of extending the whiskers to the minimum and maximum observed values -- is to help identify any observations that appear to be unusually distant from the rest of the data. There are a variety of formulas for determining whether a particular data point is considered an outlier, and different statistical software use different formulas. A commonly used formula is that any observation beyond $1.5\times IQR$ away from the first or the third quartile is considered an outlier. In a sense, the box is like the body of the box plot and the whiskers are like its arms trying to reach the rest of the data, up to the outliers.</p>
+<p>Extending out from the box, the <alert>whiskers</alert> attempt to capture the data outside of the box. The whiskers of a box plot reach to the minimum and the maximum values in the data, unless there are points that are considered unusually high or unusually low, which are identified as potential <alert>outliers</alert> by the box plot. These are labeled with a dot on the box plot. The purpose of labeling the outlying points -- instead of extending the whiskers to the minimum and maximum observed values -- is to help identify any observations that appear to be unusually distant from the rest of the data. There are a variety of formulas for determining whether a particular data point is considered an outlier, and different statistical software use different formulas. A commonly used formula is that any observation beyond <m>1.5\times IQR</m> away from the first or the third quartile is considered an outlier. In a sense, the box is like the body of the box plot and the whiskers are like its arms trying to reach the rest of the data, up to the outliers.</p>
 
 <assemblage>
   <title>Outliers are extreme</title>
@@ -679,10 +679,10 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
 
 <exercise>
   <statement>
-    <p>Using the box plot in <xref ref="fig-loan-int-rate-boxplot-dotplot-2" />, estimate the values of the $Q_1,$ $Q_3,$ and IQR for <c>interest_rate</c> in the <c>loan50</c> dataset.</p>
+    <p>Using the box plot in <xref ref="fig-loan-int-rate-boxplot-dotplot-2" />, estimate the values of the <m>Q_1,</m> <m>Q_3,</m> and IQR for <c>interest_rate</c> in the <c>loan50</c> dataset.</p>
   </statement>
   <solution>
-    <p>These visual estimates will vary a little from one person to the next: $Q_1 \approx$ 8%, $Q_3 \approx$ 14%, IQR $\approx$ 14 - 8 = 6%.</p>
+    <p>These visual estimates will vary a little from one person to the next: <m>Q_1 \approx</m> 8%, <m>Q_3 \approx</m> 14%, IQR <m>\approx</m> 14 - 8 = 6%.</p>
   </solution>
 </exercise>
 
@@ -765,7 +765,7 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
     <p>The median and IQR did not change under the three scenarios in <xref ref="tbl-robustOrNotTable" />. Why might this be the case?</p>
   </statement>
   <solution>
-    <p>The median and IQR are only sensitive to numbers near $Q_1,$ the median, and $Q_3.$ Since values in these regions are stable in the three datasets, the median and IQR estimates are also stable.</p>
+    <p>The median and IQR are only sensitive to numbers near <m>Q_1,</m> the median, and <m>Q_3.</m> Since values in these regions are stable in the three datasets, the median and IQR estimates are also stable.</p>
   </solution>
 </example>
 
@@ -808,14 +808,14 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
 <p>When data are very strongly skewed, we sometimes transform them, so they are easier to model. <xref ref="fig-county-unemployed-pop-transform-1" /> and <xref ref="fig-county-unemployed-pop-transform-2" /> show right-skewed distributions: distribution of the percentage of unemployed people and the distribution of the population in all counties in the United States. The distribution of population is more strongly skewed than the distribution of percentage unemployed, hence the log transformation results in a much bigger change in the shape of the distribution.</p>
 
 <figure xml:id="fig-county-unemployed-pop-transform">
-  <caption>Histograms of percentage unemployed, population, and their log transformed versions in all US counties. For the plots of transformed variables, the x-value corresponds to the power of 10, e.g., 1 on the x-axis corresponds to $10^1 =$ 10 and 5 on the x-axis corresponds to $10^5=$ 100,000. Data are from 2017.</caption>
+  <caption>Histograms of percentage unemployed, population, and their log transformed versions in all US counties. For the plots of transformed variables, the x-value corresponds to the power of 10, e.g., 1 on the x-axis corresponds to <m>10^1 =</m> 10 and 5 on the x-axis corresponds to <m>10^5=</m> 100,000. Data are from 2017.</caption>
   <sidebyside widths="45% 45%">
     <figure xml:id="fig-county-unemployed-pop-transform-1">
       <caption>Percentage unemployed</caption>
       <image source="images/fig-county-unemployed-pop-transform-1.png" />
     </figure>
     <figure xml:id="fig-county-unemployed-pop-transform-2">
-      <caption>log$_{10}$-transformed percentage unemployed</caption>
+      <caption>log<m>_{10}</m>-transformed percentage unemployed</caption>
       <image source="images/fig-county-unemployed-pop-transform-2.png" />
     </figure>
   </sidebyside>
@@ -825,7 +825,7 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
       <image source="images/fig-county-unemployed-pop-transform-3.png" />
     </figure>
     <figure xml:id="fig-county-unemployed-pop-transform-4">
-      <caption>log$_{10}$-transformed populations</caption>
+      <caption>log<m>_{10}</m>-transformed populations</caption>
       <image source="images/fig-county-unemployed-pop-transform-4.png" />
     </figure>
   </sidebyside>
@@ -841,7 +841,7 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
 </example>
 
 <listing xml:id="listing-county-unemployed-pop-transform">
-  <caption>R code for transformed distributions of unemployment and population</caption>
+  <caption><c>R</c> code for transformed distributions of unemployment and population</caption>
   <program language="r">
     <code>
 ggplot(county, aes(x = unemployment_rate)) +
@@ -876,10 +876,10 @@ ggplot(county_complete, aes(x = log(pop_2019, base = 10))) +
 
 <p>There are some standard transformations that may be useful for strongly right skewed data where much of the data is positive but clustered near zero. A <alert>transformation</alert> is a rescaling of the data using a function. For instance, a plot of the logarithm (base 10) of unemployment rates and county populations results in the new histograms in <xref ref="fig-county-unemployed-pop-transform-2" />. The transformed data are symmetric, and any potential outliers appear much less extreme than in the original dataset. By reigning in the outliers and extreme skew, transformations often make it easier to build statistical models for the data.</p>
 
-<p>Transformations can also be applied to one or both variables in a scatterplot. A scatterplot of the population change from 2010 to 2017 against the population in 2010 is shown in <xref ref="fig-county-pop-change-transform-1" />. It's difficult to decipher any interesting patterns because the population variable is so strongly skewed. However, if we apply a log$_{10}$ transformation to the population variable, as shown in <xref ref="fig-county-pop-change-transform-2" />, a positive association between the variables is revealed. In fact, we may be interested in fitting a trend line to the data when we explore methods around fitting regression lines in <xref ref="sec-model-slr" />.</p>
+<p>Transformations can also be applied to one or both variables in a scatterplot. A scatterplot of the population change from 2010 to 2017 against the population in 2010 is shown in <xref ref="fig-county-pop-change-transform-1" />. It's difficult to decipher any interesting patterns because the population variable is so strongly skewed. However, if we apply a log<m>_{10}</m> transformation to the population variable, as shown in <xref ref="fig-county-pop-change-transform-2" />, a positive association between the variables is revealed. In fact, we may be interested in fitting a trend line to the data when we explore methods around fitting regression lines in <xref ref="sec-model-slr" />.</p>
 
 <listing xml:id="listing-county-pop-change-transform">
-  <caption>R code for scatterplots with log transformation</caption>
+  <caption><c>R</c> code for scatterplots with log transformation</caption>
   <program language="r">
     <code>
 ggplot(county, aes(y = pop_change, x = pop2010)) +
@@ -900,20 +900,20 @@ ggplot(county, aes(y = pop_change, x = log(pop2010, base = 10))) +
 </listing>
 
 <figure xml:id="fig-county-pop-change-transform">
-  <caption>Scatterplots of population change and log$_{10}$-transformed population change vs. population before change.</caption>
+  <caption>Scatterplots of population change and log<m>_{10}</m>-transformed population change vs. population before change.</caption>
   <sidebyside widths="45% 45%">
     <figure xml:id="fig-county-pop-change-transform-1">
       <caption>Population change</caption>
       <image source="images/fig-county-pop-change-transform-1.png" />
     </figure>
     <figure xml:id="fig-county-pop-change-transform-2">
-      <caption>log$_{10}$-transformed population change</caption>
+      <caption>log<m>_{10}</m>-transformed population change</caption>
       <image source="images/fig-county-pop-change-transform-2.png" />
     </figure>
   </sidebyside>
 </figure>
 
-<p>Transformations other than the logarithm can be useful, too. For instance, the square root $(\sqrt{\text{original observation}})$ and inverse $\bigg ( \frac{1}{\text{original observation}} \bigg )$ are commonly used by data scientists. Common goals in transforming data are to see the data structure differently, reduce skew, assist in modeling, or straighten a nonlinear relationship in a scatterplot.</p>
+<p>Transformations other than the logarithm can be useful, too. For instance, the square root <m>(\sqrt{\text{original observation}})</m> and inverse <m>\bigg ( \frac{1}{\text{original observation}} \bigg )</m> are commonly used by data scientists. Common goals in transforming data are to see the data structure differently, reduce skew, assist in modeling, or straighten a nonlinear relationship in a scatterplot.</p>
 
 </section>
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<chapter xml:id="ch08-linear-regression-multiple" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="sec-model-mlr" xmlns:xi="http://www.w3.org/2001/XInclude">
 
 <title>Linear regression with multiple predictors</title>
 
@@ -50,11 +50,11 @@
 
 </note>
 
-<reading xml:id="tbl-loans-data-matrix">
-  <title>First six rows of the <c>loans</c> dataset</title>
+<listing xml:id="tbl-loans-data-matrix">
+  <caption>First six rows of the <c>loans</c> dataset</caption>
   <!-- First six rows of the `loans` dataset. tbl-pos: H -->
   <program language="r">
-    <input>
+    <code>
 <![CDATA[
 loans |>
   slice_head(n = n_rows_to_show) |>
@@ -68,15 +68,15 @@ loans |>
     full_width = FALSE
   )
 ]]>
-    </input>
+    </code>
   </program>
-</reading>
+</listing>
 
-<reading xml:id="tbl-loans-variables">
-  <title>Variables and their descriptions for the <c>loans</c> dataset</title>
+<listing xml:id="tbl-loans-variables">
+  <caption>Variables and their descriptions for the <c>loans</c> dataset</caption>
   <!-- Variables and their descriptions for the `loans` dataset. tbl-pos: H -->
   <program language="r">
-    <input>
+    <code>
 <![CDATA[
 loans_var_def <- tribble(
   ~variable,         ~description,
@@ -103,9 +103,9 @@ loans_var_def |>
   column_spec(1, monospace = TRUE) |>
   column_spec(2, width = "30em")
 ]]>
-    </input>
+    </code>
   </program>
-</reading>
+</listing>
 
 <section xml:id="sec-ind-and-cat-predictors">
   <title>Indicator and categorical predictors</title>
@@ -116,11 +116,11 @@ loans_var_def |>
 
 <p>Results of this model are shown in <xref ref="tbl-int-rate-bankruptcy" />.</p>
 
-<reading xml:id="tbl-int-rate-bankruptcy">
-  <title>Summary of a linear model for predicting <c>interest_rate</c> based on whether the borrower has a bankruptcy in their record</title>
+<listing xml:id="tbl-int-rate-bankruptcy">
+  <caption>Summary of a linear model for predicting <c>interest_rate</c> based on whether the borrower has a bankruptcy in their record</caption>
   <!--  Summary of a linear model for predicting `interest_rate` based on whether the borrower has a bankruptcy in their record. Degrees of freedom for this model is 9998. tbl-pos: H -->
   <program language="r">
-    <input>
+    <code>
 <![CDATA[
 m_bankruptcy <- lm(interest_rate ~ bankruptcy, data = loans)
 
@@ -138,9 +138,9 @@ m_bankruptcy |>
   column_spec(1, width = "13em", monospace = TRUE) |>
   column_spec(2:5, width = "4em")
 ]]>
-    </input>
+    </code>
   </program>
-</reading>
+</listing>
 
 
 <example>
@@ -169,11 +169,11 @@ m_bankruptcy |>
 
 <p>The missing level is called the <alert>reference level</alert> and it represents the default level that other levels are measured against.</p>
 
-<reading xml:id="tbl-int-rate-ver-income">
-  <title>Summary of a linear model for predicting <c>interest_rate</c> from the borrower's income source and amount verification</title>
+<listing xml:id="tbl-int-rate-ver-income">
+  <caption>Summary of a linear model for predicting <c>interest_rate</c> from the borrower's income source and amount verification</caption>
   <!--  Summary of a linear model for predicting `interest_rate` from the borrower’s income source and amount verification. This predictor has three levels, which results in 2 rows in the regression output. tbl-pos: H -->
   <program language="r">
-    <input>
+    <code>
 <![CDATA[
 m_verified_income <- lm(interest_rate ~ verified_income, data = loans)
 
@@ -191,9 +191,9 @@ m_verified_income |>
   column_spec(1, width = "17em", monospace = TRUE) |>
   column_spec(2:5, width = "5em")
 ]]>
-    </input>
+    </code>
   </program>
-</reading>
+</listing>
 
 
 <example>
@@ -356,11 +356,11 @@ m_verified_income |>
 
 <p>Using this output, we identify <m>b_i,</m> just as we did in the one-predictor case.</p>
 
-<reading xml:id="tbl-loans-full">
-  <title>Output for the regression model</title>
+<listing xml:id="tbl-loans-full">
+  <caption>Output for the regression model</caption>
   <!--  Output for the regression model, where interest rate is the outcome and the variables listed are the predictors. Degrees of freedom for this model is 9990. tbl-pos: H -->
   <program language="r">
-    <input>
+    <code>
 <![CDATA[
 m_full <- lm(interest_rate ~ ., data = loans)
 
@@ -375,9 +375,9 @@ m_full |>
   column_spec(1, width = "15em", monospace = TRUE) |>
   column_spec(2:5, width = "5em")
 ]]>
-    </input>
+    </code>
   </program>
-</reading>
+</listing>
 
 <assemblage>
   <title>Multiple regression model</title>
@@ -635,11 +635,11 @@ R^2 = 1 - \frac{\text{variability in residuals}}{\text{variability in the outcom
 
 <p>The first table summarizes the full model since it includes all predictors, while the second does not include the <c>issue_month</c> variable.</p>
 
-<reading xml:id="tbl-loans-full-for-model-selection">
-  <title>The fit for the full regression model</title>
+<listing xml:id="tbl-loans-full-for-model-selection">
+  <caption>The fit for the full regression model</caption>
   <!--  The fit for the full regression model, including the adjusted $R^2$. tbl-pos: H -->
   <program language="r">
-    <input>
+    <code>
 <![CDATA[
 options(digits = 6) # to get more digits
 m_full_r_sq_adj <- glance(m_full)$adj.r.squared |> round(4)
@@ -668,15 +668,15 @@ m_full_w_rsq |>
   add_indent(11:12) |>
   row_spec(11:12, italic = TRUE)
 ]]>
-    </input>
+    </code>
   </program>
-</reading>
+</listing>
 
-<reading xml:id="tbl-loans-full-except-issue-month">
-  <title>The fit for the regression model after dropping issue month</title>
+<listing xml:id="tbl-loans-full-except-issue-month">
+  <caption>The fit for the regression model after dropping issue month</caption>
   <!--  The fit for the regression model after dropping issue month, including the adjusted $R^2$. tbl-pos: H -->
   <program language="r">
-    <input>
+    <code>
 <![CDATA[
 m_full_minus_issue_month <- lm(interest_rate ~ . - issue_month, data = loans)
 
@@ -707,9 +707,9 @@ m_full_minus_issue_month_w_rsq |>
   add_indent(9:10) |>
   row_spec(9:10, italic = TRUE)
 ]]>
-    </input>
+    </code>
   </program>
-</reading>
+</listing>
 
 
 <example>
@@ -914,17 +914,17 @@ m_full_minus_issue_month_w_rsq |>
 
 <p>You should be able to easily spot them as <alert>bolded text</alert>.</p>
 
-<reading xml:id="tbl-terms-chp-08">
-  <title>Terms introduced in this chapter</title>
+<listing xml:id="tbl-terms-chp-08">
+  <caption>Terms introduced in this chapter</caption>
   <!-- Terms introduced in this chapter. tbl-pos: H -->
   <program language="r">
-    <input>
+    <code>
 <![CDATA[
 make_terms_table(terms_chp_08)
 ]]>
-    </input>
+    </code>
   </program>
-</reading>
+</listing>
 
 </subsection>
 

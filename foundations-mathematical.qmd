@@ -182,13 +182,9 @@ normTail(axes = FALSE)
 Mathematical theory guarantees that if repeated samples are taken a sample proportion or a difference in sample proportions will follow something that resembles a normal distribution when certain conditions are met.
 (Note: we typically only take **one** sample, but the mathematical model lets us know what to expect if we *had* taken repeated samples.) These conditions fall into two general categories describing the independence between observations and the need to take a sufficiently large sample size.
 
-1.  Observations in the sample are **independent**.
-    Independence is guaranteed when we take a random sample from a population.
-    Independence can also be guaranteed if we randomly divide individuals into treatment and control groups.
+1.  **Observations in the sample are independent.** Independence is guaranteed when we take a random sample from a population. Independence can also be guaranteed if we randomly divide individuals into treatment and control groups.
 
-2.  The sample is **large enough**.
-    The sample size cannot be too small.
-    What qualifies as "small" differs from one context to the next, and we'll provide suitable guidelines for proportions in [Chapter -@sec-inference-one-prop].
+2.  **The sample is large enough.** The sample size cannot be too small. What qualifies as "small" differs from one context to the next, and we'll provide suitable guidelines for proportions in [Chapter -@sec-inference-one-prop].
 
 So far we have had no need for the normal distribution.
 We've been able to answer our questions somewhat easily using simulation techniques.

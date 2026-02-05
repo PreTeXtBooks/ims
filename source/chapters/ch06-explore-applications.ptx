@@ -3,9 +3,7 @@
 <chapter xml:id="ch06-explore-applications">
   <title>Applications: Explore</title>
   
-  <section xml:id="sec-case-study-effective-comms">
-    <title>Case study: Effective communication of exploratory results</title>
-    
+  <introduction>
     <p>
       Graphs can powerfully communicate ideas directly and quickly.
       We all know, after all, that <q>a picture is worth 1000 words.</q> Unfortunately, however, there are times when an image conveys a message which is inaccurate or misleading.
@@ -17,6 +15,10 @@
       However, even with an art, there are recommended guiding principles.
       We provide a few best practices for creating data visualizations.
     </p>
+  </introduction>
+  
+  <section xml:id="sec-case-study-effective-comms">
+    <title>Case study: Effective communication of exploratory results</title>
     
     <subsection xml:id="sec-keep-it-simple">
       <title>Keep it simple</title>
@@ -613,5 +615,11 @@ p +
     <p>
       You can also access the full list of labs supporting this book at <url href="https://www.openintro.org/go?id=ims-r-labs">https://www.openintro.org/go?id=ims-r-labs</url>.
     </p>
+  </section>
+  
+  <section xml:id="sec-chp6-exercises">
+    <title>Exercises</title>
+    
+    <p>Answers to odd-numbered exercises can be found in <xref ref="sec-exercise-solutions-06" />.</p>
   </section>
 </chapter>

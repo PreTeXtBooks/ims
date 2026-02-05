@@ -135,8 +135,9 @@ ggplot(loan50, aes(x = interest_rate)) +
 <p>The sample mean is often labeled $\bar{x}.$ The letter $x$ is being used as a generic placeholder for the variable of interest and the bar over the $x$ communicates we are looking at the average interest rate, which for these 50 loans is 11.57%. It's useful to think of the mean as the balancing point of the distribution, and it's shown as a triangle in <xref ref="fig-loan-int-rate-dotplot" />.</p>
 
 <assemblage>
-  <title>Mean.</title>
-  <p>The sample mean can be calculated as the sum of the observed values divided by the number of observations: \vspace{-5mm} <![CDATA[\bar{x} = \frac{x_1 + x_2 + \cdots + x_n}{n}]]></p>
+  <title>Mean</title>
+  <p>The sample mean can be calculated as the sum of the observed values divided by the number of observations:
+  <me>\bar{x} = \frac{x_1 + x_2 + \cdots + x_n}{n}</me></p>
 </assemblage>
 
 <exercise>
@@ -211,7 +212,9 @@ ggplot(loan50, aes(x = interest_rate)) +
     <p>Come up with another example where the mean is useful for making comparisons.</p>
   </statement>
   <solution>
-    <p>Emilio opened a food truck last year where he sells burritos, and his business has stabilized over the last 3 months. Over that 3-month period, he has made \$11,000 while working 625 hours. Emilio's average hourly earnings provides a useful statistic for evaluating whether his venture is, at least from a financial perspective, worth it: <![CDATA[\frac{\$11000}{625\text{ hours}} = \$17.60\text{ per hour}]]> By knowing his average hourly wage, Emilio now has put his earnings into a standard unit that is easier to compare with many other jobs that he might consider.</p>
+    <p>Emilio opened a food truck last year where he sells burritos, and his business has stabilized over the last 3 months. Over that 3-month period, he has made $11,000 while working 625 hours. Emilio's average hourly earnings provides a useful statistic for evaluating whether his venture is, at least from a financial perspective, worth it:
+    <me>\frac{\$11000}{625\text{ hours}} = \$17.60\text{ per hour}</me>
+    By knowing his average hourly wage, Emilio now has put his earnings into a standard unit that is easier to compare with many other jobs that he might consider.</p>
   </solution>
 </example>
 
@@ -322,7 +325,7 @@ ggplot(loan50, aes(x = interest_rate)) +
 
 <assemblage>
   <title>long tail</title>
-  <p>If a distribution has a long left tail, it is left skewed. If a distribution has a long right tail, it is right skewed.</p>
+  <p>When data trail off in one direction, the distribution has a long tail. If a distribution has a long left tail, it is left skewed. If a distribution has a long right tail, it is right skewed.</p>
 </assemblage>
 
 <exercise>
@@ -399,31 +402,40 @@ p_uni + p_bi + p_multi
 
 <p>The mean was introduced as a method to describe the center of a variable, and <alert>variability</alert> in the data is also important. Here, we introduce two measures of variability: the variance and the standard deviation. Both of these are very useful in data analysis, even though their formulas are a bit tedious to calculate by hand. The standard deviation is the easier of the two to comprehend, as it roughly describes how far away the typical observation is from the mean.</p>
 
-<p>We call the distance of an observation from its mean its <alert>deviation</alert>. Below are the deviations for the $1^{st},$ $2^{nd},$ $3^{rd},$ and $50^{th}$ observations in the <c>interest_rate</c> variable:</p>
+<p>We call the distance of an observation from its mean its <alert>deviation</alert>. Below are the deviations for the <m>1^{st},</m> <m>2^{nd},</m> <m>3^{rd},</m> and <m>50^{th}</m> observations in the <c>interest_rate</c> variable:</p>
 
-<p><![CDATA[\begin{aligned} x_1 - \bar{x} &= `r round(loan50$interest_rate[1], 2)` - `r round(loan50_interest_rate_mean, 2)` = `r loan50_interest_rate_deviation[1]` \\ x_2 - \bar{x} &= `r round(loan50$interest_rate[2], 2)` - `r round(loan50_interest_rate_mean, 2)` = `r loan50_interest_rate_deviation[2]` \\ x_3 - \bar{x} &= `r round(loan50$interest_rate[3], 2)` - `r round(loan50_interest_rate_mean, 2)` = `r loan50_interest_rate_deviation[3]` \\ &\vdots \\ x_{50} - \bar{x} &= `r round(loan50$interest_rate[50], 2)` - `r round(loan50_interest_rate_mean, 2)` = `r loan50_interest_rate_deviation[50]` \\ \end{aligned}]]></p>
+<md>
+\begin{aligned}
+x_1 - \bar{x} \amp= 10.9 - 11.57 = -0.67 \\
+x_2 - \bar{x} \amp= 9.92 - 11.57 = -1.65 \\
+x_3 - \bar{x} \amp= 26.3 - 11.57 = 14.73 \\
+\amp\vdots \\
+x_{50} - \bar{x} \amp= 6.08 - 11.57 = -5.49
+\end{aligned}
+</md>
 
-<p>If we square these deviations and then take an average, the result is equal to the sample <alert>variance</alert>, denoted by $s^2$:</p>
+<p>If we square these deviations and then take an average, the result is equal to the sample <alert>variance</alert>, denoted by <m>s^2</m>:</p>
 
-<p><![CDATA[s^2 = \frac{(`r loan50_interest_rate_deviation[1]`)^2 + (`r loan50_interest_rate_deviation[2]`)^2 + (`r loan50_interest_rate_deviation[3]`)^2 + \cdots + (`r loan50_interest_rate_deviation[50]`)^2}{50 - 1} = \frac{`r loan50_interest_rate_deviation_squared[1]` + `r loan50_interest_rate_deviation_squared[2]` + \cdots + `r loan50_interest_rate_deviation_squared[50]`}{49} = `r round(loan50_interest_rate_var, 2)`]]></p>
+<me>s^2 = \frac{(-0.67)^2 + (-1.65)^2 + (14.73)^2 + \cdots + (-5.49)^2}{50 - 1} = \frac{0.45 + 2.72 + \cdots + 30.14}{49} = 26.21</me>
 
 <p>We divide by $n - 1,$ rather than dividing by $n,$ when computing a sample's variance. There's some mathematical nuance here, but the end result is that doing this makes this statistic slightly more reliable and useful.</p>
 
 <p>Notice that squaring the deviations does two things. First, it makes large values relatively much larger. Second, it gets rid of any negative signs.</p>
 
 <assemblage>
-  <title>Standard deviation.</title>
-  <p>The sample standard deviation can be calculated as the square root of the sum of the squared distance of each value from the mean divided by the number of observations minus one: \vspace{-5mm} <![CDATA[s = \sqrt{\frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1}}]]></p>
+  <title>Standard deviation</title>
+  <p>The sample standard deviation can be calculated as the square root of the sum of the squared distance of each value from the mean divided by the number of observations minus one:
+  <me>s = \sqrt{\frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1}}</me></p>
 </assemblage>
 
 <p>The <alert>standard deviation</alert> is defined as the square root of the variance:</p>
 
-<p><![CDATA[s = \sqrt{`r round(loan50_interest_rate_var, 2)`} = `r round(loan50_interest_rate_sd, 2)`]]></p>
+<me>s = \sqrt{26.21} = 5.12</me>
 
 <p>While often omitted, a subscript of $_x$ may be added to the variance and standard deviation, i.e., $s_x^2$ and $s_x^{},$ if it is useful as a reminder that these are the variance and standard deviation of the observations represented by $x_1,$ $x_2,$ ..., $x_n.$</p>
 
 <assemblage>
-  <title>Variance and standard deviation.</title>
+  <title>Variance and standard deviation</title>
   <p>The variance is the average squared distance from the mean. The standard deviation is the square root of the variance. The standard deviation is useful when considering how far the data are distributed from the mean. The standard deviation represents the typical deviation of observations from the mean. Often about 68% of the data will be within one standard deviation of the mean and about 95% will be within two standard deviations. However, these percentages are not strict rules.</p>
 </assemblage>
 
@@ -617,15 +629,15 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
 <p>When there are an odd number of observations, there will be exactly one observation that splits the data into two halves, and in such a case that observation is the median (no average needed).</p>
 
 <assemblage>
-  <title>Median: the number in the middle.</title>
+  <title>Median: the number in the middle</title>
   <p>If the data are ordered from smallest to largest, the <alert>median</alert> is the observation right in the middle. If there are an even number of observations, there will be two values in the middle, and the median is taken as their average.</p>
 </assemblage>
 
 <p>The second step in building a box plot is drawing a rectangle to represent the middle 50% of the data. The length of the box is called the <alert>interquartile range</alert>, or <alert>IQR</alert> for short. It, like the standard deviation, is a measure of variability in data. The more variable the data, the larger the standard deviation and IQR tend to be. The two boundaries of the box are called the <alert>first quartile</alert> (the $25^{th}$ percentile, i.e., 25% of the data fall below this value) and the <alert>third quartile</alert> (the $75^{th}$ percentile, i.e., 75% of the data fall below this value), and these are often labeled $Q_1$ and $Q_3,$ respectively.</p>
 
 <assemblage>
-  <title>Interquartile range (IQR).</title>
-  <p>The IQR interquartile range is the length of the box in a box plot. It is computed as $IQR = Q_3 - Q_1,$ where $Q_1$ and $Q_3$ are the $25^{th}$ and $75^{th}$ percentiles, respectively. A $\alpha$ <alert>percentile</alert> is a number with $\alpha$% of the observations below and $100-\alpha$% of the observations above. For example, the $90^{th}$ percentile of SAT scores is the value of the SAT score with 90% of students below that value and 10% of students above that value.</p>
+  <title>Interquartile range (IQR)</title>
+  <p>The IQR is the length of the box in a box plot. It is computed as <m>IQR = Q_3 - Q_1,</m> where <m>Q_1</m> and <m>Q_3</m> are the <m>25^{th}</m> and <m>75^{th}</m> percentiles, respectively. A <m>\alpha</m> <alert>percentile</alert> is a number with <m>\alpha</m>% of the observations below and <m>100-\alpha</m>% of the observations above. For example, the <m>90^{th}</m> percentile of SAT scores is the value of the SAT score with 90% of students below that value and 10% of students above that value.</p>
 </assemblage>
 
 <exercise>
@@ -640,8 +652,14 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
 <p>Extending out from the box, the <alert>whiskers</alert> attempt to capture the data outside of the box. The whiskers of a box plot reach to the minimum and the maximum values in the data, unless there are points that are considered unusually high or unusually low, which are identified as potential <alert>outliers</alert> by the box plot. These are labeled with a dot on the box plot. The purpose of labeling the outlying points -- instead of extending the whiskers to the minimum and maximum observed values -- is to help identify any observations that appear to be unusually distant from the rest of the data. There are a variety of formulas for determining whether a particular data point is considered an outlier, and different statistical software use different formulas. A commonly used formula is that any observation beyond $1.5\times IQR$ away from the first or the third quartile is considered an outlier. In a sense, the box is like the body of the box plot and the whiskers are like its arms trying to reach the rest of the data, up to the outliers.</p>
 
 <assemblage>
-  <title>Outliers are extreme.</title>
-  <p>An <alert>outlier</alert> is an observation that appears extreme relative to the rest of the data. Examining data for outliers serves many useful purposes, including -   identifying strong skew  in the distribution, -   identifying possible data collection or data entry errors, and -   providing insight into interesting properties of the data. Keep in mind, however, that some datasets have a naturally long skew and outlying points do <alert>not</alert> represent any sort of problem in the dataset.</p>
+  <title>Outliers are extreme</title>
+  <p>An <alert>outlier</alert> is an observation that appears extreme relative to the rest of the data. Examining data for outliers serves many useful purposes, including:</p>
+  <ul>
+    <li><p>identifying strong skew in the distribution,</p></li>
+    <li><p>identifying possible data collection or data entry errors, and</p></li>
+    <li><p>providing insight into interesting properties of the data.</p></li>
+  </ul>
+  <p>Keep in mind, however, that some datasets have a naturally long skew and outlying points do <alert>not</alert> represent any sort of problem in the dataset.</p>
 </assemblage>
 
 <exercise>
@@ -738,9 +756,23 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
 
 <p>You might not be surprised that the answer to the question "which is better, the mean or the median?" is: <em>it depends</em>. The two statistics measure different things, and so their use is dependent on the context in the analysis. Consider the following scenarios:</p>
 
-<p>* Is it better to measure the average profit per customer or the median profit per customer?   - If concern is about the overall profit margin of the company, the mean is a better measure to assess what is happening across the company. The company could have a positive median profit per customer and still be unprofitable.   - If concern is around understanding the profit per typical customer, possibly to understand the growth headroom for the company's profit, the median profit per customer would tell you more about individual customer profits.</p>
-
-<p>* If you operate an app and want to know how long it takes for the app to open on your customers' phones, do you want the mean amount of time or the median amount of time?   - The mean leads to an understanding of the overall amount of time being wasted in opening the app.   - The median tells you about the typical user experience.   - However, if the app takes less than 5 milliseconds to launch for 50% of the users but more than 10 seconds to launch for 10% of the users, the median doesn't give the information you need. In that scenario, you might want an upper percentile, like the 95th percentile.</p>
+<ul>
+  <li>
+    <p>Is it better to measure the average profit per customer or the median profit per customer?</p>
+    <ul>
+      <li><p>If concern is about the overall profit margin of the company, the mean is a better measure to assess what is happening across the company. The company could have a positive median profit per customer and still be unprofitable.</p></li>
+      <li><p>If concern is around understanding the profit per typical customer, possibly to understand the growth headroom for the company's profit, the median profit per customer would tell you more about individual customer profits.</p></li>
+    </ul>
+  </li>
+  <li>
+    <p>If you operate an app and want to know how long it takes for the app to open on your customers' phones, do you want the mean amount of time or the median amount of time?</p>
+    <ul>
+      <li><p>The mean leads to an understanding of the overall amount of time being wasted in opening the app.</p></li>
+      <li><p>The median tells you about the typical user experience.</p></li>
+      <li><p>However, if the app takes less than 5 milliseconds to launch for 50% of the users but more than 10 seconds to launch for 10% of the users, the median doesn't give the information you need. In that scenario, you might want an upper percentile, like the 95th percentile.</p></li>
+    </ul>
+  </li>
+</ul>
 
 <exercise>
   <statement>

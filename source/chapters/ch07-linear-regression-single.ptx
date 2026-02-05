@@ -156,7 +156,7 @@ knitr::include_graphics("images/brushtail-possum/brushtail-possum.jpg")
 
 <figure xml:id="fig-brushtail-possum">
   <caption>The common brushtail possum of Australia. Photo by Greg Schecter,</caption>
-  <image source="images/fig-brushtail-possum-1.png" width="70%" />
+  <image source="images/fig-brushtail-possum-1.jpg" width="70%" />
 </figure>
 
 <note>

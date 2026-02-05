@@ -1,9 +1,985 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="sec-model-logistic" xmlns:xi="http://www.w3.org/2001/XInclude">
 
-<chapter xml:id="ch09-logistic-regression">
-  <title>Logistic regression</title>
-  
+<title>Logistic regression</title>
+
+<introduction>
   <p>
-    Content to be added from model-logistic.qmd
+    In this chapter we introduce <alert>logistic regression</alert> as a tool for building models when there is a categorical response variable with two levels, e.g., yes and no.
+    Logistic regression is a type of <alert>generalized linear model (GLM)</alert> for response variables where regular multiple regression does not work very well.
+    GLMs can be thought of as a two-stage modeling approach.
+    We first model the response variable using a probability distribution, such as the binomial or Poisson distribution.
+    Second, we model the parameter of the distribution using a collection of predictors and a special form of multiple regression.
+    Ultimately, the application of a GLM will feel very similar to multiple regression, even if some of the details are different.
   </p>
+</introduction>
+
+<section xml:id="discrimination-in-hiring">
+  <title>Discrimination in hiring</title>
+
+  <p>
+    We will consider experiment data from a study that sought to understand the effect of race and sex on job application callback rates (see <xref ref="bertrand2003" />).
+    To evaluate which factors were important, job postings were identified in Boston and Chicago for the study, and researchers created many fake resumes to send off to these jobs to see which would elicit a callback.<fn>We did omit discussion of some structure in the data for the analysis presented: the experiment design included blocking, where typically four resumes were sent to each job: one for each inferred race/sex combination (as inferred based on the first name). We did not worry about the blocking aspect, since accounting for the blocking would <em>reduce</em> the standard error without notably changing the point estimates for the <c>race</c> and <c>sex</c> variables versus the analysis performed in the section. That is, the most interesting conclusions in the study are unaffected even when completing a more sophisticated analysis.</fn>
+    The researchers enumerated important characteristics, such as years of experience and education details, and they used these characteristics to randomly generate fake resumes.
+    Finally, they randomly assigned a name to each resume, where the name would imply the applicant's sex and race.
+  </p>
+
+  <note>
+    <title>Data</title>
+    <p>
+      The <url href="http://openintrostat.github.io/openintro/reference/resume.html"><c>resume</c></url> data can be found in the <url href="http://openintrostat.github.io/openintro"><term>openintro</term></url> R package.
+    </p>
+  </note>
+
+  <p>
+    The first names that were used and randomly assigned in the experiment were selected so that they would predominantly be recognized as belonging to Black or White individuals; other races were not considered in the study.
+    While no name would definitively be inferred as pertaining to a Black individual or to a White individual, the researchers conducted a survey to check for racial association of the names; names that did not pass the survey check were excluded from usage in the experiment.
+    You can find the full set of names that did pass the survey test and were ultimately used in the study in <xref ref="tbl-resume-names" />.
+    For example, Lakisha was a name that their survey indicated would be interpreted as a Black woman, while Greg was a name that would generally be interpreted to be associated with a White male.
+  </p>
+
+  <listing xml:id="listing-resume-names-code">
+    <caption>R code for creating the table of resume names</caption>
+    <program language="r">
+      <code>
+resume_names_full &lt;- resume |&gt;
+  select(firstname, race, gender) |&gt;
+  distinct(firstname, .keep_all = TRUE) |&gt;
+  arrange(firstname) |&gt;
+  rownames_to_column() |&gt;
+  mutate(
+    rowname = as.numeric(rowname),
+    column = cut(rowname, breaks = c(0, 12, 24, 36)),
+    race = str_to_title(race),
+    sex = if_else(gender == "f", "female", "male"),
+    column = as.numeric(column)
+  ) |&gt;
+  select(-rowname, -gender) |&gt;
+  relocate(column)
+
+resume_names_1 &lt;- resume_names_full |&gt;
+  filter(column == 1) |&gt;
+  select(-column)
+
+resume_names_2 &lt;- resume_names_full |&gt;
+  filter(column == 2) |&gt;
+  select(-column)
+
+resume_names_3 &lt;- resume_names_full |&gt;
+  filter(column == 3) |&gt;
+  select(-column)
+
+resume_names_1 |&gt;
+  bind_cols(resume_names_2) |&gt;
+  bind_cols(resume_names_3) |&gt;
+  kbl(
+    linesep = "", booktabs = TRUE, align = "lllllllll",
+    col.names = c(
+      "first_name", "race", "sex",
+      "first_name", "race", "sex",
+      "first_name", "race", "sex"
+    )
+  ) |&gt;
+  kable_styling(
+    bootstrap_options = c("striped", "condensed"),
+    latex_options = c("striped"), full_width = FALSE
+  ) |&gt;
+  column_spec(4, border_left = T) |&gt;
+  column_spec(7, border_left = T)
+      </code>
+    </program>
+  </listing>
+
+  <table xml:id="tbl-resume-names">
+    <title>List of all 36 unique names along with the commonly inferred race and sex associated with these names.</title>
+    <tabular>
+      <row header="yes">
+        <cell>first_name</cell>
+        <cell>race</cell>
+        <cell>sex</cell>
+        <cell>first_name</cell>
+        <cell>race</cell>
+        <cell>sex</cell>
+        <cell>first_name</cell>
+        <cell>race</cell>
+        <cell>sex</cell>
+      </row>
+      <row>
+        <cell>Aisha</cell><cell>Black</cell><cell>female</cell>
+        <cell>Jay</cell><cell>White</cell><cell>male</cell>
+        <cell>Neil</cell><cell>White</cell><cell>male</cell>
+      </row>
+      <row>
+        <cell>Allison</cell><cell>White</cell><cell>female</cell>
+        <cell>Jermaine</cell><cell>Black</cell><cell>male</cell>
+        <cell>Rasheed</cell><cell>Black</cell><cell>male</cell>
+      </row>
+      <row>
+        <cell>Anne</cell><cell>White</cell><cell>female</cell>
+        <cell>Jill</cell><cell>White</cell><cell>female</cell>
+        <cell>Sarah</cell><cell>White</cell><cell>female</cell>
+      </row>
+      <row>
+        <cell>Brad</cell><cell>White</cell><cell>male</cell>
+        <cell>Kareem</cell><cell>Black</cell><cell>male</cell>
+        <cell>Tamika</cell><cell>Black</cell><cell>female</cell>
+      </row>
+      <row>
+        <cell>Brendan</cell><cell>White</cell><cell>male</cell>
+        <cell>Keisha</cell><cell>Black</cell><cell>female</cell>
+        <cell>Tanisha</cell><cell>Black</cell><cell>female</cell>
+      </row>
+      <row>
+        <cell>Brett</cell><cell>White</cell><cell>male</cell>
+        <cell>Kenya</cell><cell>Black</cell><cell>female</cell>
+        <cell>Todd</cell><cell>White</cell><cell>male</cell>
+      </row>
+      <row>
+        <cell>Carrie</cell><cell>White</cell><cell>female</cell>
+        <cell>Kristen</cell><cell>White</cell><cell>female</cell>
+        <cell>Tremayne</cell><cell>Black</cell><cell>male</cell>
+      </row>
+      <row>
+        <cell>Darnell</cell><cell>Black</cell><cell>male</cell>
+        <cell>Lakisha</cell><cell>Black</cell><cell>female</cell>
+        <cell>Tyrone</cell><cell>Black</cell><cell>male</cell>
+      </row>
+      <row>
+        <cell>Ebony</cell><cell>Black</cell><cell>female</cell>
+        <cell>Latonya</cell><cell>Black</cell><cell>female</cell>
+        <cell>Meredith</cell><cell>White</cell><cell>female</cell>
+      </row>
+      <row>
+        <cell>Emily</cell><cell>White</cell><cell>female</cell>
+        <cell>Latoya</cell><cell>Black</cell><cell>female</cell>
+        <cell>Matthew</cell><cell>White</cell><cell>male</cell>
+      </row>
+      <row>
+        <cell>Geoffrey</cell><cell>White</cell><cell>male</cell>
+        <cell>Laurie</cell><cell>White</cell><cell>female</cell>
+        <cell>Hakim</cell><cell>Black</cell><cell>male</cell>
+      </row>
+      <row>
+        <cell>Greg</cell><cell>White</cell><cell>male</cell>
+        <cell>Leroy</cell><cell>Black</cell><cell>male</cell>
+        <cell>Jay</cell><cell>White</cell><cell>male</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <listing xml:id="listing-resume-data-prep">
+    <caption>R code for preparing the resume dataset</caption>
+    <program language="r">
+      <code>
+resume &lt;- resume |&gt;
+  rename(sex = gender) |&gt;
+  mutate(
+    sex = if_else(sex == "m", "man", "woman"),
+    sex = fct_relevel(sex, "woman", "man"),
+    received_callback = as.factor(received_callback),
+    college_degree = as.factor(college_degree),
+    honors = as.factor(honors),
+    military = as.factor(military),
+    has_email_address = as.factor(has_email_address),
+    race = if_else(race == "black", "Black", "White")
+  ) |&gt;
+  select(
+    received_callback, job_city, college_degree, years_experience,
+    honors, military, has_email_address, race, sex
+  )
+      </code>
+    </program>
+  </listing>
+
+  <p>
+    The response variable of interest is whether there was a callback from the employer for the applicant, and there were 8 attributes that were randomly assigned that we'll consider, with special interest in the race and sex variables.
+    Race and sex are protected classes in the United States, meaning they are not legally permitted factors for hiring or employment decisions.
+    The full set of attributes considered is provided in <xref ref="tbl-resume-variables" />.
+  </p>
+
+  <listing xml:id="listing-resume-variables-code">
+    <caption>R code for creating the table of resume variables</caption>
+    <program language="r">
+      <code>
+resume_variables &lt;- tribble(
+  ~variable,           ~description,
+  "received_callback", "Specifies whether the employer called the applicant following submission of the application for the job.",
+  "job_city",          "City where the job was located: Boston or Chicago.",
+  "college_degree",    "An indicator for whether the resume listed a college degree.",
+  "years_experience",  "Number of years of experience listed on the resume.",
+  "honors",            "Indicator for the resume listing some sort of honors, e.g. employee of the month.",
+  "military",          "Indicator for if the resume listed any military experience.",
+  "has_email_address", "Indicator for if the resume listed an email address for the applicant.",
+  "race",              "Race of the applicant, implied by their first name listed on the resume.",
+  "sex",               "Sex of the applicant (limited to only man and woman), implied by the first name listed on the resume."
+)
+
+resume_variables |&gt;
+  kbl(linesep = "", booktabs = TRUE) |&gt;
+  kable_styling(
+    bootstrap_options = c("striped", "condensed"),
+    full_width = FALSE
+  ) |&gt;
+  column_spec(1, monospace = TRUE) |&gt;
+  column_spec(2, width = "30em")
+      </code>
+    </program>
+  </listing>
+
+  <table xml:id="tbl-resume-variables">
+    <title>Descriptions of nine variables from the <c>resume</c> dataset. Many of the variables are indicator variables, meaning they take the value 1 if the specified characteristic is present and 0 otherwise.</title>
+    <tabular>
+      <row header="yes">
+        <cell>variable</cell>
+        <cell>description</cell>
+      </row>
+      <row>
+        <cell><c>received_callback</c></cell>
+        <cell>Specifies whether the employer called the applicant following submission of the application for the job.</cell>
+      </row>
+      <row>
+        <cell><c>job_city</c></cell>
+        <cell>City where the job was located: Boston or Chicago.</cell>
+      </row>
+      <row>
+        <cell><c>college_degree</c></cell>
+        <cell>An indicator for whether the resume listed a college degree.</cell>
+      </row>
+      <row>
+        <cell><c>years_experience</c></cell>
+        <cell>Number of years of experience listed on the resume.</cell>
+      </row>
+      <row>
+        <cell><c>honors</c></cell>
+        <cell>Indicator for the resume listing some sort of honors, e.g. employee of the month.</cell>
+      </row>
+      <row>
+        <cell><c>military</c></cell>
+        <cell>Indicator for if the resume listed any military experience.</cell>
+      </row>
+      <row>
+        <cell><c>has_email_address</c></cell>
+        <cell>Indicator for if the resume listed an email address for the applicant.</cell>
+      </row>
+      <row>
+        <cell><c>race</c></cell>
+        <cell>Race of the applicant, implied by their first name listed on the resume.</cell>
+      </row>
+      <row>
+        <cell><c>sex</c></cell>
+        <cell>Sex of the applicant (limited to only man and woman), implied by the first name listed on the resume.</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <p>
+    All of the attributes listed on each resume were randomly assigned, which means that no attributes that might be favorable or detrimental to employment would favor one demographic over another on these resumes.
+    Importantly, due to the experimental nature of the study, we can infer causation between these variables and the callback rate, if substantial differences are found.
+    Our analysis will allow us to compare the practical importance of each of the variables relative to each other.
+  </p>
+</section>
+
+<section xml:id="sec-modelingTheProbabilityOfAnEvent">
+  <title>Modelling the probability of an event</title>
+
+  <p>
+    Logistic regression is a generalized linear model where the outcome is a two-level categorical variable.
+    The outcome, <m>Y_i</m>, takes the value 1 (in our application, the outcome represents a callback for the resume) with probability <m>p_i</m> and the value 0 with probability <m>1 - p_i</m>.
+    Because each observation has a slightly different context, e.g., different education level or a different number of years of experience, the probability <m>p_i</m> will differ for each observation.
+    Ultimately, it is the <alert>probability</alert> of the outcome taking the value 1 (i.e., being a "success") that we model in relation to the predictor variables: we will examine which resume characteristics correspond to higher or lower callback rates.
+  </p>
+
+  <assemblage>
+    <p><alert>Notation for a logistic regression model.</alert></p>
+    <p>
+      The outcome variable for a GLM is denoted by <m>Y_i</m>, where the index <m>i</m> is used to represent observation <m>i</m>.
+      In the resume application, <m>Y_i</m> will be used to represent whether resume <m>i</m> received a callback (<m>Y_i=1</m>) or not (<m>Y_i=0</m>).
+    </p>
+  </assemblage>
+
+  <p>
+    The predictor variables are represented as follows: <m>x_{1,i}</m> is the value of variable 1 for observation <m>i</m>, <m>x_{2,i}</m> is the value of variable 2 for observation <m>i</m>, and so on.
+  </p>
+
+  <me>
+    transformation(p_i) = \beta_0 + \beta_1 x_{1,i} + \beta_2 x_{2,i} + \cdots + \beta_k x_{k,i}
+  </me>
+
+  <p>
+    We want to choose a <alert>transformation</alert> in the equation that makes practical and mathematical sense.
+    For example, we want a transformation that makes the range of possibilities on the left hand side of the equation equal to the range of possibilities for the right hand side; if there was no transformation in the equation, the left hand side could only take values between 0 and 1, but the right hand side could take values well outside of the range from 0 to 1.
+  </p>
+
+  <p>
+    A common transformation for <m>p_i</m> is the <alert>logit transformation</alert>, which may be written as
+  </p>
+
+  <me>
+    logit(p_i) = \log_{e}\left( \frac{p_i}{1-p_i} \right)
+  </me>
+
+  <p>
+    The <alert>logit transformation</alert> is shown in <xref ref="fig-logit-transformation" />.
+    Below, we rewrite the equation relating <m>Y_i</m> to its predictors using the logit transformation of <m>p_i</m>:
+  </p>
+
+  <me>
+    \log_{e}\left( \frac{p_i}{1-p_i} \right) = \beta_0 + \beta_1 x_{1,i} + \beta_2 x_{2,i} + \cdots + \beta_k x_{k,i}
+  </me>
+
+  <listing xml:id="listing-logit-transformation">
+    <caption>R code for creating the logit transformation plot</caption>
+    <program language="r">
+      <code>
+logit_df_line &lt;- tibble(
+  p  = seq(0.0001, 0.9999, 0.0001),
+  lp = log(p / (1 - p))
+)
+
+logit_df_point &lt;- tibble(
+  lp = -5:6,
+  p = round(exp(lp) / (exp(lp) + 1), 3)
+) |&gt;
+  mutate(
+    label = glue::glue("({lp}, {p})"),
+    label_pos = case_when(
+      lp %in% c(-5, -3, 4, 6) ~ "above",
+      lp %in% c(-4, 3, 5) ~ "below",
+      lp == -2 ~ "right",
+      lp %in% c(-1, 0, 1, 2) ~ "left",
+    )
+  )
+
+ggplot(logit_df_line, aes(x = lp, y = p)) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = IMSCOL["blue", "full"]) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = IMSCOL["blue", "full"]) +
+  geom_line(linewidth = 0.5) +
+  coord_cartesian(
+    xlim = c(-5.5, 6.15),
+    ylim = c(-0.05, 1.1)
+  ) +
+  geom_point(
+    data = logit_df_point, shape = "circle open",
+    size = 3, color = IMSCOL["red", "full"], stroke = 2
+  ) +
+  geom_text(
+    data = logit_df_point |&gt; filter(label_pos == "above"),
+    aes(label = label), vjust = -2
+  ) +
+  geom_text(
+    data = logit_df_point |&gt; filter(label_pos == "below"),
+    aes(label = label), vjust = 2.5
+  ) +
+  geom_text(
+    data = logit_df_point |&gt; filter(label_pos == "right"),
+    aes(label = label), hjust = -0.25
+  ) +
+  geom_text(
+    data = logit_df_point |&gt; filter(label_pos == "left"),
+    aes(label = label), hjust = 1.25
+  ) +
+  labs(
+    x = expression(logit(p[i])),
+    y = expression(p[i])
+  )
+      </code>
+    </program>
+  </listing>
+
+  <figure xml:id="fig-logit-transformation">
+    <caption>Values of <m>p_i</m> against values of <m>logit(p_i)</m>.</caption>
+    <image source="images/fig-logit-transformation-1.png" width="70%" />
+  </figure>
+
+  <p>
+    In our resume example, there are 8 predictor variables, so <m>k = 8</m>.
+    While the precise choice of a logit function isn't intuitive, it is based on theory that underpins generalized linear models, which is beyond the scope of this book.
+    Fortunately, once we fit a model using software, it will start to feel like we are back in the multiple regression context, even if the interpretation of the coefficients is more complex.
+  </p>
+
+  <p>
+    To convert from values on the logistic regression scale to the probability scale, we need to back transform and then solve for <m>p_i</m>:
+  </p>
+
+  <md>
+    <mrow>\log_{e}\left( \frac{p_i}{1-p_i} \right) \amp = \beta_0 + \beta_1 x_{1,i} + \cdots + \beta_k x_{k,i}</mrow>
+    <mrow>\frac{p_i}{1-p_i} \amp = e^{\beta_0 + \beta_1 x_{1,i} + \cdots + \beta_k x_{k,i}}</mrow>
+    <mrow>p_i \amp = \left( 1 - p_i \right) e^{\beta_0 + \beta_1 x_{1,i} + \cdots + \beta_k x_{k,i}}</mrow>
+    <mrow>p_i \amp = e^{\beta_0 + \beta_1 x_{1,i}  + \cdots + \beta_k x_{k,i}} - p_i \times e^{\beta_0 + \beta_1 x_{1,i} + \cdots + \beta_k x_{k,i}}</mrow>
+    <mrow>p_i + p_i \text{ } e^{\beta_0 + \beta_1 x_{1,i} + \cdots + \beta_k x_{k,i}} \amp = e^{\beta_0 + \beta_1 x_{1,i} + \cdots + \beta_k x_{k,i}}</mrow>
+    <mrow>p_i(1 + e^{\beta_0 + \beta_1 x_{1,i} + \cdots + \beta_k x_{k,i}}) \amp = e^{\beta_0 + \beta_1 x_{1,i} + \cdots + \beta_k x_{k,i}}</mrow>
+    <mrow>p_i \amp = \frac{e^{\beta_0 + \beta_1 x_{1,i}  + \cdots + \beta_k x_{k,i}}}{1 + e^{\beta_0 + \beta_1 x_{1,i} + \cdots + \beta_k x_{k,i}}}</mrow>
+  </md>
+
+  <p>
+    As with most applied data problems, we substitute in the point estimates (the observed <m>b_i</m>) to calculate relevant probabilities.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        We start by fitting a model with a single predictor: <c>honors</c>.
+        This variable indicates whether the applicant had any type of honors listed on their resume, such as employee of the month.
+        A logistic regression model was fit using statistical software and the following model was found:
+      </p>
+      <me>\log_e \left( \frac{\widehat{p}_i}{1-\widehat{p}_i} \right) = -2.4998 + 0.8668 \times \texttt{honors}</me>
+      <p>
+        a. If a resume is randomly selected from the study and it does not have any honors listed, what is the probability it resulted in a callback?
+      </p>
+      <p>
+        b. What would the probability be if the resume did list some honors?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        a. If a randomly chosen resume from those sent out is considered, and it does not list honors, then <c>honors</c> takes the value of 0 and the right side of the model equation equals -2.4998. Solving for <m>p_i</m>: <m>\frac{e^{-2.4998}}{1 + e^{-2.4998}} = 0.076</m>. Just as we labeled a fitted value of <m>y_i</m> with a "hat" in single-variable and multiple regression, we do the same for this probability: <m>\hat{p}_i = 0.076</m>.
+      </p>
+      <p>
+        b. If the resume had listed some honors, then the right side of the model equation is <m>-2.4998 + 0.8668 \times 1 = -1.6330</m>, which corresponds to a probability <m>\hat{p}_i = 0.163</m>. Notice that we could examine -2.4998 and -1.6330 in <xref ref="fig-logit-transformation" /> to estimate the probability before formally calculating the value.
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    While knowing whether a resume listed honors provides some signal when predicting whether the employer would call, we would like to account for many different variables at once to understand how each of the different resume characteristics affected the chance of a callback.
+  </p>
+</section>
+
+<section xml:id="logistic-model-with-many-variables">
+  <title>Logistic model with many variables</title>
+
+  <p>
+    We used statistical software to fit the logistic regression model with all 8 predictors described in <xref ref="tbl-resume-variables" />.
+    Like multiple regression, the result may be presented in a summary table, which is shown in <xref ref="tbl-resume-full-fit" />.
+  </p>
+
+  <listing xml:id="listing-resume-full-fit">
+    <caption>R code for fitting the full logistic regression model</caption>
+    <program language="r">
+      <code>
+resume_full_fit &lt;- logistic_reg() |&gt;
+  fit(received_callback ~ job_city + college_degree + years_experience + honors + military + has_email_address + race + sex, data = resume, family = "binomial")
+
+resume_full_fit |&gt;
+  tidy() |&gt;
+  mutate(p.value = ifelse(p.value &lt; 0.0001, "&lt;0.0001", round(p.value, 4))) |&gt;
+  kbl(
+    linesep = "", booktabs = TRUE,
+    digits = 2, align = "lrrrrr"
+  ) |&gt;
+  kable_styling(
+    bootstrap_options = c("striped", "condensed"),
+    latex_options = c("striped")
+  ) |&gt;
+  column_spec(1, width = "10em", monospace = TRUE) |&gt;
+  column_spec(2:5, width = "5em")
+      </code>
+    </program>
+  </listing>
+
+  <table xml:id="tbl-resume-full-fit">
+    <title>Summary table for the full logistic regression model for the resume callback example.</title>
+    <tabular>
+      <row header="yes">
+        <cell>term</cell>
+        <cell>estimate</cell>
+        <cell>std.error</cell>
+        <cell>statistic</cell>
+        <cell>p.value</cell>
+      </row>
+      <row>
+        <cell>(Intercept)</cell>
+        <cell>-2.66</cell>
+        <cell>0.18</cell>
+        <cell>-14.61</cell>
+        <cell><m>&lt;0.0001</m></cell>
+      </row>
+      <row>
+        <cell>job_cityChicago</cell>
+        <cell>-0.44</cell>
+        <cell>0.11</cell>
+        <cell>-4.13</cell>
+        <cell><m>&lt;0.0001</m></cell>
+      </row>
+      <row>
+        <cell>college_degree1</cell>
+        <cell>-0.07</cell>
+        <cell>0.12</cell>
+        <cell>-0.58</cell>
+        <cell>0.5595</cell>
+      </row>
+      <row>
+        <cell>years_experience</cell>
+        <cell>0.02</cell>
+        <cell>0.01</cell>
+        <cell>2.01</cell>
+        <cell>0.0447</cell>
+      </row>
+      <row>
+        <cell>honors1</cell>
+        <cell>0.77</cell>
+        <cell>0.19</cell>
+        <cell>4.02</cell>
+        <cell><m>&lt;0.0001</m></cell>
+      </row>
+      <row>
+        <cell>military1</cell>
+        <cell>-0.34</cell>
+        <cell>0.22</cell>
+        <cell>-1.57</cell>
+        <cell>0.1160</cell>
+      </row>
+      <row>
+        <cell>has_email_address1</cell>
+        <cell>0.22</cell>
+        <cell>0.11</cell>
+        <cell>1.99</cell>
+        <cell>0.0467</cell>
+      </row>
+      <row>
+        <cell>raceWhite</cell>
+        <cell>0.44</cell>
+        <cell>0.11</cell>
+        <cell>4.13</cell>
+        <cell><m>&lt;0.0001</m></cell>
+      </row>
+      <row>
+        <cell>sexman</cell>
+        <cell>-0.18</cell>
+        <cell>0.11</cell>
+        <cell>-1.71</cell>
+        <cell>0.0877</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <p>
+    Just like multiple regression, we could trim some variables from the model.
+    Here we'll use a statistic called <alert>Akaike information criterion (AIC)</alert>, which is analogous to how we used adjusted <m>R^2</m> in multiple regression.
+    AIC is a popular model selection method used in many disciplines, and is praised for its emphasis on model uncertainty and parsimony.
+    AIC selects a "best" model by ranking models from best to worst according to their AIC values.
+    In the calculation of a model's AIC, a penalty is given for including additional variables.
+    The penalty for added model complexity attempts to strike a balance between underfitting (too few variables in the model) and overfitting (too many variables in the model).
+    When using AIC for model selection, models with a lower AIC value are considered to be "better." Remember that when using adjusted <m>R^2</m> we select models with higher values instead.
+    It is important to note that AIC provides information about the quality of a model relative to other models, but does not provide information about the overall quality of a model.
+  </p>
+
+  <p>
+    <xref ref="tbl-resume-full-fit-aic" /> provides the AIC and the number of observations used to fit the model. We also know from <xref ref="tbl-resume-full-fit" /> that eight variables (with nine coefficients, including the intercept) were fit.
+  </p>
+
+  <listing xml:id="listing-resume-full-fit-aic">
+    <caption>R code for getting AIC of the full model</caption>
+    <program language="r">
+      <code>
+resume_full_fit &lt;- logistic_reg() |&gt;
+  fit(received_callback ~ job_city + college_degree + years_experience + honors + military + has_email_address + race + sex, data = resume, family = "binomial")
+
+resume_full_fit |&gt;
+  glance() |&gt;
+  select(AIC, number_observations = nobs) |&gt;
+  kbl(
+    linesep = "", booktabs = TRUE,
+    digits = 2, align = "rr"
+  ) |&gt;
+  kable_styling(
+    bootstrap_options = c("striped", "condensed"),
+    latex_options = c("striped"),
+    full_width = FALSE
+  ) |&gt;
+  column_spec(1:2, width = "10em", monospace = TRUE)
+      </code>
+    </program>
+  </listing>
+
+  <table xml:id="tbl-resume-full-fit-aic">
+    <title>AIC for the full logistic regression model fit to the full resume callback example.</title>
+    <tabular>
+      <row header="yes">
+        <cell>AIC</cell>
+        <cell>number_observations</cell>
+      </row>
+      <row>
+        <cell>1944.43</cell>
+        <cell>4870</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <p>
+    We will look for models with a lower AIC using a backward elimination strategy. <xref ref="tbl-resume-fit-aic" /> provides the AIC values for the model with variables as given in <xref ref="tbl-resume-fit" />. Notice that the same number of observations are used, but one fewer variable (<c>college_degree</c> is dropped from the model).
+  </p>
+
+  <listing xml:id="listing-resume-fit-aic">
+    <caption>R code for getting AIC after removing college_degree</caption>
+    <program language="r">
+      <code>
+resume_fit &lt;- logistic_reg() |&gt;
+  fit(received_callback ~ job_city + years_experience + honors + military + has_email_address + race + sex, data = resume, family = "binomial")
+
+resume_fit |&gt;
+  glance() |&gt;
+  select(AIC, number_observations = nobs) |&gt;
+  kbl(
+    linesep = "", booktabs = TRUE,
+    digits = 2, align = "rrr"
+  ) |&gt;
+  kable_styling(
+    bootstrap_options = c("striped", "condensed"),
+    latex_options = c("striped"),
+    full_width = FALSE
+  ) |&gt;
+  column_spec(1:2, width = "10em", monospace = TRUE)
+      </code>
+    </program>
+  </listing>
+
+  <table xml:id="tbl-resume-fit-aic">
+    <title>AIC for the logistic regression model fit to the resume callback example without <c>college_degree</c>.</title>
+    <tabular>
+      <row header="yes">
+        <cell>AIC</cell>
+        <cell>number_observations</cell>
+      </row>
+      <row>
+        <cell>1942.76</cell>
+        <cell>4870</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <p>
+    After using the AIC criteria, the variable <c>college_degree</c> is eliminated (the AIC value without <c>college_degree</c> is smaller than the AIC value on the full model), giving the model summarized in <xref ref="tbl-resume-fit" /> with fewer variables, which is what we'll rely on for the remainder of the section.
+  </p>
+
+  <listing xml:id="listing-resume-fit">
+    <caption>R code for fitting the reduced logistic regression model</caption>
+    <program language="r">
+      <code>
+resume_fit &lt;- logistic_reg() |&gt;
+  fit(received_callback ~ job_city + years_experience + honors + military + has_email_address + race + sex, data = resume, family = "binomial")
+
+resume_fit |&gt;
+  tidy() |&gt;
+  mutate(p.value = ifelse(p.value &lt; 0.0001, "&lt;0.0001", round(p.value, 4))) |&gt;
+  kbl(
+    linesep = "", booktabs = TRUE,
+    digits = 2, align = "lrrrrr"
+  ) |&gt;
+  kable_styling(
+    bootstrap_options = c("striped", "condensed"),
+    latex_options = c("striped")
+  ) |&gt;
+  column_spec(1, width = "10em", monospace = TRUE) |&gt;
+  column_spec(2:5, width = "5em")
+      </code>
+    </program>
+  </listing>
+
+  <table xml:id="tbl-resume-fit">
+    <title>Summary table for the logistic regression model for the resume callback example, where variable selection has been performed using AIC and <c>college_degree</c> has been dropped from the model.</title>
+    <tabular>
+      <row header="yes">
+        <cell>term</cell>
+        <cell>estimate</cell>
+        <cell>std.error</cell>
+        <cell>statistic</cell>
+        <cell>p.value</cell>
+      </row>
+      <row>
+        <cell>(Intercept)</cell>
+        <cell>-2.72</cell>
+        <cell>0.16</cell>
+        <cell>-16.85</cell>
+        <cell><m>&lt;0.0001</m></cell>
+      </row>
+      <row>
+        <cell>job_cityChicago</cell>
+        <cell>-0.44</cell>
+        <cell>0.11</cell>
+        <cell>-4.13</cell>
+        <cell><m>&lt;0.0001</m></cell>
+      </row>
+      <row>
+        <cell>years_experience</cell>
+        <cell>0.02</cell>
+        <cell>0.01</cell>
+        <cell>2.04</cell>
+        <cell>0.0413</cell>
+      </row>
+      <row>
+        <cell>honors1</cell>
+        <cell>0.76</cell>
+        <cell>0.19</cell>
+        <cell>4.00</cell>
+        <cell><m>&lt;0.0001</m></cell>
+      </row>
+      <row>
+        <cell>military1</cell>
+        <cell>-0.34</cell>
+        <cell>0.22</cell>
+        <cell>-1.58</cell>
+        <cell>0.1142</cell>
+      </row>
+      <row>
+        <cell>has_email_address1</cell>
+        <cell>0.22</cell>
+        <cell>0.11</cell>
+        <cell>2.01</cell>
+        <cell>0.0448</cell>
+      </row>
+      <row>
+        <cell>raceWhite</cell>
+        <cell>0.44</cell>
+        <cell>0.11</cell>
+        <cell>4.13</cell>
+        <cell><m>&lt;0.0001</m></cell>
+      </row>
+      <row>
+        <cell>sexman</cell>
+        <cell>-0.20</cell>
+        <cell>0.11</cell>
+        <cell>-1.82</cell>
+        <cell>0.0684</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <example>
+    <statement>
+      <p>
+        The <c>race</c> variable had taken only two levels: <c>Black</c> and <c>White</c>.
+        Based on the model results, what does the coefficient of the <c>race</c> variable say about callback decisions?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        The coefficient shown corresponds to the level of <c>White</c>, and it is positive.
+        The positive coefficient reflects a positive gain in callback rate for resumes where the candidate's first name implied they were White.
+        The model results suggest that prospective employers favor resumes where the first name is typically interpreted to be White.
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    The coefficient of <m>\texttt{race}_{\texttt{White}}</m> in the full model in <xref ref="tbl-resume-full-fit" />, is nearly identical to the model shown in <xref ref="tbl-resume-fit" />.
+    The predictors in the experiment were thoughtfully laid out so that the coefficient estimates would typically not be much influenced by which other predictors were in the model, which aligned with the motivation of the study to tease out which effects were important to getting a callback.
+    In most observational data, it's common for point estimates to change a little, and sometimes a lot, depending on which other variables are included in the model.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Use the model summarized in <xref ref="tbl-resume-fit" /> to estimate the probability of receiving a callback for a job in Chicago where the candidate lists 14 years experience, no honors, no military experience, includes an email address, and has a first name that implies they are a White male.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We can start by writing out the equation using the coefficients from the model:
+      </p>
+      <md>
+        <mrow>\log_e \left(\frac{\widehat{p}}{1 - \widehat{p}}\right) = -2.7162 \amp - 0.4364 \times \texttt{job\_city}_{\texttt{Chicago}} + 0.0206 \times \texttt{years\_experience}</mrow>
+        <mrow>\amp + 0.7634 \times \texttt{honors} - 0.3443 \times \texttt{military} + 0.2221 \times \texttt{email}</mrow>
+        <mrow>\amp + 0.4429 \times \texttt{race}_{\texttt{White}} - 0.1959 \times \texttt{sex}_{\texttt{man}}</mrow>
+      </md>
+      <p>
+        Now we can add in the corresponding values of each variable for the individual of interest:
+      </p>
+      <md>
+        <mrow>\log_e \left(\frac{\widehat{p}}{1 - \widehat{p}}\right) = - 2.7162 \amp - 0.4364 \times 1 + 0.0206 \times 14</mrow>
+        <mrow>\amp + 0.7634 \times 0 - 0.3443 \times 0 + 0.2221 \times 1</mrow>
+        <mrow>\amp + 0.4429 \times 1 - 0.1959 \times 1 = - 2.3955</mrow>
+      </md>
+      <p>
+        We can now back-solve for <m>\widehat{p}</m>: the chance such an individual will receive a callback is about <m>\frac{e^{-2.3955}}{1 + e^{-2.3955}} = 0.0835</m>.
+      </p>
+    </solution>
+  </example>
+
+  <example>
+    <statement>
+      <p>
+        Compute the probability of a callback for an individual with a name commonly inferred to be from a Black male but who otherwise has the same characteristics as the one described in the previous example.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We can complete the same steps for an individual with the same characteristics who is Black, where the only difference in the calculation is that the indicator variable <m>\texttt{race}_{\texttt{White}}</m> will take a value of 0.
+        Doing so yields a probability of 0.0553.
+        Let's compare the results with those of the previous example.
+      </p>
+      <p>
+        In practical terms, an individual perceived as White based on their first name would need to apply to <m>\frac{1}{0.0835} \approx 12</m> jobs on average to receive a callback, while an individual perceived as Black based on their first name would need to apply to <m>\frac{1}{0.0553} \approx 18</m> jobs on average to receive a callback.
+        That is, applicants who are perceived as Black need to apply to 50% more employers to receive a callback than someone who is perceived as White based on their first name for jobs like those in the study.
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    What we have quantified in the current section is alarming and disturbing.
+    However, one aspect that makes the racism so difficult to address is that the experiment, as well-designed as it is, cannot send us much signal about which employers are discriminating.
+    It is only possible to say that discrimination is happening, even if we cannot say which particular callbacks <mdash /> or non-callbacks <mdash /> represent discrimination.
+    Finding strong evidence of racism for individual cases is a persistent challenge in enforcing anti-discrimination laws.
+  </p>
+</section>
+
+<section xml:id="groups-of-different-sizes">
+  <title>Groups of different sizes</title>
+
+  <p>
+    Any form of discrimination is concerning, which is why we decided it was so important to discuss the topic using data.
+    The resume study also only examined discrimination in a single aspect: whether a prospective employer would call a candidate who submitted their resume.
+    There was a 50% higher barrier for resumes simply when the candidate had a first name that was perceived to be of a Black individual.
+    It's unlikely that discrimination would stop there.
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Let's consider a sex-imbalanced company that consists of 20% women and 80% men, and we'll suppose that the company is very large, consisting of perhaps 20,000 employees.
+        (A more deliberate example would include more inclusive gender identities.) Suppose when someone goes up for promotion at the company, 5 of their colleagues are randomly chosen to provide feedback on their work.
+      </p>
+      <p>
+        Now let's imagine that 10% of the people in the company are prejudiced against the other sex.
+        That is, 10% of men are prejudiced against women, and similarly, 10% of women are prejudiced against men. Who is discriminated against more at the company, men or women?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let's suppose we took 100 men who have gone up for promotion in the past few years.
+        For these men, <m>5 \times 100 = 500</m> random colleagues will be tapped for their feedback, of which about 20% will be women (100 women).
+        Of these 100 women, 10 are expected to be biased against the man they are reviewing.
+        Then, of the 500 colleagues reviewing them, men will experience discrimination by about 2% of their colleagues when they go up for promotion.
+      </p>
+      <p>
+        Let's do a similar calculation for 100 women who have gone up for promotion in the last few years.
+        They will also have 500 random colleagues providing feedback, of which about 400 (80%) will be men.
+        Of these 400 men, about 40 (10%) hold a bias against women.
+        Of the 500 colleagues providing feedback on the promotion packet for these women, 8% of the colleagues hold a bias against the women.
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    The example highlights something profound: even in a hypothetical setting where each demographic has the same degree of prejudice against the other demographic, the smaller group experiences the negative effects more frequently.
+    Additionally, if we would complete a handful of examples like the one above with different numbers, we would learn that the greater the imbalance in the population groups, the more the smaller group is disproportionately impacted.<fn>If a proportion <m>p</m> of a company are women and the rest of the company consists of men, then under the hypothetical situation the ratio of rates of discrimination against women versus men would be given by <m>(1 - p) / p</m>, a ratio that is always greater than 1 when <m>p &lt; 0.5</m>.</fn>
+  </p>
+
+  <p>
+    Of course, there are other considerable real-world omissions from the hypothetical example.
+    For example, studies have found instances where people from an oppressed group also discriminate against others within their own oppressed group.
+    As another example, there are also instances where a majority group can be oppressed, with apartheid in South Africa being one such historic example.
+    Ultimately, discrimination is complex, and there are many factors at play beyond the mathematics property we observed in the previous example.
+  </p>
+
+  <p>
+    We close the chapter on the serious topic of discrimination, and we hope it inspires you to think about the power of reasoning with data.
+    Whether it is with a formal statistical model or by using critical thinking skills to structure a problem, we hope the ideas you have learned will help you do more and do better in life.
+  </p>
+</section>
+
+<section xml:id="sec-chp9-review">
+  <title>Chapter review</title>
+
+  <subsection xml:id="summary-chp9">
+    <title>Summary</title>
+
+    <p>
+      Logistic and linear regression models have many similarities.
+      The strongest of which is the linear combination of the explanatory variables which is used to form predictions related to the response variable.
+      However, with logistic regression, the response variable is binary and therefore a prediction is given on the probability of a successful event.
+      Logistic model fit and variable selection can be carried out in similar ways as multiple linear regression.
+    </p>
+  </subsection>
+
+  <subsection xml:id="terms-chp9">
+    <title>Terms</title>
+
+    <p>
+      The terms introduced in this chapter are presented in <xref ref="tbl-terms-chp-09" />.
+      If you're not sure what some of these terms mean, we recommend you go back in the text and review their definitions.
+      You should be able to easily spot them as <alert>bolded text</alert>.
+    </p>
+
+    <table xml:id="tbl-terms-chp-09">
+      <title>Terms introduced in this chapter.</title>
+      <tabular>
+        <row>
+          <cell>logistic regression</cell>
+        </row>
+        <row>
+          <cell>generalized linear model</cell>
+        </row>
+        <row>
+          <cell>probability of an event</cell>
+        </row>
+        <row>
+          <cell>transformation</cell>
+        </row>
+        <row>
+          <cell>logit transformation</cell>
+        </row>
+        <row>
+          <cell>Akaike information criterion</cell>
+        </row>
+        <row>
+          <cell>AIC</cell>
+        </row>
+      </tabular>
+    </table>
+  </subsection>
+</section>
+
+<section xml:id="sec-chp09-exercises">
+  <title>Exercises</title>
+
+  <p>
+    Answers to odd-numbered exercises can be found in Appendix <xref ref="sec-exercise-solutions-09" />.
+  </p>
+
+  <exercises>
+    <title>Chapter exercises</title>
+
+    <exercise>
+      <title>True / False</title>
+      <statement>
+        <p>
+          Determine which of the following statements are true and false.
+          For each statement that is false, explain why it is false.
+        </p>
+        <p>
+          <ol>
+            <li><p>In logistic regression we fit a line to model the relationship between the predictor(s) and the binary outcome.</p></li>
+            <li><p>In logistic regression, we expect the residuals to be even scattered on either side of zero, just like with linear regression.</p></li>
+            <li><p>In logistic regression, the outcome variable is binary but the predictor variable(s) can be either binary or continuous.</p></li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <title>Logistic regression fact checking</title>
+      <statement>
+        <p>
+          Determine which of the following statements are true and false.
+          For each statement that is false, explain why it is false.
+        </p>
+        <p>
+          <ol>
+            <li><p>Suppose we consider the first two observations based on a logistic regression model, where the first variable in observation 1 takes a value of <m>x_1 = 6</m> and observation 2 has <m>x_1 = 4</m>. Suppose we realized we made an error for these two observations, and the first observation was actually <m>x_1 = 7</m> (instead of 6) and the second observation actually had <m>x_1 = 5</m> (instead of 4). Then the predicted probability from the logistic regression model would increase the same amount for each observation after we correct these variables.</p></li>
+            <li><p>When using a logistic regression model, it is impossible for the model to predict a probability that is negative or a probability that is greater than 1.</p></li>
+            <li><p>Because logistic regression predicts probabilities of outcomes, observations used to build a logistic regression model need not be independent.</p></li>
+            <li><p>When fitting logistic regression, we typically complete model selection using adjusted <m>R^2</m>.</p></li>
+          </ol>
+        </p>
+      </statement>
+    </exercise>
+
+    <p>
+      <em>Note: Additional exercises from exercises/_09-ex-model-logistic.qmd require conversion to PreTeXt format. These include complex exercises on possum classification, Challenger disaster analysis, and spam filtering, with embedded R code blocks, tables, and figures that need to be converted.</em>
+    </p>
+
+  </exercises>
+</section>
+
 </chapter>

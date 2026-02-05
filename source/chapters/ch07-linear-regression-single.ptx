@@ -27,8 +27,10 @@
 
 <p>However, the prediction would be far from perfect, since other factors play a role in financial support beyond a family's finances.</p>
 
-<program language="r">
-  <input>
+<listing xml:id="listing-perfLinearModel-code">
+  <caption>R code for creating the perfect linear model plot</caption>
+  <program language="r">
+    <input>
 
 target &lt;- simulated_scatter |&gt;
   filter(group == 4)
@@ -42,7 +44,8 @@ ggplot(target, aes(x = x, y = y)) +
     y = "Total cost of the\nshare purchase"
   )
     </input>
-</program>
+  </program>
+</listing>
 
 <figure xml:id="fig-perfLinearModel">
   <caption>Requests from twelve separate buyers were simultaneously placed with a trading company to purchase Target Corporation stock (ticker TGT, December 28th, 2018), and the total cost of the shares was reported. Because the cost is computed using a linear formula, the linear fit is perfect.</caption>
@@ -79,8 +82,10 @@ ggplot(target, aes(x = x, y = y)) +
 
 <p>As we move forward in this chapter, we will learn about criteria for line-fitting, and we will also learn about the uncertainty associated with estimates of model parameters.</p>
 
-<program language="r">
-  <input>
+<listing xml:id="listing-imperfLinearModel-code">
+  <caption>R code for creating three scatterplots with linear models</caption>
+  <program language="r">
+    <input>
 
 neg &lt;- simulated_scatter |&gt; filter(group == 1)
 pos &lt;- simulated_scatter |&gt; filter(group == 2)
@@ -103,7 +108,8 @@ p_ran &lt;- ggplot(ran, aes(x = x, y = y)) +
 
 p_neg + p_pos + p_ran
     </input>
-</program>
+  </program>
+</listing>
 
 <figure xml:id="fig-imperfLinearModel">
   <caption>Three datasets where a linear model may be useful even though the data do not all fall exactly on the line.</caption>
@@ -116,8 +122,10 @@ p_neg + p_pos + p_ran
 
 <p>We discuss nonlinear trends in this chapter and the next, but details of fitting nonlinear models are saved for a later course.</p>
 
-<program language="r">
-  <input>
+<listing xml:id="listing-notGoodAtAllForALinearModel-code">
+  <caption>R code for nonlinear relationship plot</caption>
+  <program language="r">
+    <input>
 
 bad &lt;- simulated_scatter |&gt; filter(group == 5)
 
@@ -129,7 +137,8 @@ ggplot(bad, aes(x = x, y = y)) +
     y = "Distance Traveled (m)"
   )
     </input>
-</program>
+  </program>
+</listing>
 
 <figure xml:id="fig-notGoodAtAllForALinearModel">
   <caption>The best fitting line for these data is flat, which is not a useful way to describe the non-linear relationship. These data are from a physics experiment.</caption>
@@ -147,12 +156,15 @@ ggplot(bad, aes(x = x, y = y)) +
 
 <p>We consider two of these measurements: the total length of each possum, from head to tail, and the length of each possum's head.</p>
 
-<program language="r">
-  <input>
+<listing xml:id="listing-brushtail-possum-image">
+  <caption>R code for loading possum image</caption>
+  <program language="r">
+    <input>
 
 knitr::include_graphics("images/brushtail-possum/brushtail-possum.jpg")
     </input>
-</program>
+  </program>
+</listing>
 
 <figure xml:id="fig-brushtail-possum">
   <caption>The common brushtail possum of Australia. Photo by Greg Schecter,</caption>
@@ -172,8 +184,10 @@ knitr::include_graphics("images/brushtail-possum/brushtail-possum.jpg")
 
 <p>While the relationship is not perfectly linear, it could be helpful to partially explain the connection between these variables with a straight line.</p>
 
-<program language="r">
-  <input>
+<listing xml:id="listing-scattHeadLTotalL-code">
+  <caption>R code for possum scatterplot with highlighted point</caption>
+  <program language="r">
+    <input>
 
 ggplot(possum, aes(x = total_l, y = head_l)) +
   geom_point(alpha = 0.7, size = 2) +
@@ -188,7 +202,8 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
     size = 5, shape = "circle open", stroke = 2
   )
     </input>
-</program>
+  </program>
+</listing>
 
 <figure xml:id="fig-scattHeadLTotalL">
   <caption>A scatterplot showing head length against total length for 104 brushtail possums. A point representing a possum with head length 86.7 mm and total length 84 cm is highlighted.</caption>
@@ -199,8 +214,10 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
 
 <p>In this example, we will use the total length as the predictor variable, <m>x,</m> to predict a possum's head length, <m>y.</m> We could fit the linear relationship by eye, as in <xref ref="fig-scattHeadLTotalLLine" />.</p>
 
-<program language="r">
-  <input>
+<listing xml:id="listing-scattHeadLTotalLLine-code">
+  <caption>R code for possum scatterplot with linear model</caption>
+  <program language="r">
+    <input>
 
 ggplot(possum, aes(x = total_l, y = head_l)) +
   geom_point(alpha = 0.7, size = 2) +
@@ -210,7 +227,8 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
   ) +
   geom_smooth(method = "lm", se = FALSE)
     </input>
-</program>
+  </program>
+</listing>
 
 <figure xml:id="fig-scattHeadLTotalLLine">
   <caption>A reasonable linear model was fit to represent the relationship between head length and total length.</caption>
@@ -245,8 +263,10 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
 
 <p>It's harder to tell if age changes the relationship between total length and head length for these possums.</p>
 
-<program language="r">
-  <input>
+<listing xml:id="listing-scattHeadLTotalL-sex-age-code">
+  <caption>R code for possum plots by sex and age</caption>
+  <program language="r">
+    <input>
 
 p_sex &lt;- ggplot(possum, aes(x = total_l, y = head_l, shape = sex, color = sex)) +
   geom_point(alpha = 0.8, size = 2) +
@@ -272,7 +292,8 @@ p_age &lt;- ggplot(possum, aes(x = total_l, y = head_l, color = age)) +
 p_sex
 p_age
     </input>
-</program>
+  </program>
+</listing>
 
 <figure xml:id="fig-scattHeadLTotalL-sex-age">
   <caption>Relationship between total length and head length of brushtail possums, taking into consideration their sex or age.</caption>
@@ -317,8 +338,10 @@ p_age
 
 <p>For example, the residual for the observation marked by a pink triangle is larger than that of the observation marked by a red circle because <m>|-4|</m> is larger than <m>|-1|.</m></p>
 
-<program language="r">
-  <input>
+<listing xml:id="listing-scattHeadLTotalLLine-highlighted-code">
+  <caption>R code for possum plot with highlighted residuals</caption>
+  <program language="r">
+    <input>
 
 mod &lt;- lm(head_l ~ total_l, data = possum)
 preds &lt;- predict(mod, data.frame(total_l = c(76, 85, 95.5)))
@@ -355,7 +378,8 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
     color = IMSCOL["pink", "full"], inherit.aes = FALSE
   )
     </input>
-</program>
+  </program>
+</listing>
 
 <figure xml:id="fig-scattHeadLTotalLLine-highlighted">
   <caption>A reasonable linear model was fit to represent the relationship between head length and total length, with three points highlighted.</caption>
@@ -412,8 +436,10 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
 
 <p>For instance, the point <m>(85.0, 98.6)</m> (marked by the blue diamond) had a predicted value of 91.4 mm and had a residual of 7.45 mm, so in the residual plot it is placed at <m>(91.4, 7.45).</m> Creating a residual plot is sort of like tipping the scatterplot over so the regression line is horizontal, as indicated by the dashed line.</p>
 
-<program language="r">
-  <input>
+<listing xml:id="listing-scattHeadLTotalLResidualPlot-code">
+  <caption>R code for residual plot</caption>
+  <program language="r">
+    <input>
 
 m_head_total &lt;- lm(head_l ~ total_l, data = possum)
 m_head_total_aug &lt;- augment(m_head_total)
@@ -465,7 +491,8 @@ ggplot(m_head_total_aug, aes(x = .fitted, y = .resid)) +
     color = IMSCOL["pink", "full"], inherit.aes = FALSE
   )
     </input>
-</program>
+  </program>
+</listing>
 
 <figure xml:id="fig-scattHeadLTotalLResidualPlot">
   <caption>Residual plot for the model predicting head length from total length for brushtail possums.</caption>
@@ -591,8 +618,10 @@ p_neg_lin + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
 
 <p>If there is no apparent linear relationship between the variables, then the correlation will be near zero.</p>
 
-<program language="r">
-  <input>
+<listing xml:id="listing-posNegCorPlots-code">
+  <caption>R code for correlation plots with positive and negative relationships</caption>
+  <program language="r">
+    <input>
 
 library(ggpubr) # Adding here instead of _common.R to avoid collision with ggimage
 
@@ -612,7 +641,8 @@ simulated_scatter |&gt;
     geom = "label"
   )
     </input>
-</program>
+  </program>
+</listing>
 
 <figure xml:id="fig-posNegCorPlots">
   <caption>Sample scatterplots and their correlations. The first row shows variables with a positive relationship, represented by the trend up and to the right. The second row shows variables with a negative trend, where a large value in one variable is associated with a lower value in the other.</caption>
@@ -623,8 +653,10 @@ simulated_scatter |&gt;
 
 <p>Nonlinear trends, even when strong, sometimes produce correlations that do not reflect the strength of the relationship; see three such examples in <xref ref="fig-corForNonLinearPlots" />.</p>
 
-<program language="r">
-  <input>
+<listing xml:id="listing-corForNonLinearPlots-code">
+  <caption>R code for nonlinear relationship correlation plots</caption>
+  <program language="r">
+    <input>
 
 simulated_scatter |&gt;
   filter(group %in% 17:19) |&gt;
@@ -642,7 +674,8 @@ simulated_scatter |&gt;
     geom = "label"
   )
     </input>
-</program>
+  </program>
+</listing>
 
 <figure xml:id="fig-corForNonLinearPlots">
   <caption>Sample scatterplots and their correlations. In each case, there is a strong relationship between the variables. However, because the relationship is not linear, the correlation is relatively weak.</caption>
@@ -700,8 +733,10 @@ simulated_scatter |&gt;
 
 <p>The only visual change to the plot is the axis <em>labeling</em> of the points.</p>
 
-<program language="r">
-  <input>
+<listing xml:id="listing-bdims-units-code">
+  <caption>R code for comparing metric and imperial unit plots</caption>
+  <program language="r">
+    <input>
 
 p_1 &lt;- ggplot(bdims, aes(x = hgt, y = wgt)) +
   geom_point(alpha = 0.8) +
@@ -727,7 +762,8 @@ p_2 &lt;- bdims |&gt;
 p_1
 p_2
     </input>
-</program>
+  </program>
+</listing>
 
 <figure xml:id="fig-bdims-units">
   <caption>Two scatterplots, both displaying the relationship between weights and heights of 507 physically healthy adults and the correlation coefficient, <m>r = 0.72</m>.</caption>
@@ -775,8 +811,10 @@ p_2
   </solution>
 </exercise>
 
-<program language="r">
-  <input>
+<listing xml:id="listing-elmhurstScatterWLine-code">
+  <caption>R code for Elmhurst gift aid scatterplot</caption>
+  <program language="r">
+    <input>
 
 ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
   geom_point(size = 2) +
@@ -788,7 +826,8 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
     y = "Gift aid from university"
   )
     </input>
-</program>
+  </program>
+</listing>
 
 <figure xml:id="fig-elmhurstScatterWLine">
   <caption>Gift aid and family income for a random sample of 50 first-year students from Elmhurst College.</caption>
@@ -814,8 +853,10 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 
 <p>The resulting dashed line shown in <xref ref="fig-elmhurstScatterW2Lines" /> demonstrates this fit can be quite reasonable.</p>
 
-<program language="r">
-  <input>
+<listing xml:id="listing-elmhurstScatterW2Lines-code">
+  <caption>R code for comparing two line-fitting methods</caption>
+  <program language="r">
+    <input>
 
 ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
   geom_point(alpha = 0.8) +
@@ -828,7 +869,8 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
     y = "Gift aid from university"
   )
     </input>
-</program>
+  </program>
+</listing>
 
 <figure xml:id="fig-elmhurstScatterW2Lines">
   <caption>Gift aid and family income for a random sample of 50 first-year Elmhurst College students. The dashed line is the line that minimizes the sum of the absolute value of residuals, the solid line is the line that minimizes the sum of squared residuals, i.e., the least squares line.</caption>
@@ -1232,8 +1274,10 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 
 <p>Note that the original dataset contains some Mario Kart games being sold at prices above \<m>100 but for this analysis we have limited our focus to the <c>r nrow(mariokart_lt100)</c> Mario Kart games that were sold below \</m>100.</p>
 
-<program language="r">
-  <input>
+<listing xml:id="listing-marioKartNewUsed-code">
+  <caption>R code for Mario Kart price by condition plot</caption>
+  <program language="r">
+    <input>
 
 mariokart_lt100 |&gt;
   filter(total_pr &lt; 100) |&gt;
@@ -1251,7 +1295,8 @@ mariokart_lt100 |&gt;
     y = "Total price"
   )
     </input>
-</program>
+  </program>
+</listing>
 
 <figure xml:id="fig-marioKartNewUsed">
   <caption>Total auction prices for the video game Mario Kart, divided into used (<m>x = 0</m>) and new (<m>x = 1</m>) condition games. The least squares regression line is also shown.</caption>
@@ -1371,7 +1416,9 @@ mariokart_lt100 |&gt;
   </solution>
 </example>
 
-<program language="r">
+<listing xml:id="listing-outlier-plots-code">
+  <caption>R code for creating outlier diagnostic plots</caption>
+  <program language="r">
   <input>
 
 # abc
@@ -1582,7 +1629,8 @@ p_4 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
   p_5_res + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) + p_6_res +
   plot_layout(ncol = 3, heights = c(2, 1))
     </input>
-</program>
+  </program>
+</listing>
 
 <figure xml:id="fig-outlier-plots">
   <caption>Plots of six datasets, each with a least squares line and corresponding residual plot. Each dataset has at least one outlier.</caption>

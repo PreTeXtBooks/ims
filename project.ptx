@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    This file provides the overall configuration for your PreTeXt
-    project. To edit the content of your document, open `source/main.ptx`
-    (default location).
--->
-<project ptx-version="2" source="source" publication="publication" output-dir="output">
+<project ptx-version="2">
   <targets>
-    <target name="html" format="html" />
-    <target name="pdf" format="pdf" />
-    <target name="web" format="html" deploy="yes" />
+    <target name="html">
+      <format>html</format>
+      <source>source/main.ptx</source>
+      <publication>publication/publication.ptx</publication>
+      <output-dir>output/html</output-dir>
+    </target>
   </targets>
 </project>

@@ -145,6 +145,13 @@
           <em>The American Mathematical Monthly</em>, 128(7):598-610. 
           DOI: 10.1080/00029890.2021.1932237.
         </biblio>
+        
+        <biblio type="raw" xml:id="bertrand2003">
+          Bertrand, M. and Mullainathan, S. (2003).
+          Are Emily and Greg More Employable than Lakisha and Jamal? A Field Experiment on Labor Market Discrimination.
+          <em>Working Paper</em>, National Bureau of Economic Research.
+          <url href="https://www.nber.org/papers/w9873">https://www.nber.org/papers/w9873</url>
+        </biblio>
       </references>
     </backmatter>
   </book>

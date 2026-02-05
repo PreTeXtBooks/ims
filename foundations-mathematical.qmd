@@ -1117,7 +1117,7 @@ Let's re-analyze the data in the context of the normal distribution and compare 
 The [`opportunity_cost`](http://openintrostat.github.io/openintro/reference/opportunity_cost.html) data can be found in the [**openintro**](http://openintrostat.github.io/openintro) R package.
 :::
 
-### Variability of the statistic
+### Variability of the statistic {#sec-variability-opportunity-cost}
 
 @fig-OpportunityCostDiffs-w-normal summarizes the null distribution as determined using the randomization method.
 The best fitting normal distribution for the null distribution has a mean of 0.
@@ -1156,7 +1156,7 @@ ggplot(opportunity_cost_sim_dist, aes(x = stat)) +
   annotate("text", x = 0.2, y = 2.8, label = "observed\ndifference")
 ```
 
-### Observed statistic vs. null statistics
+### Observed statistic vs. null statistics {#sec-observed-vs-null-opportunity-cost}
 
 As we learned in @sec-normalDist, it is helpful to draw and shade a picture of the normal distribution so we know precisely what we want to calculate.
 Here we want to find the area of the tail beyond 0.2, representing the p-value.
@@ -1201,7 +1201,7 @@ In that work, we did not model a null scenario, but we will discuss a simulation
 We have added the best-fitting normal curve to the figure, which has a mean of 0.10.
 Borrowing a formula that we'll encounter in [Chapter -@sec-inference-one-prop], the standard error of this distribution was also computed: $SE = 0.038.$
 
-### Variability of the statistic
+### Variability of the statistic {#sec-variability-medical-consultant}
 
 Before we begin, we want to point out a simple detail that is easy to overlook: the null distribution we generated from the simulation is slightly skewed, and the histogram is not particularly smooth.
 In fact, the normal distribution only sort-of fits this model.
@@ -1240,7 +1240,7 @@ ggplot(medical_consultant_sim_dist, aes(x = stat)) +
   annotate("text", x = 0.05, y = 9, label = "observed\nvalue")
 ```
 
-### Observed statistic vs. null statistics
+### Observed statistic vs. null statistics {#sec-observed-vs-null-medical-consultant}
 
 As always, we'll draw a picture before finding the normal probabilities.
 Below is a normal distribution centered at 0.10 with a standard error of 0.038.
@@ -1376,7 +1376,7 @@ stent30 |>
 The [`stent30`](http://openintrostat.github.io/openintro/reference/stent30.html) data can be found in the [**openintro**](http://openintrostat.github.io/openintro) R package.
 :::
 
-### Variability of the statistic
+### Variability of the statistic {#sec-variability-stent}
 
 ::: {.workedexample data-latex=""}
 Consider the stent study and results.

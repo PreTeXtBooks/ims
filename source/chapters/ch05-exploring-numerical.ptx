@@ -969,14 +969,14 @@ ggplot(county, aes(y = pop_change, x = log(pop2010, base = 10))) +
 <section xml:id="sec-chp5-review">
   <title>Chapter review</title>
 
-<subsection xml:id="summary">
+<subsection xml:id="summary-chp5">
   <title>Summary</title>
 
 <p>Fluently working with numerical variables is an important skill for data analysts. In this chapter we have introduced different visualizations and numerical summaries applied to numeric variables. The graphical visualizations are even more descriptive when two variables are presented simultaneously. We presented scatterplots, dot plots, histograms, and box plots. Numerical variables can be summarized using the mean, median, quartiles, standard deviation, and variance.</p>
 
 </subsection>
 
-<subsection xml:id="terms">
+<subsection xml:id="terms-chp5">
   <title>Terms</title>
 
 <p>The terms introduced in this chapter are presented in <xref ref="tbl-terms-chp-05" />. If you're not sure what some of these terms mean, we recommend you go back in the text and review their definitions. You should be able to easily spot them as <alert>bolded text</alert>.</p>

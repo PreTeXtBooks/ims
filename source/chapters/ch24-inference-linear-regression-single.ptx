@@ -3,7 +3,10 @@
 <chapter xml:id="ch24-inference-linear-regression-single">
   <title>Inference for linear regression with a single predictor</title>
   
-  <p>
-    Content to be added from inf-model-slr.qmd
-  </p>
+  <section xml:id="sec-inf-model-slr">
+    <title>Inference for linear regression with a single predictor</title>
+    <p>
+      Content to be added from inf-model-slr.qmd
+    </p>
+  </section>
 </chapter>

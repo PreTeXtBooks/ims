@@ -6,4 +6,11 @@
   <p>
     Content to be added from model-applications.qmd
   </p>
+  
+  <section xml:id="sec-model-tutorials">
+    <title>Interactive R tutorials</title>
+    <p>
+      Navigate the concepts you've learned in this part of the book through R tutorials created with <c>learnr</c>.
+    </p>
+  </section>
 </chapter>

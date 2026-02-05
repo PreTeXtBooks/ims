@@ -3,7 +3,10 @@
 <chapter xml:id="ch08-linear-regression-multiple">
   <title>Linear regression with multiple predictors</title>
   
-  <p>
-    Content to be added from model-mlr.qmd
-  </p>
+  <section xml:id="sec-model-mlr">
+    <title>Linear regression with multiple predictors</title>
+    <p>
+      Content to be added from model-mlr.qmd
+    </p>
+  </section>
 </chapter>

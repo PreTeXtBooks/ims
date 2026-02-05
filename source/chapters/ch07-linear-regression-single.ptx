@@ -276,7 +276,16 @@ p_age
 
 <figure xml:id="fig-scattHeadLTotalL-sex-age">
   <caption>Relationship between total length and head length of brushtail possums, taking into consideration their sex or age.</caption>
-  <image source="images/fig-scattHeadLTotalL-sex-age-1.png" width="70%" />
+  <sidebyside widths="45% 45%">
+    <figure xml:id="fig-scattHeadLTotalL-sex-age-1">
+      <caption>By sex</caption>
+      <image source="images/fig-scattHeadLTotalL-sex-age-1.png" />
+    </figure>
+    <figure xml:id="fig-scattHeadLTotalL-sex-age-2">
+      <caption>By age</caption>
+      <image source="images/fig-scattHeadLTotalL-sex-age-2.png" />
+    </figure>
+  </sidebyside>
 </figure>
 
 <p>In <xref ref="sec-model-mlr" />, we'll learn about how we can include more than one predictor in our model.</p>
@@ -722,7 +731,16 @@ p_2
 
 <figure xml:id="fig-bdims-units">
   <caption>Two scatterplots, both displaying the relationship between weights and heights of 507 physically healthy adults and the correlation coefficient, <m>r = 0.72</m>.</caption>
-  <image source="images/fig-bdims-units-1.png" width="70%" />
+  <sidebyside widths="45% 45%">
+    <figure xml:id="fig-bdims-units-1">
+      <caption>Metric units</caption>
+      <image source="images/fig-bdims-units-1.png" />
+    </figure>
+    <figure xml:id="fig-bdims-units-2">
+      <caption>Imperial units</caption>
+      <image source="images/fig-bdims-units-2.png" />
+    </figure>
+  </sidebyside>
 </figure>
 
 </subsection>
@@ -1568,7 +1586,16 @@ p_4 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
 
 <figure xml:id="fig-outlier-plots">
   <caption>Plots of six datasets, each with a least squares line and corresponding residual plot. Each dataset has at least one outlier.</caption>
-  <image source="images/fig-outlier-plots-1.png" width="70%" />
+  <sidebyside widths="45% 45%">
+    <figure xml:id="fig-outlier-plots-1">
+      <caption>Plots A, B, C</caption>
+      <image source="images/fig-outlier-plots-1.png" />
+    </figure>
+    <figure xml:id="fig-outlier-plots-2">
+      <caption>Plots D, E, F</caption>
+      <image source="images/fig-outlier-plots-2.png" />
+    </figure>
+  </sidebyside>
 </figure>
 
 <p>Examine the residual plots in <xref ref="fig-outlier-plots-1" /> and <xref ref="fig-outlier-plots-2" />.</p>
@@ -1612,7 +1639,7 @@ p_4 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
 <section xml:id="sec-chp7-review">
   <title>Chapter review</title>
 
-<subsection xml:id="summary">
+<subsection xml:id="summary-chp7">
   <title>Summary</title>
 
 <p>Throughout this chapter, the nuances of the linear model have been described.</p>
@@ -1627,7 +1654,7 @@ p_4 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
 
 </subsection>
 
-<subsection xml:id="terms">
+<subsection xml:id="terms-chp7">
   <title>Terms</title>
 
 <p>The terms introduced in this chapter are presented in <xref ref="tbl-terms-chp-07" />.</p>

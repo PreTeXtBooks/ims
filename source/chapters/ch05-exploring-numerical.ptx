@@ -26,7 +26,7 @@
 <p>A <alert>scatterplot</alert> provides a case-by-case view of data for two numerical variables. In <xref ref="fig-county-multi-unit-homeownership" />, a scatterplot was used to examine the homeownership rate against the percentage of housing units that are in multi-unit structures (e.g., apartments) in the <c>county</c> dataset. Another scatterplot is shown in <xref ref="fig-loan50-amount-income" />, comparing the total income of a borrower <c>total_income</c> and the amount they borrowed <c>loan_amount</c> for the <c>loan50</c> dataset. In any scatterplot, each point represents a single case. Since there are 50 cases in <c>loan50</c>, there are 50 points in <xref ref="fig-loan50-amount-income" />.</p>
 
 <listing xml:id="listing-loan50-amount-income">
-  <caption>R code for scatterplot of loan amount versus total income</caption>
+  <caption><c>R</c> code for scatterplot of loan amount versus total income</caption>
   <program language="r">
     <code>
 ggplot(loan50, aes(x = total_income, y = loan_amount)) +
@@ -46,7 +46,7 @@ ggplot(loan50, aes(x = total_income, y = loan_amount)) +
 <p>Looking at <xref ref="fig-loan50-amount-income" />, we see that there are many borrowers with income below \$100,000 on the left side of the graph, while there are a handful of borrowers with income above \$250,000.</p>
 
 <listing xml:id="listing-median-hh-income-poverty">
-  <caption>R code for scatterplot of median household income versus poverty rate</caption>
+  <caption><c>R</c> code for scatterplot of median household income versus poverty rate</caption>
   <program language="r">
     <code>
 ggplot(county, aes(x = poverty / 100, y = median_hh_income)) +
@@ -102,7 +102,7 @@ ggplot(county, aes(x = poverty / 100, y = median_hh_income)) +
 <p>Sometimes we are interested in the distribution of a single variable. In these cases, a dot plot provides the most basic of displays. A <alert>dot plot</alert> is a one-variable scatterplot; an example using the interest rate of 50 loans is shown in <xref ref="fig-loan-int-rate-dotplot" />.</p>
 
 <listing xml:id="listing-loan-int-rate-dotplot">
-  <caption>R code for dot plot of interest rate</caption>
+  <caption><c>R</c> code for dot plot of interest rate</caption>
   <program language="r">
     <code>
 loan50_interest_rate_mean &lt;- mean(loan50$interest_rate)
@@ -287,7 +287,7 @@ ggplot(loan50, aes(x = interest_rate)) +
 </table>
 
 <listing xml:id="listing-loan50IntRateHist">
-  <caption>R code for histogram of interest rate</caption>
+  <caption><c>R</c> code for histogram of interest rate</caption>
   <program language="r">
     <code>
 ggplot(loan50, aes(x = interest_rate)) +
@@ -311,7 +311,7 @@ ggplot(loan50, aes(x = interest_rate)) +
 <p>Histograms are especially convenient for understanding the shape of the data distribution. <xref ref="fig-loan50IntRateHist" /> suggests that most loans have rates under 15%, while only a handful of loans have rates above 20%. When the distribution of a variable trails off to the right in this way and has a longer right <alert>tail</alert>, the shape is said to be <alert>right skewed</alert>.[^05-explore-numerical-5]</p>
 
 <listing xml:id="listing-loan50IntRateDensity">
-  <caption>R code for density plot of interest rate</caption>
+  <caption><c>R</c> code for density plot of interest rate</caption>
   <program language="r">
     <code>
 ggplot(loan50, aes(x = interest_rate)) +
@@ -355,7 +355,7 @@ ggplot(loan50, aes(x = interest_rate)) +
 <p><xref ref="fig-singleBiMultiModalPlots" /> shows histograms that have one, two, or three prominent peaks. Such distributions are called <alert>unimodal</alert>, <alert>bimodal</alert>, and <alert>multimodal</alert>, respectively. Any distribution with more than two prominent peaks is called multimodal. Notice that there was one prominent peak in the unimodal distribution with a second less prominent peak that was not counted since it only differs from its neighboring bins by a few observations.</p>
 
 <listing xml:id="listing-singleBiMultiModalPlots">
-  <caption>R code for histograms with different modality</caption>
+  <caption><c>R</c> code for histograms with different modality</caption>
   <program language="r">
     <code>
 df_modes &lt;- tibble(
@@ -468,7 +468,7 @@ x_{50} - \bar{x} \amp= 6.08 - 11.57 = -5.49
 </exercise>
 
 <listing xml:id="listing-severalDiffDistWithSdOf1">
-  <caption>R code for distributions with same mean and standard deviation</caption>
+  <caption><c>R</c> code for distributions with same mean and standard deviation</caption>
   <program language="r">
     <code>
 x1 &lt;- c(rep(-0.975, 1000), rep(0.975, 1000))
@@ -841,7 +841,7 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
 </example>
 
 <listing xml:id="listing-county-unemployed-pop-transform">
-  <caption>R code for transformed distributions of unemployment and population</caption>
+  <caption><c>R</c> code for transformed distributions of unemployment and population</caption>
   <program language="r">
     <code>
 ggplot(county, aes(x = unemployment_rate)) +
@@ -879,7 +879,7 @@ ggplot(county_complete, aes(x = log(pop_2019, base = 10))) +
 <p>Transformations can also be applied to one or both variables in a scatterplot. A scatterplot of the population change from 2010 to 2017 against the population in 2010 is shown in <xref ref="fig-county-pop-change-transform-1" />. It's difficult to decipher any interesting patterns because the population variable is so strongly skewed. However, if we apply a log<m>_{10}</m> transformation to the population variable, as shown in <xref ref="fig-county-pop-change-transform-2" />, a positive association between the variables is revealed. In fact, we may be interested in fitting a trend line to the data when we explore methods around fitting regression lines in <xref ref="sec-model-slr" />.</p>
 
 <listing xml:id="listing-county-pop-change-transform">
-  <caption>R code for scatterplots with log transformation</caption>
+  <caption><c>R</c> code for scatterplots with log transformation</caption>
   <program language="r">
     <code>
 ggplot(county, aes(y = pop_change, x = pop2010)) +

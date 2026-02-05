@@ -46,15 +46,14 @@
       </solution>
     </example>
     
-    <exercise>
-      <title>Guided Practice</title>
+    <example>
       <statement>
         <p>Consider the opportunity cost study where we concluded students were less likely to make a DVD purchase if they were reminded that money not spent now could be spent later. What would a Type I error represent in this context?</p>
       </statement>
       <solution>
         <p>Making a Type I error in this context would mean that reminding students that money not spent now can be spent later does not affect their buying habits, despite the strong evidence (the data suggesting otherwise) found in the experiment. Notice that this does <em>not</em> necessarily mean something was wrong with the data or that we made a computational mistake. Sometimes data simply point us to the wrong conclusion, which is why scientific studies are often repeated to check initial findings.</p>
       </solution>
-    </exercise>
+    </example>
     
     <example>
       <statement>
@@ -65,15 +64,14 @@
       </solution>
     </example>
     
-    <exercise>
-      <title>Guided Practice</title>
+    <example>
       <statement>
         <p>How could we reduce the Type II error rate in US courts? What influence would this have on the Type I error rate?</p>
       </statement>
       <solution>
         <p>To lower the Type II error rate, we want to convict more guilty people. We could lower the standards for conviction from <q>beyond a reasonable doubt</q> to <q>beyond a little doubt</q>. Lowering the bar for guilt will also result in more wrongful convictions, raising the Type I error rate.</p>
       </solution>
-    </exercise>
+    </example>
     
     <p>The example and guided practice above provide an important lesson: if we reduce how often we make one type of error, we generally make more of the other type.</p>
   </introduction>

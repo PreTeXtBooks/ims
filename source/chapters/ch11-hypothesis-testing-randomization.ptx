@@ -23,15 +23,7 @@
       </solution>
     </example>
 
-    <exercise>
-      <title>Guided Practice</title>
-      <statement>
-        <p>If we do not think the side of the room a person sits on in class is related to whether they prefer to read books on screen, what assumption are we making about the relationship between these two variables?</p>
-      </statement>
-      <solution>
-        <p>We would be assuming that these two variables are <alert>independent</alert>.</p>
-      </solution>
-    </exercise>
+    <p><alert>Guided Practice:</alert> If we do not think the side of the room a person sits on in class is related to whether they prefer to read books on screen, what assumption are we making about the relationship between these two variables?<fn>We would be assuming that these two variables are <alert>independent</alert>.</fn></p>
 
     <p>Studying randomness of this form is a key focus of statistics. Throughout this chapter, and those that follow, we provide three different approaches for quantifying the variability inherent in data: randomization, bootstrapping, and mathematical models. Using the methods provided in this chapter, we will be able to draw conclusions beyond the dataset at hand to research questions about larger populations that the samples come from.</p>
 
@@ -41,7 +33,7 @@
 <section xml:id="sec-caseStudySexDiscrimination">
   <title>Sex discrimination case study</title>
 
-  <p>We consider a study investigating sex discrimination in the 1970s, which is set in the context of personnel decisions within a bank. The research question we hope to answer is, <q>Are individuals who identify as female discriminated against in promotion decisions made by their managers who identify as male?</q> <xref ref="biblio-Rosen:1974" /></p>
+  <p>We consider a study investigating sex discrimination in the 1970s, which is set in the context of personnel decisions within a bank. The research question we hope to answer is, <q>Are individuals who identify as female discriminated against in promotion decisions made by their managers who identify as male?</q> <xref ref="biblio-Rosen-1974" /></p>
 
   <note>
     <title>Data</title>
@@ -55,7 +47,7 @@
 
     <p>The participants in this study were 48 bank supervisors who identified as male, attending a management institute at the University of North Carolina in 1972. They were asked to assume the role of the personnel director of a bank and were given a personnel file to judge whether the person should be promoted to a branch manager position. The files given to the participants were identical, except that half of them indicated the candidate identified as male and the other half indicated the candidate identified as female. These files were randomly assigned to the bank managers.</p>
 
-    <exercise>
+    <exercise xml:id="ex-sex-discrimination-study-type">
       <title>Guided Practice</title>
       <statement>
         <p>Is this an observational study or an experiment? How does the type of study impact what can be inferred from the results?</p>
@@ -191,7 +183,7 @@
       </tabular>
     </table>
 
-    <exercise>
+    <exercise xml:id="ex-sex-discrimination-sim-diff">
       <title>Guided Practice</title>
       <statement>
         <p>What is the difference in promotion rates between the two simulated groups in <xref ref="tbl-sex-discrimination-rand-1" />? How does this compare to the observed difference 29.2% from the actual study?</p>
@@ -281,7 +273,7 @@ sex_discrimination |&gt;
     <li><m>H_A:</m> <alert>Alternative hypothesis</alert>. Reminding students that they can save money for later purchases will reduce the chance they will continue with a purchase.</li>
   </ul></p>
 
-  <p>In this section, we'll explore an experiment conducted by researchers that investigates this very question for students at a university in the southwestern United States. <xref ref="biblio-Frederick:2009" /></p>
+  <p>In this section, we'll explore an experiment conducted by researchers that investigates this very question for students at a university in the southwestern United States. <xref ref="biblio-Frederick-2009" /></p>
 
   <subsection xml:id="subsec-opportunity-cost-observed">
     <title>Observed data</title>
@@ -836,7 +828,7 @@ ggplot(opportunity_cost_rand_dist, aes(x = stat)) +
 
   <exercise xml:id="ex-avandia">
     <statement>
-      <p><alert>Side effects of Avandia.</alert> Rosiglitazone is the active ingredient in the controversial type 2 diabetes medicine Avandia and has been linked to an increased risk of serious cardiovascular problems such as stroke, heart failure, and death. A common alternative treatment is Pioglitazone, the active ingredient in a diabetes medicine called Actos. In a nationwide retrospective observational study of 227,571 Medicare beneficiaries aged 65 years or older, it was found that 2,593 of the 67,593 patients using Rosiglitazone and 5,386 of the 159,978 using Pioglitazone had serious cardiovascular problems. These data are summarized in the contingency table below.<fn>The <url href="http://openintrostat.github.io/openintro/reference/avandia.html"><c>avandia</c></url> data used in this exercise can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</fn> <xref ref="biblio-Graham:2010" /></p>
+      <p><alert>Side effects of Avandia.</alert> Rosiglitazone is the active ingredient in the controversial type 2 diabetes medicine Avandia and has been linked to an increased risk of serious cardiovascular problems such as stroke, heart failure, and death. A common alternative treatment is Pioglitazone, the active ingredient in a diabetes medicine called Actos. In a nationwide retrospective observational study of 227,571 Medicare beneficiaries aged 65 years or older, it was found that 2,593 of the 67,593 patients using Rosiglitazone and 5,386 of the 159,978 using Pioglitazone had serious cardiovascular problems. These data are summarized in the contingency table below.<fn>The <url href="http://openintrostat.github.io/openintro/reference/avandia.html"><c>avandia</c></url> data used in this exercise can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</fn> <xref ref="biblio-Graham-2010" /></p>
 
       <table xml:id="tbl-avandia-data">
         <title>Avandia study data</title>
@@ -918,7 +910,7 @@ ggplot(opportunity_cost_rand_dist, aes(x = stat)) +
 
   <exercise xml:id="ex-heart-transplants">
     <statement>
-      <p><alert>Heart transplants.</alert> The Stanford University Heart Transplant Study was conducted to determine whether an experimental heart transplant program increased lifespan. Each patient entering the program was designated an official heart transplant candidate, meaning that they were gravely ill and would most likely benefit from a new heart. Some patients got a transplant and some did not. The variable <c>transplant</c> indicates which group the patients were in; patients in the treatment group got a transplant and those in the control group did not. Of the 34 patients in the control group, 30 died. Of the 69 people in the treatment group, 45 died. Another variable called <c>survived</c> was used to indicate whether the patient was alive at the end of the study.<fn>The <url href="http://openintrostat.github.io/openintro/reference/heart_transplant.html"><c>heart_transplant</c></url> data used in this exercise can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</fn> <xref ref="biblio-Turnbull+Brown+Hu:1974" /></p>
+      <p><alert>Heart transplants.</alert> The Stanford University Heart Transplant Study was conducted to determine whether an experimental heart transplant program increased lifespan. Each patient entering the program was designated an official heart transplant candidate, meaning that they were gravely ill and would most likely benefit from a new heart. Some patients got a transplant and some did not. The variable <c>transplant</c> indicates which group the patients were in; patients in the treatment group got a transplant and those in the control group did not. Of the 34 patients in the control group, 30 died. Of the 69 people in the treatment group, 45 died. Another variable called <c>survived</c> was used to indicate whether the patient was alive at the end of the study.<fn>The <url href="http://openintrostat.github.io/openintro/reference/heart_transplant.html"><c>heart_transplant</c></url> data used in this exercise can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</fn> <xref ref="biblio-Turnbull-Brown-Hu-1974" /></p>
 
       <figure xml:id="fig-heart-transplant-plots">
         <caption>Visualizations for the heart transplant study</caption>

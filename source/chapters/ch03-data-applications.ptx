@@ -203,7 +203,7 @@
       At this stage it's also useful to think about how the data were collected, as that will inform the scope of any inference you can make based on your analysis of the data.
     </p>
 
-    <exercise>
+    <exercise xml:id="ex-paralympic-study-type">
       <title>Guided Practice</title>
       <statement>
         <p>
@@ -218,7 +218,7 @@
       </solution>
     </exercise>
 
-    <exercise>
+    <exercise xml:id="ex-paralympic-rows-cols">
       <title>Guided Practice</title>
       <statement>
         <p>

@@ -64,7 +64,7 @@ ggplot(target, aes(x = x, y = y)) +
 
 <p>We will discuss how to make inferences about parameters of a linear model based on sample statistics in <xref ref="sec-inf-model-slr" />.</p>
 
-<p>When we use <m>x</m> to predict <m>y,</m> we usually call <m>x</m> the <alert>predictor</alert>\index{variable!predictor}\index{predictor variable} variable and we call <m>y</m> the <alert>outcome</alert>\index{variable!outcome}\index{outcome variable}.</p>
+<p>When we use <m>x</m> to predict <m>y,</m> we usually call <m>x</m> the <alert>predictor</alert><idx><h>variable</h><h>predictor</h></idx><idx>predictor variable</idx> variable and we call <m>y</m> the <alert>outcome</alert><idx><h>variable</h><h>outcome</h></idx><idx>outcome variable</idx>.</p>
 
 <p>We also often drop the <m>e</m> term when writing down the model since our main focus is often on the prediction of the average outcome.</p>
 
@@ -318,7 +318,7 @@ p_age
 <subsection xml:id="sec-resids">
   <title>Residuals</title>
 
-<p><alert>Residuals</alert>\index{residuals} are the leftover variation in the data after accounting for the model fit:</p>
+<p><alert>Residuals</alert><idx>residuals</idx> are the leftover variation in the data after accounting for the model fit:</p>
 
 <me>\text{Data} = \text{Fit} + \text{Residual}</me>
 
@@ -595,7 +595,7 @@ p_neg_lin + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
 
 <assemblage>
   <p><alert>Correlation: strength of a linear relationship.</alert></p>
-  <p><alert>Correlation</alert>\index{correlation} which always takes values between -1 and 1, describes the strength and direction of the linear relationship between two variables.</p>
+  <p><alert>Correlation</alert><idx>correlation</idx> which always takes values between -1 and 1, describes the strength and direction of the linear relationship between two variables.</p>
   <p>We denote the correlation by <m>r.</m></p>
   <p>The correlation value has no units and will not be affected by a linear change in the units (e.g., going from inches to centimeters).</p>
 </assemblage>
@@ -705,9 +705,7 @@ simulated_scatter |&gt;
   <solution>
     <p>The order of most negative correlation to most positive correlation is:</p>
     <p>\vspace{-2mm}</p>
-    <p>$$</p>
-    <p>A \rightarrow D \rightarrow B \rightarrow C \rightarrow E \rightarrow F</p>
-    <p>$$</p>
+    <me>A \rightarrow D \rightarrow B \rightarrow C \rightarrow E \rightarrow F</me>
     <p>-   Plot A - bananas vs. potatoes: <c>r round(cor(crops_country<m>prop_potatoes, crops_country</m>prop_bananas, use = "pairwise.complete.obs"), digits = 2)</c></p>
     <p>-   Plot B - cassava vs. soybeans: <c>r round(cor(crops_country<m>prop_soybeans, crops_country</m>prop_cassava, use = "pairwise.complete.obs"), digits = 2)</c></p>
     <p>-   Plot C - cassava vs. maize: <c>r round(cor(crops_country<m>prop_maize, crops_country</m>prop_cassava, use = "pairwise.complete.obs"), digits = 2)</c></p>
@@ -881,7 +879,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 
 <me>e_{1}^2 + e_{2}^2 + \dots + e_{n}^2</me>
 
-<p>The line that minimizes this least squares criterion is represented as the solid line in <xref ref="fig-elmhurstScatterW2Lines" /> and is commonly called the <alert>least squares line</alert>\index{least squares line}.</p>
+<p>The line that minimizes this least squares criterion is represented as the solid line in <xref ref="fig-elmhurstScatterW2Lines" /> and is commonly called the <alert>least squares line</alert><idx>least squares line</idx>.</p>
 
 <p>The following are three possible reasons to choose the least squares option instead of trying to minimize the sum of residual magnitudes without any squaring:</p>
 
@@ -955,7 +953,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 
 <p>For now, we won't worry about the <c>price_paid</c> variable.</p>
 
-<p>We should also note that these data are from the 2011-2012 academic year, and all monetary amounts are given in \<m>1,000s, i.e., the family income of the first student in the data shown in <xref ref="tbl-elmhurst-data" /> is \</m>92,920 and they received a gift aid of \$21,700.</p>
+<p>We should also note that these data are from the 2011-2012 academic year, and all monetary amounts are given in \$1,000s, i.e., the family income of the first student in the data shown in <xref ref="tbl-elmhurst-data" /> is \$92,920 and they received a gift aid of \$21,700.</p>
 
 <p>(The data source states that all numbers have been rounded to the nearest whole dollar.)</p>
 
@@ -1003,7 +1001,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
   </statement>
   <solution>
     <p>Interpreting the slope parameter is helpful in almost any application.</p>
-    <p>For each additional \<m>1,000 of family income, we would expect a student to receive a net difference of 1,000 </m>\times<m> (-0.0431) = -\</m>43.10 in aid on average, i.e., \$43.10 <em>less</em>.</p>
+    <p>For each additional \$1,000 of family income, we would expect a student to receive a net difference of <m>1,000 \times (-0.0431) = -\$43.10</m> in aid on average, i.e., \$43.10 <em>less</em>.</p>
     <p>Note that a higher family income corresponds to less aid because the coefficient of family income is negative in the model.</p>
     <p>We must be cautious in this interpretation: while there is a real association, we cannot interpret a causal connection between the variables because these data are observational.</p>
     <p>That is, increasing a particular student's family income may not cause the student's aid to drop.</p>
@@ -1040,7 +1038,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
   <li><p>If <m>\bar{x}</m> is the sample mean of the predictor variable and <m>\bar{y}</m> is the sample mean of the outcome variable, then the point <m>(\bar{x}, \bar{y})</m> falls on the least squares line.</p></li>
 </ol>
 
-<p><xref ref="tbl-summaryStatsElmhurstRegr" /> shows the sample means for the family income and gift aid as \<m>101,780 and \</m>19,940, respectively.</p>
+<p><xref ref="tbl-summaryStatsElmhurstRegr" /> shows the sample means for the family income and gift aid as \$101,780 and \$19,940, respectively.</p>
 
 <p>We could plot the point <m>(102, 19.9)</m> on <xref ref="fig-elmhurstScatterWLine" /> to verify it falls on the least squares line (the solid line).</p>
 
@@ -1077,9 +1075,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
   </statement>
   <solution>
     <p>Compute the slope using the summary statistics from <xref ref="tbl-summaryStatsElmhurstRegr" />:</p>
-    <p>$$</p>
-    <p>b_1 = \frac{s_y}{s_x} r = \frac{5.46}{63.2}(-0.499) = -0.0431</p>
-    <p>$$</p>
+    <me>b_1 = \frac{s_y}{s_x} r = \frac{5.46}{63.2}(-0.499) = -0.0431</me>
   </solution>
 </example>
 
@@ -1102,17 +1098,13 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
   <solution>
     <p>Apply the point-slope equation using <m>(102, 19.9)</m> and the slope <m>b_1 = -0.0431</m>:</p>
     <p>\vspace{-5mm}</p>
-    <p>$$</p>
-    <p>\begin{aligned}</p>
-    <p>y - y_0  &amp;= b_1 (x - x_0) \\</p>
-    <p>y - 19.9 &amp;= -0.0431 (x - 102)</p>
-    <p>\end{aligned}</p>
-    <p>$$</p>
+    <md>
+      <mrow>y - y_0  &amp;= b_1 (x - x_0)</mrow>
+      <mrow>y - 19.9 &amp;= -0.0431 (x - 102)</mrow>
+    </md>
     <p>Expanding the right side and then adding 19.9 to each side, the equation simplifies:</p>
     <p>\vspace{-5mm}</p>
-    <p>$$</p>
-    <p>\widehat{\texttt{aid}} = 24.3 - 0.0431 \times \texttt{family\_income}</p>
-    <p>$$</p>
+    <me>\widehat{\texttt{aid}} = 24.3 - 0.0431 \times \texttt{family\_income}</me>
     <p>Here we have replaced <m>y</m> with <m>\widehat{\texttt{aid}}</m> and <m>x</m> with <m>\texttt{family\_income}</m> to put the equation in context.</p>
     <p>The final least squares equation should always include a "hat" on the variable being predicted, whether it is a generic <m><c>y</c></m> or a named variable like <m><c>aid</c></m>.</p>
   </solution>
@@ -1154,15 +1146,13 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
     <p>We want to calculate the aid for a family with \$1 million income.</p>
     <p>Note that in our model this will be represented as 1,000 since the data are in \$1,000s.</p>
     <p>\vspace{-5mm}</p>
-    <p>$$</p>
-    <p>24.3 - 0.0431 \times 1000 = -18.8</p>
-    <p>$$</p>
+    <me>24.3 - 0.0431 \times 1000 = -18.8</me>
     <p>The model predicts this student will have -\$18,800 in aid (!).</p>
     <p>However, Elmhurst College does not offer <em>negative aid</em> where they select some students to pay extra on top of tuition to attend.</p>
   </solution>
 </example>
 
-<p>Applying a model estimate to values outside of the realm of the original data is called <alert>extrapolation</alert>\index{extrapolation}.</p>
+<p>Applying a model estimate to values outside of the realm of the original data is called <alert>extrapolation</alert><idx>extrapolation</idx>.</p>
 
 <p>Generally, a linear model is only an approximation of the real relationship between two variables.</p>
 
@@ -1173,7 +1163,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 <subsection xml:id="sec-r-squared">
   <title>Describing the strength of a fit</title>
 
-<p>We evaluated the strength of the linear relationship between two variables earlier using the correlation, <m>r.</m> However, it is more common to explain the strength of a linear fit using <m>R^2,</m> called <alert>R-squared</alert>\index{R-squared}.</p>
+<p>We evaluated the strength of the linear relationship between two variables earlier using the correlation, <m>r.</m> However, it is more common to explain the strength of a linear fit using <m>R^2,</m> called <alert>R-squared</alert><idx>R-squared</idx>.</p>
 
 <p>If provided with a linear model, we might like to describe how closely the data cluster around the linear fit.</p>
 
@@ -1211,7 +1201,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
   </solution>
 </exercise>
 
-<p><m>R^2</m> is also called the <alert>coefficient of determination</alert>\index{coefficient of determination}.</p>
+<p><m>R^2</m> is also called the <alert>coefficient of determination</alert><idx>coefficient of determination</idx>.</p>
 
 <assemblage>
   <p><alert>Coefficient of determination: proportion of variability in the outcome variable explained by the model.</alert></p>
@@ -1223,10 +1213,10 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 
 <assemblage>
   <p><alert>Sums of squares to measure variability in</alert> <m>y.</m></p>
-  <p>We can measure the variability in the <m>y</m> values by how far they tend to fall from their mean, <m>\bar{y}.</m> We define this value as the <alert>total sum of squares</alert>\index{total sum of squares}, calculated using the formula below, where <m>y_i</m> represents each <m>y</m> value in the sample, and <m>\bar{y}</m> represents the mean of the <m>y</m> values in the sample.</p>
+  <p>We can measure the variability in the <m>y</m> values by how far they tend to fall from their mean, <m>\bar{y}.</m> We define this value as the <alert>total sum of squares</alert><idx>total sum of squares</idx>, calculated using the formula below, where <m>y_i</m> represents each <m>y</m> value in the sample, and <m>\bar{y}</m> represents the mean of the <m>y</m> values in the sample.</p>
   <p>\vspace{-2mm}</p>
   <me>SST = (y_1 - \bar{y})^2 + (y_2 - \bar{y})^2 + \cdots + (y_n - \bar{y})^2.</me>
-  <p>Left-over variability in the <m>y</m> values if we know <m>x</m> can be measured by the <alert>sum of squared errors</alert>\index{sum of squared errors}, or sum of squared residuals, calculated using the formula below, where <m>\hat{y}_i</m> represents the predicted value of <m>y_i</m> based on the least squares regression.[^07-model-slr-9],</p>
+  <p>Left-over variability in the <m>y</m> values if we know <m>x</m> can be measured by the <alert>sum of squared errors</alert><idx>sum of squared errors</idx>, or sum of squared residuals, calculated using the formula below, where <m>\hat{y}_i</m> represents the predicted value of <m>y_i</m> based on the least squares regression.[^07-model-slr-9],</p>
   <p>\vspace{-2mm}</p>
   <md>
     <mrow>\begin{aligned}</mrow>
@@ -1245,9 +1235,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
   </statement>
   <solution>
     <p>Since we know <m>SSE</m> and <m>SST,</m> we can calculate <m>R^2</m> as</p>
-    <p>$$</p>
-    <p>R^2 = 1 - \frac{SSE}{SST} = 1 - \frac{1098}{1461} = 0.25,</p>
-    <p>$$</p>
+    <me>R^2 = 1 - \frac{SSE}{SST} = 1 - \frac{1098}{1461} = 0.25,</me>
     <p>the same value we found when we squared the correlation: <m>R^2 = (-0.499)^2 = 0.25.</m></p>
   </solution>
 </example>
@@ -1272,7 +1260,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 
 <p>A plot of the auction data is shown in <xref ref="fig-marioKartNewUsed" />.</p>
 
-<p>Note that the original dataset contains some Mario Kart games being sold at prices above \<m>100 but for this analysis we have limited our focus to the <c>r nrow(mariokart_lt100)</c> Mario Kart games that were sold below \</m>100.</p>
+<p>Note that the original dataset contains some Mario Kart games being sold at prices above \$100 but for this analysis we have limited our focus to the <c>r nrow(mariokart_lt100)</c> Mario Kart games that were sold below \$100.</p>
 
 <listing xml:id="listing-marioKartNewUsed-code">
   <caption>R code for Mario Kart price by condition plot</caption>
@@ -1305,7 +1293,7 @@ mariokart_lt100 |&gt;
 
 <p>To incorporate the game condition variable into a regression equation, we must convert the categories into a numerical form.</p>
 
-<p>We will do so using an <alert>indicator variable</alert>\index{variable!indicator}\index{indicator variable} called <c>condnew</c>, which takes value 1 when the game is new and 0 when the game is used.</p>
+<p>We will do so using an <alert>indicator variable</alert><idx><h>variable</h><h>indicator</h></idx><idx>indicator variable</idx> called <c>condnew</c>, which takes value 1 when the game is new and 0 when the game is used.</p>
 
 <p>Using this indicator variable, the linear model may be written as</p>
 
@@ -1658,17 +1646,17 @@ p_4 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
 
 <assemblage>
   <p><alert>Leverage.</alert></p>
-  <p>Points that fall horizontally away from the center of the cloud tend to pull harder on the line, so we call them points with <alert>high leverage</alert>\index{high leverage} or <alert>leverage points</alert>\index{leverage point}.</p>
+  <p>Points that fall horizontally away from the center of the cloud tend to pull harder on the line, so we call them points with <alert>high leverage</alert><idx>high leverage</idx> or <alert>leverage points</alert><idx>leverage point</idx>.</p>
 </assemblage>
 
 <p>Points that fall horizontally far from the line are points of high leverage; these points can strongly influence the slope of the least squares line.</p>
 
-<p>If one of these high leverage points does appear to actually invoke its influence on the slope of the line -- as in Plots C, D, and E of <xref ref="fig-outlier-plots-1" /> and <xref ref="fig-outlier-plots-2" /> -- then we call it an <alert>influential point</alert>\index{influential point}.</p>
+<p>If one of these high leverage points does appear to actually invoke its influence on the slope of the line -- as in Plots C, D, and E of <xref ref="fig-outlier-plots-1" /> and <xref ref="fig-outlier-plots-2" /> -- then we call it an <alert>influential point</alert><idx>influential point</idx>.</p>
 
 <p>Usually we can say a point is influential if, had we fitted the line without it, the influential point would have been unusually far from the least squares line.</p>
 
 <assemblage>
-  <p><alert>Types of outliers.</alert>\index{outlier}</p>
+  <p><alert>Types of outliers.</alert><idx>outlier</idx></p>
   <p>A point (or a group of points) that stands out from the rest of the data is called an outlier.</p>
   <p>Outliers that fall horizontally away from the center of the cloud of points are called leverage points.</p>
   <p>Outliers that influence on the slope of the line are called influential points.</p>

@@ -4,7 +4,7 @@
   <title>Inference with mathematical models</title>
 
   <introduction>
-    <p>In <xref ref="sec-foundations-randomization" text="title" /> and <xref ref="sec-foundations-bootstrapping" text="title" /> questions about population parameters were addressed using computational techniques.</p>
+    <p>In <xref ref="ch11-hypothesis-testing-randomization" text="title" /> and <xref ref="ch12-confidence-intervals-bootstrapping" text="title" /> questions about population parameters were addressed using computational techniques.</p>
 
     <p>With randomization tests, the data were permuted assuming the null hypothesis.</p>
 
@@ -116,7 +116,7 @@
     </ol>
     <p>The sample size cannot be too small.</p>
 
-    <p>What qualifies as <q>small</q> differs from one context to the next, and we'll provide suitable guidelines for proportions in <xref ref="sec-inference-one-prop" text="title" />.</p>
+    <p>What qualifies as <q>small</q> differs from one context to the next, and we'll provide suitable guidelines for proportions in <xref ref="ch16-inference-single-proportion" text="title" />.</p>
 
     <p>So far we have had no need for the normal distribution.</p>
 
@@ -185,7 +185,7 @@
 
     <p>As you can probably guess, changing the mean shifts the bell curve to the left or right, while changing the standard deviation stretches or constricts the curve.</p>
 
-    <p><xref ref="fig-twoSampleNormals-1" /> shows the normal distribution with mean <m>0</m> and standard deviation <m>1</m> (which is commonly referred to as the <alert>standard normal distribution</alert>\index{standard normal distribution}).</p>
+    <p><xref ref="fig-twoSampleNormals" /> shows the normal distribution with mean <m>0</m> and standard deviation <m>1</m> (which is commonly referred to as the <alert>standard normal distribution</alert>\index{standard normal distribution}).</p>
 
     <p>A normal distribution with mean <m>19</m> and standard deviation <m>4</m> is shown on the right.</p>
 
@@ -939,7 +939,7 @@
 
     <p>The best fitting normal distribution for the null distribution has a mean of 0.</p>
 
-    <p>We can calculate the standard error of this distribution by borrowing a formula that we will become familiar with in <xref ref="sec-inference-two-props" text="title" />, but for now let's just take the value <m>SE = 0.078</m> as a given.</p>
+    <p>We can calculate the standard error of this distribution by borrowing a formula that we will become familiar with in <xref ref="ch17-inference-two-proportions" text="title" />, but for now let's just take the value <m>SE = 0.078</m> as a given.</p>
 
     <p>Recall that the point estimate of the difference was 0.20, as shown in <xref ref="fig-OpportunityCostDiffs-w-normal" />.</p>
 
@@ -999,11 +999,11 @@
 
     <p>In <xref ref="sec-case-study-med-consult" /> we learned about a medical consultant who reported that only 3 of their 62 clients who underwent a liver transplant had complications, which is less than the more common complication rate of 0.10.</p>
 
-    <p>In that work, we did not model a null scenario, but we will discuss a simulation method for a one proportion null distribution in <xref ref="sec-one-prop-null-boot" />, such a distribution is provided in <xref ref="fig-MedConsNullSim-w-normal" />.</p>
+    <p>In that work, we did not model a null scenario, but we will discuss a simulation method for a one proportion null distribution in <xref ref="ch16-inference-single-proportion" />, such a distribution is provided in <xref ref="fig-MedConsNullSim-w-normal" />.</p>
 
     <p>We have added the best-fitting normal curve to the figure, which has a mean of 0.10.</p>
 
-    <p>Borrowing a formula that we'll encounter in <xref ref="sec-inference-one-prop" text="title" />, the standard error of this distribution was also computed: <m>SE = 0.038.</m></p>
+    <p>Borrowing a formula that we'll encounter in <xref ref="ch16-inference-single-proportion" text="title" />, the standard error of this distribution was also computed: <m>SE = 0.038.</m></p>
 
     <p>Before we begin, we want to point out a simple detail that is easy to overlook: the null distribution we generated from the simulation is slightly skewed, and the histogram is not particularly smooth.</p>
 
@@ -1037,7 +1037,7 @@
 
     <p>Identifying <m>Z = -1.37</m> using statistical software or in the normal probability table, we can determine that the left tail area is 0.0853 which is the estimated p-value for the hypothesis test.</p>
 
-    <p>There is a small problem: the p-value of 0.0853 is almost 30% smaller than the simulation p-value of 0.1222 which will be calculated in <xref ref="sec-one-prop-null-boot" />.</p>
+    <p>There is a small problem: the p-value of 0.0853 is almost 30% smaller than the simulation p-value of 0.1222 which will be calculated in <xref ref="ch16-inference-single-proportion" />.</p>
 
     <p>The discrepancy is explained by the normal model's poor representation of the null distribution in <xref ref="fig-MedConsNullSim-w-normal" />.</p>
 
@@ -1051,7 +1051,7 @@
 
     <p>In <xref ref="sec-CLTsection" /> we noted that the two common requirements to apply the Central Limit Theorem are (1) the observations in the sample must be independent, and (2) the sample must be sufficiently large.</p>
 
-    <p>The guidelines for this particular situation -- which we will learn in <xref ref="sec-inference-one-prop" text="title" /> -- would have alerted us that the normal model was a poor approximation.</p>
+    <p>The guidelines for this particular situation -- which we will learn in <xref ref="ch16-inference-single-proportion" text="title" /> -- would have alerted us that the normal model was a poor approximation.</p>
 
     <p>The success story in this section was the application of the normal model in the context of the opportunity cost data.</p>
 
@@ -1148,6 +1148,36 @@
     <p>These results are surprising!</p>
 
     <p>The point estimate suggests that patients who received stents may have a <em>higher</em> risk of stroke: <m>p_{trmt} - p_{ctrl} = 0.090.</m></p>
+
+    <table xml:id="tbl-stentStudyResultsCIsection">
+      <title>Results from the stent study, 30 days</title>
+      <tabular>
+        <row header="yes">
+          <cell>Group</cell>
+          <cell>No event</cell>
+          <cell>Stroke</cell>
+          <cell>Total</cell>
+        </row>
+        <row>
+          <cell>Control</cell>
+          <cell>199</cell>
+          <cell>13</cell>
+          <cell>212</cell>
+        </row>
+        <row>
+          <cell>Treatment</cell>
+          <cell>205</cell>
+          <cell>33</cell>
+          <cell>238</cell>
+        </row>
+        <row>
+          <cell>Total</cell>
+          <cell>404</cell>
+          <cell>46</cell>
+          <cell>450</cell>
+        </row>
+      </tabular>
+    </table>
 
     <listing>
       <program language="r">
@@ -1284,6 +1314,28 @@
     </ul>
     <p><xref ref="tbl-chp13-summary" /> is another look at the mathematical model approach to inference.</p>
 
+    <table xml:id="tbl-chp13-summary">
+      <title>Summary of mathematical models as an inferential statistical method</title>
+      <tabular halign="left">
+        <row header="yes" bottom="medium">
+          <cell>Question</cell>
+          <cell>Answer</cell>
+        </row>
+        <row>
+          <cell>What does it do?</cell>
+          <cell>Uses mathematical formulas to calculate the variability in the data in order to determine how unusual the observed statistic is under the null hypothesis (or equivalently, how far the parameter is from the observed statistic)</cell>
+        </row>
+        <row>
+          <cell>What is the random process described?</cell>
+          <cell>Random sampling from a population or random allocation of treatments</cell>
+        </row>
+        <row bottom="medium">
+          <cell>What other random processes can be approximated?</cell>
+          <cell>Can also be used to describe random sampling in an observational model. Additionally, in some (non-ideal) scenarios, p-values and confidence intervals are estimated using mathematical formulas even when the random sampling or random allocation assumptions are violated. For this course, always check the technical conditions before applying the mathematical models.</cell>
+        </row>
+      </tabular>
+    </table>
+
     <listing>
       <program language="r">
         <code>
@@ -1308,6 +1360,24 @@
     <p>If you're not sure what some of these terms mean, we recommend you go back in the text and review their definitions.</p>
 
     <p>You should be able to easily spot them as <alert>bolded text</alert>.</p>
+
+    <table xml:id="tbl-terms-chp-13">
+      <title>Terms introduced in this chapter</title>
+      <tabular>
+        <row header="yes">
+          <cell>Term</cell>
+        </row>
+        <row>
+          <cell>Central Limit Theorem</cell>
+        </row>
+        <row>
+          <cell>null distribution</cell>
+        </row>
+        <row>
+          <cell>sampling distribution</cell>
+        </row>
+      </tabular>
+    </table>
 
     <listing>
       <program language="r">

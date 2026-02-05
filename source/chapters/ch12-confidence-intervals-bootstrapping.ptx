@@ -29,7 +29,7 @@
   </introduction>
 
   <p>
-    As seen in <xref ref="sec-foundations-randomization" />, randomization is a statistical technique suitable for evaluating whether a difference in sample proportions is due to chance.
+    As seen in <xref ref="ch11-hypothesis-testing-randomization" />, randomization is a statistical technique suitable for evaluating whether a difference in sample proportions is due to chance.
   </p>
   
   <p>

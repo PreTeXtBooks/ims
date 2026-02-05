@@ -57,18 +57,22 @@
       <image source="images/fig-FourCaseStudies.png" width="70%" />
     </figure>
 
-    <exercise>
-      <title>Guided Practice</title>
-      <statement>
-      <p>Describe the shape of the distributions and note anything that you find interesting.</p>
-      </statement>
-      <solution>
-      <p>In general, the distributions are reasonably symmetric.</p>
-      <p>The case study for the medical consultant is the only distribution with any evident skew (the distribution is skewed right).</p>
-      </solution>
-    </exercise>
+    <subsection xml:id="subsec-clt-distributions">
+      <title>Observing the distributions</title>
 
-    <p>The case study for the medical consultant is the only distribution with any evident skew.</p>
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+        <p>Describe the shape of the distributions and note anything that you find interesting.</p>
+        </statement>
+        <solution>
+        <p>In general, the distributions are reasonably symmetric.</p>
+        <p>The case study for the medical consultant is the only distribution with any evident skew (the distribution is skewed right).</p>
+        </solution>
+      </exercise>
+
+      <p>The case study for the medical consultant is the only distribution with any evident skew.</p>
+    </subsection>
 
     <p>As we observed in <xref ref="sec-data-hello" text="title" />, it's common for distributions to be skewed or contain outliers.</p>
 
@@ -1103,16 +1107,20 @@
 
     </assemblage>
 
-    <exercise>
-      <title>Guided Practice</title>
-      <statement>
-      <p>Compute the area between -1.96 and 1.96 for a normal distribution with mean 0 and standard deviation 1.</p>
-      </statement>
-      <solution>
-      <p>We will leave it to you to draw a picture.</p>
-      <p>The Z scores are <m>Z_{left} = -1.96</m> and <m>Z_{right} = 1.96.</m> The area between these two Z scores is <m>0.9750 - 0.0250 = 0.9500.</m> This is where "1.96" comes from in the 95% confidence interval formula.</p>
-      </solution>
-    </exercise>
+    <subsection xml:id="subsec-ci-95-calculation">
+      <title>Computing the 95% confidence interval</title>
+
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+        <p>Compute the area between -1.96 and 1.96 for a normal distribution with mean 0 and standard deviation 1.</p>
+        </statement>
+        <solution>
+        <p>We will leave it to you to draw a picture.</p>
+        <p>The Z scores are <m>Z_{left} = -1.96</m> and <m>Z_{right} = 1.96.</m> The area between these two Z scores is <m>0.9750 - 0.0250 = 0.9500.</m> This is where "1.96" comes from in the 95% confidence interval formula.</p>
+        </solution>
+      </exercise>
+    </subsection>
 
     <example>
       <statement>
@@ -1241,20 +1249,24 @@
       <image source="images/fig-95PercentConfidenceInterval.png" width="70%" />
     </figure>
 
-    <exercise>
-      <title>Guided Practice</title>
-      <statement>
-      <p>In <xref ref="fig-95PercentConfidenceInterval" />, one interval does not contain the true proportion, <m>p = 0.3.</m> Does this imply that there was a problem with the datasets that were selected?</p>
-      </statement>
-      <solution>
-      <p>No.</p>
-      <p>Just as some observations occur more than 1.96 standard deviations from the mean, some point estimates will be more than 1.96 standard errors from the parameter.</p>
-      <p>A confidence interval only provides a plausible range of values for a parameter.</p>
-      <p>While we might say other values are implausible based on the data, this does not mean they are impossible.</p>
-      </solution>
-    </exercise>
+    <subsection xml:id="subsec-ci-interpretation">
+      <title>Interpreting confidence intervals</title>
 
-    <p>A careful eye might have observed the somewhat awkward language used to describe confidence intervals.</p>
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+        <p>In <xref ref="fig-95PercentConfidenceInterval" />, one interval does not contain the true proportion, <m>p = 0.3.</m> Does this imply that there was a problem with the datasets that were selected?</p>
+        </statement>
+        <solution>
+        <p>No.</p>
+        <p>Just as some observations occur more than 1.96 standard deviations from the mean, some point estimates will be more than 1.96 standard errors from the parameter.</p>
+        <p>A confidence interval only provides a plausible range of values for a parameter.</p>
+        <p>While we might say other values are implausible based on the data, this does not mean they are impossible.</p>
+        </solution>
+      </exercise>
+
+      <p>A careful eye might have observed the somewhat awkward language used to describe confidence intervals.</p>
+    </subsection>
 
     <assemblage>
       <p><alert>Correct confidence interval interpretation.</alert></p>

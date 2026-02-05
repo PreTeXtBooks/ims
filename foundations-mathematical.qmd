@@ -1521,6 +1521,19 @@ inference_method_summary_table |>
 
 ### Terms
 
+```{r}
+#| include: false
+# Reorganize terms to display in specific 3-column format
+# Column 1: 95% confidence interval, 95% confident, Central Limit Theorem, margin of error, normal curve
+# Column 2: normal distribution, normal model, normal probability table, null distribution, parameter  
+# Column 3: percentile, sampling distribution, standard error, standard normal distribution, Z score
+terms_chp_13 <- c(
+  "95% confidence interval", "95% confident", "Central Limit Theorem", "margin of error", "normal curve",
+  "normal distribution", "normal model", "normal probability table", "null distribution", "parameter",
+  "percentile", "sampling distribution", "standard error", "standard normal distribution", "Z score"
+)
+```
+
 The terms introduced in this chapter are presented in @tbl-terms-chp-13.
 If you're not sure what some of these terms mean, we recommend you go back in the text and review their definitions.
 You should be able to easily spot them as **bolded text**.

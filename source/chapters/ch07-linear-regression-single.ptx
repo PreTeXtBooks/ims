@@ -930,7 +930,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
   </tabular>
 </table>
 
-<p>The model output tells us that the intercept is approximately <c>r m_ga_fi_int</c> and the slope on <c>family_income</c> is approximately <c>r m_ga_fi_slope</c>.</p>
+<p>The model output tells us that the intercept is approximately 24.32 and the slope on <c>family_income</c> is approximately -0.04.</p>
 
 <p>But what do these values mean?</p>
 
@@ -938,7 +938,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 
 <example>
   <statement>
-    <p>The intercept and slope estimates for the Elmhurst data are <m>b_0</m> = <c>r m_ga_fi_int</c> and <m>b_1</m> = <c>r m_ga_fi_slope</c>.</p>
+    <p>The intercept and slope estimates for the Elmhurst data are <m>b_0 = 24.32</m> and <m>b_1 = -0.04</m>.</p>
     <p>What do these numbers really mean?</p>
   </statement>
   <solution>
@@ -1279,7 +1279,7 @@ mariokart_lt100 |&gt;
 
 <p>Using values from <xref ref="tbl-marioKartNewUsedRegrSummary" />, the model equation can be summarized as</p>
 
-<me>\widehat{\texttt{price}} = `r m_total_pr_cond_int` + `r m_total_pr_cond_slope` \times \texttt{condnew}</me>
+<me>\widehat{\texttt{price}} = 42.87 + 10.90 \times \texttt{condnew}</me>
 
 <example>
   <statement>

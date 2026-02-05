@@ -203,38 +203,42 @@
       At this stage it's also useful to think about how the data were collected, as that will inform the scope of any inference you can make based on your analysis of the data.
     </p>
 
-    <exercise xml:id="ex-paralympic-study-type">
-      <title>Guided Practice</title>
-      <statement>
-        <p>
-          Do these data come from an observational study or an experiment?
-        </p>
-      </statement>
-      <solution>
-        <p>
-          This is an observational study.
-          Researchers collected data on past gold medal race times in both Olympic and Paralympic Games.
-        </p>
-      </solution>
-    </exercise>
+    <subsection xml:id="subsec-paralympic-data-questions">
+      <title>Understanding the dataset</title>
 
-    <exercise xml:id="ex-paralympic-rows-cols">
-      <title>Guided Practice</title>
-      <statement>
-        <p>
-          There are 73 rows and 9 columns in the dataset.
-          What does each row and each column represent?
-        </p>
-      </statement>
+      <exercise xml:id="ex-paralympic-study-type">
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            Do these data come from an observational study or an experiment?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            This is an observational study.
+            Researchers collected data on past gold medal race times in both Olympic and Paralympic Games.
+          </p>
+        </solution>
+      </exercise>
+
+      <exercise xml:id="ex-paralympic-rows-cols">
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            There are 73 rows and 9 columns in the dataset.
+            What does each row and each column represent?
+          </p>
+        </statement>
       <solution>
         <p>
           Each row represents a 1500m gold medal race and each column represents a variable containing information on each race.
         </p>
       </solution>
     </exercise>
+  </subsection>
 
-    <p>
-      Once you've identified the rows and columns, it's useful to review the data dictionary to learn about what each column in the dataset represents.
+  <p>
+    Once you've identified the rows and columns, it's useful to review the data dictionary to learn about what each column in the dataset represents.
       The data dictionary is provided in <xref ref="tbl-paralympic-var-def" />.
     </p>
 

@@ -159,20 +159,24 @@
       </tabular>
     </table>
 
-    <exercise>
-      <title>Guided Practice</title>
-      <statement>
-        <p>
-          Of the 224 patients in the treatment group, 45 had a stroke by the end of the first year.
-          Using these two numbers, compute the proportion of patients in the treatment group who had a stroke by the end of their first year.
-        </p>
-      </statement>
-      <solution>
-        <p>
-          The proportion of the 224 patients who had a stroke within 365 days: <m>45/224 = 0.20</m>.
-        </p>
-      </solution>
-    </exercise>
+    <subsection xml:id="subsec-stents-proportions">
+      <title>Computing proportions</title>
+
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            Of the 224 patients in the treatment group, 45 had a stroke by the end of the first year.
+            Using these two numbers, compute the proportion of patients in the treatment group who had a stroke by the end of their first year.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The proportion of the 224 patients who had a stroke within 365 days: <m>45/224 = 0.20</m>.
+          </p>
+        </solution>
+      </exercise>
+    </subsection>
 
     <p>
       We can compute summary statistics from the table to give us a better idea of how the impact of the stent treatment differed between the two groups.

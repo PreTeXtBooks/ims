@@ -524,23 +524,27 @@
       While one method to justify making causal conclusions from observational studies is to exhaust the search for confounding variables, there is no guarantee that all confounding variables can be examined or measured.
     </p>
 
-    <exercise>
-      <statement>
-        <p>
-          <xref ref="fig-county-multi-unit-homeownership" /> shows a negative association between the homeownership rate and the percentage of housing units that are in multi-unit structures in a county.
-          However, it is unreasonable to conclude that there is a causal relationship between the two variables.
-          Suggest a variable that might explain the negative relationship.
-        </p>
-      </statement>
-      <solution>
-        <p>
-          Answers will vary.
-          Population density may be important.
-          If a county is very dense, then this may require a larger percentage of residents to live in housing units that are in multi-unit structures.
-          Additionally, the high density may contribute to increases in property value, making homeownership unfeasible for many residents.
-        </p>
-      </solution>
-    </exercise>
+    <subsection xml:id="subsec-confounding-practice">
+      <title>Identifying confounding variables</title>
+
+      <exercise>
+        <statement>
+          <p>
+            <xref ref="fig-county-multi-unit-homeownership" /> shows a negative association between the homeownership rate and the percentage of housing units that are in multi-unit structures in a county.
+            However, it is unreasonable to conclude that there is a causal relationship between the two variables.
+            Suggest a variable that might explain the negative relationship.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Answers will vary.
+            Population density may be important.
+            If a county is very dense, then this may require a larger percentage of residents to live in housing units that are in multi-unit structures.
+            Additionally, the high density may contribute to increases in property value, making homeownership unfeasible for many residents.
+          </p>
+        </solution>
+      </exercise>
+    </subsection>
 
     <p>
       Observational studies come in two forms: prospective and retrospective studies.

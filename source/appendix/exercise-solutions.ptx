@@ -64,7 +64,7 @@
       Solutions to be added from exercise-solutions.qmd
     </p>
   </section>
-  
+
   <section xml:id="sec-exercise-solutions-09">
     <title>Chapter 9</title>
     <p>
@@ -78,14 +78,65 @@
       Solutions to be added from exercise-solutions.qmd
     </p>
   </section>
-  
+
   <section xml:id="sec-exercise-solutions-11">
-    <title>Chapter 11</title>
+    <title>Chapter 11: Hypothesis testing with randomization</title>
     <p>
-      Solutions to be added from exercise-solutions.qmd
+      Solutions for odd-numbered exercises in <xref ref="sec-chp11-exercises" />.
     </p>
+
+    <solution xml:id="sol-ex-parameter-prop-mean-i" to="ex-parameter-prop-mean-i">
+      <p><ol>
+        <li>Mean. Each student reports a numerical value: a number of hours.</li>
+        <li>Mean. Each student reports a number, which is a percentage, and we can average over these percentages.</li>
+        <li>Proportion. Each student reports Yes or No, so this is a categorical variable and we use a proportion.</li>
+        <li>Mean. Each student reports a number, which is a percentage like in part (b).</li>
+        <li>Proportion. Each student reports whether they expect to get a job, so this is a categorical variable and we use a proportion.</li>
+      </ol></p>
+    </solution>
+
+    <solution xml:id="sol-ex-null-alt-hypotheses" to="ex-null-alt-hypotheses">
+      <p><ol>
+        <li>Alternative.</li>
+        <li>Null.</li>
+        <li>Alternative.</li>
+        <li>Alternative.</li>
+        <li>Null.</li>
+        <li>Alternative.</li>
+        <li>Null.</li>
+      </ol></p>
+    </solution>
+
+    <solution xml:id="sol-ex-identify-hypotheses-i" to="ex-identify-hypotheses-i">
+      <p><ol>
+        <li><m>H_0: \mu = 8</m> (On average, New Yorkers sleep 8 hours a night.) <m>H_A: \mu &lt; 8</m> (On average, New Yorkers sleep less than 8 hours a night.)</li>
+        <li><m>H_0: \mu = 15</m> (The average amount of company time each employee spends not working is 15 minutes for March Madness.) <m>H_A: \mu &gt; 15</m> (The average amount of company time each employee spends not working is greater than 15 minutes for March Madness.)</li>
+      </ol></p>
+    </solution>
+
+    <solution xml:id="sol-ex-avandia" to="ex-avandia">
+      <p><ol>
+        <li>
+          <ol>
+            <li>False. Instead of comparing counts, we should compare percentages of people in each group who suffered cardiovascular problems.</li>
+            <li>True.</li>
+            <li>False. Association does not imply causation. We cannot infer a causal relationship based on an observational study. The difference from part (ii) is subtle.</li>
+            <li>True.</li>
+          </ol>
+        </li>
+        <li>Proportion of all patients who had cardiovascular problems: <m>\frac{7{,}979}{227{,}571} \approx 0.035</m></li>
+        <li>The expected number of heart attacks in the Rosiglitazone group, if having cardiovascular problems and treatment were independent, can be calculated as the number of patients in that group multiplied by the overall cardiovascular problem rate in the study: <m>67{,}593 \times \frac{7{,}979}{227{,}571} \approx 2370</m>.</li>
+        <li>
+          <ol>
+            <li><m>H_0</m>: The treatment and cardiovascular problems are independent. They have no relationship, and the difference in incidence rates between the Rosiglitazone and Pioglitazone groups is due to chance. <m>H_A</m>: The treatment and cardiovascular problems are not independent. The difference in the incidence rates between the Rosiglitazone and Pioglitazone groups is not due to chance and Rosiglitazone is associated with an increased risk of serious cardiovascular problems.</li>
+            <li>A higher number of patients with cardiovascular problems than expected under the assumption of independence would provide support for the alternative hypothesis as this would suggest that Rosiglitazone increases the risk of such problems.</li>
+            <li>In the actual study, we observed 2,593 cardiovascular events in the Rosiglitazone group. In the 100 simulations under the independence model, the simulated differences were never so high, which suggests that the actual results did not come from the independence model. That is, the variables do not appear to be independent, and we reject the independence model in favor of the alternative. The study's results provide convincing evidence that Rosiglitazone is associated with an increased risk of cardiovascular problems.</li>
+          </ol>
+        </li>
+      </ol></p>
+    </solution>
   </section>
-  
+
   <section xml:id="sec-exercise-solutions-12">
     <title>Chapter 12</title>
     <p>

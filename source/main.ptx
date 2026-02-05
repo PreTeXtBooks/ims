@@ -152,6 +152,33 @@
           <em>Working Paper</em>, National Bureau of Economic Research.
           <url href="https://www.nber.org/papers/w9873">https://www.nber.org/papers/w9873</url>
         </biblio>
+        
+        <biblio type="raw" xml:id="biblio-Rosen:1974">
+          Rosen, B. and Jerdee, T. H. (1974).
+          Influence of sex role stereotypes on personnel decisions.
+          <em>Journal of Applied Psychology</em>, 59(1):9.
+          DOI: 10.1037/h0035834
+        </biblio>
+        
+        <biblio type="raw" xml:id="biblio-Frederick:2009">
+          Frederick, S., Novemsky, N., Wang, J., Dhar, R., and Nowlis, S. (2009).
+          Opportunity cost neglect.
+          <em>Journal of Consumer Research</em>, 36(4):553-561.
+        </biblio>
+        
+        <biblio type="raw" xml:id="biblio-Graham:2010">
+          Graham, D. J., Ouellet-Hellstrom, R., MaCurdy, T. E., Ali, F., Sholley, C., Worrall, C., and Kelman, J. A. (2010).
+          Risk of acute myocardial infarction, stroke, heart failure, and death in elderly Medicare patients treated with rosiglitazone or pioglitazone.
+          <em>JAMA</em>, 304(4):411.
+          DOI: 10.1001/jama.2010.920
+        </biblio>
+        
+        <biblio type="raw" xml:id="biblio-Turnbull+Brown+Hu:1974">
+          Turnbull, B., Brown, B., and Hu, M. (1974).
+          Survivorship of Heart Transplant Data.
+          <em>Journal of the American Statistical Association</em>, 69:74-80.
+          DOI: 10.1080/01621459.1974.10480130
+        </biblio>
       </references>
     </backmatter>
   </book>

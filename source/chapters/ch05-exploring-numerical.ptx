@@ -175,7 +175,7 @@ ggplot(loan50, aes(x = interest_rate)) +
     <p>Although we do not have an ability to <em>calculate</em> the average interest rate across all loans in the populations, we can <em>estimate</em> the population value using the sample data. Based on the sample of 50 loans, what would be a reasonable estimate of <m>\mu_x,</m> the mean interest rate for all loans in the full dataset?</p>
   </statement>
   <solution>
-    <p>The sample mean, 11.57, provides a rough estimate of <m>\mu_x.</m> While it is not perfect, this is our single best guess <alert>point estimate</alert> of the average interest rate of all the loans in the population under study. In <xref ref="sec-foundations-randomization" /> and beyond, we will develop tools to characterize the accuracy of point estimates, like the sample mean. As you might have guessed, point estimates based on larger samples tend to be more accurate than those based on smaller samples.</p>
+    <p>The sample mean, 11.57, provides a rough estimate of <m>\mu_x.</m> While it is not perfect, this is our single best guess <alert>point estimate</alert> of the average interest rate of all the loans in the population under study. In <xref ref="ch11-hypothesis-testing-randomization" /> and beyond, we will develop tools to characterize the accuracy of point estimates, like the sample mean. As you might have guessed, point estimates based on larger samples tend to be more accurate than those based on smaller samples.</p>
   </solution>
 </example>
 

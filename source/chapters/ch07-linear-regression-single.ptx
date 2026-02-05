@@ -27,6 +27,22 @@
 
 <p>However, the prediction would be far from perfect, since other factors play a role in financial support beyond a family's finances.</p>
 
+<program language="r">
+  <input>
+target <- simulated_scatter |>
+  filter(group == 4)
+
+ggplot(target, aes(x = x, y = y)) +
+  geom_smooth(method = "lm") +
+  geom_point(size = 3) +
+  scale_y_continuous(labels = label_dollar(scale = 0.001, suffix = "K", accuracy = 1), breaks = c(0, 1000, 2000)) +
+  labs(
+    x = "Number of Target Corporation stocks to purchase",
+    y = "Total cost of the\nshare purchase"
+  )
+  </input>
+</program>
+
 <figure xml:id="fig-perfLinearModel">
   <caption>Requests from twelve separate buyers were simultaneously placed with a trading company to purchase Target Corporation stock (ticker TGT, December 28th, 2018), and the total cost of the shares was reported. Because the cost is computed using a linear formula, the linear fit is perfect.</caption>
   <image source="images/fig-perfLinearModel-1.png" width="70%" />
@@ -62,6 +78,31 @@
 
 <p>As we move forward in this chapter, we will learn about criteria for line-fitting, and we will also learn about the uncertainty associated with estimates of model parameters.</p>
 
+<program language="r">
+  <input>
+neg <- simulated_scatter |> filter(group == 1)
+pos <- simulated_scatter |> filter(group == 2)
+ran <- simulated_scatter |> filter(group == 3)
+
+p_neg <- ggplot(neg, aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = NULL, y = NULL)
+
+p_pos <- ggplot(pos, aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = NULL, y = NULL)
+
+p_ran <- ggplot(ran, aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = NULL, y = NULL)
+
+p_neg + p_pos + p_ran
+  </input>
+</program>
+
 <figure xml:id="fig-imperfLinearModel">
   <caption>Three datasets where a linear model may be useful even though the data do not all fall exactly on the line.</caption>
   <image source="images/fig-imperfLinearModel-1.png" width="70%" />
@@ -72,6 +113,20 @@
 <p>One such case is shown in <xref ref="fig-notGoodAtAllForALinearModel" /> where there is a very clear relationship between the variables even though the trend is not linear.</p>
 
 <p>We discuss nonlinear trends in this chapter and the next, but details of fitting nonlinear models are saved for a later course.</p>
+
+<program language="r">
+  <input>
+bad <- simulated_scatter |> filter(group == 5)
+
+ggplot(bad, aes(x = x, y = y)) +
+  geom_point(size = 2.5) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    x = "Angle of Incline (Degrees)",
+    y = "Distance Traveled (m)"
+  )
+  </input>
+</program>
 
 <figure xml:id="fig-notGoodAtAllForALinearModel">
   <caption>The best fitting line for these data is flat, which is not a useful way to describe the non-linear relationship. These data are from a physics experiment.</caption>
@@ -88,6 +143,12 @@
 <p>Researchers captured 104 of these animals and took body measurements before releasing the animals back into the wild.</p>
 
 <p>We consider two of these measurements: the total length of each possum, from head to tail, and the length of each possum's head.</p>
+
+<program language="r">
+  <input>
+knitr::include_graphics("images/brushtail-possum/brushtail-possum.jpg")
+  </input>
+</program>
 
 <figure xml:id="fig-brushtail-possum">
   <caption>The common brushtail possum of Australia. Photo by Greg Schecter,</caption>
@@ -107,6 +168,23 @@
 
 <p>While the relationship is not perfectly linear, it could be helpful to partially explain the connection between these variables with a straight line.</p>
 
+<program language="r">
+  <input>
+ggplot(possum, aes(x = total_l, y = head_l)) +
+  geom_point(alpha = 0.7, size = 2) +
+  labs(
+    x = "Total Length (cm)",
+    y = "Head Length (mm)"
+  ) +
+  geom_point(
+    data = tibble(x = 84, y = 86.7), 
+    aes(x = x, y = y), 
+    color = IMSCOL["red", "full"], 
+    size = 5, shape = "circle open", stroke = 2
+  )
+  </input>
+</program>
+
 <figure xml:id="fig-scattHeadLTotalL">
   <caption>A scatterplot showing head length against total length for 104 brushtail possums. A point representing a possum with head length 86.7 mm and total length 84 cm is highlighted.</caption>
   <image source="images/fig-scattHeadLTotalL-1.png" width="70%" />
@@ -115,6 +193,18 @@
 <p>We want to describe the relationship between head and total length of possums with a line.</p>
 
 <p>In this example, we will use the total length as the predictor variable, <m>x,</m> to predict a possum's head length, <m>y.</m> We could fit the linear relationship by eye, as in <xref ref="fig-scattHeadLTotalLLine" />.</p>
+
+<program language="r">
+  <input>
+ggplot(possum, aes(x = total_l, y = head_l)) +
+  geom_point(alpha = 0.7, size = 2) +
+  labs(
+    x = "Total Length (cm)",
+    y = "Head Length (mm)"
+  ) +
+  geom_smooth(method = "lm", se = FALSE)
+  </input>
+</program>
 
 <figure xml:id="fig-scattHeadLTotalLLine">
   <caption>A reasonable linear model was fit to represent the relationship between head length and total length.</caption>
@@ -149,6 +239,34 @@
 
 <p>It's harder to tell if age changes the relationship between total length and head length for these possums.</p>
 
+<program language="r">
+  <input>
+p_sex <- ggplot(possum, aes(x = total_l, y = head_l, shape = sex, color = sex)) +
+  geom_point(alpha = 0.8, size = 2) +
+  scale_color_manual(values = c(IMSCOL["red", "full"], IMSCOL["blue", "full"])) +
+  labs(
+    x = "Total Length (cm)",
+    y = "Head Length (mm)",
+    color = "Sex", shape = "Sex"
+  )
+
+p_age <- ggplot(possum, aes(x = total_l, y = head_l, color = age)) +
+  geom_point(size = 2) +
+  labs(
+    x = "Total Length (cm)",
+    y = "Head Length (mm)",
+    color = "Age"
+  ) +
+  scale_color_gradient(
+    low = IMSCOL["green", "f4"],
+    high = IMSCOL["green", "full"]
+  )
+
+p_sex
+p_age
+  </input>
+</program>
+
 <figure xml:id="fig-scattHeadLTotalL-sex-age">
   <caption>Relationship between total length and head length of brushtail possums, taking into consideration their sex or age.</caption>
   <image source="images/fig-scattHeadLTotalL-sex-age-1.png" width="70%" />
@@ -182,6 +300,45 @@
 <p>The size of a residual is usually discussed in terms of its absolute value.</p>
 
 <p>For example, the residual for the observation marked by a pink triangle is larger than that of the observation marked by a red circle because <m>|-4|</m> is larger than <m>|-1|.</m></p>
+
+<program language="r">
+  <input>
+mod <- lm(head_l ~ total_l, data = possum)
+preds <- predict(mod, data.frame(total_l = c(76, 85, 95.5)))
+obs <- c(85.1, 98.6, 94)
+ggplot(possum, aes(x = total_l, y = head_l)) +
+  geom_point(alpha = 0.8, size = 2) +
+  labs(
+    x = "Total Length (cm)",
+    y = "Head Length (mm)"
+  ) +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_point(
+    data = possum |> filter(total_l == 76),
+    shape = "circle open", stroke = 2,
+    size = 4, color = IMSCOL["red", "full"]
+  ) +
+  geom_segment(aes(x = 76, y = preds[1], xend = 76, yend = obs[1] + 0.4),
+    color = IMSCOL["red", "full"], inherit.aes = FALSE
+  ) +
+  geom_point(
+    data = possum |> filter(total_l == 85, head_l == 98.6),
+    shape = "diamond open", stroke = 2, size = 5,
+    color = IMSCOL["gray", "full"]
+  ) +
+  geom_segment(aes(x = 85, y = preds[2], xend = 85, yend = obs[2] - 0.5),
+    color = IMSCOL["gray", "full"], inherit.aes = FALSE
+  ) +
+  geom_point(
+    data = possum |> filter(total_l == 95.5, head_l == 94),
+    shape = "triangle open", stroke = 2, size = 5,
+    color = IMSCOL["pink", "full"]
+  ) +
+  geom_segment(aes(x = 95.5, y = preds[3], xend = 95.5, yend = obs[3] + 0.5),
+    color = IMSCOL["pink", "full"], inherit.aes = FALSE
+  )
+  </input>
+</program>
 
 <figure xml:id="fig-scattHeadLTotalLLine-highlighted">
   <caption>A reasonable linear model was fit to represent the relationship between head length and total length, with three points highlighted.</caption>
@@ -238,6 +395,60 @@
 
 <p>For instance, the point <m>(85.0, 98.6)</m> (marked by the blue diamond) had a predicted value of 91.4 mm and had a residual of 7.45 mm, so in the residual plot it is placed at <m>(91.4, 7.45).</m> Creating a residual plot is sort of like tipping the scatterplot over so the regression line is horizontal, as indicated by the dashed line.</p>
 
+<program language="r">
+  <input>
+m_head_total <- lm(head_l ~ total_l, data = possum)
+m_head_total_aug <- augment(m_head_total)
+
+ggplot(m_head_total_aug, aes(x = .fitted, y = .resid)) +
+  geom_point(alpha = 0.8, size = 2) +
+  labs(
+    x = "Predicted values of head length (mm)",
+    y = "Residuals"
+  ) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_point(
+    data = m_head_total_aug |>
+      filter(total_l == 76),
+    shape = "circle open", stroke = 2, size = 4,
+    color = IMSCOL["red", "full"]
+  ) +
+  geom_segment(
+    aes(
+      x = preds[1], y = obs[1] - preds[1] + 0.2,
+      xend = preds[1], yend = 0
+    ),
+    color = IMSCOL["red", "full"], inherit.aes = FALSE
+  ) +
+  geom_point(
+    data = m_head_total_aug |>
+      filter(total_l == 85, head_l == 98.6),
+    shape = "diamond open", stroke = 2, size = 5,
+    color = IMSCOL["gray", "full"]
+  ) +
+  geom_segment(
+    aes(
+      x = preds[2], y = obs[2] - preds[2] - 0.3,
+      xend = preds[2], yend = 0
+    ),
+    color = IMSCOL["gray", "full"], inherit.aes = FALSE
+  ) +
+  geom_point(
+    data = m_head_total_aug |>
+      filter(total_l == 95.5, head_l == 94),
+    shape = "triangle open", stroke = 2, size = 5,
+    color = IMSCOL["pink", "full"]
+  ) +
+  geom_segment(
+    aes(
+      x = preds[3], y = obs[3] - preds[3] + 0.3,
+      xend = preds[3], yend = 0
+    ),
+    color = IMSCOL["pink", "full"], inherit.aes = FALSE
+  )
+  </input>
+</program>
+
 <figure xml:id="fig-scattHeadLTotalLResidualPlot">
   <caption>Residual plot for the model predicting head length from total length for brushtail possums.</caption>
   <image source="images/fig-scattHeadLTotalLResidualPlot-1.png" width="70%" />
@@ -248,6 +459,69 @@
     <p>One purpose of residual plots is to identify characteristics or patterns still apparent in the data after fitting a model.</p>
     <p>The figure below shows three scatterplots with linear models in the first row and residual plots in the second row.</p>
     <p>Can you identify any patterns in the residuals?</p>
+    
+    <program language="r">
+      <input>
+neg_lin <- simulated_scatter |> filter(group == 6)
+neg_cur <- simulated_scatter |> filter(group == 7)
+random <- simulated_scatter |> filter(group == 8)
+
+neg_lin_mod <- augment(lm(y ~ x, data = neg_lin))
+neg_cur_mod <- augment(lm(y ~ x, data = neg_cur))
+random_mod <- augment(lm(y ~ x, data = random))
+
+p_neg_lin <- ggplot(neg_lin, aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_void() +
+  theme(panel.border = element_rect(colour = "gray", fill = NA, size = 1)) +
+  labs(title = "Dataset 1")
+
+p_neg_cur <- ggplot(neg_cur, aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_void() +
+  theme(panel.border = element_rect(colour = "gray", fill = NA, size = 1))+
+  labs(title = "Dataset 2")
+
+p_random <- ggplot(random, aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_void() +
+  theme(panel.border = element_rect(colour = "gray", fill = NA, size = 1)) +
+  labs(title = "Dataset 3")
+
+p_neg_lin_res <- ggplot(neg_lin_mod, aes(x = .fitted, y = .resid)) +
+  geom_point(size = 2, alpha = 0.8) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  theme_void() +
+  theme(panel.border = element_rect(colour = "gray", fill = NA, size = 1))
+
+p_neg_cur_res <- ggplot(neg_cur_mod, aes(x = .fitted, y = .resid)) +
+  geom_point(size = 2, alpha = 0.8) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  theme_void() +
+  theme(panel.border = element_rect(colour = "gray", fill = NA, size = 1))
+
+p_random_res <- ggplot(random_mod, aes(x = .fitted, y = .resid)) +
+  geom_point(size = 2, alpha = 0.8) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  theme_void() +
+  theme(panel.border = element_rect(colour = "gray", fill = NA, size = 1))
+
+p_neg_lin + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
+  p_neg_cur + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) + p_random +
+  p_neg_lin_res + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
+  p_neg_cur_res + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) + p_random_res +
+  plot_layout(ncol = 3, heights = c(2, 1))
+      </input>
+    </program>
+    
+    <figure xml:id="sampleLinesAndResPlots">
+      <caption>Three datasets with linear models in the first row and residual plots in the second row.</caption>
+      <image source="images/sampleLinesAndResPlots-1.png" width="90%" />
+    </figure>
+    
     </statement>
   <solution>
     <p>Dataset 1: the residuals show no obvious patterns.</p>
@@ -298,6 +572,28 @@
 
 <p>If there is no apparent linear relationship between the variables, then the correlation will be near zero.</p>
 
+<program language="r">
+  <input>
+library(ggpubr) # Adding here instead of _common.R to avoid collision with ggimage
+
+simulated_scatter |>
+  filter(group %in% c(9:12, 14:17)) |>
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.8) +
+  theme_void() +
+  facet_wrap(~group, nrow = 2, scales = "free") +
+  theme(
+    panel.border = element_rect(colour = "gray", fill = NA, linewidth = 1),
+    strip.background = element_blank(),
+    strip.text.x = element_blank()
+  ) +
+  stat_cor(
+    aes(label = paste("r", ..r.., sep = "~`=`~")), 
+    geom = "label"
+  )
+  </input>
+</program>
+
 <figure xml:id="fig-posNegCorPlots">
   <caption>Sample scatterplots and their correlations. The first row shows variables with a positive relationship, represented by the trend up and to the right. The second row shows variables with a negative trend, where a large value in one variable is associated with a lower value in the other.</caption>
   <image source="images/fig-posNegCorPlots-1.png" width="70%" />
@@ -306,6 +602,26 @@
 <p>The correlation is intended to quantify the strength of a linear trend.</p>
 
 <p>Nonlinear trends, even when strong, sometimes produce correlations that do not reflect the strength of the relationship; see three such examples in <xref ref="fig-corForNonLinearPlots" />.</p>
+
+<program language="r">
+  <input>
+simulated_scatter |>
+  filter(group %in% 17:19) |>
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.8) +
+  theme_void() +
+  facet_wrap(~group, nrow = 1, scales = "free") +
+  theme(
+    panel.border = element_rect(colour = "gray", fill = NA, size = 1),
+    strip.background = element_blank(),
+    strip.text.x = element_blank()
+  ) +
+  stat_cor(
+    aes(label = paste("r", ..r.., sep = "~`=`~")),
+    geom = "label"
+  )
+  </input>
+</program>
 
 <figure xml:id="fig-corForNonLinearPlots">
   <caption>Sample scatterplots and their correlations. In each case, there is a strong relationship between the variables. However, because the relationship is not linear, the correlation is relatively weak.</caption>
@@ -363,6 +679,34 @@
 
 <p>The only visual change to the plot is the axis <em>labeling</em> of the points.</p>
 
+<program language="r">
+  <input>
+p_1 <- ggplot(bdims, aes(x = hgt, y = wgt)) +
+  geom_point(alpha = 0.8) +
+  labs(x = "Height (cm)", y = "Weight (kg)") +
+  stat_cor(
+    aes(label = paste("r", ..r.., sep = "~`=`~")),
+    geom = "label"
+  )
+
+p_2 <- bdims |>
+  mutate(
+    hgt = hgt * 0.393701,
+    wgt = wgt * 2.20462
+  ) |>
+  ggplot(aes(x = hgt, y = wgt)) +
+  geom_point(alpha = 0.8) +
+  labs(x = "Height (in)", y = "Weight (lbs)") +
+  stat_cor(
+    aes(label = paste("r", ..r.., sep = "~`=`~")),
+    geom = "label"
+  )
+
+p_1
+p_2
+  </input>
+</program>
+
 <figure xml:id="fig-bdims-units">
   <caption>Two scatterplots, both displaying the relationship between weights and heights of 507 physically healthy adults and the correlation coefficient, <m>r = 0.72</m>.</caption>
   <image source="images/fig-bdims-units-1.png" width="70%" />
@@ -400,6 +744,20 @@
   </solution>
 </exercise>
 
+<program language="r">
+  <input>
+ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
+  geom_point(size = 2) +
+  geom_smooth(method = "lm", se = FALSE) +
+  scale_y_continuous(labels = label_dollar(scale = 1, suffix = "K", accuracy = 1)) +
+  scale_x_continuous(labels = label_dollar(scale = 1, suffix = "K", accuracy = 1)) +
+  labs(
+    x = "Family income",
+    y = "Gift aid from university"
+  )
+  </input>
+</program>
+
 <figure xml:id="fig-elmhurstScatterWLine">
   <caption>Gift aid and family income for a random sample of 50 first-year students from Elmhurst College.</caption>
   <image source="images/fig-elmhurstScatterWLine-1.png" width="70%" />
@@ -423,6 +781,21 @@
 <p>which we could accomplish with a computer program.</p>
 
 <p>The resulting dashed line shown in <xref ref="fig-elmhurstScatterW2Lines" /> demonstrates this fit can be quite reasonable.</p>
+
+<program language="r">
+  <input>
+ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
+  geom_point(alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_smooth(method = quantreg::rq, formula = y ~ x, se = FALSE, linetype = "dashed") +
+  scale_y_continuous(labels = label_dollar(scale = 1, suffix = "K", accuracy = 1)) +
+  scale_x_continuous(labels = label_dollar(scale = 1, suffix = "K", accuracy = 1)) +
+  labs(
+    x = "Family income",
+    y = "Gift aid from university"
+  )
+  </input>
+</program>
 
 <figure xml:id="fig-elmhurstScatterW2Lines">
   <caption>Gift aid and family income for a random sample of 50 first-year Elmhurst College students. The dashed line is the line that minimizes the sum of the absolute value of residuals, the solid line is the line that minimizes the sum of squared residuals, i.e., the least squares line.</caption>
@@ -467,6 +840,19 @@
 
 <p>The first 5 rows of this dataset are given in <xref ref="tbl-elmhurst-data" />.</p>
 
+<program language="r">
+  <input>
+elmhurst |>
+  slice_head(n = 5) |>
+  kbl(linesep = "", booktabs = TRUE) |>
+  kable_styling(
+    bootstrap_options = c("striped", "condensed"),
+    latex_options = c("striped"), full_width = FALSE
+  ) |>
+  column_spec(1:3, width = "8em")
+  </input>
+</program>
+
 <figure xml:id="tbl-elmhurst-data">
   <caption>First five rows of the <c>elmhurst</c> dataset.</caption>
   <image source="images/tbl-elmhurst-data-1.png" width="70%" />
@@ -483,6 +869,23 @@
 <p>Statistical software is usually used to compute the least squares line and the typical output generated as a result of fitting regression models looks like the one shown in <xref ref="tbl-rOutputForIncomeAidLSRLine" />.</p>
 
 <p>For now we will focus on the first column of the output, which lists <m>{b}_0</m> and <m>{b}_1.</m> In <xref ref="sec-inf-model-slr" /> we will dive deeper into the remaining columns which give us information on how accurate and precise these values of intercept and slope that are calculated from a sample of 50 students are in estimating the population parameters of intercept and slope for <em>all</em> students.</p>
+
+<program language="r">
+  <input>
+m_ga_fi |>
+  mutate(p.value = ifelse(p.value < .0001, "<0.0001", round(p.value, 4))) |>
+  kbl(
+    linesep = "", booktabs = TRUE,
+    digits = 2, align = "lrrrr"
+  ) |>
+  kable_styling(
+    bootstrap_options = c("striped", "condensed"),
+    latex_options = c("striped")
+  ) |>
+  column_spec(1, width = "15em", monospace = TRUE) |>
+  column_spec(2:5, width = "5em")
+  </input>
+</program>
 
 <figure xml:id="tbl-rOutputForIncomeAidLSRLine">
   <caption>Summary of least squares fit for the Elmhurst data.</caption>
@@ -542,6 +945,31 @@
 <p><xref ref="tbl-summaryStatsElmhurstRegr" /> shows the sample means for the family income and gift aid as \<m>101,780 and \</m>19,940, respectively.</p>
 
 <p>We could plot the point <m>(102, 19.9)</m> on <xref ref="fig-elmhurstScatterWLine" /> to verify it falls on the least squares line (the solid line).</p>
+
+<program language="r">
+  <input>
+elmhurst |>
+  select(family_income, gift_aid) |>
+  summarise(
+    fi_m = mean(family_income),
+    fi_s = sd(family_income),
+    ga_m = mean(gift_aid),
+    ga_s = sd(gift_aid),
+    r    = cor(family_income, gift_aid)
+  ) |>
+  kbl(
+    linesep = "", booktabs = TRUE,
+    col.names = c("mean", "sd", "mean", "sd", "r"),
+    align = "ccccc"
+  ) |>
+  kable_styling(
+    bootstrap_options = c("striped", "condensed"),
+    latex_options = c("striped"), full_width = FALSE
+  ) |>
+  add_header_above(c("Family income, x" = 2, "Gift aid, y" = 2, " " = 1)) |>
+  column_spec(1:5, width = "6em")
+  </input>
+</program>
 
 <figure xml:id="tbl-summaryStatsElmhurstRegr">
   <caption>Summary statistics for family income and gift aid.</caption>
@@ -753,6 +1181,26 @@
 
 <p>Note that the original dataset contains some Mario Kart games being sold at prices above \<m>100 but for this analysis we have limited our focus to the <c>r nrow(mariokart_lt100)</c> Mario Kart games that were sold below \</m>100.</p>
 
+<program language="r">
+  <input>
+mariokart_lt100 |>
+  filter(total_pr < 100) |>
+  ggplot(aes(x = as.numeric(cond) - 1, y = total_pr)) +
+  geom_jitter(alpha = 0.8, position = position_jitter(width = 0.05)) +
+  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE) +
+  scale_x_continuous(
+    breaks = c(0, 1),
+    minor_breaks = c(0, 1),
+    limits = c(-0.2, 1.2),
+    labels = c("0\n(used)", "1\n(new)")
+  ) +
+  labs(
+    x = "Condition",
+    y = "Total price"
+  )
+  </input>
+</program>
+
 <figure xml:id="fig-marioKartNewUsed">
   <caption>Total auction prices for the video game Mario Kart, divided into used (<m>x = 0</m>) and new (<m>x = 1</m>) condition games. The least squares regression line is also shown.</caption>
   <image source="images/fig-marioKartNewUsed-1.png" width="70%" />
@@ -767,6 +1215,35 @@
 <me>\widehat{\texttt{price}} = b_0 + b_1 \times \texttt{condnew}</me>
 
 <p>The parameter estimates are given in <xref ref="tbl-marioKartNewUsedRegrSummary" />.</p>
+
+<program language="r">
+  <input>
+m_total_pr_cond <- lm(total_pr ~ cond, data = mariokart_lt100)
+m_total_pr_cond_tidy <- tidy(m_total_pr_cond)
+
+m_total_pr_cond_int <- m_total_pr_cond_tidy |>
+  filter(term == "(Intercept)") |>
+  pull(estimate) |>
+  round(2)
+m_total_pr_cond_slope <- m_total_pr_cond_tidy |>
+  filter(term == "condnew") |>
+  pull(estimate) |>
+  round(2)
+
+m_total_pr_cond_tidy |>
+  mutate(p.value = ifelse(p.value < 0.0001, "<0.0001", round(p.value, 4))) |>
+  kbl(
+    linesep = "", booktabs = TRUE,
+    digits = 2, align = "lrrrr"
+  ) |>
+  kable_styling(
+    bootstrap_options = c("striped", "condensed"),
+    latex_options = c("striped")
+  ) |>
+  column_spec(1, width = "15em", monospace = TRUE) |>
+  column_spec(2:5, width = "5em")
+  </input>
+</program>
 
 <figure xml:id="tbl-marioKartNewUsedRegrSummary">
   <caption>Least squares regression summary for the final auction price against the condition of the game.</caption>
@@ -849,6 +1326,218 @@
   </solution>
 </example>
 
+<program language="r">
+  <input>
+# abc
+d1 <- simulated_scatter |>
+  filter(group == 24) |>
+  mutate(outlier = if_else(y == min(y), TRUE, FALSE))
+d2 <- simulated_scatter |>
+  filter(group == 25) |>
+  mutate(outlier = if_else(y == min(y), TRUE, FALSE))
+d3 <- simulated_scatter |>
+  filter(group == 26) |>
+  mutate(outlier = if_else(y == max(y), TRUE, FALSE))
+
+m1_aug <- augment(lm(y ~ x, data = d1)) |>
+  mutate(outlier = if_else(y == min(y), TRUE, FALSE))
+
+m2_aug <- augment(lm(y ~ x, data = d2)) |>
+  mutate(outlier = if_else(y == min(y), TRUE, FALSE))
+
+m3_aug <- augment(lm(y ~ x, data = d3)) |>
+  mutate(outlier = if_else(y == max(y), TRUE, FALSE))
+
+p_1 <- ggplot(d1, aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_point(
+    data = d1 |> filter(outlier),
+    size = 5, shape = "circle open",
+    color = IMSCOL["red", "full"], stroke = 2
+  ) +
+  labs(title = "A") +
+  theme(
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    panel.border = element_rect(colour = "gray", fill = NA, size = 1)
+  ) +
+  scale_x_continuous(expand = expansion(mult = 0.12)) +
+  scale_y_continuous(expand = expansion(mult = 0.12))
+
+p_1_res <- ggplot(m1_aug, aes(x = .fitted, y = .resid)) +
+  geom_point(alpha = 0.7, size = 2) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_point(
+    data = m1_aug |> filter(outlier),
+    size = 5, shape = "circle open",
+    color = IMSCOL["red", "full"], stroke = 2
+  ) +
+  labs(x = "Predicted y", y = "Residual") +
+  theme(
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    panel.border = element_rect(colour = "gray", fill = NA, size = 1)
+  ) +
+  scale_x_continuous(expand = expansion(mult = 0.12)) +
+  scale_y_continuous(limits = c(-8, 8), expand = expansion(mult = 0.12))
+
+p_2 <- ggplot(d2, aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_point(
+    data = d2 |> filter(outlier),
+    size = 5, shape = "circle open",
+    color = IMSCOL["green", "full"], stroke = 2
+  ) +
+  labs(title = "B") +
+  theme(
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    panel.border = element_rect(colour = "gray", fill = NA, size = 1)
+  ) +
+  scale_x_continuous(expand = expansion(mult = 0.12)) +
+  scale_y_continuous(expand = expansion(mult = 0.12))
+
+p_2_res <- ggplot(m2_aug, aes(x = .fitted, y = .resid)) +
+  geom_point(size = 2, alpha = 0.8) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_point(
+    data = m2_aug |> filter(outlier),
+    size = 5, shape = "circle open",
+    color = IMSCOL["green", "full"], stroke = 2
+  ) +
+  labs(x = "Predicted y", y = "Residual") +
+  theme(
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    panel.border = element_rect(colour = "gray", fill = NA, size = 1)
+  ) +
+  scale_x_continuous(expand = expansion(mult = 0.12)) +
+  scale_y_continuous(limits = c(-8, 8), expand = expansion(mult = 0.12))
+
+p_3 <- ggplot(d3, aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_point(
+    data = d3 |> filter(outlier),
+    size = 5, shape = "circle open",
+    color = IMSCOL["pink", "full"], stroke = 2
+  ) +
+  labs(title = "C") +
+  theme(
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    panel.border = element_rect(colour = "gray", fill = NA, size = 1)
+  ) +
+  scale_x_continuous(expand = expansion(mult = 0.12)) +
+  scale_y_continuous(expand = expansion(mult = 0.12))
+
+p_3_res <- ggplot(m3_aug, aes(x = .fitted, y = .resid)) +
+  geom_point(size = 2, alpha = 0.8) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  geom_point(
+    data = m3_aug |> filter(outlier),
+    size = 5, shape = "circle open",
+    color = IMSCOL["pink", "full"], stroke = 2
+  ) +
+  labs(x = "Predicted y", y = "Residual") +
+  theme(
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    panel.border = element_rect(colour = "gray", fill = NA, size = 1)
+  ) +
+  scale_x_continuous(expand = expansion(mult = 0.12)) +
+  scale_y_continuous(limits = c(-8, 8), expand = expansion(mult = 0.12))
+
+p_1 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
+  p_2 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) + p_3 +
+  p_1_res + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
+  p_2_res + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) + p_3_res +
+  plot_layout(ncol = 3, heights = c(2, 1))
+
+# def
+d4 <- simulated_scatter |>
+  filter(group == 27)
+
+d5 <- simulated_scatter |> filter(group == 28)
+d6 <- simulated_scatter |> filter(group == 29)
+
+m4_aug <- augment(lm(y ~ x, data = d4))
+m5_aug <- augment(lm(y ~ x, data = d5))
+m6_aug <- augment(lm(y ~ x, data = d6))
+
+p_4 <- ggplot(d4, aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme(
+        panel.grid = element_blank(),
+        axis.text = element_blank(),
+        panel.border = element_rect(colour = "gray", fill = NA, size = 1)
+    ) +
+  labs(title = "D")
+
+p_4_res <- ggplot(m4_aug, aes(x = .fitted, y = .resid)) +
+  geom_point(size = 2, alpha = 0.7) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(x = "Predicted y", y = "Residual") +
+  theme(
+        panel.grid = element_blank(),
+        axis.text = element_blank(),
+        panel.border = element_rect(colour = "gray", fill = NA, size = 1)
+    ) +
+  ylim(-4, 4)
+
+p_5 <- ggplot(d5, aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme(
+        panel.grid = element_blank(),
+        axis.text = element_blank(),
+        panel.border = element_rect(colour = "gray", fill = NA, size = 1)
+    ) +
+  labs(title = "E")
+
+p_5_res <- ggplot(m5_aug, aes(x = .fitted, y = .resid)) +
+  geom_point(alpha = 0.7, size = 2) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(x = "Predicted y", y = "Residual") +
+  theme(
+        panel.grid = element_blank(),
+        axis.text = element_blank(),
+        panel.border = element_rect(colour = "gray", fill = NA, size = 1)
+    ) +
+  ylim(-4, 4)
+
+p_6 <- ggplot(d6, aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme(
+        panel.grid = element_blank(),
+        axis.text = element_blank(),
+        panel.border = element_rect(colour = "gray", fill = NA, size = 1)
+    ) +
+  labs(title = "F")
+
+p_6_res <- ggplot(m6_aug, aes(x = .fitted, y = .resid)) +
+  geom_point(size = 2, alpha = 0.7) +
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(x = "Predicted y", y = "Residual") +
+  theme(
+        panel.grid = element_blank(),
+        axis.text = element_blank(),
+        panel.border = element_rect(colour = "gray", fill = NA, size = 1)
+    ) +
+  ylim(-4, 4)
+
+p_4 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
+  p_5 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) + p_6 +
+  p_4_res + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
+  p_5_res + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) + p_6_res +
+  plot_layout(ncol = 3, heights = c(2, 1))
+  </input>
+</program>
+
 <figure xml:id="fig-outlier-plots">
   <caption>Plots of six datasets, each with a least squares line and corresponding residual plot. Each dataset has at least one outlier.</caption>
   <image source="images/fig-outlier-plots-1.png" width="70%" />
@@ -918,6 +1607,12 @@
 <p>If you're not sure what some of these terms mean, we recommend you go back in the text and review their definitions.</p>
 
 <p>You should be able to easily spot them as <alert>bolded text</alert>.</p>
+
+<program language="r">
+  <input>
+make_terms_table(terms_chp_07)
+  </input>
+</program>
 
 <figure xml:id="tbl-terms-chp-07">
   <caption>Terms introduced in this chapter.</caption>

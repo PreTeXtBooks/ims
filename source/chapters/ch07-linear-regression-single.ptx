@@ -29,7 +29,8 @@
 
 <program language="r">
   <input>
-target <- simulated_scatter |>
+
+target &lt;- simulated_scatter |&gt;
   filter(group == 4)
 
 ggplot(target, aes(x = x, y = y)) +
@@ -40,7 +41,7 @@ ggplot(target, aes(x = x, y = y)) +
     x = "Number of Target Corporation stocks to purchase",
     y = "Total cost of the\nshare purchase"
   )
-  </input>
+    </input>
 </program>
 
 <figure xml:id="fig-perfLinearModel">
@@ -80,27 +81,28 @@ ggplot(target, aes(x = x, y = y)) +
 
 <program language="r">
   <input>
-neg <- simulated_scatter |> filter(group == 1)
-pos <- simulated_scatter |> filter(group == 2)
-ran <- simulated_scatter |> filter(group == 3)
 
-p_neg <- ggplot(neg, aes(x = x, y = y)) +
+neg &lt;- simulated_scatter |&gt; filter(group == 1)
+pos &lt;- simulated_scatter |&gt; filter(group == 2)
+ran &lt;- simulated_scatter |&gt; filter(group == 3)
+
+p_neg &lt;- ggplot(neg, aes(x = x, y = y)) +
   geom_point(size = 2, alpha = 0.7) +
   geom_smooth(method = "lm", se = FALSE) +
   labs(x = NULL, y = NULL)
 
-p_pos <- ggplot(pos, aes(x = x, y = y)) +
+p_pos &lt;- ggplot(pos, aes(x = x, y = y)) +
   geom_point(size = 2, alpha = 0.7) +
   geom_smooth(method = "lm", se = FALSE) +
   labs(x = NULL, y = NULL)
 
-p_ran <- ggplot(ran, aes(x = x, y = y)) +
+p_ran &lt;- ggplot(ran, aes(x = x, y = y)) +
   geom_point(size = 2, alpha = 0.7) +
   geom_smooth(method = "lm", se = FALSE) +
   labs(x = NULL, y = NULL)
 
 p_neg + p_pos + p_ran
-  </input>
+    </input>
 </program>
 
 <figure xml:id="fig-imperfLinearModel">
@@ -116,7 +118,8 @@ p_neg + p_pos + p_ran
 
 <program language="r">
   <input>
-bad <- simulated_scatter |> filter(group == 5)
+
+bad &lt;- simulated_scatter |&gt; filter(group == 5)
 
 ggplot(bad, aes(x = x, y = y)) +
   geom_point(size = 2.5) +
@@ -125,7 +128,7 @@ ggplot(bad, aes(x = x, y = y)) +
     x = "Angle of Incline (Degrees)",
     y = "Distance Traveled (m)"
   )
-  </input>
+    </input>
 </program>
 
 <figure xml:id="fig-notGoodAtAllForALinearModel">
@@ -146,8 +149,9 @@ ggplot(bad, aes(x = x, y = y)) +
 
 <program language="r">
   <input>
+
 knitr::include_graphics("images/brushtail-possum/brushtail-possum.jpg")
-  </input>
+    </input>
 </program>
 
 <figure xml:id="fig-brushtail-possum">
@@ -170,6 +174,7 @@ knitr::include_graphics("images/brushtail-possum/brushtail-possum.jpg")
 
 <program language="r">
   <input>
+
 ggplot(possum, aes(x = total_l, y = head_l)) +
   geom_point(alpha = 0.7, size = 2) +
   labs(
@@ -182,7 +187,7 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
     color = IMSCOL["red", "full"], 
     size = 5, shape = "circle open", stroke = 2
   )
-  </input>
+    </input>
 </program>
 
 <figure xml:id="fig-scattHeadLTotalL">
@@ -196,6 +201,7 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
 
 <program language="r">
   <input>
+
 ggplot(possum, aes(x = total_l, y = head_l)) +
   geom_point(alpha = 0.7, size = 2) +
   labs(
@@ -203,7 +209,7 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
     y = "Head Length (mm)"
   ) +
   geom_smooth(method = "lm", se = FALSE)
-  </input>
+    </input>
 </program>
 
 <figure xml:id="fig-scattHeadLTotalLLine">
@@ -241,7 +247,8 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
 
 <program language="r">
   <input>
-p_sex <- ggplot(possum, aes(x = total_l, y = head_l, shape = sex, color = sex)) +
+
+p_sex &lt;- ggplot(possum, aes(x = total_l, y = head_l, shape = sex, color = sex)) +
   geom_point(alpha = 0.8, size = 2) +
   scale_color_manual(values = c(IMSCOL["red", "full"], IMSCOL["blue", "full"])) +
   labs(
@@ -250,7 +257,7 @@ p_sex <- ggplot(possum, aes(x = total_l, y = head_l, shape = sex, color = sex)) 
     color = "Sex", shape = "Sex"
   )
 
-p_age <- ggplot(possum, aes(x = total_l, y = head_l, color = age)) +
+p_age &lt;- ggplot(possum, aes(x = total_l, y = head_l, color = age)) +
   geom_point(size = 2) +
   labs(
     x = "Total Length (cm)",
@@ -264,7 +271,7 @@ p_age <- ggplot(possum, aes(x = total_l, y = head_l, color = age)) +
 
 p_sex
 p_age
-  </input>
+    </input>
 </program>
 
 <figure xml:id="fig-scattHeadLTotalL-sex-age">
@@ -303,9 +310,10 @@ p_age
 
 <program language="r">
   <input>
-mod <- lm(head_l ~ total_l, data = possum)
-preds <- predict(mod, data.frame(total_l = c(76, 85, 95.5)))
-obs <- c(85.1, 98.6, 94)
+
+mod &lt;- lm(head_l ~ total_l, data = possum)
+preds &lt;- predict(mod, data.frame(total_l = c(76, 85, 95.5)))
+obs &lt;- c(85.1, 98.6, 94)
 ggplot(possum, aes(x = total_l, y = head_l)) +
   geom_point(alpha = 0.8, size = 2) +
   labs(
@@ -314,7 +322,7 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
   ) +
   geom_smooth(method = "lm", se = FALSE) +
   geom_point(
-    data = possum |> filter(total_l == 76),
+    data = possum |&gt; filter(total_l == 76),
     shape = "circle open", stroke = 2,
     size = 4, color = IMSCOL["red", "full"]
   ) +
@@ -322,7 +330,7 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
     color = IMSCOL["red", "full"], inherit.aes = FALSE
   ) +
   geom_point(
-    data = possum |> filter(total_l == 85, head_l == 98.6),
+    data = possum |&gt; filter(total_l == 85, head_l == 98.6),
     shape = "diamond open", stroke = 2, size = 5,
     color = IMSCOL["gray", "full"]
   ) +
@@ -330,14 +338,14 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
     color = IMSCOL["gray", "full"], inherit.aes = FALSE
   ) +
   geom_point(
-    data = possum |> filter(total_l == 95.5, head_l == 94),
+    data = possum |&gt; filter(total_l == 95.5, head_l == 94),
     shape = "triangle open", stroke = 2, size = 5,
     color = IMSCOL["pink", "full"]
   ) +
   geom_segment(aes(x = 95.5, y = preds[3], xend = 95.5, yend = obs[3] + 0.5),
     color = IMSCOL["pink", "full"], inherit.aes = FALSE
   )
-  </input>
+    </input>
 </program>
 
 <figure xml:id="fig-scattHeadLTotalLLine-highlighted">
@@ -397,8 +405,9 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
 
 <program language="r">
   <input>
-m_head_total <- lm(head_l ~ total_l, data = possum)
-m_head_total_aug <- augment(m_head_total)
+
+m_head_total &lt;- lm(head_l ~ total_l, data = possum)
+m_head_total_aug &lt;- augment(m_head_total)
 
 ggplot(m_head_total_aug, aes(x = .fitted, y = .resid)) +
   geom_point(alpha = 0.8, size = 2) +
@@ -408,7 +417,7 @@ ggplot(m_head_total_aug, aes(x = .fitted, y = .resid)) +
   ) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   geom_point(
-    data = m_head_total_aug |>
+    data = m_head_total_aug |&gt;
       filter(total_l == 76),
     shape = "circle open", stroke = 2, size = 4,
     color = IMSCOL["red", "full"]
@@ -421,7 +430,7 @@ ggplot(m_head_total_aug, aes(x = .fitted, y = .resid)) +
     color = IMSCOL["red", "full"], inherit.aes = FALSE
   ) +
   geom_point(
-    data = m_head_total_aug |>
+    data = m_head_total_aug |&gt;
       filter(total_l == 85, head_l == 98.6),
     shape = "diamond open", stroke = 2, size = 5,
     color = IMSCOL["gray", "full"]
@@ -434,7 +443,7 @@ ggplot(m_head_total_aug, aes(x = .fitted, y = .resid)) +
     color = IMSCOL["gray", "full"], inherit.aes = FALSE
   ) +
   geom_point(
-    data = m_head_total_aug |>
+    data = m_head_total_aug |&gt;
       filter(total_l == 95.5, head_l == 94),
     shape = "triangle open", stroke = 2, size = 5,
     color = IMSCOL["pink", "full"]
@@ -446,7 +455,7 @@ ggplot(m_head_total_aug, aes(x = .fitted, y = .resid)) +
     ),
     color = IMSCOL["pink", "full"], inherit.aes = FALSE
   )
-  </input>
+    </input>
 </program>
 
 <figure xml:id="fig-scattHeadLTotalLResidualPlot">
@@ -461,49 +470,50 @@ ggplot(m_head_total_aug, aes(x = .fitted, y = .resid)) +
     <p>Can you identify any patterns in the residuals?</p>
     
     <program language="r">
-      <input>
-neg_lin <- simulated_scatter |> filter(group == 6)
-neg_cur <- simulated_scatter |> filter(group == 7)
-random <- simulated_scatter |> filter(group == 8)
+  <input>
 
-neg_lin_mod <- augment(lm(y ~ x, data = neg_lin))
-neg_cur_mod <- augment(lm(y ~ x, data = neg_cur))
-random_mod <- augment(lm(y ~ x, data = random))
+neg_lin &lt;- simulated_scatter |&gt; filter(group == 6)
+neg_cur &lt;- simulated_scatter |&gt; filter(group == 7)
+random &lt;- simulated_scatter |&gt; filter(group == 8)
 
-p_neg_lin <- ggplot(neg_lin, aes(x = x, y = y)) +
+neg_lin_mod &lt;- augment(lm(y ~ x, data = neg_lin))
+neg_cur_mod &lt;- augment(lm(y ~ x, data = neg_cur))
+random_mod &lt;- augment(lm(y ~ x, data = random))
+
+p_neg_lin &lt;- ggplot(neg_lin, aes(x = x, y = y)) +
   geom_point(size = 2, alpha = 0.8) +
   geom_smooth(method = "lm", se = FALSE) +
   theme_void() +
   theme(panel.border = element_rect(colour = "gray", fill = NA, size = 1)) +
   labs(title = "Dataset 1")
 
-p_neg_cur <- ggplot(neg_cur, aes(x = x, y = y)) +
+p_neg_cur &lt;- ggplot(neg_cur, aes(x = x, y = y)) +
   geom_point(size = 2, alpha = 0.8) +
   geom_smooth(method = "lm", se = FALSE) +
   theme_void() +
   theme(panel.border = element_rect(colour = "gray", fill = NA, size = 1))+
   labs(title = "Dataset 2")
 
-p_random <- ggplot(random, aes(x = x, y = y)) +
+p_random &lt;- ggplot(random, aes(x = x, y = y)) +
   geom_point(size = 2, alpha = 0.8) +
   geom_smooth(method = "lm", se = FALSE) +
   theme_void() +
   theme(panel.border = element_rect(colour = "gray", fill = NA, size = 1)) +
   labs(title = "Dataset 3")
 
-p_neg_lin_res <- ggplot(neg_lin_mod, aes(x = .fitted, y = .resid)) +
+p_neg_lin_res &lt;- ggplot(neg_lin_mod, aes(x = .fitted, y = .resid)) +
   geom_point(size = 2, alpha = 0.8) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   theme_void() +
   theme(panel.border = element_rect(colour = "gray", fill = NA, size = 1))
 
-p_neg_cur_res <- ggplot(neg_cur_mod, aes(x = .fitted, y = .resid)) +
+p_neg_cur_res &lt;- ggplot(neg_cur_mod, aes(x = .fitted, y = .resid)) +
   geom_point(size = 2, alpha = 0.8) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   theme_void() +
   theme(panel.border = element_rect(colour = "gray", fill = NA, size = 1))
 
-p_random_res <- ggplot(random_mod, aes(x = .fitted, y = .resid)) +
+p_random_res &lt;- ggplot(random_mod, aes(x = .fitted, y = .resid)) +
   geom_point(size = 2, alpha = 0.8) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   theme_void() +
@@ -514,8 +524,8 @@ p_neg_lin + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
   p_neg_lin_res + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
   p_neg_cur_res + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) + p_random_res +
   plot_layout(ncol = 3, heights = c(2, 1))
-      </input>
-    </program>
+        </input>
+</program>
     
     <figure xml:id="sampleLinesAndResPlots">
       <caption>Three datasets with linear models in the first row and residual plots in the second row.</caption>
@@ -574,10 +584,11 @@ p_neg_lin + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
 
 <program language="r">
   <input>
+
 library(ggpubr) # Adding here instead of _common.R to avoid collision with ggimage
 
-simulated_scatter |>
-  filter(group %in% c(9:12, 14:17)) |>
+simulated_scatter |&gt;
+  filter(group %in% c(9:12, 14:17)) |&gt;
   ggplot(aes(x = x, y = y)) +
   geom_point(size = 2, alpha = 0.8) +
   theme_void() +
@@ -591,7 +602,7 @@ simulated_scatter |>
     aes(label = paste("r", ..r.., sep = "~`=`~")), 
     geom = "label"
   )
-  </input>
+    </input>
 </program>
 
 <figure xml:id="fig-posNegCorPlots">
@@ -605,8 +616,9 @@ simulated_scatter |>
 
 <program language="r">
   <input>
-simulated_scatter |>
-  filter(group %in% 17:19) |>
+
+simulated_scatter |&gt;
+  filter(group %in% 17:19) |&gt;
   ggplot(aes(x = x, y = y)) +
   geom_point(size = 2, alpha = 0.8) +
   theme_void() +
@@ -620,7 +632,7 @@ simulated_scatter |>
     aes(label = paste("r", ..r.., sep = "~`=`~")),
     geom = "label"
   )
-  </input>
+    </input>
 </program>
 
 <figure xml:id="fig-corForNonLinearPlots">
@@ -681,7 +693,8 @@ simulated_scatter |>
 
 <program language="r">
   <input>
-p_1 <- ggplot(bdims, aes(x = hgt, y = wgt)) +
+
+p_1 &lt;- ggplot(bdims, aes(x = hgt, y = wgt)) +
   geom_point(alpha = 0.8) +
   labs(x = "Height (cm)", y = "Weight (kg)") +
   stat_cor(
@@ -689,11 +702,11 @@ p_1 <- ggplot(bdims, aes(x = hgt, y = wgt)) +
     geom = "label"
   )
 
-p_2 <- bdims |>
+p_2 &lt;- bdims |&gt;
   mutate(
     hgt = hgt * 0.393701,
     wgt = wgt * 2.20462
-  ) |>
+  ) |&gt;
   ggplot(aes(x = hgt, y = wgt)) +
   geom_point(alpha = 0.8) +
   labs(x = "Height (in)", y = "Weight (lbs)") +
@@ -704,7 +717,7 @@ p_2 <- bdims |>
 
 p_1
 p_2
-  </input>
+    </input>
 </program>
 
 <figure xml:id="fig-bdims-units">
@@ -746,6 +759,7 @@ p_2
 
 <program language="r">
   <input>
+
 ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
   geom_point(size = 2) +
   geom_smooth(method = "lm", se = FALSE) +
@@ -755,7 +769,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
     x = "Family income",
     y = "Gift aid from university"
   )
-  </input>
+    </input>
 </program>
 
 <figure xml:id="fig-elmhurstScatterWLine">
@@ -784,6 +798,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 
 <program language="r">
   <input>
+
 ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
   geom_point(alpha = 0.8) +
   geom_smooth(method = "lm", se = FALSE) +
@@ -794,7 +809,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
     x = "Family income",
     y = "Gift aid from university"
   )
-  </input>
+    </input>
 </program>
 
 <figure xml:id="fig-elmhurstScatterW2Lines">
@@ -842,15 +857,16 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 
 <program language="r">
   <input>
-elmhurst |>
-  slice_head(n = 5) |>
-  kbl(linesep = "", booktabs = TRUE) |>
+
+elmhurst |&gt;
+  slice_head(n = 5) |&gt;
+  kbl(linesep = "", booktabs = TRUE) |&gt;
   kable_styling(
     bootstrap_options = c("striped", "condensed"),
     latex_options = c("striped"), full_width = FALSE
-  ) |>
+  ) |&gt;
   column_spec(1:3, width = "8em")
-  </input>
+    </input>
 </program>
 
 <figure xml:id="tbl-elmhurst-data">
@@ -872,19 +888,20 @@ elmhurst |>
 
 <program language="r">
   <input>
-m_ga_fi |>
-  mutate(p.value = ifelse(p.value < .0001, "<0.0001", round(p.value, 4))) |>
+
+m_ga_fi |&gt;
+  mutate(p.value = ifelse(p.value &lt; .0001, "&lt;0.0001", round(p.value, 4))) |&gt;
   kbl(
     linesep = "", booktabs = TRUE,
     digits = 2, align = "lrrrr"
-  ) |>
+  ) |&gt;
   kable_styling(
     bootstrap_options = c("striped", "condensed"),
     latex_options = c("striped")
-  ) |>
-  column_spec(1, width = "15em", monospace = TRUE) |>
+  ) |&gt;
+  column_spec(1, width = "15em", monospace = TRUE) |&gt;
   column_spec(2:5, width = "5em")
-  </input>
+    </input>
 </program>
 
 <figure xml:id="tbl-rOutputForIncomeAidLSRLine">
@@ -948,27 +965,28 @@ m_ga_fi |>
 
 <program language="r">
   <input>
-elmhurst |>
-  select(family_income, gift_aid) |>
+
+elmhurst |&gt;
+  select(family_income, gift_aid) |&gt;
   summarise(
     fi_m = mean(family_income),
     fi_s = sd(family_income),
     ga_m = mean(gift_aid),
     ga_s = sd(gift_aid),
     r    = cor(family_income, gift_aid)
-  ) |>
+  ) |&gt;
   kbl(
     linesep = "", booktabs = TRUE,
     col.names = c("mean", "sd", "mean", "sd", "r"),
     align = "ccccc"
-  ) |>
+  ) |&gt;
   kable_styling(
     bootstrap_options = c("striped", "condensed"),
     latex_options = c("striped"), full_width = FALSE
-  ) |>
-  add_header_above(c("Family income, x" = 2, "Gift aid, y" = 2, " " = 1)) |>
+  ) |&gt;
+  add_header_above(c("Family income, x" = 2, "Gift aid, y" = 2, " " = 1)) |&gt;
   column_spec(1:5, width = "6em")
-  </input>
+    </input>
 </program>
 
 <figure xml:id="tbl-summaryStatsElmhurstRegr">
@@ -1011,8 +1029,8 @@ elmhurst |>
     <p>\vspace{-5mm}</p>
     <p>$$</p>
     <p>\begin{aligned}</p>
-    <p>y - y_0  &= b_1 (x - x_0) \\</p>
-    <p>y - 19.9 &= -0.0431 (x - 102)</p>
+    <p>y - y_0  &amp;= b_1 (x - x_0) \\</p>
+    <p>y - 19.9 &amp;= -0.0431 (x - 102)</p>
     <p>\end{aligned}</p>
     <p>$$</p>
     <p>Expanding the right side and then adding 19.9 to each side, the equation simplifies:</p>
@@ -1021,7 +1039,7 @@ elmhurst |>
     <p>\widehat{\texttt{aid}} = 24.3 - 0.0431 \times \texttt{family\_income}</p>
     <p>$$</p>
     <p>Here we have replaced <m>y</m> with <m>\widehat{\texttt{aid}}</m> and <m>x</m> with <m>\texttt{family\_income}</m> to put the equation in context.</p>
-    <p>The final least squares equation should always include a "hat" on the variable being predicted, whether it is a generic <m>`<c>y"</m> or a named variable like <m></c>`aid"</m>.</p>
+    <p>The final least squares equation should always include a "hat" on the variable being predicted, whether it is a generic <m><c>y</c></m> or a named variable like <m><c>aid</c></m>.</p>
   </solution>
 </example>
 
@@ -1137,8 +1155,8 @@ elmhurst |>
   <p>\vspace{-2mm}</p>
   <md>
     <mrow>\begin{aligned}</mrow>
-    <mrow>SSE &= (y_1 - \hat{y}_1)^2 + (y_2 - \hat{y}_2)^2 + \cdots + (y_n - \hat{y}_n)^2\\</mrow>
-    <mrow>&= e_{1}^2 + e_{2}^2 + \dots + e_{n}^2</mrow>
+    <mrow>SSE &amp;= (y_1 - \hat{y}_1)^2 + (y_2 - \hat{y}_2)^2 + \cdots + (y_n - \hat{y}_n)^2\\</mrow>
+    <mrow>&amp;= e_{1}^2 + e_{2}^2 + \dots + e_{n}^2</mrow>
     <mrow>\end{aligned}</mrow>
   </md>
   <p>The coefficient of determination can then be calculated as</p>
@@ -1183,8 +1201,9 @@ elmhurst |>
 
 <program language="r">
   <input>
-mariokart_lt100 |>
-  filter(total_pr < 100) |>
+
+mariokart_lt100 |&gt;
+  filter(total_pr &lt; 100) |&gt;
   ggplot(aes(x = as.numeric(cond) - 1, y = total_pr)) +
   geom_jitter(alpha = 0.8, position = position_jitter(width = 0.05)) +
   geom_smooth(method = "lm", se = FALSE, fullrange = TRUE) +
@@ -1198,7 +1217,7 @@ mariokart_lt100 |>
     x = "Condition",
     y = "Total price"
   )
-  </input>
+    </input>
 </program>
 
 <figure xml:id="fig-marioKartNewUsed">
@@ -1218,31 +1237,32 @@ mariokart_lt100 |>
 
 <program language="r">
   <input>
-m_total_pr_cond <- lm(total_pr ~ cond, data = mariokart_lt100)
-m_total_pr_cond_tidy <- tidy(m_total_pr_cond)
 
-m_total_pr_cond_int <- m_total_pr_cond_tidy |>
-  filter(term == "(Intercept)") |>
-  pull(estimate) |>
+m_total_pr_cond &lt;- lm(total_pr ~ cond, data = mariokart_lt100)
+m_total_pr_cond_tidy &lt;- tidy(m_total_pr_cond)
+
+m_total_pr_cond_int &lt;- m_total_pr_cond_tidy |&gt;
+  filter(term == "(Intercept)") |&gt;
+  pull(estimate) |&gt;
   round(2)
-m_total_pr_cond_slope <- m_total_pr_cond_tidy |>
-  filter(term == "condnew") |>
-  pull(estimate) |>
+m_total_pr_cond_slope &lt;- m_total_pr_cond_tidy |&gt;
+  filter(term == "condnew") |&gt;
+  pull(estimate) |&gt;
   round(2)
 
-m_total_pr_cond_tidy |>
-  mutate(p.value = ifelse(p.value < 0.0001, "<0.0001", round(p.value, 4))) |>
+m_total_pr_cond_tidy |&gt;
+  mutate(p.value = ifelse(p.value &lt; 0.0001, "&lt;0.0001", round(p.value, 4))) |&gt;
   kbl(
     linesep = "", booktabs = TRUE,
     digits = 2, align = "lrrrr"
-  ) |>
+  ) |&gt;
   kable_styling(
     bootstrap_options = c("striped", "condensed"),
     latex_options = c("striped")
-  ) |>
-  column_spec(1, width = "15em", monospace = TRUE) |>
+  ) |&gt;
+  column_spec(1, width = "15em", monospace = TRUE) |&gt;
   column_spec(2:5, width = "5em")
-  </input>
+    </input>
 </program>
 
 <figure xml:id="tbl-marioKartNewUsedRegrSummary">
@@ -1328,31 +1348,32 @@ m_total_pr_cond_tidy |>
 
 <program language="r">
   <input>
+
 # abc
-d1 <- simulated_scatter |>
-  filter(group == 24) |>
+d1 &lt;- simulated_scatter |&gt;
+  filter(group == 24) |&gt;
   mutate(outlier = if_else(y == min(y), TRUE, FALSE))
-d2 <- simulated_scatter |>
-  filter(group == 25) |>
+d2 &lt;- simulated_scatter |&gt;
+  filter(group == 25) |&gt;
   mutate(outlier = if_else(y == min(y), TRUE, FALSE))
-d3 <- simulated_scatter |>
-  filter(group == 26) |>
+d3 &lt;- simulated_scatter |&gt;
+  filter(group == 26) |&gt;
   mutate(outlier = if_else(y == max(y), TRUE, FALSE))
 
-m1_aug <- augment(lm(y ~ x, data = d1)) |>
+m1_aug &lt;- augment(lm(y ~ x, data = d1)) |&gt;
   mutate(outlier = if_else(y == min(y), TRUE, FALSE))
 
-m2_aug <- augment(lm(y ~ x, data = d2)) |>
+m2_aug &lt;- augment(lm(y ~ x, data = d2)) |&gt;
   mutate(outlier = if_else(y == min(y), TRUE, FALSE))
 
-m3_aug <- augment(lm(y ~ x, data = d3)) |>
+m3_aug &lt;- augment(lm(y ~ x, data = d3)) |&gt;
   mutate(outlier = if_else(y == max(y), TRUE, FALSE))
 
-p_1 <- ggplot(d1, aes(x = x, y = y)) +
+p_1 &lt;- ggplot(d1, aes(x = x, y = y)) +
   geom_point(size = 2, alpha = 0.8) +
   geom_smooth(method = "lm", se = FALSE) +
   geom_point(
-    data = d1 |> filter(outlier),
+    data = d1 |&gt; filter(outlier),
     size = 5, shape = "circle open",
     color = IMSCOL["red", "full"], stroke = 2
   ) +
@@ -1365,11 +1386,11 @@ p_1 <- ggplot(d1, aes(x = x, y = y)) +
   scale_x_continuous(expand = expansion(mult = 0.12)) +
   scale_y_continuous(expand = expansion(mult = 0.12))
 
-p_1_res <- ggplot(m1_aug, aes(x = .fitted, y = .resid)) +
+p_1_res &lt;- ggplot(m1_aug, aes(x = .fitted, y = .resid)) +
   geom_point(alpha = 0.7, size = 2) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   geom_point(
-    data = m1_aug |> filter(outlier),
+    data = m1_aug |&gt; filter(outlier),
     size = 5, shape = "circle open",
     color = IMSCOL["red", "full"], stroke = 2
   ) +
@@ -1382,11 +1403,11 @@ p_1_res <- ggplot(m1_aug, aes(x = .fitted, y = .resid)) +
   scale_x_continuous(expand = expansion(mult = 0.12)) +
   scale_y_continuous(limits = c(-8, 8), expand = expansion(mult = 0.12))
 
-p_2 <- ggplot(d2, aes(x = x, y = y)) +
+p_2 &lt;- ggplot(d2, aes(x = x, y = y)) +
   geom_point(size = 2, alpha = 0.8) +
   geom_smooth(method = "lm", se = FALSE) +
   geom_point(
-    data = d2 |> filter(outlier),
+    data = d2 |&gt; filter(outlier),
     size = 5, shape = "circle open",
     color = IMSCOL["green", "full"], stroke = 2
   ) +
@@ -1399,11 +1420,11 @@ p_2 <- ggplot(d2, aes(x = x, y = y)) +
   scale_x_continuous(expand = expansion(mult = 0.12)) +
   scale_y_continuous(expand = expansion(mult = 0.12))
 
-p_2_res <- ggplot(m2_aug, aes(x = .fitted, y = .resid)) +
+p_2_res &lt;- ggplot(m2_aug, aes(x = .fitted, y = .resid)) +
   geom_point(size = 2, alpha = 0.8) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   geom_point(
-    data = m2_aug |> filter(outlier),
+    data = m2_aug |&gt; filter(outlier),
     size = 5, shape = "circle open",
     color = IMSCOL["green", "full"], stroke = 2
   ) +
@@ -1416,11 +1437,11 @@ p_2_res <- ggplot(m2_aug, aes(x = .fitted, y = .resid)) +
   scale_x_continuous(expand = expansion(mult = 0.12)) +
   scale_y_continuous(limits = c(-8, 8), expand = expansion(mult = 0.12))
 
-p_3 <- ggplot(d3, aes(x = x, y = y)) +
+p_3 &lt;- ggplot(d3, aes(x = x, y = y)) +
   geom_point(size = 2, alpha = 0.8) +
   geom_smooth(method = "lm", se = FALSE) +
   geom_point(
-    data = d3 |> filter(outlier),
+    data = d3 |&gt; filter(outlier),
     size = 5, shape = "circle open",
     color = IMSCOL["pink", "full"], stroke = 2
   ) +
@@ -1433,11 +1454,11 @@ p_3 <- ggplot(d3, aes(x = x, y = y)) +
   scale_x_continuous(expand = expansion(mult = 0.12)) +
   scale_y_continuous(expand = expansion(mult = 0.12))
 
-p_3_res <- ggplot(m3_aug, aes(x = .fitted, y = .resid)) +
+p_3_res &lt;- ggplot(m3_aug, aes(x = .fitted, y = .resid)) +
   geom_point(size = 2, alpha = 0.8) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   geom_point(
-    data = m3_aug |> filter(outlier),
+    data = m3_aug |&gt; filter(outlier),
     size = 5, shape = "circle open",
     color = IMSCOL["pink", "full"], stroke = 2
   ) +
@@ -1457,17 +1478,17 @@ p_1 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
   plot_layout(ncol = 3, heights = c(2, 1))
 
 # def
-d4 <- simulated_scatter |>
+d4 &lt;- simulated_scatter |&gt;
   filter(group == 27)
 
-d5 <- simulated_scatter |> filter(group == 28)
-d6 <- simulated_scatter |> filter(group == 29)
+d5 &lt;- simulated_scatter |&gt; filter(group == 28)
+d6 &lt;- simulated_scatter |&gt; filter(group == 29)
 
-m4_aug <- augment(lm(y ~ x, data = d4))
-m5_aug <- augment(lm(y ~ x, data = d5))
-m6_aug <- augment(lm(y ~ x, data = d6))
+m4_aug &lt;- augment(lm(y ~ x, data = d4))
+m5_aug &lt;- augment(lm(y ~ x, data = d5))
+m6_aug &lt;- augment(lm(y ~ x, data = d6))
 
-p_4 <- ggplot(d4, aes(x = x, y = y)) +
+p_4 &lt;- ggplot(d4, aes(x = x, y = y)) +
   geom_point(size = 2, alpha = 0.7) +
   geom_smooth(method = "lm", se = FALSE) +
   theme(
@@ -1477,7 +1498,7 @@ p_4 <- ggplot(d4, aes(x = x, y = y)) +
     ) +
   labs(title = "D")
 
-p_4_res <- ggplot(m4_aug, aes(x = .fitted, y = .resid)) +
+p_4_res &lt;- ggplot(m4_aug, aes(x = .fitted, y = .resid)) +
   geom_point(size = 2, alpha = 0.7) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   labs(x = "Predicted y", y = "Residual") +
@@ -1488,7 +1509,7 @@ p_4_res <- ggplot(m4_aug, aes(x = .fitted, y = .resid)) +
     ) +
   ylim(-4, 4)
 
-p_5 <- ggplot(d5, aes(x = x, y = y)) +
+p_5 &lt;- ggplot(d5, aes(x = x, y = y)) +
   geom_point(size = 2, alpha = 0.7) +
   geom_smooth(method = "lm", se = FALSE) +
   theme(
@@ -1498,7 +1519,7 @@ p_5 <- ggplot(d5, aes(x = x, y = y)) +
     ) +
   labs(title = "E")
 
-p_5_res <- ggplot(m5_aug, aes(x = .fitted, y = .resid)) +
+p_5_res &lt;- ggplot(m5_aug, aes(x = .fitted, y = .resid)) +
   geom_point(alpha = 0.7, size = 2) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   labs(x = "Predicted y", y = "Residual") +
@@ -1509,7 +1530,7 @@ p_5_res <- ggplot(m5_aug, aes(x = .fitted, y = .resid)) +
     ) +
   ylim(-4, 4)
 
-p_6 <- ggplot(d6, aes(x = x, y = y)) +
+p_6 &lt;- ggplot(d6, aes(x = x, y = y)) +
   geom_point(size = 2, alpha = 0.7) +
   geom_smooth(method = "lm", se = FALSE) +
   theme(
@@ -1519,7 +1540,7 @@ p_6 <- ggplot(d6, aes(x = x, y = y)) +
     ) +
   labs(title = "F")
 
-p_6_res <- ggplot(m6_aug, aes(x = .fitted, y = .resid)) +
+p_6_res &lt;- ggplot(m6_aug, aes(x = .fitted, y = .resid)) +
   geom_point(size = 2, alpha = 0.7) +
   geom_hline(yintercept = 0, linetype = "dashed") +
   labs(x = "Predicted y", y = "Residual") +
@@ -1535,7 +1556,7 @@ p_4 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
   p_4_res + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
   p_5_res + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) + p_6_res +
   plot_layout(ncol = 3, heights = c(2, 1))
-  </input>
+    </input>
 </program>
 
 <figure xml:id="fig-outlier-plots">
@@ -1610,8 +1631,9 @@ p_4 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
 
 <program language="r">
   <input>
+
 make_terms_table(terms_chp_07)
-  </input>
+    </input>
 </program>
 
 <figure xml:id="tbl-terms-chp-07">

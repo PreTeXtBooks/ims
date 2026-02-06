@@ -609,6 +609,11 @@ ggplot(tires_shuffled, aes(x = stat)) +
 <p>We sampled 201 UCLA courses. Of those, 68 required books could be found on Amazon, where prices are in US dollars.</p>
 
 
+<note>
+  <title>Data</title>
+  <p>The <url href="http://openintrostat.github.io/openintro/reference/ucla_textbooks_f18.html"><c>ucla_textbooks_f18</c></url> data can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</p>
+</note>
+
 
 <table xml:id="tbl-textbooksDF">
   <title>Four cases from the <c>ucla_textbooks_f18</c> dataset.</title>

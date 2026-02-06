@@ -48,9 +48,7 @@ paired_study_examples |>
 ::: {.important data-latex=""}
 **Paired data.**
 
-\index{paired data}
-
-Two sets of observations are *paired* if each observation in one set has a special correspondence or connection with exactly one observation in the other dataset.
+Two sets of observations are *paired*\index{paired data} if each observation in one set has a special correspondence or connection with exactly one observation in the other dataset.
 :::
 
 It is worth noting that if mathematical modeling is chosen as the analysis tool, paired data inference on the difference in measurements will be identical to the one-sample mathematical techniques described in [Chapter -@sec-inference-one-mean].
@@ -584,9 +582,7 @@ ggplot(tires_shuffled, aes(x = stat)) +
 ## Bootstrap confidence interval for the mean paired difference
 
 For both the bootstrap and the mathematical models applied to paired data, the analysis is virtually identical to the one-sample approach given in [Chapter -@sec-inference-one-mean].
-The key to working with paired data (for bootstrapping and mathematical approaches) is to consider the measurement of interest to be the difference in measured values across the pair of observations.
-
-\index{bootstrap!CI paired difference}\index{bootstrap CI paired difference}
+The key to working with paired data (for bootstrapping and mathematical approaches) is to consider the measurement of interest to be the difference in measured values across the pair of observations.\index{bootstrap!CI paired difference}\index{bootstrap CI paired difference}
 
 ```{r}
 #| include: false
@@ -622,10 +618,8 @@ ucla_textbooks_f18 |>
   )
 ```
 
-\index{paired data}
-
 Each textbook has two corresponding prices in the dataset: one for the UCLA Bookstore and one for Amazon.
-When two sets of observations have this special correspondence, they are said to be **paired**.
+When two sets of observations have this special correspondence, they are said to be **paired**\index{paired data}.
 
 \clearpage
 
@@ -844,9 +838,7 @@ Therefore, the full hypothesis test framework is presented as guided practices.
 ::: {.important data-latex=""}
 **The test statistic for assessing a paired mean is a T.**
 
-\index{T score!paired difference}\index{paired difference!T score}
-
-The T score is a ratio of how the sample mean difference varies from zero as compared to how the observations vary.
+The T score\index{T score!paired difference}\index{paired difference!T score} is a ratio of how the sample mean difference varies from zero as compared to how the observations vary.
 
 $$T = \frac{\bar{x}_{diff} - 0 }{s_{diff}/\sqrt{n_{diff}}}$$
 
@@ -921,10 +913,8 @@ The margin of error for $\bar{x}_{diff}$ can be directly obtained from $SE(\bar{
 The margin of error is $t^\star_{df} \times s_{diff}/\sqrt{n_{diff}}$ where $t^\star_{df}$ is calculated from a specified percentile on the t-distribution with *df* degrees of freedom.
 :::
 
-\index{t-CI!paired difference}
-
 ::: {.workedexample data-latex=""}
-Create a 95% confidence interval for the average price difference between books at the UCLA bookstore and books on Amazon.
+Create a 95% confidence interval\index{t-CI!paired difference} for the average price difference between books at the UCLA bookstore and books on Amazon.
 
 ------------------------------------------------------------------------
 

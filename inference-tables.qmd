@@ -191,9 +191,7 @@ This leads us to a general formula for computing expected counts in a two-way ta
 ::: {.important data-latex=""}
 **Computing expected counts in a two-way table.**
 
-\index{expected counts}
-
-To calculate the expected count for the $i^{th}$ row and $j^{th}$ column, compute
+To calculate the expected count\index{expected counts} for the $i^{th}$ row and $j^{th}$ column, compute
 
 $$\text{Expected Count}_{\text{row }i,\text{ col }j} = \frac{(\text{row $i$ total}) \times (\text{column $j$ total})}{\text{table total}}$$
 :::
@@ -433,8 +431,7 @@ Using this information, we can compute the p-value for the test, which is depict
 ::: {.important data-latex=""}
 **Computing degrees of freedom for a two-way table.**
 
-\index{degrees of freedom!chi-squared test}
-When applying the chi-squared test to a two-way table, we use $df = (R-1)\times (C-1)$ where $R$ is the number of rows in the table and $C$ is the number of columns.
+When applying the chi-squared test\index{degrees of freedom!chi-squared test} to a two-way table, we use $df = (R-1)\times (C-1)$ where $R$ is the number of rows in the table and $C$ is the number of columns.
 :::
 
 ```{r}

@@ -1476,8 +1476,6 @@ Another especially important consideration of confidence intervals is that they 
 Our intervals say nothing about the confidence of capturing individual observations, a proportion of the observations, or about capturing point estimates.
 Confidence intervals provide an interval estimate for and attempt to capture **population parameters**.
 
-\index{confidence interval}
-
 \clearpage
 
 ## Chapter review {#sec-chp13-review}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<chapter xml:id="ch22-inference-many-means">
+<chapter xml:id="ch22-inference-many-means" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Inference for comparing many means</title>
 
 <introduction>
@@ -281,12 +281,11 @@ ggplot(mlb_players_18, aes(x = position, y = OBP)) +
 </example>
 
 
-<p><!-- n.b. I removed this bit because the data snooping example above isn't related to the prosecutor's fallacy at all.</p>
-
+<!-- n.b. I removed this bit because the data snooping example above isn't related to the prosecutor's fallacy at all.
 
 <p>For additional information on the ideas expressed above, we recommend reading about the <term>prosecutor's fallacy</term>.[^22-inference-many-means-2]</p>
 
-
+-->
 
 <subsection>
   <title>Observed data</title>
@@ -754,8 +753,6 @@ make_terms_table(terms_chp_22)
 
 <p>Answers to odd-numbered exercises can be found in <xref ref="sec-exercise-solutions-22" />.</p>
 
-
-<!-- <xi:include href="../exercises/_22-ex-inference-many-means.ptx"/> -->
 
 </section>
 

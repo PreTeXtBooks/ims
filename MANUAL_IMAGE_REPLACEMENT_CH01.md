@@ -47,8 +47,9 @@ All images are located in: `source/images/exercises/`
 
 ### Option 1: Use the Download Script (Recommended)
 
-If you have network access to GitHub assets, run the provided script:
+If you have network access to GitHub assets, run one of the provided scripts:
 
+**Bash script (Unix/Linux/Mac):**
 ```bash
 # Navigate to repository root
 cd /path/to/ims
@@ -57,7 +58,16 @@ cd /path/to/ims
 ./download_ch01_images.sh
 ```
 
-The script will automatically:
+**Python script (Cross-platform):**
+```bash
+# Navigate to repository root
+cd /path/to/ims
+
+# Run the Python download script
+python3 download_ch01_images.py
+```
+
+Both scripts will automatically:
 - Download all four images from GitHub assets
 - Place them in the correct directory (`source/images/exercises/`)
 - Verify the downloads

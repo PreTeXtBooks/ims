@@ -6,11 +6,19 @@ This PR sets up the framework to update 4 images in Chapter 1 exercises. **Manua
 
 ## Quick Start
 
-### Easiest Method: Run the Script
+### Method 1: Bash Script (Recommended for Unix/Linux/Mac)
 
 ```bash
 cd /path/to/ims
 ./download_ch01_images.sh
+git push
+```
+
+### Method 2: Python Script (Cross-platform)
+
+```bash
+cd /path/to/ims
+python3 download_ch01_images.py
 git push
 ```
 
@@ -35,7 +43,8 @@ The automated CI environment cannot access GitHub asset URLs (AWS S3). Someone w
 
 ## Files in This PR
 
-- `download_ch01_images.sh` - Automated download script
+- `download_ch01_images.sh` - Bash script for automated download
+- `download_ch01_images.py` - Python script for automated download (cross-platform)
 - `MANUAL_IMAGE_REPLACEMENT_CH01.md` - Detailed instructions
 - `README_IMAGE_UPDATE.md` - This quick reference
 

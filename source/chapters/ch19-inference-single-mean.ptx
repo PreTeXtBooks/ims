@@ -3,9 +3,9 @@
   <title>Inference for a single mean</title>
 
   <introduction>
-    <p>Focusing now on Statistical Inference for <alert>numerical data</alert><idx>numerical data</idx>, again, we will revisit and expand upon the foundational aspects of hypothesis testing from <xref ref="sec-foundations-randomization"/>.</p>
+    <p>Focusing now on Statistical Inference for <alert>numerical data</alert><idx>numerical data</idx>, again, we will revisit and expand upon the foundational aspects of hypothesis testing from <xref ref="ch11-hypothesis-testing-randomization"/>.</p>
 
-    <p>The important data structure for this chapter is a numeric response variable (that is, the outcome is quantitative). The four data structures we detail are one numeric response variable, one numeric response variable which is a difference across a pair of observations, a numeric response variable broken down by a binary explanatory variable, and a numeric response variable broken down by an explanatory variable that has two or more levels. When appropriate, each of the data structures will be analyzed using the three methods from <xref ref="sec-foundations-randomization"/>, <xref ref="sec-foundations-bootstrapping"/>, and <xref ref="sec-foundations-mathematical"/>: randomization test, bootstrapping, and mathematical models, respectively.</p>
+    <p>The important data structure for this chapter is a numeric response variable (that is, the outcome is quantitative). The four data structures we detail are one numeric response variable, one numeric response variable which is a difference across a pair of observations, a numeric response variable broken down by a binary explanatory variable, and a numeric response variable broken down by an explanatory variable that has two or more levels. When appropriate, each of the data structures will be analyzed using the three methods from <xref ref="ch11-hypothesis-testing-randomization"/>, <xref ref="ch12-confidence-intervals-bootstrapping"/>, and <xref ref="sec-foundations-mathematical"/>: randomization test, bootstrapping, and mathematical models, respectively.</p>
 
     <p>As we build on the inferential ideas, we will visit new foundational concepts in statistical inference. One key new idea rests in estimating how the sample mean (as opposed to the sample proportion) varies from sample to sample; the resulting value is referred to as the standard error of the mean. We will also introduce a new important mathematical model, the <m>t</m>-distribution (as the foundation for the <m>t</m>-test).</p>
   </introduction>
@@ -44,7 +44,7 @@ aa_cars &lt;- data.frame(price = c(18300, 20100, 9600, 10700, 27000))
     <subsection xml:id="subsec-boot1mean-variability">
       <title>Variability of the statistic</title>
 
-      <p>As with the inferential ideas covered in <xref ref="sec-foundations-randomization"/>, <xref ref="sec-foundations-bootstrapping"/>, and <xref ref="sec-foundations-mathematical"/>, the inferential analysis methods in this chapter are grounded in quantifying how one dataset differs from another when they are both taken from the same population. To repeat, the idea is that we want to know how datasets differ from one another, but we aren't ever going to take more than one sample of observations. It does not make sense to take repeated samples from the same population because if you have the ability to take more samples, a larger sample size will benefit you more than taking two samples from the population. Instead, of taking repeated samples from the actual population, we use bootstrapping to measure how the samples behave under an estimate of the population.</p>
+      <p>As with the inferential ideas covered in <xref ref="ch11-hypothesis-testing-randomization"/>, <xref ref="ch12-confidence-intervals-bootstrapping"/>, and <xref ref="sec-foundations-mathematical"/>, the inferential analysis methods in this chapter are grounded in quantifying how one dataset differs from another when they are both taken from the same population. To repeat, the idea is that we want to know how datasets differ from one another, but we aren't ever going to take more than one sample of observations. It does not make sense to take repeated samples from the same population because if you have the ability to take more samples, a larger sample size will benefit you more than taking two samples from the population. Instead, of taking repeated samples from the actual population, we use bootstrapping to measure how the samples behave under an estimate of the population.</p>
 
       <p>As mentioned previously, to get a sense of the cars at Awesome Auto, you take a sample of five cars from the Awesome Auto branch near you as a way to gauge the price of the cars being sold. <xref ref="fig-bootpop1mean"/> shows how the unknown population of car prices at Awesome Auto can be approximated using the sample.</p>
 
@@ -102,7 +102,7 @@ aa_cars &lt;- data.frame(price = c(18300, 20100, 9600, 10700, 27000))
         <solution>
           <p>The SE of the bootstrapped means measures how variable the means are from resample to resample. The bootstrap SE is a good approximation to the SE of means as if we had taken repeated samples from the original population (which we agreed isn't something we would do because of wasted resources).</p>
 
-          <p>Logistically, we can find the standard deviation of the bootstrapped means using the same calculations from <xref ref="sec-explore-numerical"/>. That is, the bootstrapped means are the individual observations about which we measure the variability.</p>
+          <p>Logistically, we can find the standard deviation of the bootstrapped means using the same calculations from <xref ref="ch05-exploring-numerical"/>. That is, the bootstrapped means are the individual observations about which we measure the variability.</p>
         </solution>
       </exercise>
 

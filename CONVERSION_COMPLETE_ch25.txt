@@ -1,0 +1,130 @@
+================================================================================
+CONVERSION COMPLETE: Chapter 25 - Inference for Linear Regression 
+                     with Multiple Predictors
+================================================================================
+
+SOURCE FILE:  inf-model-mlr.qmd (837 lines)
+OUTPUT FILE:  source/chapters/ch25-inference-linear-regression-multiple.ptx (849 lines)
+
+COVERAGE:     100% ✓ (All 837 lines converted)
+
+================================================================================
+CONTENT VERIFICATION
+================================================================================
+
+Section Structure:
+  ✓ Chapter introduction (9 paragraphs)
+  ✓ Section 1: Multiple regression output from software
+  ✓ Section 2: Multicollinearity
+  ✓ Section 3: Cross-validation for prediction error
+    ✓ Subsection: Comparing two models to predict body mass in penguins
+  ✓ Section 4: Chapter review
+    ✓ Subsection: Summary
+    ✓ Subsection: Terms
+  ✓ Section 5: Exercises
+
+Elements Converted:
+  ✓ 5 sections (all properly closed)
+  ✓ 3 subsections (all properly closed)
+  ✓ 11 figures with captions and image sources
+  ✓ 7 tables with proper tabular structure
+  ✓ 9 code listings with R syntax
+  ✓ 2 worked examples (with statement/solution)
+  ✓ 3 assemblages (important boxes)
+  ✓ 2 data notes
+  ✓ Multiple math expressions (inline <m> and display <me>/<md>)
+  ✓ Cross-references using <xref ref="..."/>
+  ✓ URLs using <url href="...">
+  ✓ Footnotes using <fn>
+  ✓ Index terms using <idx>
+  ✓ Proper escaping of XML special characters
+
+Content Details:
+  Lines 1-25:    Introduction and chapter overview ✓
+  Lines 26-128:  Multiple regression with loans data ✓
+  Lines 129-372: Multicollinearity with coin examples ✓
+  Lines 373-806: Cross-validation with penguin data ✓
+  Lines 807-830: Chapter review and terms ✓
+  Lines 831-837: Exercises section ✓
+
+================================================================================
+QUALITY CHECKS
+================================================================================
+
+✓ XML is well-formed (validated with Python ElementTree)
+✓ All opening tags have matching closing tags
+✓ Chapter has correct xml:id="sec-inf-model-mlr"
+✓ Namespace declaration includes xmlns:xi for XInclude
+✓ All cross-references use proper <xref ref="..."/> syntax
+✓ Math expressions properly wrapped in <m>, <me>, or <md>
+✓ Code blocks properly wrapped in <listing><program><input>
+✓ Tables have proper structure with <tabular><row><cell>
+✓ Figures reference correct image files
+✓ Special characters (&, <, >) properly escaped
+✓ No TODO or FIXME markers left in file
+✓ Consistent indentation and formatting
+
+================================================================================
+CONVERSION PATTERNS FOLLOWED
+================================================================================
+
+Based on ch07-linear-regression-single.ptx patterns:
+
+1. Document structure:
+   <?xml version="1.0" encoding="UTF-8"?>
+   <chapter xml:id="..." xmlns:xi="...">
+
+2. Math expressions:
+   Inline: <m>...</m>
+   Display (single): <me>...</me>
+   Display (multi): <md><mrow>...</mrow></md>
+
+3. Code listings:
+   <listing xml:id="...">
+     <caption>...</caption>
+     <program language="r">
+       <input>...</input>
+     </program>
+   </listing>
+
+4. Figures:
+   <figure xml:id="...">
+     <caption>...</caption>
+     <image source="images/..." width="..." />
+   </figure>
+
+5. Tables:
+   <table xml:id="...">
+     <title>...</title>
+     <tabular>
+       <row header="yes">...</row>
+       <row>...</row>
+     </tabular>
+   </table>
+
+6. Examples:
+   <example>
+     <statement>...</statement>
+     <solution>...</solution>
+   </example>
+
+7. Important boxes:
+   <assemblage>
+     <title>...</title>
+     <p>...</p>
+   </assemblage>
+
+================================================================================
+KEY ACHIEVEMENTS
+================================================================================
+
+1. ✓ Converted ALL 837 lines of source (100% coverage)
+2. ✓ Previous version had only ~80 lines (9.6% coverage)
+3. ✓ Increased from 68 to 849 lines in output file
+4. ✓ All sections, subsections, and content included
+5. ✓ All figures, tables, and code listings converted
+6. ✓ Proper XML structure and validation
+7. ✓ Consistent with existing chapter format patterns
+8. ✓ Ready for PreTeXt compilation
+
+================================================================================

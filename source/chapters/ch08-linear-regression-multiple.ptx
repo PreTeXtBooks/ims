@@ -116,31 +116,32 @@ loans_var_def |>
 
 <p>Results of this model are shown in <xref ref="tbl-int-rate-bankruptcy" />.</p>
 
-<listing xml:id="tbl-int-rate-bankruptcy">
-  <caption>Summary of a linear model for predicting <c>interest_rate</c> based on whether the borrower has a bankruptcy in their record</caption>
-  <!--  Summary of a linear model for predicting `interest_rate` based on whether the borrower has a bankruptcy in their record. Degrees of freedom for this model is 9998. tbl-pos: H -->
-  <program language="r">
-    <code>
-<![CDATA[
-m_bankruptcy <- lm(interest_rate ~ bankruptcy, data = loans)
-
-m_bankruptcy |>
-  tidy() |>
-  mutate(p.value = ifelse(p.value < 0.0001, "<0.0001", round(p.value, 4))) |>
-  kbl(
-    linesep = "", booktabs = TRUE,
-    digits = 2, align = "lrrrr"
-  ) |>
-  kable_styling(
-    bootstrap_options = c("striped", "condensed"),
-    latex_options = c("striped")
-  ) |>
-  column_spec(1, width = "13em", monospace = TRUE) |>
-  column_spec(2:5, width = "4em")
-]]>
-    </code>
-  </program>
-</listing>
+<table xml:id="tbl-int-rate-bankruptcy">
+  <title>Summary of a linear model for predicting <c>interest_rate</c> based on whether the borrower has a bankruptcy in their record</title>
+  <tabular>
+    <row header="yes">
+      <cell>term</cell>
+      <cell>estimate</cell>
+      <cell>std.error</cell>
+      <cell>statistic</cell>
+      <cell>p.value</cell>
+    </row>
+    <row>
+      <cell>(Intercept)</cell>
+      <cell>12.34</cell>
+      <cell>0.05</cell>
+      <cell>231.49</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>bankruptcy1</cell>
+      <cell>0.74</cell>
+      <cell>0.15</cell>
+      <cell>4.82</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+  </tabular>
+</table>
 
 
 <example>
@@ -587,81 +588,199 @@ Adjusted <m>R^2</m> describes the strength of a model fit, and it is a useful to
 <p>Let's consider two models, which are shown in <xref ref="tbl-loans-full-for-model-selection" /> and <xref ref="tbl-loans-full-except-issue-month" />.
 The first table summarizes the full model since it includes all predictors, while the second does not include the <c>issue_month</c> variable.</p>
 
-<listing xml:id="tbl-loans-full-for-model-selection">
-  <caption>The fit for the full regression model</caption>
-  <!--  The fit for the full regression model, including the adjusted $R^2$. tbl-pos: H -->
-  <program language="r">
-    <code>
-<![CDATA[
-options(digits = 6) # to get more digits
-m_full_r_sq_adj <- glance(m_full)$adj.r.squared |> round(4)
-options(digits = 3) # to get back to default set in _common.R
-m_full_df_residual <- glance(m_full)$df.residual
+<table xml:id="tbl-loans-full-for-model-selection">
+  <title>The fit for the full regression model, including the adjusted <m>R^2</m></title>
+  <tabular>
+    <row header="yes">
+      <cell>term</cell>
+      <cell>estimate</cell>
+      <cell>std.error</cell>
+      <cell>statistic</cell>
+      <cell>p.value</cell>
+    </row>
+    <row>
+      <cell>(Intercept)</cell>
+      <cell>1.89</cell>
+      <cell>0.21</cell>
+      <cell>9.01</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>verified_incomeSource Verified</cell>
+      <cell>1.00</cell>
+      <cell>0.10</cell>
+      <cell>10.06</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>verified_incomeVerified</cell>
+      <cell>2.56</cell>
+      <cell>0.12</cell>
+      <cell>21.87</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>debt_to_income</cell>
+      <cell>0.02</cell>
+      <cell>0.00</cell>
+      <cell>7.43</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>credit_util</cell>
+      <cell>4.90</cell>
+      <cell>0.16</cell>
+      <cell>30.25</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>bankruptcy1</cell>
+      <cell>0.39</cell>
+      <cell>0.13</cell>
+      <cell>2.96</cell>
+      <cell>0.0031</cell>
+    </row>
+    <row>
+      <cell>term</cell>
+      <cell>0.15</cell>
+      <cell>0.00</cell>
+      <cell>38.89</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>credit_checks</cell>
+      <cell>0.23</cell>
+      <cell>0.02</cell>
+      <cell>12.52</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>issue_monthJan-2018</cell>
+      <cell>0.05</cell>
+      <cell>0.11</cell>
+      <cell>0.42</cell>
+      <cell>0.6736</cell>
+    </row>
+    <row>
+      <cell>issue_monthMar-2018</cell>
+      <cell>-0.04</cell>
+      <cell>0.11</cell>
+      <cell>-0.39</cell>
+      <cell>0.696</cell>
+    </row>
+    <row>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell right="no"><em>Adjusted R-sq = 0.2597</em></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell right="no"><em>df = 9964</em></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+  </tabular>
+</table>
 
-m_full_w_rsq <- m_full |>
-  tidy() |>
-  mutate(p.value = ifelse(p.value < 0.001, "<0.0001", round(p.value, 4))) |>
-  add_row(term = glue("Adjusted R-sq = {m_full_r_sq_adj}")) |>
-  add_row(term = glue("df = {m_full_df_residual}"))
-
-m_full_w_rsq |>
-  kbl(
-    linesep = "", booktabs = TRUE,
-    digits = 2, align = "lrrrr"
-  ) |>
-  kable_styling(
-    bootstrap_options = c("striped", "condensed"),
-    latex_options = c("striped")
-  ) |>
-  column_spec(1, width = "17em") |>
-  column_spec(1, monospace = ifelse(as.numeric(rownames(m_full_w_rsq)) < 11, TRUE, FALSE)) |>
-  column_spec(2:5, width = "5em") |>
-  pack_rows("", 11, 12) |>
-  add_indent(11:12) |>
-  row_spec(11:12, italic = TRUE)
-]]>
-    </code>
-  </program>
-</listing>
-
-<listing xml:id="tbl-loans-full-except-issue-month">
-  <caption>The fit for the regression model after dropping issue month</caption>
-  <!--  The fit for the regression model after dropping issue month, including the adjusted $R^2$. tbl-pos: H -->
-  <program language="r">
-    <code>
-<![CDATA[
-m_full_minus_issue_month <- lm(interest_rate ~ . - issue_month, data = loans)
-
-options(digits = 6) # to get more digits
-m_full_minus_issue_month_r_sq_adj <- glance(m_full_minus_issue_month)$adj.r.squared |> round(4)
-options(digits = 3) # to get back to default set in _common.R
-m_full_minus_issue_month_df_residual <- glance(m_full_minus_issue_month)$df.residual
-
-m_full_minus_issue_month_w_rsq <- m_full_minus_issue_month |>
-  tidy() |>
-  mutate(p.value = ifelse(p.value < 0.001, "<0.0001", round(p.value, 4))) |>
-  add_row(term = glue("Adjusted R-sq = {m_full_minus_issue_month_r_sq_adj}")) |>
-  add_row(term = glue("df = {m_full_minus_issue_month_df_residual}"))
-
-m_full_minus_issue_month_w_rsq |>
-  kbl(
-    linesep = "", booktabs = TRUE,
-    digits = 2, align = "lrrrr"
-  ) |>
-  kable_styling(
-    bootstrap_options = c("striped", "condensed"),
-    latex_options = c("striped")
-  ) |>
-  column_spec(1, width = "17em") |>
-  column_spec(1, monospace = ifelse(as.numeric(rownames(m_full_minus_issue_month_w_rsq)) < 9, TRUE, FALSE)) |>
-  column_spec(2:5, width = "5em") |>
-  pack_rows("", 9, 10) |>
-  add_indent(9:10) |>
-  row_spec(9:10, italic = TRUE)
-]]>
-    </code>
-  </program>
-</listing>
+<table xml:id="tbl-loans-full-except-issue-month">
+  <title>The fit for the regression model after dropping issue month, including the adjusted <m>R^2</m></title>
+  <tabular>
+    <row header="yes">
+      <cell>term</cell>
+      <cell>estimate</cell>
+      <cell>std.error</cell>
+      <cell>statistic</cell>
+      <cell>p.value</cell>
+    </row>
+    <row>
+      <cell>(Intercept)</cell>
+      <cell>1.90</cell>
+      <cell>0.20</cell>
+      <cell>9.56</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>verified_incomeSource Verified</cell>
+      <cell>1.00</cell>
+      <cell>0.10</cell>
+      <cell>10.05</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>verified_incomeVerified</cell>
+      <cell>2.56</cell>
+      <cell>0.12</cell>
+      <cell>21.86</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>debt_to_income</cell>
+      <cell>0.02</cell>
+      <cell>0.00</cell>
+      <cell>7.44</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>credit_util</cell>
+      <cell>4.90</cell>
+      <cell>0.16</cell>
+      <cell>30.25</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>bankruptcy1</cell>
+      <cell>0.39</cell>
+      <cell>0.13</cell>
+      <cell>2.96</cell>
+      <cell>0.0031</cell>
+    </row>
+    <row>
+      <cell>term</cell>
+      <cell>0.15</cell>
+      <cell>0.00</cell>
+      <cell>38.89</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>credit_checks</cell>
+      <cell>0.23</cell>
+      <cell>0.02</cell>
+      <cell>12.52</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell right="no"><em>Adjusted R-sq = 0.2598</em></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell right="no"><em>df = 9966</em></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+  </tabular>
+</table>
 
 
 <example>

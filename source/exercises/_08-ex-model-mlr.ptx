@@ -145,6 +145,47 @@ p_delay + p_delay_city
     <title>Training for a 5K.</title>
     <statement>
       <p>Nico signs up for a 5K (a 5,000 metre running race) 30 days prior to the race. They decide to run a 5K every day to train for it, and each day they record the following information: <c>days_since_start</c> (number of days since starting training), <c>days_till_race</c> (number of days left until the race), <c>mood</c> (poor, good, awesome), <c>tiredness</c> (1-not tired to 10-very tired), and <c>time</c> (time it takes to run 5K, recorded as mm:ss). Top few rows of the data they collect is shown below. Using these data Nico wants to build a model predicting <c>time</c> from the other variables. Should they include all variables shown above in their model? Why or why not? </p>
+      
+      <table>
+        <title>Training for a 5K data</title>
+        <tabular>
+          <row header="yes">
+            <cell>days_since_start</cell>
+            <cell>days_till_race</cell>
+            <cell>mood</cell>
+            <cell>tiredness</cell>
+            <cell>time</cell>
+          </row>
+          <row>
+            <cell>1</cell>
+            <cell>29</cell>
+            <cell>good</cell>
+            <cell>3</cell>
+            <cell>25:45</cell>
+          </row>
+          <row>
+            <cell>2</cell>
+            <cell>28</cell>
+            <cell>poor</cell>
+            <cell>5</cell>
+            <cell>27:13</cell>
+          </row>
+          <row>
+            <cell>3</cell>
+            <cell>27</cell>
+            <cell>awesome</cell>
+            <cell>4</cell>
+            <cell>24:13</cell>
+          </row>
+          <row>
+            <cell>...</cell>
+            <cell>...</cell>
+            <cell>...</cell>
+            <cell>...</cell>
+            <cell>...</cell>
+          </row>
+        </tabular>
+      </table>
   </statement>
   </exercise>
 
@@ -170,6 +211,34 @@ p_delay + p_delay_city
     <title>Baby weights and smoking.</title>
     <statement>
       <p>US Department of Health and Human Services, Centers for Disease Control and Prevention collect information on births recorded in the country. The data used here are a random sample of 1,000 births from 2014. Here, we study the relationship between smoking and weight of the baby. The variable <c>smoke</c> is coded 1 if the mother is a smoker, and 0 if not. The summary table below shows the results of a linear regression model for predicting the average birth weight of babies, measured in pounds, based on the smoking status of the mother.<fn>The <url href="http://openintrostat.github.io/openintro/reference/births14.html"><c>births14</c></url> data used in this exercise can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</fn> <xref ref="data-births14"/> </p>
+      
+      <table>
+        <title>Linear model for predicting baby weight from smoking status</title>
+        <tabular>
+          <row header="yes">
+            <cell>term</cell>
+            <cell>estimate</cell>
+            <cell>std.error</cell>
+            <cell>statistic</cell>
+            <cell>p.value</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>7.270</cell>
+            <cell>0.0435</cell>
+            <cell>167.22</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+          <row>
+            <cell>habitsmoker</cell>
+            <cell>-0.593</cell>
+            <cell>0.1275</cell>
+            <cell>-4.65</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+        </tabular>
+      </table>
+      
       <p><ol marker="a.">
         <li>
           <p>Write the equation of the regression model.</p>
@@ -185,6 +254,34 @@ p_delay + p_delay_city
     <title>Baby weights and mature moms.</title>
     <statement>
       <p>The following is a model for predicting baby weight from whether the mom is classified as a <c>mature</c> mom (35 years or older at the time of pregnancy). <xref ref="data-births14"/> </p>
+      
+      <table>
+        <title>Linear model for predicting baby weight from mother's maturity status</title>
+        <tabular>
+          <row header="yes">
+            <cell>term</cell>
+            <cell>estimate</cell>
+            <cell>std.error</cell>
+            <cell>statistic</cell>
+            <cell>p.value</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>7.354</cell>
+            <cell>0.103</cell>
+            <cell>71.02</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+          <row>
+            <cell>matureyounger mom</cell>
+            <cell>-0.185</cell>
+            <cell>0.113</cell>
+            <cell>-1.64</cell>
+            <cell>0.102</cell>
+          </row>
+        </tabular>
+      </table>
+      
       <p><ol marker="a.">
         <li>
           <p>Write the equation of the regression model.</p>
@@ -200,6 +297,62 @@ p_delay + p_delay_city
     <title>Movie returns, prediction.</title>
     <statement>
       <p>A model was fit to predict return-on-investment (ROI) on movies based on release year and genre (Adventure, Action, Drama, Horror, and Comedy). The model output is shown below. <xref ref="webpage-horrormovies"/> </p>
+      
+      <table>
+        <title>Linear model for predicting movie ROI from release year and genre</title>
+        <tabular>
+          <row header="yes">
+            <cell>term</cell>
+            <cell>estimate</cell>
+            <cell>std.error</cell>
+            <cell>statistic</cell>
+            <cell>p.value</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>-156.04</cell>
+            <cell>169.15</cell>
+            <cell>-0.92</cell>
+            <cell>0.3565</cell>
+          </row>
+          <row>
+            <cell>release_year</cell>
+            <cell>0.08</cell>
+            <cell>0.08</cell>
+            <cell>0.94</cell>
+            <cell>0.348</cell>
+          </row>
+          <row>
+            <cell>genreAdventure</cell>
+            <cell>0.30</cell>
+            <cell>0.74</cell>
+            <cell>0.40</cell>
+            <cell>0.6914</cell>
+          </row>
+          <row>
+            <cell>genreComedy</cell>
+            <cell>0.57</cell>
+            <cell>0.69</cell>
+            <cell>0.83</cell>
+            <cell>0.4091</cell>
+          </row>
+          <row>
+            <cell>genreDrama</cell>
+            <cell>0.37</cell>
+            <cell>0.62</cell>
+            <cell>0.61</cell>
+            <cell>0.5438</cell>
+          </row>
+          <row>
+            <cell>genreHorror</cell>
+            <cell>8.61</cell>
+            <cell>0.86</cell>
+            <cell>9.97</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+        </tabular>
+      </table>
+      
       <p><ol marker="a.">
         <li>
           <p>For a given release year, which genre of movies are predicted, on average, to have the highest predicted return on investment?</p>
@@ -252,7 +405,103 @@ ggplot(m_movie_aug, aes(y = .fitted, x = ww_gross_to_prod, color = genre)) +
   <exercise>
     <title>Predicting baby weights.</title>
     <statement>
-      <p>A more realistic approach to modeling baby weights is to consider all possibly related variables at once. Other variables of interest include length of pregnancy in weeks (<c>weeks</c>), mother's age in years (<c>mage</c>), the sex of the baby (<c>sex</c>), smoking status of the mother (<c>habit</c>), and the number of hospital (<c>visits</c>) visits during pregnancy. Below are three observations from this dataset.  The summary table below shows the results of a regression model for predicting the average birth weight of babies based on all of the variables presented above. </p>
+      <p>A more realistic approach to modeling baby weights is to consider all possibly related variables at once. Other variables of interest include length of pregnancy in weeks (<c>weeks</c>), mother's age in years (<c>mage</c>), the sex of the baby (<c>sex</c>), smoking status of the mother (<c>habit</c>), and the number of hospital (<c>visits</c>) visits during pregnancy. Below are three observations from this dataset.</p>
+      
+      <table>
+        <title>Sample data for baby weight prediction</title>
+        <tabular>
+          <row header="yes">
+            <cell>weight</cell>
+            <cell>weeks</cell>
+            <cell>mage</cell>
+            <cell>sex</cell>
+            <cell>visits</cell>
+            <cell>habit</cell>
+          </row>
+          <row>
+            <cell>6.96</cell>
+            <cell>37</cell>
+            <cell>34</cell>
+            <cell>male</cell>
+            <cell>14</cell>
+            <cell>nonsmoker</cell>
+          </row>
+          <row>
+            <cell>8.86</cell>
+            <cell>41</cell>
+            <cell>31</cell>
+            <cell>female</cell>
+            <cell>12</cell>
+            <cell>nonsmoker</cell>
+          </row>
+          <row>
+            <cell>7.51</cell>
+            <cell>37</cell>
+            <cell>36</cell>
+            <cell>female</cell>
+            <cell>10</cell>
+            <cell>nonsmoker</cell>
+          </row>
+        </tabular>
+      </table>
+      
+      <p>The summary table below shows the results of a regression model for predicting the average birth weight of babies based on all of the variables presented above.</p>
+      
+      <table>
+        <title>Linear model for predicting baby weight from multiple predictors</title>
+        <tabular>
+          <row header="yes">
+            <cell>term</cell>
+            <cell>estimate</cell>
+            <cell>std.error</cell>
+            <cell>statistic</cell>
+            <cell>p.value</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>-3.82</cell>
+            <cell>0.57</cell>
+            <cell>-6.73</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+          <row>
+            <cell>weeks</cell>
+            <cell>0.26</cell>
+            <cell>0.01</cell>
+            <cell>18.93</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+          <row>
+            <cell>mage</cell>
+            <cell>0.02</cell>
+            <cell>0.01</cell>
+            <cell>2.53</cell>
+            <cell>0.0115</cell>
+          </row>
+          <row>
+            <cell>sexmale</cell>
+            <cell>0.37</cell>
+            <cell>0.07</cell>
+            <cell>5.30</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+          <row>
+            <cell>visits</cell>
+            <cell>0.02</cell>
+            <cell>0.01</cell>
+            <cell>2.09</cell>
+            <cell>0.0373</cell>
+          </row>
+          <row>
+            <cell>habitsmoker</cell>
+            <cell>-0.43</cell>
+            <cell>0.13</cell>
+            <cell>-3.41</cell>
+            <cell>7e-04</cell>
+          </row>
+        </tabular>
+      </table>
+      
       <p><ol marker="a.">
         <li>
           <p>Write the equation of the regression model that includes all of the variables.</p>
@@ -274,6 +523,69 @@ ggplot(m_movie_aug, aes(y = .fitted, x = ww_gross_to_prod, color = genre)) +
     <title>Palmer penguins, predicting body mass.</title>
     <statement>
       <p>Researchers studying a community of Antarctic penguins collected body measurement (bill length, bill depth, and flipper length measured in millimeters and body mass, measured in grams), species (<em>Adelie</em>, <em>Chinstrap</em>, or <em>Gentoo</em>), and sex (female or male) data on 344 penguins living on three islands (Torgersen, Biscoe, and Dream) in the Palmer Archipelago, Antarctica.<fn>The <url href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html"><c>penguins</c></url> data used in this exercise can be found in the <url href="https://allisonhorst.github.io/palmerpenguins/"><alert>palmerpenguins</alert></url> R package.</fn> The summary table below shows the results of a linear regression model for predicting body mass (which is more difficult to measure) from the other variables in the dataset. <xref ref="palmerpenguins"/> </p>
+      
+      <table>
+        <title>Linear model for predicting penguin body mass</title>
+        <tabular>
+          <row header="yes">
+            <cell>term</cell>
+            <cell>estimate</cell>
+            <cell>std.error</cell>
+            <cell>statistic</cell>
+            <cell>p.value</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>-1461.0</cell>
+            <cell>571.3</cell>
+            <cell>-2.6</cell>
+            <cell>0.011</cell>
+          </row>
+          <row>
+            <cell>bill_length_mm</cell>
+            <cell>18.2</cell>
+            <cell>7.1</cell>
+            <cell>2.6</cell>
+            <cell>0.0109</cell>
+          </row>
+          <row>
+            <cell>bill_depth_mm</cell>
+            <cell>67.2</cell>
+            <cell>19.7</cell>
+            <cell>3.4</cell>
+            <cell>7e-04</cell>
+          </row>
+          <row>
+            <cell>flipper_length_mm</cell>
+            <cell>16.0</cell>
+            <cell>2.9</cell>
+            <cell>5.5</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+          <row>
+            <cell>sexmale</cell>
+            <cell>389.9</cell>
+            <cell>47.8</cell>
+            <cell>8.1</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+          <row>
+            <cell>speciesChinstrap</cell>
+            <cell>-251.5</cell>
+            <cell>81.1</cell>
+            <cell>-3.1</cell>
+            <cell>0.0021</cell>
+          </row>
+          <row>
+            <cell>speciesGentoo</cell>
+            <cell>1014.6</cell>
+            <cell>129.6</cell>
+            <cell>7.8</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+        </tabular>
+      </table>
+      
       <p><ol marker="a.">
         <li>
           <p>Write the equation of the regression model.</p>
@@ -299,13 +611,13 @@ ggplot(m_movie_aug, aes(y = .fitted, x = ww_gross_to_prod, color = genre)) +
   <exercise>
     <title>Baby weights, backwards elimination.</title>
     <statement>
-      <p>Let's consider a model that predicts <c>weight</c> of newborns using several predictors: whether the mother is considered <c>mature</c>, number of <c>weeks</c> of gestation, number of hospital <c>visits</c> during pregnancy, weight <c>gained</c> by the mother during pregnancy, <c>sex</c> of the baby, and whether the mother smokes cigarettes during pregnancy (<c>habit</c>). <xref ref="data-births14"/> The adjusted <m>R^2</m> of the full model is [full model adjusted R² value]. We remove each variable one by one, refit the model, and record the adjusted <m>R^2</m>. Which, if any, variable should be removed from the model?</p>
+      <p>Let's consider a model that predicts <c>weight</c> of newborns using several predictors: whether the mother is considered <c>mature</c>, number of <c>weeks</c> of gestation, number of hospital <c>visits</c> during pregnancy, weight <c>gained</c> by the mother during pregnancy, <c>sex</c> of the baby, and whether the mother smokes cigarettes during pregnancy (<c>habit</c>). <xref ref="data-births14"/> The adjusted <m>R^2</m> of the full model is 0.327. We remove each variable one by one, refit the model, and record the adjusted <m>R^2</m>. Which, if any, variable should be removed from the model?</p>
       <ul>
-        <li><p>Drop <c>mature</c>: [adjusted R² value]</p></li>
-        <li><p>Drop <c>weeks</c>: [adjusted R² value]</p></li>
-        <li><p>Drop <c>visits</c>: [adjusted R² value]</p></li>
-        <li><p>Drop <c>gained</c>: [adjusted R² value]</p></li>
-        <li><p>Drop <c>sex</c>: [adjusted R² value]</p></li>
+        <li><p>Drop <c>mature</c>: 0.321</p></li>
+        <li><p>Drop <c>weeks</c>: 0.061</p></li>
+        <li><p>Drop <c>visits</c>: 0.326</p></li>
+        <li><p>Drop <c>gained</c>: 0.327</p></li>
+        <li><p>Drop <c>sex</c>: 0.301</p></li>
       </ul>
   </statement>
   </exercise>
@@ -313,13 +625,77 @@ ggplot(m_movie_aug, aes(y = .fitted, x = ww_gross_to_prod, color = genre)) +
   <exercise>
     <title>Palmer penguins, backwards elimination.</title>
     <statement>
-      <p>The following full model is built to predict the weights of three species (<em>Adelie</em>, <em>Chinstrap</em>, or <em>Gentoo</em>) of penguins living in the Palmer Archipelago, Antarctica. <xref ref="palmerpenguins"/> The adjusted <m>R^2</m> of the full model is [full model adjusted R² value]. In order to evaluate whether any of the predictors can be dropped from the model without losing predictive performance of the model, the researchers dropped one variable at a time, refit the model, and recorded the adjusted <m>R^2</m> of the smaller model. These values are given below. Which, if any, variable should be removed from the model first?</p>
+      <p>The following full model is built to predict the weights of three species (<em>Adelie</em>, <em>Chinstrap</em>, or <em>Gentoo</em>) of penguins living in the Palmer Archipelago, Antarctica. <xref ref="palmerpenguins"/> The table below shows the results of the full model regression.</p>
+      
+      <table>
+        <title>Linear model for predicting penguin body mass (full model)</title>
+        <tabular>
+          <row header="yes">
+            <cell>term</cell>
+            <cell>estimate</cell>
+            <cell>std.error</cell>
+            <cell>statistic</cell>
+            <cell>p.value</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>-1461.0</cell>
+            <cell>571.3</cell>
+            <cell>-2.6</cell>
+            <cell>0.011</cell>
+          </row>
+          <row>
+            <cell>bill_length_mm</cell>
+            <cell>18.2</cell>
+            <cell>7.1</cell>
+            <cell>2.6</cell>
+            <cell>0.0109</cell>
+          </row>
+          <row>
+            <cell>bill_depth_mm</cell>
+            <cell>67.2</cell>
+            <cell>19.7</cell>
+            <cell>3.4</cell>
+            <cell>7e-04</cell>
+          </row>
+          <row>
+            <cell>flipper_length_mm</cell>
+            <cell>16.0</cell>
+            <cell>2.9</cell>
+            <cell>5.5</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+          <row>
+            <cell>sexmale</cell>
+            <cell>389.9</cell>
+            <cell>47.8</cell>
+            <cell>8.1</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+          <row>
+            <cell>speciesChinstrap</cell>
+            <cell>-251.5</cell>
+            <cell>81.1</cell>
+            <cell>-3.1</cell>
+            <cell>0.0021</cell>
+          </row>
+          <row>
+            <cell>speciesGentoo</cell>
+            <cell>1014.6</cell>
+            <cell>129.6</cell>
+            <cell>7.8</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+        </tabular>
+      </table>
+      
+      <p>The adjusted <m>R^2</m> of the full model is 0.87. In order to evaluate whether any of the predictors can be dropped from the model without losing predictive performance of the model, the researchers dropped one variable at a time, refit the model, and recorded the adjusted <m>R^2</m> of the smaller model. These values are given below. Which, if any, variable should be removed from the model first?</p>
       <ul>
-        <li><p>Drop <c>bill_length_mm</c>: [adjusted R² value]</p></li>
-        <li><p>Drop <c>bill_depth_mm</c>: [adjusted R² value]</p></li>
-        <li><p>Drop <c>flipper_length_mm</c>: [adjusted R² value]</p></li>
-        <li><p>Drop <c>sex</c>: [adjusted R² value]</p></li>
-        <li><p>Drop <c>species</c>: [adjusted R² value]</p></li>
+        <li><p>Drop <c>bill_length_mm</c>: 0.87</p></li>
+        <li><p>Drop <c>bill_depth_mm</c>: 0.869</p></li>
+        <li><p>Drop <c>flipper_length_mm</c>: 0.861</p></li>
+        <li><p>Drop <c>sex</c>: 0.845</p></li>
+        <li><p>Drop <c>species</c>: 0.821</p></li>
       </ul>
   </statement>
   </exercise>
@@ -329,12 +705,12 @@ ggplot(m_movie_aug, aes(y = .fitted, x = ww_gross_to_prod, color = genre)) +
     <statement>
       <p>Using information on the mother and the sex of the baby (which can be determined prior to birth), we want to build a model that predicts the birth weight of babies. In order to do so, we will evaluate six candidate predictors: whether the mother is considered <c>mature</c>, number of <c>weeks</c> of gestation, number of hospital <c>visits</c> during pregnancy, weight <c>gained</c> by the mother during pregnancy, <c>sex</c> of the baby, and whether the mother smokes cigarettes during pregnancy (<c>habit</c>). And we will make a decision about including them in the model using forward selection and adjusted <m>R^2</m>. Below are the six models we evaluate and their adjusted <m>R^2</m> values. <xref ref="data-births14"/> Which variable should be added to the model first?</p>
       <ul>
-        <li><p>Predict <c>weight</c> from <c>mature</c>: [adjusted R² value]</p></li>
-        <li><p>Predict <c>weight</c> from <c>weeks</c>: [adjusted R² value]</p></li>
-        <li><p>Predict <c>weight</c> from <c>visits</c>: [adjusted R² value]</p></li>
-        <li><p>Predict <c>weight</c> from <c>gained</c>: [adjusted R² value]</p></li>
-        <li><p>Predict <c>weight</c> from <c>sex</c>: [adjusted R² value]</p></li>
-        <li><p>Predict <c>weight</c> from <c>habit</c>: [adjusted R² value]</p></li>
+        <li><p>Predict <c>weight</c> from <c>mature</c>: 0.002</p></li>
+        <li><p>Predict <c>weight</c> from <c>weeks</c>: 0.3</p></li>
+        <li><p>Predict <c>weight</c> from <c>visits</c>: 0.034</p></li>
+        <li><p>Predict <c>weight</c> from <c>gained</c>: 0.021</p></li>
+        <li><p>Predict <c>weight</c> from <c>sex</c>: 0.018</p></li>
+        <li><p>Predict <c>weight</c> from <c>habit</c>: 0.021</p></li>
       </ul>
   </statement>
   </exercise>
@@ -344,11 +720,11 @@ ggplot(m_movie_aug, aes(y = .fitted, x = ww_gross_to_prod, color = genre)) +
     <statement>
       <p>Using body measurement and other relevant data on three species (<em>Adelie</em>, <em>Chinstrap</em>, or <em>Gentoo</em>) of penguins living in the Palmer Archipelago, Antarctica, we want to predict their body mass. In order to do so, we will evaluate five candidate predictors and make a decision about including them in the model using forward selection and adjusted <m>R^2</m>. Below are the five models we evaluate and their adjusted <m>R^2</m> values. Which variable should be added to the model first?</p>
       <ul>
-        <li><p>Predict body mass from <c>bill_length_mm</c>: [adjusted R² value]</p></li>
-        <li><p>Predict body mass from <c>bill_depth_mm</c>: [adjusted R² value]</p></li>
-        <li><p>Predict body mass from <c>flipper_length_mm</c>: [adjusted R² value]</p></li>
-        <li><p>Predict body mass from <c>sex</c>: [adjusted R² value]</p></li>
-        <li><p>Predict body mass from <c>species</c>: [adjusted R² value]</p></li>
+        <li><p>Predict body mass from <c>bill_length_mm</c>: 0.352</p></li>
+        <li><p>Predict body mass from <c>bill_depth_mm</c>: 0.22</p></li>
+        <li><p>Predict body mass from <c>flipper_length_mm</c>: 0.758</p></li>
+        <li><p>Predict body mass from <c>sex</c>: 0.178</p></li>
+        <li><p>Predict body mass from <c>species</c>: 0.668</p></li>
       </ul>
   </statement>
   </exercise>

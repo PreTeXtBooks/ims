@@ -1237,7 +1237,7 @@
 
 </subsection>
 
-<subsection xml:id="subsec-summary">
+<subsection xml:id="subsec-summary-ch24">
   <title>Summary</title>
 
 <p>Recall that early in the text we presented graphical techniques which communicated relationships across multiple variables. We also used modeling to formalize the relationships. Many chapters were dedicated to inferential methods which allowed claims about the population to be made based on samples of data. Not only did we present the mathematical model for each of the inferential techniques, but when appropriate, we also presented bootstrapping and permutation methods.</p>
@@ -1246,7 +1246,7 @@
 
 </subsection>
 
-<subsection xml:id="subsec-terms">
+<subsection xml:id="subsec-terms-ch24">
   <title>Terms</title>
 
 <p>The terms introduced in this chapter are presented in <xref ref="tbl-terms-chp-24" />. If you're not sure what some of these terms mean, we recommend you go back in the text and review their definitions. You should be able to easily spot them as <alert>bolded text</alert>.</p>

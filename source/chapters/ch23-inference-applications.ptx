@@ -786,7 +786,7 @@ null_4 |&gt;
     linetype = "dashed"
   ) +
   labs(
-    x = "Diffence in mean redundant adjective usage percentages\n(English - Spanish)",
+    x = "Difference in mean redundant adjective usage percentages\n(English - Spanish)",
     y = "Count",
     title = "4 item display",
     subtitle = "1,000 differences in randomized means"
@@ -810,7 +810,7 @@ null_16 |&gt;
     linetype = "dashed"
   ) +
   labs(
-    x = "Diffence in mean redundant adjective usage percentages\n(English - Spanish)",
+    x = "Difference in mean redundant adjective usage percentages\n(English - Spanish)",
     y = "Count",
     title = "16 item display",
     subtitle = "1,000 differences in randomized means"

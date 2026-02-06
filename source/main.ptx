@@ -572,6 +572,43 @@
           Do you think the coronavirus will end up bringing the world closer together, or leave us further apart?
           <url href="https://www.openintro.org/go?id=textbook-yougov-2021-covid">https://www.openintro.org/go?id=textbook-yougov-2021-covid</url>
         </biblio>
+        
+        <biblio type="raw" xml:id="Latter-1902">
+          Latter, O. H. (1902).
+          The Egg of Cuculus Canorus. An Enquiry into the Dimensions of the Cuckoo's Egg and the Relation of the Variations to the Size of the Eggs of the Foster-Parent, with Notes on Coloration.
+          <em>Biometrika</em>, 1:164-176.
+          DOI: 10.2307/2331486
+        </biblio>
+        
+        <biblio type="raw" xml:id="data-chickwts">
+          McNeil, D. R. (1977).
+          Interactive data analysis: a practical primer.
+          Wiley.
+        </biblio>
+        
+        <biblio type="raw" xml:id="data-gss-2010">
+          NORC (2010).
+          General Social Survey, 2010.
+          <url href="http://www.openintro.org/redirect.php?go=textbook-gss_2010">http://www.openintro.org/redirect.php?go=textbook-gss_2010</url>
+        </biblio>
+        
+        <biblio type="raw" xml:id="data-china">
+          UNC Carolina Population Center (2006).
+          China Health and Nutrition Survey, 2006.
+          <url href="http://www.openintro.org/redirect.php?go=textbook-china_health_nut_survey_2006">http://www.openintro.org/redirect.php?go=textbook-china_health_nut_survey_2006</url>
+        </biblio>
+        
+        <biblio type="raw" xml:id="data-urbanOwner">
+          US Census Bureau (2010).
+          2010 Census Urban and Rural Classification and Urban Area Criteria Housing Characteristics.
+          <url href="http://www.openintro.org/redirect.php?go=textbook-housing_char_2010">http://www.openintro.org/redirect.php?go=textbook-housing_char_2010</url>
+        </biblio>
+        
+        <biblio type="raw" xml:id="Malkevitc-Lesser-2008">
+          Malkevitch, J. and Lesser, L. M. (2008).
+          <em>For All Practical Purposes: Mathematical Literacy in Today's World</em>.
+          WH Freeman &amp; Co.
+        </biblio>
       </references>
     </backmatter>
   </book>

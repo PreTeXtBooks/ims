@@ -23,7 +23,7 @@
     <p>
       The <c>mariokart</c> dataset includes results from 141 auctions.
       Four observations from this dataset are shown in <xref ref="tbl-mariokart-data-frame" />, and descriptions for each variable are shown in <xref ref="tbl-mariokart-var-def" />.
-      Notice that the condition and stock photo variables are <alert>indicator variables</alert><idx><h>variable</h><h>indicator</h></idx><idx>indicator variable</idx>, similar to <c>bankruptcy</c> in the <c>loans</c> dataset from <xref ref="sec-inf-model-mlr" />.
+      Notice that the condition and stock photo variables are <alert>indicator variables</alert><idx><h>variable</h><h>indicator</h></idx><idx>indicator variable</idx>, similar to <c>bankruptcy</c> in the <c>loans</c> dataset from <xref ref="ch25-inference-linear-regression-multiple" />.
     </p>
     
     <listing xml:id="listing-mariokart-data-prep">
@@ -553,7 +553,7 @@ mariokart |&gt;
       <title>Cross-validation</title>
       
       <p>
-        In <xref ref="sec-model-mlr" />, models were compared using <m>R^2_{adj}.</m> In <xref ref="sec-inf-model-mlr" />, however, a computational approach was introduced to compare models by removing chunks of data one at a time and assessing how well the variables predicted the observations that had been held out.
+        In <xref ref="sec-model-mlr" />, models were compared using <m>R^2_{adj}.</m> In <xref ref="ch25-inference-linear-regression-multiple" />, however, a computational approach was introduced to compare models by removing chunks of data one at a time and assessing how well the variables predicted the observations that had been held out.
       </p>
       
       <p>

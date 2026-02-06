@@ -56,31 +56,20 @@ ggplot(target, aes(x = x, y = y)) +
 
 <me>y = b_0 + b_1 \ x + e</me>
 
-<p>The values <m>b_0</m> and <m>b_1</m> represent the model's intercept and slope, respectively, and the error is represented by <m>e.</m></p>
+<p>The values <m>b_0</m> and <m>b_1</m> represent the model's intercept and slope, respectively, and the error is represented by <m>e.</m>
+These values are calculated based on the data, i.e., they are sample statistics.
+If the observed data is a random sample from a target population that we are interested in making inferences about, these values are considered to be point estimates for the population parameters <m>\beta_0</m> and <m>\beta_1.</m>
+We will discuss how to make inferences about parameters of a linear model based on sample statistics in <xref ref="ch24-inference-linear-regression-single" />.</p>
 
-<p>These values are calculated based on the data, i.e., they are sample statistics.</p>
+<p>When we use <m>x</m> to predict <m>y,</m> we usually call <m>x</m> the <alert>predictor</alert><idx><h>variable</h><h>predictor</h></idx><idx>predictor variable</idx> variable and we call <m>y</m> the <alert>outcome</alert><idx><h>variable</h><h>outcome</h></idx><idx>outcome variable</idx>.
+We also often drop the <m>e</m> term when writing down the model since our main focus is often on the prediction of the average outcome.</p>
 
-<p>If the observed data is a random sample from a target population that we are interested in making inferences about, these values are considered to be point estimates for the population parameters <m>\beta_0</m> and <m>\beta_1.</m></p>
-
-<p>We will discuss how to make inferences about parameters of a linear model based on sample statistics in <xref ref="ch24-inference-linear-regression-single" />.</p>
-
-<p>When we use <m>x</m> to predict <m>y,</m> we usually call <m>x</m> the <alert>predictor</alert><idx><h>variable</h><h>predictor</h></idx><idx>predictor variable</idx> variable and we call <m>y</m> the <alert>outcome</alert><idx><h>variable</h><h>outcome</h></idx><idx>outcome variable</idx>.</p>
-
-<p>We also often drop the <m>e</m> term when writing down the model since our main focus is often on the prediction of the average outcome.</p>
-
-<p>It is rare for all of the data to fall perfectly on a straight line.</p>
-
-<p>Instead, it's more common for data to appear as a <em>cloud of points</em>, such as those examples shown in <xref ref="fig-imperfLinearModel" />.</p>
-
-<p>In each case, the data fall around a straight line, even if none of the observations fall exactly on the line.</p>
-
-<p>The first plot shows a relatively strong downward linear trend, where the remaining variability in the data around the line is minor relative to the strength of the relationship between <m>x</m> and <m>y.</m> The second plot shows an upward trend that, while evident, is not as strong as the first.</p>
-
-<p>The last plot shows a very weak downward trend in the data, so slight we can hardly notice it.</p>
-
-<p>In each of these examples, we will have some uncertainty regarding our estimates of the model parameters, <m>\beta_0</m> and <m>\beta_1.</m> For instance, we might wonder, should we move the line up or down a little, or should we tilt it more or less?</p>
-
-<p>As we move forward in this chapter, we will learn about criteria for line-fitting, and we will also learn about the uncertainty associated with estimates of model parameters.</p>
+<p>It is rare for all of the data to fall perfectly on a straight line. Instead, it's more common for data to appear as a <em>cloud of points</em>, such as those examples shown in <xref ref="fig-imperfLinearModel" />.
+In each case, the data fall around a straight line, even if none of the observations fall exactly on the line.
+The first plot shows a relatively strong downward linear trend, where the remaining variability in the data around the line is minor relative to the strength of the relationship between <m>x</m> and <m>y.</m> The second plot shows an upward trend that, while evident, is not as strong as the first.
+The last plot shows a very weak downward trend in the data, so slight we can hardly notice it.
+In each of these examples, we will have some uncertainty regarding our estimates of the model parameters, <m>\beta_0</m> and <m>\beta_1.</m> For instance, we might wonder, should we move the line up or down a little, or should we tilt it more or less?
+As we move forward in this chapter, we will learn about criteria for line-fitting, and we will also learn about the uncertainty associated with estimates of model parameters.</p>
 
 <listing xml:id="listing-imperfLinearModel-code">
   <caption>R code for creating three scatterplots with linear models</caption>
@@ -116,11 +105,9 @@ p_neg + p_pos + p_ran
   <image source="images/fig-imperfLinearModel-1.png" width="70%" />
 </figure>
 
-<p>There are also cases where fitting a straight line to the data, even if there is a clear relationship between the variables, is not helpful.</p>
-
-<p>One such case is shown in <xref ref="fig-notGoodAtAllForALinearModel" /> where there is a very clear relationship between the variables even though the trend is not linear.</p>
-
-<p>We discuss nonlinear trends in this chapter and the next, but details of fitting nonlinear models are saved for a later course.</p>
+<p>There are also cases where fitting a straight line to the data, even if there is a clear relationship between the variables, is not helpful.
+One such case is shown in <xref ref="fig-notGoodAtAllForALinearModel" /> where there is a very clear relationship between the variables even though the trend is not linear.
+We discuss nonlinear trends in this chapter and the next, but details of fitting nonlinear models are saved for a later course.</p>
 
 <listing xml:id="listing-notGoodAtAllForALinearModel-code">
   <caption>R code for nonlinear relationship plot</caption>
@@ -150,11 +137,9 @@ ggplot(bad, aes(x = x, y = y)) +
 <subsection xml:id="using-linear-regression-to-predict-possum-head-lengths">
   <title>Using linear regression to predict possum head lengths</title>
 
-<p>Brushtail possums are marsupials that live in Australia, and a photo of one is shown in <xref ref="fig-brushtail-possum" />.</p>
-
-<p>Researchers captured 104 of these animals and took body measurements before releasing the animals back into the wild.</p>
-
-<p>We consider two of these measurements: the total length of each possum, from head to tail, and the length of each possum's head.</p>
+<p>Brushtail possums are marsupials that live in Australia, and a photo of one is shown in <xref ref="fig-brushtail-possum" />.
+Researchers captured 104 of these animals and took body measurements before releasing the animals back into the wild.
+We consider two of these measurements: the total length of each possum, from head to tail, and the length of each possum's head.</p>
 
 <listing xml:id="listing-brushtail-possum-image">
   <caption>R code for loading possum image</caption>
@@ -176,13 +161,10 @@ knitr::include_graphics("images/brushtail-possum/brushtail-possum.jpg")
   <p>The <url href="http://openintrostat.github.io/openintro/reference/possum.html"><c>possum</c></url> data can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</p>
 </note>
 
-<p><xref ref="fig-scattHeadLTotalL" /> shows a scatterplot for the head length (mm) and total length (cm) of the possums.</p>
-
-<p>Each point represents a single possum from the data.</p>
-
-<p>The head and total length variables are associated: possums with an above average total length also tend to have above average head lengths.</p>
-
-<p>While the relationship is not perfectly linear, it could be helpful to partially explain the connection between these variables with a straight line.</p>
+<p><xref ref="fig-scattHeadLTotalL" /> shows a scatterplot for the head length (mm) and total length (cm) of the possums.
+Each point represents a single possum from the data.
+The head and total length variables are associated: possums with an above average total length also tend to have above average head lengths.
+While the relationship is not perfectly linear, it could be helpful to partially explain the connection between these variables with a straight line.</p>
 
 <listing xml:id="listing-scattHeadLTotalL-code">
   <caption>R code for possum scatterplot with highlighted point</caption>
@@ -210,9 +192,8 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
   <image source="images/fig-scattHeadLTotalL-1.png" width="70%" />
 </figure>
 
-<p>We want to describe the relationship between head and total length of possums with a line.</p>
-
-<p>In this example, we will use the total length as the predictor variable, <m>x,</m> to predict a possum's head length, <m>y.</m> We could fit the linear relationship by eye, as in <xref ref="fig-scattHeadLTotalLLine" />.</p>
+<p>We want to describe the relationship between head and total length of possums with a line.
+In this example, we will use the total length as the predictor variable, <m>x,</m> to predict a possum's head length, <m>y.</m> We could fit the linear relationship by eye, as in <xref ref="fig-scattHeadLTotalLLine" />.</p>
 
 <listing xml:id="listing-scattHeadLTotalLLine-code">
   <caption>R code for possum scatterplot with linear model</caption>
@@ -239,29 +220,21 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
 
 <me>\hat{y} = 41 + 0.59x</me>
 
-<p>A "hat" on <m>y</m> is used to signify that this is an estimate.</p>
-
-<p>We can use this line to discuss properties of possums.</p>
-
-<p>For instance, the equation predicts a possum with a total length of 80 cm will have a head length of</p>
+<p>A "hat" on <m>y</m> is used to signify that this is an estimate.
+We can use this line to discuss properties of possums.
+For instance, the equation predicts a possum with a total length of 80 cm will have a head length of</p>
 
 <me>\hat{y} = 41 + 0.59 \times 80 = 88.2</me>
 
-<p>The estimate may be viewed as an average: the equation predicts that possums with a total length of 80 cm will have an average head length of 88.2 mm.</p>
+<p>The estimate may be viewed as an average: the equation predicts that possums with a total length of 80 cm will have an average head length of 88.2 mm.
+Absent further information about an 80 cm possum, the prediction for head length that uses the average is a reasonable estimate.</p>
 
-<p>Absent further information about an 80 cm possum, the prediction for head length that uses the average is a reasonable estimate.</p>
-
-<p>There may be other variables that could help us predict the head length of a possum besides its length.</p>
-
-<p>Perhaps the relationship would be a little different for male possums than female possums, or perhaps it would differ for possums from one region of Australia versus another region.</p>
-
-<p><xref ref="fig-scattHeadLTotalL-sex-age-1" /> shows the relationship between total length and head length of brushtail possums, taking into consideration their sex.</p>
-
-<p>Male possums (represented by blue triangles) seem to be larger in terms of total length and head length than female possums (represented by red circles).</p>
-
-<p><xref ref="fig-scattHeadLTotalL-sex-age-2" /> shows the same relationship, taking into consideration their age.</p>
-
-<p>It's harder to tell if age changes the relationship between total length and head length for these possums.</p>
+<p>There may be other variables that could help us predict the head length of a possum besides its length.
+Perhaps the relationship would be a little different for male possums than female possums, or perhaps it would differ for possums from one region of Australia versus another region.
+<xref ref="fig-scattHeadLTotalL-sex-age-1" /> shows the relationship between total length and head length of brushtail possums, taking into consideration their sex.
+Male possums (represented by blue triangles) seem to be larger in terms of total length and head length than female possums (represented by red circles).
+<xref ref="fig-scattHeadLTotalL-sex-age-2" /> shows the same relationship, taking into consideration their age.
+It's harder to tell if age changes the relationship between total length and head length for these possums.</p>
 
 <listing xml:id="listing-scattHeadLTotalL-sex-age-code">
   <caption>R code for possum plots by sex and age</caption>
@@ -309,9 +282,8 @@ p_age
   </sidebyside>
 </figure>
 
-<p>In <xref ref="sec-model-mlr" />, we'll learn about how we can include more than one predictor in our model.</p>
-
-<p>Before we get there, we first need to better understand how to best build a linear model with one predictor.</p>
+<p>In <xref ref="sec-model-mlr" />, we'll learn about how we can include more than one predictor in our model.
+Before we get there, we first need to better understand how to best build a linear model with one predictor.</p>
 
 </subsection>
 
@@ -322,21 +294,14 @@ p_age
 
 <me>\text{Data} = \text{Fit} + \text{Residual}</me>
 
-<p>Each observation will have a residual, and three of the residuals for the linear model we fit for the possum data are shown in <xref ref="fig-scattHeadLTotalLLine-highlighted" />.</p>
+<p>Each observation will have a residual, and three of the residuals for the linear model we fit for the possum data are shown in <xref ref="fig-scattHeadLTotalLLine-highlighted" />.
+If an observation is above the regression line, then its residual, the vertical distance from the observation to the line, is positive.
+Observations below the line have negative residuals. One goal in picking the right linear model is for residuals to be as small as possible.</p>
 
-<p>If an observation is above the regression line, then its residual, the vertical distance from the observation to the line, is positive.</p>
-
-<p>Observations below the line have negative residuals.</p>
-
-<p>One goal in picking the right linear model is for residuals to be as small as possible.</p>
-
-<p><xref ref="fig-scattHeadLTotalLLine-highlighted" /> is almost a replica of <xref ref="fig-scattHeadLTotalLLine" />, with three points from the data highlighted.</p>
-
-<p>The observation marked by a red circle has a small, negative residual of about -1; the observation marked by a gray diamond has a large positive residual of about +7; and the observation marked by a pink triangle has a moderate negative residual of about -4.</p>
-
-<p>The size of a residual is usually discussed in terms of its absolute value.</p>
-
-<p>For example, the residual for the observation marked by a pink triangle is larger than that of the observation marked by a red circle because <m>|-4|</m> is larger than <m>|-1|.</m></p>
+<p><xref ref="fig-scattHeadLTotalLLine-highlighted" /> is almost a replica of <xref ref="fig-scattHeadLTotalLLine" />, with three points from the data highlighted.
+The observation marked by a red circle has a small, negative residual of about -1; the observation marked by a gray diamond has a large positive residual of about +7; and the observation marked by a pink triangle has a moderate negative residual of about -4.
+The size of a residual is usually discussed in terms of its absolute value.
+For example, the residual for the observation marked by a pink triangle is larger than that of the observation marked by a red circle because <m>|-4|</m> is larger than <m>|-1|.</m></p>
 
 <listing xml:id="listing-scattHeadLTotalLLine-highlighted-code">
   <caption>R code for possum plot with highlighted residuals</caption>
@@ -389,7 +354,7 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
 <assemblage>
   <p><alert>Residual: Difference between observed and expected.</alert></p>
   <p>The residual of the <m>i^{th}</m> observation <m>(x_i, y_i)</m> is the difference of the observed outcome <m>(y_i)</m> and the outcome we would predict based on the model fit <m>(\hat{y}_i):</m></p>
-  <me>e_i = y_i - \hat{y}_i</me>
+  <p><m>e_i = y_i - \hat{y}_i</m></p>
   <p>We typically identify <m>\hat{y}_i</m> by plugging <m>x_i</m> into the model.</p>
 </assemblage>
 
@@ -428,13 +393,10 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
   </solution>
 </exercise>
 
-<p>Residuals are helpful in evaluating how well a linear model fits a dataset.</p>
-
-<p>We often display them in a scatterplot such as the one shown in <xref ref="fig-scattHeadLTotalLResidualPlot" /> for the regression line in <xref ref="fig-scattHeadLTotalLLine-highlighted" />.</p>
-
-<p>The residuals are plotted with their predicted outcome variable value as the horizontal coordinate, and the vertical coordinate as the residual.</p>
-
-<p>For instance, the point <m>(85.0, 98.6)</m> (marked by the blue diamond) had a predicted value of 91.4 mm and had a residual of 7.45 mm, so in the residual plot it is placed at <m>(91.4, 7.45).</m> Creating a residual plot is sort of like tipping the scatterplot over so the regression line is horizontal, as indicated by the dashed line.</p>
+<p>Residuals are helpful in evaluating how well a linear model fits a dataset.
+We often display them in a scatterplot such as the one shown in <xref ref="fig-scattHeadLTotalLResidualPlot" /> for the regression line in <xref ref="fig-scattHeadLTotalLLine-highlighted" />.
+The residuals are plotted with their predicted outcome variable value as the horizontal coordinate, and the vertical coordinate as the residual.
+For instance, the point <m>(85.0, 98.6)</m> (marked by the blue diamond) had a predicted value of 91.4 mm and had a residual of 7.45 mm, so in the residual plot it is placed at <m>(91.4, 7.45).</m> Creating a residual plot is sort of like tipping the scatterplot over so the regression line is horizontal, as indicated by the dashed line.</p>
 
 <listing xml:id="listing-scattHeadLTotalLResidualPlot-code">
   <caption>R code for residual plot</caption>
@@ -589,9 +551,8 @@ p_neg_lin + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
 <subsection xml:id="describing-linear-relationships-with-correlation">
   <title>Describing linear relationships with correlation</title>
 
-<p>We've seen plots with strong linear relationships and others with very weak linear relationships.</p>
-
-<p>It would be useful if we could quantify the strength of these linear relationships with a statistic.</p>
+<p>We've seen plots with strong linear relationships and others with very weak linear relationships.
+It would be useful if we could quantify the strength of these linear relationships with a statistic.</p>
 
 <assemblage>
   <p><alert>Correlation: strength of a linear relationship.</alert></p>
@@ -600,23 +561,17 @@ p_neg_lin + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
   <p>The correlation value has no units and will not be affected by a linear change in the units (e.g., going from inches to centimeters).</p>
 </assemblage>
 
-<p>We can compute the correlation using a formula, just as we did with the sample mean and standard deviation.</p>
-
-<p>The formula for correlation, however, is rather complex[^07-model-slr-3], and like with other statistics, we generally perform the calculations on a computer or calculator.</p>
+<p>We can compute the correlation using a formula, just as we did with the sample mean and standard deviation.
+The formula for correlation, however, is rather complex[^07-model-slr-3], and like with other statistics, we generally perform the calculations on a computer or calculator.</p>
 
 <me>r = \frac{1}{n-1} \sum_{i=1}^{n} \frac{x_i-\bar{x}}{s_x}\frac{y_i-\bar{y}}{s_y}</me>
 
-<p>where <m>\bar{x},</m> <m>\bar{y},</m> <m>s_x,</m> and <m>s_y</m> are the sample means and standard deviations for each variable.</p>
-
-<p><xref ref="fig-posNegCorPlots" /> shows eight plots and their corresponding correlations.</p>
-
-<p>Only when the relationship is perfectly linear is the correlation either -1 or +1.</p>
-
-<p>If the relationship is strong and positive, the correlation will be near +1.</p>
-
-<p>If it is strong and negative, it will be near -1.</p>
-
-<p>If there is no apparent linear relationship between the variables, then the correlation will be near zero.</p>
+<p>where <m>\bar{x},</m> <m>\bar{y},</m> <m>s_x,</m> and <m>s_y</m> are the sample means and standard deviations for each variable.
+<xref ref="fig-posNegCorPlots" /> shows eight plots and their corresponding correlations.
+Only when the relationship is perfectly linear is the correlation either -1 or +1.
+If the relationship is strong and positive, the correlation will be near +1.
+If it is strong and negative, it will be near -1.
+If there is no apparent linear relationship between the variables, then the correlation will be near zero.</p>
 
 <listing xml:id="listing-posNegCorPlots-code">
   <caption>R code for correlation plots with positive and negative relationships</caption>
@@ -649,9 +604,8 @@ simulated_scatter |&gt;
   <image source="images/fig-posNegCorPlots-1.png" width="70%" />
 </figure>
 
-<p>The correlation is intended to quantify the strength of a linear trend.</p>
-
-<p>Nonlinear trends, even when strong, sometimes produce correlations that do not reflect the strength of the relationship; see three such examples in <xref ref="fig-corForNonLinearPlots" />.</p>
+<p>The correlation is intended to quantify the strength of a linear trend.
+Nonlinear trends, even when strong, sometimes produce correlations that do not reflect the strength of the relationship; see three such examples in <xref ref="fig-corForNonLinearPlots" />.</p>
 
 <listing xml:id="listing-corForNonLinearPlots-code">
   <caption>R code for nonlinear relationship correlation plots</caption>
@@ -715,21 +669,14 @@ simulated_scatter |&gt;
   </solution>
 </example>
 
-<p>One important aspect of the correlation is that it's <em>unitless</em>.</p>
-
-<p>That is, unlike a measurement of the slope of a line (see the next section) which provides an increase in the y-coordinate for a one unit increase in the x-coordinate (in units of the x and y variable), there are no units associated with the correlation of x and y.</p>
-
-<p><xref ref="fig-bdims-units" /> shows the relationship between weights and heights of 507 physically active individuals.</p>
-
-<p>In <xref ref="fig-bdims-units-1" />, weight is measured in kilograms (kg) and height in centimeters (cm).</p>
-
-<p>In <xref ref="fig-bdims-units-2" />, weight has been converted to pounds (lbs) and height to inches (in).</p>
-
-<p>The correlation coefficient (<m>r = 0.72</m>) is also noted on both plots.</p>
-
-<p>We can see that the shape of the relationship has not changed, and neither has the correlation coefficient.</p>
-
-<p>The only visual change to the plot is the axis <em>labeling</em> of the points.</p>
+<p>One important aspect of the correlation is that it's <em>unitless</em>.
+That is, unlike a measurement of the slope of a line (see the next section) which provides an increase in the y-coordinate for a one unit increase in the x-coordinate (in units of the x and y variable), there are no units associated with the correlation of x and y.
+<xref ref="fig-bdims-units" /> shows the relationship between weights and heights of 507 physically active individuals.
+In <xref ref="fig-bdims-units-1" />, weight is measured in kilograms (kg) and height in centimeters (cm).
+In <xref ref="fig-bdims-units-2" />, weight has been converted to pounds (lbs) and height to inches (in).
+The correlation coefficient (<m>r = 0.72</m>) is also noted on both plots.
+We can see that the shape of the relationship has not changed, and neither has the correlation coefficient.
+The only visual change to the plot is the axis <em>labeling</em> of the points.</p>
 
 <listing xml:id="listing-bdims-units-code">
   <caption>R code for comparing metric and imperial unit plots</caption>
@@ -784,20 +731,16 @@ p_2
 <section xml:id="sec-least-squares-regression">
   <title>Least squares regression</title>
 
-<p>Fitting linear models by eye is open to criticism since it is based on an individual's preference.</p>
-
-<p>In this section, we use <em>least squares regression</em> as a more rigorous approach to fitting a line to a scatterplot.</p>
+<p>Fitting linear models by eye is open to criticism since it is based on an individual's preference.
+In this section, we use <em>least squares regression</em> as a more rigorous approach to fitting a line to a scatterplot.</p>
 
 <subsection xml:id="gift-aid-for-first-year-at-elmhurst-college">
   <title>Gift aid for first-year at Elmhurst College</title>
 
-<p>This section considers a dataset on family income and gift aid data from a random sample of fifty students in the first-year class of Elmhurst College in Illinois.</p>
-
-<p>Gift aid is financial aid that does not need to be paid back, as opposed to a loan.</p>
-
-<p>A scatterplot of these data is shown in <xref ref="fig-elmhurstScatterWLine" /> along with a linear fit.</p>
-
-<p>The line follows a negative trend in the data; students who have higher family incomes tended to have lower gift aid from the university.</p>
+<p>This section considers a dataset on family income and gift aid data from a random sample of fifty students in the first-year class of Elmhurst College in Illinois.
+Gift aid is financial aid that does not need to be paid back, as opposed to a loan.
+A scatterplot of these data is shown in <xref ref="fig-elmhurstScatterWLine" /> along with a linear fit.
+The line follows a negative trend in the data; students who have higher family incomes tended to have lower gift aid from the university.</p>
 
 <exercise>
   <statement>
@@ -837,13 +780,10 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 <subsection xml:id="an-objective-measure-for-finding-the-best-line">
   <title>An objective measure for finding the best line</title>
 
-<p>We begin by thinking about what we mean by the "best" line.</p>
-
-<p>Mathematically, we want a line that has small residuals.</p>
-
-<p>But beyond the mathematical reasons, hopefully it also makes sense intuitively that whatever line we fit, the residuals should be small (i.e., the points should be close to the line).</p>
-
-<p>The first option that may come to mind is to minimize the sum of the residual magnitudes:</p>
+<p>We begin by thinking about what we mean by the "best" line.
+Mathematically, we want a line that has small residuals.
+But beyond the mathematical reasons, hopefully it also makes sense intuitively that whatever line we fit, the residuals should be small (i.e., the points should be close to the line).
+The first option that may come to mind is to minimize the sum of the residual magnitudes:</p>
 
 <me>|e_1| + |e_2| + \dots + |e_n|</me>
 
@@ -879,9 +819,8 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 
 <me>e_{1}^2 + e_{2}^2 + \dots + e_{n}^2</me>
 
-<p>The line that minimizes this least squares criterion is represented as the solid line in <xref ref="fig-elmhurstScatterW2Lines" /> and is commonly called the <alert>least squares line</alert><idx>least squares line</idx>.</p>
-
-<p>The following are three possible reasons to choose the least squares option instead of trying to minimize the sum of residual magnitudes without any squaring:</p>
+<p>The line that minimizes this least squares criterion is represented as the solid line in <xref ref="fig-elmhurstScatterW2Lines" /> and is commonly called the <alert>least squares line</alert><idx>least squares line</idx>.
+The following are three possible reasons to choose the least squares option instead of trying to minimize the sum of residual magnitudes without any squaring:</p>
 
 <ol>
   <li><p>It is the most commonly used method.</p></li>
@@ -901,17 +840,14 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 
 <me>\widehat{\texttt{aid}} = \beta_0 + \beta_{1}\times \texttt{family\_income}</me>
 
-<p>Here the equation is set up to predict gift aid based on a student's family income, which would be useful to students considering Elmhurst.</p>
+<p>Here the equation is set up to predict gift aid based on a student's family income, which would be useful to students considering Elmhurst.
+These two values, <m>\beta_0</m> and <m>\beta_1,</m> are the parameters of the regression line.</p>
 
-<p>These two values, <m>\beta_0</m> and <m>\beta_1,</m> are the parameters of the regression line.</p>
+<p>The parameters are estimated using the observed data.
+In practice, this estimation is done using a computer in the same way that other estimates, like a sample mean, can be estimated using a computer or calculator.</p>
 
-<p>The parameters are estimated using the observed data.</p>
-
-<p>In practice, this estimation is done using a computer in the same way that other estimates, like a sample mean, can be estimated using a computer or calculator.</p>
-
-<p>The dataset where these data are stored is called <c>elmhurst</c>.</p>
-
-<p>The first 5 rows of this dataset are given in <xref ref="tbl-elmhurst-data" />.</p>
+<p>The dataset where these data are stored is called <c>elmhurst</c>.
+The first 5 rows of this dataset are given in <xref ref="tbl-elmhurst-data" />.</p>
 
 <table xml:id="tbl-elmhurst-data">
   <title>First five rows of the <c>elmhurst</c> dataset.</title>
@@ -927,39 +863,35 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
       <cell>14.28</cell>
     </row>
     <row>
-      <cell>0.00</cell>
-      <cell>27.47</cell>
+      <cell>0.25</cell>
+      <cell>27.50</cell>
       <cell>8.53</cell>
     </row>
     <row>
       <cell>53.09</cell>
-      <cell>27.75</cell>
-      <cell>8.25</cell>
+      <cell>27.80</cell>
+      <cell>14.25</cell>
     </row>
     <row>
       <cell>50.20</cell>
-      <cell>27.22</cell>
+      <cell>27.20</cell>
       <cell>8.78</cell>
     </row>
     <row>
       <cell>137.61</cell>
       <cell>18.00</cell>
-      <cell>18.00</cell>
+      <cell>24.00</cell>
     </row>
   </tabular>
 </table>
 
-<p>We can see that family income is recorded in a variable called <c>family_income</c> and gift aid from university is recorded in a variable called <c>gift_aid</c>.</p>
+<p>We can see that family income is recorded in a variable called <c>family_income</c> and gift aid from university is recorded in a variable called <c>gift_aid</c>.
+For now, we won't worry about the <c>price_paid</c> variable.
+We should also note that these data are from the 2011-2012 academic year, and all monetary amounts are given in $1,000s, i.e., the family income of the first student in the data shown in <xref ref="tbl-elmhurst-data" /> is $92,920 and they received a gift aid of \$21,700.
+(The data source states that all numbers have been rounded to the nearest whole dollar.)</p>
 
-<p>For now, we won't worry about the <c>price_paid</c> variable.</p>
-
-<p>We should also note that these data are from the 2011-2012 academic year, and all monetary amounts are given in \$1,000s, i.e., the family income of the first student in the data shown in <xref ref="tbl-elmhurst-data" /> is \$92,920 and they received a gift aid of \$21,700.</p>
-
-<p>(The data source states that all numbers have been rounded to the nearest whole dollar.)</p>
-
-<p>Statistical software is usually used to compute the least squares line and the typical output generated as a result of fitting regression models looks like the one shown in <xref ref="tbl-rOutputForIncomeAidLSRLine" />.</p>
-
-<p>For now we will focus on the first column of the output, which lists <m>{b}_0</m> and <m>{b}_1.</m> In <xref ref="ch24-inference-linear-regression-single" /> we will dive deeper into the remaining columns which give us information on how accurate and precise these values of intercept and slope that are calculated from a sample of 50 students are in estimating the population parameters of intercept and slope for <em>all</em> students.</p>
+<p>Statistical software is usually used to compute the least squares line and the typical output generated as a result of fitting regression models looks like the one shown in <xref ref="tbl-rOutputForIncomeAidLSRLine" />.
+For now we will focus on the first column of the output, which lists <m>{b}_0</m> and <m>{b}_1.</m> In <xref ref="ch24-inference-linear-regression-single" /> we will dive deeper into the remaining columns which give us information on how accurate and precise these values of intercept and slope that are calculated from a sample of 50 students are in estimating the population parameters of intercept and slope for <em>all</em> students.</p>
 
 <table xml:id="tbl-rOutputForIncomeAidLSRLine">
   <title>Summary of least squares fit for the Elmhurst data.</title>
@@ -982,17 +914,16 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
       <cell>family_income</cell>
       <cell>-0.04</cell>
       <cell>0.01</cell>
-      <cell>-2.45</cell>
-      <cell>0.0179</cell>
+      <cell>-3.98</cell>
+      <cell>2e-04</cell>
     </row>
   </tabular>
 </table>
 
-<p>The model output tells us that the intercept is approximately 24.32 and the slope on <c>family_income</c> is approximately -0.04.</p>
+<p>The model output tells us that the intercept is approximately 24.319 and the slope on <c>family_income</c> is approximately -0.043.</p>
 
-<p>But what do these values mean?</p>
-
-<p>Interpreting parameters in a regression model is often one of the most important steps in the analysis.</p>
+<p>But what do these values mean?
+Interpreting parameters in a regression model is often one of the most important steps in the analysis.</p>
 
 <example>
   <statement>
@@ -1128,15 +1059,11 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 <subsection xml:id="extrapolation-is-treacherous">
   <title>Extrapolation is treacherous</title>
 
-<p>Linear models can be used to approximate the relationship between two variables.</p>
-
-<p>However, like any model, they have real limitations.</p>
-
-<p>Linear regression is simply a modeling framework.</p>
-
-<p>The truth is almost always much more complex than a simple line.</p>
-
-<p>For example, we do not know how the data outside of our limited window will behave.</p>
+<p>Linear models can be used to approximate the relationship between two variables.
+However, like any model, they have real limitations.
+Linear regression is simply a modeling framework.
+The truth is almost always much more complex than a simple line.
+For example, we do not know how the data outside of our limited window will behave.</p>
 
 <example>
   <statement>
@@ -1152,32 +1079,24 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
   </solution>
 </example>
 
-<p>Applying a model estimate to values outside of the realm of the original data is called <alert>extrapolation</alert><idx>extrapolation</idx>.</p>
-
-<p>Generally, a linear model is only an approximation of the real relationship between two variables.</p>
-
-<p>If we extrapolate, we are making an unreliable bet that the approximate linear relationship will be valid in places where it has not been analyzed.</p>
+<p>Applying a model estimate to values outside of the realm of the original data is called <alert>extrapolation</alert><idx>extrapolation</idx>.
+Generally, a linear model is only an approximation of the real relationship between two variables.
+If we extrapolate, we are making an unreliable bet that the approximate linear relationship will be valid in places where it has not been analyzed.</p>
 
 </subsection>
 
 <subsection xml:id="sec-r-squared">
   <title>Describing the strength of a fit</title>
 
-<p>We evaluated the strength of the linear relationship between two variables earlier using the correlation, <m>r.</m> However, it is more common to explain the strength of a linear fit using <m>R^2,</m> called <alert>R-squared</alert><idx>R-squared</idx>.</p>
+<p>We evaluated the strength of the linear relationship between two variables earlier using the correlation, <m>r.</m> However, it is more common to explain the strength of a linear fit using <m>R^2,</m> called <alert>R-squared</alert><idx>R-squared</idx>.
+If provided with a linear model, we might like to describe how closely the data cluster around the linear fit.</p>
 
-<p>If provided with a linear model, we might like to describe how closely the data cluster around the linear fit.</p>
-
-<p>The <m>R^2</m> of a linear model describes the amount of variation in the outcome variable that is explained by the least squares line.</p>
-
-<p>For example, consider the Elmhurst data, shown in <xref ref="fig-elmhurstScatterWLine" />).</p>
-
-<p>The variance of the outcome variable, aid received, is about <m>s_{aid}^2 \approx 29.8</m> million (calculated from the data, some of which is shown in <xref ref="tbl-elmhurst-data" />).</p>
-
-<p>However, if we apply our least squares line, then this model reduces our uncertainty in predicting aid using a student's family income.</p>
-
-<p>The variability in the residuals describes how much variation remains after using the model: <m>s_{_{RES}}^2 \approx 22.4</m> million.</p>
-
-<p>In short, there was a reduction of</p>
+<p>The <m>R^2</m> of a linear model describes the amount of variation in the outcome variable that is explained by the least squares line.
+For example, consider the Elmhurst data, shown in <xref ref="fig-elmhurstScatterWLine" />).
+The variance of the outcome variable, aid received, is about <m>s_{aid}^2 \approx 29.8</m> million (calculated from the data, some of which is shown in <xref ref="tbl-elmhurst-data" />).
+However, if we apply our least squares line, then this model reduces our uncertainty in predicting aid using a student's family income.
+The variability in the residuals describes how much variation remains after using the model: <m>s_{_{RES}}^2 \approx 22.4</m> million.
+In short, there was a reduction of</p>
 
 <md>
   <mrow>\frac{s_{aid}^2 - s_{_{RES}}^2}{s_{aid}^2}</mrow>
@@ -1214,19 +1133,19 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 <assemblage>
   <p><alert>Sums of squares to measure variability in</alert> <m>y.</m></p>
   <p>We can measure the variability in the <m>y</m> values by how far they tend to fall from their mean, <m>\bar{y}.</m> We define this value as the <alert>total sum of squares</alert><idx>total sum of squares</idx>, calculated using the formula below, where <m>y_i</m> represents each <m>y</m> value in the sample, and <m>\bar{y}</m> represents the mean of the <m>y</m> values in the sample.</p>
-  <p>\vspace{-2mm}</p>
-  <me>SST = (y_1 - \bar{y})^2 + (y_2 - \bar{y})^2 + \cdots + (y_n - \bar{y})^2.</me>
+  <p><m>SST = (y_1 - \bar{y})^2 + (y_2 - \bar{y})^2 + \cdots + (y_n - \bar{y})^2.</m></p>
   <p>Left-over variability in the <m>y</m> values if we know <m>x</m> can be measured by the <alert>sum of squared errors</alert><idx>sum of squared errors</idx>, or sum of squared residuals, calculated using the formula below, where <m>\hat{y}_i</m> represents the predicted value of <m>y_i</m> based on the least squares regression.[^07-model-slr-9],</p>
-  <p>\vspace{-2mm}</p>
-  <md>
-    <mrow>\begin{aligned}</mrow>
-    <mrow>SSE &amp;= (y_1 - \hat{y}_1)^2 + (y_2 - \hat{y}_2)^2 + \cdots + (y_n - \hat{y}_n)^2\\</mrow>
-    <mrow>&amp;= e_{1}^2 + e_{2}^2 + \dots + e_{n}^2</mrow>
-    <mrow>\end{aligned}</mrow>
-  </md>
+  <me>
+  \begin{aligned}
+  SSE &= (y_1 - \hat{y}_1)^2 + (y_2 - \hat{y}_2)^2 + \cdots + (y_n - \hat{y}_n)^2\\
+      &= e_{1}^2 + e_{2}^2 + \dots + e_{n}^2
+  \end{aligned}
+  </me>
   <p>The coefficient of determination can then be calculated as</p>
-  <me>R^2 = \frac{SST - SSE}{SST} = 1 - \frac{SSE}{SST}</me>
-</assemblage>
+  <p>
+    <m>R^2 = \frac{SST - SSE}{SST} = 1 - \frac{SSE}{SST}</m>
+  </p>
+ </assemblage>
 
 <example>
   <statement>
@@ -1245,22 +1164,18 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 <subsection xml:id="sec-categorical-predictor-two-levels">
   <title>Categorical predictors with two levels</title>
 
-<p>Categorical variables are also useful in predicting outcomes.</p>
-
-<p>Here we consider a categorical predictor with two levels (recall that a <em>level</em> is the same as a <em>category</em>).</p>
-
-<p>We'll consider Ebay auctions for a video game, <em>Mario Kart</em> for the Nintendo Wii, where both the total price of the auction and the condition of the game were recorded.</p>
-
-<p>Here we want to predict total price based on game condition, which takes values <c>used</c> and <c>new</c>.</p>
+<p>Categorical variables are also useful in predicting outcomes.
+Here we consider a categorical predictor with two levels (recall that a <em>level</em> is the same as a <em>category</em>).
+We'll consider Ebay auctions for a video game, <em>Mario Kart</em> for the Nintendo Wii, where both the total price of the auction and the condition of the game were recorded.
+Here we want to predict total price based on game condition, which takes values <c>used</c> and <c>new</c>.</p>
 
 <note>
   <title>Data</title>
   <p>The <url href="http://openintrostat.github.io/openintro/reference/mariokart.html"><c>mariokart</c></url> data can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</p>
 </note>
 
-<p>A plot of the auction data is shown in <xref ref="fig-marioKartNewUsed" />.</p>
-
-<p>Note that the original dataset contains some Mario Kart games being sold at prices above \$100 but for this analysis we have limited our focus to the <c>r nrow(mariokart_lt100)</c> Mario Kart games that were sold below \$100.</p>
+<p>A plot of the auction data is shown in <xref ref="fig-marioKartNewUsed" />.
+Note that the original dataset contains some Mario Kart games being sold at prices above \$100 but for this analysis we have limited our focus to the <c>r nrow(mariokart_lt100)</c> Mario Kart games that were sold below \$100.</p>
 
 <listing xml:id="listing-marioKartNewUsed-code">
   <caption>R code for Mario Kart price by condition plot</caption>
@@ -1291,11 +1206,9 @@ mariokart_lt100 |&gt;
   <image source="images/fig-marioKartNewUsed-1.png" width="70%" />
 </figure>
 
-<p>To incorporate the game condition variable into a regression equation, we must convert the categories into a numerical form.</p>
-
-<p>We will do so using an <alert>indicator variable</alert><idx><h>variable</h><h>indicator</h></idx><idx>indicator variable</idx> called <c>condnew</c>, which takes value 1 when the game is new and 0 when the game is used.</p>
-
-<p>Using this indicator variable, the linear model may be written as</p>
+<p>To incorporate the game condition variable into a regression equation, we must convert the categories into a numerical form.
+We will do so using an <alert>indicator variable</alert><idx><h>variable</h><h>indicator</h></idx><idx>indicator variable</idx> called <c>condnew</c>, which takes value 1 when the game is new and 0 when the game is used.
+Using this indicator variable, the linear model may be written as</p>
 
 <me>\widehat{\texttt{price}} = b_0 + b_1 \times \texttt{condnew}</me>
 
@@ -1362,17 +1275,12 @@ mariokart_lt100 |&gt;
 <section xml:id="sec-outliers-in-regression">
   <title>Outliers in linear regression</title>
 
-<p>In this section, we discuss when outliers are important and influential.</p>
-
-<p>Outliers in a regression model with one predictor and one outcome are observations that fall far from the cloud of points.</p>
-
-<p>These points are especially important because they can have a strong influence on the least squares line.</p>
-
-<p>Note that there are times when observations are outlying in the <m>x</m> direction, the <m>y</m> direction, or both.</p>
-
-<p>However, being outlying in a univariate sense (either <m>x</m> or <m>y</m> or both) is not outlying from the bivariate model.</p>
-
-<p>If the points are in-line with the bivariate model, they will not influence the least squares regression line (even if the observations are outlying in the <m>x</m> or <m>y</m> or both directions!).</p>
+<p>In this section, we discuss when outliers are important and influential.
+Outliers in a regression model with one predictor and one outcome are observations that fall far from the cloud of points.
+These points are especially important because they can have a strong influence on the least squares line.
+Note that there are times when observations are outlying in the <m>x</m> direction, the <m>y</m> direction, or both.
+However, being outlying in a univariate sense (either <m>x</m> or <m>y</m> or both) is not outlying from the bivariate model.
+If the points are in-line with the bivariate model, they will not influence the least squares regression line (even if the observations are outlying in the <m>x</m> or <m>y</m> or both directions!).</p>
 
 <example>
   <statement>
@@ -1634,26 +1542,21 @@ p_4 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
   </sidebyside>
 </figure>
 
-<p>Examine the residual plots in <xref ref="fig-outlier-plots-1" /> and <xref ref="fig-outlier-plots-2" />.</p>
+<p>Examine the residual plots in <xref ref="fig-outlier-plots-1" /> and <xref ref="fig-outlier-plots-2" />.
+In Plots C, D, and E, you will probably find that there are a few observations which are both away from the remaining points along the x-axis and not in the trajectory of the trend in the rest of the data.
+In these cases, the outliers influenced the slope of the least squares lines.</p>
 
-<p>In Plots C, D, and E, you will probably find that there are a few observations which are both away from the remaining points along the x-axis and not in the trajectory of the trend in the rest of the data.</p>
-
-<p>In these cases, the outliers influenced the slope of the least squares lines.</p>
-
-<p>In Plot E, the bulk of the data show no clear trend, but if we fit a line to these data, we impose a trend where there isn't really one.</p>
-
-<p>A good practice for dealing with outlying observations is to produce two analyses: one with and one without the outlying observations. Presenting both analyses to a client and discussing the role of the outlying observations should lead you to a more holistic understanding of the appropriate model for the data.</p>
+<p>In Plot E, the bulk of the data show no clear trend, but if we fit a line to these data, we impose a trend where there isn't really one.
+A good practice for dealing with outlying observations is to produce two analyses: one with and one without the outlying observations. Presenting both analyses to a client and discussing the role of the outlying observations should lead you to a more holistic understanding of the appropriate model for the data.</p>
 
 <assemblage>
   <p><alert>Leverage.</alert></p>
   <p>Points that fall horizontally away from the center of the cloud tend to pull harder on the line, so we call them points with <alert>high leverage</alert><idx>high leverage</idx> or <alert>leverage points</alert><idx>leverage point</idx>.</p>
 </assemblage>
 
-<p>Points that fall horizontally far from the line are points of high leverage; these points can strongly influence the slope of the least squares line.</p>
-
-<p>If one of these high leverage points does appear to actually invoke its influence on the slope of the line -- as in Plots C, D, and E of <xref ref="fig-outlier-plots-1" /> and <xref ref="fig-outlier-plots-2" /> -- then we call it an <alert>influential point</alert><idx>influential point</idx>.</p>
-
-<p>Usually we can say a point is influential if, had we fitted the line without it, the influential point would have been unusually far from the least squares line.</p>
+<p>Points that fall horizontally far from the line are points of high leverage; these points can strongly influence the slope of the least squares line.
+If one of these high leverage points does appear to actually invoke its influence on the slope of the line -- as in Plots C, D, and E of <xref ref="fig-outlier-plots-1" /> and <xref ref="fig-outlier-plots-2" /> -- then we call it an <alert>influential point</alert><idx>influential point</idx>.
+Usually we can say a point is influential if, had we fitted the line without it, the influential point would have been unusually far from the least squares line.</p>
 
 <assemblage>
   <p><alert>Types of outliers.</alert><idx>outlier</idx></p>
@@ -1662,13 +1565,10 @@ p_4 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
   <p>Outliers that influence on the slope of the line are called influential points.</p>
 </assemblage>
 
-<p>It is tempting to remove outliers.</p>
-
-<p>Don't do this without a very good reason.</p>
-
-<p>Models that ignore exceptional (and interesting) cases often perform poorly.</p>
-
-<p>For instance, if a financial firm ignored the largest market swings -- the "outliers" -- they would soon go bankrupt by making poorly thought-out investments.</p>
+<p>It is tempting to remove outliers.
+Don't do this without a very good reason.
+Models that ignore exceptional (and interesting) cases often perform poorly.
+For instance, if a financial firm ignored the largest market swings -- the "outliers" -- they would soon go bankrupt by making poorly thought-out investments.</p>
 
 </section>
 
@@ -1678,26 +1578,20 @@ p_4 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
 <subsection xml:id="summary-chp7">
   <title>Summary</title>
 
-<p>Throughout this chapter, the nuances of the linear model have been described.</p>
-
-<p>You have learned how to create a linear model with explanatory variables that are numerical (e.g., total possum length) and those that are categorical (e.g., whether a video game was new).</p>
-
-<p>The residuals in a linear model are an important metric used to understand how well a model fits; high leverage points, influential points, and other types of outliers can impact the fit of a model.</p>
-
-<p>Correlation is a measure of the strength and direction of the linear relationship of two variables, without specifying which variable is the explanatory and which is the outcome.</p>
-
-<p>Future chapters will focus on generalizing the linear model from the sample of data to claims about the population of interest.</p>
+<p>Throughout this chapter, the nuances of the linear model have been described.
+You have learned how to create a linear model with explanatory variables that are numerical (e.g., total possum length) and those that are categorical (e.g., whether a video game was new).
+The residuals in a linear model are an important metric used to understand how well a model fits; high leverage points, influential points, and other types of outliers can impact the fit of a model.
+Correlation is a measure of the strength and direction of the linear relationship of two variables, without specifying which variable is the explanatory and which is the outcome.
+Future chapters will focus on generalizing the linear model from the sample of data to claims about the population of interest.</p>
 
 </subsection>
 
 <subsection xml:id="terms-chp7">
   <title>Terms</title>
 
-<p>The terms introduced in this chapter are presented in <xref ref="tbl-terms-chp-07" />.</p>
-
-<p>If you're not sure what some of these terms mean, we recommend you go back in the text and review their definitions.</p>
-
-<p>You should be able to easily spot them as <alert>bolded text</alert>.</p>
+<p>The terms introduced in this chapter are presented in <xref ref="tbl-terms-chp-07" />.
+If you're not sure what some of these terms mean, we recommend you go back in the text and review their definitions.
+You should be able to easily spot them as <alert>bolded text</alert>.</p>
 
 <table xml:id="tbl-terms-chp-07">
   <title>Terms introduced in this chapter.</title>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<exercises xml:id="exercises-18-inference-tables">
+
+  <exercise>
+    <title>Quitters.</title>
+    <statement>
+      <p>Does being part of a support group affect the ability of people to quit smoking?
+A county health department enrolled 300 smokers in a randomized experiment.
+150 participants were randomly assigned to a group that used a nicotine patch and met weekly with a support group; the other 150 received the patch and did not meet with a support group.
+At the end of the study, 40 of the participants in the patch plus support group had quit smoking while only 30 smokers had quit in the other group.</p>
+      <p><ol marker="a.">
+        <li><p>Create a two-way table presenting the results of this study.</p></li>
+        <li>
+          <p>Answer each of the following questions under the null hypothesis that being part of a support group does not affect the ability of people to quit smoking, and indicate whether the expected values are higher or lower than the observed values.</p>
+          <p><ol marker="i.">
+            <li><p>How many subjects in the "patch + support" group would you expect to quit?</p></li>
+            <li><p>How many subjects in the "patch only" group would you expect to not quit?</p></li>
+          </ol></p>
+        </li>
+      </ol></p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Act on climate change.</title>
+    <statement>
+      <p>The table below summarizes results from a Pew Research poll which asked respondents whether they have personally taken action to help address climate change within the last year and their generation.
+The differences in each generational group may be due to chance.
+Complete the following computations under the null hypothesis of independence between an individual's generation and whether they have personally taken action to help address climate change within the last year.
+<xref ref="pewclimatechange2021" /></p>
+      <p>If there is no relationship between age and action,</p>
+      <p><ol marker="a.">
+        <li><p>how many Gen Z'ers would you expect to have personally taken action to help address climate change within the last year?</p></li>
+        <li><p>how many Millenials would you expect to have personally taken action to help address climate change within the last year?</p></li>
+        <li><p>how many Gen X'ers would you expect to have personally taken action to help address climate change within the last year?</p></li>
+        <li><p>how many Boomers and older would you expect to have personally taken action to help address climate change within the last year?</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Lizard habitats, data.</title>
+    <statement>
+      <p>In order to assess whether habitat conditions are related to the sunlight choices a lizard makes for resting, Western fence lizard (<em>Sceloporus occidentalis</em>) were observed across three different microhabitats.
+<xref ref="Adolph:1990" /> <xref ref="Asbury:2007" /></p>
+      <p><ol marker="a.">
+        <li><p>If the variables describing the habitat and the amount of sunlight are independent, what proporiton of lizards (total) would be expected in each of the three sunlight categories?</p></li>
+        <li><p>Given the proportions of each sunlight condition, how many lizards of each type would you expect to see in the sun?
+in the partial sun?
+in the shade?</p></li>
+        <li><p>Compare the observed (original data) and expected (part b.) tables.
+From a first glance, does it seem as though the habitat and choice of sunlight may be associated?</p></li>
+        <li><p>Regardless of your answer to part (c), is it possible to tell from looking only at the expected and observed counts whether the two variables are associated?</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Disaggregating Asian American tobacco use, data.</title>
+    <statement>
+      <p>Understanding cultural differences in tobacco use across different demographic groups can lead to improved health care education and treatment.
+A recent study disaggregated tobacco use across Asian American ethnic groups including Asian-Indian (n = 4,373), Chinese (n = 4,736), and Filipino (n = 4,912), in comparison to non-Hispanic Whites (n = 275,025).
+The number of current smokers in each group was reported as Asian-Indian (n = 223), Chinese (n = 279), Filipino (n = 609), and non-Hispanic Whites (n = 50,880).
+<xref ref="Rao:2021" /></p>
+      <p>In order to assess whether there is a difference in current smoking rates across three Asian American ethnic groups, the observed data is compared to the data that would be expected if there were no association between the variables.</p>
+      <p><ol marker="a.">
+        <li><p>If the variables on ethnicity and smoking status are independent, estimate the proporiton of individuals (total) who smoke?</p></li>
+        <li><p>Given the overall proportion who smoke, how many of each Asian American ethnicity would you expect to smoke?</p></li>
+        <li><p>Compare the observed and expected counts.
+From a first glance, does it seem as though the Asian American ethnicity and choice of smoking may be associated?</p></li>
+        <li><p>Regardless of your answer to part (c), is it possible to tell from looking only at the expected and observed counts whether the two variables are associated?</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Lizard habitats, randomize once.</title>
+    <statement>
+      <p>In order to assess whether habitat conditions are related to the sunlight choices a lizard makes for resting, Western fence lizard (<em>Sceloporus occidentalis</em>) were observed across three different microhabitats.
+<xref ref="Adolph:1990" /> <xref ref="Asbury:2007" />
+Then, the data were randomized once, where sunlight preference was randomly assigned to the lizards across different sites.
+The original data are shown on the left and the results of the randomization is shown on the right.</p>
+      <p>Recall that the Chi-squared statistic <m>(X^2)</m> measures the difference between the expected and observed counts.
+Without calculating the actual statistic, report on whether the original data or the randomized data will have a larger Chi-squared statistic.
+Explain your choice.</p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Disaggregating Asian American tobacco use, randomize once.</title>
+    <statement>
+      <p>In a study that aims to disaggregate tobacco use across Asian American ethnic groups (Asian-Indian, Chinese, and Filipino, in comparison to non-Hispanic Whites), respondents were asked whether they smoke tobacco or not.
+<xref ref="Rao:2021" />
+Then, the data were randomized once, where smoking status was randomly assigned to the participants across different ethnicities.
+The original data are shown on the left and the results of the randomization is shown on the right.</p>
+      <p>Recall that the Chi-squared statistic <m>(X^2)</m> measures the difference between the expected and observed counts.
+Without calculating the actual statistic, report on whether the original data or the randomized data will have a larger Chi-squared statistic.
+Explain your choice.</p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Lizard habitats, randomization test.</title>
+    <statement>
+      <p>In order to assess whether habitat conditions are related to the sunlight choices a lizard makes for resting, Western fence lizard (<em>Sceloporus occidentalis</em>) were observed across three different microhabitats.
+<xref ref="Adolph:1990" /> <xref ref="Asbury:2007" />
+The original data were randomized 1,000 times (sunlight variable randomly assigned to the observations across different habitats), and the histogram of the Chi-squared statistic on each randomization is displayed.</p>
+      <p><ol marker="a.">
+        <li><p>The histogram above describes the Chi-squared statistics for 1,000 different randomization datasets.
+When randomizing the data, is the imposed structure that the variables are independent or that the variables are associated?
+Explain.</p></li>
+        <li><p>What is the range of plausible values for the randomized Chi-squared statistic?</p></li>
+        <li><p>The observed Chi-squared statistic is 68.8 (marked in red on plot).
+Does the observed value provide evidence against the null hypothesis?
+To answer the question, state the null and alternative hypotheses, approximate the p-value, and conclude the test in the context of the problem.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Disaggregating Asian American tobacco use, randomization test.</title>
+    <statement>
+      <p>Understanding cultural differences in tobacco use across different demographic groups can lead to improved health care education and treatment.
+A recent study disaggregated tobacco use across Asian American ethnic groups including Asian-Indian (n = 4373), Chinese (n = 4736), and Filipino (n = 4912), in comparison to non-Hispanic Whites (n = 275,025).
+The number of current smokers in each group was reported as Asian-Indian (n = 223), Chinese (n = 279), Filipino (n = 609), and non-Hispanic Whites (n = 50,880).
+<xref ref="Rao:2021" />
+The original data were randomized 1000 times (smoking status randomly assigned to the observations across ethnicities), and the histogram of the Chi-squared statistic on each randomization is displayed.</p>
+      <p><ol marker="a.">
+        <li><p>The histogram above describes the Chi-squared statistics for 1000 different randomization datasets.
+When randomizing the data, is the imposed structure that the variables are independent or that the variables are associated?
+Explain.</p></li>
+        <li><p>What is the range of plausible values for the randomized Chi-squared statistic?</p></li>
+        <li><p>The observed Chi-squared statistic is 209.42 (marked in red on plot).
+Does the observed value provide evidence against the null hypothesis?
+To answer the question, state the null and alternative hypotheses, approximate the p-value, and conclude the test in the context of the problem.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Lizard habitats, larger data.</title>
+    <statement>
+      <p>In order to assess whether habitat conditions are related to the sunlight choices a lizard makes for resting, Western fence lizard (<em>Sceloporus occidentalis</em>) were observed across three different microhabitats.
+<xref ref="Adolph:1990" /> <xref ref="Asbury:2007" /></p>
+      <p>Consider the situation where the dataset is 5 times <em>larger</em> than the original data (but have the same proportional representation in each category).
+The distribution of lizards in each of the sites resting in the sun, partial sun, and shade are as follows.</p>
+      <p>The larger dataset was randomized 1,000 times (sunlight preference randomly assigned to the observations across sites), and the histogram of the Chi-squared statistic on each randomization is displayed.</p>
+      <p><ol marker="a.">
+        <li><p>The histogram above describes the Chi-squared statistics for 1,000 different randomization of the larger dataset.
+When randomizing the data, is the imposed structure that the variables are independent or that the variables are associated?
+Explain.</p></li>
+        <li><p>What is the (approximate) range of plausible values for the randomized Chi-squared statistic?</p></li>
+        <li><p>The observed Chi-squared statistic is <c>r obs_x2</c> (and seen in red on the graph).
+Does the observed value provide evidence against the null hypothesis?
+To answer the question, state the null and alternative hypotheses, approximate the p-value, and conclude the test in the context of the problem.</p></li>
+        <li><p>If the alternative hypothesis is true, how does the sample size effect the ability to reject the null hypothesis?
+(<em>Hint:</em> Consider the original data as compared with the larger dataset that have the same proportional values.)</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Disaggregating Asian American tobacco use, smaller data.</title>
+    <statement>
+      <p>Understanding cultural differences in tobacco use across different demographic groups can lead to improved health care education and treatment.
+A recent study disaggregated tobacco use across Asian American ethnic groups. <xref ref="Rao:2021" /></p>
+      <p>Consider the situation where the dataset is 50 times <em>smaller</em> than the original data (but have the same proportional representation in each category).
+The distribution of smokers in each of the ethnicity groups in the smaller data are as follows.</p>
+      <p>The smaller dataset was randomized 1,000 times (smoking status randomly assigned to the observations across ethnicities), and the histogram of the Chi-squared statistic on each randomization is displayed.</p>
+      <p><ol marker="a.">
+        <li><p>The histogram above describes the Chi-squared statistics for 1,000 different randomization of the smaller dataset.
+When randomizing the data, is the imposed structure that the variables are independent or that the variables are associated?
+Explain.</p></li>
+        <li><p>What is the (approximate) range of plausible values for the randomized Chi-squared statistic?</p></li>
+        <li><p>The observed Chi-squared statistic is 4.19 (and seen in red on the graph).
+Does the observed value provide evidence against the null hypothesis?
+To answer the question, state the null and alternative hypotheses, approximate the p-value, and conclude the test in the context of the problem.</p></li>
+        <li><p>If the alternative hypothesis is true, how does the sample size effect the ability to reject the null hypothesis?
+(<em>Hint:</em> Consider the original data as compared with the smaller dataset that have the same proportional values.)</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>True / False, I.</title>
+    <statement>
+      <p>Determine if the statements below are true or false.
+For each false statement, suggest an alternative wording to make it a true statement.</p>
+      <p><ol marker="a.">
+        <li><p>The Chi-square distribution, just like the normal distribution, has two parameters, mean and standard deviation.</p></li>
+        <li><p>The Chi-square distribution is always right skewed, regardless of the value of the degrees of freedom parameter.</p></li>
+        <li><p>The Chi-square statistic is always greater than or equal to 0.</p></li>
+        <li><p>As the degrees of freedom increases, the shape of the Chi-square distribution becomes more skewed.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>True / False, II.</title>
+    <statement>
+      <p>Determine if the statements below are true or false.
+For each false statement, suggest an alternative wording to make it a true statement.</p>
+      <p><ol marker="a.">
+        <li><p>As the degrees of freedom increases, the mean of the Chi-square distribution increases.</p></li>
+        <li><p>If you found <m>\chi^2 = 10</m> with <m>df = 5</m> you would fail to reject <m>H_0</m> at the 5% discernibility level.</p></li>
+        <li><p>When finding the p-value of a Chi-square test, we always shade the tail areas in both tails.</p></li>
+        <li><p>As the degrees of freedom increases, the variability of the Chi-square distribution decreases.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Sleep deprived transportation workers.</title>
+    <statement>
+      <p>The National Sleep Foundation conducted a survey on the sleep habits of randomly sampled transportation workers and randomly sampled non-transportation workers that serve as a "control" for comparison.
+<xref ref="data:sleepTransport" />
+The results of the survey are shown below.
+Conduct a hypothesis test to evaluate if these data provide evidence of an association between sleep levels and profession.</p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Parasitic worm.</title>
+    <statement>
+      <p>Lymphatic filariasis is a disease caused by a parasitic worm.
+Complications of the disease can lead to extreme swelling and other complications.
+Here we consider results from a randomized experiment that compared three different drug treatment options to clear people of the this parasite, which people are working to eliminate entirely.
+The results for the second year of the study are given below: <xref ref="KingSuamani2018" /></p>
+      <p><ol marker="a.">
+        <li><p>Set up hypotheses for evaluating whether there is any difference in the performance of the treatments, and also check conditions.</p></li>
+        <li><p>Statistical software was used to run a Chi-square test, which output: <m>X^2 = 23.7 \quad df = 2 \quad \text{p-value} &lt; 0.0001</m>.
+Use these results to evaluate the hypotheses from part (a), and provide a conclusion in the context of the problem.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Shipping holiday gifts.</title>
+    <statement>
+      <p>A local news survey asked 500 randomly sampled Los Angeles residents which shipping carrier they prefer to use for shipping holiday gifts.
+The table below shows the distribution of responses by age group as well as the expected counts for each cell (shown in italics).</p>
+      <p><ol marker="a.">
+        <li><p>State the null and alternative hypotheses for testing for independence of age and preferred shipping method for holiday gifts among Los Angeles residents.</p></li>
+        <li><p>Are the conditions for inference using a Chi-square test satisfied?</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+  <exercise>
+    <title>Coffee and depression.</title>
+    <statement>
+      <p>Researchers conducted a study investigating the relationship between caffeinated coffee consumption and risk of depression in women.
+They collected data on 50,739 women free of depression symptoms at the start of the study in the year 1996, and these women were followed through 2006.
+The researchers used questionnaires to collect data on caffeinated coffee consumption, asked each individual about physician- diagnosed depression, and also asked about the use of antidepressants.
+The table below shows the distribution of incidences of depression by amount of caffeinated coffee consumption.
+<xref ref="Lucas:2011" /></p>
+      <p><ol marker="a.">
+        <li><p>What type of test is appropriate for evaluating if there is an association between coffee intake and depression?</p></li>
+        <li><p>Write the hypotheses for the test you identified in part (a).</p></li>
+        <li><p>Calculate the overall proportion of women who do and do not suffer from depression.</p></li>
+        <li><p>Identify the expected count for the empty cell, and calculate the contribution of this cell to the test statistic.</p></li>
+        <li><p>The test statistic is <m>\chi^2=20.93</m>.
+What is the p-value?</p></li>
+        <li><p>What is the conclusion of the hypothesis test?</p></li>
+        <li><p>One of the authors of this study was quoted on the New York Times as saying it was "too early to recommend that women load up on extra coffee" based on just this study.
+<xref ref="news:coffeeDepression" /> Do you agree with this statement?
+Explain your reasoning.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+</exercises>

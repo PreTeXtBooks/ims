@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<exercises xml:id="exercises-07-model-slr">
+
+  <exercise>
+    <title>Visualizing residuals.</title>
+    <statement>
+      <p>The scatterplots shown below each have a superimposed regression line. If we were to construct a residual plot (residuals versus <m>x</m>) for each, describe in words what those plots would look like.</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Trends in residuals.</title>
+    <statement>
+      <p>Shown below are two plots of residuals remaining after fitting a linear model to two different sets of data. For each plot, describe important features and determine if a linear model would be appropriate for these data. Explain your reasoning.</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Identify relationships, I.</title>
+    <statement>
+      <p>For each of the six plots, identify the strength of the relationship (e.g., weak, moderate, or strong) in the data and whether fitting a linear model would be reasonable.</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Identify relationships, II.</title>
+    <statement>
+      <p>For each of the six plots, identify the strength of the relationship (e.g., weak, moderate, or strong) in the data and whether fitting a linear model would be reasonable.</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Midterms and final.</title>
+    <statement>
+      <p>The two scatterplots below show the relationship between the overall course average and two midterm exams (Exam 1 and Exam 2) recorded for 233 students during several years for a statistics course at a university.<fn>The <c>exam_grades</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn></p>
+      <p><ol marker="a.">
+        <li>Based on these graphs, which of the two exams has the strongest correlation with the course grade? Explain.</li>
+        <li>Can you think of a reason why the correlation between the exam you chose in part (a) and the course grade is higher?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Meat consumption and life expectancy.</title>
+    <statement>
+      <p>In data collected for [You:2022], total meat intake is associated with life expectancy (at birth) in 175 countries. Meat intake is measured in kg per capita per year (averaged over 2011 to 2013). Additionally, the authors collected data on carbohydrate crops (e.g., cereals, root, sugar, etc.) in kg per capita per year (averaged over 2011 and 2013). The scatterplot on the left shows the life expectancy at birth plotted against the per capita meat consumption. The scatterplot on the right shows the amount of carbohydrate consumption plotted against the per capita meat consumption.</p>
+      <p><ol marker="a.">
+        <li>Describe the relationship between meat consumption and life expectancy.</li>
+        <li>Describe the relationship between meat consumption and carbohydrate consumption.</li>
+        <li>Which plot shows a stronger correlation? Explain your reasoning.</li>
+        <li>Data on consumption were originally collected in kilograms. How would the plots above and the correlation values change if the consumption variables were converted to pounds?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Match the correlation, I.</title>
+    <statement>
+      <p>Match each correlation to the corresponding scatterplot.<fn>The <c>corr_match</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn></p>
+      <p><ol marker="a.">
+        <li><m>r = -0.7</m></li>
+        <li><m>r = 0.45</m></li>
+        <li><m>r = 0.06</m></li>
+        <li><m>r = 0.92</m></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Match the correlation, II.</title>
+    <statement>
+      <p>Match each correlation to the corresponding scatterplot.<fn>The <c>corr_match</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn></p>
+      <p><ol marker="a.">
+        <li><m>r = 0.49</m></li>
+        <li><m>r = -0.48</m></li>
+        <li><m>r = -0.03</m></li>
+        <li><m>r = -0.85</m></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Body measurements, correlation.</title>
+    <statement>
+      <p>Researchers studying anthropometry collected body and skeletal diameter measurements, as well as age, weight, height and sex for 507 physically active individuals. The scatterplot below shows the relationship between height and shoulder girth (circumference of shoulders measured over deltoid muscles), both measured in centimeters.<fn>The <c>bdims</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn> [[Heinz:2003]]</p>
+      <p><ol marker="a.">
+        <li>Describe the relationship between shoulder girth and height.</li>
+        <li>How would the relationship change if shoulder girth was measured in inches while the units of height remained in centimeters?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Compare correlations.</title>
+    <statement>
+      <p>Eduardo and Rosie are both collecting data on number of rainy days in a year and the total rainfall for the year. Eduardo records rainfall in inches and Rosie in centimeters. How will their correlation coefficients compare?</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>The Coast Starlight, correlation.</title>
+    <statement>
+      <p>The Coast Starlight Amtrak train runs from Seattle to Los Angeles. The scatterplot below displays the distance between each stop (in miles) and the amount of time it takes to travel from one stop to another (in minutes).<fn>The <c>coast_starlight</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn></p>
+      <p><ol marker="a.">
+        <li>Describe the relationship between distance and travel time.</li>
+        <li>How would the relationship change if travel time was instead measured in hours, and distance was instead measured in kilometers?</li>
+        <li>Correlation between travel time (in miles) and distance (in minutes) is <m>r = 0.636</m>. What is the correlation between travel time (in kilometers) and distance (in hours)?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Crawling babies, correlation.</title>
+    <statement>
+      <p>A study conducted at the University of Denver investigated whether babies take longer to learn to crawl in cold months, when they are often bundled in clothes that restrict their movement, than in warmer months. Infants born during the study year were split into twelve groups, one for each birth month. We consider the average crawling age of babies in each group against the average temperature when the babies are six months old (that's when babies often begin trying to crawl). Temperature is measured in degrees Fahrenheit (F) and age is measured in weeks.<fn>The <c>babies_crawl</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn> [[Benson:1993]]</p>
+      <p><ol marker="a.">
+        <li>Describe the relationship between temperature and crawling age.</li>
+        <li>How would the relationship change if temperature was measured in degrees Celsius (C) and age was measured in months?</li>
+        <li>The correlation between temperature in F and age in weeks was <m>r=-0.70</m>. If we converted the temperature to C and age to months, what would the correlation be?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Meat and carbohydrate consumption.</title>
+    <statement>
+      <p>What would be the correlation between the per capita meat consumption and per capita carbohydrate consumption if, for each country, people always consumed</p>
+      <p><ol marker="1.">
+        <li>3 kg more of meat than of carbohydrates each year?</li>
+        <li>2 kg less of meat than of carbohydrates each year?</li>
+        <li>half as much meat as carbohydrates each year?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Graduate degrees and salaries.</title>
+    <statement>
+      <p>What would be the correlation between the annual salaries of people with and without a graduate degree at a company if, for a certain type of position, someone with a graduate degree always made</p>
+      <p><ol marker="a.">
+        <li>\$5,000 more than those without a graduate degree?</li>
+        <li>25% more than those without a graduate degree?</li>
+        <li>15% less than those without a graduate degree?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Units of regression.</title>
+    <statement>
+      <p>Consider a regression predicting the number of calories (cal) from width (cm) for a sample of square shaped chocolate brownies. What are the units of the correlation coefficient, the intercept, and the slope?</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Which is higher?</title>
+    <statement>
+      <p>Determine if (I) or (II) is higher or if they are equal: "<em>For a regression line, the uncertainty associated with the slope estimate,</em> <m>b_1</m><em>, is higher when (I) there is a lot of scatter around the regression line or (II) there is very little scatter around the regression line.</em>" Explain your reasoning.</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Over-under, I.</title>
+    <statement>
+      <p>Suppose we fit a regression line to predict the shelf life of an apple based on its weight. For a particular apple, we predict the shelf life to be 4.6 days. The apple's residual is -0.6 days. Did we over or under estimate the shelf-life of the apple? Explain your reasoning.</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Over-under, II.</title>
+    <statement>
+      <p>Suppose we fit a regression line to predict the number of incidents of skin cancer per 1,000 people from the number of sunny days in a year. For a particular year, we predict the incidence of skin cancer to be 1.5 per 1,000 people, and the residual for this year is 0.5. Did we over or under estimate the incidence of skin cancer? Explain your reasoning.</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Starbucks, calories, and protein.</title>
+    <statement>
+      <p>The scatterplot below shows the relationship between the number of calories and amount of protein (in grams) Starbucks food menu items contain. Since Starbucks only lists the number of calories on the display items, we might be interested in predicting the amount of protein a menu item has based on its calorie content.<fn>The <c>starbucks</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn></p>
+      <p><ol marker="a.">
+        <li>Describe the relationship between number of calories and amount of protein (in grams) that Starbucks food menu items contain.</li>
+        <li>In this scenario, what are the predictor and outcome variables?</li>
+        <li>Why might we want to fit a regression line to these data?</li>
+        <li>What does the residuals vs. predicted plot tell us about the variability in prediction errors based on this model for items with lower vs. higher predicted protein?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Starbucks, calories, and carbs.</title>
+    <statement>
+      <p>The scatterplot below shows the relationship between the number of calories and amount of carbohydrates (in grams) Starbucks food menu items contain. Since Starbucks only lists the number of calories on the display items, we might be interested in predicting the amount of carbs a menu item has based on its calorie content.<fn>The <c>starbucks</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn></p>
+      <p><ol marker="a.">
+        <li>Describe the relationship between number of calories and amount of carbohydrates (in grams) that Starbucks food menu items contain.</li>
+        <li>In this scenario, what are the predictor and outcome variables?</li>
+        <li>Why might we want to fit a regression line to these data?</li>
+        <li>What does the residuals vs. predicted plot tell us about the variability in prediction errors based on this model for items with lower vs. higher predicted carbs?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>The Coast Starlight, regression.</title>
+    <statement>
+      <p>The Coast Starlight Amtrak train runs from Seattle to Los Angeles. The scatterplot below displays the distance between each stop (in miles) and the amount of time it takes to travel from one stop to another (in minutes). The mean travel time from one stop to the next on the Coast Starlight is 129 mins, with a standard deviation of 113 minutes. The mean distance traveled from one stop to the next is 108 miles with a standard deviation of 99 miles. The correlation between travel time and distance is 0.636.<fn>The <c>coast_starlight</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn></p>
+      <p><ol marker="a.">
+        <li>Write the equation of the regression line for predicting travel time.</li>
+        <li>Interpret the slope and the intercept in this context.</li>
+        <li>Calculate <m>R^2</m> of the regression line for predicting travel time from distance traveled for the Coast Starlight, and interpret <m>R^2</m> in the context of the application.</li>
+        <li>The distance between Santa Barbara and Los Angeles is 103 miles. Use the model to estimate the time it takes for the Starlight to travel between these two cities.</li>
+        <li>It takes the Coast Starlight about 168 mins to travel from Santa Barbara to Los Angeles. Calculate the residual and explain the meaning of this residual value.</li>
+        <li>Suppose Amtrak is considering adding a stop to the Coast Starlight 500 miles away from Los Angeles. Would it be appropriate to use this linear model to predict the travel time from Los Angeles to this point?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Body measurements, regression.</title>
+    <statement>
+      <p>Researchers studying anthropometry collected body and skeletal diameter measurements, as well as age, weight, height and sex for 507 physically active individuals. The scatterplot below shows the relationship between height and shoulder girth (circumference of shoulders measured over deltoid muscles), both measured in centimeters. The mean shoulder girth is 107.20 cm with a standard deviation of 10.37 cm. The mean height is 171.14 cm with a standard deviation of 9.41 cm. The correlation between height and shoulder girth is 0.67.<fn>The <c>bdims</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn> [[Heinz:2003]]</p>
+      <p><ol marker="a.">
+        <li>Write the equation of the regression line for predicting height.</li>
+        <li>Interpret the slope and the intercept in this context.</li>
+        <li>Calculate <m>R^2</m> of the regression line for predicting height from shoulder girth, and interpret it in the context of the application.</li>
+        <li>A randomly selected student from your class has a shoulder girth of 100 cm. Predict the height of this student using the model.</li>
+        <li>The student from part (d) is 160 cm tall. Calculate the residual, and explain what this residual means.</li>
+        <li>A one year old has a shoulder girth of 56 cm. Would it be appropriate to use this linear model to predict the height of this child?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Poverty and unemployment.</title>
+    <statement>
+      <p>The following scatterplot shows the relationship between percent of population below the poverty level (<c>poverty</c>) from unemployment rate among those ages 20-64 (<c>unemployment_rate</c>) in counties in the US, as provided by data from the 2019 American Community Survey. The regression output for the model for predicting <c>poverty</c> from <c>unemployment_rate</c> is also provided.<fn>The <c>county_2019</c> data used in this exercise can be found in the <alert>usdata</alert> R package.</fn></p>
+      <p><ol marker="a.">
+        <li>Write out the linear model.</li>
+        <li>Interpret the intercept.</li>
+        <li>Interpret the slope.</li>
+        <li>The <m>R^2</m> of this model is [computed value]%. Interpret this value.</li>
+        <li>Calculate the correlation coefficient.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Cat weights.</title>
+    <statement>
+      <p>The following regression output is for predicting the heart weight (<c>Hwt</c>, in g) of cats from their body weight (<c>Bwt</c>, in kg). The coefficients are estimated using a dataset of 144 domestic cats.<fn>The <c>cats</c> data used in this exercise can be found in the <alert>MASS</alert> R package.</fn></p>
+      <p><ol marker="a.">
+        <li>Write out the linear model.</li>
+        <li>Interpret the intercept.</li>
+        <li>Interpret the slope.</li>
+        <li>The <m>R^2</m> of this model is [computed value]%. Interpret <m>R^2</m>.</li>
+        <li>Calculate the correlation coefficient.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Outliers, I.</title>
+    <statement>
+      <p>Identify the outliers in the scatterplots shown below, and determine what type of outliers they are. Explain your reasoning.</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Outliers, II.</title>
+    <statement>
+      <p>Identify the outliers in the scatterplots shown below and determine what type of outliers they are. Explain your reasoning.</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Urban homeowners, outliers.</title>
+    <statement>
+      <p>The scatterplot below shows the percent of families who own their home vs. the percent of the population living in urban areas. There are 52 observations, each corresponding to a state in the US. Puerto Rico and District of Columbia are also included.<fn>The <c>urban_owner</c> data used in this exercise can be found in the <alert>usdata</alert> R package.</fn></p>
+      <p><ol marker="a.">
+        <li>Describe the relationship between the percent of families who own their home and the percent of the population living in urban areas.</li>
+        <li>The outlier at the bottom right corner is District of Columbia, where 100% of the population is considered urban. What type of an outlier is this observation?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Crawling babies, outliers.</title>
+    <statement>
+      <p>A study conducted at the University of Denver investigated whether babies take longer to learn to crawl in cold months, when they are often bundled in clothes that restrict their movement, than in warmer months. The plot below shows the relationship between average crawling age of babies born in each month and the average temperature in the month when the babies are six months old. The plot reveals a potential outlying month when the average temperature is about 53F and average crawling age is about 28.5 weeks. Does this point have high leverage? Is it an influential point?<fn>The <c>babies_crawl</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn> [[Benson:1993]]</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>True / False.</title>
+    <statement>
+      <p>Determine if the following statements are true or false. If false, explain why.</p>
+      <p><ol marker="a.">
+        <li>A correlation coefficient of -0.90 indicates a stronger linear relationship than a correlation of 0.5.</li>
+        <li>Correlation is a measure of the association between any two variables.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Cherry trees.</title>
+    <statement>
+      <p>The scatterplots below show the relationship between height, diameter, and volume of timber in 31 felled black cherry trees. The diameter of the tree is measured 4.5 feet above the ground.<fn>The <c>trees</c> data used in this exercise can be found in the <alert>datasets</alert> R package.</fn></p>
+      <p><ol marker="a.">
+        <li>Describe the relationship between volume and height of these trees.</li>
+        <li>Describe the relationship between volume and diameter of these trees.</li>
+        <li>Suppose you have height and diameter measurements for another black cherry tree. Which of these variables would be preferable to use to predict the volume of timber in this tree using a simple linear regression model? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Match the correlation, III.</title>
+    <statement>
+      <p>Match each correlation to the corresponding scatterplot.<fn>The <c>corr_match</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn></p>
+      <p><ol marker="a.">
+        <li>r = [computed value]</li>
+        <li>r = [computed value]</li>
+        <li>r = [computed value]</li>
+        <li>r = [computed value]</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Helmets and lunches.</title>
+    <statement>
+      <p>The scatterplot shows the relationship between socioeconomic status measured as the percentage of children in a neighborhood receiving reduced-fee lunches at school (<c>lunch</c>) and the percentage of bike riders in the neighborhood wearing helmets (<c>helmet</c>). The average percentage of children receiving reduced-fee lunches is [computed value]% with a standard deviation of [computed value]% and the average percentage of bike riders wearing helmets is [computed value]% with a standard deviation of [computed value]%.</p>
+      <p><ol marker="a.">
+        <li>If the <m>R^2</m> for the least-squares regression line for these data is [computed value]%, what is the correlation between <c>lunch</c> and <c>helmet</c>?</li>
+        <li>Calculate the slope and intercept for the least-squares regression line for these data.</li>
+        <li>Interpret the intercept of the least-squares regression line in the context of the application.</li>
+        <li>Interpret the slope of the least-squares regression line in the context of the application.</li>
+        <li>What would the value of the residual be for a neighborhood where 40% of the children receive reduced-fee lunches and 40% of the bike riders wear helmets? Interpret the meaning of this residual in the context of the application.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+</exercises>

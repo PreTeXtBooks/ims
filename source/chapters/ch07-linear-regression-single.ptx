@@ -1762,7 +1762,7 @@ p_4 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
 
 <p>Answers to odd-numbered exercises can be found in <xref ref="sec-exercise-solutions-07" />.</p>
 
-<!-- Exercises to be added from _07-ex-model-slr.qmd -->
+<xi:include href="../exercises/_07-ex-model-slr.ptx" />
 
 </section>
 

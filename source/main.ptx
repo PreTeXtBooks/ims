@@ -37,6 +37,35 @@
     <!-- Part I: Introduction to data -->
     <part xml:id="part-introduction-to-data">
       <title>Introduction to data</title>
+      <introduction>
+        <p>
+          The first part of the book will introduce you to data, their properties, how they are collected, and the structure of the design used for the study.
+          Different data and settings lead to different <alert>types</alert> of conclusions, so you'll always want to keep in mind the data provenance, especially as you move on to modeling and inference.
+        </p>
+        <ul>
+          <li>
+            <p>
+              In <xref ref="sec-data-hello" /> you'll be introduced to tidy data, an important structure for describing, visualizing, and analyzing data.
+            </p>
+          </li>
+          <li>
+            <p>
+              In <xref ref="ch02-study-design" /> the focus is on study design.
+              In particular, the critical distinction between random sampling and randomization is made.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="ch03-data-applications" /> includes an application on the Paralympics case study where the topics from the Introduction to data part of the book are fully developed.
+            </p>
+          </li>
+        </ul>
+        <p>
+          We recommend you come back to review this foundational part after you cover each new part in the textbook.
+          In particular, it is worthwhile to consider <xref ref="fig-randsampValloc" /> in all of the inferential settings you cover.
+          Each dataset you analyze will have a slightly different context which will require thoughtful consideration of the appropriate conclusions.
+        </p>
+      </introduction>
       <xi:include href="chapters/ch01-hello-data.ptx" />
       <xi:include href="chapters/ch02-study-design.ptx" />
       <xi:include href="chapters/ch03-data-applications.ptx" />
@@ -45,6 +74,37 @@
     <!-- Part II: Exploratory data analysis -->
     <part xml:id="part-exploratory-data-analysis">
       <title>Exploratory data analysis</title>
+      <introduction>
+        <p>
+          After obtaining a dataset, it is vitally important to understand the characteristics of the existing data. 
+          Sometimes the most effective way to grasp the data is through summary statistics or other numerical measures. 
+          Often, however, it is a picture that tells a thousand words. 
+          Knowing how to best convey the underlying meaning in a dataset is a hugely important aspect of communicating results.
+        </p>
+        <ul>
+          <li>
+            <p>
+              Categorical data is the focus of <xref ref="sec-explore-categorical" />. 
+              Both numerical and graphical summaries are presented as ways to convey information about categorical data.
+            </p>
+          </li>
+          <li>
+            <p>
+              Numerical data is the focus of <xref ref="ch05-exploring-numerical" />. 
+              Both numerical and graphical summaries are presented as ways to convey information about numerical data.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="ch06-explore-applications" /> does a deep dive into important considerations when creating a visualization.
+            </p>
+          </li>
+        </ul>
+        <p>
+          While our book is software agnostic, one of the best ways to become familiar with numerical and graphical summaries is to practice working with different datasets using statistical software. 
+          For example, if you are interested in using R, you might try working through some of the chapters in <url href="https://r4ds.hadley.nz/">R for Data Science</url>, specifically the parts <url href="https://r4ds.hadley.nz/whole-game">Whole game</url> and <url href="https://r4ds.hadley.nz/visualize">Visualize</url>.
+        </p>
+      </introduction>
       <xi:include href="chapters/ch04-exploring-categorical.ptx" />
       <xi:include href="chapters/ch05-exploring-numerical.ptx" />
       <xi:include href="chapters/ch06-explore-applications.ptx" />
@@ -53,6 +113,41 @@
     <!-- Part III: Regression modeling -->
     <part xml:id="part-regression-modeling">
       <title>Regression modeling</title>
+      <introduction>
+        <p>
+          Among the most ubiquitous methods used to model a response variable given one or more predictor variables is regression. 
+          Linear regression is most commonly used when the response variable is numeric (and even better, continuous); logistic regression is used when the response variable is binary.
+        </p>
+        <ul>
+          <li>
+            <p>
+              In <xref ref="sec-model-slr" /> you are introduced to finding a best fit line using a least squares method. 
+              Additionally, the correlation and coefficient of determination are presented as a way to describe the strength of the linear model.
+            </p>
+          </li>
+          <li>
+            <p>
+              In <xref ref="sec-model-mlr" /> the linear model is expanded to include multiple predictor variables in a single model. 
+              We discuss the benefits as well as the pitfalls that can arise when using multiple predictors.
+            </p>
+          </li>
+          <li>
+            <p>
+              In <xref ref="sec-model-logistic" /> the response variable is constrained to be binary which changes the entire structure and produces the logistic regression model. 
+              The similarities between the regression models (namely, linear combinations of the predictors) are presented. 
+              Additionally, you see that the logistic regression predictions are now probabilities.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="ch10-model-applications" /> includes an application on the Houses for sale case study where the topics from this part of the book are fully developed.
+            </p>
+          </li>
+        </ul>
+        <p>
+          Later on in the textbook, in the <xref ref="part-inferential-modeling" text="title" /> part, we will consider how a regression model built on a sample may or may not describe a particular population of interest.
+        </p>
+      </introduction>
       <xi:include href="chapters/ch07-linear-regression-single.ptx" />
       <xi:include href="chapters/ch08-linear-regression-multiple.ptx" />
       <xi:include href="chapters/ch09-logistic-regression.ptx" />
@@ -62,6 +157,43 @@
     <!-- Part IV: Foundations of inference -->
     <part xml:id="part-foundations-of-inference">
       <title>Foundations of inference</title>
+      <introduction>
+        <p>
+          Among the key concepts in statistics is making conclusions about a population using information in a sample; the process is called statistical inference. 
+          By using computational methods as well as well-developed mathematical theory, we can understand how one dataset differs from a different dataset — even when the two datasets have been collected under identical settings. 
+          In this part, we will walk through the key concepts and terms which will be applied more explicitly in later chapters.
+        </p>
+        <ul>
+          <li>
+            <p>
+              <xref ref="ch11-hypothesis-testing-randomization" /> describes randomization which involves repeatedly permuting observations to represent scenarios in which there is no association between two variables of interest.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="ch12-confidence-intervals-bootstrapping" /> describes bootstrapping which involves repeatedly sampling (with replacement) from the observed data in order to produce many samples which are similar to, but different from, the original data.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="sec-foundations-mathematical" /> introduces the Central Limit Theorem which is a theoretical mathematical approximation to the variability in data seen through randomization and bootstrapping.
+            </p>
+          </li>
+          <li>
+            <p>
+              In <xref ref="ch14-decision-errors" /> you will be presented with a structure for describing when and how errors can happen within statistical inference.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="sec-foundations-applications" /> includes an application on the Malaria vaccine case study where the topics from this part of the book are fully developed.
+            </p>
+          </li>
+        </ul>
+        <p>
+          Although often computational and mathematical methods are both appropriate (and give similar results), your study of both approaches should convince you that (1) there is almost never a single "correct" approach, and (2) there are different ways to quantify the variability seen from dataset to dataset.
+        </p>
+      </introduction>
       <xi:include href="chapters/ch11-hypothesis-testing-randomization.ptx" />
       <xi:include href="chapters/ch12-confidence-intervals-bootstrapping.ptx" />
       <xi:include href="chapters/ch13-inference-mathematical-models.ptx" />
@@ -72,6 +204,58 @@
     <!-- Part V: Statistical inference -->
     <part xml:id="part-statistical-inference">
       <title>Statistical inference</title>
+      <introduction>
+        <p>
+          While the previous part of the textbook, <xref ref="part-foundations-of-inference" text="title" />, introduces the core of statistical inference, this part provides details for applying statistical inference in particular settings.
+          Understanding the specific nuances given for different inferential methods can be helpful in communicating the resulting analyses.
+        </p>
+        <ul>
+          <li>
+            <p>
+              <xref ref="ch16-inference-single-proportion" /> provides specific details about inference for a single proportion.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="ch17-inference-two-proportions" /> provides specific details about inference for comparing two proportions.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="ch18-inference-two-way-tables" /> provides specific details about inference for two-way tables.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="ch19-inference-single-mean" /> provides specific details about inference for a single mean.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="ch20-inference-two-independent-means" /> provides specific details about inference for comparing two independent means.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="ch21-inference-paired-means" /> provides specific details about inference for comparing paired means.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="ch22-inference-many-means" /> provides specific details about inference for comparing many means.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="ch23-inference-applications" /> includes an application on the Redundant adjectives case study where the topics from this part of the book on means are fully developed.
+            </p>
+          </li>
+        </ul>
+        <p>
+          After working through the details in this part, you should have a good sense for how inferential methods are similar and different when applied to different data structures.
+          Additionally, you should be able to apply both computational methods as well as mathematical techniques to the inference problem at hand.
+        </p>
+      </introduction>
       <xi:include href="chapters/ch16-inference-single-proportion.ptx" />
       <xi:include href="chapters/ch17-inference-two-proportions.ptx" />
       <xi:include href="chapters/ch18-inference-two-way-tables.ptx" />
@@ -85,6 +269,39 @@
     <!-- Part VI: Inferential modeling -->
     <part xml:id="part-inferential-modeling">
       <title>Inferential modeling</title>
+      <introduction>
+        <p>
+          In a previous part, <xref ref="part-regression-modeling" text="title" />, you learned how to build linear and logistic regression models based on a set of observations.
+          In a different part, <xref ref="part-foundations-of-inference" text="title" />, you learned about the structures that allow us to make inferential claims about a population given a sample of data.
+          In this part, we develop inferential methods applied to regression models.
+        </p>
+        <ul>
+          <li>
+            <p>
+              <xref ref="ch24-inference-linear-regression-single" /> provides specific details about inference for linear regression models with a single predictor.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="ch25-inference-linear-regression-multiple" /> provides specific details about inference for linear regression models with multiple predictors.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="ch26-inference-logistic-regression" /> provides specific details about inference for logistic regression models.
+            </p>
+          </li>
+          <li>
+            <p>
+              <xref ref="ch27-model-infer-applications" /> includes an application on the Mario Kart case study where the topics from this part of the book on linear regression are fully developed.
+            </p>
+          </li>
+        </ul>
+        <p>
+          We have only scratched the surface in providing information about modeling and related inferential methods.
+          We hope that the ideas we've covered have whet your appetite to learn more higher level modeling.
+        </p>
+      </introduction>
       <xi:include href="chapters/ch24-inference-linear-regression-single.ptx" />
       <xi:include href="chapters/ch25-inference-linear-regression-multiple.ptx" />
       <xi:include href="chapters/ch26-inference-logistic-regression.ptx" />

@@ -506,7 +506,7 @@ logCV2 |&gt;
 <section xml:id="sec-chp27-review">
   <title>Chapter review</title>
 
-<subsection xml:id="subsec-summary">
+<subsection xml:id="subsec-summary-ch26">
   <title>Summary</title>
 
 <p>Throughout the text, we have presented a modern view to introduction to statistics. Earlier, we presented graphical techniques which communicated relationships across multiple variables. We also used modeling to formalize the relationships. In <xref ref="ch26-inference-logistic-regression" /> we considered inferential claims on models which include many variables used to predict the probability of the outcome being a success. We continue to emphasize the importance of experimental design in making conclusions about research claims. In particular, recall that variability can come from different sources (e.g., random sampling vs. random allocation, see <xref ref="fig-randsampValloc" />).</p>
@@ -515,7 +515,7 @@ logCV2 |&gt;
 
 </subsection>
 
-<subsection xml:id="subsec-terms">
+<subsection xml:id="subsec-terms-ch26">
   <title>Terms</title>
 
 <p>The terms introduced in this chapter are presented in <xref ref="tbl-terms-chp-26" />. If you're not sure what some of these terms mean, we recommend you go back in the text and review their definitions. You should be able to easily spot them as <alert>bolded text</alert>.</p>

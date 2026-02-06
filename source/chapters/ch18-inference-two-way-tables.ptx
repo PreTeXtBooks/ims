@@ -148,9 +148,51 @@
         These expected counts were used to construct <xref ref="tbl-ipod-ask-data-summary-expected" />, which is the same as <xref ref="tbl-ipod-ask-data-summary" />, except now the expected counts have been added in parentheses.
       </p>
 
-      <p>
-        See the table showing the observed counts and the expected counts for the iPod experiment.
-      </p>
+<table xml:id="tbl-ipod-ask-data-summary-expected">
+  <title>The observed counts and the expected counts for the iPod experiment.</title>
+
+  <tgroup cols="5">
+    <thead>
+      <row>
+        <entry>Question</entry>
+        <entry>Disclose problem<br/>(Observed / Expected)</entry>
+        <entry>Hide problem<br/>(Observed / Expected)</entry>
+        <entry>Total</entry>
+      </row>
+    </thead>
+
+    <tbody>
+      <row>
+        <entry>General</entry>
+        <entry>2<br/>(20.33)</entry>
+        <entry>71<br/>(52.67)</entry>
+        <entry>73</entry>
+      </row>
+
+      <row>
+        <entry>Positive assumption</entry>
+        <entry>23<br/>(20.33)</entry>
+        <entry>50<br/>(52.67)</entry>
+        <entry>73</entry>
+      </row>
+
+      <row>
+        <entry>Negative assumption</entry>
+        <entry>36<br/>(20.33)</entry>
+        <entry>37<br/>(52.67)</entry>
+        <entry>73</entry>
+      </row>
+
+      <row>
+        <entry>Total</entry>
+        <entry>61</entry>
+        <entry>158</entry>
+        <entry>219</entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+
 
       <p>
         The examples and exercises above provided some help in computing expected counts.

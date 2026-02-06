@@ -245,7 +245,62 @@
           Employment and Diabetes Study Data.
         </biblio>
         
-        <biblio type="raw" xml:id="data:births14">
+        <biblio type="raw" xml:id="Ritz-Yu-Chapa-Fruin-2000">
+          Ritz, B., Yu, F., Chapa, G., and Fruin, S. (2000).
+          Effect of air pollution on preterm birth among children born in Southern California between 1989 and 1993.
+          <em>Epidemiology</em>, 11(5):502-511.
+          <url href="http://www.jstor.org/stable/3703990">http://www.jstor.org/stable/3703990</url>
+        </biblio>
+        
+        <biblio type="raw" xml:id="Bucciol-2011">
+          Bucciol, A. and Piovesan, M. (2011).
+          Luck or cheating? A field experiment on honesty with children.
+          <em>Journal of Economic Psychology</em>, 32(1):73-78.
+          DOI: 10.1016/j.joep.2010.12.001
+        </biblio>
+        
+        <biblio type="raw" xml:id="Legaki-2020">
+          Legaki, N. Z., Xi, N., Hamari, J., Karpouzis, K., and Assimakopoulos, V. (2020).
+          The effect of challenge-based gamification on learning: An experiment in the context of statistics education.
+          <em>International Journal of Human-Computer Studies</em>, 144.
+          DOI: 10.1016/j.ijhcs.2020.102496
+        </biblio>
+        
+        <biblio type="raw" xml:id="Piff-2012">
+          Piff, P. K., Stancato, D. M., Côté, S., Mendoza-Denton, R., and Keltner, D. (2012).
+          Higher social class predicts increased unethical behavior.
+          <em>Proceedings of the National Academy of Sciences</em>.
+          DOI: 10.1073/pnas.1118373109
+        </biblio>
+        
+        <biblio type="raw" xml:id="Allais-2011">
+          Allais, G., Romoli, M., Rolando, S., Airola, G., Castagnoli Gabellari, I., Allais, R., and Benedetto, C. (2011).
+          Ear acupuncture in the treatment of migraine attacks: a randomized trial on the efficacy of appropriate versus inappropriate acupoints.
+          <em>Neurological Sciences</em>, 32(1):173-175.
+          DOI: 10.1007/s10072-011-0525-4
+        </biblio>
+        
+        <biblio type="raw" xml:id="Garbutt-2012">
+          Garbutt, J. M., Banister, C., Spitznagel, E., and Piccirillo, J. F. (2012).
+          Amoxicillin for Acute Rhinosinusitis: A Randomized Controlled Trial.
+          <em>JAMA: The Journal of the American Medical Association</em>, 307(7):685-692.
+          DOI: 10.1001/jama.2012.138
+        </biblio>
+        
+        <biblio type="raw" xml:id="Gneezy-2000">
+          Gneezy, U. and Rustichini, A. (2000).
+          A fine is a price.
+          <em>The Journal of Legal Studies</em>, 29(1):1-17.
+          DOI: 10.1086/468061
+        </biblio>
+        
+        <biblio type="raw" xml:id="Pfizer-2021">
+          Pfizer (2021).
+          Pfizer-Biontech Announce Positive Topline Results Of Pivotal Covid-19 Vaccine Study In Adolescents.
+          <url href="https://www.openintro.org/go?id=textbook-pfizer-2021-adolescent-covid-vaccine">https://www.openintro.org/go?id=textbook-pfizer-2021-adolescent-covid-vaccine</url>
+        </biblio>
+
+        <biblio type="raw" xml:id="data-births14">
           United States Department of Health and Human Services. Centers for Disease Control and Prevention. National Center for Health Statistics (2014).
           Natality Detail File, 2014 United States.
           Inter-university Consortium for Political and Social Research.
@@ -255,11 +310,69 @@
         <biblio type="raw" xml:id="palmerpenguins">
           Gorman, K. B., Williams, T. D., and Fraser, W. R. (2014).
           Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus Pygoscelis).
+          <em>PLoS ONE</em>, 9(3), e90081.
+          DOI: 10.1371/journal.pone.0090081
+        </biblio>
+        
+        <biblio type="raw" xml:id="pierson2020large">
+          Pierson, E., Simoiu, C., Overgoor, J., Corbett-Davies, S., Jenson, D., Shoemaker, A., Ramachandran, V., Barghouty, P., Phillips, C., Shroff, R., et al. (2020).
+          A large-scale analysis of racial disparities in police stops across the United States.
+          <em>Nature human behaviour</em>, 4(7):736-745.
+          DOI: 10.1038/s41562-020-0858-1
+        </biblio>
+        
+        <biblio type="raw" xml:id="Hepler-2013">
+          Hepler, J. and Albarracín, D. (2013).
+          Attitudes without objects: Evidence for a dispositional attitude, its measurement, and its consequences.
+          <em>Journal of Personality and Social Psychology</em>, 104(6):1060.
+          DOI: 10.1037/a0032282
+        </biblio>
+        
+        <biblio type="raw" xml:id="news-smokingDementia">
+          Rabin, R. C. (2010).
+          Risks: Smokers Found More Prone to Dementia.
+          <em>New York Times</em>, October 29, 2010.
+          <url href="http://www.openintro.org/redirect.php?go=textbook-nytimes_smoking_dementia">http://www.openintro.org/redirect.php?go=textbook-nytimes_smoking_dementia</url>
+        </biblio>
+        
+        <biblio type="raw" xml:id="news-bullySleep">
+          Parker-Pope, T. (2011).
+          The School Bully Is Sleepy.
+          <em>New York Times</em>, June 2, 2011.
+          <url href="http://www.openintro.org/redirect.php?go=textbook-school_bully_sleepy_2011">http://www.openintro.org/redirect.php?go=textbook-school_bully_sleepy_2011</url>
+        </biblio>
+        
+        <biblio type="raw" xml:id="Audera-2001">
+          Audera, C., Patulny, R. V., Sander, B. H., and Douglas, R. M. (2001).
+          Mega-dose vitamin C in treatment of the common cold: a randomised controlled trial.
+          <em>Medical journal of Australia</em>, 175(7):359-362.
+          <url href="http://www.openintro.org/redirect.php?go=textbook-vitamin_C_cold_treatment_2001">http://www.openintro.org/redirect.php?go=textbook-vitamin_C_cold_treatment_2001</url>
+        </biblio>
+        
+        <biblio type="raw" xml:id="Nieman-2009">
+          Nieman, D. C., Cayea, E. J., Austin, M. D., Henson, D. A., McAnulty, S. R., and Jin, F. (2009).
+          Chia seed does not promote weight loss or alter disease risk factors in overweight adults.
+          <em>Nutrition Research</em>, 29(6):414-418.
+          DOI: 10.1016/j.nutres.2009.05.011
+        </biblio>
+        
+        <biblio type="raw" xml:id="conner2017let">
+          Conner, T. S., Brookie, K. L., Carr, A. C., Mainvil, L. A., and Vissers, M. C. M. (2017).
+          Let them eat fruit! The effect of fruit and vegetable consumption on psychological well-being in young adults: A randomized controlled trial.
+          <em>PloS one</em>, 12(2).
+          DOI: 10.1371/journal.pone.0171206
+        </biblio>
+        
+        <biblio type="raw" xml:id="orben2018screens">
+          Orben, A. and Baukney-Przybylski, A. K. (2018).
+          Screens, Teens and Psychological Well-Being: Evidence from three time-use diary studies.
+          <em>Psychological Science</em>.
+          DOI: 10.1177/0956797619830329
           <em>PLoS ONE</em>, 9(3):e90081, pages 1-13.
           DOI: 10.1371/journal.pone.0090081
         </biblio>
         
-        <biblio type="raw" xml:id="webpage:horrormovies">
+        <biblio type="raw" xml:id="webpage-horrormovies">
           FiveThirtyEight (2015).
           Scary Movies Are The Best Investment In Hollywood.
           <url href="http://www.openintro.org/redirect.php?go=textbook-fivethirtyeight-scary-movies">http://www.openintro.org/redirect.php?go=textbook-fivethirtyeight-scary-movies</url>

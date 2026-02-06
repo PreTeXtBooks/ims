@@ -1,12 +1,1159 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<chapter xml:id="ch24-inference-linear-regression-single">
-  <title>Inference for linear regression with a single predictor</title>
-  
-  <section xml:id="sec-inf-model-slr">
-    <title>Inference for linear regression with a single predictor</title>
-    <p>
-      Content to be added from inf-model-slr.qmd
-    </p>
-  </section>
+<chapter xml:id="ch24-inference-linear-regression-single" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Inference for linear regression with a single predictor</title>
+
+<introduction>
+<p>We now bring together ideas of inferential analyses with the descriptive models seen in <xref ref="sec-model-slr" />. In particular, we will use the least squares regression line to test whether there is a relationship between two continuous variables. Additionally, we will build confidence intervals which quantify the slope of the linear regression line. The setting is now focused on predicting a numeric response variable (for linear models) or a binary response variable (for logistic models), we continue to ask questions about the variability of the model from sample to sample. The sampling variability will inform the conclusions about the population that can be drawn.</p>
+
+<p>Many of the inferential ideas are remarkably similar to those covered in previous chapters. The technical conditions for linear models are typically assessed graphically, although independence of observations continues to be of utmost importance.</p>
+
+<p>We encourage the reader to think broadly about the models at hand without putting too much dependence on the exact p-values that are reported from the statistical software. Inference on models with multiple explanatory variables can suffer from data snooping which results in false positive claims. We provide some guidance and hope the reader will further their statistical learning after working through the material in this text.</p>
+
+</introduction>
+
+<section xml:id="sec-case-study-sandwich-store">
+  <title>Case study: Sandwich store</title>
+
+<subsection xml:id="subsec-observed-data">
+  <title>Observed data</title>
+
+<p>We start the chapter with a hypothetical example describing the linear relationship between dollars spent advertising for a chain sandwich restaurant and monthly revenue. The hypothetical example serves the purpose of illustrating how a linear model varies from sample to sample. Because we have made up the example and the data (and the entire population), we can take many many samples from the population to visualize the variability. Note that in real life, we always have exactly one sample (that is, one dataset), and through the inference process, we imagine what might have happened had we taken a different sample. The change from sample to sample leads to an understanding of how the single observed dataset is different from the population of values, which is typically the fundamental goal of inference.</p>
+
+<p>Consider the following hypothetical population of all of the sandwich stores of a particular chain seen in <xref ref="fig-sandpop" />. In this made-up world, the CEO actually has all the relevant data, which is why they can plot it here. The CEO is omniscient and can write down the population model which describes the true population relationship between the advertising dollars and revenue. There appears to be a linear relationship between advertising dollars and revenue (both in \$1,000).</p>
+
+<listing xml:id="listing-fig-sandpop">
+  <caption><c>R</c> code to generate <xref ref="fig-sandpop" /></caption>
+  <program language="r">
+    <input>
+      set.seed(4747)
+      popsize &lt;- 1000
+      ad &lt;- rnorm(popsize, 4, 1)
+      rev &lt;- 12 + 4.7 * ad + rnorm(popsize, 0, 8)
+      sandwich &lt;- tibble(ad, rev)
+      ggplot(sandwich, aes(x = ad, y = rev)) +
+        geom_point(alpha = 0.5, size = 2) +
+        geom_smooth(method = "lm", se = FALSE, fullrange = TRUE) +
+        scale_x_continuous(labels = label_dollar(suffix = "K")) +
+        scale_y_continuous(labels = label_dollar(suffix = "K")) +
+        labs(
+          x = "Amount spent on advertising",
+          y = "Revenue",
+          title = "Chain sandwich store",
+          subtitle = "Hypothetical population"
+        ) +
+        coord_cartesian(ylim = c(0, 65))
+    </input>
+  </program>
+</listing>
+
+<figure xml:id="fig-sandpop">
+  <caption>Revenue as a linear model of advertising dollars for a population of sandwich stores, in thousands of dollars.</caption>
+  <image source="images/fig-sandpop-1.png" width="70%" />
+</figure>
+
+<p>You may remember from <xref ref="sec-model-slr" /> that the population model is: <me>y = \beta_0 + \beta_1 x + \varepsilon.</me></p>
+
+<p>Again, the omniscient CEO (with the full population information) can write down the true population model as: <me>\texttt{expected revenue} = 11.23 + 4.8 \times \texttt{advertising}.</me></p>
+
+</subsection>
+
+<subsection xml:id="subsec-variability-of-the-statistic">
+  <title>Variability of the statistic</title>
+
+<p>Unfortunately, in our scenario, the CEO is not willing to part with the full set of data, but they will allow potential franchise buyers to see a small sample of the data in order to help the potential buyer decide whether set up a new franchise. The CEO is willing to give each potential franchise buyer a random sample of data from 20 stores.</p>
+
+<p>As with any numerical characteristic which describes a subset of the population, the estimated slope of a sample will vary from sample to sample. Consider the linear model which describes revenue (in \<m>1,000) based on advertising dollars (in \</m>1,000).</p>
+
+<p>The least squares regression model uses the data to find a sample linear fit: <me>\hat{y} = b_0 + b_1 x.</me></p>
+
+<p>Two random samples of 20 stores shows different least squares regression lines in <xref ref="fig-sand-samp-1" /> and <xref ref="fig-sand-samp-2" />, depending on which observations are selected. Both trends are similar to those seen in <xref ref="fig-sandpop" />, which describes the population.</p>
+
+<listing>
+  <caption><c>R</c> code</caption>
+  <program language="r">
+    <input>
+      set.seed(470)
+      sandwich2 &lt;- sandwich |&gt;
+        sample_n(size = 20)
+      sandwich3 &lt;- sandwich |&gt;
+        sample_n(size = 20)
+      sandwich_many &lt;- sandwich |&gt;
+        rep_sample_n(size = 20, replace = FALSE, reps = 50)
+    </input>
+  </program>
+</listing>
+
+<listing xml:id="listing-fig-sand-samp">
+  <caption><c>R</c> code to generate <xref ref="fig-sand-samp" /></caption>
+  <program language="r">
+    <input>
+      ggplot(sandwich2, aes(x = ad, y = rev)) +
+        geom_point(size = 3, fill = IMSCOL["green", "full"], color = "#FFFFFF", shape = 22) +
+        geom_smooth(method = "lm", se = FALSE, fullrange = TRUE, color = IMSCOL["green", "full"]) +
+        scale_x_continuous(labels = label_dollar(suffix = "K")) +
+        scale_y_continuous(labels = label_dollar(suffix = "K")) +
+        labs(
+          x = "Amount spent on advertising",
+          y = "Revenue",
+          title = "Chain sandwich store",
+          subtitle = "Random sample of 20 stores"
+        ) +
+        coord_cartesian(ylim = c(0, 65))
+      ggplot(sandwich3, aes(x = ad, y = rev)) +
+        geom_point(size = 3, fill = IMSCOL["gray", "full"], color = "#FFFFFF", shape = 23) +
+        geom_smooth(method = "lm", se = FALSE, fullrange = TRUE, color = IMSCOL["gray", "full"]) +
+        scale_x_continuous(labels = label_dollar(suffix = "K")) +
+        scale_y_continuous(labels = label_dollar(suffix = "K")) +
+        labs(
+          x = "Amount spent on advertising",
+          y = "Revenue",
+          title = "Chain sandwich store",
+          subtitle = "Another random sample of 20 stores"
+        ) +
+        coord_cartesian(ylim = c(0, 65))
+    </input>
+  </program>
+</listing>
+
+<figure xml:id="fig-sand-samp">
+  <caption>Two random samples of 20 stores from the entire population. A linear trend between advertising and revenue is observed in both.</caption>
+  <sidebyside widths="45% 45%">
+    <figure xml:id="fig-sand-samp-1">
+      <caption>First sample.</caption>
+      <image source="images/fig-sand-samp-1.png" width="90%" />
+    </figure>
+    <figure xml:id="fig-sand-samp-2">
+      <caption>Second sample.</caption>
+      <image source="images/fig-sand-samp-2.png" width="90%" />
+    </figure>
+  </sidebyside>
+</figure>
+
+<p><xref ref="fig-sand-samp12" /> shows the two samples and the least squares regressions from <xref ref="fig-sand-samp" /> on the same plot. We can see that the two lines are different. That is, there is <alert>variability</alert> in the regression line from sample to sample. The concept of the sampling variability is something you've seen before, but in this lesson, you will focus on the variability of the line often measured through the variability of a single statistic: <alert>the slope of the line</alert>.</p>
+
+<listing xml:id="listing-fig-sand-samp12">
+  <caption><c>R</c> code to generate <xref ref="fig-sand-samp12" /></caption>
+  <program language="r">
+    <input>
+      ggplot() +
+        geom_point(data = sandwich2, aes(x = ad, y = rev),
+                   size = 3, shape = 22,
+                   fill = IMSCOL["green", "full"], color = "#FFFFFF") +
+        geom_smooth(data = sandwich2, aes(x = ad, y = rev),
+                    method = "lm", se = FALSE, fullrange = TRUE,
+                    color = IMSCOL["green", "full"]) +
+        geom_point(data = sandwich3, aes(x = ad, y = rev),
+                   size = 3, , shape = 23,
+                   fill = IMSCOL["gray", "full"], color = "#FFFFFF") +
+        geom_smooth(data = sandwich3, aes(x = ad, y = rev),
+                    method = "lm", se = FALSE, fullrange = TRUE,
+                    color = IMSCOL["gray", "full"]) +
+        scale_x_continuous(labels = label_dollar(suffix = "K")) +
+        scale_y_continuous(labels = label_dollar(suffix = "K")) +
+        labs(
+          x = "Amount spent on advertising",
+          y = "Revenue",
+          title = "Chain sandwich store",
+          subtitle = "Two random samples of 20 stores"
+        ) +
+        coord_cartesian(ylim = c(0, 65))
+    </input>
+  </program>
+</listing>
+
+<figure xml:id="fig-sand-samp12">
+  <caption>The linear models from the two random samples are quite similar, but not exactly the same.</caption>
+  <image source="images/fig-sand-samp12-1.png" width="70%" />
+</figure>
+
+<p><xref ref="fig-slopes" /> shows least squares lines fit to many more random samples of 20 from the population.</p>
+
+<listing xml:id="listing-fig-slopes">
+  <caption><c>R</c> code to generate <xref ref="fig-slopes" /></caption>
+  <program language="r">
+    <input>
+      ggplot() +
+        geom_smooth(
+          data = sandwich_many, aes(x = ad, y = rev, group = replicate),
+          method = "lm", se = FALSE, fullrange = TRUE,
+          color = IMSCOL["gray", "f2"], size = 0.5
+        ) +
+        geom_smooth(
+          data = sandwich, aes(x = ad, y = rev), method = "lm", se = FALSE,
+          fullrange = TRUE, color = IMSCOL["red", "full"]
+        ) +
+        scale_x_continuous(labels = label_dollar(suffix = "K")) +
+        scale_y_continuous(labels = label_dollar(suffix = "K")) +
+        labs(
+          x = "Amount spent on advertising",
+          y = "Revenue",
+          title = "Chain sandwich store",
+          subtitle = "Many random samples of 20 stores"
+        ) +
+        coord_cartesian(ylim = c(0, 65))
+    </input>
+  </program>
+</listing>
+
+<figure xml:id="fig-slopes">
+  <caption>If repeated samples of size 20 are taken from the entire population, each linear model will be slightly different. The red line provides the linear fit to the entire population.</caption>
+  <image source="images/fig-slopes-1.png" width="70%" />
+</figure>
+
+<p>You might notice in <xref ref="fig-slopes" /> that the <m>\hat{y}</m> values given by the lines are much more consistent in the middle of the dataset than at the ends. The reason is that the data itself anchors the lines in such a way that the line must pass through the center of the data cloud. The effect of the fan-shaped lines is that predicted revenue for advertising close to \<m>4,000 will be much more precise than the revenue predictions made for \</m>1,000 or \$7,000 of advertising.</p>
+
+<p>The distribution of slopes (for samples of size <m>n=20</m>) can be seen in <xref ref="fig-sand20lm" />.</p>
+
+<listing xml:id="listing-fig-sand20lm">
+  <caption><c>R</c> code to generate <xref ref="fig-sand20lm" /></caption>
+  <program language="r">
+    <input>
+      sandwich_many_lm &lt;- sandwich_many |&gt;
+        group_by(replicate) |&gt;
+        do(tidy(lm(rev ~ ad, data = .))) |&gt;
+        filter(term == "ad")
+      ggplot(sandwich_many_lm, aes(x = estimate)) +
+        geom_histogram(binwidth = 0.5) +
+        labs(
+          x = "Slope estimate",
+          y = "Count",
+          title = "Chain sandwich store",
+          subtitle = "Many random samples of 20 stores"
+        )
+    </input>
+  </program>
+</listing>
+
+<figure xml:id="fig-sand20lm">
+  <caption>Variability of slope estimates from many different samples of stores, each of size 20.</caption>
+  <image source="images/fig-sand20lm-1.png" width="70%" />
+</figure>
+
+<p>Recall, the example described in this introduction is hypothetical. That is, we created an entire population in order to demonstrate how the slope of a line would vary from sample to sample. The tools in this textbook are designed to evaluate only one single sample of data. With actual studies, we do not have repeated samples, so we are not able to use repeated samples to visualize the variability in slopes. We have seen variability in samples throughout this text, so it should not come as a surprise that different samples will produce different linear models. However, it is nice to visually consider the linear models produced by different slopes. Additionally, as with measuring the variability of previous statistics (e.g., <m>\overline{X}_1 - \overline{X}_2</m> or <m>\hat{p}_1 - \hat{p}_2</m>), the histogram of the sample statistics can provide information related to inferential considerations.</p>
+
+<p>In the following sections, the distribution (i.e., histogram) of <m>b_1</m> (the estimated slope coefficient) will be constructed in the same three ways that, by now, may be familiar to you. First (in <xref ref="sec-randslope" />), the distribution of <m>b_1</m> when <m>\beta_1 = 0</m> is constructed by randomizing (permuting) the response variable. Next (in <xref ref="sec-bootbeta1" />), we can bootstrap the data by taking random samples of size <m>n</m> from the original dataset. And last (in <xref ref="sec-mathslope" />), we use mathematical tools to describe the variability using the <m>t</m>-distribution that was first encountered in <xref ref="sec-one-mean-math" />.</p>
+
+</subsection>
+
+</section>
+
+<section xml:id="sec-randslope">
+  <title>Randomization test for the slope</title>
+
+<p>Consider data on 100 randomly selected births gathered originally from the US Department of Health and Human Services. Some of the variables are plotted in <xref ref="fig-babyweight" />.</p>
+
+<p>The scientific research interest at hand will be in determining the linear relationship between weight of baby at birth (in lbs) and number of weeks of gestation. The dataset is quite rich and deserves exploring, but for this example, we will focus only on the weight of the baby.</p>
+
+<note>
+  <title>Data</title>
+  <p>The <url href="http://openintrostat.github.io/openintro/reference/births14.html"><c>births14</c></url> data can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package. We will work with a random sample of 100 observations from these data.</p>
+</note>
+
+<listing xml:id="listing-fig-babyweight">
+  <caption><c>R</c> code to generate <xref ref="fig-babyweight" /></caption>
+  <program language="r">
+    <input>
+      set.seed(47)
+      births14_100 &lt;- births14 |&gt;
+        drop_na() |&gt;
+        sample_n(100)
+      p_gained &lt;- ggplot(births14_100) +
+        geom_jitter(aes(y = weight, x = gained)) +
+        xlab("Weight gained by mother") +
+        ylab("Weight of baby")
+      p_mage &lt;- ggplot(births14_100) +
+        geom_jitter(aes(y = weight, x = mage)) +
+        xlab("Mother's age") +
+        ylab("Weight of baby")
+      p_visits &lt;- ggplot(births14_100) +
+        geom_jitter(aes(y = weight, x = visits)) +
+        xlab("Number of hospital visits during pregnancy") +
+        ylab("Weight of baby")
+      p_weeks &lt;- ggplot(births14_100) +
+        geom_jitter(aes(x = weeks, y = weight)) +
+        xlab("Weeks of gestation") +
+        ylab("Weight of baby")
+      p_gained + p_mage + p_visits + p_weeks +
+        plot_layout(ncol = 2)
+    </input>
+  </program>
+</listing>
+
+<figure xml:id="fig-babyweight">
+  <caption>Weight of baby at birth (in lbs) as plotted by four other birth variables (mother's weight gain, mother's age, number of hospital visits, and weeks gestation).</caption>
+  <image source="images/fig-babyweight-1.png" width="70%" />
+</figure>
+
+<p>As you have seen previously, statistical inference typically relies on setting a null hypothesis which is hoped to be subsequently rejected. In the linear model setting, we might hope to have a linear relationship between <c>weeks</c> and <c>weight</c> in settings where <c>weeks</c> gestation is known and <c>weight</c> of baby needs to be predicted.</p>
+
+<p>The relevant hypotheses for the linear model setting can be written in terms of the population slope parameter. Here the population refers to a larger population of births in the US.</p>
+
+<ul>
+  <li><p><m>H_0: \beta_1= 0</m>, there is no linear relationship between <c>weight</c> and <c>weeks</c>.</p></li>
+  <li><p><m>H_A: \beta_1 \ne 0</m>, there is some linear relationship between <c>weight</c> and <c>weeks</c>.</p></li>
+</ul>
+
+<p>Recall that for the randomization test, we permute one variable to eliminate any existing relationship between the variables. That is, we set the null hypothesis to be true, and we measure the natural variability in the data due to sampling but <alert>not</alert> due to variables being correlated. <xref ref="fig-permweightScatter-1" /> shows the observed data and <xref ref="fig-permweightScatter-2" /> shows one permutation of the <c>weight</c> variable. The careful observer can see that each of the observed values for <c>weight</c> (and for <c>weeks</c>) exist in both the original data plot as well as the permuted <c>weight</c> plot, but the <c>weight</c> and <c>weeks</c> gestation are no longer matched for a given birth. That is, each <c>weight</c> value is randomly assigned to a new <c>weeks</c> gestation.</p>
+
+<p>By repeatedly permuting the response variable, any pattern in the linear model that is observed is due only to random chance (and not an underlying relationship). The randomization test compares the slopes calculated from the permuted response variable with the observed slope. If the observed slope is inconsistent with the slopes from permuting, we can conclude that there is some underlying relationship (and that the slope is not merely due to random chance).</p>
+
+<listing xml:id="listing-fig-permweightScatter">
+  <caption><c>R</c> code to generate <xref ref="fig-permweightScatter" /></caption>
+  <program language="r">
+    <input>
+      set.seed(4747)
+      ggplot(births14_100) +
+        geom_point(aes(x = weeks, y = weight)) +
+        labs(
+          x = "Length of gestation (weeks)",
+          y = "Weight of baby (lbs)",
+          title = "Original data"
+        )
+      ggplot(births14_100) +
+        geom_point(aes(x = weeks, y = sample(weight))) +
+        labs(
+          x = "Length of gestation (weeks)",
+          y = "Permuted weight of baby (lbs)",
+          title = "Permuted data"
+        )
+    </input>
+  </program>
+</listing>
+
+<figure xml:id="fig-permweightScatter">
+  <caption>Permutation removes the linear relationship between <c>weight</c> and <c>weeks</c>. Repeated permutations allow for quantifying the variability in the slope under the condition that there is no linear relationship (i.e., that the null hypothesis is true).</caption>
+  <sidebyside widths="45% 45%">
+    <figure xml:id="fig-permweightScatter-1">
+      <caption>Original data.</caption>
+      <image source="images/fig-permweightScatter-1.png" width="90%" />
+    </figure>
+    <figure xml:id="fig-permweightScatter-2">
+      <caption>Permuted data.</caption>
+      <image source="images/fig-permweightScatter-2.png" width="90%" />
+    </figure>
+  </sidebyside>
+</figure>
+
+<subsection xml:id="subsec-observed-data">
+  <title>Observed data</title>
+
+<p>We will continue to use the births data to investigate the linear relationship between <c>weight</c> and <c>weeks</c> gestation. Note that the least squares model (see <xref ref="sec-model-slr" />) describing the relationship is given in <xref ref="tbl-ls-births" />. The columns in <xref ref="tbl-ls-births" /> are further described in <xref ref="sec-mathslope" />.</p>
+
+<listing xml:id="listing-tbl-ls-births">
+  <caption><c>R</c> code</caption>
+  <program language="r">
+    <input>
+      lm(weight ~ weeks, data = births14_100) |&gt;
+        tidy() |&gt;
+        mutate(p.value = ifelse(p.value &lt; 0.0001, "&lt;0.0001", round(p.value, 4))) |&gt;
+        kbl(linesep = "", booktabs = TRUE,
+            digits = 2, align = "lrrrr") |&gt;
+        kable_styling(bootstrap_options = c("striped", "condensed"),
+                      latex_options = c("striped")) |&gt;
+        column_spec(1, width = "10em", monospace = TRUE) |&gt;
+        column_spec(2:5, width = "5em")
+    </input>
+  </program>
+</listing>
+
+</subsection>
+
+<subsection xml:id="subsec-variability-of-the-statistic">
+  <title>Variability of the statistic</title>
+
+<p>After permuting the data, the least squares estimate of the line can be computed. Repeated permutations and slope calculations describe the variability in the line (i.e., in the slope) due only to the natural variability and not due to a relationship between <c>weight</c> and <c>weeks</c> gestation. <xref ref="fig-permweekslm" /> shows two different permutations of <c>weight</c> and the resulting linear models.</p>
+
+<listing xml:id="listing-fig-permweekslm">
+  <caption><c>R</c> code to generate <xref ref="fig-permweekslm" /></caption>
+  <program language="r">
+    <input>
+      set.seed(470)
+      ggplot(births14_100, aes(x = weeks, y = sample(weight))) +
+        geom_point() +
+        geom_smooth(method = "lm", se = FALSE, fullrange = TRUE) +
+        labs(
+          y = "Permuted weight of baby (lbs)",
+          x = "Length of gestation (weeks)",
+          title = "First permutation of weight"
+        )
+      ggplot(births14_100, aes(x = weeks, y = sample(weight))) +
+        geom_point() +
+        geom_smooth(method = "lm", se = FALSE, fullrange = TRUE) +
+        labs(
+          y = "Permuted weight of baby (lbs)",
+          x = "Length of gestation (weeks)",
+          title = "Second permutation of weight"
+        )
+    </input>
+  </program>
+</listing>
+
+<figure xml:id="fig-permweekslm">
+  <caption>Two permutations of <c>weight</c> with slightly different least squares regression lines.</caption>
+  <sidebyside widths="45% 45%">
+    <figure xml:id="fig-permweekslm-1">
+      <caption>First permutation.</caption>
+      <image source="images/fig-permweekslm-1.png" width="90%" />
+    </figure>
+    <figure xml:id="fig-permweekslm-2">
+      <caption>Second permutation.</caption>
+      <image source="images/fig-permweekslm-2.png" width="90%" />
+    </figure>
+  </sidebyside>
+</figure>
+
+<p>As you can see, sometimes the slope of the permuted data is positive, sometimes it is negative. Because the randomization happens under the condition of no underlying relationship (because the response variable is completely mixed with the explanatory variable), we expect to see the center of the randomized slope distribution to be zero.</p>
+
+</subsection>
+
+<subsection xml:id="subsec-observed-statistic-vs.-null-statistics">
+  <title>Observed statistic vs. null statistics</title>
+
+<listing xml:id="listing-fig-nulldistBirths">
+  <caption><c>R</c> code to generate <xref ref="fig-nulldistBirths" /></caption>
+  <program language="r">
+    <input>
+      perm_slope &lt;- births14_100 |&gt;
+        specify(weight ~ weeks) |&gt;
+        hypothesize(null = "independence") |&gt;
+        generate(reps = 1000, type = "permute") |&gt;
+        calculate(stat = "slope")
+      obs_slope &lt;- births14_100 |&gt;
+        specify(weight ~ weeks) |&gt;
+        calculate(stat = "slope") |&gt;
+        pull()
+      ggplot(data = perm_slope, aes(x = stat)) +
+        geom_histogram() +
+        geom_vline(xintercept = obs_slope, color = IMSCOL["red", "full"]) +
+        labs(x = "Randomly generated slopes", y = "Count")
+    </input>
+  </program>
+</listing>
+
+<figure xml:id="fig-nulldistBirths">
+  <caption>Histogram of slopes given different permutations of the <c>weight</c> variable. The vertical red line is at the observed value of the slope, 0.335.</caption>
+  <image source="images/fig-nulldistBirths-1.png" width="70%" />
+</figure>
+
+<p>As we can see from <xref ref="fig-nulldistBirths" />, a slope estimate as extreme as the observed slope estimate (the red line) never happened in many repeated permutations of the <c>weight</c> variable. That is, if indeed there were no linear relationship between <c>weight</c> and <c>weeks</c>, the natural variability of the slopes would produce estimates between approximately -0.15 and +0.15. We reject the null hypothesis. Therefore, we believe that the slope observed on the original data is not just due to natural variability and indeed, there is a linear relationship between <c>weight</c> of baby and <c>weeks</c> gestation for births in the US.</p>
+
+</subsection>
+
+</section>
+
+<section xml:id="sec-bootbeta1">
+  <title>Bootstrap confidence interval for the slope</title>
+
+<p>As we have seen in previous chapters, we can use bootstrapping to estimate the sampling distribution of the statistic of interest (here, the slope) without the null assumption of no relationship (which was the condition in the randomization test). Because interest is now in creating a CI, there is no null hypothesis, so there won't be any reason to permute either of the variables.</p>
+
+<subsection xml:id="subsec-observed-data">
+  <title>Observed data</title>
+
+<p>Returning to the births data, we may want to consider the relationship between <c>mage</c> (mother's age) and <c>weight</c>. Is <c>mage</c> a good predictor of <c>weight</c>? And if so, what is the relationship? That is, what is the slope that models average <c>weight</c> of baby as a function of <c>mage</c> (mother's age)? The linear model regressing <c>weight</c> on <c>mage</c> is provided in <xref ref="tbl-ls-births-mage" />.</p>
+
+<listing>
+  <caption><c>R</c> code</caption>
+  <program language="r">
+    <input>
+      set.seed(4747)
+      births4 &lt;- births14_100 |&gt;
+        sample_n(size = 100, replace = TRUE)
+      births5 &lt;- births14_100 |&gt;
+        sample_n(size = 100, replace = TRUE)
+      births_many_BS &lt;- births14_100 |&gt;
+        rep_sample_n(size = 100, replace = TRUE, reps = 50)
+    </input>
+  </program>
+</listing>
+
+<listing xml:id="listing-fig-magePlot">
+  <caption><c>R</c> code to generate <xref ref="fig-magePlot" /></caption>
+  <program language="r">
+    <input>
+      ggplot(births14_100) +
+        geom_point(aes(x = mage, y = weight)) +
+        geom_smooth(aes(x = mage, y = weight),
+          method = "lm", se = FALSE,
+          fullrange = TRUE,
+        ) +
+        labs(x = "Mother's age", y = "Weight of baby")
+    </input>
+  </program>
+</listing>
+
+<figure xml:id="fig-magePlot">
+  <caption>Using the original data, the weight of baby as a linear model of mother's age. Notice that the relationship between mother's age and weight of baby is not as strong as the relationship we saw previously between weeks gestation and weight of baby.</caption>
+  <image source="images/fig-magePlot-1.png" width="70%" />
+</figure>
+
+<listing xml:id="listing-tbl-ls-births-mage">
+  <caption><c>R</c> code</caption>
+  <program language="r">
+    <input>
+      lm(weight ~ mage, data = births14_100) |&gt;
+        tidy() |&gt;
+        mutate(p.value = ifelse(p.value &lt; 0.0001, "&lt;0.0001", round(p.value, 4))) |&gt;
+        kbl(linesep = "", booktabs = TRUE,
+            digits = 2, align = "lrrrr") |&gt;
+        kable_styling(bootstrap_options = c("striped", "condensed"),
+                      latex_options = c("striped")) |&gt;
+        column_spec(1, width = "10em", monospace = TRUE) |&gt;
+        column_spec(2:5, width = "5em")
+    </input>
+  </program>
+</listing>
+
+</subsection>
+
+<subsection xml:id="subsec-variability-of-the-statistic">
+  <title>Variability of the statistic</title>
+
+<p>Because the focus here is <em>not</em> on a null distribution, we sample with replacement <m>n = 100</m> observations from the original dataset. Recall that with bootstrapping the resample always has the same number of observations as the original dataset in order to mimic the process of taking a sample from the population. When sampling in the linear model case, consider each observation to be a single dot. If the dot is resampled, both the <c>weight</c> and the <c>mage</c> measurement are observed. The measurements are linked to the dot (i.e., to the birth in the sample).</p>
+
+<listing xml:id="listing-fig-birth2BS">
+  <caption><c>R</c> code to generate <xref ref="fig-birth2BS" /></caption>
+  <program language="r">
+    <input>
+      ggplot(births14_100) +
+        geom_point(aes(x = mage, y = weight), alpha = 0.4) +
+        geom_smooth(aes(x = mage, y = weight),
+          method = "lm", se = FALSE,
+          fullrange = TRUE
+        ) +
+        xlab("mother's age") +
+        ylab("weight of baby") +
+        ggtitle("Original data") +
+        geom_point(x = 29, y = 9, color = IMSCOL["green", "full"], pch = 1, size = 8) +
+        geom_point(x = 20, y = 6, color = IMSCOL["red", "full"], pch = 1, size = 8) +
+        geom_point(x = 39, y = 9, pch = 1, size = 8)
+      ggplot(births5) +
+        geom_point(aes(x = mage, y = weight), alpha = 0.4) +
+        geom_smooth(aes(x = mage, y = weight),
+          method = "lm", se = FALSE,
+          fullrange = TRUE
+        ) +
+        xlab("mother's age") +
+        ylab("weight of baby") +
+        ggtitle("Bootstrap sample") +
+        geom_point(x = 29, y = 9, color = IMSCOL["green", "full"], pch = 1, size = 8) +
+        geom_point(x = 20, y = 6, color = IMSCOL["red", "full"], pch = 1, size = 8) +
+        geom_point(x = 39, y = 9, pch = 1, size = 8)
+    </input>
+  </program>
+</listing>
+
+<figure xml:id="fig-birth2BS">
+  <caption>Original and one bootstrap sample of the births data. It is difficult to differentiate between the two plots, as (within a single bootstrap sample) the observations which have been resampled twice are plotted as points on top of one another. The red circles represent points in the original data which were not included in the bootstrap sample. The blue circles represent a data point that was repeatedly resampled (and is therefore darker) in the bootstrap sample. The green circles represent a particular structure to the data which is observed in both the original and bootstrap samples.</caption>
+  <sidebyside widths="45% 45%">
+    <figure xml:id="fig-birth2BS-1">
+      <caption>Original data.</caption>
+      <image source="images/fig-birth2BS-1.png" width="90%" />
+    </figure>
+    <figure xml:id="fig-birth2BS-2">
+      <caption>Bootstrapped data.</caption>
+      <image source="images/fig-birth2BS-2.png" width="90%" />
+    </figure>
+  </sidebyside>
+</figure>
+
+<p><xref ref="fig-birth2BS-1" /> shows the original data as compared with a single bootstrap sample in <xref ref="fig-birth2BS-2" />, resulting in (slightly) different linear models. The red circles represent points in the original data which were not included in the bootstrap sample. The blue circles represent a point that was repeatedly resampled (and is therefore darker) in the bootstrap sample. The green circles represent a particular structure to the data which is observed in both the original and bootstrap samples. By repeatedly resampling, we can see dozens of bootstrapped slopes on the same plot in <xref ref="fig-birthBS" />.</p>
+
+<listing xml:id="listing-fig-birthBS">
+  <caption><c>R</c> code to generate <xref ref="fig-birthBS" /></caption>
+  <program language="r">
+    <input>
+      ggplot(births_many_BS, aes(x = mage, y = weight, group = replicate)) +
+        geom_smooth(method = "lm", se = FALSE, color = IMSCOL["blue", "f2"], fullrange = TRUE) +
+        labs(
+          x = "Mother's age",
+          y = "Weight of baby"
+        )
+    </input>
+  </program>
+</listing>
+
+<figure xml:id="fig-birthBS">
+  <caption>Repeated bootstrap resamples of size 100 are taken from the original data. Each of the bootstrapped linear models is slightly different.</caption>
+  <image source="images/fig-birthBS-1.png" width="70%" />
+</figure>
+
+<p>Recall that in order to create a confidence interval for the slope, we need to find the range of values that the statistic (here the slope) takes on from different bootstrap samples. <xref ref="fig-mageBSslopes" /> is a histogram of the relevant bootstrapped slopes. We can see that a 95% bootstrap percentile interval for the true population slope is given by (-0.01, 0.081). We are 95% confident that for the model describing the population of births, predicting weight of baby from mother's age, a one unit increase in <c>mage</c> (in years) is associated with an increase in predicted average baby <c>weight</c> of between -0.01 and 0.081 pounds. Notice that the CI contains zero, so the true relationship <em>might</em> be null!</p>
+
+<listing xml:id="listing-fig-mageBSslopes">
+  <caption><c>R</c> code to generate <xref ref="fig-mageBSslopes" /></caption>
+  <program language="r">
+    <input>
+      set.seed(47)
+      births_many_BS_1000 &lt;- births14_100 |&gt;
+        rep_sample_n(size = 100, replace = TRUE, reps = 1000)
+      births_many_lm_BS &lt;- births_many_BS_1000 |&gt;
+        group_by(replicate) |&gt;
+        do(tidy(lm(weight ~ mage, data = .))) |&gt;
+        filter(term == "mage")
+      lower &lt;- round(quantile(births_many_lm_BS$estimate, 0.025), 3)
+      upper &lt;- round(quantile(births_many_lm_BS$estimate, 0.975), 3)
+      ggplot(births_many_lm_BS, aes(x = estimate)) +
+        geom_histogram() +
+        annotate("segment", x = lower, xend = lower, y = 0, yend = 25, linetype = "dashed") +
+        annotate("segment", x = upper, xend = upper, y = 0, yend = 25, linetype = "dashed") +
+        annotate("text", x = lower, y = 35, label = "2.5 percentile\n-0.01", size = 5) +
+        annotate("text", x = upper, y = 35, label = "97.5 percentile\n0.081", size = 5) +
+        labs(
+          x = "Bootstrapped values of the slope for predicting weight of baby from mother's age",
+          y = NULL
+        ) +
+        theme(axis.text.y = element_blank())
+    </input>
+  </program>
+</listing>
+
+<figure xml:id="fig-mageBSslopes">
+  <caption>The original births data on baby's weight and mother's age is bootstrapped 1,000 times. The histogram provides a sense for the variability of the slope of the linear model from sample to sample.</caption>
+  <image source="images/fig-mageBSslopes-1.png" width="70%" />
+</figure>
+
+<example>
+  <statement>
+    <p>Using <xref ref="fig-mageBSslopes" />, calculate the bootstrap estimate for the standard error of the slope. Using the bootstrap standard error, find a 95% bootstrap SE confidence interval for the true population slope, and interpret the interval in context.</p>
+  </statement>
+  <solution>
+    <p>Notice that most of the bootstrapped slopes fall between -0.01 and +0.08 (a range of 0.09). Using the empirical rule (that with bell-shaped distributions, most observations are within two standard errors of the center), the standard error of the slopes is approximately 0.0225. The critical value for a 95% confidence interval is <m>z^\star = 1.96</m> which leads to a confidence interval of <m>b_1 \pm 1.96 \cdot SE \rightarrow 0.036 \pm 1.96 \cdot 0.0225 \rightarrow (-0.0081, 0.0801).</m> The bootstrap SE confidence interval is almost identical to the bootstrap percentile interval. In context, we are 95% confident that for the model describing the population of births, predicting weight of baby from mother's age, a one unit increase in <c>mage</c> (in years) is associated with an increase in predicted average baby <c>weight</c> of between -0.0081 and 0.0801 pounds.</p>
+  </solution>
+</example>
+
+</subsection>
+
+</section>
+
+<section xml:id="sec-mathslope">
+  <title>Mathematical model for testing the slope</title>
+
+<p>When certain technical conditions apply, it is convenient to use mathematical approximations to test and estimate the slope parameter. The approximations will build on the t-distribution which was described in <xref ref="sec-inference-one-mean" />. The mathematical model is often correct and is usually easy to implement computationally. The validity of the technical conditions will be considered in detail in <xref ref="sec-tech-cond-linmod" />.</p>
+
+<p>In this section, we discuss uncertainty in the estimates of the slope and y-intercept for a regression line. Just as we identified standard errors for point estimates in previous chapters, we start by discussing standard errors for the slope and y-intercept estimates.</p>
+
+<subsection xml:id="subsec-observed-data">
+  <title>Observed data</title>
+
+<p><alert>Midterm elections and unemployment</alert></p>
+
+<p>Elections for members of the United States House of Representatives occur every two years, coinciding every four years with the U.S. Presidential election. The set of House elections occurring during the middle of a Presidential term are called midterm elections. In America's two-party system (the vast majority of House members through history have been either Republicans or Democrats), one political theory suggests the higher the unemployment rate, the worse the President's party will do in the midterm elections. In 2020 there were 232 Democrats, 198 Republicans, and 1 Libertarian in the House.</p>
+
+<p>To assess the validity of the claim related to unemployment and voting patterns, we can compile historical data and look for a connection. We consider every midterm election from 1898 to 2018, with the exception of the elections during the Great Depression. The House of Representatives is made up of 435 voting members.</p>
+
+<note>
+  <title>Data</title>
+  <p>The <url href="http://openintrostat.github.io/openintro/reference/midterms_house.html"><c>midterms_house</c></url> data can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</p>
+</note>
+
+<p><xref ref="fig-unemploymentAndChangeInHouse" /> shows these data and the least-squares regression line:</p>
+
+<p><me>\begin{aligned} &amp;\texttt{percent change in House seats for President's party}  \\ &amp;\qquad\qquad= -7.36 - 0.89 \times \texttt{(unemployment rate)} \end{aligned}</me></p>
+
+<p>We consider the percent change in the number of seats of the President's party (e.g., percent change in the number of seats for Republicans in 2018) against the unemployment rate.</p>
+
+<p>Examining the data, there are no clear deviations from linearity or substantial outliers (see <xref ref="sec-resids" /> for a discussion on using residuals to visualize how well a linear model fits the data). While the data are collected sequentially, a separate analysis was used to check for any apparent correlation between successive observations; no such correlation was found.</p>
+
+<listing xml:id="listing-fig-unemploymentAndChangeInHouse">
+  <caption><c>R</c> code to generate <xref ref="fig-unemploymentAndChangeInHouse" /></caption>
+  <program language="r">
+    <input>
+      years_to_label &lt;- c(2019, 2003, 1995, 1983, 2011, 1899)
+      midterms_house_with_labels &lt;- midterms_house |&gt;
+        mutate(
+          label_top = word(potus, -1),
+          label_bottom = year - 1
+          )
+      midterms_house_with_labels |&gt;
+        filter(!(year %in% c(1935, 1939))) |&gt;
+        ggplot(aes(x = unemp, y = house_change)) +
+        geom_point(aes(color = party, shape = party), size = 3, alpha = 0.7) +
+        geom_smooth(method = "lm", se = FALSE, fullrange = TRUE) +
+        scale_color_openintro() +
+        scale_shape_manual(values = c(16, 17)) +
+        scale_x_continuous(labels = label_percent(scale = 1, accuracy = 1), limits = c(3.5, 12.1), breaks = c(4, 8, 12)) +
+        scale_y_continuous(labels = label_percent(scale = 1, accuracy = 1), limits = c(-31, 11), breaks = c(-30, -20, -10, 0, 10)) +
+        labs(
+          x = "Percent unemployed",
+          y = "Percent change in House seats\nfor the President's party",
+          color = "Party", shape = "Party"
+          ) +
+        geom_text(data = midterms_house_with_labels |&gt; filter(year %in% years_to_label),
+          aes(x = unemp, y = house_change + 4, label = paste0(label_top, "\n", label_bottom)), color = IMSCOL["black", "full"]
+        ) +
+        theme(
+          legend.position = c(0.8, 0.8),
+          legend.background = element_rect(color = "white")
+        )
+    </input>
+  </program>
+</listing>
+
+<figure xml:id="fig-unemploymentAndChangeInHouse">
+  <caption>The percent change in House seats for the President's party in each election from 1898 to 2010 plotted against the unemployment rate. The two points for the Great Depression have been removed, and a least squares regression line has been fit to the data.</caption>
+  <image source="images/fig-unemploymentAndChangeInHouse-1.png" width="70%" />
+</figure>
+
+</subsection>
+
+</section>
+
+<exercise>
+  <statement>
+    <p>The data for the Great Depression (1934 and 1938) were removed because the unemployment rate was 21% and 18%, respectively. Do you agree that they should be removed for this investigation? Why or why not?</p>
+  </statement>
+  <solution>
+    <p>The answer to this question relies on the idea that statistical data analysis is somewhat of an art. That is, in many situations, there is no "right" answer. As you do more and more analyses on your own, you will come to recognize the nuanced understanding which is needed for a particular dataset. In terms of the Great Depression, we will provide two contrasting considerations. Each of these points would have very high leverage on any least-squares regression line, and years with such high unemployment may not help us understand what would happen in other years where the unemployment is only modestly high. On the other hand, the Depression years are exceptional cases, and we would be discarding important information if we exclude them from a final analysis.</p>
+  </solution>
+</exercise>
+
+
+
+<p>There is a negative slope in the line shown in <xref ref="fig-unemploymentAndChangeInHouse" />. However, this slope (and the y-intercept) are only estimates of the parameter values. We might wonder, is this convincing evidence that the "true" linear model has a negative slope? That is, do the data provide strong evidence that the political theory is accurate, where the unemployment rate is a useful predictor of the midterm election? We can frame this investigation into a statistical hypothesis test:</p>
+
+<ul>
+  <li><p><m>H_0</m>: <m>\beta_1 = 0</m>. The true linear model has slope zero.</p></li>
+  <li><p><m>H_A</m>: <m>\beta_1 \neq 0</m>. The true linear model has a slope different than zero. The unemployment is predictive of whether the President's party wins or loses seats in the House of Representatives.</p></li>
+</ul>
+
+<p>We would reject <m>H_0</m> in favor of <m>H_A</m> if the data provide strong evidence that the true slope parameter is different than zero. To assess the hypotheses, we identify a standard error for the estimate, compute an appropriate test statistic, and identify the p-value.</p>
+
+<subsection xml:id="subsec-variability-of-the-statistic">
+  <title>Variability of the statistic</title>
+
+<p>Just like other point estimates we have seen before, we can compute a standard error and test statistic for <m>b_1</m>. We will generally label the test statistic using a <m>T</m>, since it follows the <m>t</m>-distribution.</p>
+
+<p>We will rely on statistical software to compute the standard error and leave the explanation of how this standard error is determined to a second or third statistics course. <xref ref="tbl-midtermUnempRegTable" /> shows software output for the least squares regression line in <xref ref="fig-unemploymentAndChangeInHouse" />. The row labeled <c>unemp</c> includes all relevant information about the slope estimate (i.e., the coefficient of the unemployment variable, the related SE, the T statistic, and the corresponding p-value).</p>
+
+<listing xml:id="listing-tbl-midtermUnempRegTable">
+  <caption><c>R</c> code</caption>
+  <program language="r">
+    <input>
+      d &lt;- midterms_house
+      th &lt;- !d$year %in% c(1935, 1939)
+      lm(house_change ~ unemp, d[th, ]) |&gt;
+        tidy() |&gt;
+        mutate(p.value = ifelse(p.value &lt; 0.0001, "&lt;0.0001", round(p.value, 4))) |&gt;
+        kbl(linesep = "", booktabs = TRUE,
+            digits = 2, align = "lrrrr") |&gt;
+        kable_styling(bootstrap_options = c("striped", "condensed"),
+                      latex_options = c("striped")) |&gt;
+        column_spec(1, width = "10em", monospace = TRUE) |&gt;
+        column_spec(2:5, width = "5em")
+    </input>
+  </program>
+</listing>
+
+<example>
+  <statement>
+    <p>What do the first and second columns of <xref ref="tbl-midtermUnempRegTable" /> represent?</p>
+  </statement>
+  <solution>
+    <p>The entries in the first column represent the least squares estimates, <m>b_0</m> and <m>b_1</m>, and the values in the second column correspond to the standard errors of each estimate. Using the estimates, we could write the equation for the least square regression line as</p>
+    <p><me>\hat{y} = -7.36 - 0.89 x</me></p>
+    <p>where <m>\hat{y}</m> in this case represents the predicted change in the number of seats for the president's party, and <m>x</m> represents the unemployment rate.</p>
+  </solution>
+</example>
+
+<p>We previously used a <m>t</m>-test statistic for hypothesis testing in the context of numerical data. Regression is very similar. In the hypotheses we consider, the null value for the slope is 0, so we can compute the test statistic using the T score formula:</p>
+
+<p><me>T \ = \ \frac{\text{estimate} - \text{null value}}{\text{SE}} = \ \frac{-0.89 - 0}{0.835} = \ -1.07</me></p>
+
+<p>The T score we calculated corresponds to the third column of <xref ref="tbl-midtermUnempRegTable" />.</p>
+
+<example>
+  <statement>
+    <p>Use <xref ref="tbl-midtermUnempRegTable" /> to determine the p-value for the hypothesis test.</p>
+  </statement>
+  <solution>
+    <p>The last column of the table gives the p-value for the two-sided hypothesis test for the coefficient of the unemployment rate 0.2961. That is, the data do not provide convincing evidence that a higher unemployment rate has any correspondence with smaller or larger losses for the President's party in the House of Representatives in midterm elections. If there was no linear relationship between the two variables (i.e., if <m>\beta_1 = 0)</m>, then we would expect to see linear models as or more extreme that the observed model roughly 30% of the time.</p>
+  </solution>
+</example>
+
+</subsection>
+
+<subsection xml:id="subsec-observed-statistic-vs.-null-statistics">
+  <title>Observed statistic vs. null statistics</title>
+
+<p>As the final step in a mathematical hypothesis test for the slope, we use the information provided to make a conclusion about whether the data could have come from a population where the true slope was zero (i.e., <m>\beta_1 = 0</m>). Before evaluating the formal hypothesis claim, sometimes it is important to check your intuition. Based on everything we have seen in the examples above describing the variability of a line from sample to sample, ask yourself if the linear relationship given by the data could have come from a population in which the slope was truly zero.</p>
+
+<example>
+  <statement>
+    <p>Examine <xref ref="fig-elmhurstScatterWLine" />, which relates the Elmhurst College aid and student family income. Are you convinced that the slope is discernibly different from zero? That is, do you think a formal hypothesis test would reject the claim that the true slope of the line should be zero?</p>
+  </statement>
+  <solution>
+    <p>While the relationship between the variables is not perfect, there is an evident decreasing trend in the data. Such a distinct trend suggests that the hypothesis test will reject the null claim that the slope is zero.</p>
+  </solution>
+</example>
+
+<note>
+  <title>Data</title>
+  <p>The <url href="http://openintrostat.github.io/openintro/reference/elmhurst.html"><c>elmhurst</c></url> data can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</p>
+</note>
+
+<p>The tools in this section help you go beyond a visual interpretation of the linear relationship toward a formal mathematical claim about whether the slope estimate is meaningfully different from 0 to suggest that the true population slope is different from 0.</p>
+
+<listing xml:id="listing-tbl-rOutputForIncomeAidLSRLineInInferenceSection">
+  <caption><c>R</c> code</caption>
+  <program language="r">
+    <input>
+      elmhurst |&gt;
+        mutate(
+          gift_aid = gift_aid * 1000,
+          family_income = family_income * 1000
+        ) |&gt;
+        lm(gift_aid ~ family_income, data = _) |&gt;
+        tidy() |&gt;
+        mutate(p.value = ifelse(p.value &lt; 0.0001, "&lt;0.0001", round(p.value, 4))) |&gt;
+        kbl(linesep = "", booktabs = TRUE,
+            digits = 2, align = "lrrrr") |&gt;
+        kable_styling(bootstrap_options = c("striped", "condensed"),
+                      latex_options = c("striped")) |&gt;
+        column_spec(1, width = "10em", monospace = TRUE) |&gt;
+        column_spec(2:5, width = "5em")
+    </input>
+  </program>
+</listing>
+
+</subsection>
+
+</section>
+
+<exercise>
+  <statement>
+    <p><xref ref="tbl-rOutputForIncomeAidLSRLineInInferenceSection" /> shows statistical software output from fitting the least squares regression line shown in <xref ref="fig-elmhurstScatterWLine" />. Use the output to formally evaluate the following hypotheses.</p>
+    <p>-   <m>H_0</m>: The true coefficient for family income is zero. -   <m>H_A</m>: The true coefficient for family income is not zero.</p>
+  </statement>
+  <solution>
+    <p>We look in the second row corresponding to the family income variable. We see the point estimate of the slope of the line is -0.0431, the standard error of this estimate is 0.0108, and the <m>t</m>-test statistic is <m>T = -3.98</m>. The p-value corresponds exactly to the two-sided test we are interested in: 0.0002. The p-value is so small that we reject the null hypothesis and conclude that family income and financial aid at Elmhurst College for freshman entering in the year 2011 are negatively correlated and the true slope parameter is indeed less than 0, just as we believed in our analysis of <xref ref="fig-elmhurstScatterWLine" />.</p>
+  </solution>
+</exercise>
+
+
+
+<assemblage>
+  <p><alert>Inference for regression.</alert></p>
+  <p>We usually rely on statistical software to identify point estimates, standard errors, test statistics, and p-values in practice. However, be aware that software will not generally check whether the method is appropriate, meaning we must still verify conditions are met. See <xref ref="sec-tech-cond-linmod" />.</p>
+</assemblage>
+
+</section>
+
+<section xml:id="sec-mathematical-model-interval-for-the-slope">
+  <title>Mathematical model, interval for the slope</title>
+
+<p>Similar to how we can conduct a hypothesis test for a model coefficient using regression output, we can also construct confidence intervals for the slope and intercept coefficients.</p>
+
+<assemblage>
+  <p><alert>Confidence intervals for coefficients.</alert></p>
+  <p>Confidence intervals for model coefficients (e.g., the intercept or the slope) can be computed using the <m>t</m>-distribution:</p>
+  <p><me>b_i \ \pm\ t_{df}^{\star} \times SE_{b_{i}}</me></p>
+  <p>where <m>t_{df}^{\star}</m> is the appropriate <m>t^{\star}</m> cutoff corresponding to the confidence level with the model's degrees of freedom, <m>df = n - 2</m>.</p>
+</assemblage>
+
+<example>
+  <statement>
+    <p>Compute the 95% confidence interval for the coefficient using the regression output from <xref ref="tbl-rOutputForIncomeAidLSRLineInInferenceSection" />.</p>
+  </statement>
+  <solution>
+    <p>The point estimate is -0.0431 and the standard error is <m>SE = 0.0108</m>. When constructing a confidence interval for a model coefficient, we generally use a <m>t</m>-distribution. The degrees of freedom for the distribution are noted in the regression output, <m>df = 48</m>, allowing us to identify <m>t_{48}^{\star} = 2.01</m> for use in the confidence interval.</p>
+    <p>We can now construct the confidence interval in the usual way:</p>
+    <p><me>\begin{aligned} \text{point estimate} &amp;\pm t_{48}^{\star} \times SE \\ -0.0431 &amp;\pm 2.01 \times 0.0108 \\ (-0.0648 &amp;, -0.0214) \end{aligned}</me></p>
+    <p>We are 95% confident that for an additional one unit (i.e., <m>1000 increase) in family income, the university's gift aid is predicted to decrease on average by \</m>21.40 to \$64.80.</p>
+  </solution>
+</example>
+
+<p>On the topic of intervals in this book, we have focused exclusively on confidence intervals for model parameters. However, there are other types of intervals that may be of interest (and are outside the scope of this book), including prediction intervals for a response value and confidence intervals for a mean response value in the context of regression.</p>
+
+</section>
+
+<section xml:id="sec-tech-cond-linmod">
+  <title>Checking model conditions</title>
+
+<p>In the previous sections, we used randomization and bootstrapping to perform inference when the mathematical model was not valid due to violations of the technical conditions. In this section, we'll provide details for when the mathematical model is appropriate and a discussion of technical conditions needed for the randomization and bootstrapping procedures. Recall from <xref ref="sec-resids" /> that residual plots can be used to visualize how well a linear model fits the data.</p>
+
+<subsection xml:id="subsec-what-are-the-technical-conditions-for-the-mathematical-model?">
+  <title>What are the technical conditions for the mathematical model?</title>
+
+<p>When fitting a least squares line, we generally require the following:</p>
+
+<ul>
+  <li><p><alert>Linearity.</alert> The data should show a linear trend. If there is a nonlinear trend (e.g., first panel of <xref ref="fig-whatCanGoWrongWithLinearModel" />) an advanced regression method from another book or later course should be applied.</p></li>
+</ul>
+
+<ul>
+  <li><p><alert>Independent observations.</alert> Be cautious about applying regression to data that are sequential observations in time such as a stock price each day. Such data may have an underlying structure that should be considered in a different type of model and analysis. An example of a dataset where successive observations are not independent is shown in the fourth panel of <xref ref="fig-whatCanGoWrongWithLinearModel" />. There are also other instances where correlations within the data are important, which is further discussed in <xref ref="sec-inf-model-mlr" />.</p></li>
+</ul>
+
+<ul>
+  <li><p><alert>Nearly normal residuals.</alert> Generally, the residuals should be nearly normal. When this condition is found to be unreasonable, it is often because of outliers or concerns about influential points, which we'll talk about more in <xref ref="sec-outliers-in-regression" />. An example of a residual that would be potentially concerning is shown in the second panel of <xref ref="fig-whatCanGoWrongWithLinearModel" />, where one observation is clearly much further from the regression line than the others. Outliers should be treated extremely carefully. Do not automatically remove an outlier if it truly belongs in the dataset. However, be honest about its impact on the analysis. A strategy for dealing with outliers is to present two analyses: one with the outlier and one without the outlier. Additionally, a type of violation of normality happens when the positive residuals are smaller in magnitude than the negative residuals (or vice versa). That is, when the residuals are not symmetrically distributed around the line <m>y=0.</m></p></li>
+</ul>
+
+<listing xml:id="listing-fig-whatCanGoWrongWithLinearModel">
+  <caption><c>R</c> code to generate <xref ref="fig-whatCanGoWrongWithLinearModel" /></caption>
+  <program language="r">
+    <input>
+      par_og &lt;- par(no.readonly = TRUE) # save original par
+      par(mar = rep(1.2, 4))
+      source("helpers/helper-makeTubeAdv.R")
+      pch &lt;- 20
+      cex &lt;- 1.75
+      col &lt;- IMSCOL["blue", "f2"]
+      layout(
+        matrix(1:8, 2),
+        rep(1, 4),
+        c(2, 1)
+      )
+      these &lt;- simulated_scatter$group == 20
+      x &lt;- simulated_scatter$x[these]
+      y &lt;- simulated_scatter$y[these]
+      plot(x, y,
+        axes = FALSE,
+        pch = pch,
+        cex = cex,
+        col = "#00000000"
+      )
+      box()
+      mtext("x", side=1, line=0.2)
+      mtext("y", side=2, line=0.2)
+      makeTube(x, y,
+        type = "quad",
+        addLine = FALSE,
+        col =  IMSCOL["lgray", "f2"]
+      )
+      points(x, y,
+        pch = pch,
+        cex = cex,
+        col =  IMSCOL["blue", "f1"]
+      )
+      g &lt;- lm(y ~ x)
+      abline(g)
+      yR &lt;- range(g$residuals)
+      yR &lt;- yR + c(-1, 1) * diff(yR) / 10
+      plot(x, g$residuals,
+        xlab = "", ylab = "",
+        axes = FALSE,
+        pch = pch,
+        cex = cex,
+        col =  IMSCOL["blue", "f1"],
+        ylim = yR
+      )
+      abline(h = 0, lty = 2)
+      box()
+      mtext("Predicted y", side=1, line=0.2)
+      mtext("Residual", side=2, line=0.1)
+      these &lt;- simulated_scatter$group == 21
+      x &lt;- simulated_scatter$x[these]
+      y &lt;- simulated_scatter$y[these]
+      plot(x, y,
+        axes = FALSE,
+        pch = pch,
+        cex = cex,
+        col = "#00000000"
+      )
+      box()
+      mtext("x", side=1, line=0.2)
+      mtext("y", side=2, line=0.2)
+      makeTube(x, y,
+        addLine = FALSE,
+        col =  IMSCOL["lgray", "f2"]
+      )
+      points(x, y,
+        pch = pch,
+        cex = cex,
+        col =  IMSCOL["blue", "f1"]
+      )
+      g &lt;- lm(y ~ x)
+      abline(g)
+      yR &lt;- range(g$residuals)
+      yR &lt;- yR + c(-1, 1) * diff(yR) / 10
+      plot(x, g$residuals,
+        xlab = "", ylab = "",
+        axes = FALSE,
+        pch = pch,
+        cex = cex,
+        col =  IMSCOL["blue", "f1"],
+        ylim = yR
+      )
+      abline(h = 0, lty = 2)
+      box()
+      mtext("Predicted y", side=1, line=0.2)
+      mtext("Residual", side=2, line=0.1)
+      these &lt;- simulated_scatter$group == 22
+      x &lt;- simulated_scatter$x[these]
+      y &lt;- simulated_scatter$y[these]
+      plot(x, y,
+        axes = FALSE,
+        pch = pch,
+        cex = cex,
+        col = "#00000000"
+      )
+      box()
+      mtext("x", side=1, line=0.2)
+      mtext("y", side=2, line=0.2)
+      makeTubeAdv(x, y,
+        type = "l",
+        variance = "l",
+        bw = 0.03,
+        Z = 1.7,
+        col =  IMSCOL["lgray", "f2"]
+      )
+      points(x, y,
+        pch = pch,
+        cex = cex,
+        col =  IMSCOL["blue", "f1"]
+      )
+      g &lt;- lm(y ~ x)
+      abline(g)
+      yR &lt;- range(g$residuals)
+      yR &lt;- yR + c(-1, 1) * diff(yR) / 10
+      plot(x, g$residuals,
+        axes = FALSE,
+        xlab = "", ylab = "",
+        pch = pch,
+        cex = cex,
+        col =  IMSCOL["blue", "f1"],
+        ylim = yR
+      )
+      abline(h = 0, lty = 2)
+      box()
+      mtext("Predicted y", side=1, line=0.2)
+      mtext("Residual", side=2, line=0.1)
+      these &lt;- simulated_scatter$group == 23
+      x &lt;- simulated_scatter$x[these]
+      y &lt;- simulated_scatter$y[these]
+      plot(x, y,
+        axes = FALSE,
+        pch = pch,
+        cex = cex,
+        col = "#00000000"
+      )
+      box()
+      mtext("x", side=1, line=0.2)
+      mtext("y", side=2, line=0.2)
+      makeTube(x, y,
+        addLine = FALSE,
+        col =  IMSCOL["lgray", "f2"]
+      )
+      points(x, y,
+        pch = pch,
+        cex = cex,
+        col =  IMSCOL["blue", "f1"]
+      )
+      g &lt;- lm(y ~ x)
+      abline(g)
+      yR &lt;- range(g$residuals)
+      yR &lt;- yR + c(-1, 1) * diff(yR) / 10
+      plot(x, g$residuals,
+        axes = FALSE,
+        xlab = "", ylab = "",
+        pch = pch,
+        cex = cex,
+        col =  IMSCOL["blue", "f1"],
+        ylim = yR
+      )
+      abline(h = 0, lty = 2)
+      box()
+      mtext("Predicted y", side=1, line=0.2)
+      mtext("Residual", side=2, line=0.1)
+      makeTubeAdv(x, y, col =  IMSCOL["lgray", "f2"])
+      #par(par_og) # restore original par
+    </input>
+  </program>
+</listing>
+
+<figure xml:id="fig-whatCanGoWrongWithLinearModel">
+  <caption>Four examples showing when the methods in this chapter are insufficient to apply a linear model to the data. The top set of graphs represents the <m>x</m> and <m>y</m> relationship. The bottom set of graphs is a residual plot. First panel -- linearity fails. Second panel -- there are outliers, most especially one point that is very far away from the line. Third panel -- the variability of the errors is related to the value of <m>x</m>. Fourth panel -- a time series dataset is shown, where successive observations are highly correlated.</caption>
+  <image source="images/fig-whatCanGoWrongWithLinearModel-1.png" width="70%" />
+</figure>
+
+<ul>
+  <li><p><alert>Constant or equal variability.</alert> The variability of points around the least squares line remains roughly constant. An example of non-constant variability is shown in the third panel of <xref ref="fig-whatCanGoWrongWithLinearModel" />, which represents the most common pattern observed when this condition fails: the variability of <m>y</m> is larger when <m>x</m> is larger.</p></li>
+</ul>
+
+</subsection>
+
+</section>
+
+<exercise>
+  <statement>
+    <p>Should we have concerns about applying least squares regression to the Elmhurst data in <xref ref="fig-elmhurstScatterW2Lines" />?</p>
+  </statement>
+  <solution>
+    <p>The trend appears to be linear, the data fall around the line with no obvious outliers, the variance is roughly constant. The data do not come from a time series or other obvious violation to independence. Least squares regression can be applied to these data.</p>
+  </solution>
+</exercise>
+
+
+
+<p>The technical conditions are often remembered using the <alert>LINE</alert> mnemonic. The linearity, normality, and equality of variance conditions usually can be assessed through residual plots, as seen in <xref ref="fig-whatCanGoWrongWithLinearModel" />. A careful consideration of the experimental design should be undertaken to confirm that the observed values are indeed independent.</p>
+
+<ul>
+  <li><p>L: <alert>linear</alert> model</p></li>
+  <li><p>I: <alert>independent</alert> observations</p></li>
+  <li><p>N: points are <alert>normally</alert> distributed around the line</p></li>
+  <li><p>E: <alert>equal</alert> variability around the line for all values of the explanatory variable</p></li>
+</ul>
+
+<subsection xml:id="subsec-why-do-we-need-technical-conditions?">
+  <title>Why do we need technical conditions?</title>
+
+<p>As with other inferential techniques we have covered in this text, if the technical conditions above do not hold, then it is not possible to make concluding claims about the population. That is, without the technical conditions, the T score will not have the assumed t-distribution. That said, it is almost always impossible to check the conditions precisely, so we look for large deviations from the conditions. If there are large deviations, we will be unable to trust the calculated p-value or the endpoints of the resulting confidence interval.</p>
+
+<p><alert>The model based on linearity</alert></p>
+
+<p>The linearity condition is among the most important if your goal is to understand a linear model between <m>x</m> and <m>y</m>. For example, the value of the slope will not be at all meaningful if the true relationship between <m>x</m> and <m>y</m> is quadratic, as in <xref ref="fig-notGoodAtAllForALinearModel" />. Not only should we be cautious about the inference, but the model <em>itself</em> is also not an accurate portrayal of the relationship between the variables. However, an extended discussion on the different methods for modeling functional forms other than linear is outside the scope of this text.</p>
+
+<p><alert>The importance of independence</alert></p>
+
+<p>The technical condition describing the independence of the observations is often the most crucial but also the most difficult to diagnose. It is also extremely difficult to gather a dataset which is a true random sample from the population of interest. A true randomized experiment from a fixed set of individuals is much easier to implement, and indeed, randomized experiments are done in most medical studies these days.</p>
+
+<p>Dependent observations can bias results in ways that produce fundamentally flawed analyses. That is, if you hang out at the gym measuring height and weight, your linear model is surely not a representation of all students at your university. At best it is a model describing students who use the gym, but also who are willing to talk to you, that use the gym at the times you were there measuring, etc.</p>
+
+<p>In lieu of trying to answer whether your observations are a true random sample, you might instead focus on whether you believe your observations are representative of a population of interest. Humans are notoriously bad at implementing random procedures, so you should be wary of any process that used human intuition to balance the data with respect to, for example, the demographics of the individuals in the sample.</p>
+
+<p><alert>Some thoughts on normality</alert></p>
+
+<p>The normality condition requires that points vary symmetrically around the line, spreading out in a bell-shaped fashion. You should consider the "bell" of the normal distribution as sitting on top of the line (coming off the paper in a 3-D sense) so as to indicate that the points are dense close to the line and disperse gradually as they get farther from the line.</p>
+
+<p>The normality condition is less important than linearity or independence for a few reasons. First, the linear model fit with least squares will still be an unbiased estimate of the true population model. However, the distribution of the estimate will be unknown. Fortunately the Central Limit Theorem (described in <xref ref="sec-one-mean-math" />) tells us that most of the analyses (e.g., SEs, p-values, confidence intervals) done using the mathematical model (with the <m>t</m>-distribution) will still hold (even if the data are not normally distributed around the line) as long as the sample size is large enough. One analysis method that <em>does</em> require normality, regardless of sample size, is creating intervals which predict the response of individual outcomes at a given <m>x</m> value, using the linear model. One additional reason to worry slightly less about normality is that neither the randomization test nor the bootstrapping procedures require the data to be normal around the line.</p>
+
+<p><alert>Equal variability for prediction in particular</alert></p>
+
+<p>As with normality, the equal variability condition (that points are spread out in similar ways around the line for all values of <m>x</m>) will not cause problems for the estimate of the linear model. That said, the <alert>inference</alert> on the model (e.g., computing p-values) will be incorrect if the variability around the line is extremely heterogeneous. Data that exhibit non-equal variance across the range of x-values will have the potential to seriously mis-estimate the variability of the slope which will have consequences for the inference results (i.e., hypothesis tests and confidence intervals).</p>
+
+<p>In many cases, the inference results for both a randomization test or a bootstrap confidence interval are also robust to the equal variability condition, so they provide the analyst a set of methods to use when the data are heteroskedastic (that is, exhibit unequal variability around the regression line). Although randomization tests and bootstrapping allow us to analyze data using fewer conditions, some technical conditions are required for all methods described in this text (e.g., independent observation). When the equal variability condition is violated and a mathematical analysis (e.g., p-value from T score) is needed, there are other existing methods (outside the scope of this text) which can handle the unequal variance (e.g., weighted least squares analysis).</p>
+
+</subsection>
+
+<subsection xml:id="subsec-what-if-all-the-technical-conditions-are-met?">
+  <title>What if all the technical conditions are met?</title>
+
+<p>When the technical conditions are met, the least squares regression model and inference is provided by virtually all statistical software. In addition to being ubiquitous, however, an additional advantage to the least squares regression model (and related inference) is that the linear model has important extensions (which are not trivial to implement with bootstrapping and randomization tests). In particular, random effects models, repeated measures, and interaction are all linear model extensions which require the above technical conditions. When the technical conditions hold, the extensions to the linear model can provide important insight into the data and research question at hand. We will discuss some of the extended modeling and associated inference in <xref ref="sec-inf-model-mlr" /> and <xref ref="sec-inf-model-logistic" />. Many of the techniques used to deal with technical condition violations are outside the scope of this text, but they are taught in universities in the very next class after this one. If you are working with linear models or are curious to learn more, we recommend that you continue learning about statistical methods applicable to a larger class of datasets.</p>
+
+</subsection>
+
+</section>
+
+<subsection xml:id="subsec-summary">
+  <title>Summary</title>
+
+<p>Recall that early in the text we presented graphical techniques which communicated relationships across multiple variables. We also used modeling to formalize the relationships. Many chapters were dedicated to inferential methods which allowed claims about the population to be made based on samples of data. Not only did we present the mathematical model for each of the inferential techniques, but when appropriate, we also presented bootstrapping and permutation methods.</p>
+
+<p>In <xref ref="sec-inf-model-slr" /> we brought all of those ideas together by considering inferential claims on linear models through randomization tests, bootstrapping, and mathematical modeling. We continue to emphasize the importance of experimental design in making conclusions about research claims. In particular, recall that variability can come from different sources (e.g., random sampling vs. random allocation, see <xref ref="fig-randsampValloc" />).</p>
+
+</subsection>
+
+<subsection xml:id="subsec-terms">
+  <title>Terms</title>
+
+<p>The terms introduced in this chapter are presented in <xref ref="tbl-terms-chp-24" />. If you're not sure what some of these terms mean, we recommend you go back in the text and review their definitions. You should be able to easily spot them as <alert>bolded text</alert>.</p>
+
+</subsection>
+
+</section>
+
+</section>
+
 </chapter>

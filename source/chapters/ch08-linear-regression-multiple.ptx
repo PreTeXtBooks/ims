@@ -453,14 +453,9 @@ m_full |>
   </solution>
 </example>
 
-<p>The previous example describes a common issue in multiple regression: correlation among predictor variables.</p>
-
-<p>We say the two predictor variables are <alert>collinear</alert> (pronounced as <em>co-linear</em>) when they are correlated, and this <alert>multicollinearity</alert> complicates model estimation.</p>
-
-<p>While it is impossible to prevent multicollinearity from arising in observational data, experiments are usually designed to prevent predictors from being multicollinear.</p>
-
-
-
+<p>The previous example describes a common issue in multiple regression: correlation among predictor variables.
+We say the two predictor variables are <alert>collinear</alert> (pronounced as <em>co-linear</em>) when they are correlated, and this <alert>multicollinearity</alert> complicates model estimation.
+While it is impossible to prevent multicollinearity from arising in observational data, experiments are usually designed to prevent predictors from being multicollinear.</p>
 
 <exercise>
   <statement>
@@ -496,8 +491,6 @@ R^2 = 1 - \frac{\text{variability in residuals}}{\text{variability in the outcom
 
 <p>This equation remains valid in the multiple regression framework, but a small enhancement can make it even more informative when comparing models.</p>
 
-
-
 <exercise>
   <statement>
     <p>The variance of the residuals for the model given in the earlier Guided Practice is 18.53, and the variance of the total price in all the auctions is 25.01.</p>
@@ -509,24 +502,19 @@ R^2 = 1 - \frac{\text{variability in residuals}}{\text{variability in the outcom
   </solution>
 </exercise>
 
-<p>This strategy for estimating <m>R^2</m> works when there is a single predictor.</p>
-
-<p>However, it becomes less helpful when there are many variables.</p>
-
-<p>The regular <m>R^2</m> is a biased estimate of the amount of variability explained by the model when applied to model with more than one predictor.</p>
-
-<p>To get a better estimate, we use the adjusted <m>R^2</m>.</p>
+<p>This strategy for estimating <m>R^2</m> works when there is a single predictor.
+However, it becomes less helpful when there are many variables.
+The regular <m>R^2</m> is a biased estimate of the amount of variability explained by the model when applied to model with more than one predictor.
+To get a better estimate, we use the adjusted <m>R^2</m>.</p>
 
 <assemblage>
   <title>Adjusted R-squared as a tool for model assessment</title>
   <p>The <alert>adjusted R-squared</alert> is computed as</p>
 
-<md>
-  <mrow>R_{adj}^{2}</mrow>
-  <mrow>&amp;= 1 - \frac{s_{\text{residuals}}^2 / (n-k-1)}</mrow>
-  <mrow>{s_{\text{outcome}}^2 / (n-1)} = 1 - \frac{s_{\text{residuals}}^2}{s_{\text{outcome}}^2}</mrow>
-  <mrow>\times \frac{n-1}{n-k-1}</mrow>
-</md>
+  <p><m>R_{adj}^{2}</m></p>
+  <p><m>&amp;= 1 - \frac{s_{\text{residuals}}^2 / (n-k-1)}</m></p>
+  <p><m>{s_{\text{outcome}}^2 / (n-1)} = 1 - \frac{s_{\text{residuals}}^2}{s_{\text{outcome}}^2}</m></p>
+  <p><m>\times \frac{n-1}{n-k-1}</m></p>
 
   <p>where <m>n</m> is the number of observations used to fit the model and <m>k</m> is the number of predictor variables in the model.</p>
 
@@ -534,13 +522,9 @@ R^2 = 1 - \frac{\text{variability in residuals}}{\text{variability in the outcom
 
 </assemblage>
 
-<p>Because <m>k</m> is never negative, the adjusted <m>R^2</m> will be smaller -- often times just a little smaller -- than the unadjusted <m>R^2</m>.</p>
-
-<p>The reasoning behind the adjusted <m>R^2</m> lies in the <alert>degrees of freedom</alert> associated with each variance, which is equal to <m>n - k - 1</m> in the multiple regression context.</p>
-
-<p>If we were to make predictions for <em>new data</em> using our current model, we would find that the unadjusted <m>R^2</m> would tend to be slightly overly optimistic, while the adjusted <m>R^2</m> formula helps correct this bias.</p>
-
-
+<p>Because <m>k</m> is never negative, the adjusted <m>R^2</m> will be smaller -- often times just a little smaller -- than the unadjusted <m>R^2</m>.
+The reasoning behind the adjusted <m>R^2</m> lies in the <alert>degrees of freedom</alert> associated with each variance, which is equal to <m>n - k - 1</m> in the multiple regression context.
+If we were to make predictions for <em>new data</em> using our current model, we would find that the unadjusted <m>R^2</m> would tend to be slightly overly optimistic, while the adjusted <m>R^2</m> formula helps correct this bias.</p>
 
 <exercise>
   <statement>
@@ -555,9 +539,6 @@ R^2 = 1 - \frac{\text{variability in residuals}}{\text{variability in the outcom
   </solution>
 </exercise>
 
-
-
-
 <exercise>
   <statement>
     <p>Suppose you added another predictor to the model, but the variance of the errors <m>Var(e_i)</m> didn't go down.</p>
@@ -570,26 +551,21 @@ R^2 = 1 - \frac{\text{variability in residuals}}{\text{variability in the outcom
   </solution>
 </exercise>
 
-<p>Adjusted <m>R^2</m> could also have been used in <xref ref="sec-model-slr" /> where we introduced regression models with a single predictor.</p>
-
-<p>However, when there is only <m>k = 1</m> predictors, adjusted <m>R^2</m> is very close to regular <m>R^2</m>, so this nuance isn't typically important when the model has only one predictor.</p>
+<p>Adjusted <m>R^2</m> could also have been used in <xref ref="sec-model-slr" /> where we introduced regression models with a single predictor.
+However, when there is only <m>k = 1</m> predictors, adjusted <m>R^2</m> is very close to regular <m>R^2</m>, so this nuance isn't typically important when the model has only one predictor.</p>
 
 </section>
 
 <section xml:id="sec-model-selection">
   <title>Model selection</title>
 
-<p>The best model is not always the most complicated.</p>
+<p>The best model is not always the most complicated.
+Sometimes including predictors that are not evidently important can actually reduce the accuracy of predictions.
+In this section, we discuss model selection strategies, which will help us eliminate predictors from the model that are found to be less important.
+It's common (and hip, at least in the statistical world) to refer to models that have undergone such predictor pruning as <alert>parsimonious</alert>.</p>
 
-<p>Sometimes including predictors that are not evidently important can actually reduce the accuracy of predictions.</p>
-
-<p>In this section, we discuss model selection strategies, which will help us eliminate predictors from the model that are found to be less important.</p>
-
-<p>It's common (and hip, at least in the statistical world) to refer to models that have undergone such predictor pruning as <alert>parsimonious</alert>.</p>
-
-<p>In practice, the model that includes all available predictors is often referred to as the <alert>full model</alert>.</p>
-
-<p>The full model may not be the best model, and if it isn't, we want to identify a smaller model that is preferable.</p>
+<p>In practice, the model that includes all available predictors is often referred to as the <alert>full model</alert>.
+The full model may not be the best model, and if it isn't, we want to identify a smaller model that is preferable.</p>
 
 <subsection xml:id="sec-stepwise-selection">
   <title>Stepwise selection</title>
@@ -602,19 +578,14 @@ R^2 = 1 - \frac{\text{variability in residuals}}{\text{variability in the outcom
 
 <p><alert>Forward selection</alert> is the reverse of the backward elimination technique.</p>
 
-<p>Instead, of eliminating predictors one-at-a-time, we add predictors one-at-a-time until we cannot find any predictors that improve the model any further.</p>
+<p>Instead, of eliminating predictors one-at-a-time, we add predictors one-at-a-time until we cannot find any predictors that improve the model any further.
+An important consideration in implementing either of these stepwise selection strategies is the criterion used to decide whether to eliminate or add a predictors.
+One commonly used decision criterion is adjusted <m>R^2</m>.
+When using adjusted <m>R^2</m> as the decision criterion, we seek to eliminate or add predictors depending on whether they lead to the largest improvement in adjusted <m>R^2</m> and we stop when adding or elimination of another predictor does not lead to further improvement in adjusted <m>R^2</m>.
+Adjusted <m>R^2</m> describes the strength of a model fit, and it is a useful tool for evaluating which predictors are adding value to the model, where <em>adding value</em> means they are (likely) improving the accuracy in predicting future outcomes.</p>
 
-<p>An important consideration in implementing either of these stepwise selection strategies is the criterion used to decide whether to eliminate or add a predictors.</p>
-
-<p>One commonly used decision criterion is adjusted <m>R^2</m>.</p>
-
-<p>When using adjusted <m>R^2</m> as the decision criterion, we seek to eliminate or add predictors depending on whether they lead to the largest improvement in adjusted <m>R^2</m> and we stop when adding or elimination of another predictor does not lead to further improvement in adjusted <m>R^2</m>.</p>
-
-<p>Adjusted <m>R^2</m> describes the strength of a model fit, and it is a useful tool for evaluating which predictors are adding value to the model, where <em>adding value</em> means they are (likely) improving the accuracy in predicting future outcomes.</p>
-
-<p>Let's consider two models, which are shown in <xref ref="tbl-loans-full-for-model-selection" /> and <xref ref="tbl-loans-full-except-issue-month" />.</p>
-
-<p>The first table summarizes the full model since it includes all predictors, while the second does not include the <c>issue_month</c> variable.</p>
+<p>Let's consider two models, which are shown in <xref ref="tbl-loans-full-for-model-selection" /> and <xref ref="tbl-loans-full-except-issue-month" />.
+The first table summarizes the full model since it includes all predictors, while the second does not include the <c>issue_month</c> variable.</p>
 
 <listing xml:id="tbl-loans-full-for-model-selection">
   <caption>The fit for the full regression model</caption>
@@ -854,13 +825,10 @@ m_full_minus_issue_month_w_rsq |>
 <subsection xml:id="sec-other-model-selection">
   <title>Other model selection strategies</title>
 
-<p>Stepwise selection using adjusted <m>R^2</m> as the decision criteria is one of many commonly used model selection strategies.</p>
-
-<p>Stepwise selection can also be carried out with decision criteria other than adjusted <m>R^2</m>, such as p-values, which you'll learn about in <xref ref="ch24-inference-linear-regression-single" /> onward, or AIC (Akaike information criterion) or BIC (Bayesian information criterion), which you might learn about in more advanced courses.</p>
-
-<p>Alternatively, one could choose to include or exclude predictors from a model based on expert opinion or due to research focus.</p>
-
-<p>In fact, many statisticians discourage the use of stepwise regression <em>alone</em> for model selection and advocate, instead, for a more thoughtful approach that carefully considers the research focus and features of the data.</p>
+<p>Stepwise selection using adjusted <m>R^2</m> as the decision criteria is one of many commonly used model selection strategies.
+Stepwise selection can also be carried out with decision criteria other than adjusted <m>R^2</m>, such as p-values, which you'll learn about in <xref ref="ch24-inference-linear-regression-single" /> onward, or AIC (Akaike information criterion) or BIC (Bayesian information criterion), which you might learn about in more advanced courses.
+Alternatively, one could choose to include or exclude predictors from a model based on expert opinion or due to research focus.
+In fact, many statisticians discourage the use of stepwise regression <em>alone</em> for model selection and advocate, instead, for a more thoughtful approach that carefully considers the research focus and features of the data.</p>
 
 </subsection>
 
@@ -872,15 +840,11 @@ m_full_minus_issue_month_w_rsq |>
 <subsection>
   <title>Summary</title>
 
-<p>With real data, there is often a need to describe how multiple variables can be modeled together.</p>
-
-<p>In this chapter, we have presented one approach using multiple linear regression.</p>
-
-<p>Each coefficient represents how the model predicts the outcome might change with one unit increase of that predictor <em>given</em> the rest of the predictor variables in the model.</p>
-
-<p>Working with and interpreting multivariable models can be tricky, especially when the predictor variables show multicollinearity.</p>
-
-<p>There is often no perfect or "right" final model, however, using the adjusted <m>R^2</m> value is one way to identify important predictor variables for a final regression model.</p>
+<p>With real data, there is often a need to describe how multiple variables can be modeled together.
+In this chapter, we have presented one approach using multiple linear regression.
+Each coefficient represents how the model predicts the outcome might change with one unit increase of that predictor <em>given</em> the rest of the predictor variables in the model.
+Working with and interpreting multivariable models can be tricky, especially when the predictor variables show multicollinearity.
+There is often no perfect or "right" final model, however, using the adjusted <m>R^2</m> value is one way to identify important predictor variables for a final regression model.</p>
 
 <p>In later chapters we will generalize multiple linear regression models to a larger population of interest from which the dataset was sampled.</p>
 

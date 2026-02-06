@@ -1279,4 +1279,13 @@
 
 </section>
 
+<section xml:id="sec-chp24-exercises">
+  <title>Exercises</title>
+
+<p>Answers to odd-numbered exercises can be found in <xref ref="sec-exercise-solutions-24" />.</p>
+
+<xi:include href="../exercises/_24-ex-inf-model-slr.ptx" />
+
+</section>
+
 </chapter>

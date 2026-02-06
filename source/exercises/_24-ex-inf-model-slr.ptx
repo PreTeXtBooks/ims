@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<exercises xml:id="exercises-24-inf-model-slr">
+
+  <exercise>
+    <title>Body measurements, randomization test</title>
+    <statement>
+      <p>Researchers studying anthropometry collected body and skeletal diameter measurements, as well as age, weight, height and sex for 507 physically active individuals. A linear model is built to predict height based on shoulder girth (circumference of shoulders measured over deltoid muscles), both measured in centimeters. <xref ref="Heinz-2003" /> Shown below are the linear model output for predicting height from shoulder girth and the histogram of slopes from 1,000 randomized datasets (1,000 times, <c>hgt</c> was permuted and regressed against <c>sho_gi</c>). The red vertical line is drawn at the observed slope value which was produced in the linear model output.</p>
+      <figure xml:id="fig-ex24-1-0">
+        <image source="images/exercises/_24-ex-inf-model-slr-1-0.png" width="90%"/>
+      </figure>
+      <figure xml:id="fig-ex24-1-1">
+        <image source="images/exercises/_24-ex-inf-model-slr-1-1.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>What are the null and alternative hypotheses for evaluating whether the slope of the model predicting height from shoulder girth is differen than 0.</li>
+        <li>Using the histogram which describes the distribution of slopes when the null hypothesis is true, find the p-value and conclude the hypothesis test in the context of the problem (use words like shoulder girth and height).</li>
+        <li>Is the conclusion based on the histogram of randomized slopes consistent with the conclusion from the mathematical model? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Baby's weight and father's age, randomization test</title>
+    <statement>
+      <p>US Department of Health and Human Services, Centers for Disease Control and Prevention collect information on births recorded in the country. The data used here are a random sample of 1000 births from 2014. Here, we study the relationship between the father's age and the weight of the baby. <xref ref="data-births14" /> Shown below are the linear model output for predicting baby's weight (in pounds) from father's age (in years) and the histogram of slopes from 1000 randomized datasets (1000 times, <c>weight</c> was permuted and regressed against <c>fage</c>). The red vertical line is drawn at the observed slope value which was produced in the linear model output.</p>
+      <figure xml:id="fig-ex24-2-2">
+        <image source="images/exercises/_24-ex-inf-model-slr-2-2.png" width="90%"/>
+      </figure>
+      <figure xml:id="fig-ex24-2-3">
+        <image source="images/exercises/_24-ex-inf-model-slr-2-3.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>What are the null and alternative hypotheses for evaluating whether the slope of the model for predicting baby's weight from father's age is different than 0?</li>
+        <li>Using the histogram which describes the distribution of slopes when the null hypothesis is true, find the p-value and conclude the hypothesis test in the context of the problem (use words like father's age and weight of baby). What does the conclusion of your test say about whether the father's age is a useful predictor of baby's weight?</li>
+        <li>Is the conclusion based on the histogram of randomized slopes consistent with the conclusion from the mathematical model? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Body measurements, mathematical test</title>
+    <statement>
+      <p>The scatterplot and least squares summary below show the relationship between weight measured in kilograms and height measured in centimeters of 507 physically active individuals. <xref ref="Heinz-2003" /></p>
+      <figure xml:id="fig-ex24-3-4">
+        <image source="images/exercises/_24-ex-inf-model-slr-3-4.png" width="90%"/>
+      </figure>
+      <figure xml:id="fig-ex24-3-5">
+        <image source="images/exercises/_24-ex-inf-model-slr-3-5.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>Describe the relationship between height and weight.</li>
+        <li>Write the equation of the regression line. Interpret the slope and intercept in context.</li>
+        <li>Do the data provide convincing evidence that the true slope parameter is different than 0? State the null and alternative hypotheses, report the p-value (using a mathematical model), and state your conclusion.</li>
+        <li>The correlation coefficient for height and weight is [correlation coefficient]. Calculate <m>R^2</m> and interpret it in context.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Baby's weight and father's age, mathematical test</title>
+    <statement>
+      <p>Is the father's age useful in predicting the baby's weight? The scatterplot and least squares summary below show the relationship between baby's weight (measured in pounds) and father's age for a random sample of babies. <xref ref="data-births14" /></p>
+      <figure xml:id="fig-ex24-4-6">
+        <image source="images/exercises/_24-ex-inf-model-slr-4-6.png" width="90%"/>
+      </figure>
+      <figure xml:id="fig-ex24-4-7">
+        <image source="images/exercises/_24-ex-inf-model-slr-4-7.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>What is the predicted weight of a baby whose father is 30 years old?</li>
+        <li>Do the data provide convincing evidence that the model for predicting baby weights from father's age has a slope different than 0? State the null and alternative hypotheses, report the p-value (using a mathematical model), and state your conclusion.</li>
+        <li>Based on your conclusion, is father's age a useful predictor of baby's weight?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Body measurements, bootstrap percentile interval</title>
+    <statement>
+      <p>In order to estimate the slope of the model predicting height based on shoulder girth (circumference of shoulders measured over deltoid muscles), 1,000 bootstrap samples are taken from a dataset of body measurements from 507 people. A linear model predicting height based on shoulder girth is fit to each bootstrap sample, and the slope is estimated. A histogram of these slopes is shown below. <xref ref="Heinz-2003" /></p>
+      <figure xml:id="fig-ex24-5-8">
+        <image source="images/exercises/_24-ex-inf-model-slr-5-8.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>Using the bootstrap percentile method and the histogram above, find a 98% confidence interval for the slope parameter.</li>
+        <li>Interpret the confidence interval in the context of the problem.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Baby's weight and father's age, bootstrap percentile interval</title>
+    <statement>
+      <p>US Department of Health and Human Services, Centers for Disease Control and Prevention collect information on births recorded in the country. The data used here are a random sample of 1000 births from 2014. Here, we study the relationship between the father's age and the weight of the baby. Below is the bootstrap distribution of the slope statistic from 1,000 different bootstrap samples of the data. <xref ref="data-births14" /></p>
+      <figure xml:id="fig-ex24-6-9">
+        <image source="images/exercises/_24-ex-inf-model-slr-6-9.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>Using the bootstrap percentile method and the histogram above, find a 95% confidence interval for the slope parameter.</li>
+        <li>Interpret the confidence interval in the context of the problem.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Body measurements, standard error bootstrap interval</title>
+    <statement>
+      <p>A linear model is built to predict height based on shoulder girth (circumference of shoulders measured over deltoid muscles), both measured in centimeters. <xref ref="Heinz-2003" /> Shown below are the linear model output for predicting height from shoulder girth and the bootstrap distribution of the slope statistic from 1,000 different bootstrap samples of the data.</p>
+      <figure xml:id="fig-ex24-7-10">
+        <image source="images/exercises/_24-ex-inf-model-slr-7-10.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>Using the histogram, approximate the standard error of the slope statistic (that is, quantify the variability of the slope statistic from sample to sample).</li>
+        <li>Find a 98% bootstrap SE confidence interval for the slope parameter.</li>
+        <li>Interpret the confidence interval in the context of the problem. [See figure _24-ex-inf-model-slr-7-11.png]</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Baby's weight and father's age, standard error bootstrap interval</title>
+    <statement>
+      <p>US Department of Health and Human Services, Centers for Disease Control and Prevention collect information on births recorded in the country. The data used here are a random sample of 1000 births from 2014. Here, we study the relationship between the father's age and the weight of the baby. <xref ref="data-births14" /> Shown below are the linear model output for predicting baby's weight (in pounds) from father's age (in years) and the the bootstrap distribution of the slope statistic from 1000 different bootstrap samples of the data.</p>
+      <figure xml:id="fig-ex24-8-12">
+        <image source="images/exercises/_24-ex-inf-model-slr-8-12.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>Using the histogram, approximate the standard error of the slope statistic (that is, quantify the variability of the slope statistic from sample to sample).</li>
+        <li>Find a 95% bootstrap SE confidence interval for the slope parameter.</li>
+        <li>Interpret the confidence interval in the context of the problem. [See figure _24-ex-inf-model-slr-8-13.png]</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Body measurements, conditions</title>
+    <statement>
+      <p>The scatterplot below shows the residuals (on the y-axis) from the linear model of weight vs. height from a dataset of body measurements from 507 physically active individuals. The x-axis is the height of the individuals, in cm. <xref ref="Heinz-2003" /></p>
+      <figure xml:id="fig-ex24-9-14">
+        <image source="images/exercises/_24-ex-inf-model-slr-9-14.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>For these data, <m>R^2</m> is [R-squared value]%. What is the value of the correlation coefficient? How can you tell if it is positive or negative? (Hint: you may need to look at a previous exercise.)</li>
+        <li>Examine the residual plot. What do you observe? Is a simple least squares fit appropriate for these data? Which of the LINE conditions are met or not met?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Baby's weight and father's age, conditions</title>
+    <statement>
+      <p>The scatterplot below shows the residuals (on the y-axis) from the linear model of baby's weight (measured in pounds) vs. father's age for a random sample of babies. Father's age is on the x-axis. <xref ref="data-births14" /></p>
+      <figure xml:id="fig-ex24-10-15">
+        <image source="images/exercises/_24-ex-inf-model-slr-10-15.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>For these data, <m>R^2</m> is [R-squared value]%. What is the value of the correlation coefficient? How can you tell if it is positive or negative? (Hint: you may need to look at a previous exercise.)</li>
+        <li>Examine the residual plot. What do you observe? Is a simple least squares fit appropriate for these data? Which of the LINE conditions are met or not met?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Murders and poverty, randomization test</title>
+    <statement>
+      <p>The following regression output is for predicting annual murders per million (<c>annual_murders_per_mil</c>) from percentage living in poverty (<c>perc_pov</c>) in a random sample of 20 metropolitan areas. Shown below are the linear model output for predicting annual murders per million from percentage living in poverty for metropolitan areas and the histogram of slopes from 1000 randomized datasets (1000 times, <c>annual_murders_per_mil</c> was permuted and regressed against <c>perc_pov</c>). The red vertical line is drawn at the observed slope value which was produced in the linear model output.</p>
+      <figure xml:id="fig-ex24-11-16">
+        <image source="images/exercises/_24-ex-inf-model-slr-11-16.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>What are the null and alternative hypotheses for evaluating whether the slope of the model for predicting annual murder rate from poverty percentage is different than 0?</li>
+        <li>Using the histogram which describes the distribution of slopes when the null hypothesis is true, find the p-value and conclude the hypothesis test in the context of the problem (use words like murder rate and poverty).</li>
+        <li>Is the conclusion based on the histogram of randomized slopes consistent with the conclusion which would have been obtained using the mathematical model? Explain your reasoning. [See figure _24-ex-inf-model-slr-11-17.png]</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Murders and poverty, mathematical test</title>
+    <statement>
+      <p>The table below shows the output of a linear model annual murders per million (<c>annual_murders_per_mil</c>) from percentage living in poverty (<c>perc_pov</c>) in a random sample of 20 metropolitan areas.</p>
+      <figure xml:id="fig-ex24-12-18">
+        <image source="images/exercises/_24-ex-inf-model-slr-12-18.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>What are the hypotheses for evaluating whether the slope of the model predicting annual murder rate from poverty percentage is different than 0?</li>
+        <li>State the conclusion of the hypothesis test from part (a) in context. What does this say about whether poverty percentage is a useful predictor of annual murder rate?</li>
+        <li>Calculate a 95% confidence interval for the slope of poverty percentage, and interpret it in context.</li>
+        <li>Do your results from the hypothesis test and the confidence interval agree? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Murders and poverty, bootstrap percentile interval</title>
+    <statement>
+      <p>Data on annual murders per million (<c>annual_murders_per_mil</c>) and percentage living in poverty (<c>perc_pov</c>) is collected from a random sample of 20 metropolitan areas. Using these data we want to estimate the slope of the model predicting <c>annual_murders_per_mil</c> from <c>perc_pov</c>. We take 1,000 bootstrap samples of the data and fit a linear model predicting <c>annual_murders_per_mil</c> from <c>perc_pov</c> to each bootstrap sample. A histogram of these slopes is shown below.</p>
+      <figure xml:id="fig-ex24-13-19">
+        <image source="images/exercises/_24-ex-inf-model-slr-13-19.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>Using the percentile bootstrap method and the histogram above, find a 90% confidence interval for the slope parameter.</li>
+        <li>Interpret the confidence interval in the context of the problem.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Murders and poverty, standard error bootstrap interval</title>
+    <statement>
+      <p>A linear model is built to predict annual murders per million (<c>annual_murders_per_mil</c>) from percentage living in poverty (<c>perc_pov</c>) in a random sample of 20 metropolitan areas. Shown below are the standard linear model output for predicting annual murders per million from percentage living in poverty for metropolitan areas and the bootstrap distribution of the slope statistic from 1000 different bootstrap samples of the data.</p>
+      <figure xml:id="fig-ex24-14-20">
+        <image source="images/exercises/_24-ex-inf-model-slr-14-20.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>Using the histogram, approximate the standard error of the slope statistic (that is, quantify the variability of the slope statistic from sample to sample).</li>
+        <li>Find a 90% bootstrap SE confidence interval for the slope parameter.</li>
+        <li>Interpret the confidence interval in the context of the problem.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Murders and poverty, conditions</title>
+    <statement>
+      <p>The scatterplot below shows the annual murders per million vs. percentage living in poverty in a random sample of 20 metropolitan areas. The second figure plots residuals on the y-axis and percent living in poverty on the x-axis.</p>
+      <figure xml:id="fig-ex24-15-21">
+        <image source="images/exercises/_24-ex-inf-model-slr-15-21.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>For these data, <m>R^2</m> is [R-squared value]%. What is the value of the correlation coefficient? How can you tell if it is positive or negative?</li>
+        <li>Examine the residual plot. What do you observe? Is a simple least squares fit appropriate for the data? Which of the LINE conditions are met or not met?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>I heart cats</title>
+    <statement>
+      <p>Researchers collected data on heart and body weights of 144 domestic adult cats. The table below shows the output of a linear model predicting heart weight (measured in grams) from body weight (measured in kilograms) of these cats.</p>
+      <figure xml:id="fig-ex24-16-22">
+        <image source="images/exercises/_24-ex-inf-model-slr-16-22.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>What are the hypotheses for evaluating whether body weight is positively associated with heart weight in cats?</li>
+        <li>State the conclusion of the hypothesis test from part (a) in context.</li>
+        <li>Calculate a 95% confidence interval for the slope of body weight, and interpret it in context.</li>
+        <li>Do your results from the hypothesis test and the confidence interval agree? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Beer and blood alcohol content</title>
+    <statement>
+      <p>Many people believe that weight, drinking habits, and many other factors are much more important in predicting blood alcohol content (BAC) than simply considering the number of drinks a person consumed. Here we examine data from sixteen student volunteers at Ohio State University who each drank a randomly assigned number of cans of beer. These students were evenly divided between men and women, and they differed in weight and drinking habits. Thirty minutes later, a police officer measured their blood alcohol content (BAC) in grams of alcohol per deciliter of blood. The scatterplot and regression table summarize the findings.</p>
+      <figure xml:id="fig-ex24-17-23">
+        <image source="images/exercises/_24-ex-inf-model-slr-17-23.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>Describe the relationship between the number of cans of beer and BAC.</li>
+        <li>Write the equation of the regression line. Interpret the slope and intercept in context.</li>
+        <li>Do the data provide convincing evidence that drinking more cans of beer is associated with an increase in blood alcohol? State the null and alternative hypotheses, report the p-value, and state your conclusion.</li>
+        <li>The correlation coefficient for number of cans of beer and BAC is [correlation coefficient]. Calculate <m>R^2</m> and interpret it in context.</li>
+        <li>Suppose we visit a bar in our own town, ask people how many drinks they have had, and also measure their BAC. Would the relationship between number of drinks and BAC would be as strong as the relationship found in the Ohio State study? Why?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Urban homeowners, conditions</title>
+    <statement>
+      <p>The scatterplot below shows the percent of families who own their home vs. the percent of the population living in urban areas. <xref ref="data-urbanOwner" /> There are 52 observations, each corresponding to a state in the US. Puerto Rico and District of Columbia are also included. The second figure plots residuals on the y-axis and percent of the population living in urban areas on the x-axis.</p>
+      <figure xml:id="fig-ex24-18-24">
+        <image source="images/exercises/_24-ex-inf-model-slr-18-24.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>For these data, <m>R^2</m> is [R-squared value]%. What is the value of the correlation coefficient? How can you tell if it is positive or negative?</li>
+        <li>Examine the residual plot. What do you observe? Is a simple least squares fit appropriate for the data? Which of the LINE conditions are met or not met?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>I heart cats, LINE conditions</title>
+    <statement>
+      <p>Researchers collected data on heart and body weights of 144 domestic adult cats. The figure below shows the output of the predicted values and residuals generated from a linear model predicting heart weight (measured in grams) from body weight (measured in kilograms) of these cats.</p>
+      <figure xml:id="fig-ex24-19-25">
+        <image source="images/exercises/_24-ex-inf-model-slr-19-25.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>Examine the residual plot. Notice that for the small predicted values the residuals have a smaller magnitude than the larger residuals seen with the larger predicted values. The change in magnitude of the residuals across the predicted values is an indication of violation of which LINE technical condition?</li>
+        <li>If the LINE condtion described in part (a) is violated, might it lead to an incorrect conclusion about the model (i.e., the least squares regression line itself), the inference of the model (i.e., the p-value associated with the least squares regression line), neither, or both? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Beer and blood alcohol content, LINE conditions</title>
+    <statement>
+      <p>The figure below shows the output of the predicted values and residuals generated from a linear model predicting the blood alcohol content (BAC) from number of cans of beer drunk by sixteen student volunteers at Ohio State University. <xref ref="Malkevitc-Lesser-2008" /></p>
+      <figure xml:id="fig-ex24-20-26">
+        <image source="images/exercises/_24-ex-inf-model-slr-20-26.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>Examine the residual plot. Notice that it is difficult to identify any convincing patterns for or against violation of the LINE technical conditions. What is it about the residual plot that makes it difficult to assess the LINE technical conditions?</li>
+        <li>Is there anything about the residual plot which would make you hesitate about using the linear model for inference about all students? Is there anything about the experimental design of the study which would make you hesitate about using the linear model for inference about all students?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+</exercises>

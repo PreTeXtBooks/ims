@@ -405,12 +405,10 @@
         <p>
           Conditions:
         </p>
-        <p>
-          <ul>
-            <li><p>Independent observations</p></li>
-            <li><p>Large samples: 5 expected counts in each cell</p></li>
-          </ul>
-        </p>
+        <ul>
+          <li><p>Independent observations</p></li>
+          <li><p>Large samples: 5 expected counts in each cell</p></li>
+        </ul>
       </assemblage>
 
       <p>

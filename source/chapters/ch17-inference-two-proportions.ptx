@@ -297,34 +297,38 @@
       
       <p>First, we require a broader independence condition, and secondly, the success-failure condition must be met by both groups.</p>
       
-      <p><alert>Conditions for the sampling distribution of</alert> <m>\hat{p}_1 -\hat{p}_2</m> <alert>to be normal.</alert></p>
-      
-      <p>The difference <m>\hat{p}_1 - \hat{p}_2</m> can be modeled using a normal distribution when</p>
-      
-      <ol>
-        <li><p><em>Independence</em> (extended). The data are independent within and between the two groups. Generally this is satisfied if the data come from two independent random samples or if the data come from a randomized experiment.</p></li>
-        <li><p><em>Success-failure condition.</em> The success-failure condition holds for both groups, where we check successes and failures in each group separately. That is, we should have at least 10 successes and 10 failures in each of the two groups.</p></li>
-      </ol>
-      
-      <p>When these conditions are satisfied, the standard error of <m>\hat{p}_1 - \hat{p}_2</m> is:</p>
-      
-      <p><me>SE(\hat{p}_1 - \hat{p}_2) = \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}
-      </me></p>
-      <p>where <m>p_1</m> and <m>p_2</m> represent the population proportions, and <m>n_1</m> and <m>n_2</m> represent the sample sizes.</p>
-      
-      <p>Note that in most cases, the standard error is approximated using the observed data:</p>
-      
-      <p><me>SE(\hat{p}_1 - \hat{p}_2) = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}
-      </me></p>
-      <p>where <m>\hat{p}_1</m> and <m>\hat{p}_2</m> represent the observed sample proportions, and <m>n_1</m> and <m>n_2</m> represent the sample sizes.</p>
+      <assemblage>
+        <title>Conditions for the sampling distribution of <m>\hat{p}_1 -\hat{p}_2</m> to be normal</title>
+        
+        <p>The difference <m>\hat{p}_1 - \hat{p}_2</m> can be modeled using a normal distribution when</p>
+        
+        <ol>
+          <li><p><em>Independence</em> (extended). The data are independent within and between the two groups. Generally this is satisfied if the data come from two independent random samples or if the data come from a randomized experiment.</p></li>
+          <li><p><em>Success-failure condition.</em> The success-failure condition holds for both groups, where we check successes and failures in each group separately. That is, we should have at least 10 successes and 10 failures in each of the two groups.</p></li>
+        </ol>
+        
+        <p>When these conditions are satisfied, the standard error of <m>\hat{p}_1 - \hat{p}_2</m> is:</p>
+        
+        <me>SE(\hat{p}_1 - \hat{p}_2) = \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}</me>
+        
+        <p>where <m>p_1</m> and <m>p_2</m> represent the population proportions, and <m>n_1</m> and <m>n_2</m> represent the sample sizes.</p>
+        
+        <p>Note that in most cases, the standard error is approximated using the observed data:</p>
+        
+        <me>SE(\hat{p}_1 - \hat{p}_2) = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}</me>
+        
+        <p>where <m>\hat{p}_1</m> and <m>\hat{p}_2</m> represent the observed sample proportions, and <m>n_1</m> and <m>n_2</m> represent the sample sizes.</p>
+      </assemblage>
       
       <p>Recall that the margin of error is defined by the standard error.</p>
       
       <p>The margin of error for <m>\hat{p}_1 - \hat{p}_2</m> can be directly obtained from <m>SE(\hat{p}_1 - \hat{p}_2).</m></p>
       
-      <p><alert>Margin of error for</alert> <m>\hat{p}_1 - \hat{p}_2.</m></p>
-      
-      <p>The margin of error is <m>z^\star \times \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}</m> where <m>z^\star</m> is calculated from a specified percentile on the normal distribution.</p>
+      <assemblage>
+        <title>Margin of error for <m>\hat{p}_1 - \hat{p}_2</m></title>
+        
+        <p>The margin of error is <m>z^\star \times \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}</m> where <m>z^\star</m> is calculated from a specified percentile on the normal distribution.</p>
+      </assemblage>
       
       <p><idx><h>standard error (SE)</h><h>difference in proportions</h></idx></p>
       
@@ -344,11 +348,14 @@
         <mrow>(\hat{p}_1 - \hat{p}_2) \amp \pm z^{\star} \times \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}</mrow>
       </md>
             
-      <p>
-        <alert>Standard error of the difference in two proportions,</alert> <m>\hat{p}_1 -\hat{p}_2.</m>
-        When the conditions for the normal model are are met, the <alert>variability</alert> of the difference in proportions, <m>\hat{p}_1 -\hat{p}_2,</m> is well described by:
-      </p>
-      <me>SE(\hat{p}_1 -\hat{p}_2) = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}</me>
+      <assemblage>
+        <title>Standard error of the difference in two proportions, <m>\hat{p}_1 -\hat{p}_2</m></title>
+        
+        <p>When the conditions for the normal model are met, the <alert>variability</alert> of the difference in proportions, <m>\hat{p}_1 -\hat{p}_2,</m> is well described by:</p>
+        
+        <me>SE(\hat{p}_1 -\hat{p}_2) = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}</me>
+      </assemblage>
+      
         <example>
         <statement>
         We reconsider the experiment for patients who underwent cardiopulmonary resuscitation (CPR) for a heart attack and were subsequently admitted to a hospital.

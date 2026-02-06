@@ -43,7 +43,7 @@ Complete the following computations under the null hypothesis of independence be
       <p>In order to assess whether habitat conditions are related to the sunlight choices a lizard makes for resting, Western fence lizard (<em>Sceloporus occidentalis</em>) were observed across three different microhabitats.
 <xref ref="Adolph-1990" /> <xref ref="Asbury-2007" /></p>
       <p><ol marker="a.">
-        <li><p>If the variables describing the habitat and the amount of sunlight are independent, what proporiton of lizards (total) would be expected in each of the three sunlight categories?</p></li>
+        <li><p>If the variables describing the habitat and the amount of sunlight are independent, what proportion of lizards (total) would be expected in each of the three sunlight categories?</p></li>
         <li><p>Given the proportions of each sunlight condition, how many lizards of each type would you expect to see in the sun?
 in the partial sun?
 in the shade?</p></li>
@@ -62,7 +62,7 @@ The number of current smokers in each group was reported as Asian-Indian (n = 22
 <xref ref="Rao-2021" /></p>
       <p>In order to assess whether there is a difference in current smoking rates across three Asian American ethnic groups, the observed data is compared to the data that would be expected if there were no association between the variables.</p>
       <p><ol marker="a.">
-        <li><p>If the variables on ethnicity and smoking status are independent, estimate the proporiton of individuals (total) who smoke?</p></li>
+        <li><p>If the variables on ethnicity and smoking status are independent, estimate the proportion of individuals (total) who smoke?</p></li>
         <li><p>Given the overall proportion who smoke, how many of each Asian American ethnicity would you expect to smoke?</p></li>
         <li><p>Compare the observed and expected counts.
 From a first glance, does it seem as though the Asian American ethnicity and choice of smoking may be associated?</p></li>
@@ -143,7 +143,7 @@ The distribution of lizards in each of the sites resting in the sun, partial sun
 When randomizing the data, is the imposed structure that the variables are independent or that the variables are associated?
 Explain.</p></li>
         <li><p>What is the (approximate) range of plausible values for the randomized Chi-squared statistic?</p></li>
-        <li><p>The observed Chi-squared statistic is <c>r obs_x2</c> (and seen in red on the graph).
+        <li><p>The observed Chi-squared statistic is <m>X^2_{\text{obs}}</m> (and seen in red on the graph).
 Does the observed value provide evidence against the null hypothesis?
 To answer the question, state the null and alternative hypotheses, approximate the p-value, and conclude the test in the context of the problem.</p></li>
         <li><p>If the alternative hypothesis is true, how does the sample size effect the ability to reject the null hypothesis?
@@ -192,7 +192,7 @@ For each false statement, suggest an alternative wording to make it a true state
 For each false statement, suggest an alternative wording to make it a true statement.</p>
       <p><ol marker="a.">
         <li><p>As the degrees of freedom increases, the mean of the Chi-square distribution increases.</p></li>
-        <li><p>If you found <m>\chi^2 = 10</m> with <m>df = 5</m> you would fail to reject <m>H_0</m> at the 5% discernibility level.</p></li>
+        <li><p>If you found <m>\chi^2 = 10</m> with <m>df = 5</m> you would fail to reject <m>H_0</m> at the 5% significance level.</p></li>
         <li><p>When finding the p-value of a Chi-square test, we always shade the tail areas in both tails.</p></li>
         <li><p>As the degrees of freedom increases, the variability of the Chi-square distribution decreases.</p></li>
       </ol></p>

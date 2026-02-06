@@ -3,7 +3,7 @@
 <exercises xml:id="exercises-07-model-slr">
 
   <exercise>
-    <title>Visualizing residuals.</title>
+    <title>Visualizing residuals</title>
     <statement>
       <p>The scatterplots shown below each have a superimposed regression line. If we were to construct a residual plot (residuals versus <m>x</m>) for each, describe in words what those plots would look like.</p>
       <figure xml:id="fig-ex07-01">
@@ -16,7 +16,7 @@
   </exercise>
 
   <exercise>
-    <title>Trends in residuals.</title>
+    <title>Trends in residuals</title>
     <statement>
       <p>Shown below are two plots of residuals remaining after fitting a linear model to two different sets of data. For each plot, describe important features and determine if a linear model would be appropriate for these data. Explain your reasoning.</p>
       <figure xml:id="fig-ex07-02">
@@ -29,7 +29,7 @@
   </exercise>
 
   <exercise>
-    <title>Identify relationships, I.</title>
+    <title>Identify relationships, I</title>
     <statement>
       <p>For each of the six plots, identify the strength of the relationship (e.g., weak, moderate, or strong) in the data and whether fitting a linear model would be reasonable.</p>
       <figure xml:id="fig-ex07-03">
@@ -42,7 +42,7 @@
   </exercise>
 
   <exercise>
-    <title>Identify relationships, II.</title>
+    <title>Identify relationships, II</title>
     <statement>
       <p>For each of the six plots, identify the strength of the relationship (e.g., weak, moderate, or strong) in the data and whether fitting a linear model would be reasonable.</p>
       <figure xml:id="fig-ex07-04">
@@ -55,7 +55,7 @@
   </exercise>
 
   <exercise>
-    <title>Midterms and final.</title>
+    <title>Midterms and final</title>
     <statement>
       <p>The two scatterplots below show the relationship between the overall course average and two midterm exams (Exam 1 and Exam 2) recorded for 233 students during several years for a statistics course at a university.<fn>The <c>exam_grades</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn></p>
       <figure xml:id="fig-ex07-05">
@@ -72,7 +72,7 @@
   </exercise>
 
   <exercise>
-    <title>Meat consumption and life expectancy.</title>
+    <title>Meat consumption and life expectancy</title>
     <statement>
       <p>In data collected for [You-2022], total meat intake is associated with life expectancy (at birth) in 175 countries. Meat intake is measured in kg per capita per year (averaged over 2011 to 2013). Additionally, the authors collected data on carbohydrate crops (e.g., cereals, root, sugar, etc.) in kg per capita per year (averaged over 2011 and 2013). The scatterplot on the left shows the life expectancy at birth plotted against the per capita meat consumption. The scatterplot on the right shows the amount of carbohydrate consumption plotted against the per capita meat consumption.</p>
       <figure xml:id="fig-ex07-06">
@@ -91,7 +91,7 @@
   </exercise>
 
   <exercise>
-    <title>Match the correlation, I.</title>
+    <title>Match the correlation, I</title>
     <statement>
       <p>Match each correlation to the corresponding scatterplot.<fn>The <c>corr_match</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn></p>
       <figure xml:id="fig-ex07-07">
@@ -110,7 +110,7 @@
   </exercise>
 
   <exercise>
-    <title>Match the correlation, II.</title>
+    <title>Match the correlation, II</title>
     <statement>
       <p>Match each correlation to the corresponding scatterplot.<fn>The <c>corr_match</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn></p>
       <figure xml:id="fig-ex07-08">
@@ -129,7 +129,7 @@
   </exercise>
 
   <exercise>
-    <title>Body measurements, correlation.</title>
+    <title>Body measurements, correlation</title>
     <statement>
       <p>Researchers studying anthropometry collected body and skeletal diameter measurements, as well as age, weight, height and sex for 507 physically active individuals. The scatterplot below shows the relationship between height and shoulder girth (circumference of shoulders measured over deltoid muscles), both measured in centimeters.<fn>The <c>bdims</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn> [[Heinz:2003]]</p>
       <figure xml:id="fig-ex07-09">
@@ -146,14 +146,14 @@
   </exercise>
 
   <exercise>
-    <title>Compare correlations.</title>
+    <title>Compare correlations</title>
     <statement>
       <p>Eduardo and Rosie are both collecting data on number of rainy days in a year and the total rainfall for the year. Eduardo records rainfall in inches and Rosie in centimeters. How will their correlation coefficients compare?</p>
     </statement>
   </exercise>
 
   <exercise>
-    <title>The Coast Starlight, correlation.</title>
+    <title>The Coast Starlight, correlation</title>
     <statement>
       <p>The Coast Starlight Amtrak train runs from Seattle to Los Angeles. The scatterplot below displays the distance between each stop (in miles) and the amount of time it takes to travel from one stop to another (in minutes).<fn>The <c>coast_starlight</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn></p>
       <figure xml:id="fig-ex07-11">
@@ -171,7 +171,7 @@
   </exercise>
 
   <exercise>
-    <title>Crawling babies, correlation.</title>
+    <title>Crawling babies, correlation</title>
     <statement>
       <p>A study conducted at the University of Denver investigated whether babies take longer to learn to crawl in cold months, when they are often bundled in clothes that restrict their movement, than in warmer months. Infants born during the study year were split into twelve groups, one for each birth month. We consider the average crawling age of babies in each group against the average temperature when the babies are six months old (that's when babies often begin trying to crawl). Temperature is measured in degrees Fahrenheit (F) and age is measured in weeks.<fn>The <c>babies_crawl</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn> [[Benson:1993]]</p>
       <figure xml:id="fig-ex07-12">
@@ -189,7 +189,7 @@
   </exercise>
 
   <exercise>
-    <title>Meat and carbohydrate consumption.</title>
+    <title>Meat and carbohydrate consumption</title>
     <statement>
       <p>What would be the correlation between the per capita meat consumption and per capita carbohydrate consumption if, for each country, people always consumed</p>
       <p><ol marker="1.">
@@ -201,11 +201,11 @@
   </exercise>
 
   <exercise>
-    <title>Graduate degrees and salaries.</title>
+    <title>Graduate degrees and salaries</title>
     <statement>
       <p>What would be the correlation between the annual salaries of people with and without a graduate degree at a company if, for a certain type of position, someone with a graduate degree always made</p>
       <p><ol marker="a.">
-        <li>\$5,000 more than those without a graduate degree?</li>
+        <li>$5,000 more than those without a graduate degree?</li>
         <li>25% more than those without a graduate degree?</li>
         <li>15% less than those without a graduate degree?</li>
       </ol></p>
@@ -213,7 +213,7 @@
   </exercise>
 
   <exercise>
-    <title>Units of regression.</title>
+    <title>Units of regression</title>
     <statement>
       <p>Consider a regression predicting the number of calories (cal) from width (cm) for a sample of square shaped chocolate brownies. What are the units of the correlation coefficient, the intercept, and the slope?</p>
     </statement>
@@ -227,21 +227,21 @@
   </exercise>
 
   <exercise>
-    <title>Over-under, I.</title>
+    <title>Over-under, I</title>
     <statement>
       <p>Suppose we fit a regression line to predict the shelf life of an apple based on its weight. For a particular apple, we predict the shelf life to be 4.6 days. The apple's residual is -0.6 days. Did we over or under estimate the shelf-life of the apple? Explain your reasoning.</p>
     </statement>
   </exercise>
 
   <exercise>
-    <title>Over-under, II.</title>
+    <title>Over-under, II</title>
     <statement>
       <p>Suppose we fit a regression line to predict the number of incidents of skin cancer per 1,000 people from the number of sunny days in a year. For a particular year, we predict the incidence of skin cancer to be 1.5 per 1,000 people, and the residual for this year is 0.5. Did we over or under estimate the incidence of skin cancer? Explain your reasoning.</p>
     </statement>
   </exercise>
 
   <exercise>
-    <title>Starbucks, calories, and protein.</title>
+    <title>Starbucks, calories, and protein</title>
     <statement>
       <p>The scatterplot below shows the relationship between the number of calories and amount of protein (in grams) Starbucks food menu items contain. Since Starbucks only lists the number of calories on the display items, we might be interested in predicting the amount of protein a menu item has based on its calorie content.<fn>The <c>starbucks</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn></p>
       <figure xml:id="fig-ex07-19">
@@ -260,7 +260,7 @@
   </exercise>
 
   <exercise>
-    <title>Starbucks, calories, and carbs.</title>
+    <title>Starbucks, calories, and carbs</title>
     <statement>
       <p>The scatterplot below shows the relationship between the number of calories and amount of carbohydrates (in grams) Starbucks food menu items contain. Since Starbucks only lists the number of calories on the display items, we might be interested in predicting the amount of carbs a menu item has based on its calorie content.<fn>The <c>starbucks</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn></p>
       <figure xml:id="fig-ex07-20">
@@ -279,7 +279,7 @@
   </exercise>
 
   <exercise>
-    <title>The Coast Starlight, regression.</title>
+    <title>The Coast Starlight, regression</title>
     <statement>
       <p>The Coast Starlight Amtrak train runs from Seattle to Los Angeles. The scatterplot below displays the distance between each stop (in miles) and the amount of time it takes to travel from one stop to another (in minutes). The mean travel time from one stop to the next on the Coast Starlight is 129 mins, with a standard deviation of 113 minutes. The mean distance traveled from one stop to the next is 108 miles with a standard deviation of 99 miles. The correlation between travel time and distance is 0.636.<fn>The <c>coast_starlight</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn></p>
       <figure xml:id="fig-ex07-21">
@@ -300,7 +300,7 @@
   </exercise>
 
   <exercise>
-    <title>Body measurements, regression.</title>
+    <title>Body measurements, regression</title>
     <statement>
       <p>Researchers studying anthropometry collected body and skeletal diameter measurements, as well as age, weight, height and sex for 507 physically active individuals. The scatterplot below shows the relationship between height and shoulder girth (circumference of shoulders measured over deltoid muscles), both measured in centimeters. The mean shoulder girth is 107.20 cm with a standard deviation of 10.37 cm. The mean height is 171.14 cm with a standard deviation of 9.41 cm. The correlation between height and shoulder girth is 0.67.<fn>The <c>bdims</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn> [[Heinz:2003]]</p>
       <figure xml:id="fig-ex07-22">
@@ -321,7 +321,7 @@
   </exercise>
 
   <exercise>
-    <title>Poverty and unemployment.</title>
+    <title>Poverty and unemployment</title>
     <statement>
       <p>The following scatterplot shows the relationship between percent of population below the poverty level (<c>poverty</c>) from unemployment rate among those ages 20-64 (<c>unemployment_rate</c>) in counties in the US, as provided by data from the 2019 American Community Survey. The regression output for the model for predicting <c>poverty</c> from <c>unemployment_rate</c> is also provided.<fn>The <c>county_2019</c> data used in this exercise can be found in the <alert>usdata</alert> R package.</fn></p>
       
@@ -369,7 +369,7 @@
   </exercise>
 
   <exercise>
-    <title>Cat weights.</title>
+    <title>Cat weights</title>
     <statement>
       <p>The following regression output is for predicting the heart weight (<c>Hwt</c>, in g) of cats from their body weight (<c>Bwt</c>, in kg). The coefficients are estimated using a dataset of 144 domestic cats.<fn>The <c>cats</c> data used in this exercise can be found in the <alert>MASS</alert> R package.</fn></p>
       
@@ -411,7 +411,7 @@
   </exercise>
 
   <exercise>
-    <title>Outliers, I.</title>
+    <title>Outliers, I</title>
     <statement>
       <p>Identify the outliers in the scatterplots shown below, and determine what type of outliers they are. Explain your reasoning.</p>
       <figure xml:id="fig-ex07-25">
@@ -424,7 +424,7 @@
   </exercise>
 
   <exercise>
-    <title>Outliers, II.</title>
+    <title>Outliers, II</title>
     <statement>
       <p>Identify the outliers in the scatterplots shown below and determine what type of outliers they are. Explain your reasoning.</p>
       <figure xml:id="fig-ex07-26">
@@ -437,7 +437,7 @@
   </exercise>
 
   <exercise>
-    <title>Urban homeowners, outliers.</title>
+    <title>Urban homeowners, outliers</title>
     <statement>
       <p>The scatterplot below shows the percent of families who own their home vs. the percent of the population living in urban areas. There are 52 observations, each corresponding to a state in the US. Puerto Rico and District of Columbia are also included.<fn>The <c>urban_owner</c> data used in this exercise can be found in the <alert>usdata</alert> R package.</fn></p>
       <figure xml:id="fig-ex07-27">
@@ -454,7 +454,7 @@
   </exercise>
 
   <exercise>
-    <title>Crawling babies, outliers.</title>
+    <title>Crawling babies, outliers</title>
     <statement>
       <p>A study conducted at the University of Denver investigated whether babies take longer to learn to crawl in cold months, when they are often bundled in clothes that restrict their movement, than in warmer months. The plot below shows the relationship between average crawling age of babies born in each month and the average temperature in the month when the babies are six months old. The plot reveals a potential outlying month when the average temperature is about 53F and average crawling age is about 28.5 weeks. Does this point have high leverage? Is it an influential point?<fn>The <c>babies_crawl</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn> [[Benson:1993]]</p>
       <figure xml:id="fig-ex07-28">
@@ -467,7 +467,7 @@
   </exercise>
 
   <exercise>
-    <title>True / False.</title>
+    <title>True / False</title>
     <statement>
       <p>Determine if the following statements are true or false. If false, explain why.</p>
       <p><ol marker="a.">
@@ -478,7 +478,7 @@
   </exercise>
 
   <exercise>
-    <title>Cherry trees.</title>
+    <title>Cherry trees</title>
     <statement>
       <p>The scatterplots below show the relationship between height, diameter, and volume of timber in 31 felled black cherry trees. The diameter of the tree is measured 4.5 feet above the ground.<fn>The <c>trees</c> data used in this exercise can be found in the <alert>datasets</alert> R package.</fn></p>
       <figure xml:id="fig-ex07-30">
@@ -496,7 +496,7 @@
   </exercise>
 
   <exercise>
-    <title>Match the correlation, III.</title>
+    <title>Match the correlation, III</title>
     <statement>
       <p>Match each correlation to the corresponding scatterplot.<fn>The <c>corr_match</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn></p>
       <figure xml:id="fig-ex07-31">
@@ -506,16 +506,16 @@
       </figure>
 
       <p><ol marker="a.">
-        <li>r = [computed value]</li>
-        <li>r = [computed value]</li>
-        <li>r = [computed value]</li>
-        <li>r = [computed value]</li>
+        <li>r = 0.69</li>
+        <li>r = 0.09</li>
+        <li>r = -0.91</li>
+        <li>r = 0.97</li>
       </ol></p>
     </statement>
   </exercise>
 
   <exercise>
-    <title>Helmets and lunches.</title>
+    <title>Helmets and lunches</title>
     <statement>
       <p>The scatterplot shows the relationship between socioeconomic status measured as the percentage of children in a neighborhood receiving reduced-fee lunches at school (<c>lunch</c>) and the percentage of bike riders in the neighborhood wearing helmets (<c>helmet</c>). The average percentage of children receiving reduced-fee lunches is [computed value]% with a standard deviation of [computed value]% and the average percentage of bike riders wearing helmets is [computed value]% with a standard deviation of [computed value]%.</p>
       <figure xml:id="fig-ex07-32">

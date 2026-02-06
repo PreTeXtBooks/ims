@@ -383,6 +383,37 @@
           Scary Movies Are The Best Investment In Hollywood.
           <url href="http://www.openintro.org/redirect.php?go=textbook-fivethirtyeight-scary-movies">http://www.openintro.org/redirect.php?go=textbook-fivethirtyeight-scary-movies</url>
         </biblio>
+        
+        <biblio type="raw" xml:id="pewclimatechange2021">
+          Pew Research Center (2021).
+          How Americans' attitudes about climate change differ by generation, party and other factors, data collected April 20 to 29, 2021.
+          <url href="https://www.openintro.org/go?id=textbook-pew-2021-climate-change">https://www.openintro.org/go?id=textbook-pew-2021-climate-change</url>
+        </biblio>
+        
+        <biblio type="raw" xml:id="Adolph-1990">
+          Adolph, S. C. (1990).
+          Influence of behavioral thermoregulation on microhabitat use by two <em>Sceloporus</em> lizards.
+          <em>Ecology</em>, 71:315-327.
+        </biblio>
+        
+        <biblio type="raw" xml:id="Asbury-2007">
+          Asbury, D. A. and Adolph, S. C. (2007).
+          Behavioral plasticity in an ecological generalist: microhabitat use by western fence lizards.
+          <em>Evolutionary Ecology Research</em>, 9:801-815.
+        </biblio>
+        
+        <biblio type="raw" xml:id="Rao-2021">
+          Rao, M., Bar, L., Yu, Y., Srinivasan, M., Mukherjea, A., Li, J., Chung, S., Venkatraman, S., Dan, S., and Palaniappan, L. (2021).
+          Disaggregating Asian American Cigarette and Alternative Tobacco Product Use: Results from the National Health Interview Survey (NHIS) 2006–2018.
+          <em>Journal of Racial and Ethnic Health Disparities</em>.
+          DOI: 10.1007/s40615-021-01024-5.
+        </biblio>
+        
+        <biblio type="raw" xml:id="data-sleepTransport">
+          National Sleep Foundation (2012).
+          Sleep in America Poll: Transportation Workers' Sleep.
+          <url href="http://www.openintro.org/redirect.php?go=textbook-trans_workers_sleep_2012">http://www.openintro.org/redirect.php?go=textbook-trans_workers_sleep_2012</url>
+        </biblio>
       </references>
     </backmatter>
   </book>

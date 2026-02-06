@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<chapter xml:id="ch18-inference-two-way-tables">
+<chapter xml:id="ch18-inference-two-way-tables" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Inference for two-way tables</title>
   
   <introduction>
@@ -595,8 +595,6 @@
       Answers to odd-numbered exercises can be found in Appendix ... />.
     </p>
 
-    <p>
-      [Exercise content would be included here from the external file _18-ex-inference-tables.qmd]
-    </p>
+    <xi:include href="../exercises/_18-ex-inference-tables.ptx" />
   </section>
 </chapter>

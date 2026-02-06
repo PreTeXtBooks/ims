@@ -524,7 +524,225 @@ make_terms_table(terms_chp_26)
 
 <p>Answers to odd-numbered exercises can be found in <xref ref="sec-exercise-solutions-26" />.</p>
 
-<!-- Exercises included from external file: exercises/_26-ex-inf-model-logistic.qmd -->
+<exercise xml:id="ex-26-1">
+  <statement>
+    <p>
+      <alert>Passing the driver's test.</alert> A consulting company is hired to assess whether certain characteristics of a DMV (e.g., location, number of test takers, number of test givers, hours of operation, etc.) are associated with the pass rate of the driver's test.
+      The company is given information on 100 randomly selected DMVs across the country.
+      For each DMV the annual driving test pass rate is recorded, along with other characteristics describing the DMV.
+      Can logistic regression with multiple predictors be used to predict annual driving test pass rate for DMVs in this setting?
+      Explain your reasoning.
+    </p>
+  </statement>
+</exercise>
+
+<exercise xml:id="ex-26-2">
+  <statement>
+    <p>
+      <alert>Oceans and skin cancer.</alert> A researcher wants to investigate the relationship between living within 10 miles of an ocean for at least one year of life and developing skin cancer before the age of 50.
+    </p>
+    <p>
+      <ol>
+        <li><p>Explain why logistic regression can be used to study the relationship between these two binary variables? What is the technical assumption describing the relationship between the response (outcome) and explanatory (predictor) variables?</p></li>
+        <li><p>What other methods covered in this text might be used to address the research question of interest? What advantages does logistic regression have over these methods?</p></li>
+      </ol>
+    </p>
+  </statement>
+</exercise>
+
+<exercise xml:id="ex-26-3">
+  <statement>
+    <p>
+      <alert>Marijuana use in college.</alert> Researchers studying whether the value systems of adolescents conflict with those of their parents asked 445 college students if they use marijuana.
+      They also asked the students' parents if they used marijuana when they were in college.
+      Based on the regression output shown below for predicting student drug use from parent drug use, evaluate whether parents' marijuana usage is a discernible predictor of their kids' marijuana usage.
+      State the hypotheses, the test statistics, the p-value, and the conclusion in context of the data and the research question.<fn>The <c>drug_use</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn>
+    </p>
+    <table>
+      <title>Logistic regression output for predicting student marijuana use from parent marijuana use</title>
+      <tabular>
+        <row bottom="minor">
+          <cell>term</cell>
+          <cell right="minor">estimate</cell>
+          <cell>std.error</cell>
+          <cell>statistic</cell>
+          <cell>p.value</cell>
+        </row>
+        <row>
+          <cell>(Intercept)</cell>
+          <cell right="minor">-3.912</cell>
+          <cell>0.365</cell>
+          <cell>-10.724</cell>
+          <cell>&lt;0.0001</cell>
+        </row>
+        <row>
+          <cell>parentsUsed</cell>
+          <cell right="minor">2.183</cell>
+          <cell>0.436</cell>
+          <cell>5.008</cell>
+          <cell>&lt;0.0001</cell>
+        </row>
+      </tabular>
+    </table>
+  </statement>
+</exercise>
+
+<exercise xml:id="ex-26-4">
+  <statement>
+    <p>
+      <alert>Treating heart attacks.</alert> Researchers studying the effectiveness of Sulfinpyrazone in the prevention of sudden death after a heart attack conducted a randomized experiment on 1,475 patients.
+      Based on the regression output shown below for predicting the outcome (<c>died</c> or <c>lived</c>, where success is defined as <c>lived</c>) from the treatment group (<c>control</c> and <c>treatment</c>), evaluate whether treatment group is a discernible predictor of the outcome.
+      State the hypotheses, the test statistics, the p-value, and the conclusion in context of the data and the research question.<fn>The <c>sulphinpyrazone</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn>
+    </p>
+    <table>
+      <title>Logistic regression output for predicting survival after heart attack</title>
+      <tabular>
+        <row bottom="minor">
+          <cell>term</cell>
+          <cell right="minor">estimate</cell>
+          <cell>std.error</cell>
+          <cell>statistic</cell>
+          <cell>p.value</cell>
+        </row>
+        <row>
+          <cell>(Intercept)</cell>
+          <cell right="minor">2.357</cell>
+          <cell>0.093</cell>
+          <cell>25.376</cell>
+          <cell>&lt;0.0001</cell>
+        </row>
+        <row>
+          <cell>grouptreatment</cell>
+          <cell right="minor">0.044</cell>
+          <cell>0.130</cell>
+          <cell>0.336</cell>
+          <cell>0.7367</cell>
+        </row>
+      </tabular>
+    </table>
+  </statement>
+</exercise>
+
+<exercise xml:id="ex-26-5">
+  <statement>
+    <p>
+      <alert>Possum classification, cross-validation.</alert> The common brushtail possum of the Australia region is a bit cuter than its distant cousin, the American opossum.
+      We consider 104 brushtail possums from two regions in Australia, where the possums may be considered a random sample from the population.
+      The first region is Victoria, which is in the eastern half of Australia and traverses the southern coast.
+      The second region consists of New South Wales and Queensland, which make up eastern and northeastern Australia.
+      We use logistic regression to differentiate between possums in these two regions.
+      The outcome variable, called <c>pop</c>, takes value 1 when a possum is from Victoria and 0 when it is from New South Wales or Queensland.<fn>The <c>possum</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn>
+    </p>
+    <p>
+      Two logistic regression models are fit using 4-fold cross-validation:
+    </p>
+    <p>
+      Model 1: <m>\log_e \left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 \times \text{tail_l}</m>
+    </p>
+    <p>
+      Model 2: <m>\log_e \left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 \times \text{total_l} + \beta_2 \times \text{sex}</m>
+    </p>
+    <p>
+      The confusion matrices for each fold are shown in the figures (referenced in the original exercise but not reproduced here in detail).
+    </p>
+    <p>
+      <ol>
+        <li><p>How many observations are in Fold2? Use the model with only tail length as a predictor variable. Of the observations in Fold2, how many of them were correctly predicted to be from Victoria? How many of them were incorrectly predicted to be from Victoria?</p></li>
+        <li><p>How many observations are used to build the model which predicts for the observations in Fold2?</p></li>
+        <li><p>For one of the cross-validation folds, how many coefficients were estimated for the model which uses tail length as a predictor? For one of the cross-validation folds, how many coefficients were estimated for the model which uses total length and sex as predictors?</p></li>
+      </ol>
+    </p>
+  </statement>
+</exercise>
+
+<exercise xml:id="ex-26-6">
+  <statement>
+    <p>
+      <alert>Premature babies, cross-validation.</alert> US Department of Health and Human Services, Centers for Disease Control and Prevention collect information on births recorded in the country.
+      The data used here are a random sample of 1000 births from 2014 (with some rows removed due to missing data).
+      We use logistic regression to model whether the baby is premature from various explanatory variables.<fn>The <c>births14</c> data used in this exercise can be found in the <alert>openintro</alert> R package.</fn>
+    </p>
+    <p>
+      Two logistic regression models are fit using 3-fold cross-validation:
+    </p>
+    <p>
+      Model 1: <m>\log_e \left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 \times \text{mage} + \beta_2 \times \text{weight} + \beta_3 \times \text{mature} + \beta_4 \times \text{visits} + \beta_5 \times \text{gained} + \beta_6 \times \text{habit}</m>
+    </p>
+    <p>
+      Model 2: <m>\log_e \left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 \times \text{weight} + \beta_2 \times \text{mature}</m>
+    </p>
+    <p>
+      The confusion matrices for each fold are shown in the figures (referenced in the original exercise but not reproduced here in detail).
+    </p>
+    <p>
+      <ol>
+        <li><p>How many observations are in Fold2? Use the model with only <c>weight</c> and <c>mature</c> as predictor variables. Of the observations in Fold2, how many of them were correctly predicted to be premature? How many of them were incorrectly predicted to be premature?</p></li>
+        <li><p>How many observations are used to build the model which predicts for the observations in Fold2?</p></li>
+        <li><p>In the original dataset, are most of the births premature or full term? Explain.</p></li>
+        <li><p>For one of the cross-validation folds, how many coefficients were estimated for the model which uses <c>mage</c>, <c>weight</c>, <c>mature</c>, <c>visits</c>, <c>gained</c>, and <c>habit</c> as predictors? For one of the cross-validation folds, how many coefficients were estimated for the model which uses <c>weight</c> and <c>mature</c> as predictors?</p></li>
+      </ol>
+    </p>
+  </statement>
+</exercise>
+
+<exercise xml:id="ex-26-7">
+  <statement>
+    <p>
+      <alert>Possum classification, cross-validation to choose model.</alert> In this exercise we consider 104 brushtail possums from two regions in Australia (the first region is Victoria and the second is New South Wales and Queensland), where the possums may be considered a random sample from the population.
+      We use logistic regression to classify the possums into the two regions.
+      The outcome variable, called <c>pop</c>, takes value 1 when a possum is from Victoria and 0 when it is from New South Wales or Queensland.
+    </p>
+    <p>
+      Two logistic regression models are fit using 4-fold cross-validation:
+    </p>
+    <p>
+      Model 1: <m>\log_e \left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 \times \text{tail_l}</m>
+    </p>
+    <p>
+      Model 2: <m>\log_e \left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 \times \text{total_l} + \beta_2 \times \text{sex}</m>
+    </p>
+    <p>
+      The confusion matrices for each fold are shown in the figures (referenced in the original exercise but not reproduced here in detail).
+    </p>
+    <p>
+      <ol>
+        <li><p>For the model with tail length, how many of the observations were correctly classified? What proportion of the observations were correctly classified?</p></li>
+        <li><p>For the model with total length and sex, how many of the observations were correctly classified? What proportion of the observations were correctly classified?</p></li>
+        <li><p>If you have to choose between using only tail length as a predictor versus using total length and sex as predictors (for classification into region), which model would you choose? Explain.</p></li>
+        <li><p>Given the predictions above, what third model might be preferable to either of the models above? Explain.</p></li>
+      </ol>
+    </p>
+  </statement>
+</exercise>
+
+<exercise xml:id="ex-26-8">
+  <statement>
+    <p>
+      <alert>Premature babies, cross-validation to choose model.</alert> US Department of Health and Human Services, Centers for Disease Control and Prevention collect information on births recorded in the country.
+      The data used here are a random sample of 1000 births from 2014 (with some rows removed due to missing data).
+      We use logistic regression to model whether the baby is premature from various explanatory variables.
+    </p>
+    <p>
+      Two logistic regression models are fit using 3-fold cross-validation:
+    </p>
+    <p>
+      Model 1: <m>\log_e \left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 \times \text{mage} + \beta_2 \times \text{weight} + \beta_3 \times \text{mature} + \beta_4 \times \text{visits} + \beta_5 \times \text{gained} + \beta_6 \times \text{habit}</m>
+    </p>
+    <p>
+      Model 2: <m>\log_e \left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 \times \text{weight} + \beta_2 \times \text{mature}</m>
+    </p>
+    <p>
+      The confusion matrices for each fold are shown in the figures (referenced in the original exercise but not reproduced here in detail).
+    </p>
+    <p>
+      <ol>
+        <li><p>For the model with 6 predictors, how many of the observations were correctly classified? What proportion of the observations were correctly classified?</p></li>
+        <li><p>For the model with 2 predictors, how many of the observations were correctly classified? What proportion of the observations were correctly classified?</p></li>
+        <li><p>If you have to choose between the model with 6 predictors and the model with 2 predictors (for predicting whether a baby will be premature), which model would you choose? Explain.</p></li>
+      </ol>
+    </p>
+  </statement>
+</exercise>
 
 </section>
 

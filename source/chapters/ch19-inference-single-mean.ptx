@@ -659,4 +659,10 @@ qt(0.95, df = 14)
     </subsection>
   </section>
 
+  <section xml:id="sec-chp19-exercises">
+    <title>Exercises</title>
+    <p>Answers to odd-numbered exercises can be found in <xref ref="sec-exercise-solutions-19" />.</p>
+    <xi:include href="../exercises/_19-ex-inference-one-mean.ptx" />
+  </section>
+
 </chapter>

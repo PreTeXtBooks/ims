@@ -509,7 +509,7 @@ logCV2 |&gt;
 <subsection xml:id="subsec-summary">
   <title>Summary</title>
 
-<p>Throughout the text, we have presented a modern view to introduction to statistics. Earlier, we presented graphical techniques which communicated relationships across multiple variables. We also used modeling to formalize the relationships. In <xref ref="sec-inf-model-logistic" /> we considered inferential claims on models which include many variables used to predict the probability of the outcome being a success. We continue to emphasize the importance of experimental design in making conclusions about research claims. In particular, recall that variability can come from different sources (e.g., random sampling vs. random allocation, see <xref ref="fig-randsampValloc" />).</p>
+<p>Throughout the text, we have presented a modern view to introduction to statistics. Earlier, we presented graphical techniques which communicated relationships across multiple variables. We also used modeling to formalize the relationships. In <xref ref="ch26-inference-logistic-regression" /> we considered inferential claims on models which include many variables used to predict the probability of the outcome being a success. We continue to emphasize the importance of experimental design in making conclusions about research claims. In particular, recall that variability can come from different sources (e.g., random sampling vs. random allocation, see <xref ref="fig-randsampValloc" />).</p>
 
 <p>As you might guess, this text has only scratched the surface of the world of statistical analyses that can be applied to different datasets. In particular, to do justice to the topic, the linear models and generalized linear models we have introduced can each be covered with their own course or book. Hierarchical models, alternative methods for fitting parameters (e.g., Ridge Regression or LASSO), and advanced computational methods applied to multivariable models (e.g., permuting the response variable? one explanatory variable? all the explanatory variables?) are all beyond the scope of this book. However, your successful understanding of the ideas we have covered has set you up perfectly to move on to a higher level of statistical modeling and inference. Enjoy!</p>
 
@@ -539,7 +539,7 @@ make_terms_table(terms_chp_26)
 <section xml:id="sec-chp26-exercises">
   <title>Exercises</title>
 
-<p>Answers to odd-numbered exercises can be found in <xref ref="sec-exercise-solutions-26" />.</p>
+<p>Answers to odd-numbered exercises can be found in ...</p>
 
 <exercise xml:id="ex-26-1">
   <statement>

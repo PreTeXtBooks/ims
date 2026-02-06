@@ -1734,7 +1734,7 @@ m_full |&gt;
         </table>
         
         <p>
-          The AIC of the full model is 458.5. We remove each variable one by one, refit the model, 
+          The AIC of the full model is 1863.5. We remove each variable one by one, refit the model, 
           and record the updated AIC.
         </p>
         
@@ -1749,18 +1749,18 @@ m_full |&gt;
               </p>
               <p>
                 <ul>
-                  <li><p>None Dropped: 458.5</p></li>
-                  <li><p>Drop <c>to_multiple</c>: 458.2</p></li>
-                  <li><p>Drop <c>cc</c>: 457.0</p></li>
-                  <li><p>Drop <c>attach</c>: 458.2</p></li>
-                  <li><p>Drop <c>dollar</c>: 459.9</p></li>
-                  <li><p>Drop <c>winner</c>: 463.1</p></li>
-                  <li><p>Drop <c>inherit</c>: 457.3</p></li>
-                  <li><p>Drop <c>password</c>: 459.2</p></li>
-                  <li><p>Drop <c>format</c>: 460.6</p></li>
-                  <li><p>Drop <c>re_subj</c>: 489.5</p></li>
-                  <li><p>Drop <c>exclaim_subj</c>: 458.3</p></li>
-                  <li><p>Drop <c>sent_email</c>: 467.9</p></li>
+                  <li><p>None Dropped: 1863.5</p></li>
+                  <li><p>Drop <c>to_multiple</c>: 2023.5</p></li>
+                  <li><p>Drop <c>cc</c>: 1863.2</p></li>
+                  <li><p>Drop <c>attach</c>: 1871.9</p></li>
+                  <li><p>Drop <c>dollar</c>: 1879.7</p></li>
+                  <li><p>Drop <c>winner</c>: 1885</p></li>
+                  <li><p>Drop <c>inherit</c>: 1865.5</p></li>
+                  <li><p>Drop <c>password</c>: 1879.3</p></li>
+                  <li><p>Drop <c>format</c>: 2008.9</p></li>
+                  <li><p>Drop <c>re_subj</c>: 1904.6</p></li>
+                  <li><p>Drop <c>exclaim_subj</c>: 1862.8</p></li>
+                  <li><p>Drop <c>sent_email</c>: 1958.2</p></li>
                 </ul>
               </p>
             </li>
@@ -1773,16 +1773,17 @@ m_full |&gt;
               </p>
               <p>
                 <ul>
-                  <li><p>None dropped: 457.0</p></li>
-                  <li><p>Drop <c>to_multiple</c>: 456.6</p></li>
-                  <li><p>Drop <c>attach</c>: 456.7</p></li>
-                  <li><p>Drop <c>dollar</c>: 458.5</p></li>
-                  <li><p>Drop <c>winner</c>: 461.8</p></li>
-                  <li><p>Drop <c>inherit</c>: 455.8</p></li>
-                  <li><p>Drop <c>password</c>: 457.7</p></li>
-                  <li><p>Drop <c>format</c>: 459.2</p></li>
-                  <li><p>Drop <c>re_subj</c>: 488.1</p></li>
-                  <li><p>Drop <c>sent_email</c>: 466.5</p></li>
+                  <li><p>None dropped: 1862.8</p></li>
+                  <li><p>Drop <c>to_multiple</c>: 2021.5</p></li>
+                  <li><p>Drop <c>cc</c>: 1862.4</p></li>
+                  <li><p>Drop <c>attach</c>: 1871.2</p></li>
+                  <li><p>Drop <c>dollar</c>: 1877.8</p></li>
+                  <li><p>Drop <c>winner</c>: 1885.2</p></li>
+                  <li><p>Drop <c>inherit</c>: 1864.8</p></li>
+                  <li><p>Drop <c>password</c>: 1878.4</p></li>
+                  <li><p>Drop <c>format</c>: 2007</p></li>
+                  <li><p>Drop <c>re_subj</c>: 1904.3</p></li>
+                  <li><p>Drop <c>sent_email</c>: 1957.3</p></li>
                 </ul>
               </p>
             </li>
@@ -1794,15 +1795,16 @@ m_full |&gt;
               </p>
               <p>
                 <ul>
-                  <li><p>None Dropped: 455.8</p></li>
-                  <li><p>Drop <c>to_multiple</c>: 455.5</p></li>
-                  <li><p>Drop <c>attach</c>: 455.5</p></li>
-                  <li><p>Drop <c>dollar</c>: 457.3</p></li>
-                  <li><p>Drop <c>winner</c>: 460.5</p></li>
-                  <li><p>Drop <c>password</c>: 456.5</p></li>
-                  <li><p>Drop <c>format</c>: 458.0</p></li>
-                  <li><p>Drop <c>re_subj</c>: 486.8</p></li>
-                  <li><p>Drop <c>sent_email</c>: 465.2</p></li>
+                  <li><p>None Dropped: 1862.4</p></li>
+                  <li><p>Drop <c>to_multiple</c>: 2019.6</p></li>
+                  <li><p>Drop <c>attach</c>: 1871.2</p></li>
+                  <li><p>Drop <c>dollar</c>: 1877.7</p></li>
+                  <li><p>Drop <c>winner</c>: 1885</p></li>
+                  <li><p>Drop <c>inherit</c>: 1864.5</p></li>
+                  <li><p>Drop <c>password</c>: 1878.2</p></li>
+                  <li><p>Drop <c>format</c>: 2007.4</p></li>
+                  <li><p>Drop <c>re_subj</c>: 1902.9</p></li>
+                  <li><p>Drop <c>sent_email</c>: 1957.6</p></li>
                 </ul>
               </p>
             </li>

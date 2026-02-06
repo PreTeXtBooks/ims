@@ -399,7 +399,7 @@ terms_chp_05 <- c(terms_chp_05, "data density")
 
 Histograms are especially convenient for understanding the shape of the data distribution.
 @fig-loan50IntRateHist suggests that most loans have rates under 15%, while only a handful of loans have rates above 20%.
-When the distribution of a variable trails off to the right in this way and has a longer right **tail**\index{tail}, the shape is said to be **right skewed**\index{right skewed}.[^05-explore-numerical-5]
+When the distribution of a variable trails off to the right in this way and has a longer right **tail**\index{tail}, the shape is said to be **right skewed**\index{right skewed}.
 
 ```{r}
 #| label: fig-loan50IntRateDensity
@@ -660,7 +660,9 @@ Using @fig-severalDiffDistWithSdOf1 as an example, explain why such a descriptio
 #|   interest rates within 1 standard deviation of the mean, and 48 of the 50
 #|   loans (96%) had rates within 2 standard deviations. Usually about 68% of
 #|   the data are within 1 standard deviation of the mean and 95% within 2
-#|   standard deviations, though this is far from a hard rule.
+#|   standard deviations, though this is far from a hard rule. See also
+#|   @fig-severalDiffDistWithSdOf1 for more examples of how the empirical
+#|   rule applies to different distribution shapes.
 #| fig-alt: |
 #|   A histogram of the right-skewed variable, interest rates. Grey
 #|   shading indicates the empirical rule cutoffs of one and two standard
@@ -932,7 +934,7 @@ terms_chp_05 <- c(terms_chp_05, "outlier", "whiskers")
 **Outliers are extreme.**
 
 An **outlier** is an observation that appears extreme relative to the rest of the data.
-Examining data for outliers serves many useful purposes, including
+Examining data for outliers serves many useful purposes, including:
 
 -   identifying strong skew \index{strong skew} in the distribution,
 -   identifying possible data collection or data entry errors, and

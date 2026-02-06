@@ -1052,6 +1052,61 @@ glm(pop ~ sex + head_l + skull_w + total_l + tail_l,
           </program>
         </listing>
         
+        <table xml:id="tbl-possum-full-model">
+          <title>Summary table for the full logistic regression model for possum classification.</title>
+          <tabular>
+            <row header="yes">
+              <cell>term</cell>
+              <cell>estimate</cell>
+              <cell>std.error</cell>
+              <cell>statistic</cell>
+              <cell>p.value</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>-77.28</cell>
+              <cell>18.95</cell>
+              <cell>-4.08</cell>
+              <cell><m>&lt;0.0001</m></cell>
+            </row>
+            <row>
+              <cell>sexmale</cell>
+              <cell>-0.54</cell>
+              <cell>0.61</cell>
+              <cell>-0.88</cell>
+              <cell>0.3777</cell>
+            </row>
+            <row>
+              <cell>head_l</cell>
+              <cell>0.16</cell>
+              <cell>0.09</cell>
+              <cell>1.87</cell>
+              <cell>0.0610</cell>
+            </row>
+            <row>
+              <cell>skull_w</cell>
+              <cell>0.32</cell>
+              <cell>0.16</cell>
+              <cell>2.01</cell>
+              <cell>0.0443</cell>
+            </row>
+            <row>
+              <cell>total_l</cell>
+              <cell>0.25</cell>
+              <cell>0.10</cell>
+              <cell>2.48</cell>
+              <cell>0.0132</cell>
+            </row>
+            <row>
+              <cell>tail_l</cell>
+              <cell>0.45</cell>
+              <cell>0.19</cell>
+              <cell>2.35</cell>
+              <cell>0.0188</cell>
+            </row>
+          </tabular>
+        </table>
+        
         <!-- Reduced model table -->
         <listing xml:id="list-possum-reduced-model">
           <caption>Reduced logistic regression model without head_l</caption>
@@ -1064,6 +1119,54 @@ glm(pop ~ sex + skull_w + total_l + tail_l,
             </input>
           </program>
         </listing>
+        
+        <table xml:id="tbl-possum-reduced-model">
+          <title>Summary table for the reduced logistic regression model for possum classification.</title>
+          <tabular>
+            <row header="yes">
+              <cell>term</cell>
+              <cell>estimate</cell>
+              <cell>std.error</cell>
+              <cell>statistic</cell>
+              <cell>p.value</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>-62.23</cell>
+              <cell>16.31</cell>
+              <cell>-3.82</cell>
+              <cell>0.0001</cell>
+            </row>
+            <row>
+              <cell>sexmale</cell>
+              <cell>-0.51</cell>
+              <cell>0.60</cell>
+              <cell>-0.85</cell>
+              <cell>0.3954</cell>
+            </row>
+            <row>
+              <cell>skull_w</cell>
+              <cell>0.33</cell>
+              <cell>0.16</cell>
+              <cell>2.09</cell>
+              <cell>0.0362</cell>
+            </row>
+            <row>
+              <cell>total_l</cell>
+              <cell>0.26</cell>
+              <cell>0.10</cell>
+              <cell>2.48</cell>
+              <cell>0.0130</cell>
+            </row>
+            <row>
+              <cell>tail_l</cell>
+              <cell>0.43</cell>
+              <cell>0.18</cell>
+              <cell>2.37</cell>
+              <cell>0.0178</cell>
+            </row>
+          </tabular>
+        </table>
         
         <p>
           <ol marker="a.">
@@ -1115,6 +1218,72 @@ orings |&gt;
           </program>
         </listing>
         
+        <table xml:id="tbl-orings-data-1">
+          <title>O-Ring Damage Data: Space Shuttle Missions 1-12</title>
+          <tabular halign="center">
+            <row header="yes">
+              <cell>Mission</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+              <cell>7</cell>
+              <cell>8</cell>
+              <cell>9</cell>
+              <cell>10</cell>
+              <cell>11</cell>
+              <cell>12</cell>
+            </row>
+            <row>
+              <cell>Temperature <m>(\degree\text{F})</m></cell>
+              <cell>66</cell>
+              <cell>70</cell>
+              <cell>69</cell>
+              <cell>68</cell>
+              <cell>67</cell>
+              <cell>72</cell>
+              <cell>73</cell>
+              <cell>70</cell>
+              <cell>57</cell>
+              <cell>63</cell>
+              <cell>70</cell>
+              <cell>78</cell>
+            </row>
+            <row>
+              <cell>Damaged</cell>
+              <cell>0</cell>
+              <cell>1</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>1</cell>
+              <cell>1</cell>
+              <cell>1</cell>
+              <cell>0</cell>
+            </row>
+            <row>
+              <cell>Undamaged</cell>
+              <cell>6</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>5</cell>
+              <cell>5</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+            </row>
+          </tabular>
+        </table>
+        
         <listing xml:id="list-orings-data-2">
           <caption>O-ring data (missions 13-23)</caption>
           <program language="r">
@@ -1125,6 +1294,68 @@ orings |&gt;
             </input>
           </program>
         </listing>
+        
+        <table xml:id="tbl-orings-data-2">
+          <title>O-Ring Damage Data: Space Shuttle Missions 13-23</title>
+          <tabular halign="center">
+            <row header="yes">
+              <cell>Mission</cell>
+              <cell>13</cell>
+              <cell>14</cell>
+              <cell>15</cell>
+              <cell>16</cell>
+              <cell>17</cell>
+              <cell>18</cell>
+              <cell>19</cell>
+              <cell>20</cell>
+              <cell>21</cell>
+              <cell>22</cell>
+              <cell>23</cell>
+            </row>
+            <row>
+              <cell>Temperature <m>(\degree\text{F})</m></cell>
+              <cell>67</cell>
+              <cell>53</cell>
+              <cell>67</cell>
+              <cell>75</cell>
+              <cell>70</cell>
+              <cell>81</cell>
+              <cell>76</cell>
+              <cell>79</cell>
+              <cell>75</cell>
+              <cell>76</cell>
+              <cell>58</cell>
+            </row>
+            <row>
+              <cell>Damaged</cell>
+              <cell>0</cell>
+              <cell>2</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>1</cell>
+            </row>
+            <row>
+              <cell>Undamaged</cell>
+              <cell>6</cell>
+              <cell>4</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>5</cell>
+            </row>
+          </tabular>
+        </table>
         
         <!-- Logistic regression model -->
         <listing xml:id="list-orings-model">
@@ -1142,6 +1373,33 @@ orings |&gt;
             </input>
           </program>
         </listing>
+        
+        <table xml:id="tbl-orings-model">
+          <title>Logistic Regression Model: O-Ring Damage vs. Launch Temperature</title>
+          <tabular>
+            <row header="yes">
+              <cell>term</cell>
+              <cell>estimate</cell>
+              <cell>std.error</cell>
+              <cell>statistic</cell>
+              <cell>p.value</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>7.49</cell>
+              <cell>3.46</cell>
+              <cell>2.17</cell>
+              <cell>0.0302</cell>
+            </row>
+            <row>
+              <cell>temperature</cell>
+              <cell>-0.16</cell>
+              <cell>0.06</cell>
+              <cell>-2.87</cell>
+              <cell>0.0041</cell>
+            </row>
+          </tabular>
+        </table>
         
         <p>
           <ol marker="a.">
@@ -1198,6 +1456,54 @@ openintro::possum |&gt;
             </input>
           </program>
         </listing>
+        
+        <table xml:id="tbl-possum-prediction-model">
+          <title>Summary table for the logistic regression model for possum classification and prediction.</title>
+          <tabular>
+            <row header="yes">
+              <cell>term</cell>
+              <cell>estimate</cell>
+              <cell>std.error</cell>
+              <cell>statistic</cell>
+              <cell>p.value</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>-62.23</cell>
+              <cell>16.31</cell>
+              <cell>-3.82</cell>
+              <cell>0.0001</cell>
+            </row>
+            <row>
+              <cell>sexmale</cell>
+              <cell>-0.51</cell>
+              <cell>0.60</cell>
+              <cell>-0.85</cell>
+              <cell>0.3954</cell>
+            </row>
+            <row>
+              <cell>skull_w</cell>
+              <cell>0.33</cell>
+              <cell>0.16</cell>
+              <cell>2.09</cell>
+              <cell>0.0362</cell>
+            </row>
+            <row>
+              <cell>total_l</cell>
+              <cell>0.26</cell>
+              <cell>0.10</cell>
+              <cell>2.48</cell>
+              <cell>0.0130</cell>
+            </row>
+            <row>
+              <cell>tail_l</cell>
+              <cell>0.43</cell>
+              <cell>0.18</cell>
+              <cell>2.37</cell>
+              <cell>0.0178</cell>
+            </row>
+          </tabular>
+        </table>
         
         <p>
           <ol marker="a.">
@@ -1256,6 +1562,11 @@ orings |&gt;
             </input>
           </program>
         </listing>
+        
+        <figure xml:id="fig-challenger-orings">
+          <caption>Observed proportion of O-ring damage vs. launch temperature for 23 space shuttle missions.</caption>
+          <image source="images/fig-challenger-orings-1.png" width="70%" />
+        </figure>
         
         <p>
           <ol marker="a.">
@@ -1324,6 +1635,103 @@ m_full |&gt;
             </input>
           </program>
         </listing>
+        
+        <table xml:id="tbl-spam-full-model">
+          <title>Summary table for the full logistic regression model for spam filtering.</title>
+          <tabular>
+            <row header="yes">
+              <cell>term</cell>
+              <cell>estimate</cell>
+              <cell>std.error</cell>
+              <cell>statistic</cell>
+              <cell>p.value</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>-0.69</cell>
+              <cell>0.09</cell>
+              <cell>-7.42</cell>
+              <cell><m>&lt;0.0001</m></cell>
+            </row>
+            <row>
+              <cell>to_multiple1</cell>
+              <cell>-2.82</cell>
+              <cell>0.31</cell>
+              <cell>-9.05</cell>
+              <cell><m>&lt;0.0001</m></cell>
+            </row>
+            <row>
+              <cell>cc</cell>
+              <cell>0.03</cell>
+              <cell>0.02</cell>
+              <cell>1.41</cell>
+              <cell>0.1585</cell>
+            </row>
+            <row>
+              <cell>attach</cell>
+              <cell>0.28</cell>
+              <cell>0.08</cell>
+              <cell>3.44</cell>
+              <cell>6e-04</cell>
+            </row>
+            <row>
+              <cell>dollar</cell>
+              <cell>-0.08</cell>
+              <cell>0.02</cell>
+              <cell>-3.45</cell>
+              <cell>6e-04</cell>
+            </row>
+            <row>
+              <cell>winneryes</cell>
+              <cell>1.72</cell>
+              <cell>0.34</cell>
+              <cell>5.09</cell>
+              <cell><m>&lt;0.0001</m></cell>
+            </row>
+            <row>
+              <cell>inherit</cell>
+              <cell>0.32</cell>
+              <cell>0.15</cell>
+              <cell>2.10</cell>
+              <cell>0.0355</cell>
+            </row>
+            <row>
+              <cell>password</cell>
+              <cell>-0.79</cell>
+              <cell>0.30</cell>
+              <cell>-2.64</cell>
+              <cell>0.0083</cell>
+            </row>
+            <row>
+              <cell>format1</cell>
+              <cell>-1.50</cell>
+              <cell>0.13</cell>
+              <cell>-12.01</cell>
+              <cell><m>&lt;0.0001</m></cell>
+            </row>
+            <row>
+              <cell>re_subj1</cell>
+              <cell>-1.92</cell>
+              <cell>0.38</cell>
+              <cell>-5.10</cell>
+              <cell><m>&lt;0.0001</m></cell>
+            </row>
+            <row>
+              <cell>exclaim_subj</cell>
+              <cell>0.26</cell>
+              <cell>0.23</cell>
+              <cell>1.14</cell>
+              <cell>0.2531</cell>
+            </row>
+            <row>
+              <cell>sent_email1</cell>
+              <cell>-16.67</cell>
+              <cell>293.19</cell>
+              <cell>-0.06</cell>
+              <cell>0.9547</cell>
+            </row>
+          </tabular>
+        </table>
         
         <p>
           The AIC of the full model is 458.5. We remove each variable one by one, refit the model, 
@@ -1425,6 +1833,54 @@ glm(spam ~ to_multiple + winner + format + re_subj,
           </program>
         </listing>
         
+        <table xml:id="tbl-spam-prediction-model">
+          <title>Summary table for the reduced logistic regression model for spam prediction.</title>
+          <tabular>
+            <row header="yes">
+              <cell>term</cell>
+              <cell>estimate</cell>
+              <cell>std.error</cell>
+              <cell>statistic</cell>
+              <cell>p.value</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>-2.46</cell>
+              <cell>0.08</cell>
+              <cell>-29.90</cell>
+              <cell><m>&lt;0.0001</m></cell>
+            </row>
+            <row>
+              <cell>to_multiple1</cell>
+              <cell>0.74</cell>
+              <cell>0.13</cell>
+              <cell>5.56</cell>
+              <cell><m>&lt;0.0001</m></cell>
+            </row>
+            <row>
+              <cell>winneryes</cell>
+              <cell>2.51</cell>
+              <cell>0.13</cell>
+              <cell>19.13</cell>
+              <cell><m>&lt;0.0001</m></cell>
+            </row>
+            <row>
+              <cell>format1</cell>
+              <cell>-0.81</cell>
+              <cell>0.13</cell>
+              <cell>-6.26</cell>
+              <cell><m>&lt;0.0001</m></cell>
+            </row>
+            <row>
+              <cell>re_subj1</cell>
+              <cell>0.37</cell>
+              <cell>0.13</cell>
+              <cell>2.80</cell>
+              <cell>0.0051</cell>
+            </row>
+          </tabular>
+        </table>
+        
         <p>
           <ol marker="a.">
             <li>
@@ -1492,6 +1948,28 @@ bind_rows(
             </input>
           </program>
         </listing>
+        
+        <table xml:id="tbl-possum-aic-comparison">
+          <title>Comparison of three logistic regression models for possum classification using AIC.</title>
+          <tabular>
+            <row header="yes">
+              <cell>formula</cell>
+              <cell>AIC</cell>
+            </row>
+            <row>
+              <cell>sex + head_l + skull_w + total_l + tail_l</cell>
+              <cell>89.5</cell>
+            </row>
+            <row>
+              <cell>sex + skull_w + total_l + tail_l</cell>
+              <cell>91.2</cell>
+            </row>
+            <row>
+              <cell>sex + head_l + total_l + tail_l</cell>
+              <cell>92.0</cell>
+            </row>
+          </tabular>
+        </table>
         
         <p>
           <ol marker="a.">

@@ -83,9 +83,28 @@ git commit -m "Update Chapter 1 exercise images with new plots"
 git push
 ```
 
+### Option 3: Use GitHub Web Interface
+
+If command-line download is problematic, you can use GitHub's web interface:
+
+1. Navigate to each image URL in your web browser
+2. Right-click and "Save Image As..."
+3. Save with the correct filename
+4. In GitHub, navigate to the PR branch
+5. Go to `source/images/exercises/`
+6. Click "Upload files" and drag/drop each PNG file
+7. GitHub will automatically create a commit
+
 ## Why Manual Replacement is Needed
 
-The development environment has network restrictions that prevent direct access to GitHub asset URLs. The images cannot be downloaded automatically during the automated workflow.
+The automated development environment has network restrictions that prevent direct access to GitHub asset URLs (specifically AWS S3 where GitHub stores attachments). The images cannot be downloaded automatically during the automated workflow.
+
+## Important Notes
+
+- The original image files exist and are functional
+- This PR provides the tools and instructions to update them with the new versions provided in the issue
+- No changes to source code (.ptx files) are required - only image files need to be replaced
+- The new images have already been created and uploaded to GitHub - they just need to be downloaded and committed
 
 ## Exercise References
 

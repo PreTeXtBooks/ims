@@ -697,6 +697,7 @@ ucla_textbooks_f18 |&gt;
 <exercise>
   <title>Using the histogram of bootstrapped difference in means, estimate the standard error of the mean of the sample differences, <m>\bar{x}_{diff}.</m></title>
   <statement>
+    <p>Using the histogram of bootstrapped difference in means, estimate the standard error of the mean of the sample differences, <m>\bar{x}_{diff}.</m></p>
   </statement>
   <solution>
     <p>The bootstrapped differences in sample means vary roughly from 0.7 to 7.5, a range of \$6.80.</p>
@@ -706,7 +707,7 @@ ucla_textbooks_f18 |&gt;
 </exercise>
 
 
-<p>The bootstrap SE interval is found by computing the SE of the bootstrapped differences <m>SE_{\overline{x}_{diff}} = \$1.64</m><m> and the normal multiplier of </m>z^{\star} = 2.58.<m> The averaged difference is </m>\bar{x} = \<m>3.58.</m> The 99% confidence interval is: <m>\</m>3.58 \pm 2.58 \times \<m> 1.64 = (\</m>-0.65, \<m>7.81).</m></p>
+<p>The bootstrap SE interval is found by computing the SE of the bootstrapped differences <m>SE_{\overline{x}_{diff}} = \$1.64</m> and the normal multiplier of <m>z^{\star} = 2.58.</m> The averaged difference is <m>\bar{x} = \$3.58.</m> The 99% confidence interval is: <m>\$3.58 \pm 2.58 \times \$1.64 = (\$-0.65, \$7.81).</m></p>
 
 
 <p>The confidence intervals seem to indicate that the UCLA bookstore price is, on average, higher than the Amazon price, as the majority of the confidence interval is positive. However, if the analysis required a strong degree of certainty (e.g., 99% confidence), and the bootstrap SE interval was most appropriate (given a second course in statistics the nuances of the methods can be investigated), the results of which bookseller is higher are not well determined (because the bootstrap SE interval overlaps zero). That is, the 99% bootstrap SE interval gives potential for UCLA bookstore to be lower, on average, than Amazon (because of the possible negative values for the true mean difference in price).</p>

@@ -476,10 +476,10 @@ births14 |&gt;
   <title>Four cases from the <c>births14</c> dataset. The empty cells indicate missing data.</title>
   <tabular>
     <row bottom="minor"><cell>fage</cell><cell>mage</cell><cell>weeks</cell><cell>visits</cell><cell>gained</cell><cell>weight</cell><cell>sexbaby</cell><cell>habit</cell></row>
-    <row><cell></cell><cell>13</cell><cell>39</cell><cell>10</cell><cell>38</cell><cell>7.63</cell><cell>male</cell><cell>nonsmoker</cell></row>
-    <row><cell></cell><cell>14</cell><cell>42</cell><cell>15</cell><cell>20</cell><cell>7.88</cell><cell>male</cell><cell>nonsmoker</cell></row>
-    <row><cell>19</cell><cell>15</cell><cell>37</cell><cell>11</cell><cell>38</cell><cell>6.63</cell><cell>female</cell><cell>nonsmoker</cell></row>
-    <row><cell>21</cell><cell>15</cell><cell>41</cell><cell>6</cell><cell>34</cell><cell>8.00</cell><cell>male</cell><cell>nonsmoker</cell></row>
+    <row><cell>34</cell><cell>34</cell><cell>37</cell><cell>14</cell><cell>28</cell><cell>6.96</cell><cell>male</cell><cell>nonsmoker</cell></row>
+    <row><cell>36</cell><cell>31</cell><cell>41</cell><cell>12</cell><cell>41</cell><cell>8.86</cell><cell>female</cell><cell>nonsmoker</cell></row>
+    <row><cell>37</cell><cell>36</cell><cell>37</cell><cell>10</cell><cell>28</cell><cell>7.51</cell><cell>female</cell><cell>nonsmoker</cell></row>
+    <row><cell>16</cell><cell>38</cell><cell></cell><cell></cell><cell>29</cell><cell>6.19</cell><cell>male</cell><cell>nonsmoker</cell></row>
   </tabular>
 </table>
 
@@ -552,8 +552,8 @@ births14_sample_stats |&gt;
   <title>Summary statistics for the <c>births14</c> dataset.</title>
   <tabular>
     <row bottom="minor"><cell>Habit</cell><cell>n</cell><cell>Mean</cell><cell>SD</cell></row>
-    <row><cell>nonsmoker</cell><cell>867</cell><cell>7.18</cell><cell>1.60</cell></row>
-    <row><cell>smoker</cell><cell>114</cell><cell>6.78</cell><cell>1.43</cell></row>
+    <row><cell>nonsmoker</cell><cell>867</cell><cell>7.27</cell><cell>1.23</cell></row>
+    <row><cell>smoker</cell><cell>114</cell><cell>6.68</cell><cell>1.60</cell></row>
   </tabular>
 </table>
 

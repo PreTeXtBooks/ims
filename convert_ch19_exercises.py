@@ -126,8 +126,14 @@ class QmdExerciseToPreTeXt:
                 i += 1
                 continue
             
+            # Skip Quarto layout directives
+            if line.strip().startswith('::::') or line.strip().startswith(':::'):
+                i += 1
+                continue
+            
             # Check for exercise start (e.g., "1.  **Parameters and statistics.**")
-            exercise_match = re.match(r'^(\d+)\.\s+\*\*(.+?)\.\*\*\s*(.*)', line)
+            # Handle cases where title might be split or have inline math after the **
+            exercise_match = re.match(r'^(\d+)\.\s+\*\*(.+?)\*\*\s*(.*)', line)
             
             if exercise_match:
                 # Save current subpart if exists
@@ -142,8 +148,26 @@ class QmdExerciseToPreTeXt:
                 
                 # Start new exercise
                 current_exercise_num = int(exercise_match.group(1))
-                exercise_title = exercise_match.group(2).strip()
-                first_line = exercise_match.group(3).strip()
+                title_part = exercise_match.group(2).strip()
+                after_title = exercise_match.group(3).strip()
+                
+                # Remove trailing period from title if present
+                if title_part.endswith('.'):
+                    title_part = title_part[:-1]
+                
+                # Check if after_title should be included in title
+                # Include if it's very short (like " $t$") 
+                if after_title and len(after_title) <= 10 and after_title.endswith('.'):
+                    # Likely a short continuation like " $t$."
+                    exercise_title = title_part + ' ' + after_title[:-1]  # Remove the period
+                    first_line = ""
+                elif after_title:
+                    # It's regular content
+                    exercise_title = title_part
+                    first_line = after_title
+                else:
+                    exercise_title = title_part
+                    first_line = ""
                 
                 in_exercise = True
                 exercise_text = []
@@ -222,7 +246,7 @@ class QmdExerciseToPreTeXt:
     
     def write_exercise(self, num, title, text_lines, sub_parts):
         """Write a single exercise to output"""
-        self.add_line(f'  <exercise>', 1)
+        self.add_line(f'<exercise>', 1)
         if title:
             self.add_line(f'<title>{self.convert_inline(title)}</title>', 2)
         self.add_line('<statement>', 2)
@@ -238,7 +262,7 @@ class QmdExerciseToPreTeXt:
             self.add_line('<p><ol marker="a.">', 3)
             for letter, part_text in sub_parts:
                 part_text = self.convert_inline(part_text)
-                self.add_line(f'<li><p>{part_text}</p></li>', 4)
+                self.add_line(f'<li>{part_text}</li>', 4)
             self.add_line('</ol></p>', 3)
         
         self.add_line('</statement>', 2)

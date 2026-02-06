@@ -1655,7 +1655,7 @@ You should be able to easily spot them as <alert>bolded text</alert>.</p>
   <title>Exercises</title>
 
 <p>Answers to odd-numbered exercises can be found in <xref ref="sec-exercise-solutions-07" />.</p>
-
+<p> Note that in this PreTeXt version, these graphics have had to be recreated. As a result, you may find that the images themselves are slightly different to other versions, or to a version if you tried this for yourself with the data in R. The answers should still work (e.g., if asked about correlation to plot).</p>
 <xi:include href="../exercises/_07-ex-model-slr.ptx" />
 
 </section>

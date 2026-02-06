@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<exercises xml:id="exercises-21-inference-paired-means">
+
+  <exercise>
+    <title>Air quality</title>
+    <statement>
+      <p>Air quality measurements were collected in a random sample of 25 country capitals in 2013, and then again in the same cities in 2014. We would like to use these data to compare average air quality between the two years. Should we use a paired or non-paired test? Explain your reasoning.</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>True / False: paired</title>
+    <statement>
+      <p>Determine if the following statements are true or false. If false, explain.</p>
+      <p><ol marker="a.">
+        <li>In a paired analysis we first take the difference of each pair of observations, and then we do inference on these differences.</li>
+        <li>Two datasets of different sizes cannot be analyzed as paired data.</li>
+        <li>Consider two sets of data that are paired with each other. Each observation in one dataset has a natural correspondence with exactly one observation from the other dataset.</li>
+        <li>Consider two sets of data that are paired with each other. Each observation in one dataset is subtracted from the average of the other dataset's observations.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Paired or not? I</title>
+    <statement>
+      <p>In each of the following scenarios, determine if the data are paired.</p>
+      <p><ol marker="a.">
+        <li>Compare pre- (beginning of semester) and post-test (end of semester) scores of students.</li>
+        <li>Assess gender-related salary gap by comparing salaries of randomly sampled men and women.</li>
+        <li>Compare artery thicknesses at the beginning of a study and after 2 years of taking Vitamin E for the same group of patients.</li>
+        <li>Assess effectiveness of a diet regimen by comparing the before and after weights of subjects.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Paired or not? II</title>
+    <statement>
+      <p>In each of the following scenarios, determine if the data are paired.</p>
+      <p><ol marker="a.">
+        <li>We would like to know if Intel's stock and Southwest Airlines' stock have similar rates of return. To find out, we take a random sample of 50 days, and record Intel's and Southwest's stock on those same days.</li>
+        <li>We randomly sample 50 items from Target stores and note the price for each. Then we visit Walmart and collect the price for each of those same 50 items.</li>
+        <li>A school board would like to determine whether there is a difference in average SAT scores for students at one high school versus another high school in the district. To check, they take a simple random sample of 100 students from each high school.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Sample size and pairing</title>
+    <statement>
+      <p>Determine if the following statement is true or false, and if false, explain your reasoning: If comparing means of two groups with equal sample sizes, always use a paired test.</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>High School and Beyond, randomization test</title>
+    <statement>
+      <p>The National Center of Education Statistics conducted a survey of high school seniors, collecting test data on reading, writing, and several other subjects. Here we examine a simple random sample of 200 students from this survey.</p>
+      
+      <p>Side-by-side box plots of reading and writing scores as well as a histogram of the differences in scores are shown below. Also provided below is a histogram of randomized averages of paired differences of scores (read - write), with the observed difference (<m>\bar{x}_{read-write} = -0.545</m>) marked with a red vertical line. The randomization distribution was produced by doing the following 1000 times: for each student, the two scores were randomly assigned to either read or write, and the average was taken across all students in the sample.<fn>The <c>hsb2</c> data used in this exercise can be found in the <c>openintro</c> R package.</fn></p>
+      
+      <figure xml:id="fig-ex21-06">
+        <image source="images/exercises/_21-ex-inference-paired-means-06.png" width="90%">
+          <description>Box plots and histograms for High School and Beyond data</description>
+        </image>
+      </figure>
+
+      <p><ol marker="a.">
+        <li>Is there a clear difference in the average reading and writing scores?</li>
+        <li>Are the reading and writing scores of each student independent of each other?</li>
+        <li>Create hypotheses appropriate for the following research question: is there an evident difference in the average scores of students in the reading and writing exam?</li>
+        <li>Is the average of the observed difference in scores <m>(\bar{x}_{read-write} = -0.545)</m> consistent with the distribution of randomized average differences? Explain.</li>
+        <li>Do these data provide convincing evidence of a difference between the average scores on the two exams? Estimate the p-value from the randomization test, and conclude the hypothesis test using words like "score on reading test" and "score on writing test."</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Global warming, randomization test</title>
+    <statement>
+      <p>Let's consider a limited set of climate data, examining temperature differences in 1950 vs 2022. We sampled 26 locations in the US from the National Oceanic and Atmospheric Administration's (NOAA) historical data, where the data was available for both years of interest. The data are not a random sample, but they are selected to be a representative sample across the land area of the lower 48 United States. Using the hottest day of the year as a measure can make the results susceptible to outliers. Instead, to get a sense for how hot a year was, we calculate the 90<m>^{th}</m> percentile; that is, we find the maximum temperature on the day that was hotter than 90% of the days that year. We want to know: is the 90<m>^{th}</m> percentile high temperature greater in 2022 or in 1950? The difference in 90<m>^{th}</m> percentile high temperature (high temperature for 2022 - high temperature for 1950) was calculated for each of the 26 locations. The average of the 26 differences was 2.52<m>^\circ</m>F with a standard deviation of 2.95<m>^\circ</m>F. We are interested in determining whether these data provide strong evidence that the 90<m>^{th}</m> percentile high temperature is higher in 2022 than in 1950.<fn>The <c>us_temperature</c> data used in this exercise can be found in the <c>openintro</c> R package.</fn></p>
+      
+      <figure xml:id="fig-ex21-07">
+        <image source="images/exercises/_21-ex-inference-paired-means-07.png" width="70%">
+          <description>Histogram of randomized differences for global warming data</description>
+        </image>
+      </figure>
+
+      <p><ol marker="a.">
+        <li>Create hypotheses appropriate for the following research question: is there an evident difference in the 90<m>^{th}</m> percentile high temp across the two years (1950 and 2022)?</li>
+        <li>Is the average of the observed difference in scores <m>(\bar{x}_{2022-1950} = 2.52^\circ\text{F})</m> consistent with the distribution of randomized average differences? Explain.</li>
+        <li>Do these data provide convincing evidence of a difference between the 90<m>^{th}</m> percentile high temperature? Estimate the p-value from the randomization test, and conclude the hypothesis test using words like "90<m>^{th}</m> percentile high temperature in 1950" and "90<m>^{th}</m> percentile high temperature in 2022."</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>High School and Beyond, bootstrap interval</title>
+    <statement>
+      <p>We considered the differences between the reading and writing scores of a random sample of 200 students who took the High School and Beyond Survey. The mean and standard deviation of the differences are <m>\bar{x}_{read-write} = -0.545</m> and <m>s_{read-write} = 8.887</m> points. The bootstrap distribution below was produced by bootstrapping from the sample of differences in reading and writing scores 1,000 times.</p>
+      
+      <figure xml:id="fig-ex21-08">
+        <image source="images/exercises/_21-ex-inference-paired-means-08.png" width="70%">
+          <description>Bootstrap distribution for High School and Beyond data</description>
+        </image>
+      </figure>
+
+      <p><ol marker="a.">
+        <li>Find an approximate 95% bootstrap percentile confidence interval for the true average difference in scores (read - write).</li>
+        <li>Find an approximate 95% bootstrap SE confidence interval for the true average difference in scores (read - write).</li>
+        <li>Interpret both confidence intervals using words like "population" and "score".</li>
+        <li>From the confidence intervals calculated above, does it appear that there is a discernible difference in reading and writing scores, on average?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Global warming, bootstrap interval</title>
+    <statement>
+      <p>We considered the change in the 90<m>^{th}</m> percentile high temperature in 1950 versus 2022 at 26 sampled locations from the NOAA database. The mean and standard deviation of the reported differences are 2.53<m>^\circ</m>F and 2.95<m>^\circ</m>F.</p>
+      
+      <figure xml:id="fig-ex21-09">
+        <image source="images/exercises/_21-ex-inference-paired-means-09.png" width="90%">
+          <description>Bootstrap distribution for global warming data</description>
+        </image>
+      </figure>
+
+      <p><ol marker="a.">
+        <li>Calculate a 90% bootstrap percentile confidence interval for the average difference of 90<m>^{th}</m> percentile high temperature between 1950 and 2022.</li>
+        <li>Calculate a 90% bootstrap SE confidence interval for the average difference of 90<m>^{th}</m> percentile high temperature between 1950 and 2022.</li>
+        <li>Interpret both intervals in context.</li>
+        <li>Do the confidence intervals provide convincing evidence that there were hotter high temperatures in 2022 than in 1950 at NOAA stations? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>High School and Beyond, mathematical test</title>
+    <statement>
+      <p>We considered the differences between the reading and writing scores of a random sample of 200 students who took the High School and Beyond Survey.</p>
+      <p><ol marker="a.">
+        <li>Create hypotheses appropriate for the following research question: is there an evident difference in the average scores of students in the reading and writing exam?</li>
+        <li>Check the conditions required to complete this test.</li>
+        <li>The average observed difference in scores is <m>\bar{x}_{read-write} = -0.545</m>, and the standard deviation of the differences is <m>s_{read-write} = 8.887</m> points. Do these data provide convincing evidence of a difference between the average scores on the two exams?</li>
+        <li>What type of error might we have made? Explain what the error means in the context of the application.</li>
+        <li>Based on the results of this hypothesis test, would you expect a confidence interval for the average difference between the reading and writing scores to include 0? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Global warming, mathematical test</title>
+    <statement>
+      <p>We considered the change in the 90<m>^{th}</m> percentile high temperature in 1950 versus 2022 at 26 sampled locations from the NOAA database. The mean and standard deviation of the reported differences are 2.53<m>^\circ</m>F and 2.95<m>^\circ</m>F.</p>
+      
+      <figure xml:id="fig-ex21-11">
+        <image source="images/exercises/_21-ex-inference-paired-means-11.png" width="70%">
+          <description>Histogram of differences for global warming data</description>
+        </image>
+      </figure>
+
+      <p><ol marker="a.">
+        <li>Is there a relationship between the observations collected in 1950 and 2022? Or are the observations in the two groups independent? Explain your reasoning.</li>
+        <li>Write hypotheses for this research in symbols and in words.</li>
+        <li>Check the conditions required to complete this test.</li>
+        <li>Calculate the test statistic and find the p-value.</li>
+        <li>Use <m>\alpha = 0.05</m> to evaluate the test, and interpret your conclusion in context.</li>
+        <li>What type of error might we have made? Explain in context what the error means.</li>
+        <li>Based on the results of this hypothesis test, would you expect a confidence interval for the average difference between the 90<m>^{th}</m> percentile high temperature from 1950 to 2022 to include 0? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>High School and Beyond, mathematical interval</title>
+    <statement>
+      <p>We considered the differences between the reading and writing scores of a random sample of 200 students who took the High School and Beyond Survey. The mean and standard deviation of the differences are <m>\bar{x}_{read-write} = -0.545</m> and <m>s_{read-write} = 8.887</m> points.</p>
+      <p><ol marker="a.">
+        <li>Calculate a 95% confidence interval for the average difference between the reading and writing scores of all students.</li>
+        <li>Interpret this interval in context.</li>
+        <li>Does the confidence interval provide convincing evidence that there is a real difference in the average scores? Explain.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Global warming, mathematical interval</title>
+    <statement>
+      <p>We considered the change in the 90<m>^{th}</m> percentile high temperature in 1950 versus 2022 at 26 sampled locations from the NOAA database. The mean and standard deviation of the reported differences are 2.53<m>^\circ</m>F and 2.95<m>^\circ</m>F.</p>
+      <p><ol marker="a.">
+        <li>Calculate a 90% confidence interval for the average difference of 90<m>^{th}</m> percentile high temperature between 1950 and 2022. We've already checked the conditions for you.</li>
+        <li>Interpret the interval in context.</li>
+        <li>Does the confidence interval provide convincing evidence that there were hotter high temperatures in 2022 than in 1950 at NOAA stations? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Possible paired randomized differences</title>
+    <statement>
+      <p>Two observations were collected on each of five people. Which of the following could be a possible randomization of the paired differences given in the table below? If the set of values could not be a randomized set of differences, indicate why not.</p>
+      
+      <table xml:id="table-ex21-14">
+        <title>Paired observations</title>
+        <tabular halign="center">
+          <row header="yes" bottom="medium">
+            <cell></cell>
+            <cell>1</cell>
+            <cell>2</cell>
+            <cell>3</cell>
+            <cell>4</cell>
+            <cell>5</cell>
+          </row>
+          <row>
+            <cell>Observation 1</cell>
+            <cell>3</cell>
+            <cell>14</cell>
+            <cell>4</cell>
+            <cell>5</cell>
+            <cell>10</cell>
+          </row>
+          <row>
+            <cell>Observation 2</cell>
+            <cell>7</cell>
+            <cell>3</cell>
+            <cell>6</cell>
+            <cell>5</cell>
+            <cell>9</cell>
+          </row>
+          <row>
+            <cell>Difference</cell>
+            <cell>-4</cell>
+            <cell>11</cell>
+            <cell>-2</cell>
+            <cell>0</cell>
+            <cell>1</cell>
+          </row>
+        </tabular>
+      </table>
+
+      <p><ol marker="a.">
+        <li>-2, 1, 1, 11, -2</li>
+        <li>-4, 11, -2, 0, 1</li>
+        <li>-2, 2, -11, 11, -2, 2, 0, 1, -1</li>
+        <li>0, -1, 2, -4, 11</li>
+        <li>4, -11, 2, 0, -1</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Study environment</title>
+    <statement>
+      <p>In order to test the effects of listening to music while studying versus studying in silence, students agree to be randomized to two treatments (i.e., study with music or study in silence). There are two exams during the semester, so the researchers can either randomize the students to have one exam with music and one with silence (randomly selecting which exam corresponds to which study environment) or the researchers can randomize the students to one study habit for both exams.</p>
+      
+      <p>The researchers are interested in estimating the true population difference of exam score for those who listen to music while studying as compared to those who study in silence.</p>
+      
+      <p><ol marker="a.">
+        <li>Describe the experiment which is consistent with a paired designed experiment. How is the treatment assigned, and how are the data collected such that the observations are paired?</li>
+        <li>Describe the experiment which is consistent with an independent samples experiment. How is the treatment assigned, and how are the data collected such that the observations are independent?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Friday the 13th, traffic</title>
+    <statement>
+      <p>In the early 1990's, researchers in the UK collected data on traffic flow on Friday the 13th with the goal of addressing issues of how superstitions regarding Friday the 13th affect human behavior and whether Friday the 13th is an unlucky day. The histograms below show the distributions of numbers of cars passing by a specific intersection on Friday the 6th and Friday the 13th for many such date pairs. Also provided are some sample statistics, where the difference is the number of cars on the 6th minus the number of cars on the 13th.<fn>The <c>friday</c> data used in this exercise can be found in the <c>openintro</c> R package.</fn></p>
+      
+      <figure xml:id="fig-ex21-16">
+        <image source="images/exercises/_21-ex-inference-paired-means-16.png" width="90%">
+          <description>Histograms and summary statistics for Friday the 13th traffic data</description>
+        </image>
+      </figure>
+
+      <p><ol marker="a.">
+        <li>Are there any underlying structures in these data that should be considered in an analysis? Explain.</li>
+        <li>What are the hypotheses for evaluating whether the number of people out on Friday the 6<m>^{\text{th}}</m> is different than the number out on Friday the 13<m>^{\text{th}}</m>?</li>
+        <li>Check conditions to carry out the hypothesis test from part (b) using mathematical models.</li>
+        <li>Calculate the test statistic and the p-value.</li>
+        <li>What is the conclusion of the hypothesis test?</li>
+        <li>Interpret the p-value in this context.</li>
+        <li>What type of error might have been made in the conclusion of your test? Explain.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Friday the 13th, accidents</title>
+    <statement>
+      <p>In the early 1990's, researchers in the UK collected data the number of traffic accident related emergency room (ER) admissions on Friday the 13th with the goal of addressing issues of how superstitions regarding Friday the 13th affect human behavior and whether Friday the 13th is an unlucky day. The histograms below show the distributions of numbers of ER admissions at specific emergency rooms on Friday the 6th and Friday the 13th for many such date pairs. Also provided are some sample statistics, where the difference is the ER admissions on the 6th minus the ER admissions on the 13th.<fn>The <c>friday</c> data used in this exercise can be found in the <c>openintro</c> R package.</fn></p>
+      
+      <figure xml:id="fig-ex21-17">
+        <image source="images/exercises/_21-ex-inference-paired-means-17.png" width="90%">
+          <description>Histograms and summary statistics for Friday the 13th accidents data</description>
+        </image>
+      </figure>
+
+      <p><ol marker="a.">
+        <li>Conduct a hypothesis test using mathematical models to evaluate if there is a difference between the average numbers of traffic accident related emergency room admissions between Friday the 6<m>^{\text{th}}</m> and Friday the 13<m>^{\text{th}}</m>.</li>
+        <li>Calculate a 95% confidence interval using mathematical models for the difference between the average numbers of traffic accident related emergency room admissions between Friday the 6<m>^{\text{th}}</m> and Friday the 13<m>^{\text{th}}</m>.</li>
+        <li>The conclusion of the original study states, "Friday 13th is unlucky for some. The risk of hospital admission as a result of a transport accident may be increased by as much as 52%. Staying at home is recommended." Do you agree with this statement? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Forest management</title>
+    <statement>
+      <p>Forest rangers wanted to better understand the rate of growth for younger trees in the park. They took measurements of a random sample of 50 young trees in 2009 and again measured those same trees in 2019. The data below summarize their measurements, where the heights are in feet.</p>
+      
+      <table xml:id="table-ex21-18">
+        <title>Tree growth data</title>
+        <tabular halign="center">
+          <row header="yes" bottom="medium">
+            <cell>Year</cell>
+            <cell>Mean</cell>
+            <cell>SD</cell>
+            <cell>n</cell>
+          </row>
+          <row>
+            <cell>2009</cell>
+            <cell>12</cell>
+            <cell>3.5</cell>
+            <cell>50</cell>
+          </row>
+          <row>
+            <cell>2019</cell>
+            <cell>24.5</cell>
+            <cell>9.5</cell>
+            <cell>50</cell>
+          </row>
+          <row>
+            <cell>Difference</cell>
+            <cell>12.5</cell>
+            <cell>7.2</cell>
+            <cell>50</cell>
+          </row>
+        </tabular>
+      </table>
+
+      <p>Construct a 99% confidence interval for the average growth of (what had been) younger trees in the park over 2009-2019.</p>
+    </statement>
+  </exercise>
+
+</exercises>

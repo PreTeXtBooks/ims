@@ -1021,7 +1021,9 @@ make_terms_table(terms_chp_21)
   <title>Exercises</title>
 
 
-<p>Answers to odd-numbered exercises can be found in ...</p>
+<p>Answers to odd-numbered exercises can be found in <xref ref="sec-exercise-solutions-21" />.</p>
+
+<xi:include href="../exercises/_21-ex-inference-paired-means.ptx" />
 
 </section>
 

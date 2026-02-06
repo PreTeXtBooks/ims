@@ -22,7 +22,7 @@
       
       <p>The outcome variable of interest was whether the patient survived for at least 24 hours.</p>
       
-      <p><xref ref="biblio-Bottiger:2001" /></p>
+      <p><xref ref="biblio-Bottiger-2001" /></p>
       
       <note>
         <title>Data</title>
@@ -395,7 +395,7 @@
         </example>
         <exercise>
         <statement>
-        A 5-year experiment was conducted to evaluate the effectiveness of fish oils on reducing cardiovascular events, where each subject was randomized into one of two treatment groups <xref ref="biblio-Manson:2019" />.
+        A 5-year experiment was conducted to evaluate the effectiveness of fish oils on reducing cardiovascular events, where each subject was randomized into one of two treatment groups <xref ref="biblio-Manson-2019" />.
         We'll consider heart attack outcomes in the patients listed in <xref ref="tbl-fish-oil-data" />.
         Create a 95% confidence interval for the effect of fish oils on heart attacks for patients who are well-represented by those in the study.
         Also interpret the interval in the context of the study.
@@ -590,7 +590,7 @@
         <alert>Disaggregating Asian American tobacco use, hypothesis testing.</alert>Understanding cultural differences in tobacco use across different demographic groups can lead to improved health care education and treatment.
         A recent study disaggregated tobacco use across Asian American ethnic groups including Asian-Indian (n = 4,373), Chinese (n = 4,736), and Filipino (n = 4,912), in comparison to non-Hispanic Whites (n = 275,025).
         The number of current smokers in each group was reported as Asian-Indian (n = 223), Chinese (n = 279), Filipino (n = 609), and non-Hispanic Whites (n = 50,880).
-        <xref ref="biblio-Rao:2021" />
+        <xref ref="biblio-Rao-2021" />
         To determine whether the proportion of Asian-Indian Americans who are current smokers is different from the proportion of Chinese Americans who are smokers, a randomization simulation was performed.
         In both words and symbols provide the parameter and statistic of interest for this study.
         Do you know the numerical value of either the parameter or statistic of interest?
@@ -605,7 +605,7 @@
         <statement>
         <alert>Malaria vaccine effectiveness, hypothesis test.</alert>With no currently licensed vaccines to inhibit malaria, good news was welcomed with a recent study reporting long-awaited vaccine success for children in Burkina Faso.
         With 450 children randomized to either one of two different doses of the malaria vaccine or a control vaccine, 89 of 292 malaria vaccine and 106 out of 147 control vaccine children contracted malaria within 12 months after the treatment.
-        <xref ref="biblio-Datoo:2021" />
+        <xref ref="biblio-Datoo-2021" />
         In both words and symbols provide the parameter and statistic of interest for this study.
         Do you know the numerical value of either the parameter or statisic of interest?
         If so, provide the numerical value.
@@ -619,7 +619,7 @@
         <statement>
         <alert>Disaggregating Asian American tobacco use, confidence interval.</alert>Based on a study on the degree to which smoking practices differ across ethnic groups.
         a confidence interval for the difference in current smoking status for Filipino versus Chinese Americans is desired.
-        <xref ref="biblio-Rao:2021" />
+        <xref ref="biblio-Rao-2021" />
         Consider the bootstrap distribution of difference in sample proportions of current smokers (Filipino Americans minus Chinese Americans) in 1,000 bootstrap repetitions as above.
         Estimate the standard error of the difference in sample proportions, as seen in the histogram.
         Using the standard error from the bootstrap distribution, find a 95% bootstrap SE confidence interval for the true difference in proportion of current smokers (Filipino Americans minus Chinese Americans) in the population.
@@ -632,7 +632,7 @@
         <statement>
         <alert>Malaria vaccine effectiveness, confidence interval.</alert>With no currently licensed vaccines to inhibit malaria, good news was welcomed with a recent study reporting long-awaited vaccine success for children in Burkina Faso.
         With 450 children randomized to either one of two different doses of the malaria vaccine or a control vaccine, 89 of 292 malaria vaccine and 106 out of 147 control vaccine children contracted malaria within 12 months after the treatment.
-        <xref ref="biblio-Datoo:2021" />
+        <xref ref="biblio-Datoo-2021" />
         Consider the bootstrap distribution of difference in sample proportions of children who contracted malaria (malaria vaccine minus control vaccine) in 1000 bootstrap repetitions as above.
         Estimate the standard error of the difference in sample proportions, as seen in the histogram.
         Using the standard error from the bootstrap distribution, find a 95% bootstrap SE confidence interval for the true difference in proportion of children who contract malaria (malaria vaccine minus control vaccine) in the population.
@@ -645,7 +645,7 @@
         <statement>
         <alert>COVID-19 and degree completion.</alert>A 2021 Gallup poll surveyed 3,941 students pursuing a bachelor's degree and 2,064 students pursuing an associate degree (students were not randomly selected but were weighted so as to represent a random selection of currently enrolled US college students).
         The poll found that 51% of the bachelor's degree students and 44% of associate degree students said that the COVID-19 pandemic will negatively impact their ability to complete the degree.
-        <xref ref="biblio-data:gallupcollegeimpact" />
+        <xref ref="biblio-data-gallupcollegeimpact" />
         Below are two histograms generated with different computational approaches (both use 1,000 repetitions) to research questions which could be asked of these data.
         One of the histograms can be used to do a randomization test on whether the proportions of bachelor's and associate students who think the COVID-19 pandemic will negatively impact their ability to complete the degree.
         The other histogram is a bootstrap distribution used to quantify the difference in the proportions of bachelor's and associate's students who feel this way.
@@ -659,7 +659,7 @@
         <statement>
         <alert>Renewable energy.</alert>A 2021 Gallup poll surveyed 5,447 randomly sampled US adults who are Republican (or Republican leaning) and 7,962 who are Democrats (or Democrat leaning).
         31% of Republicans and 81% of Democrats said "government regulations are necessary to encourage businesses and consumers to rely more on renewable energy sources".
-        <xref ref="biblio-data:gallupcollegeimpact" />
+        <xref ref="biblio-data-gallupcollegeimpact" />
         Below are two histograms generated with different computational approaches (both use 1,000 repetitions) to research questions which could be asked of these data.
         One of the histograms can be used to do a randomization test on whether the proportions of Republicans and Democrats who think government regulations are necessary to encourage businesses and consumers to rely more on renewable energy sources are different.
         The other histogram is a bootstrap distribution used to quantify the difference in the proportions of Republicans and Democrats who agree with this statement.
@@ -677,7 +677,7 @@
         240 women participated in the study; 120 were randomized to each of the two treatments.
         Twenty-four weeks after starting the study treatment, each woman was tested to determine if the HIV infection was becoming worse (an outcome called <em>virologic failure</em>).
         Twenty-six of the 120 women treated with Nevaripine experienced virologic failure, while 10 of the 120 women treated with the other drug experienced virologic failure.
-        <xref ref="biblio-Lockman:2007" />
+        <xref ref="biblio-Lockman-2007" />
         Create a two-way table presenting the results of this study.
         State appropriate hypotheses to test for difference in virologic failure rates between treatment groups.
         Complete the hypothesis test and state an appropriate conclusion.
@@ -702,7 +702,7 @@
         <alert>National Health Plan.</alert>A Kaiser Family Foundation poll for US adults in 2019 found that 79% of Democrats, 55% of Independents, and 24% of Republicans supported a generic “National Health Plan”.
         There were 347 Democrats, 298 Republicans, and 617 Independents surveyed.
         79% of 347 Democrats and 55% of 617 Independents support a National Health Plan.
-        <xref ref="biblio-data:KFF2019nathealthplan" />
+        <xref ref="biblio-data-KFF2019nathealthplan" />
         Calculate a 95% confidence interval for the difference between the proportion of Democrats and Independents who support a National Health Plan <m>(p_{D} - p_{I})</m>, and interpret it in this context.
         We have already checked conditions for you.
         True or false: If we had picked a random Democrat and a random Independent at the time of this poll, it is more likely that the Democrat would support the National Health Plan than the Independent.
@@ -714,7 +714,7 @@
         <alert>Sleep deprivation, CA vs. OR, confidence interval.</alert>According to a report on sleep deprivation by the Centers for Disease Control and Prevention, the proportion of California residents who reported insufficient rest or sleep during each of the preceding 30 days is 8.0%, while this proportion is 8.8% for Oregon residents.
         These data are based on simple random samples of 11,545 California and 4,691 Oregon residents.
         Calculate a 95% confidence interval for the difference between the proportions of Californians and Oregonians who are sleep deprived and interpret it in context of the data.
-        <xref ref="biblio-data:sleepCAandOR" />
+        <xref ref="biblio-data-sleepCAandOR" />
         \vfill
         </statement>
         </exercise>
@@ -772,7 +772,7 @@
         A Survey USA poll of 614 randomly sampled Americans during this time period reported that 48% of those who make less than $40,000 per year and 55% of those who make $40,000 or more per year said the government shutdown has not at all affected them personally.
         A 95% confidence interval for <m>(p_{\text{&lt;40K}} - p_{\text{&#8805;40K}})</m>, where <m>p</m> is the proportion of those who said the government shutdown has not at all affected them personally, is (-0.16, 0.02).
         Based on this information, determine if the following statements are true or false, and explain your reasoning if you identify the statement as false.
-        <xref ref="biblio-data:govtshuthown" />
+        <xref ref="biblio-data-govtshuthown" />
         At the 5% discernibility level, the data provide convincing evidence of a real difference in the proportion who are not affected personally between Americans who make less than $40,000 annually and Americans who make $40,000 annually.
         We are 95% confident that 16% more to 2% fewer Americans who make less than $40,000 per year are not at all personally affected by the government shutdown compared to those who make $40,000 or more per year.
         A 90% confidence interval for <m>(p_{\text{&lt;40K}} - p_{\text{&#8805;40K}})</m> would be wider than the <m>(-0.16, 0.02)</m> interval.
@@ -839,7 +839,7 @@
         <statement>
         <alert>Malaria vaccine effectiveness, effect size.</alert>A randomized controlled trial on malaria vaccine effectiveness randomly assigned 450 children intro either one of two different doses of the malaria vaccine or a control vaccine.
         89 of 292 malaria vaccine and 106 out of 147 control vaccine children contracted malaria within 12 months after the treatment.
-        <xref ref="biblio-Datoo:2021" />
+        <xref ref="biblio-Datoo-2021" />
         Recall that in order to reject the null hypothesis that the two vaccines (malaria and control) are equivalent, we'd need the sample proportion to be about 2 standard errors below the hypothesized value of zero.
         Say that the true difference (in the population) is given as <m>\delta,</m> the sample sizes are the same in both groups <m>(n_{malaria} = n_{control}),</m> and the true proportion who contract malaria on the control vaccine is <m>p_{control} = 0.7.</m> If you ran your own study (in the future), how likely is it that you would get a difference in sample proportions that was sufficiently far from zero that you could reject under each of the conditions below.
         (<em>Hint:</em> Use the mathematical model.)
@@ -855,7 +855,7 @@
         <statement>
         <alert>Diabetes and unemployment.</alert>A Gallup poll surveyed Americans about their employment status and whether they have diabetes.
         The survey results indicate that 1.5% of the 47,774 employed (full or part time) and 2.5% of the 5,855 unemployed 18-29 year-olds have diabetes.
-        <xref ref="biblio-data:employmentDiabetes" />
+        <xref ref="biblio-data-employmentDiabetes" />
         Create a two-way table presenting the results of this study.
         State appropriate hypotheses to test for difference in proportions of diabetes between employed and unemployed Americans.
         The sample difference is about 1%.

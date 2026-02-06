@@ -58,9 +58,9 @@ After downloading the images, you can build the book to verify the changes:
 quarto render
 ```
 
-Or preview a specific chapter:
+Or preview the exercises file:
 ```bash
-quarto preview explore-categorical.qmd
+quarto preview exercises/_04-ex-explore-categorical.qmd
 ```
 
 ## Notes

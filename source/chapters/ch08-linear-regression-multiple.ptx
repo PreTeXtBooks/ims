@@ -875,7 +875,7 @@ m_full_minus_issue_month_w_rsq |>
 
 <p>Stepwise selection using adjusted <m>R^2</m> as the decision criteria is one of many commonly used model selection strategies.</p>
 
-<p>Stepwise selection can also be carried out with decision criteria other than adjusted <m>R^2</m>, such as p-values, which you'll learn about in <xref ref="sec-inf-model-slr" /> onward, or AIC (Akaike information criterion) or BIC (Bayesian information criterion), which you might learn about in more advanced courses.</p>
+<p>Stepwise selection can also be carried out with decision criteria other than adjusted <m>R^2</m>, such as p-values, which you'll learn about in <xref ref="ch24-inference-linear-regression-single" /> onward, or AIC (Akaike information criterion) or BIC (Bayesian information criterion), which you might learn about in more advanced courses.</p>
 
 <p>Alternatively, one could choose to include or exclude predictors from a model based on expert opinion or due to research focus.</p>
 

@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<exercises xml:id="exercises-22-inference-many-means">
+
+  <exercise>
+    <title>Fill in the blank</title>
+    <statement>
+      <p>When doing an ANOVA, you observe large differences in means between groups. Within the ANOVA framework, this would most likely be interpreted as evidence strongly favoring the ____________ hypothesis.</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Which test?</title>
+    <statement>
+      <p>We would like to test if students who are in the social sciences, natural sciences, arts and humanities, and other fields spend the same amount of time, on average, studying for a course. What type of test should we use? Explain your reasoning.</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Cuckoo bird egg lengths, randomize once</title>
+    <statement>
+      <p>Cuckoo birds lay their eggs in other birds' nests, making them known as brood parasites. One question relates to whether the size of the cuckoo egg differs depending on the species of the host bird. <xref ref="Latter-1902" /> Consider the following plots, one represents the original data, the second represents data where the host species has been randomly assigned to the egg length.</p>
+      <figure xml:id="fig-22-ex-cuckoo-randomize">
+        <image source="images/exercises/_22-ex-inference-many-means-03.png" width="90%" />
+      </figure>
+      <p><ol marker="a.">
+        <li><p>Consider the average length of the eggs for each species. Is the average length for the original data: more variable, less variable, or about the same as the randomized species? Describe what you see in the plots.</p></li>
+        <li><p>Consider the standard deviation of the lengths of the eggs within each species. Is the within species standard deviation of the length for the original data: bigger, smaller, or about the same as the randomized species?</p></li>
+        <li><p>Recall that the F statistic's numerator measures how much the groups vary (MSG) with the denominator measuring how much the within species values vary (MSE), which of the plots above would have a larger F statistic, the original data or the randomized data? Explain.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Cuckoo bird egg lengths, randomization test</title>
+    <statement>
+      <p>Cuckoo birds lay their eggs in other birds' nests, making them known as brood parasites. One question relates to whether the size of the cuckoo egg differs depending on the species of the host bird. <xref ref="Latter-1902" /> Using the randomization distribution of the F statistic (host species randomized to egg length), conduct a hypothesis test to evaluate if there is a difference, in the population, between the average egg lengths for different host bird species. Make sure to state your hypotheses clearly and interpret your results in context of the data.</p>
+      <figure xml:id="fig-22-ex-cuckoo-randomization">
+        <image source="images/exercises/_22-ex-inference-many-means-04.png" width="75%" />
+      </figure>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Chicken diet and weight, many groups</title>
+    <statement>
+      <p>An experiment was conducted to measure and compare the effectiveness of various feed supplements on the growth rate of chickens. Newly hatched chicks were randomly allocated into six groups, and each group was given a different feed supplement. Sample statistics and a visualization of the observed data are shown below. <xref ref="data-chickwts" /></p>
+      <figure xml:id="fig-22-ex-chickwts">
+        <image source="images/exercises/_22-ex-inference-many-means-05.png" width="90%" />
+      </figure>
+      <p>Using the ANOVA output below, conduct a hypothesis test to determine if these data provide convincing evidence that the average weight of chicks varies across some (or all) groups. Make sure to check relevant conditions.</p>
+      <table xml:id="table-22-ex-chickwts-anova">
+        <title>ANOVA table for chicken weight by feed type</title>
+        <tabular>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>df</cell>
+            <cell>Sum Sq</cell>
+            <cell>Mean Sq</cell>
+            <cell>F value</cell>
+            <cell>Pr(&gt;F)</cell>
+          </row>
+          <row>
+            <cell>feed</cell>
+            <cell>5</cell>
+            <cell>231,129.16</cell>
+            <cell>46,225.83</cell>
+            <cell>15.37</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+          <row>
+            <cell>Residuals</cell>
+            <cell>65</cell>
+            <cell>195,556.02</cell>
+            <cell>3,008.55</cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+      </table>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Teaching descriptive statistics</title>
+    <statement>
+      <p>A study compared five different methods for teaching descriptive statistics. The five methods were traditional lecture and discussion, programmed textbook instruction, programmed text with lectures, computer instruction, and computer instruction with lectures. 45 students were randomly assigned, 9 to each method. After completing the course, students took a 1-hour exam.</p>
+      <p><ol marker="a.">
+        <li><p>What are the hypotheses for evaluating if the average test scores are different for the different teaching methods?</p></li>
+        <li><p>What are the degrees of freedom associated with the <m>F</m>-test for evaluating these hypotheses?</p></li>
+        <li><p>Suppose the p-value for this test is 0.0168. What is the conclusion?</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Coffee, depression, and physical activity</title>
+    <statement>
+      <p>Caffeine is the world's most widely used stimulant, with approximately 80% consumed in the form of coffee. Participants in a study investigating the relationship between coffee consumption and exercise were asked to report the number of hours they spent per week on moderate (e.g., brisk walking) and vigorous (e.g., strenuous sports and jogging) exercise. Based on these data the researchers estimated the total hours of metabolic equivalent tasks (MET) per week, a value always greater than 0. The table below gives summary statistics of MET for women in this study based on the amount of coffee consumed. <xref ref="Lucas-2011" /></p>
+      <table xml:id="table-22-ex-coffee-summary">
+        <title>Summary statistics of MET by coffee consumption</title>
+        <tabular>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell halign="center">1 cup/week or fewer</cell>
+            <cell halign="center">2-6 cups/week</cell>
+            <cell halign="center">1 cup/day</cell>
+            <cell halign="center">2-3 cups/day</cell>
+            <cell halign="center">4+ cups/day</cell>
+          </row>
+          <row>
+            <cell>Mean</cell>
+            <cell halign="center">18.7</cell>
+            <cell halign="center">19.6</cell>
+            <cell halign="center">19.3</cell>
+            <cell halign="center">18.9</cell>
+            <cell halign="center">17.5</cell>
+          </row>
+          <row>
+            <cell>SD</cell>
+            <cell halign="center">21.1</cell>
+            <cell halign="center">25.5</cell>
+            <cell halign="center">22.5</cell>
+            <cell halign="center">22.0</cell>
+            <cell halign="center">22.0</cell>
+          </row>
+          <row>
+            <cell>n</cell>
+            <cell halign="center">12,215</cell>
+            <cell halign="center">6,617</cell>
+            <cell halign="center">17,234</cell>
+            <cell halign="center">12,290</cell>
+            <cell halign="center">2,383</cell>
+          </row>
+        </tabular>
+      </table>
+      <p><ol marker="a.">
+        <li><p>Write the hypotheses for evaluating if the average physical activity level varies among the different levels of coffee consumption.</p></li>
+        <li><p>Check conditions and describe any assumptions you must make to proceed with the test.</p></li>
+        <li><p>Below is the output associated with this test. What is the conclusion of the test?</p>
+          <table xml:id="table-22-ex-coffee-anova">
+            <title>ANOVA table for MET by coffee consumption</title>
+            <tabular>
+              <row header="yes" bottom="minor">
+                <cell></cell>
+                <cell>df</cell>
+                <cell>Sum Sq</cell>
+                <cell>Mean Sq</cell>
+                <cell>F value</cell>
+                <cell>Pr(&gt;F)</cell>
+              </row>
+              <row>
+                <cell>coffee</cell>
+                <cell>4</cell>
+                <cell>10,508</cell>
+                <cell>2,627</cell>
+                <cell>5.2</cell>
+                <cell>0.0003</cell>
+              </row>
+              <row>
+                <cell>Residuals</cell>
+                <cell>50,734</cell>
+                <cell>25,564,819</cell>
+                <cell>504</cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+              <row>
+                <cell>Total</cell>
+                <cell>50,738</cell>
+                <cell>25,575,327</cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+            </tabular>
+          </table>
+        </li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Student performance across discussion sections</title>
+    <statement>
+      <p>A professor who teaches a large introductory statistics class (197 students) with eight discussion sections would like to test if student performance differs by discussion section, where each discussion section has a different teaching assistant. The summary table below shows the average final exam score for each discussion section as well as the standard deviation of scores and the number of students in each section.</p>
+      <table xml:id="table-22-ex-sections-summary">
+        <title>Summary statistics by discussion section</title>
+        <tabular>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell halign="center">Sec 1</cell>
+            <cell halign="center">Sec 2</cell>
+            <cell halign="center">Sec 3</cell>
+            <cell halign="center">Sec 4</cell>
+            <cell halign="center">Sec 5</cell>
+            <cell halign="center">Sec 6</cell>
+            <cell halign="center">Sec 7</cell>
+            <cell halign="center">Sec 8</cell>
+          </row>
+          <row>
+            <cell>Mean</cell>
+            <cell halign="center">92.94</cell>
+            <cell halign="center">91.11</cell>
+            <cell halign="center">91.80</cell>
+            <cell halign="center">92.45</cell>
+            <cell halign="center">89.30</cell>
+            <cell halign="center">88.30</cell>
+            <cell halign="center">90.12</cell>
+            <cell halign="center">93.35</cell>
+          </row>
+          <row>
+            <cell>SD</cell>
+            <cell halign="center">4.21</cell>
+            <cell halign="center">5.58</cell>
+            <cell halign="center">3.43</cell>
+            <cell halign="center">5.92</cell>
+            <cell halign="center">9.32</cell>
+            <cell halign="center">7.27</cell>
+            <cell halign="center">6.93</cell>
+            <cell halign="center">4.57</cell>
+          </row>
+          <row>
+            <cell>n</cell>
+            <cell halign="center">33</cell>
+            <cell halign="center">19</cell>
+            <cell halign="center">10</cell>
+            <cell halign="center">29</cell>
+            <cell halign="center">33</cell>
+            <cell halign="center">10</cell>
+            <cell halign="center">32</cell>
+            <cell halign="center">31</cell>
+          </row>
+        </tabular>
+      </table>
+      <p>The ANOVA output below can be used to test for differences between the average scores from the different discussion sections.</p>
+      <table xml:id="table-22-ex-sections-anova">
+        <title>ANOVA table for scores by discussion section</title>
+        <tabular>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>df</cell>
+            <cell>Sum Sq</cell>
+            <cell>Mean Sq</cell>
+            <cell>F value</cell>
+            <cell>Pr(&gt;F)</cell>
+          </row>
+          <row>
+            <cell>section</cell>
+            <cell>7</cell>
+            <cell>525.01</cell>
+            <cell>75.00</cell>
+            <cell>1.87</cell>
+            <cell>0.0767</cell>
+          </row>
+          <row>
+            <cell>Residuals</cell>
+            <cell>189</cell>
+            <cell>7,584.11</cell>
+            <cell>40.13</cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+          <row>
+            <cell>Total</cell>
+            <cell>196</cell>
+            <cell>8,109.12</cell>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+      </table>
+      <p>Conduct a hypothesis test to determine if these data provide convincing evidence that the average score varies across some (or all) groups. Check conditions and describe any assumptions you must make to proceed with the test.</p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>GPA and major</title>
+    <statement>
+      <p>Undergraduate students in an introductory statistics course at Duke University conducted a survey about GPA and major. The density plots show the distributions of GPA among three groups of majors. ANOVA output is also provided.</p>
+      <figure xml:id="fig-22-ex-gpa-major">
+        <image source="images/exercises/_22-ex-inference-many-means-09.png" width="75%" />
+      </figure>
+      <table xml:id="table-22-ex-gpa-anova">
+        <title>ANOVA table for GPA by major</title>
+        <tabular>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>df</cell>
+            <cell>Sum Sq</cell>
+            <cell>Mean Sq</cell>
+            <cell>F value</cell>
+            <cell>Pr(&gt;F)</cell>
+          </row>
+          <row>
+            <cell>major</cell>
+            <cell>2</cell>
+            <cell>0.03</cell>
+            <cell>0.02</cell>
+            <cell>0.21</cell>
+            <cell>0.81</cell>
+          </row>
+          <row>
+            <cell>Residuals</cell>
+            <cell>195</cell>
+            <cell>15.77</cell>
+            <cell>0.08</cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+      </table>
+      <p><ol marker="a.">
+        <li><p>Write the hypotheses for testing for a difference between average GPA across majors.</p></li>
+        <li><p>What is the conclusion of the hypothesis test?</p></li>
+        <li><p>How many students answered the questions on the survey, i.e., what is the sample size?</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Work hours and education</title>
+    <statement>
+      <p>The General Social Survey collects data on demographics, education, and work, among many other characteristics of US residents. <xref ref="data-gss-2010" /> Using ANOVA, we can consider educational attainment levels for all 1,172 respondents at once. Below are the distributions of hours worked by educational attainment and relevant summary statistics that will be helpful in carrying out this analysis.</p>
+      <figure xml:id="fig-22-ex-work-education">
+        <image source="images/exercises/_22-ex-inference-many-means-10.png" width="90%" />
+      </figure>
+      <p><ol marker="a.">
+        <li><p>Write hypotheses for evaluating whether the average number of hours worked varies across the five groups.</p></li>
+        <li><p>Check conditions and describe any assumptions you must make to proceed with the test.</p></li>
+        <li><p>Below is the output associated with this test. What is the conclusion of the test?</p>
+          <table xml:id="table-22-ex-work-anova">
+            <title>ANOVA table for hours worked by education</title>
+            <tabular>
+              <row header="yes" bottom="minor">
+                <cell></cell>
+                <cell>df</cell>
+                <cell>Sum Sq</cell>
+                <cell>Mean Sq</cell>
+                <cell>F value</cell>
+                <cell>Pr(&gt;F)</cell>
+              </row>
+              <row>
+                <cell>degree</cell>
+                <cell>4</cell>
+                <cell>501.54</cell>
+                <cell>125.39</cell>
+                <cell>0.86</cell>
+                <cell>0.49</cell>
+              </row>
+              <row>
+                <cell>Residuals</cell>
+                <cell>1,167</cell>
+                <cell>170,259.68</cell>
+                <cell>145.88</cell>
+                <cell></cell>
+                <cell></cell>
+              </row>
+            </tabular>
+          </table>
+        </li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>True / False: ANOVA, I</title>
+    <statement>
+      <p>Determine if the following statements are true or false in ANOVA, and explain your reasoning for statements you identify as false.</p>
+      <p><ol marker="a.">
+        <li><p>As the number of groups increases, the modified discernibility level for pairwise tests increases as well.</p></li>
+        <li><p>As the total sample size increases, the degrees of freedom for the residuals increases as well.</p></li>
+        <li><p>The constant variance condition can be somewhat relaxed when the sample sizes are relatively consistent across groups.</p></li>
+        <li><p>The independence assumption can be relaxed when the total sample size is large.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>True / False: ANOVA, II</title>
+    <statement>
+      <p>Determine if the following statements are true or false, and explain your reasoning for statements you identify as false.</p>
+      <p>If the null hypothesis that the means of four groups are all the same is rejected using ANOVA at a 5% discernibility level, then...</p>
+      <p><ol marker="a.">
+        <li><p>we can then conclude that all the means are different from one another.</p></li>
+        <li><p>the standardized variability between groups is higher than the standardized variability within groups.</p></li>
+        <li><p>the pairwise analysis will identify at least one pair of means that are discernibly different.</p></li>
+        <li><p>the appropriate <m>\alpha</m> to be used in pairwise comparisons is 0.05 / 4 = 0.0125 since there are four groups.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Matching observed data with randomized F statistics</title>
+    <statement>
+      <p>Consider the following two datasets. The response variable is the <c>score</c> and the explanatory variable is whether the individual is in one of four groups.</p>
+      <figure xml:id="fig-22-ex-matching-f-stats">
+        <image source="images/exercises/_22-ex-inference-many-means-13.png" width="95%" />
+      </figure>
+      <p>The randomizations (randomly assigning group to the score, calculating a randomization F statistic) were done 1000 times for each of Dataset A and B. The red line on each plot indicates the observed F statistic for the original (unrandomized) data.</p>
+      <p><ol marker="a.">
+        <li><p>Does the randomization distribution on the left correspond to Dataset A or B? Explain.</p></li>
+        <li><p>Does the randomization distribution on the right correspond to Dataset A or B? Explain.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Child care hours</title>
+    <statement>
+      <p>The China Health and Nutrition Survey aims to examine the effects of the health, nutrition, and family planning policies and programs implemented by national and local governments. <xref ref="data-china" /> It, for example, collects information on number of hours Chinese parents spend taking care of their children under age 6. The side-by-side box plots below show the distribution of this variable by educational attainment of the parent. Also provided below is the ANOVA output for comparing average hours across educational attainment categories.</p>
+      <figure xml:id="fig-22-ex-child-care">
+        <image source="images/exercises/_22-ex-inference-many-means-14.png" width="75%" />
+      </figure>
+      <table xml:id="table-22-ex-child-care-anova">
+        <title>ANOVA table for child care hours by education</title>
+        <tabular>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>df</cell>
+            <cell>Sum Sq</cell>
+            <cell>Mean Sq</cell>
+            <cell>F value</cell>
+            <cell>Pr(&gt;F)</cell>
+          </row>
+          <row>
+            <cell>edu</cell>
+            <cell>4</cell>
+            <cell>4,746.91</cell>
+            <cell>1,186.73</cell>
+            <cell>1.53</cell>
+            <cell>0.19</cell>
+          </row>
+          <row>
+            <cell>Residuals</cell>
+            <cell>792</cell>
+            <cell>615,047.70</cell>
+            <cell>776.58</cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+      </table>
+      <p><ol marker="a.">
+        <li><p>Write the hypotheses for testing for a difference between the average number of hours spent on child care across educational attainment levels.</p></li>
+        <li><p>What is the conclusion of the hypothesis test?</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+</exercises>

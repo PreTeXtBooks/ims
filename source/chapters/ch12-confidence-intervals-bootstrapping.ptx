@@ -632,8 +632,6 @@ ggplot(bsprop_tap, aes(x = bsprop)) +
       Answers to odd-numbered exercises can be found in <xref ref="sec-exercise-solutions-12" />.
     </p>
     
-    <p>
-      <em>Exercises will be added from the exercises file.</em>
-    </p>
+    <xi:include href="../exercises/_12-ex-foundations-bootstrapping.ptx" />
   </section>
 </chapter>

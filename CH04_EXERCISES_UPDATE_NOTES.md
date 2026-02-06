@@ -67,4 +67,5 @@ quarto preview exercises/_04-ex-explore-categorical.qmd
 
 - The images could not be downloaded automatically due to network restrictions in the build environment
 - The image URLs are GitHub user attachment URLs that require authentication or proper network access
-- Once the images are downloaded, commit them to the repository
+- **Important**: GitHub user-attachments URLs may expire. After downloading, commit the images to the repository to ensure they remain accessible
+- Once the images are downloaded and committed, the temporary placeholder files will be replaced

@@ -212,10 +212,10 @@ aa_cars &lt;- data.frame(price = c(18300, 20100, 9600, 10700, 27000))
         <title>General rule for performing the normality check</title>
         <p>There is no perfect way to check the normality condition, so instead we use two general rules based on the number and magnitude of extreme observations. Note, it often takes practice to get a sense for whether a normal approximation is appropriate.</p>
 
-        <p><ul>
+        <ul>
           <li><p>Small <m>n</m>: If the sample size <m>n</m> is small and there are <alert>no clear outliers</alert> in the data, then we typically assume the data come from a nearly normal distribution to satisfy the condition.</p></li>
           <li><p>Large <m>n</m>: If the sample size <m>n</m> is large and there are no <alert>particularly extreme</alert> outliers, then we typically assume the sampling distribution of <m>\bar{x}</m> is nearly normal, even if the underlying distribution of individual observations is not.</p></li>
-        </ul></p>
+        </ul>
 
         <p>Some guidelines for determining whether <m>n</m> is considered small or large are as follows: slight skew is okay for sample sizes of 15, moderate skew for sample sizes of 30, and strong skew for sample sizes of 60.</p>
       </assemblage>
@@ -558,10 +558,10 @@ qt(0.95, df = 14)
         <p>When the null hypothesis is true and the conditions are met, T has a t-distribution with <m>df = n - 1.</m></p>
 
         <p>Conditions:</p>
-        <p><ul>
+        <ul>
           <li><p>Independent observations.</p></li>
           <li><p>Large samples and no extreme outliers.</p></li>
-        </ul></p>
+        </ul>
       </assemblage>
 
       <p>Is the typical US runner getting faster or slower over time? We consider this question in the context of the Cherry Blossom Race, which is a 10-mile race in Washington, DC each spring. The average time for all runners who finished the Cherry Blossom Race in 2006 was 93.29 minutes (93 minutes and about 17 seconds). We want to determine using data from 100 participants in the 2017 Cherry Blossom Race whether runners in this race are getting faster or slower, versus the other possibility that there has been no change.</p>

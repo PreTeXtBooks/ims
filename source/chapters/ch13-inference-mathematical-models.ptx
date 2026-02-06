@@ -145,8 +145,6 @@
         <li>
           <p><alert>Independent observations</alert></p>
         </li>
-      </ol>
-      <ol>
         <li>
           <p><alert>Large enough sample:</alert> For proportions, at least 10 expected successes and 10 expected failures in the sample.</p>
         </li>

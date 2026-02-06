@@ -876,6 +876,13 @@
             The bar plot and the pie chart below show the distribution of pre-existing medical conditions of children involved in a study on the optimal duration of antibiotic use in treatment of tracheitis, which is an upper respiratory infection.
           </p>
           
+          <figure xml:id="fig-ex04-01-antibiotic-use">
+            <caption>Distribution of pre-existing medical conditions</caption>
+            <image source="images/exercises/_04-ex-01-antibiotic-use.png" width="90%">
+              <description>Side-by-side comparison of bar plot and pie chart showing distribution of pre-existing medical conditions (Cardiac, Prematurity, Pulmonary, Trauma) among children in antibiotic study.</description>
+            </image>
+          </figure>
+          
           <p>
             <ol>
               <li><p>What features are apparent in the bar plot but not in the pie chart?</p></li>
@@ -891,8 +898,56 @@
         <statement>
           <p>
             Nine-hundred and ten (910) randomly sampled registered voters from Tampa, FL were asked if they thought workers who have illegally entered the US should be (i) allowed to keep their jobs and apply for US citizenship, (ii) allowed to keep their jobs as temporary guest workers but not allowed to apply for US citizenship, or (iii) lose their jobs and have to leave the country.
-            The results of the survey by political ideology are shown in a contingency table.
+            The results of the survey by political ideology are shown in the contingency table below.
           </p>
+          
+          <table xml:id="table-ex04-02-immigration">
+            <title>Views on immigration by political ideology</title>
+            <tabular>
+              <row header="yes" bottom="minor">
+                <cell>Response</cell>
+                <cell>Conservative</cell>
+                <cell>Moderate</cell>
+                <cell>Liberal</cell>
+                <cell>Total</cell>
+              </row>
+              <row>
+                <cell>Apply for citizenship</cell>
+                <cell>57</cell>
+                <cell>120</cell>
+                <cell>101</cell>
+                <cell>278</cell>
+              </row>
+              <row>
+                <cell>Guest worker</cell>
+                <cell>121</cell>
+                <cell>113</cell>
+                <cell>28</cell>
+                <cell>262</cell>
+              </row>
+              <row>
+                <cell>Leave the country</cell>
+                <cell>179</cell>
+                <cell>126</cell>
+                <cell>45</cell>
+                <cell>350</cell>
+              </row>
+              <row>
+                <cell>Not sure</cell>
+                <cell>15</cell>
+                <cell>4</cell>
+                <cell>1</cell>
+                <cell>20</cell>
+              </row>
+              <row bottom="medium">
+                <cell>Total</cell>
+                <cell>372</cell>
+                <cell>363</cell>
+                <cell>175</cell>
+                <cell>910</cell>
+              </row>
+            </tabular>
+          </table>
           
           <p>
             <ol>
@@ -911,8 +966,15 @@
         <title>Black Lives Matter</title>
         <statement>
           <p>
-            A Washington Post-Schar School poll conducted in the United States in June 2020, among a random national sample of 1,006 adults, asked respondents whether they support or oppose protests following George Floyd's killing that have taken place in cities across the US. The survey also collected information on the age of the respondents. The results are summarized in the stacked bar plot below.
+            A Washington Post-Schar School poll conducted in the United States in June 2020, among a random national sample of 1,006 adults, asked respondents whether they support or oppose protests following George Floyd's killing that have taken place in cities across the US. The survey also collected information on the age of the respondents. <xref ref="survey:blmWaPoScar:2020" /> The results are summarized in the stacked bar plot below.
           </p>
+          
+          <figure xml:id="fig-ex04-03-blm-survey">
+            <caption>Support for protests by age group</caption>
+            <image source="images/exercises/_04-ex-03-blm-survey.png" width="85%">
+              <description>Stacked bar plot showing proportion of opinions (Strongly support, Somewhat support, Somewhat oppose, Strongly oppose, No opinion) on protests following George Floyd's killing, broken down by age groups (18-29, 30-39, 40-49, 50-64, 65+).</description>
+            </image>
+          </figure>
           
           <p>
             <ol>
@@ -927,8 +989,15 @@
         <title>Raise taxes</title>
         <statement>
           <p>
-            A random sample of registered voters nationally were asked whether they think it's better to raise taxes on the rich or raise taxes on the poor. The survey also collected information on the political party affiliation of the respondents.
+            A random sample of registered voters nationally were asked whether they think it's better to raise taxes on the rich or raise taxes on the poor. The survey also collected information on the political party affiliation of the respondents. <xref ref="survey:raiseTaxes:2015" />
           </p>
+          
+          <figure xml:id="fig-ex04-04-raise-taxes">
+            <caption>Views on raising taxes by political affiliation</caption>
+            <image source="images/exercises/_04-ex-04-raise-taxes.png" width="85%">
+              <description>Stacked bar plot showing proportion of opinions (Raise taxes on the rich, Raise taxes on the poor, Not sure) on tax policy, broken down by political affiliation (Democrat, Republican, Independent/Other).</description>
+            </image>
+          </figure>
           
           <p>
             <ol>
@@ -943,8 +1012,15 @@
         <title>Heart transplant data display</title>
         <statement>
           <p>
-            The Stanford University Heart Transplant Study was conducted to determine whether an experimental heart transplant program increased lifespan. Each patient entering the program was officially designated a heart transplant candidate, meaning that they were gravely ill and might benefit from a new heart. Patients were randomly assigned into treatment and control groups. Patients in the treatment group received a transplant, and those in the control group did not. The visualizations below display two different versions of the study results.
+            The Stanford University Heart Transplant Study was conducted to determine whether an experimental heart transplant program increased lifespan. Each patient entering the program was officially designated a heart transplant candidate, meaning that they were gravely ill and might benefit from a new heart. Patients were randomly assigned into treatment and control groups. Patients in the treatment group received a transplant, and those in the control group did not. The visualizations below display two different versions of the study results. <xref ref="Turnbull+Brown+Hu:1974" />
           </p>
+          
+          <figure xml:id="fig-ex04-05-heart-transplant">
+            <caption>Heart transplant study outcomes</caption>
+            <image source="images/exercises/_04-ex-05-heart-transplant.png" width="90%">
+              <description>Side-by-side bar plots showing heart transplant study outcomes (Deceased vs Alive) for Control and Treatment groups. Left plot shows counts, right plot shows proportions.</description>
+            </image>
+          </figure>
           
           <p>
             <ol>
@@ -963,6 +1039,13 @@
             A local news survey asked 500 randomly sampled Los Angeles residents which shipping carrier they prefer to use for shipping holiday gifts. The bar plots below show the distribution of responses by age group as well as distribution of responses by shipping method.
           </p>
           
+          <figure xml:id="fig-ex04-06-shipping-gifts">
+            <caption>Shipping preferences by age group</caption>
+            <image source="images/exercises/_04-ex-06-shipping-gifts.png" width="85%">
+              <description>Two stacked bar plots. Top plot shows age distribution within each shipping method (USPS, UPS, FedEx, Something else, Not sure). Bottom plot shows shipping method distribution within each age group (18-34, 35-54, 55+).</description>
+            </image>
+          </figure>
+          
           <p>
             <ol>
               <li><p>Which graph (top or bottom) would you use to understand the shipping choices of people of different ages? Explain.</p></li>
@@ -978,8 +1061,15 @@
         <title>Meat consumption and life expectancy</title>
         <statement>
           <p>
-            In data collected for You (2022), total meat intake is associated with life expectancy (at birth) in 175 countries. Meat intake is measured in kg per capita per year (averaged over 2011 to 2013). The two ridge plots show an association between income and meat consumption (higher income countries tend to eat more meat) and an association between income and life expectancy (higher income countries have higher life expectancy).
+            In data collected for You (2022), total meat intake is associated with life expectancy (at birth) in 175 countries. <xref ref="You:2022" /> Meat intake is measured in kg per capita per year (averaged over 2011 to 2013). The two ridge plots show an association between income and meat consumption (higher income countries tend to eat more meat) and an association between income and life expectancy (higher income countries have higher life expectancy).
           </p>
+          
+          <figure xml:id="fig-ex04-07-meat-life-expectancy">
+            <caption>Meat consumption and life expectancy by income level</caption>
+            <image source="images/exercises/_04-ex-07-meat-life-expectancy.png" width="85%">
+              <description>Two ridge plots. Top plot shows distribution of meat consumption (kg per capita) for high, middle, and low income countries. Bottom plot shows distribution of life expectancy (years) for the same income categories.</description>
+            </image>
+          </figure>
           
           <p>
             <ol>
@@ -995,7 +1085,7 @@
         <title>Florence Nightingale</title>
         <statement>
           <p>
-            Florence Nightingale was a nurse in the Crimean War and an early statistician. In her notes, she opined, <q>In comparing the deaths of one hospital with those of another, any statistics are justly considered absolutely valueless which do not give the ages, the sexes, and the diseases of all the cases.</q>
+            Florence Nightingale was a nurse in the Crimean War and an early statistician. In her notes, she opined, <q>In comparing the deaths of one hospital with those of another, any statistics are justly considered absolutely valueless which do not give the ages, the sexes, and the diseases of all the cases.</q> <xref ref="nightingale:1859" />
           </p>
           
           <p>
@@ -1014,6 +1104,78 @@
           <p>
             Consider all of the flights out of New York City in 2013 that flew into Puerto Rico (BQN), Los Angeles (LAX), or San Francisco (SFO) on the following two airlines: JetBlue (B6) or United Airlines (UA). Below are the tabulated counts for the number of flights <c>delayed</c> and <c>on time</c> for each airline into each city.
           </p>
+          
+          <table xml:id="table-ex04-09-flights">
+            <title>Flight delays by destination and carrier</title>
+            <tabular>
+              <row header="yes" bottom="minor">
+                <cell>Destination</cell>
+                <cell>Carrier</cell>
+                <cell>Status</cell>
+                <cell>Count</cell>
+              </row>
+              <row>
+                <cell>BQN</cell>
+                <cell>B6</cell>
+                <cell>on time</cell>
+                <cell>221</cell>
+              </row>
+              <row>
+                <cell>BQN</cell>
+                <cell>B6</cell>
+                <cell>delayed</cell>
+                <cell>15</cell>
+              </row>
+              <row>
+                <cell>LAX</cell>
+                <cell>B6</cell>
+                <cell>on time</cell>
+                <cell>503</cell>
+              </row>
+              <row>
+                <cell>LAX</cell>
+                <cell>B6</cell>
+                <cell>delayed</cell>
+                <cell>62</cell>
+              </row>
+              <row>
+                <cell>LAX</cell>
+                <cell>UA</cell>
+                <cell>on time</cell>
+                <cell>694</cell>
+              </row>
+              <row>
+                <cell>LAX</cell>
+                <cell>UA</cell>
+                <cell>delayed</cell>
+                <cell>117</cell>
+              </row>
+              <row>
+                <cell>SFO</cell>
+                <cell>B6</cell>
+                <cell>on time</cell>
+                <cell>1841</cell>
+              </row>
+              <row>
+                <cell>SFO</cell>
+                <cell>B6</cell>
+                <cell>delayed</cell>
+                <cell>305</cell>
+              </row>
+              <row>
+                <cell>SFO</cell>
+                <cell>UA</cell>
+                <cell>on time</cell>
+                <cell>4558</cell>
+              </row>
+              <row bottom="medium">
+                <cell>SFO</cell>
+                <cell>UA</cell>
+                <cell>delayed</cell>
+                <cell>898</cell>
+              </row>
+            </tabular>
+          </table>
           
           <p>
             <ol>

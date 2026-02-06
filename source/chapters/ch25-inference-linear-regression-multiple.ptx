@@ -840,9 +840,9 @@ data.frame(
 <section xml:id="sec-chp25-exercises">
   <title>Exercises</title>
 
-<p>Answers to odd-numbered exercises can be found in Appendix ....</p>
+<p>Answers to odd-numbered exercises can be found in <xref ref="appendix-exercise-solutions">Appendix</xref>.</p>
 
-<p>Exercise content would be included here via xi:include in the actual implementation.</p>
+<xi:include href="../exercises/_25-ex-inf-model-mlr.ptx" />
 
 </section>
 

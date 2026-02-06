@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<exercises xml:id="exercises-25-inf-model-mlr">
+
+  <exercise>
+    <title>GPA, mathematical interval</title>
+    <statement>
+      <p>A survey of 55 Duke University students asked about their GPA (<c>gpa</c>), number of hours they study weekly (<c>studyweek</c>), number of hours they sleep nightly (<c>sleepnight</c>), and whether they go out more than two nights a week (<c>out_mt2</c>). We use these data to build a model predicting GPA from the other variables. Summary of the model is shown below. Note that <c>out_mt2</c> is <c>1</c> if the student goes out more than two nights a week, and 0 otherwise.<fn>The <c>gpa</c> data used in this exercise can be found in the <c>openintro</c> R package.</fn></p>
+      <figure xml:id="fig-ex25-1-1">
+        <image source="images/exercises/_25-ex-inf-model-mlr-1-1.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>Calculate a 95% confidence interval for the coefficient of <c>out_mt2</c> (go out more than two night a week) in the model, and interpret it in the context of the data.</li>
+        <li>Would you expect a 95% confidence interval for the slope of the remaining variables to include 0? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Tourism spending</title>
+    <statement>
+      <p>The Association of Turkish Travel Agencies reports the number of foreign tourists visiting Turkey and tourist spending by year. Three plots are provided: scatterplot showing the relationship between these two variables along with the least squares fit, residuals plot, and histogram of residuals.<fn>The <c>tourism</c> data used in this exercise can be found in the <c>openintro</c> R package.</fn></p>
+      <figure xml:id="fig-ex25-2-2">
+        <image source="images/exercises/_25-ex-inf-model-mlr-2-2.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>Describe the relationship between number of tourists and spending.</li>
+        <li>What are the predictor and the outcome variables?</li>
+        <li>Why might we want to fit a regression line to these data?</li>
+        <li>Do the data meet the LINE conditions required for fitting a least squares line? Use the scatterplot, the residuals plot, and the histogram to answer this question.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Cherry trees, collinear predictors</title>
+    <statement>
+      <p>Timber yield is approximately equal to the volume of a tree, however, this value is difficult to measure without first cutting the tree down. Instead, other variables, such as height and diameter, may be used to predict a tree's volume and yield. Researchers wanting to understand the relationship between these variables for black cherry trees collected data from 31 such trees in the Allegheny National Forest, Pennsylvania. Height is measured in feet, diameter in inches (at 54 inches above ground), and volume in cubic feet.<fn>The <c>cherry</c> data used in this exercise can be found in the <c>openintro</c> R package.</fn> The plots below display the distribution of each of these variables (on the diagonal) as well as provide information on the pairwise correlations between them.</p>
+      <figure xml:id="fig-ex25-3-3">
+        <image source="images/exercises/_25-ex-inf-model-mlr-3-3.png" width="90%"/>
+      </figure>
+      <p>Also provided below are three regression model outputs: <c>volume</c> vs. <c>diam</c>, <c>volume</c> vs. <c>height</c>, and <c>volume</c> vs. <c>height + diam</c>.</p>
+      <figure xml:id="fig-ex25-3-4">
+        <image source="images/exercises/_25-ex-inf-model-mlr-3-4.png" width="90%"/>
+      </figure>
+      <figure xml:id="fig-ex25-3-5">
+        <image source="images/exercises/_25-ex-inf-model-mlr-3-5.png" width="90%"/>
+      </figure>
+      <figure xml:id="fig-ex25-3-6">
+        <image source="images/exercises/_25-ex-inf-model-mlr-3-6.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>There are three variables described in the figure, and each is paired with each other to create three different scatterplots. Rate the pairwise relationships from most correlated to least correlated.</li>
+        <li>When using only one variable to model a tree's <c>volume</c>, is <c>diam</c>eter a discernible predictor? Is <c>height</c> a discernible predictor? Explain your reasoning.</li>
+        <li>When using both <c>diam</c>eter and <c>height</c> to predict a tree's <c>volume</c>, are both predictors still discernible? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>GPA, collinear predictors</title>
+    <statement>
+      <p>In this exercise we work with data from a survey of 55 Duke University students who were asked about their GPA, number of hours they sleep nightly, and number of nights they go <c>out</c> each week. The plots below display the distributions of each of these variables (on the diagonal) as well as their pairwise relationships and correlation coefficients.</p>
+      <figure xml:id="fig-ex25-4-7">
+        <image source="images/exercises/_25-ex-inf-model-mlr-4-7.png" width="90%"/>
+      </figure>
+      <p>Also provided below are three regression model outputs: <c>gpa</c> vs. <c>out</c>, <c>gpa</c> vs. <c>sleepnight</c>, and <c>gpa</c> vs. <c>out + sleepnight</c>.</p>
+      <figure xml:id="fig-ex25-4-8">
+        <image source="images/exercises/_25-ex-inf-model-mlr-4-8.png" width="90%"/>
+      </figure>
+      <figure xml:id="fig-ex25-4-9">
+        <image source="images/exercises/_25-ex-inf-model-mlr-4-9.png" width="90%"/>
+      </figure>
+      <figure xml:id="fig-ex25-4-10">
+        <image source="images/exercises/_25-ex-inf-model-mlr-4-10.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>There are three variables described in the figure, and each is paired with each other to create three different scatterplots. Rate the pairwise relationships from most correlated to least correlated.</li>
+        <li>When using only one variable to model <c>gpa</c>, is <c>out</c> a discernible predictor? Is <c>sleepnight</c> a discernible predictor? Explain your reasoning.</li>
+        <li>When using both <c>out</c> and <c>sleepnight</c> to predict <c>gpa</c> in a multiple regression model, are either of the variables discernible? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Movie returns</title>
+    <statement>
+      <p>A FiveThirtyEight.com article reports that "Horror movies get nowhere near as much draw at the box office as the big-time summer blockbusters or action/adventure movies, but there's a huge incentive for studios to continue pushing them out. The return-on-investment potential for horror movies is absurd." To investigate how the return-on-investment (ROI) compares between genres and how this relationship has changed over time, an introductory statistics student fit a linear regression model to predict the ratio of gross revenue of movies to the production costs from genre and release year for 1,070 movies released between 2000 and 2018. Using the plots given below, determine if this regression model is appropriate for these data. In particular, use the residual plot to check the LINE conditons.</p>
+      <figure xml:id="fig-ex25-5-11">
+        <image source="images/exercises/_25-ex-inf-model-mlr-5-11.png" width="90%"/>
+      </figure>
+      <figure xml:id="fig-ex25-5-12">
+        <image source="images/exercises/_25-ex-inf-model-mlr-5-12.png" width="90%"/>
+      </figure>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Difficult encounters</title>
+    <statement>
+      <p>A study was conducted at a university outpatient primary care clinic in Switzerland to identify factors associated with difficult doctor-patient encounters. The data consist of 527 patient encounters, conducted by the 27 medical residents employed at the clinic. After each encounter, the attending physician completed two questionnaires: the Difficult Doctor Patient Relationship Questionnaire (DDPRQ-10) and the Patient's Vulnerability Grid (PVG). A higher score on the DDPRQ-10 indicates a more difficult encounter. The maximum possible score is 60 and encounters with score 30 and higher are considered difficult. A model was fit to predict DDPRQ-10 score from features of the attending physician: age, sex (male or not), and years of training.</p>
+      <figure xml:id="fig-ex25-6-13">
+        <image source="images/exercises/_25-ex-inf-model-mlr-6-13.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>The intercept of the model is 30.594. What is the age, sex, and years of training of a physician whom this model would predict to have a DDPRQ-10 score of 30.594.</li>
+        <li>Is there evidence of a discernible association between DDPRQ-10 score and any of the physician features?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Baby's weight, mathematical test</title>
+    <statement>
+      <p>US Department of Health and Human Services, Centers for Disease Control and Prevention collect information on births recorded in the country. The data used here are a random sample of 1,000 births from 2014. Here, we study the relationship between smoking and weight of the baby. The variable <c>smoke</c> is coded 1 if the mother is a smoker, and 0 if not. The summary table below shows the results of a linear regression model for predicting the average birth weight of babies, measured in pounds, based on the smoking status of the mother.<fn>The <c>births14</c> data used in this exercise can be found in the <c>openintro</c> R package.</fn></p>
+      <figure xml:id="fig-ex25-7-14">
+        <image source="images/exercises/_25-ex-inf-model-mlr-7-14.png" width="90%"/>
+      </figure>
+      <p>Also shown below are a series of diagnostics plots.</p>
+      <figure xml:id="fig-ex25-7-15">
+        <image source="images/exercises/_25-ex-inf-model-mlr-7-15.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>Determine if the conditions for doing inference based on mathematical models with these data are met using the diagnostic plots above. If not, describe how to proceed with the analysis.</li>
+        <li>Using the regression output, evaluate whether the true slope of <c>habit</c> (i.e., whether the mother is a smoker) is different than 0, given the other variables in the model. State the null and alternative hypotheses, report the p-value (using a mathematical model), and state your conclusion.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Baby's weight, collinear predictors</title>
+    <statement>
+      <p>In this exercise we study the relationship between the weight of the baby and two explanatory variables: number of <c>weeks</c> of gestation and number of pregnancy hospital <c>visits</c>. The plots below display the distributions of each of these variables (on the diagonal) as well as their pairwise relationships and correlation coefficients.</p>
+      <figure xml:id="fig-ex25-8-16">
+        <image source="images/exercises/_25-ex-inf-model-mlr-8-16.png" width="90%"/>
+      </figure>
+      <p>Also provided below are three regression model outputs: <c>weight</c> vs. <c>weeks</c>, <c>weight</c> vs. <c>visits</c>, and <c>weight</c> vs. <c>weeks + visits</c>.</p>
+      <figure xml:id="fig-ex25-8-17">
+        <image source="images/exercises/_25-ex-inf-model-mlr-8-17.png" width="90%"/>
+      </figure>
+      <figure xml:id="fig-ex25-8-18">
+        <image source="images/exercises/_25-ex-inf-model-mlr-8-18.png" width="90%"/>
+      </figure>
+      <figure xml:id="fig-ex25-8-19">
+        <image source="images/exercises/_25-ex-inf-model-mlr-8-19.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>There are three variables described in the figure, and each is paired with each other to create three different scatterplots. Rate the pairwise relationships from most correlated to least correlated.</li>
+        <li>When using only one variable to model the baby's <c>weight</c>, is <c>weeks</c> a discernible predictor? Is <c>visits</c> a discernible predictor? Explain your reasoning.</li>
+        <li>When using both <c>visits</c> and <c>weeks</c> to predict the baby's <c>weight</c>, are both predictors still discernible? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Baby's weight, cross-validation</title>
+    <statement>
+      <p>Using a random sample of 1,000 US births from 2014, we study the relationship between the weight of the baby and various explanatory variables. The plots below display prediction errors associated with two different models designed to predict <c>weight</c> of baby at birth; one model uses 7 predictors, one model uses 2 predictors. Using 4-fold cross-validation, the data were split into 4 folds. Three of the folds estimate the <m>\beta_i</m> parameters using <m>b_i</m>, and the model is applied to the held out fold for prediction. The process was repeated 4 times (each time holding out one of the folds).</p>
+      <md>
+        <mrow>E[\texttt{weight}] = \beta_0 \amp + \beta_1\times \texttt{fage} + \beta_2\times \texttt{mage} + \beta_3 \times \texttt{mature} + \beta_4 \times \texttt{weeks}</mrow>
+        <mrow>\amp + \beta_5 \times \texttt{visits} + \beta_6 \times \texttt{gained} + \beta_7 \times \texttt{habit}</mrow>
+        <mrow>E[\texttt{weight}] = \beta_0 \amp + \beta_1\times \texttt{weeks} + \beta_2\times \texttt{mature}</mrow>
+      </md>
+      <figure xml:id="fig-ex25-9-20">
+        <image source="images/exercises/_25-ex-inf-model-mlr-9-20.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>In the first graph, note the point at roughly (predicted = 11 and error = -4). Estimate the observed and predcited value for that observation.</li>
+        <li>Using the same point, describe which cross-validation fold(s) were used to build its prediction model.</li>
+        <li>For the plot on the top, for one of the cross-validation folds, how many coefficients were estimated in the linear model? For the plot on the bottom, for one of the cross-validation folds, how many coefficients were estimated in the linear model?</li>
+        <li>Do the values of the residuals (along the y-axis, not the x-axis) seem markedly different for the two models? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>RailTrail, cross-validation</title>
+    <statement>
+      <p>The Pioneer Valley Planning Commission (PVPC) collected data north of Chestnut Street in Florence, MA for ninety days from April 5, 2005 to November 15, 2005. Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station.<fn>The <c>RailTrail</c> data used in this exercise can be found in the <c>mosaicData</c> R package.</fn> The plots below display prediction errors associated with two different models designed to predict the <c>volume</c> of riders on the RailTrail; one model uses 6 predictors, one model uses 2 predictors. Using 3-fold cross-validation, the data were split into 3 folds. Three of the folds estimate the <m>\beta_i</m> parameters using <m>b_i</m>, and the model is applied to the held out fold for prediction. The process was repeated 4 times (each time holding out one of the folds).</p>
+      <md>
+        <mrow>E[\texttt{volume}] = \beta_0 \amp + \beta_1 \times \texttt{hightemp} + \beta_2 \times \texttt{lowtemp} + \beta_3 \times \texttt{spring}</mrow>
+        <mrow>\amp + \beta_4 \times \texttt{weekday} + \beta_5 \times \texttt{cloudcover}+ \beta_6 \times \texttt{precip}</mrow>
+        <mrow>E[\texttt{volume}] = \beta_0 \amp + \beta_1\times \texttt{hightemp} + \beta_2\times \texttt{precip}</mrow>
+      </md>
+      <figure xml:id="fig-ex25-10-21">
+        <image source="images/exercises/_25-ex-inf-model-mlr-10-21.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>In the second graph, note the point at roughly (predicted = 400 and error = 100). Estimate the observed and predcited value for that observation.</li>
+        <li>Using the same point, describe which cross-validation fold(s) were used to build its prediction model.</li>
+        <li>For the plot on the top, for one of the cross-validation folds, how many coefficients were estimated in the linear model? For the plot on the bottom, for one of the cross-validation folds, how many coefficients were estimated in the linear model?</li>
+        <li>Do the values of the residuals (along the y-axis, not the x-axis) seem markedly different for the two models? Explain your reasoning.</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>Baby's weight, cross-validation for model selection</title>
+    <statement>
+      <p>Using a random sample of 1,000 US births from 2014, we study the relationship between the weight of the baby and various explanatory variables. The plots below display prediction errors associated with two different models designed to predict <c>weight</c> of baby at birth; one model uses 7 predictors, one model uses 2 predictors. Using 4-fold cross-validation, the data were split into 4 folds. Three of the folds estimate the <m>\beta_i</m> parameters using <m>b_i</m>, and the model is applied to the held out fold for prediction. The process was repeated 4 times, each time holding out one of the folds.</p>
+      <md>
+        <mrow>E[\texttt{weight}] = \beta_0 \amp + \beta_1\times \texttt{fage} + \beta_2\times \texttt{mage}</mrow>
+        <mrow>\amp + \beta_3 \times \texttt{mature} + \beta_4 \times \texttt{weeks}</mrow>
+        <mrow>\amp + \beta_5 \times \texttt{visits}+ \beta_6 \times \texttt{gained}</mrow>
+        <mrow>\amp + \beta_7 \times \texttt{habit}</mrow>
+      </md>
+      <me>E[\texttt{weight}] = \beta_0 + \beta_1\times \texttt{weeks} + \beta_2\times \texttt{mature}</me>
+      <figure xml:id="fig-ex25-11-22">
+        <image source="images/exercises/_25-ex-inf-model-mlr-11-22.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>Using the spread of the points (in the y-direction), which model should be chosen for a final report on these data? Explain your reasoning.</li>
+        <li>Using the summary statistic (CV SSE), which model should be chosen for a final report on these data? Explain your reasoning.</li>
+        <li>Why would the model with more predictors fit the data less closely than the model with only two predictors?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <title>RailTrail, cross-validation for model selection</title>
+    <statement>
+      <p>The Pioneer Valley Planning Commission (PVPC) collected data north of Chestnut Street in Florence, MA for ninety days from April 5, 2005 to November 15, 2005. Data collectors set up a laser sensor, with breaks in the laser beam recording when a rail-trail user passed the data collection station. The plots below display prediction errors associated with two different models designed to predict the <c>volume</c> of riders on the RailTrail; one model uses 6 predictors, one model uses 2 predictors. Using 3-fold cross-validation, the data were split into 3 folds. Three of the folds estimate the <m>\beta_i</m> parameters using <m>b_i</m>, and the model is applied to the held out fold for prediction. The process was repeated 4 times, each time holding out one of the folds.</p>
+      <md>
+        <mrow>E[\texttt{volume}] = \beta_0 \amp + \beta_1\times \texttt{hightemp} + \beta_2\times \texttt{lowtemp}</mrow>
+        <mrow>\amp + \beta_3 \times \texttt{spring} + \beta_4 \times \texttt{weekday}</mrow>
+        <mrow>\amp + \beta_5 \times \texttt{cloudcover}+ \beta_6 \times \texttt{precip}</mrow>
+      </md>
+      <me>E[\texttt{volume}] = \beta_0 + \beta_1\times \texttt{hightemp} + \beta_2\times \texttt{precip}</me>
+      <figure xml:id="fig-ex25-12-23">
+        <image source="images/exercises/_25-ex-inf-model-mlr-12-23.png" width="90%"/>
+      </figure>
+      <p><ol marker="a.">
+        <li>Using the spread of the points (in the y-direction), which model should be chosen for a final report on these data? Explain your reasoning.</li>
+        <li>Using the summary statistic (CV SSE), which model should be chosen for a final report on these data? Explain your reasoning.</li>
+        <li>Why would the model with more predictors fit the data less closely than the model with only two predictors?</li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+</exercises>

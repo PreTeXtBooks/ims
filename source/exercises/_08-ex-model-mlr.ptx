@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<exercises xml:id="sec-chp8-exercises-content">
+
+  <exercise>
+    <title>High correlation, good or bad?</title>
+    <statement>
+      <p>Two friends, Frances and Annika, are in disagreement about whether high correlation values are <em>always</em> good in the context of regression. Frances claims that it's desirable for all variables in the dataset to be highly correlated to each other when building linear models. Annika claims that while it's desirable for each of the predictors to be highly correlated with the outcome, it is not desirable for the predictors to be highly correlated with each other. Who is right: Frances, Annika, both, or neither? Explain your reasoning using appropriate terminology.</p>
+  </statement>
+  </exercise>
+
+  <exercise>
+    <title>Dealing with categorical predictors.</title>
+    <statement>
+      <p>Two friends, Elliott and Adrian, want to build a model predicting typing speed (average number of words typed per minute) from whether the person wears glasses or not. Before building the model they want to conduct some exploratory analysis to evaluate the strength of the association between these two variables, but they're in disagreement about how to evaluate how strongly a categorical predictor is associated with a numerical outcome. Elliott claims that it is not possible to calculate a correlation coefficient to summarize the relationship between a categorical predictor and a numerical outcome, however they're not sure what a better alternative is. Adrian claims that you can recode a binary predictor as a 0/1 variable (assign one level to be 0 and the other to be 1), thus converting it to a numerical variable. According to Adrian, you can then calculate the correlation coefficient between the predictor and the outcome. Who is right: Elliott or Adrian? If you pick Elliott, can you suggest a better alternative for evaluating the association between the categorical predictor and the numerical outcome?</p>
+  </statement>
+  </exercise>
+
+  <exercise>
+    <title>Meat consumption and life expectancy.</title>
+    <statement>
+      <p>In data collected for <xref ref="You:2022"/>, total meat intake is associated with life expectancy (at birth) in 175 countries. Meat intake is measured in kg per capita per year (averaged over 2011 to 2013). The scatterplot on the top left displays the relationship between life expectancy at birth vs. per capita meat consumption. The scatterplot on the top right displays the same relationship colored by income status of the country. The set of scatterplots across the bottom display the same relationship by income status of the country. </p>
+      
+      <listing>
+        <caption>R code to generate the figure</caption>
+        <program language="r">
+          <input>
+meat &lt;- read_csv("data/meat.csv")
+
+p_life &lt;- meat |&gt;
+  drop_na(life_0) |&gt;
+  drop_na(gdp) |&gt;
+  ggplot(aes(x = meat, y = life_0)) +
+  geom_point(alpha = 0.8) +
+  theme(axis.title = element_text(size = 11))  +
+  labs(x = "Meat consumption", y = "Life expectancy")
+
+p_life_confound &lt;-  meat |&gt; 
+  drop_na(life_0) |&gt;
+  drop_na(gdp) |&gt;
+  mutate(ses = cut(gdp, breaks = c(-Inf, 2000, 10000, Inf))) |&gt;
+  mutate(income = case_when(
+    ses == "(-Inf,2e+03]" ~ "low income",
+    ses == "(2e+03,1e+04]" ~ "middle income",
+    ses == "(1e+04, Inf]" ~ "high income")) |&gt;
+  mutate(income = fct_relevel(income, c("low income", "middle income", "high income"))) |&gt;
+  ggplot(aes(x = meat, y  = life_0, color = income, shape = income)) + 
+  geom_point(alpha = 0.8) +
+  theme(axis.title = element_text(size = 11))  +
+  labs(x = "Meat consumption", y = "Life expectancy", color = "", shape = "") 
+
+p_life_confound2 &lt;-  meat |&gt; 
+  drop_na(life_0) |&gt;
+  drop_na(gdp) |&gt;
+  mutate(ses = cut(gdp, breaks = c(-Inf, 3000, 10000, Inf))) |&gt;
+  mutate(income = case_when(
+    ses == "(-Inf,3e+03]" ~ "low income",
+    ses == "(3e+03,1e+04]" ~ "middle income",
+    ses == "(1e+04, Inf]" ~ "high income")) |&gt;
+  mutate(income = fct_relevel(income, c("low income", "middle income", "high income"))) |&gt;
+  ggplot(aes(x = meat, y  = life_0, color = income, shape = income)) + 
+  geom_point(alpha = 0.8) +
+  labs(x = "Meat consumption (kg per capita)", y = "Life expectancy",
+       color = "", shape = "") +
+  theme(axis.title = element_text(size = 11)) +
+  guides(color = "none", shape = "none")  +
+  facet_wrap(~ income)
+
+(p_life + p_life_confound) / p_life_confound2 + plot_layout(guides='collect') &amp; 
+  theme(legend.position='bottom')
+          </input>
+        </program>
+      </listing>
+      
+      <p><ol marker="a.">
+        <li>
+          <p>Describe the relationship between meat consumption and life expectancy.</p>
+        </li>
+        <li>
+          <p>Why do you think the variables are positively associated?</p>
+        </li>
+        <li>
+          <p>Is the relationship between meat consumption and life expectancy stronger, similar, or weaker when broken down by income bracket in the separate plots along the bottom (as compared with the relationship when combined in the top left figure)? </p>
+        </li>
+      </ol></p>
+  </statement>
+  </exercise>
+
+  <exercise>
+    <title>Arrival delays.</title>
+    <statement>
+      <p>Consider all of the flights out of New York City in 2013 that flew into Puerto Rico (BQN) or San Francisco (SFO) on the following two airlines: JetBlue (B6) or United Airlines (UA). We consider the relationship between day of the year and arrival delay (in minutes). Note that a negative arrival delay means that the flight arrived early. The figures display a least squares regression line for arrival delay versus time (day of the year).<fn>The <c>flights</c> data used in this exercise can be found in the <url href="https://github.com/tidyverse/nycflights13"><alert>nycflights13</alert></url> R package.</fn> </p>
+      
+      <listing>
+        <caption>R code to generate the figures</caption>
+        <program language="r">
+          <input>
+p_delay &lt;- flights |&gt;
+  filter(dest %in% c("BQN", "SFO")) |&gt;
+  filter(carrier %in% c("B6", "UA")) |&gt;
+  group_by(carrier) |&gt;
+  mutate(med_delay = median(arr_delay, na.rm = TRUE)) |&gt;
+  mutate(date = ymd(paste(year, month, day, sep= ' '))) |&gt;
+  ggplot(aes(x = time_hour, y = arr_delay, color = carrier, linetype = carrier)) +
+  geom_smooth(method = "lm", se = FALSE) + 
+  labs(x = NULL, y = NULL, color = "Carrier", linetype = "Carrier") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
+  scale_color_openintro("two") +
+  theme(legend.position = c(0.15, 0.8))
+
+p_delay_city &lt;- flights |&gt;
+  filter(dest %in% c("BQN", "SFO")) |&gt;
+  filter(carrier %in% c("B6", "UA")) |&gt;
+  mutate(carrier = ifelse(carrier == "B6", "JetBlue", "United")) |&gt;
+  group_by(carrier, dest) |&gt;
+  mutate(med_delay = median(arr_delay, na.rm = TRUE)) |&gt;
+  mutate(date = ymd(paste(year, month, day, sep= ' '))) |&gt;
+  ggplot(aes(x = time_hour, y = arr_delay, color = carrier, linetype = carrier)) +
+  geom_smooth(method = "lm", se = FALSE, show.legend = FALSE) + 
+  labs(x = NULL, y = NULL) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) +
+  facet_wrap(~dest) +
+  scale_color_openintro("two")
+
+p_delay + p_delay_city
+          </input>
+        </program>
+      </listing>
+      
+      <p><ol marker="a.">
+        <li>
+          <p>Does it seem like there are differences in arrival delays across time when looking at BQN and SFO airports combined (left figure)? Explain.</p>
+        </li>
+        <li>
+          <p>Does it seem like there are differences in arrival delays across time when looking at BQN and SFO airports separately (right figure)? Explain.</p>
+        </li>
+        <li>
+          <p>Would it be more appropriate to display the combined plot or the plots which display the airports separately? Explain.</p>
+        </li>
+      </ol></p>
+  </statement>
+  </exercise>
+
+  <exercise>
+    <title>Training for a 5K.</title>
+    <statement>
+      <p>Nico signs up for a 5K (a 5,000 metre running race) 30 days prior to the race. They decide to run a 5K every day to train for it, and each day they record the following information: <c>days_since_start</c> (number of days since starting training), <c>days_till_race</c> (number of days left until the race), <c>mood</c> (poor, good, awesome), <c>tiredness</c> (1-not tired to 10-very tired), and <c>time</c> (time it takes to run 5K, recorded as mm:ss). Top few rows of the data they collect is shown below. Using these data Nico wants to build a model predicting <c>time</c> from the other variables. Should they include all variables shown above in their model? Why or why not? </p>
+  </statement>
+  </exercise>
+
+  <exercise>
+    <title>Multiple regression fact checking.</title>
+    <statement>
+      <p>Determine which of the following statements are true and false. For each statement that is false, explain why it is false.</p>
+      <p><ol marker="a.">
+        <li>
+          <p>If predictors are collinear, then removing one variable will have no influence on the point estimate of another variable's coefficient.</p>
+        </li>
+        <li>
+          <p>Suppose a numerical variable <m>x</m> has a coefficient of <m>b_1 = 2.5</m> in the multiple regression model. Suppose also that the first observation has <m>x_1 = 7.2</m>, the second observation has a value of <m>x_1 = 8.2</m>, and these two observations have the same values for all other predictors. Then the predicted value of the second observation will be 2.5 higher than the prediction of the first observation based on the multiple regression model.</p>
+        </li>
+        <li>
+          <p>If a regression model's first variable has a coefficient of <m>b_1 = 5.7</m>, then if we are able to influence the data so that an observation will have its <m>x_1</m> be 1 larger than it would otherwise, the value <m>y_1</m> for this observation would increase by 5.7. </p>
+        </li>
+      </ol></p>
+  </statement>
+  </exercise>
+
+  <exercise>
+    <title>Baby weights and smoking.</title>
+    <statement>
+      <p>US Department of Health and Human Services, Centers for Disease Control and Prevention collect information on births recorded in the country. The data used here are a random sample of 1,000 births from 2014. Here, we study the relationship between smoking and weight of the baby. The variable <c>smoke</c> is coded 1 if the mother is a smoker, and 0 if not. The summary table below shows the results of a linear regression model for predicting the average birth weight of babies, measured in pounds, based on the smoking status of the mother.<fn>The <url href="http://openintrostat.github.io/openintro/reference/births14.html"><c>births14</c></url> data used in this exercise can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</fn> <xref ref="data:births14"/> </p>
+      <p><ol marker="a.">
+        <li>
+          <p>Write the equation of the regression model.</p>
+        </li>
+        <li>
+          <p>Interpret the slope in this context, and calculate the predicted birth weight of babies born to smoker and non-smoker mothers. </p>
+        </li>
+      </ol></p>
+  </statement>
+  </exercise>
+
+  <exercise>
+    <title>Baby weights and mature moms.</title>
+    <statement>
+      <p>The following is a model for predicting baby weight from whether the mom is classified as a <c>mature</c> mom (35 years or older at the time of pregnancy). <xref ref="data:births14"/> </p>
+      <p><ol marker="a.">
+        <li>
+          <p>Write the equation of the regression model.</p>
+        </li>
+        <li>
+          <p>Interpret the slope in this context, and calculate the predicted birth weight of babies born to mature and younger mothers. </p>
+        </li>
+      </ol></p>
+  </statement>
+  </exercise>
+
+  <exercise>
+    <title>Movie returns, prediction.</title>
+    <statement>
+      <p>A model was fit to predict return-on-investment (ROI) on movies based on release year and genre (Adventure, Action, Drama, Horror, and Comedy). The model output is shown below. <xref ref="webpage:horrormovies"/> </p>
+      <p><ol marker="a.">
+        <li>
+          <p>For a given release year, which genre of movies are predicted, on average, to have the highest predicted return on investment?</p>
+        </li>
+        <li>
+          <p>The adjusted <m>R^2</m> of this model is [initial adjusted R² value]%. Adding the production budget of the movie to the model increases the adjusted <m>R^2</m> to [updated adjusted R² value]%. Should production budget be added to the model? </p>
+        </li>
+      </ol></p>
+  </statement>
+  </exercise>
+
+  <exercise>
+    <title>Movie returns by genre.</title>
+    <statement>
+      <p>A model was fit to predict return-on-investment (ROI) on movies based on release year and genre (Adventure, Action, Drama, Horror, and Comedy). The plots below show the predicted ROI vs. actual ROI for each of the genres separately. Do these figures support the comment in the FiveThirtyEight.com article that states, "The return-on-investment potential for horror movies is absurd." Note that the x-axis range varies for each plot. <xref ref="webpage:horrormovies"/> </p>
+      
+      <listing>
+        <caption>R code to generate the figure</caption>
+        <program language="r">
+          <input>
+movie_profit &lt;- read_csv("data/movie_profit.csv")
+movie_profit &lt;- movie_profit |&gt;
+  mutate(
+    release_date = mdy(release_date),
+    release_year = year(release_date),
+    oct_release = ifelse(month(release_date) == 10, "yes", "no"),
+    dom_gross_to_prod = domestic_gross / production_budget,
+    ww_gross_to_prod = worldwide_gross / production_budget
+    ) |&gt;
+  filter(
+    release_year &gt;= 2010,
+    release_year &lt; 2019
+    )
+
+m_movie &lt;- lm(ww_gross_to_prod ~ release_year + genre, data = movie_profit)
+m_movie_aug &lt;- augment(m_movie)
+
+ggplot(m_movie_aug, aes(y = .fitted, x = ww_gross_to_prod, color = genre)) + 
+  geom_point(alpha = 0.5, show.legend = FALSE, size = 2) +
+  facet_wrap(~genre, scales = "free_x") +
+  theme_minimal() + 
+  labs(x = "Actual ROI", y = "Predicted ROI", color = "Genre") +
+  scale_color_openintro("five")
+          </input>
+        </program>
+      </listing>
+  </statement>
+  </exercise>
+
+  <exercise>
+    <title>Predicting baby weights.</title>
+    <statement>
+      <p>A more realistic approach to modeling baby weights is to consider all possibly related variables at once. Other variables of interest include length of pregnancy in weeks (<c>weeks</c>), mother's age in years (<c>mage</c>), the sex of the baby (<c>sex</c>), smoking status of the mother (<c>habit</c>), and the number of hospital (<c>visits</c>) visits during pregnancy. Below are three observations from this dataset.  The summary table below shows the results of a regression model for predicting the average birth weight of babies based on all of the variables presented above. </p>
+      <p><ol marker="a.">
+        <li>
+          <p>Write the equation of the regression model that includes all of the variables.</p>
+        </li>
+        <li>
+          <p>Interpret the slopes of <c>weeks</c> and <c>habit</c> in this context.</p>
+        </li>
+        <li>
+          <p>If we fit a model predicting baby weight from only <c>habit</c> (whether the mom smokes), we observe a difference in the slope coefficient for <c>habit</c> in this small model and the slope coefficient for <c>habit</c> in the larger model. Why might there be a difference?</p>
+        </li>
+        <li>
+          <p>Calculate the residual for the first observation in the dataset. </p>
+        </li>
+      </ol></p>
+  </statement>
+  </exercise>
+
+  <exercise>
+    <title>Palmer penguins, predicting body mass.</title>
+    <statement>
+      <p>Researchers studying a community of Antarctic penguins collected body measurement (bill length, bill depth, and flipper length measured in millimeters and body mass, measured in grams), species (<em>Adelie</em>, <em>Chinstrap</em>, or <em>Gentoo</em>), and sex (female or male) data on 344 penguins living on three islands (Torgersen, Biscoe, and Dream) in the Palmer Archipelago, Antarctica.<fn>The <url href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html"><c>penguins</c></url> data used in this exercise can be found in the <url href="https://allisonhorst.github.io/palmerpenguins/"><alert>palmerpenguins</alert></url> R package.</fn> The summary table below shows the results of a linear regression model for predicting body mass (which is more difficult to measure) from the other variables in the dataset. <xref ref="palmerpenguins"/> </p>
+      <p><ol marker="a.">
+        <li>
+          <p>Write the equation of the regression model.</p>
+        </li>
+        <li>
+          <p>Interpret each one of the slopes in this context.</p>
+        </li>
+        <li>
+          <p>Calculate the residual for a male Adelie penguin that weighs 3,750 grams with the following body measurements. Does the model overpredict or underpredict this penguin's weight?</p>
+          <ul>
+            <li><p><c>bill_length_mm</c> = 39.1</p></li>
+            <li><p><c>bill_depth_mm</c> = 18.7</p></li>
+            <li><p><c>flipper_length_mm</c> = 181</p></li>
+          </ul>
+        </li>
+        <li>
+          <p>The <m>R^2</m> of this model is given in the output table. Interpret this value in context of the data and the model. </p>
+        </li>
+      </ol></p>
+  </statement>
+  </exercise>
+
+  <exercise>
+    <title>Baby weights, backwards elimination.</title>
+    <statement>
+      <p>Let's consider a model that predicts <c>weight</c> of newborns using several predictors: whether the mother is considered <c>mature</c>, number of <c>weeks</c> of gestation, number of hospital <c>visits</c> during pregnancy, weight <c>gained</c> by the mother during pregnancy, <c>sex</c> of the baby, and whether the mother smokes cigarettes during pregnancy (<c>habit</c>). <xref ref="data:births14"/> The adjusted <m>R^2</m> of the full model is [full model adjusted R² value]. We remove each variable one by one, refit the model, and record the adjusted <m>R^2</m>. Which, if any, variable should be removed from the model?</p>
+      <ul>
+        <li><p>Drop <c>mature</c>: [adjusted R² value]</p></li>
+        <li><p>Drop <c>weeks</c>: [adjusted R² value]</p></li>
+        <li><p>Drop <c>visits</c>: [adjusted R² value]</p></li>
+        <li><p>Drop <c>gained</c>: [adjusted R² value]</p></li>
+        <li><p>Drop <c>sex</c>: [adjusted R² value]</p></li>
+      </ul>
+  </statement>
+  </exercise>
+
+  <exercise>
+    <title>Palmer penguins, backwards elimination.</title>
+    <statement>
+      <p>The following full model is built to predict the weights of three species (<em>Adelie</em>, <em>Chinstrap</em>, or <em>Gentoo</em>) of penguins living in the Palmer Archipelago, Antarctica. <xref ref="palmerpenguins"/> The adjusted <m>R^2</m> of the full model is [full model adjusted R² value]. In order to evaluate whether any of the predictors can be dropped from the model without losing predictive performance of the model, the researchers dropped one variable at a time, refit the model, and recorded the adjusted <m>R^2</m> of the smaller model. These values are given below. Which, if any, variable should be removed from the model first?</p>
+      <ul>
+        <li><p>Drop <c>bill_length_mm</c>: [adjusted R² value]</p></li>
+        <li><p>Drop <c>bill_depth_mm</c>: [adjusted R² value]</p></li>
+        <li><p>Drop <c>flipper_length_mm</c>: [adjusted R² value]</p></li>
+        <li><p>Drop <c>sex</c>: [adjusted R² value]</p></li>
+        <li><p>Drop <c>species</c>: [adjusted R² value]</p></li>
+      </ul>
+  </statement>
+  </exercise>
+
+  <exercise>
+    <title>Baby weights, forward selection.</title>
+    <statement>
+      <p>Using information on the mother and the sex of the baby (which can be determined prior to birth), we want to build a model that predicts the birth weight of babies. In order to do so, we will evaluate six candidate predictors: whether the mother is considered <c>mature</c>, number of <c>weeks</c> of gestation, number of hospital <c>visits</c> during pregnancy, weight <c>gained</c> by the mother during pregnancy, <c>sex</c> of the baby, and whether the mother smokes cigarettes during pregnancy (<c>habit</c>). And we will make a decision about including them in the model using forward selection and adjusted <m>R^2</m>. Below are the six models we evaluate and their adjusted <m>R^2</m> values. <xref ref="data:births14"/> Which variable should be added to the model first?</p>
+      <ul>
+        <li><p>Predict <c>weight</c> from <c>mature</c>: [adjusted R² value]</p></li>
+        <li><p>Predict <c>weight</c> from <c>weeks</c>: [adjusted R² value]</p></li>
+        <li><p>Predict <c>weight</c> from <c>visits</c>: [adjusted R² value]</p></li>
+        <li><p>Predict <c>weight</c> from <c>gained</c>: [adjusted R² value]</p></li>
+        <li><p>Predict <c>weight</c> from <c>sex</c>: [adjusted R² value]</p></li>
+        <li><p>Predict <c>weight</c> from <c>habit</c>: [adjusted R² value]</p></li>
+      </ul>
+  </statement>
+  </exercise>
+
+  <exercise>
+    <title>Palmer penguins, forward selection.</title>
+    <statement>
+      <p>Using body measurement and other relevant data on three species (<em>Adelie</em>, <em>Chinstrap</em>, or <em>Gentoo</em>) of penguins living in the Palmer Archipelago, Antarctica, we want to predict their body mass. In order to do so, we will evaluate five candidate predictors and make a decision about including them in the model using forward selection and adjusted <m>R^2</m>. Below are the five models we evaluate and their adjusted <m>R^2</m> values. Which variable should be added to the model first?</p>
+      <ul>
+        <li><p>Predict body mass from <c>bill_length_mm</c>: [adjusted R² value]</p></li>
+        <li><p>Predict body mass from <c>bill_depth_mm</c>: [adjusted R² value]</p></li>
+        <li><p>Predict body mass from <c>flipper_length_mm</c>: [adjusted R² value]</p></li>
+        <li><p>Predict body mass from <c>sex</c>: [adjusted R² value]</p></li>
+        <li><p>Predict body mass from <c>species</c>: [adjusted R² value]</p></li>
+      </ul>
+  </statement>
+  </exercise>
+
+</exercises>

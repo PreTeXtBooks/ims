@@ -244,6 +244,26 @@
         <biblio type="raw" xml:id="biblio-data-employmentDiabetes">
           Employment and Diabetes Study Data.
         </biblio>
+        
+        <biblio type="raw" xml:id="data:births14">
+          United States Department of Health and Human Services. Centers for Disease Control and Prevention. National Center for Health Statistics (2014).
+          Natality Detail File, 2014 United States.
+          Inter-university Consortium for Political and Social Research.
+          DOI: 10.3886/ICPSR36461.v1
+        </biblio>
+        
+        <biblio type="raw" xml:id="palmerpenguins">
+          Gorman, K. B., Williams, T. D., and Fraser, W. R. (2014).
+          Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus Pygoscelis).
+          <em>PLoS ONE</em>, 9(3):e90081, pages 1-13.
+          DOI: 10.1371/journal.pone.0090081
+        </biblio>
+        
+        <biblio type="raw" xml:id="webpage:horrormovies">
+          FiveThirtyEight (2015).
+          Scary Movies Are The Best Investment In Hollywood.
+          <url href="http://www.openintro.org/redirect.php?go=textbook-fivethirtyeight-scary-movies">http://www.openintro.org/redirect.php?go=textbook-fivethirtyeight-scary-movies</url>
+        </biblio>
       </references>
     </backmatter>
   </book>

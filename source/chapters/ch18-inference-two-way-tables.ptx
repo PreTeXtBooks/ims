@@ -481,6 +481,42 @@
         </solution>
       </example>
 
+      <table xml:id="tbl-diabetes2ExpMetRosiLifestyleSummary">
+        <title>Results for the Type 2 Diabetes study.</title>
+        <tabular halign="center">
+          <row header="yes" bottom="minor">
+            <cell>Treatment</cell>
+            <cell>Failure</cell>
+            <cell>Success</cell>
+            <cell>Total</cell>
+          </row>
+          <row>
+            <cell>lifestyle</cell>
+            <cell>109</cell>
+            <cell>125</cell>
+            <cell>234</cell>
+          </row>
+          <row>
+            <cell>met</cell>
+            <cell>120</cell>
+            <cell>112</cell>
+            <cell>232</cell>
+          </row>
+          <row>
+            <cell>rosi</cell>
+            <cell>90</cell>
+            <cell>143</cell>
+            <cell>233</cell>
+          </row>
+          <row bottom="minor">
+            <cell>Total</cell>
+            <cell>319</cell>
+            <cell>380</cell>
+            <cell>699</cell>
+          </row>
+        </tabular>
+      </table>
+
       <aside>
         <p>
           The <url href="http://openintrostat.github.io/openintro/reference/diabetes2.html">diabetes2</url> data can be found in the <url href="http://openintrostat.github.io/openintro">openintro</url> R package.
@@ -533,14 +569,24 @@
       <title>Terms</title>
       
       <p>
-        The terms introduced in this chapter are presented in the table below.
+        The terms introduced in this chapter are presented in <xref ref="tbl-terms-chp-18" />.
         If you're not sure what some of these terms mean, we recommend you go back in the text and review their definitions.
         You should be able to easily spot them as <alert>bolded text</alert>.
       </p>
 
-      <p>
-        Terms introduced in this chapter: independence, expected counts, chi-squared statistic, Chi-squared distribution.
-      </p>
+      <table xml:id="tbl-terms-chp-18">
+        <title>Terms introduced in this chapter.</title>
+        <tabular halign="left">
+          <row>
+            <cell>Chi-squared distribution</cell>
+            <cell>expected counts</cell>
+          </row>
+          <row>
+            <cell>chi-squared statistic</cell>
+            <cell>independence</cell>
+          </row>
+        </tabular>
+      </table>
     </subsection>
   </section>
 

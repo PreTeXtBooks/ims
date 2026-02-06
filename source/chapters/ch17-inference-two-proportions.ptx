@@ -409,9 +409,26 @@
         </solution>
         </exercise>
         <table xml:id="tbl-fish-oil-data">
-        <title>Results for the study on n-3 fatty acid supplement and related health benefits. tbl-pos: H</title>
-        <tabular>
-        <row><cell>Table content</cell></row>
+        <title>Results for the study on n-3 fatty acid supplement and related health benefits.</title>
+        <tabular halign="center">
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>heart attack</cell>
+            <cell>no event</cell>
+            <cell>Total</cell>
+          </row>
+          <row>
+            <cell>fish oil</cell>
+            <cell>145</cell>
+            <cell>12788</cell>
+            <cell>12933</cell>
+          </row>
+          <row>
+            <cell>placebo</cell>
+            <cell>200</cell>
+            <cell>12738</cell>
+            <cell>12938</cell>
+          </row>
         </tabular>
         </table>
         <note>
@@ -573,11 +590,17 @@
         You should be able to easily spot them as <alert>bolded text</alert>.
         <table xml:id="tbl-terms-chp-17">
         <title>Terms introduced in this chapter.</title>
-        <tabular>
-        <row><cell>point estimate</cell></row>
-        <row><cell>percentile interval</cell></row>
-        <row><cell>SE interval</cell></row>
-        <row><cell>pooled proportion estimate</cell></row>
+        <tabular halign="left">
+        <row>
+          <cell>point estimate</cell>
+          <cell>percentile interval</cell>
+          <cell>SE interval</cell>
+        </row>
+        <row>
+          <cell>SE difference in proportions</cell>
+          <cell>Z score two proportions</cell>
+          <cell>pooled proportion</cell>
+        </row>
         </tabular>
         </table>
         </subsection>

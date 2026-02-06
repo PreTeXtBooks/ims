@@ -612,7 +612,43 @@ ggplot(tires_shuffled, aes(x = stat)) +
 
 <table xml:id="tbl-textbooksDF">
   <title>Four cases from the <c>ucla_textbooks_f18</c> dataset.</title>
-  <image source="images/tbl-textbooksDF-1.png" width="70%" />
+  <tabular halign="center">
+    <row header="yes" bottom="minor">
+      <cell>subject</cell>
+      <cell>course_num</cell>
+      <cell>bookstore_new</cell>
+      <cell>amazon_new</cell>
+      <cell>price_diff</cell>
+    </row>
+    <row>
+      <cell>American Indian Studies</cell>
+      <cell>M10</cell>
+      <cell>48.0</cell>
+      <cell>47.5</cell>
+      <cell>0.52</cell>
+    </row>
+    <row>
+      <cell>Anthropology</cell>
+      <cell>2</cell>
+      <cell>14.3</cell>
+      <cell>13.6</cell>
+      <cell>0.71</cell>
+    </row>
+    <row>
+      <cell>Arts and Architecture</cell>
+      <cell>10</cell>
+      <cell>13.5</cell>
+      <cell>12.5</cell>
+      <cell>0.97</cell>
+    </row>
+    <row>
+      <cell>Asian</cell>
+      <cell>M60W</cell>
+      <cell>49.3</cell>
+      <cell>55.0</cell>
+      <cell>-5.69</cell>
+    </row>
+  </tabular>
 </table>
 
 <listing xml:id="tbl-textbooksDF-code">
@@ -775,7 +811,18 @@ boot_diff |&gt;
 
 <table xml:id="tbl-textbooksSummaryStats">
   <title>Summary statistics for the 68 price differences.</title>
-  <image source="images/tbl-textbooksSummaryStats-1.png" width="70%" />
+  <tabular halign="center">
+    <row header="yes" bottom="minor">
+      <cell>n</cell>
+      <cell>Mean</cell>
+      <cell>SD</cell>
+    </row>
+    <row>
+      <cell>68</cell>
+      <cell>3.58</cell>
+      <cell>13.4</cell>
+    </row>
+  </tabular>
 </table>
 
 <listing xml:id="tbl-textbooksSummaryStats-code">
@@ -936,7 +983,18 @@ ucla_textbooks_f18 |&gt;
 
 <table xml:id="tbl-terms-chp-21">
   <title>Terms introduced in this chapter.</title>
-  <image source="images/tbl-terms-chp-21-1.png" width="70%" />
+  <tabular halign="left">
+    <row>
+      <cell>bootstrap CI paired difference</cell>
+      <cell>paired difference CI</cell>
+      <cell>T score paired difference</cell>
+    </row>
+    <row>
+      <cell>paired data</cell>
+      <cell>paired difference t-test</cell>
+      <cell></cell>
+    </row>
+  </tabular>
 </table>
 
 <listing xml:id="tbl-terms-chp-21-code">

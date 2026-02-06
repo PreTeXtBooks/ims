@@ -1,9 +1,785 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<chapter xml:id="ch27-model-infer-applications">
+<chapter xml:id="ch27-model-infer-applications" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Applications: Model and infer</title>
   
-  <p>
-    Content to be added from inf-model-applications.qmd
-  </p>
+  <section xml:id="sec-case-study-mario-cart">
+    <title>Case study: Mario Kart</title>
+    
+    <p>
+      In this case study, we consider Ebay auctions of a video game called <em>Mario Kart</em> for the Nintendo Wii.
+      The outcome variable of interest is the total price of an auction, which is the highest bid plus the shipping cost.
+      We will try to determine how total price is related to each characteristic in an auction while simultaneously controlling for other variables.
+      For instance, all other characteristics held constant, are longer auctions associated with higher or lower prices?
+      And, on average, how much more do buyers tend to pay for additional Wii wheels (plastic steering wheels that attach to the Wii controller) in auctions?
+      Multiple regression will help us answer these and other questions.
+    </p>
+    
+    <note>
+      <title>Data</title>
+      <p>The <url href="http://openintrostat.github.io/openintro/reference/mariokart.html"><c>mariokart</c></url> data can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</p>
+    </note>
+    
+    <p>
+      The <c>mariokart</c> dataset includes results from 141 auctions.
+      Four observations from this dataset are shown in <xref ref="tbl-mariokart-data-frame" />, and descriptions for each variable are shown in <xref ref="tbl-mariokart-var-def" />.
+      Notice that the condition and stock photo variables are <alert>indicator variables</alert><idx><h>variable</h><h>indicator</h></idx><idx>indicator variable</idx>, similar to <c>bankruptcy</c> in the <c>loans</c> dataset from <xref ref="ch25-inference-linear-regression-multiple" />.
+    </p>
+    
+    <listing xml:id="listing-mariokart-data-prep">
+      <caption>R code for preparing the mariokart data</caption>
+      <program language="r">
+        <input>
+mariokart &lt;- mariokart |&gt;
+  mutate(price = total_pr, cond_new = forcats::fct_rev(cond)) |&gt;
+  filter(price &lt; 100)
+        </input>
+      </program>
+    </listing>
+    
+    <listing xml:id="listing-tbl-mariokart-data-frame">
+      <caption>R code for <xref ref="tbl-mariokart-data-frame" /></caption>
+      <program language="r">
+        <input>
+mariokart |&gt;
+  select(price, cond_new, stock_photo, duration, wheels) |&gt;
+  slice_head(n = 4) |&gt;
+  kbl(linesep = "", booktabs = TRUE, row.names = FALSE, align = "ccccc") |&gt;
+  kable_styling(
+    bootstrap_options = c("striped", "condensed"), 
+    latex_options = c("striped"),
+    full_width = FALSE
+  ) |&gt;
+  column_spec(1:5, width = "7em")
+        </input>
+      </program>
+    </listing>
+    
+    <table xml:id="tbl-mariokart-data-frame">
+      <title>Top four rows of the <c>mariokart</c> dataset.</title>
+      <tabular>
+        <row header="yes">
+          <cell>price</cell>
+          <cell>cond_new</cell>
+          <cell>stock_photo</cell>
+          <cell>duration</cell>
+          <cell>wheels</cell>
+        </row>
+        <row>
+          <cell>51.55</cell>
+          <cell>new</cell>
+          <cell>yes</cell>
+          <cell>3</cell>
+          <cell>1</cell>
+        </row>
+        <row>
+          <cell>37.04</cell>
+          <cell>used</cell>
+          <cell>yes</cell>
+          <cell>7</cell>
+          <cell>0</cell>
+        </row>
+        <row>
+          <cell>45.50</cell>
+          <cell>new</cell>
+          <cell>no</cell>
+          <cell>3</cell>
+          <cell>1</cell>
+        </row>
+        <row>
+          <cell>44.00</cell>
+          <cell>new</cell>
+          <cell>yes</cell>
+          <cell>3</cell>
+          <cell>1</cell>
+        </row>
+      </tabular>
+    </table>
+    
+    <listing xml:id="listing-tbl-mariokart-var-def">
+      <caption>R code for creating variable definitions table</caption>
+      <program language="r">
+        <input>
+mariokart_var_def &lt;- tribble(
+  ~variable, ~description,
+  "price", "Final auction price plus shipping costs, in US dollars.",
+  "cond_new", "Indicator variable for if the game is new (1) or used (0).",
+  "stock_photo", "Indicator variable for if the auction's main photo is a stock photo.",
+  "duration", "The length of the auction, in days, taking values from 1 to 10.",
+  "wheels", "The number of Wii wheels included with the auction. A Wii wheel is an optional steering wheel accessory that holds the Wii controller."
+)
+
+mariokart_var_def |&gt;
+  kbl(linesep = "", booktabs = TRUE, col.names = c("Variable", "Description")) |&gt;
+  kable_styling(
+    bootstrap_options = c("striped", "condensed"),
+    latex_options = c("striped"), 
+    full_width = TRUE
+  ) |&gt;
+  column_spec(1, monospace = TRUE) |&gt;
+  column_spec(2, width = "30em")
+        </input>
+      </program>
+    </listing>
+    
+    <table xml:id="tbl-mariokart-var-def">
+      <title>Variables and their descriptions for the <c>mariokart</c> dataset.</title>
+      <tabular>
+        <row header="yes">
+          <cell>Variable</cell>
+          <cell>Description</cell>
+        </row>
+        <row>
+          <cell><c>price</c></cell>
+          <cell>Final auction price plus shipping costs, in US dollars.</cell>
+        </row>
+        <row>
+          <cell><c>cond_new</c></cell>
+          <cell>Indicator variable for if the game is new (1) or used (0).</cell>
+        </row>
+        <row>
+          <cell><c>stock_photo</c></cell>
+          <cell>Indicator variable for if the auction's main photo is a stock photo.</cell>
+        </row>
+        <row>
+          <cell><c>duration</c></cell>
+          <cell>The length of the auction, in days, taking values from 1 to 10.</cell>
+        </row>
+        <row>
+          <cell><c>wheels</c></cell>
+          <cell>The number of Wii wheels included with the auction. A Wii wheel is an optional steering wheel accessory that holds the Wii controller.</cell>
+        </row>
+      </tabular>
+    </table>
+    
+    <subsection xml:id="subsec-mathematical-approach-linear-models">
+      <title>Mathematical approach to linear models</title>
+      
+      <p>
+        In <xref ref="tbl-mariokart-model-output" /> we fit a mathematical linear regression model with the game's condition as a predictor of auction price.
+      </p>
+      
+      <me>E[\texttt{price}] = \beta_0 + \beta_1\times \texttt{cond\_new}</me>
+      
+      <p>Results of the model are summarized below:</p>
+      
+      <listing xml:id="listing-tbl-mariokart-model-output">
+        <caption>R code for simple linear model</caption>
+        <program language="r">
+          <input>
+mariokart &lt;- mariokart |&gt;
+  mutate(
+    cond_new = ifelse(cond_new == "used", 0 , 1),
+    stock_photo = ifelse(stock_photo == "yes", 1, 0)
+  )
+
+lm(price ~ cond_new, data = mariokart) |&gt; 
+  tidy() |&gt;
+  mutate(p.value = ifelse(p.value &lt; 0.0001, "&lt;0.0001", round(p.value, 4))) |&gt;
+  kbl(linesep = "", booktabs = TRUE, digits = 2, align = "lrrrr") |&gt;
+  kable_styling(
+    bootstrap_options = c("striped", "condensed"),
+    latex_options = c("striped")
+  ) |&gt;
+  column_spec(1, width = "10em", monospace = TRUE) |&gt;
+  column_spec(2:5, width = "5em")
+          </input>
+        </program>
+      </listing>
+      
+      <table xml:id="tbl-mariokart-model-output">
+        <title>Summary of a linear model for predicting <c>price</c> based on <c>cond_new</c>.</title>
+        <tabular>
+          <row header="yes">
+            <cell>term</cell>
+            <cell>estimate</cell>
+            <cell>std.error</cell>
+            <cell>statistic</cell>
+            <cell>p.value</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>47.15</cell>
+            <cell>0.88</cell>
+            <cell>53.42</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+          <row>
+            <cell>cond_new</cell>
+            <cell>10.90</cell>
+            <cell>1.26</cell>
+            <cell>8.66</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+        </tabular>
+      </table>
+      
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            Write down the equation for the model, note whether the slope is statistically different from zero, and interpret the coefficient.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The equation for the line may be written as <m>\widehat{\texttt{price}} = 47.15 + 10.90\times \texttt{cond\_new}</m>.
+            Examining the regression output in <xref ref="tbl-mariokart-model-output" /> we can see that the p-value for <c>cond_new</c> is very close to zero, indicating there is strong evidence that the coefficient is different from zero when using this one-variable model.
+            The variable <c>cond_new</c> is a two-level categorical variable that takes value 1 when the game is new and value 0 when the game is used.
+            This means the 10.90 model coefficient predicts a price of an extra $10.90 for those games that are new versus those that are used.
+          </p>
+        </solution>
+      </exercise>
+      
+      <p>
+        Sometimes there are underlying structures or relationships between predictor variables.
+        For instance, new games sold on Ebay tend to come with more Wii wheels, which may have led to higher prices for those auctions.
+        We would like to fit a model that includes all potentially important variables simultaneously, which would help us evaluate the relationship between a predictor variable and the outcome while controlling for the potential influence of other variables.
+      </p>
+      
+      <p>
+        We want to construct a model that accounts for not only the game condition but simultaneously accounts for three other variables:
+      </p>
+      
+      <md>
+        <mrow>E[\texttt{price}] = \beta_0 \amp+ \beta_1 \times \texttt{cond\_new} + \beta_2\times \texttt{stock\_photo}</mrow>
+        <mrow>\amp+ \beta_3 \times \texttt{duration} + \beta_4 \times  \texttt{wheels}</mrow>
+      </md>
+      
+      <p>
+        <xref ref="tbl-mariokart-full-model-output" /> summarizes the full model.
+        Using the output, we identify the point estimates of each coefficient and the corresponding impact (measured with information on the standard error used to compute the p-value).
+      </p>
+      
+      <listing xml:id="listing-tbl-mariokart-full-model-output">
+        <caption>R code for multiple linear model</caption>
+        <program language="r">
+          <input>
+lm(price ~ cond_new + stock_photo + duration + wheels, data = mariokart) |&gt; 
+  tidy() |&gt;
+  mutate(p.value = ifelse(p.value &lt; 0.0001, "&lt;0.0001", round(p.value, 4))) |&gt;
+  kbl(linesep = "", booktabs = TRUE, digits = 2, align = "lrrrr") |&gt;
+  kable_styling(
+    bootstrap_options = c("striped", "condensed"),
+    latex_options = c("striped")
+  ) |&gt;
+  column_spec(1, width = "10em", monospace = TRUE) |&gt;
+  column_spec(2:5, width = "5em")
+          </input>
+        </program>
+      </listing>
+      
+      <table xml:id="tbl-mariokart-full-model-output">
+        <title>Summary of a linear model for predicting <c>price</c> based on <c>cond_new</c>, <c>stock_photo</c>, <c>duration</c>, and <c>wheels</c>.</title>
+        <tabular>
+          <row header="yes">
+            <cell>term</cell>
+            <cell>estimate</cell>
+            <cell>std.error</cell>
+            <cell>statistic</cell>
+            <cell>p.value</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>36.21</cell>
+            <cell>1.51</cell>
+            <cell>23.92</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+          <row>
+            <cell>cond_new</cell>
+            <cell>5.13</cell>
+            <cell>1.05</cell>
+            <cell>4.88</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+          <row>
+            <cell>stock_photo</cell>
+            <cell>1.08</cell>
+            <cell>1.06</cell>
+            <cell>1.02</cell>
+            <cell>0.3085</cell>
+          </row>
+          <row>
+            <cell>duration</cell>
+            <cell>-0.03</cell>
+            <cell>0.19</cell>
+            <cell>-0.14</cell>
+            <cell>0.8882</cell>
+          </row>
+          <row>
+            <cell>wheels</cell>
+            <cell>7.29</cell>
+            <cell>0.55</cell>
+            <cell>13.13</cell>
+            <cell>&lt;0.0001</cell>
+          </row>
+        </tabular>
+      </table>
+      
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            Write out the model's equation using the point estimates from <xref ref="tbl-mariokart-full-model-output" />.
+            How many predictors are there in the model?
+            How many coefficients are estimated?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <m>\widehat{\texttt{price}} = 36.21 + 5.13 \times \texttt{cond\_new} + 1.08 \times \texttt{stock\_photo} - 0.03 \times \texttt{duration} + 7.29 \times \texttt{wheels},</m> with 4 predictors but 5 coefficients (including the intercept).
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            What does <m>\beta_4,</m> the coefficient of variable <m>x_4</m> (Wii wheels), represent?
+            What is the point estimate of <m>\beta_4?</m>
+          </p>
+        </statement>
+        <solution>
+          <p>
+            In the population of all auctions, it is the average difference in auction price for each additional Wii wheel included when holding the other variables constant.
+            The point estimate is <m>b_4 = 7.29</m>.
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            Compute the residual of the first observation in <xref ref="tbl-mariokart-data-frame" /> using the equation identified in <xref ref="tbl-mariokart-full-model-output" />.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <m>e_i = y_i - \hat{y_i} = 51.55 - 49.62 = 1.93</m>.
+          </p>
+        </solution>
+      </exercise>
+      
+      <example>
+        <statement>
+          <p>
+            In <xref ref="tbl-mariokart-model-output" />, we estimated a coefficient for <c>cond_new</c> in of <m>b_1 = 10.90</m> with a standard error of <m>SE_{b_1} = 1.26</m> when using simple linear regression.
+            Why might there be a difference between that estimate and the one in the multiple regression setting?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            If we examined the data carefully, we would see that there is <alert>multicollinearity</alert><idx>multicollinearity</idx> among some predictors.
+            For instance, when we estimated the connection of the outcome <c>price</c> and predictor <c>cond_new</c> using simple linear regression, we were unable to control for other variables like the number of Wii wheels included in the auction.
+            That model was biased by the confounding variable <c>wheels</c>.
+            When we use both variables, this particular underlying and unintentional bias is reduced or eliminated (though bias from other confounding variables may still remain).
+          </p>
+        </solution>
+      </example>
+      
+    </subsection>
+    
+    <subsection xml:id="subsec-computational-approach-linear-models">
+      <title>Computational approach to linear models</title>
+      
+      <p>
+        Previously, using a mathematical model, we investigated the coefficients associated with <c>cond_new</c> when predicting <c>price</c> in a linear model.
+      </p>
+      
+      <listing xml:id="listing-fig-mariokart-rand-dist">
+        <caption>R code for <xref ref="fig-mariokart-rand-dist" /></caption>
+        <program language="r">
+          <input>
+set.seed(47)
+mariokart |&gt;
+  specify(price ~ cond_new) |&gt;
+  hypothesize(null = "independence") |&gt;
+  generate(reps = 1000, type = "permute") |&gt;
+  calculate(stat = "slope") |&gt;
+  ggplot(aes(x = stat)) +
+  geom_histogram(binwidth = 0.5, fill = IMSCOL["green", "full"]) +
+  labs(
+    title = "Slopes from models fit to 1,000 permutations of the data",
+    x = "Slope of model fit to permuted data",
+    y = "Count"
+    ) +
+  geom_vline(xintercept = 10.9, color = IMSCOL["red","full"], size = 1) +
+  theme(plot.title.position = "plot")
+          </input>
+        </program>
+      </listing>
+      
+      <figure xml:id="fig-mariokart-rand-dist">
+        <caption>Estimated slopes from linear models (<c>price</c> regressed on <c>cond_new</c>) built on 1,000 randomized datasets. Each dataset was permuted under the null hypothesis.</caption>
+        <image source="images/fig-mariokart-rand-dist-1.png" width="70%" />
+      </figure>
+      
+      <example>
+        <statement>
+          <p>
+            In <xref ref="fig-mariokart-rand-dist" />, the red line (the observed slope) is far from the bulk of the histogram.
+            Explain why the randomly permuted datasets produce slopes that are quite different from the observed slope.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The null hypothesis is that, in the population, there is no linear relationship between the <c>price</c> and the <c>cond_new</c> of the <em>Mario Kart</em> games.
+            When the data are randomly permuted, prices are randomly assigned to a condition (new or used), so that the null hypothesis is forced to be true, i.e., permutation is done under the assumption that no relationship between the two variables exists.
+            In the actual study, the new <em>Mario Kart</em> games do actually cost more (on average) than the used games!
+            So the slope describing the actual observed relationship is not one that is likely to have happened in a randomly dataset permuted under the assumption that the null hypothesis is true.
+          </p>
+        </solution>
+      </example>
+      
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            Using the histogram in <xref ref="fig-mariokart-rand-dist" />, find the p-value and conclude the hypothesis test in the context of the problem.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The observed slope is 10.9 which is nowhere near the range of values for the permuted slopes (roughly -5 to +5).
+            Because the observed slope is not a plausible value under the null distribution, the p-value is essentially zero.
+            We reject the null hypothesis and claim that there is a relationship between whether the game is new (or not) and the average predicted price of the game.
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            Is the conclusion based on the histogram of randomized slopes consistent with the conclusion obtained using the mathematical model?
+            Explain.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The p-value in <xref ref="tbl-mariokart-model-output" /> is also essentially zero, so the null hypothesis is also rejected when the mathematical model approach is taken.
+            Often, the mathematical and computational approaches to inference will give quite similar answers.
+          </p>
+        </solution>
+      </exercise>
+      
+      <p>
+        Although knowing there is a relationship between the condition of the game and its price, we might be more interested in the difference in price, here given by the slope of the linear regression line.
+        That is, <m>\beta_1</m> represents the population value for the difference in price between new <em>Mario Kart</em> games and used games.
+      </p>
+      
+      <listing xml:id="listing-fig-mariokart-boot-dist">
+        <caption>R code for <xref ref="fig-mariokart-boot-dist" /></caption>
+        <program language="r">
+          <input>
+set.seed(47)
+mariokart |&gt;
+  specify(price ~ cond_new) |&gt;
+  generate(reps = 1000, type = "bootstrap") |&gt;
+  calculate(stat = "slope") |&gt;
+  ggplot(aes(x = stat)) +
+  geom_histogram(binwidth = 0.5, fill = IMSCOL["green", "full"]) +
+  labs(
+    title = "Slopes from models fit to 1,000 bootstrap samples of the data",
+    x = "Slope of model fit to bootstrapped data",
+    y = "Count"
+    ) +
+  theme(plot.title.position = "plot")
+          </input>
+        </program>
+      </listing>
+      
+      <figure xml:id="fig-mariokart-boot-dist">
+        <caption>Estimated slopes from linear models (<c>price</c> regressed on <c>cond_new</c>) built on 1,000 bootstrapped datasets. Each bootstrap sample was taken from the original Mario Kart auction data.</caption>
+        <image source="images/fig-mariokart-boot-dist-1.png" width="70%" />
+      </figure>
+      
+      <example>
+        <statement>
+          <p>
+            <xref ref="fig-mariokart-boot-dist" /> displays the slope estimates taken from bootstrap samples of the original data.
+            Using the histogram, estimate the standard error of the slope.
+            Is your estimate similar to the value of the standard error of the slope provided in the output of the mathematical linear model?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The slopes seem to vary from approximately 8 to 14.
+            Using the empirical rule, we know that if a variable has a bell-shaped distribution, most of the observations will be with 2 standard errors of the center.
+            Therefore, a rough approximation of the standard error is 1.5.
+            The standard error given in <xref ref="tbl-mariokart-model-output" /> is 1.26 which is not too different from the value computed using the bootstrap approach.
+          </p>
+        </solution>
+      </example>
+      
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            Use <xref ref="fig-mariokart-boot-dist" /> to create a 90% standard error bootstrap confidence interval for the true slope.
+            Interpret the interval in context.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Using the bootstrap SE method, we know the normal percentile is <m>z^\star = 1.645</m>, which gives a CI of <m>b_1 \pm 1.645 \cdot SE \rightarrow 10.9 \pm 1.645 \cdot 1.5 \rightarrow (8.43, 13.37).</m> For games that are new, the average price is higher by between $8.43 and $13.37 than games that are used, with 90% confidence.
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            Use <xref ref="fig-mariokart-boot-dist" /> to create a 90% bootstrap percentile confidence interval for the true slope.
+            Interpret the interval in context.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Because there were 1,000 bootstrap resamples, we look for the cutoffs which provide 50 bootstrap slopes on the left, 900 in the middle, and 50 on the right.
+            Looking at the bootstrap histogram, the rough 90% confidence interval is $9 to $13.10.
+            For games that are new, the average price is higher by between $9.00 and $13.10 than games that are used, with 90% confidence.
+          </p>
+        </solution>
+      </exercise>
+      
+    </subsection>
+    
+    <subsection xml:id="subsec-cross-validation">
+      <title>Cross-validation</title>
+      
+      <p>
+        In <xref ref="sec-model-mlr" />, models were compared using <m>R^2_{adj}.</m> In <xref ref="ch25-inference-linear-regression-multiple" />, however, a computational approach was introduced to compare models by removing chunks of data one at a time and assessing how well the variables predicted the observations that had been held out.
+      </p>
+      
+      <p>
+        <xref ref="fig-mariokart-cv-residuals" /> was created by cross-validating models with the same variables as in <xref ref="tbl-mariokart-model-output" /> and <xref ref="tbl-mariokart-full-model-output" />.
+        We applied 3-fold cross-validation, so 1/3 of the data was removed while 2/3 of the observations were used to build each model (first on <c>cond_new</c> only and then on <c>cond_new</c>, <c>stock_photo</c>, <c>duration</c>, and <c>wheels</c>).
+        Note that each time 1/3 of the data is removed, the resulting model will produce slightly different model coefficients.
+      </p>
+      
+      <p>
+        The points in <xref ref="fig-mariokart-cv-residuals" /> represent the prediction (x-axis) and residual (y-axis) for each observation run through the cross-validated model.
+        In other words, the model is built (using the other 2/3) without the observation (which is in the 1/3) being used.
+        The residuals give us a sense for how well the model will do at predicting observations which were not a part of the original dataset, e.g., future studies.
+      </p>
+      
+      <listing xml:id="listing-fig-mariokart-cv-residuals">
+        <caption>R code for <xref ref="fig-mariokart-cv-residuals" /></caption>
+        <program language="r">
+          <input>
+set.seed(4)
+mario_CV1 &lt;- train(price ~ cond_new,
+  data = mariokart,
+  na.action = na.omit,
+  method = "lm",
+  trControl = trainControl(
+    method = "cv", number = 3,
+    savePredictions = TRUE
+  )
+)
+
+mario_CV2 &lt;- train(price ~ cond_new + stock_photo + duration + wheels,
+  data = mariokart,
+  na.action = na.omit,
+  method = "lm",
+  trControl = trainControl(
+    method = "cv", number = 3,
+    savePredictions = TRUE
+  )
+)
+
+SSE_CV1 &lt;- mario_CV1$pred |&gt;
+  mutate(resid = obs - pred) |&gt;
+  select(resid) |&gt;
+  pull() %&gt;%
+  `^`(2) |&gt;
+  sum() |&gt;
+  round(2)
+
+SSE_CV2 &lt;- mario_CV2$pred |&gt;
+  mutate(resid = obs - pred) |&gt;
+  select(resid) |&gt;
+  pull() %&gt;%
+  `^`(2) |&gt;
+  sum() |&gt;
+  round(2)
+
+mario_CV1$pred |&gt;
+  mutate(resid = obs - pred) |&gt;
+  ggplot() +
+  geom_point(aes(x = pred, y = resid, color = Resample, shape = Resample)) +
+  geom_rug(aes(y = resid)) +
+  geom_hline(yintercept = 0) +
+  ylim(c(-15, 25)) +
+  xlim(c(20, 65)) +
+  labs(
+    color = "CV Fold", shape = "CV Fold",
+    x = "Predicted", y = "Prediction error (residual)"
+  ) +
+  annotate(geom = "text", x = 55, y = 25, label = paste("CV SSE =", SSE_CV1)) +
+  labs(title = "Model with one predictor") +
+  theme(
+    legend.position = c(0.2, 0.7),
+    legend.background = element_rect(color = "gray", fill = "white")
+  ) +
+  scale_color_openintro("three")
+
+mario_CV2$pred |&gt;
+  mutate(resid = obs - pred) |&gt;
+  ggplot() +
+  geom_point(aes(x = pred, y = resid, color = Resample, shape = Resample)) +
+  geom_rug(aes(y = resid)) +
+  geom_hline(yintercept = 0) +
+  ylim(c(-15, 25)) +
+  xlim(c(20, 65)) +
+  labs(
+    color = "CV Fold", shape = "CV Fold",
+    x = "Predicted", y = "Prediction error (residual)"
+  ) +
+  annotate(geom = "text", x = 55, y = 25, label = paste("CV SSE =", SSE_CV2)) +
+  labs(title = "Model with four predictors") +
+  scale_color_openintro("three")
+          </input>
+        </program>
+      </listing>
+      
+      <figure xml:id="fig-mariokart-cv-residuals">
+        <caption>Cross-validation predictions and errors from linear models built on two different sets of variables.</caption>
+        <sidebyside widths="45% 45%">
+          <figure xml:id="fig-mariokart-cv-residuals-1">
+            <caption><c>price</c> vs. <c>cond_new</c></caption>
+            <image source="images/fig-mariokart-cv-residuals-1.png" />
+          </figure>
+          <figure xml:id="fig-mariokart-cv-residuals-2">
+            <caption><c>price</c> vs. <c>cond_new</c>, <c>stock_photo</c>, <c>duration</c>, and <c>wheels</c></caption>
+            <image source="images/fig-mariokart-cv-residuals-2.png" />
+          </figure>
+        </sidebyside>
+      </figure>
+      
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            In <xref ref="fig-mariokart-cv-residuals-2" />, note the point at roughly predicted = 50 and prediction error = 10.
+            Estimate the observed and predicted value for that observation.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The predicted value is roughly <m>\widehat{\texttt{price}} = \$50.</m> The observed value is roughly <m>\texttt{price}_i = \$60</m> (using <m>e_i = y_i - \hat{y}_i).</m>
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            In <xref ref="fig-mariokart-cv-residuals-2" />, for the same point at roughly predicted = 50 and prediction error = 10, describe which cross-validation fold(s) were used to build its prediction model.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The point appears to be in fold 2, so folds 1 and 3 were used to build the prediction model.
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            By noting the spread of the cross-validated prediction errors (on the y-axis) in <xref ref="fig-mariokart-cv-residuals" />, which model should be chosen for a final report on these data?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The cross-validated residuals on <c>cond_new</c> vary roughly from -15 to 15, while the cross-validated residuals on the four predictor model vary less, roughly from -10 to 10.
+            Given the smaller residuals from the four predictor model, it seems as though the larger model is better.
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise>
+        <title>Guided Practice</title>
+        <statement>
+          <p>
+            Using the summary statistic cross-validation sum of squared errors (CV SSE), which model should be chosen for a final report on these data?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The CV SSE is smaller (by a factor of almost two!) for the model with four predictors.
+            Using a single valued criterion (CV SSE) allows us to make a decision to choose the model with four predictors.
+          </p>
+        </solution>
+      </exercise>
+      
+    </subsection>
+    
+  </section>
+  
+  <section xml:id="sec-inferential-modeling-tutorials">
+    <title>Interactive R tutorials</title>
+    
+    <p>
+      Navigate the concepts you've learned in this part in R using the following self-paced tutorials.
+      All you need is your browser to get started!
+    </p>
+    
+    <p>
+      <url href="https://openintrostat.github.io/ims-tutorials/06-model-infer/">Tutorial 6: Inferential modeling</url>
+    </p>
+    
+    <p>
+      <ul>
+        <li>
+          <p><url href="https://openintro.shinyapps.io/ims-06-model-infer-01/">Tutorial 6 - Lesson 1: Inference in regression</url></p>
+        </li>
+        <li>
+          <p><url href="https://openintro.shinyapps.io/ims-06-model-infer-02/">Tutorial 6 - Lesson 2: Randomization test for slope</url></p>
+        </li>
+        <li>
+          <p><url href="https://openintro.shinyapps.io/ims-06-model-infer-03/">Tutorial 6 - Lesson 3: t-test for slope</url></p>
+        </li>
+        <li>
+          <p><url href="https://openintro.shinyapps.io/ims-06-model-infer-04/">Tutorial 6 - Lesson 4: Checking technical conditions for slope inference</url></p>
+        </li>
+        <li>
+          <p><url href="https://openintro.shinyapps.io/ims-06-model-infer-05/">Tutorial 6 - Lesson 5: Inference beyond the simple linear regression model</url></p>
+        </li>
+      </ul>
+    </p>
+    
+    <p>
+      You can also access the full list of tutorials supporting this book at
+      <url href="https://openintrostat.github.io/ims-tutorials">https://openintrostat.github.io/ims-tutorials</url>.
+    </p>
+    
+  </section>
+  
+  <section xml:id="sec-inferential-modeling-labs">
+    <title>R labs</title>
+    
+    <p>
+      Further apply the concepts you've learned in this part in R with computational labs that walk you through a data analysis case study.
+    </p>
+    
+    <p>
+      <url href="https://www.openintro.org/go?id=ims-r-lab-model-infer">Multiple linear regression - Grading the professor</url>
+    </p>
+    
+    <p>
+      You can also access the full list of labs supporting this book at
+      <url href="https://www.openintro.org/go?id=ims-r-labs">https://www.openintro.org/go?id=ims-r-labs</url>.
+    </p>
+    
+  </section>
+  
 </chapter>

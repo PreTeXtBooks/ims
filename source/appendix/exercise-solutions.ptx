@@ -199,8 +199,8 @@
         <ol>
           <li><m>N(25, 2.78)</m>.</li>
           <li><m>Z = 1.08</m>, <m>P(Z \gt 1.08) = 0.1401</m>.</li>
-          <li>The answers are very close because only the units were changed. (The only reason why they differ at all because 28<m>^\circ</m> C is 82.4<m>^\circ</m> F, not precisely 83<m>^\circ</m> F.)</li>
-          <li>Since <m>IQR = Q3 - Q1</m>, we first need to find <m>Q3</m> and <m>Q1</m> and take the difference between the two. Remember that <m>Q3</m> is the 75<m>^{\text{th}}</m> and <m>Q1</m> is the 25<m>^{\text{th}}</m> percentile of a distribution. Q1 = 23.13, Q3 = 26.86, IQR = 26.86 - 23.13 = 3.73.</li>
+          <li>The answers are very close because only the units were changed. (The only reason why they differ at all is because 28<m>^\circ</m> C is 82.4<m>^\circ</m> F, not precisely 83<m>^\circ</m> F.)</li>
+          <li>Since <m>IQR = Q3 - Q1</m>, we first need to find <m>Q3</m> and <m>Q1</m> and take the difference between the two. Remember that <m>Q3</m> is the 75<m>^\text{th}</m> and <m>Q1</m> is the 25<m>^\text{th}</m> percentile of a distribution. Q1 = 23.13, Q3 = 26.86, IQR = 26.86 - 23.13 = 3.73.</li>
         </ol>
       </p>
     </solution>

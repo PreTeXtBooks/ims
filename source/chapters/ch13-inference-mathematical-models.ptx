@@ -1595,7 +1595,7 @@
           </p>
           <p>
             <ol>
-              <li><p>The score of a student who scored in the <m>80^{\text{th}}</m> percentile on the Quantitative Reasoning section.</p></li>
+              <li><p>The score of a student who scored in the <m>80^\text{th}</m> percentile on the Quantitative Reasoning section.</p></li>
               <li><p>The score of a student who scored worse than 70% of test takers in the Verbal Reasoning section.</p></li>
             </ol>
           </p>

@@ -491,64 +491,64 @@ resume_full_fit |&gt;
         <cell>(Intercept)</cell>
         <cell>-2.66</cell>
         <cell>0.18</cell>
-        <cell>-14.61</cell>
+        <cell>-14.64</cell>
         <cell><m>&lt;0.0001</m></cell>
       </row>
       <row>
         <cell>job_cityChicago</cell>
         <cell>-0.44</cell>
         <cell>0.11</cell>
-        <cell>-4.13</cell>
-        <cell><m>&lt;0.0001</m></cell>
+        <cell>-3.85</cell>
+        <cell>1e-04</cell>
       </row>
       <row>
         <cell>college_degree1</cell>
         <cell>-0.07</cell>
         <cell>0.12</cell>
-        <cell>-0.58</cell>
-        <cell>0.5595</cell>
+        <cell>-0.55</cell>
+        <cell>0.5821</cell>
       </row>
       <row>
         <cell>years_experience</cell>
         <cell>0.02</cell>
         <cell>0.01</cell>
-        <cell>2.01</cell>
-        <cell>0.0447</cell>
+        <cell>1.96</cell>
+        <cell>0.0503</cell>
       </row>
       <row>
         <cell>honors1</cell>
         <cell>0.77</cell>
         <cell>0.19</cell>
-        <cell>4.02</cell>
+        <cell>4.14</cell>
         <cell><m>&lt;0.0001</m></cell>
       </row>
       <row>
         <cell>military1</cell>
         <cell>-0.34</cell>
         <cell>0.22</cell>
-        <cell>-1.57</cell>
-        <cell>0.1160</cell>
+        <cell>-1.59</cell>
+        <cell>0.1127</cell>
       </row>
       <row>
         <cell>has_email_address1</cell>
         <cell>0.22</cell>
         <cell>0.11</cell>
-        <cell>1.99</cell>
-        <cell>0.0467</cell>
+        <cell>1.93</cell>
+        <cell>0.0541</cell>
       </row>
       <row>
         <cell>raceWhite</cell>
         <cell>0.44</cell>
         <cell>0.11</cell>
-        <cell>4.13</cell>
+        <cell>4.10</cell>
         <cell><m>&lt;0.0001</m></cell>
       </row>
       <row>
         <cell>sexman</cell>
         <cell>-0.18</cell>
-        <cell>0.11</cell>
-        <cell>-1.71</cell>
-        <cell>0.0877</cell>
+        <cell>0.14</cell>
+        <cell>-1.32</cell>
+        <cell>0.1863</cell>
       </row>
     </tabular>
   </table>
@@ -600,7 +600,7 @@ resume_full_fit |&gt;
         <cell>number_observations</cell>
       </row>
       <row>
-        <cell>1944.43</cell>
+        <cell>2677</cell>
         <cell>4870</cell>
       </row>
     </tabular>
@@ -642,7 +642,7 @@ resume_fit |&gt;
         <cell>number_observations</cell>
       </row>
       <row>
-        <cell>1942.76</cell>
+        <cell>2676</cell>
         <cell>4870</cell>
       </row>
     </tabular>
@@ -690,57 +690,57 @@ resume_fit |&gt;
         <cell>(Intercept)</cell>
         <cell>-2.72</cell>
         <cell>0.16</cell>
-        <cell>-16.85</cell>
+        <cell>-17.51</cell>
         <cell><m>&lt;0.0001</m></cell>
       </row>
       <row>
         <cell>job_cityChicago</cell>
         <cell>-0.44</cell>
         <cell>0.11</cell>
-        <cell>-4.13</cell>
-        <cell><m>&lt;0.0001</m></cell>
+        <cell>-3.83</cell>
+        <cell>1e-04</cell>
       </row>
       <row>
         <cell>years_experience</cell>
         <cell>0.02</cell>
         <cell>0.01</cell>
-        <cell>2.04</cell>
-        <cell>0.0413</cell>
+        <cell>2.02</cell>
+        <cell>0.043</cell>
       </row>
       <row>
         <cell>honors1</cell>
         <cell>0.76</cell>
         <cell>0.19</cell>
-        <cell>4.00</cell>
+        <cell>4.12</cell>
         <cell><m>&lt;0.0001</m></cell>
       </row>
       <row>
         <cell>military1</cell>
         <cell>-0.34</cell>
         <cell>0.22</cell>
-        <cell>-1.58</cell>
-        <cell>0.1142</cell>
+        <cell>-1.60</cell>
+        <cell>0.1105</cell>
       </row>
       <row>
         <cell>has_email_address1</cell>
         <cell>0.22</cell>
         <cell>0.11</cell>
-        <cell>2.01</cell>
-        <cell>0.0448</cell>
+        <cell>1.97</cell>
+        <cell>0.0494</cell>
       </row>
       <row>
         <cell>raceWhite</cell>
         <cell>0.44</cell>
         <cell>0.11</cell>
-        <cell>4.13</cell>
+        <cell>4.10</cell>
         <cell><m>&lt;0.0001</m></cell>
       </row>
       <row>
         <cell>sexman</cell>
         <cell>-0.20</cell>
-        <cell>0.11</cell>
-        <cell>-1.82</cell>
-        <cell>0.0684</cell>
+        <cell>0.14</cell>
+        <cell>-1.45</cell>
+        <cell>0.1473</cell>
       </row>
     </tabular>
   </table>

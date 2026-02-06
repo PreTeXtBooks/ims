@@ -310,57 +310,57 @@ duke_forest |&gt;
     <row>
       <cell halign="left"><c>(Intercept)</c></cell>
       <cell>-2,910,715</cell>
-      <cell>533,271</cell>
-      <cell>-5.46</cell>
-      <cell>&lt;0.0001</cell>
+      <cell>1,787,934</cell>
+      <cell>-1.63</cell>
+      <cell>0.107</cell>
     </row>
     <row>
       <cell halign="left"><c>area</c></cell>
       <cell>102</cell>
       <cell>23</cell>
-      <cell>4.49</cell>
+      <cell>4.42</cell>
       <cell>&lt;0.0001</cell>
     </row>
     <row>
       <cell halign="left"><c>bed</c></cell>
       <cell>-13,692</cell>
-      <cell>22,729</cell>
-      <cell>-0.60</cell>
-      <cell>0.5484</cell>
+      <cell>25,928</cell>
+      <cell>-0.53</cell>
+      <cell>0.5987</cell>
     </row>
     <row>
       <cell halign="left"><c>bath</c></cell>
       <cell>41,076</cell>
-      <cell>17,295</cell>
-      <cell>2.38</cell>
-      <cell>0.0196</cell>
+      <cell>24,662</cell>
+      <cell>1.67</cell>
+      <cell>0.0993</cell>
     </row>
     <row>
       <cell halign="left"><c>year_built</c></cell>
       <cell>1,459</cell>
-      <cell>273</cell>
-      <cell>5.34</cell>
-      <cell>&lt;0.0001</cell>
+      <cell>914</cell>
+      <cell>1.60</cell>
+      <cell>0.1139</cell>
     </row>
     <row>
       <cell halign="left"><c>coolingcentral</c></cell>
       <cell>84,065</cell>
-      <cell>26,456</cell>
-      <cell>3.18</cell>
-      <cell>0.0021</cell>
+      <cell>30,338</cell>
+      <cell>2.77</cell>
+      <cell>0.0068</cell>
     </row>
     <row>
       <cell halign="left"><c>lot</c></cell>
       <cell>356,141</cell>
-      <cell>77,435</cell>
-      <cell>4.60</cell>
+      <cell>75,940</cell>
+      <cell>4.69</cell>
       <cell>&lt;0.0001</cell>
     </row>
     <row>
-      <cell halign="left" colspan="5"><em>Adjusted R-sq = 0.5584</em></cell>
+      <cell halign="left" colspan="5"><em>Adjusted R-sq = 0.5896</em></cell>
     </row>
     <row>
-      <cell halign="left" colspan="5"><em>df = 91</em></cell>
+      <cell halign="left" colspan="5"><em>df = 90</em></cell>
     </row>
   </tabular>
 </table>
@@ -434,50 +434,50 @@ duke_forest |&gt;
     <row>
       <cell halign="left"><c>(Intercept)</c></cell>
       <cell>-2,952,641</cell>
-      <cell>524,565</cell>
-      <cell>-5.63</cell>
-      <cell>&lt;0.0001</cell>
+      <cell>1,779,079</cell>
+      <cell>-1.66</cell>
+      <cell>0.1004</cell>
     </row>
     <row>
       <cell halign="left"><c>area</c></cell>
       <cell>99</cell>
-      <cell>18</cell>
-      <cell>5.52</cell>
+      <cell>22</cell>
+      <cell>4.44</cell>
       <cell>&lt;0.0001</cell>
     </row>
     <row>
       <cell halign="left"><c>bath</c></cell>
       <cell>36,228</cell>
-      <cell>12,920</cell>
-      <cell>2.80</cell>
-      <cell>0.0062</cell>
+      <cell>22,799</cell>
+      <cell>1.59</cell>
+      <cell>0.1155</cell>
     </row>
     <row>
       <cell halign="left"><c>year_built</c></cell>
       <cell>1,466</cell>
-      <cell>268</cell>
-      <cell>5.47</cell>
-      <cell>&lt;0.0001</cell>
+      <cell>910</cell>
+      <cell>1.61</cell>
+      <cell>0.1107</cell>
     </row>
     <row>
       <cell halign="left"><c>coolingcentral</c></cell>
       <cell>83,856</cell>
-      <cell>26,119</cell>
-      <cell>3.21</cell>
-      <cell>0.0019</cell>
+      <cell>30,215</cell>
+      <cell>2.78</cell>
+      <cell>0.0067</cell>
     </row>
     <row>
       <cell halign="left"><c>lot</c></cell>
       <cell>357,119</cell>
-      <cell>76,439</cell>
-      <cell>4.67</cell>
+      <cell>75,617</cell>
+      <cell>4.72</cell>
       <cell>&lt;0.0001</cell>
     </row>
     <row>
-      <cell halign="left" colspan="5"><em>Adjusted R-sq = 0.5609</em></cell>
+      <cell halign="left" colspan="5"><em>Adjusted R-sq = 0.5929</em></cell>
     </row>
     <row>
-      <cell halign="left" colspan="5"><em>df = 92</em></cell>
+      <cell halign="left" colspan="5"><em>df = 91</em></cell>
     </row>
   </tabular>
 </table>

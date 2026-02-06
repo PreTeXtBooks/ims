@@ -350,7 +350,7 @@ m_verified_income |>
 
 <p>Note that these values are sample statistics and in the case where the observed data is a random sample from a target population that we are interested in making inferences about, they are estimates of the population parameters <m>\beta_0</m>, <m>\beta_1</m>, <m>\beta_2</m>, <m>\cdots</m>, <m>\beta_9</m>.</p>
 
-<p>We will discuss inference based on linear models in <xref ref="sec-inf-model-mlr" />, for now we will focus on calculating sample statistics <m>b_i</m>.</p>
+<p>We will discuss inference based on linear models in <xref ref="ch25-inference-linear-regression-multiple" />, for now we will focus on calculating sample statistics <m>b_i</m>.</p>
 
 <p>We typically use a computer to minimize the sum of squares and compute point estimates, as shown in the sample output in <xref ref="tbl-loans-full" />.</p>
 

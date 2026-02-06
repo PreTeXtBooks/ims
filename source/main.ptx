@@ -24,19 +24,15 @@
         </author>
       </titlepage>
 
-      <xi:include href="preface.ptx" />
-    </frontmatter>
-
-    <!-- Welcome page for navigation -->
-    <chapter xml:id="welcome">
-      <title>Welcome</title>
       <p>
         Welcome to Introduction to Modern Statistics (Second Edition).
       </p>
       <p>
         This PreTeXt version provides an accessible, interactive format for learning statistics.
       </p>
-    </chapter>
+
+      <xi:include href="preface.ptx" />
+    </frontmatter>
 
     <!-- Part I: Introduction to data -->
     <part xml:id="part-introduction-to-data">

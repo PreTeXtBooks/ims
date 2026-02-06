@@ -3,6 +3,7 @@ project:
   output-dir: _book
   resources: 
     - _redirects
+    - images/
 
 book:
   title: "Introduction to Modern Statistics (2e)"

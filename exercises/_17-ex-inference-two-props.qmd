@@ -378,7 +378,7 @@
     Patients were randomly assigned into treatment and control groups.
     Patients in the treatment group received a transplant, and those in the control group did not.
     The visualization below displays how many patients survived and died in each group.[^_17-ex-inference-two-props-2]
-    [@Turnbull+Brown+Hu:1974]
+    [@Turnbull-Brown-Hu-1974]
 
     ```{r}
     #| fig-asp: 0.4

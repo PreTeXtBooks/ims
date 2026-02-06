@@ -168,7 +168,7 @@
 
 \vfill
 
-6.  **Meat consumption and life expectancy.** In data collected for @You:2022, total meat intake is associated with life expectancy (at birth) in 175 countries.
+6.  **Meat consumption and life expectancy.** In data collected for @You-2022, total meat intake is associated with life expectancy (at birth) in 175 countries.
     Meat intake is measured in kg per capita per year (averaged over 2011 to 2013).
     Additionally, the authors collected data on carbohydrate crops (e.g., cereals, root, sugar, etc.) in kg per capita per year (averaged over 2011 and 2013).
     The scatterplot on the left shows the life expectancy at birth plotted against the per capita meat consumption.

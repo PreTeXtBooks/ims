@@ -789,7 +789,7 @@
         Patients were randomly assigned into treatment and control groups.
         Patients in the treatment group received a transplant, and those in the control group did not.
         The visualization below displays how many patients survived and died in each group.[^_17-ex-inference-two-props-2]
-        [@Turnbull+Brown+Hu:1974]
+        [@Turnbull-Brown-Hu-1974]
         Suppose we are interested in estimating the difference in survival rate between the control and treatment groups using a confidence interval.
         Explain why we cannot construct such an interval using the normal approximation.
         What might go wrong if we constructed the confidence interval despite this problem?

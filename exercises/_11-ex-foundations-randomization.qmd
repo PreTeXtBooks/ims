@@ -167,7 +167,7 @@
     Of the 34 patients in the control group, 30 died.
     Of the 69 people in the treatment group, 45 died.
     Another variable called `survived` was used to indicate whether the patient was alive at the end of the study.[^_11-ex-foundations-randomization-2]
-    [@Turnbull+Brown+Hu:1974]
+    [@Turnbull-Brown-Hu-1974]
     
     \vspace{-2mm}
 

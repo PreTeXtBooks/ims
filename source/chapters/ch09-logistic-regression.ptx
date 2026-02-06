@@ -1076,7 +1076,7 @@ glm(pop ~ sex + skull_w + total_l + tail_l,
             <li>
               <p>
                 Two models are provided above for predicting the region of the possum. (In 
-                <xref ref="sec-inf-model-logistic" /> we will cover a method for deciding between the 
+                <xref ref="ch26-inference-logistic-regression" /> we will cover a method for deciding between the 
                 models based on p-values.) The first model includes <c>head_l</c> and the second model 
                 does not. Explain why the remaining estimates (model coefficients) change between the 
                 two models.
@@ -1518,7 +1518,7 @@ bind_rows(
         <p>
           An important aspect of building a logistic regression model is figuring out which variables 
           to include in the model. In <xref ref="sec-model-logistic" /> we covered using AIC to choose 
-          between variable subsets. In <xref ref="sec-inf-model-logistic" /> we will cover using 
+          between variable subsets. In <xref ref="ch26-inference-logistic-regression" /> we will cover using 
           something called p-values to choose between variables subsets. Alternatively, you might hope 
           that a model gave the smallest number of false positives, the smallest number of false 
           negatives, or the highest overall accuracy. If different criteria produce outcomes of 

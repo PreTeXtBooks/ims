@@ -112,7 +112,7 @@ loans_var_def |>
 
 <p>Let's start by fitting a linear regression model for interest rate with a single predictor indicating whether a person has a bankruptcy in their record:</p>
 
-<me>\widehat{\texttt{interest\_rate}} = 12.34 + 0.74 \times \texttt{bankruptcy}</me>
+<me>\widehat{\texttt{interest_rate}} = 12.34 + 0.74 \times \texttt{bankruptcy}</me>
 
 <p>Results of this model are shown in <xref ref="tbl-int-rate-bankruptcy" />.</p>
 
@@ -157,17 +157,13 @@ m_bankruptcy |>
   </solution>
 </example>
 
-<p>Suppose we had fit a model using a 3-level categorical variable, such as <c>verified_income</c>.</p>
+<p>Suppose we had fit a model using a 3-level categorical variable, such as <c>verified_income</c>.
+The output from software is shown in <xref ref="tbl-int-rate-ver-income" />.
+This regression output provides multiple rows for the variable.
+Each row represents the relative difference for each level of <c>verified_income</c>.</p>
 
-<p>The output from software is shown in <xref ref="tbl-int-rate-ver-income" />.</p>
-
-<p>This regression output provides multiple rows for the variable.</p>
-
-<p>Each row represents the relative difference for each level of <c>verified_income</c>.</p>
-
-<p>However, we are missing one of the levels: <c>Not Verified</c>.</p>
-
-<p>The missing level is called the <alert>reference level</alert> and it represents the default level that other levels are measured against.</p>
+<p>However, we are missing one of the levels: <c>Not Verified</c>.
+The missing level is called the <alert>reference level</alert> and it represents the default level that other levels are measured against.</p>
 
 <listing xml:id="tbl-int-rate-ver-income">
   <caption>Summary of a linear model for predicting <c>interest_rate</c> from the borrower's income source and amount verification</caption>
@@ -204,16 +200,16 @@ m_verified_income |>
     <p>The equation for the regression model may be written as a model with two predictors:</p>
 
 <md>
-  <mrow>\widehat{\texttt{interest\_rate}} &amp;= 11.10 \\</mrow>
-  <mrow>&amp;+ 1.42 \times \texttt{verified\_income}_{\texttt{Source Verified}} \\</mrow>
-  <mrow>&amp;+ 3.25 \times \texttt{verified\_income}_{\texttt{Verified}}</mrow>
+  <mrow>\widehat{\texttt{interest_rate}} &amp;= 11.10 \\</mrow>
+  <mrow>&amp;+ 1.42 \times \texttt{verified_income}_{\texttt{Source Verified}} \\</mrow>
+  <mrow>&amp;+ 3.25 \times \texttt{verified_income}_{\texttt{Verified}}</mrow>
 </md>
 
     <p>We use the notation <m>\texttt{variable}_{\texttt{level}}</m> to represent indicator variables for when the categorical variable takes a particular value.</p>
 
-    <p>For example, <m>\texttt{verified\_income}_{\texttt{Source Verified}}</m> would take a value of 1 if it was for a borrower that was source verified, and it would take a value of 0 otherwise.</p>
+    <p>For example, <m>\texttt{verified_income}_{\texttt{Source Verified}}</m> would take a value of 1 if it was for a borrower that was source verified, and it would take a value of 0 otherwise.</p>
 
-    <p>Likewise, <m>\texttt{verified\_income}_{\texttt{Verified}}</m> would take a value of 1 if it was for a borrower that was verified, and 0 if it took any other value.</p>
+    <p>Likewise, <m>\texttt{verified_income}_{\texttt{Verified}}</m> would take a value of 1 if it was for a borrower that was verified, and 0 if it took any other value.</p>
 
   </solution>
 </example>
@@ -230,7 +226,7 @@ m_verified_income |>
   <solution>
     <p>When <c>verified_income</c> takes a value of <c>Not Verified</c>, then both indicator functions in the equation for the linear model are set to 0:</p>
 
-<me>\widehat{\texttt{interest\_rate}} = 11.10 + 1.42 \times 0 + 3.25 \times 0 = 11.10</me>
+<me>\widehat{\texttt{interest_rate}} = 11.10 + 1.42 \times 0 + 3.25 \times 0 = 11.10</me>
 
     <p>The average interest rate for these borrowers is 11.1%.</p>
 
@@ -246,7 +242,7 @@ m_verified_income |>
   <solution>
     <p>When <c>verified_income</c> takes a value of <c>Source Verified</c>, then the corresponding variable takes a value of 1 while the other is 0:</p>
 
-<me>\widehat{\texttt{interest\_rate}} = 11.10 + 1.42 \times 1 + 3.25 \times 0 = 12.52</me>
+<me>\widehat{\texttt{interest_rate}} = 11.10 + 1.42 \times 1 + 3.25 \times 0 = 12.52</me>
 
     <p>The average interest rate for these borrowers is 12.52%.</p>
 
@@ -285,19 +281,13 @@ m_verified_income |>
   </solution>
 </exercise>
 
-<p>The higher interest rate for borrowers who have verified their income source or amount is surprising.</p>
-
-<p>Intuitively, we would think that a loan would look <em>less</em> risky if the borrower's income has been verified.</p>
-
-<p>However, note that the situation may be more complex, and there may be confounding variables that we didn't account for.</p>
-
-<p>For example, perhaps lenders require borrowers with poor credit to verify their income.</p>
-
-<p>That is, verifying income in our dataset might be a signal of some concerns about the borrower rather than a reassurance that the borrower will pay back the loan.</p>
-
-<p>For this reason, the borrower could be deemed higher risk, resulting in a higher interest rate.</p>
-
-<p>(What other confounding variables might explain this counter-intuitive relationship suggested by the model?)</p>
+<p>The higher interest rate for borrowers who have verified their income source or amount is surprising.
+Intuitively, we would think that a loan would look <em>less</em> risky if the borrower's income has been verified.
+However, note that the situation may be more complex, and there may be confounding variables that we didn't account for.
+For example, perhaps lenders require borrowers with poor credit to verify their income.
+That is, verifying income in our dataset might be a signal of some concerns about the borrower rather than a reassurance that the borrower will pay back the loan.
+For this reason, the borrower could be deemed higher risk, resulting in a higher interest rate.
+(What other confounding variables might explain this counter-intuitive relationship suggested by the model?)</p>
 
 
 <exercise>
@@ -317,44 +307,35 @@ m_verified_income |>
 <section xml:id="sec-many-predictors">
   <title>Many predictors in a model</title>
 
-<p>The world is complex, and it can be helpful to consider many factors at once in statistical modeling.</p>
+<p>The world is complex, and it can be helpful to consider many factors at once in statistical modeling.
+For example, we might like to use the full context of borrowers to predict the interest rate they receive rather than using a single variable.
+This is the strategy used in <alert>multiple regression</alert>.</p>
 
-<p>For example, we might like to use the full context of borrowers to predict the interest rate they receive rather than using a single variable.</p>
-
-<p>This is the strategy used in <alert>multiple regression</alert>.</p>
-
-<p>While we remain cautious about making any causal interpretations using multiple regression on observational data, such models are a common first step in gaining insights or providing some evidence of a causal connection.</p>
-
-<p>We want to construct a model that accounts not only for any past bankruptcy or whether the borrower had their income source or amount verified, but simultaneously accounts for all the variables in the <c>loans</c> dataset: <c>verified_income</c>, <c>debt_to_income</c>, <c>credit_util</c>, <c>bankruptcy</c>, <c>term</c>, <c>issue_month</c>, and <c>credit_checks</c>.</p>
+<p>While we remain cautious about making any causal interpretations using multiple regression on observational data, such models are a common first step in gaining insights or providing some evidence of a causal connection.
+We want to construct a model that accounts not only for any past bankruptcy or whether the borrower had their income source or amount verified, but simultaneously accounts for all the variables in the <c>loans</c> dataset: <c>verified_income</c>, <c>debt_to_income</c>, <c>credit_util</c>, <c>bankruptcy</c>, <c>term</c>, <c>issue_month</c>, and <c>credit_checks</c>.</p>
 
 <md>
-  <mrow>\widehat{\texttt{interest\_rate}} &amp;= b_0 \\</mrow>
-  <mrow>&amp;+ b_1 \times \texttt{verified\_income}_{\texttt{Source Verified}} + b_2 \times \texttt{verified\_income}_{\texttt{Verified}} \\</mrow>
-  <mrow>&amp;+ b_3 \times \texttt{debt\_to\_income} + b_4 \times \texttt{credit\_util} \\</mrow>
+  <mrow>\widehat{\texttt{interest_rate}} &amp;= b_0 \\</mrow>
+  <mrow>&amp;+ b_1 \times \texttt{verified_income}_{\texttt{Source Verified}} + b_2 \times \texttt{verified_income}_{\texttt{Verified}} \\</mrow>
+  <mrow>&amp;+ b_3 \times \texttt{debt_to_income} + b_4 \times \texttt{credit_util} \\</mrow>
   <mrow>&amp;+ b_5 \times \texttt{bankruptcy} + b_6 \times \texttt{term} \\</mrow>
-  <mrow>&amp;+ b_7 \times \texttt{credit\_checks} + b_8 \times \texttt{issue\_month}_{\texttt{Jan-2018}} \\</mrow>
-  <mrow>&amp;+ b_9 \times \texttt{issue\_month}_{\texttt{Mar-2018}}</mrow>
+  <mrow>&amp;+ b_7 \times \texttt{credit_checks} + b_8 \times \texttt{issue_month}_{\texttt{Jan-2018}} \\</mrow>
+  <mrow>&amp;+ b_9 \times \texttt{issue_month}_{\texttt{Mar-2018}}</mrow>
 </md>
 
-<p>This equation represents a holistic approach for modeling all of the variables simultaneously.</p>
-
-<p>Notice that there are two coefficients for <c>verified_income</c> and two coefficients for <c>issue_month</c>, since both are 3-level categorical variables.</p>
-
-<p>We calculate <m>b_0</m>, <m>b_1</m>, <m>b_2</m>, <m>\cdots</m>, <m>b_9</m> the same way as we did in the case of a model with a single predictor -- we select values that minimize the sum of the squared residuals:</p>
+<p>This equation represents a holistic approach for modeling all of the variables simultaneously.
+Notice that there are two coefficients for <c>verified_income</c> and two coefficients for <c>issue_month</c>, since both are 3-level categorical variables.
+We calculate <m>b_0</m>, <m>b_1</m>, <m>b_2</m>, <m>\cdots</m>, <m>b_9</m> the same way as we did in the case of a model with a single predictor -- we select values that minimize the sum of the squared residuals:</p>
 
 <me>SSE = e_1^2 + e_2^2 + \dots + e_{10000}^2 = \sum_{i=1}^{10000} e_i^2 = \sum_{i=1}^{10000} \left(y_i - \hat{y}_i\right)^2</me>
 
-<p>where <m>y_i</m> and <m>\hat{y}_i</m> represent the observed interest rates and their estimated values according to the model, respectively.</p>
+<p>where <m>y_i</m> and <m>\hat{y}_i</m> represent the observed interest rates and their estimated values according to the model, respectively.
+10,000 residuals are calculated, one for each observation.
+Note that these values are sample statistics and in the case where the observed data is a random sample from a target population that we are interested in making inferences about, they are estimates of the population parameters <m>\beta_0</m>, <m>\beta_1</m>, <m>\beta_2</m>, <m>\cdots</m>, <m>\beta_9</m>.</p>
 
-<p>10,000 residuals are calculated, one for each observation.</p>
-
-<p>Note that these values are sample statistics and in the case where the observed data is a random sample from a target population that we are interested in making inferences about, they are estimates of the population parameters <m>\beta_0</m>, <m>\beta_1</m>, <m>\beta_2</m>, <m>\cdots</m>, <m>\beta_9</m>.</p>
-
-<p>We will discuss inference based on linear models in <xref ref="ch25-inference-linear-regression-multiple" />, for now we will focus on calculating sample statistics <m>b_i</m>.</p>
-
-<p>We typically use a computer to minimize the sum of squares and compute point estimates, as shown in the sample output in <xref ref="tbl-loans-full" />.</p>
-
-<p>Using this output, we identify <m>b_i,</m> just as we did in the one-predictor case.</p>
+<p>We will discuss inference based on linear models in <xref ref="ch25-inference-linear-regression-multiple" />, for now we will focus on calculating sample statistics <m>b_i</m>.
+We typically use a computer to minimize the sum of squares and compute point estimates, as shown in the sample output in <xref ref="tbl-loans-full" />.
+Using this output, we identify <m>b_i,</m> just as we did in the one-predictor case.</p>
 
 <listing xml:id="tbl-loans-full">
   <caption>Output for the regression model</caption>
@@ -385,7 +366,7 @@ m_full |>
 
   <p>In general, we write the model as</p>
 
-<me>\hat{y} = b_0 + b_1 x_1 + b_2 x_2 + \cdots + b_k x_k</me>
+<p><m>\hat{y} = b_0 + b_1 x_1 + b_2 x_2 + \cdots + b_k x_k</m></p>
 
   <p>when there are <m>k</m> predictors.</p>
 
@@ -404,12 +385,12 @@ m_full |>
     <p>The fitted model for the interest rate is given by:</p>
 
 <md>
-  <mrow>\widehat{\texttt{interest\_rate}} &amp;= 1.89 \\</mrow>
-  <mrow>&amp;+ 1.00 \times \texttt{verified\_income}_{\texttt{Source Verified}} + 2.56 \times \texttt{verified\_income}_{\texttt{Verified}} \\</mrow>
-  <mrow>&amp;+ 0.02 \times \texttt{debt\_to\_income} + 4.90 \times \texttt{credit\_util} \\</mrow>
+  <mrow>\widehat{\texttt{interest_rate}} &amp;= 1.89 \\</mrow>
+  <mrow>&amp;+ 1.00 \times \texttt{verified_income}_{\texttt{Source Verified}} + 2.56 \times \texttt{verified_income}_{\texttt{Verified}} \\</mrow>
+  <mrow>&amp;+ 0.02 \times \texttt{debt_to_income} + 4.90 \times \texttt{credit_util} \\</mrow>
   <mrow>&amp;+ 0.39 \times \texttt{bankruptcy} + 0.15 \times \texttt{term} \\</mrow>
-  <mrow>&amp;+ 0.23 \times \texttt{credit\_checks} + 0.05 \times \texttt{issue\_month}_{\texttt{Jan-2018}} \\</mrow>
-  <mrow>&amp;- 0.04 \times \texttt{issue\_month}_{\texttt{Mar-2018}}</mrow>
+  <mrow>&amp;+ 0.23 \times \texttt{credit_checks} + 0.05 \times \texttt{issue_month}_{\texttt{Jan-2018}} \\</mrow>
+  <mrow>&amp;- 0.04 \times \texttt{issue_month}_{\texttt{Mar-2018}}</mrow>
 </md>
 
     <p>If we count up the number of predictor coefficients, we get the <em>effective</em> number of predictors in the model; there are nine of those.</p>
@@ -442,9 +423,9 @@ m_full |>
   <solution>
     <p>To compute the residual, we first need the predicted value, which we compute by plugging values into the equation from earlier.</p>
 
-    <p>For example, <m>\texttt{verified\_income}_{\texttt{Source Verified}}</m> takes a value of 0, <m>\texttt{verified\_income}_{\texttt{Verified}}</m> takes a value of 1 (since the borrower's income source and amount were verified), <m>\texttt{debt\_to\_income}</m> was 18.01, and so on.</p>
+    <p>For example, <m>\texttt{verified_income}_{\texttt{Source Verified}}</m> takes a value of 0, <m>\texttt{verified_income}_{\texttt{Verified}}</m> takes a value of 1 (since the borrower's income source and amount were verified), <m>\texttt{debt_to_income}</m> was 18.01, and so on.</p>
 
-    <p>This leads to a prediction of <m>\widehat{\texttt{interest\_rate}}_1 = 17.84</m>.</p>
+    <p>This leads to a prediction of <m>\widehat{\texttt{interest_rate}}_1 = 17.84</m>.</p>
 
     <p>The observed interest rate was 14.07%, which leads to a residual of <m>e_1 = 14.07 - 17.84 = -3.77</m>.</p>
 
@@ -767,11 +748,11 @@ m_full_minus_issue_month_w_rsq |>
 
 
 <md>
-  <mrow>\widehat{\texttt{interest\_rate}} &amp;= 1.90 \\</mrow>
-  <mrow>&amp;+ 1.00 \times \texttt{verified\_income}_{\texttt{Source Verified}} + 2.56 \times \texttt{verified\_income}_{\texttt{Verified}} \\</mrow>
-  <mrow>&amp;+ 0.02 \times \texttt{debt\_to\_income} + 4.90 \times \texttt{credit\_util} \\</mrow>
+  <mrow>\widehat{\texttt{interest_rate}} &amp;= 1.90 \\</mrow>
+  <mrow>&amp;+ 1.00 \times \texttt{verified_income}_{\texttt{Source Verified}} + 2.56 \times \texttt{verified_income}_{\texttt{Verified}} \\</mrow>
+  <mrow>&amp;+ 0.02 \times \texttt{debt_to_income} + 4.90 \times \texttt{credit_util} \\</mrow>
   <mrow>&amp;+ 0.39 \times \texttt{bankruptcy} + 0.15 \times \texttt{term} \\</mrow>
-  <mrow>&amp;+ 0.23 \times \texttt{credit\_checks}</mrow>
+  <mrow>&amp;+ 0.23 \times \texttt{credit_checks}</mrow>
 </md>
 
   </solution>

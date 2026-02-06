@@ -19,7 +19,7 @@
   <exercise>
     <title>Meat consumption and life expectancy.</title>
     <statement>
-      <p>In data collected for <xref ref="You:2022"/>, total meat intake is associated with life expectancy (at birth) in 175 countries. Meat intake is measured in kg per capita per year (averaged over 2011 to 2013). The scatterplot on the top left displays the relationship between life expectancy at birth vs. per capita meat consumption. The scatterplot on the top right displays the same relationship colored by income status of the country. The set of scatterplots across the bottom display the same relationship by income status of the country. </p>
+      <p>In data collected for <xref ref="You-2022"/>, total meat intake is associated with life expectancy (at birth) in 175 countries. Meat intake is measured in kg per capita per year (averaged over 2011 to 2013). The scatterplot on the top left displays the relationship between life expectancy at birth vs. per capita meat consumption. The scatterplot on the top right displays the same relationship colored by income status of the country. The set of scatterplots across the bottom display the same relationship by income status of the country. </p>
       
       <listing>
         <caption>R code to generate the figure</caption>
@@ -169,7 +169,7 @@ p_delay + p_delay_city
   <exercise>
     <title>Baby weights and smoking.</title>
     <statement>
-      <p>US Department of Health and Human Services, Centers for Disease Control and Prevention collect information on births recorded in the country. The data used here are a random sample of 1,000 births from 2014. Here, we study the relationship between smoking and weight of the baby. The variable <c>smoke</c> is coded 1 if the mother is a smoker, and 0 if not. The summary table below shows the results of a linear regression model for predicting the average birth weight of babies, measured in pounds, based on the smoking status of the mother.<fn>The <url href="http://openintrostat.github.io/openintro/reference/births14.html"><c>births14</c></url> data used in this exercise can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</fn> <xref ref="data:births14"/> </p>
+      <p>US Department of Health and Human Services, Centers for Disease Control and Prevention collect information on births recorded in the country. The data used here are a random sample of 1,000 births from 2014. Here, we study the relationship between smoking and weight of the baby. The variable <c>smoke</c> is coded 1 if the mother is a smoker, and 0 if not. The summary table below shows the results of a linear regression model for predicting the average birth weight of babies, measured in pounds, based on the smoking status of the mother.<fn>The <url href="http://openintrostat.github.io/openintro/reference/births14.html"><c>births14</c></url> data used in this exercise can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</fn> <xref ref="data-births14"/> </p>
       <p><ol marker="a.">
         <li>
           <p>Write the equation of the regression model.</p>
@@ -184,7 +184,7 @@ p_delay + p_delay_city
   <exercise>
     <title>Baby weights and mature moms.</title>
     <statement>
-      <p>The following is a model for predicting baby weight from whether the mom is classified as a <c>mature</c> mom (35 years or older at the time of pregnancy). <xref ref="data:births14"/> </p>
+      <p>The following is a model for predicting baby weight from whether the mom is classified as a <c>mature</c> mom (35 years or older at the time of pregnancy). <xref ref="data-births14"/> </p>
       <p><ol marker="a.">
         <li>
           <p>Write the equation of the regression model.</p>
@@ -199,7 +199,7 @@ p_delay + p_delay_city
   <exercise>
     <title>Movie returns, prediction.</title>
     <statement>
-      <p>A model was fit to predict return-on-investment (ROI) on movies based on release year and genre (Adventure, Action, Drama, Horror, and Comedy). The model output is shown below. <xref ref="webpage:horrormovies"/> </p>
+      <p>A model was fit to predict return-on-investment (ROI) on movies based on release year and genre (Adventure, Action, Drama, Horror, and Comedy). The model output is shown below. <xref ref="webpage-horrormovies"/> </p>
       <p><ol marker="a.">
         <li>
           <p>For a given release year, which genre of movies are predicted, on average, to have the highest predicted return on investment?</p>
@@ -214,7 +214,7 @@ p_delay + p_delay_city
   <exercise>
     <title>Movie returns by genre.</title>
     <statement>
-      <p>A model was fit to predict return-on-investment (ROI) on movies based on release year and genre (Adventure, Action, Drama, Horror, and Comedy). The plots below show the predicted ROI vs. actual ROI for each of the genres separately. Do these figures support the comment in the FiveThirtyEight.com article that states, "The return-on-investment potential for horror movies is absurd." Note that the x-axis range varies for each plot. <xref ref="webpage:horrormovies"/> </p>
+      <p>A model was fit to predict return-on-investment (ROI) on movies based on release year and genre (Adventure, Action, Drama, Horror, and Comedy). The plots below show the predicted ROI vs. actual ROI for each of the genres separately. Do these figures support the comment in the FiveThirtyEight.com article that states, "The return-on-investment potential for horror movies is absurd." Note that the x-axis range varies for each plot. <xref ref="webpage-horrormovies"/> </p>
       
       <listing>
         <caption>R code to generate the figure</caption>
@@ -299,7 +299,7 @@ ggplot(m_movie_aug, aes(y = .fitted, x = ww_gross_to_prod, color = genre)) +
   <exercise>
     <title>Baby weights, backwards elimination.</title>
     <statement>
-      <p>Let's consider a model that predicts <c>weight</c> of newborns using several predictors: whether the mother is considered <c>mature</c>, number of <c>weeks</c> of gestation, number of hospital <c>visits</c> during pregnancy, weight <c>gained</c> by the mother during pregnancy, <c>sex</c> of the baby, and whether the mother smokes cigarettes during pregnancy (<c>habit</c>). <xref ref="data:births14"/> The adjusted <m>R^2</m> of the full model is [full model adjusted R² value]. We remove each variable one by one, refit the model, and record the adjusted <m>R^2</m>. Which, if any, variable should be removed from the model?</p>
+      <p>Let's consider a model that predicts <c>weight</c> of newborns using several predictors: whether the mother is considered <c>mature</c>, number of <c>weeks</c> of gestation, number of hospital <c>visits</c> during pregnancy, weight <c>gained</c> by the mother during pregnancy, <c>sex</c> of the baby, and whether the mother smokes cigarettes during pregnancy (<c>habit</c>). <xref ref="data-births14"/> The adjusted <m>R^2</m> of the full model is [full model adjusted R² value]. We remove each variable one by one, refit the model, and record the adjusted <m>R^2</m>. Which, if any, variable should be removed from the model?</p>
       <ul>
         <li><p>Drop <c>mature</c>: [adjusted R² value]</p></li>
         <li><p>Drop <c>weeks</c>: [adjusted R² value]</p></li>
@@ -327,7 +327,7 @@ ggplot(m_movie_aug, aes(y = .fitted, x = ww_gross_to_prod, color = genre)) +
   <exercise>
     <title>Baby weights, forward selection.</title>
     <statement>
-      <p>Using information on the mother and the sex of the baby (which can be determined prior to birth), we want to build a model that predicts the birth weight of babies. In order to do so, we will evaluate six candidate predictors: whether the mother is considered <c>mature</c>, number of <c>weeks</c> of gestation, number of hospital <c>visits</c> during pregnancy, weight <c>gained</c> by the mother during pregnancy, <c>sex</c> of the baby, and whether the mother smokes cigarettes during pregnancy (<c>habit</c>). And we will make a decision about including them in the model using forward selection and adjusted <m>R^2</m>. Below are the six models we evaluate and their adjusted <m>R^2</m> values. <xref ref="data:births14"/> Which variable should be added to the model first?</p>
+      <p>Using information on the mother and the sex of the baby (which can be determined prior to birth), we want to build a model that predicts the birth weight of babies. In order to do so, we will evaluate six candidate predictors: whether the mother is considered <c>mature</c>, number of <c>weeks</c> of gestation, number of hospital <c>visits</c> during pregnancy, weight <c>gained</c> by the mother during pregnancy, <c>sex</c> of the baby, and whether the mother smokes cigarettes during pregnancy (<c>habit</c>). And we will make a decision about including them in the model using forward selection and adjusted <m>R^2</m>. Below are the six models we evaluate and their adjusted <m>R^2</m> values. <xref ref="data-births14"/> Which variable should be added to the model first?</p>
       <ul>
         <li><p>Predict <c>weight</c> from <c>mature</c>: [adjusted R² value]</p></li>
         <li><p>Predict <c>weight</c> from <c>weeks</c>: [adjusted R² value]</p></li>

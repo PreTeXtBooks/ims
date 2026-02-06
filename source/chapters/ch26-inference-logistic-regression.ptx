@@ -536,10 +536,10 @@ make_terms_table(terms_chp_26)
 
 </section>
 
-<section xml:id="sec-chp26-exercises">
+<exercises xml:id="sec-chp26-exercises">
   <title>Exercises</title>
 
-<p>Answers to odd-numbered exercises can be found in ...</p>
+  <p>Answers to odd-numbered exercises can be found in <xref ref="appendix-exercise-solutions" />.</p>
 
 <exercise xml:id="ex-26-1">
   <statement>
@@ -761,6 +761,6 @@ make_terms_table(terms_chp_26)
   </statement>
 </exercise>
 
-</section>
+</exercises>
 
 </chapter>

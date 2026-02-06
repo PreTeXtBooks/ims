@@ -613,9 +613,10 @@
         </table>
         </subsection>
         </section>
-        <section xml:id="sec-chp17-exercises">
-        <title>Chapter exercises</title>
-        Answers to odd numbered exercises can be found in <xref ref="appendix-exercise-solutions" />.
+<exercises xml:id="sec-chp17-exercises">
+  <title>Chapter exercises</title>
+
+  <p>Answers to odd-numbered exercises can be found in <xref ref="appendix-exercise-solutions" />.</p>
         <exercise>
         <statement>
         <alert>Disaggregating Asian American tobacco use, hypothesis testing.</alert>Understanding cultural differences in tobacco use across different demographic groups can lead to improved health care education and treatment.
@@ -897,5 +898,6 @@
         [^_17-ex-inference-two-props-2]: The <url href="http://openintrostat.github.io/openintro/reference/heart_transplant.html"><c>heart_transplant</c></url> data used in this exercise can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.
         </statement>
         </exercise>
-        </section>
-        </chapter>
+</exercises>
+
+</chapter>

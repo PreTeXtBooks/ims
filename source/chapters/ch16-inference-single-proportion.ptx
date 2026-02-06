@@ -729,7 +729,6 @@
       Answers to odd-numbered exercises can be found in <xref ref="appendix-exercise-solutions" />.
     </p>
     
-    <!-- TODO: Convert exercises/_16-ex-inference-one-prop.qmd to PreTeXt format -->
-    <!-- <xi:include href="../exercises/_16-ex-inference-one-prop.ptx" xmlns:xi="http://www.w3.org/2001/XInclude"/> -->
+    <xi:include href="../exercises/_16-ex-inference-one-prop.ptx" xmlns:xi="http://www.w3.org/2001/XInclude"/>
   </section>
 </chapter>

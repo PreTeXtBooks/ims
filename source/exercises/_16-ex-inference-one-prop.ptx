@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<exercises xml:id="exercises-16-inference-one-prop">
+
+    <exercise>
+    <title>Do aliens exist?</title>
+    <statement>
+      <p>In May 2021, YouGov asked 4,839 adult Great Britain residents whether they think aliens exist, and if so, if they have or have not visited Earth. You want to evaluate if more than a quarter (25%) of Great Britain adults think aliens don't exist. In the survey 22% responded <q>I think they exist, and have visited Earth</q>, 28% responded <q>I think they exist, but have not visited Earth</q>, 29% responded <q>I don't think they exist</q>, and 22% responded <q>Don't know</q>. A friend of yours offers to help you with setting up the hypothesis test and comes up with the following hypotheses. Indicate any errors you see. <m>H_0: \hat{p} = 0.29 \quad \quad H_A: \hat{p} > 0.29</m></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Married at 25</title>
+    <statement>
+      <p>A study suggests that the 25% of 25 year-olds have gotten married. You believe that this is incorrect and decide to collect your own sample for a hypothesis test. From a random sample of 776 25 year-olds, you find that 24% of them are married. A friend of yours offers to help you with setting up the hypothesis test and comes up with the following hypotheses. Indicate any errors you see. <m>H_0: \hat{p} = 0.24 \quad \quad H_A: \hat{p} \neq 0.24</m></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Defund the police</title>
+    <statement>
+      <p>A Survey USA poll conducted in Seattle, WA in May 2021 reports that of the 650 respondents (adults living in this area), 159 support proposals to defund police departments. <xref ref="data:defundpolice" /></p>
+      <p><ol marker="a.">
+        <li><p>A journalist writing a news story on the poll results wants to use the headline <q>More than 1 in 5 adults living in Seattle support proposals to defund police departments.</q> You caution the journalist that they should first conduct a hypothesis test to see if the poll data provide convincing evidence for this claim Write the hypotheses for this test.</p></li>
+        <li><p>Calculate the proportion of Seattle adults in the sample who support proposals to defund police departments.</p></li>
+        <li><p>Describe a setup for a simulation that would be appropriate in this situation and how the p-value can be calculated using the simulation results.</p></li>
+        <li><p>The histogram below shows the distribution of 1,000 <m>\hat{p}_{sim}</m>s under the null hypothesis. Estimate the p-value using the plot and use it to evaluate the hypotheses.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Assisted reproduction</title>
+    <statement>
+      <p>Assisted Reproductive Technology (ART) is a collection of techniques that help facilitate pregnancy (e.g., in vitro fertilization). The 2018 ART Fertility Clinic Success Rates Report published by the Centers for Disease Control and Prevention reports that ART has been successful in leading to a live birth in 48.8% of cases where the patient is under 35 years old. <xref ref="web:art2018" /> A new fertility clinic claims that their success rate is higher than average for this age group. A random sample of 30 of their patients yielded a success rate of 60%. A consumer watchdog group would like to determine if the data provides strong evidence to support the company's claim.</p>
+      <p><ol marker="a.">
+        <li><p>Write the hypotheses to test if the success rate for ART at this clinic is discernibly higher than the success rate reported by the CDC.</p></li>
+        <li><p>Describe a setup for a simulation that would be appropriate in this situation and how the p-value can be calculated using the simulation results.</p></li>
+        <li><p>The histogram below shows the distribution of 1,000 <m>\hat{p}_{sim}</m>s under the null hypothesis. Estimate the p-value using the plot and use it to evaluate the hypotheses.</p></li>
+        <li><p>After performing this analysis, the consumer group releases the following news headline: <q>Infertility clinic falsely advertises better success rates</q>. Comment on the appropriateness of this statement.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>If I fits, I sits, simulated null hypothesis</title>
+    <statement>
+      <p>A citizen science project on which type of enclosed spaces cats are most likely to sit in compared (among other options) two different spaces taped to the ground. The first was a square, and the second was a shape known as <url href="https://en.wikipedia.org/wiki/Illusory_contours#Kanizsa_figures">Kanizsa square illusion</url>. When comparing the two options given to 7 cats, 5 chose the square, and 2 chose the Kanizsa square illusion. We are interested to know whether these data provide convincing evidence that cats prefer one of the shapes over the other. <xref ref="Smith:2021" /></p>
+      <p><ol marker="a.">
+        <li><p>What are the null and alternative hypotheses for evaluating whether these data provide convincing evidence that cats have preference for one of the shapes</p></li>
+        <li><p>A null hypothesis simulation (with 1,000 draws) was run, and the resulting null distribution is displayed in the histogram below. Find the p-value using this distribution and conclude the hypothesis test in the context of the problem.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Legalization of marijuana, simulated null hypothesis</title>
+    <statement>
+      <p>The 2022 General Social Survey asked a random sample of 1,207 US adults: <q>Do you think the use of marijuana should be made legal, or not?</q> 65.3% of the respondents said it should be made legal. <xref ref="data:gssgrass" /> Consider a scenario where, in order to become legal, 55% (or more) of voters must approve.</p>
+      <p><ol marker="a.">
+        <li><p>What are the null and alternative hypotheses for evaluating whether these data provide convincing evidence that, if voted on, marijuana would be legalized in the US.</p></li>
+        <li><p>A null hypothesis simulation (with 1,000 draws) was run, and the resulting null distribution is displayed in the histogram below. Find the p-value using this distribution and conclude the hypothesis test in the context of the problem.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>If I fits, I sits, standard errors</title>
+    <statement>
+      <p>The results of a study on the type of enclosed spaces cats are most likely to sit in show that 5 out of 7 cats chose a square taped to the ground over a shape known as <url href="https://en.wikipedia.org/wiki/Illusory_contours#Kanizsa_figures">Kanizsa square illusion</url>, which was preferred by the remaining 2 cats. To evaluate whether these data provide convincing evidence that cats prefer one of the shapes over the other, we set <m>H_0: p = 0.5</m>, where <m>p</m> is the population proportion of cats who prefer square over the Kanizsa square illusion and <m>H_A: p \neq 0.5</m>, which suggests some preference, without specifying which shape is more preferred. <xref ref="Smith:2021" /></p>
+      <p><ol marker="a.">
+        <li><p>Using the mathematical model, calculate the standard error of the sample proportion in repeated samples of size 7.</p></li>
+        <li><p>A null hypothesis simulation (with 1,000 draws) was run, and the resulting null distribution is displayed in the histogram below. This distribution shows the variability of the sample proportion in samples of size 7 when 50% of cats prefer the square shape over the Kanizsa square illusion. What is the approximate standard error of the sample proportion based on this distribution?</p></li>
+        <li><p>Do the mathematical model and simulated draws yield similar standard errors?</p></li>
+        <li><p>In order to approach the problem using the mathematical model, is the success-failure condition met for this study? Explain.</p></li>
+        <li><p>What features of the null distribution shown above tells us that the mathematical model should probably not be used?</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Legalization of marijuana, standard errors</title>
+    <statement>
+      <p>According to the 2022 General Social Survey, in a random sample of 1,207 US adults, 65.3% think marijuana should be made legal. <xref ref="data:gssgrass" /> Consider a scenario where, in order to become legal, 55% (or more) of voters must approve.</p>
+      <p><ol marker="a.">
+        <li><p>Calculate the standard error of the sample proportion using the mathematical model.</p></li>
+        <li><p>1,000 sample proportions from samples of size 1,207 were drawn from a null distribution where 55% of voters approve legalizing marijuana. The distribution of these proportions is shown in the histogram below. Approximate the standard error of the sample proportion based on this distribution.</p></li>
+        <li><p>Do the mathematical model and simulated draws yield similar standard errors?</p></li>
+        <li><p>In this setting (to test whether the true underlying population proportion is greater than 0.55), would there be a strong reason to choose the mathematical model over the simulated null hypothesis (or vice versa)?</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Statistics and employment, describe the bootstrap</title>
+    <statement>
+      <p>A large university knows that about 70% of the full-time students are employed at least 5 hours per week. The members of the Statistics Department wonder if the same proportion of their students work at least 5 hours per week. They randomly sample 25 majors and find that 15 of the students work 5 or more hours each week. Two sampling distributions are created to describe the variability in the proportion of statistics majors who work at least 5 hours per week. The null hypothesis simulation imposes a true population proportion of <m>p = 0.7</m> while the data bootstrap resamples from the actual data (which has 60% of the observations who work at least 5 hours per week).</p>
+      <p><ol marker="a.">
+        <li><p>The sampling was done under two different settings to generate each of the distributions shown above. Describe the two different settings.</p></li>
+        <li><p>Where are each of the two distributions centered? How do their centers compare?</p></li>
+        <li><p>Estimate the standard error of the simulated proportions based on each distribution. Are the two standard errors you estimate roughly equal?</p></li>
+        <li><p>Describe the shapes of the two distributions. Are they roughly the same?</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>National Health Plan, simulated null hypothesis</title>
+    <statement>
+      <p>A Kaiser Family Foundation poll for a random sample of US adults in 2019 found that 79% of Democrats, 55% of Independents, and 24% of Republicans supported a generic <q>National Health Plan</q>. There were 347 Democrats, 298 Republicans, and 617 Independents surveyed. <xref ref="data:KFF2019nathealthplan" /> A political pundit on TV claims that a majority of Independents support a National Health Plan. Do these data provide strong evidence to support this type of statement? One approach to assessing the question of whether a majority of Independents support a National Health Plan is to simulate 1,000 draws from a null hypothesis with <m>p = 0.5</m> as the proportion of Independents in support.</p>
+      <p><ol marker="a.">
+        <li><p>The histogram above displays 1000 values of what?</p></li>
+        <li><p>Is the observed proportion of Independents consistent with the null hypothesis simulated proportions under the setting where <m>p=0.5?</m></p></li>
+        <li><p>In order to test the claim that <q>a majority of Independents support a National Health Plan</q> what are the null and alternative hypotheses?</p></li>
+        <li><p>Using the simulated null hypothesis distribution, find the p-value and conclude the hypothesis test in the context of the problem.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Statistics and employment, use the bootstrap</title>
+    <statement>
+      <p>In a large university where 70% of the full-time students are employed at least 5 hours per week, the members of the Statistics Department wonder if the same proportion of their students work at least 5 hours per week. They randomly sample 25 majors and find that 15 of the students work 5 or more hours each week. Two sampling distributions are created to describe the variability in the proportion of statistics majors who work at least 5 hours per week. The null hypothesis distribution imposes a true population proportion of <m>p=0.7</m> while the data bootstrap resamples from the actual data (which has 60% of the observations who work at least 5 hours per week).</p>
+      <p><ol marker="a.">
+        <li><p>Which distribution should be used to test whether the proportion of all statistics majors who work at least 5 hours per week is 70%? And which distribution should be used to find a confidence interval for the true proportion of statistics majors who work at least 5 hours per week?</p></li>
+        <li><p>Using the appropriate histogram, test the claim that 70% of statistics majors, like their peers, work at least 5 hours per week. State the null and alternative hypotheses, find the p-value, and conclude the test in the context of the problem.</p></li>
+        <li><p>Using the appropriate histogram, find a 98% bootstrap percentile confidence interval for the true proportion of statistics majors who work at least 5 hours per week. Interpret the confidence interval in the context of the problem.</p></li>
+        <li><p>Using the appropriate histogram, find a 98% bootstrap SE confidence interval for the true proportion of statistics majors who work at least 5 hours per week. Interpret the confidence interval in the context of the problem.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>CLT for proportions</title>
+    <statement>
+      <p>Define the term <q>sampling distribution</q> of the sample proportion, and describe how the shape, center, and spread of the sampling distribution change as the sample size increases when <m>p = 0.1</m>.</p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Vegetarian college students</title>
+    <statement>
+      <p>Suppose that 8% of college students are vegetarians. Determine if the following statements are true or false, and explain your reasoning.</p>
+      <p><ol marker="a.">
+        <li><p>The distribution of the sample proportions of vegetarians in random samples of size 60 is approximately normal since <m>n \ge 30</m>.</p></li>
+        <li><p>The distribution of the sample proportions of vegetarian college students in random samples of size 50 is right skewed.</p></li>
+        <li><p>A random sample of 125 college students where 12% are vegetarians would be considered unusual.</p></li>
+        <li><p>A random sample of 250 college students where 12% are vegetarians would be considered unusual.</p></li>
+        <li><p>The standard error would be reduced by one-half if we increased the sample size from 125 to 250.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Young Americans, American dream</title>
+    <statement>
+      <p>About 77% of young adults think they can achieve the American dream. Determine if the following statements are true or false, and explain your reasoning. <xref ref="news:youngAmericans1" /></p>
+      <p><ol marker="a.">
+        <li><p>The distribution of sample proportions of young Americans who think they can achieve the American dream in random samples of size 20 is left skewed.</p></li>
+        <li><p>The distribution of sample proportions of young Americans who think they can achieve the American dream in random samples of size 40 is approximately normal since <m>n \ge 30</m>.</p></li>
+        <li><p>A random sample of 60 young Americans where 85% think they can achieve the American dream would be considered unusual.</p></li>
+        <li><p>A random sample of 120 young Americans where 85% think they can achieve the American dream would be considered unusual.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Orange tabbies</title>
+    <statement>
+      <p>Suppose that 90% of orange tabby cats are male. Determine if the following statements are true or false, and explain your reasoning.</p>
+      <p><ol marker="a.">
+        <li><p>The distribution of sample proportions of random samples of size 30 is left skewed.</p></li>
+        <li><p>Using a sample size that is 4 times as large will reduce the standard error of the sample proportion by one-half.</p></li>
+        <li><p>The distribution of sample proportions of random samples of size 140 is approximately normal.</p></li>
+        <li><p>The distribution of sample proportions of random samples of size 280 is approximately normal.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Young Americans, starting a family</title>
+    <statement>
+      <p>About 25% of young Americans have delayed starting a family due to the continued economic slump. Determine if the following statements are true or false, and explain your reasoning. <xref ref="news:youngAmericans2" /></p>
+      <p><ol marker="a.">
+        <li><p>The distribution of sample proportions of young Americans who have delayed starting a family due to the continued economic slump in random samples of size 12 is right skewed.</p></li>
+        <li><p>In order for the distribution of sample proportions of young Americans who have delayed starting a family due to the continued economic slump to be approximately normal, we need random samples where the sample size is at least 40.</p></li>
+        <li><p>A random sample of 50 young Americans where 20% have delayed starting a family due to the continued economic slump would be considered unusual.</p></li>
+        <li><p>A random sample of 150 young Americans where 20% have delayed starting a family due to the continued economic slump would be considered unusual.</p></li>
+        <li><p>Tripling the sample size will reduce the standard error of the sample proportion by one-third.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Sex equality</title>
+    <statement>
+      <p>The General Social Survey asked a random sample of 1,390 Americans the following question: <q>On the whole, do you think it should or should not be the government's responsibility to promote equality between men and women?</q> 82% of the respondents said it <q>should be</q>. At a 95% confidence level, this sample has 2% margin of error. Based on this information, determine if the following statements are true or false, and explain your reasoning. <xref ref="data:gsssexeq" /></p>
+      <p><ol marker="a.">
+        <li><p>We are 95% confident that 80% to 84% of Americans in this sample think it's the government's responsibility to promote equality between men and women.</p></li>
+        <li><p>We are 95% confident that 80% to 84% of all Americans think it's the government's responsibility to promote equality between men and women.</p></li>
+        <li><p>If we considered many random samples of 1,390 Americans, and we calculated 95% confidence intervals for each, 95% of these intervals would include the true population proportion of Americans who think it's the government's responsibility to promote equality between men and women.</p></li>
+        <li><p>In order to decrease the margin of error to 1%, we would need to quadruple (multiply by 4) the sample size.</p></li>
+        <li><p>Based on this confidence interval, there is sufficient evidence to conclude that a majority of Americans think it's the government's responsibility to promote equality between men and women.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Elderly drivers</title>
+    <statement>
+      <p>A Marist Poll report states that 66% of American adults think licensed drivers should be required to retake their road test once they reach 65 years of age, based on a random sample of 1,018 American adults. They also report a margin of error was 3% at the 95% confidence level. <xref ref="data:elderlyDriving" /></p>
+      <p><ol marker="a.">
+        <li><p>Verify the margin of error reported by The Marist Poll using a mathematical model.</p></li>
+        <li><p>Based on a 95% confidence interval, does the poll provide convincing evidence that <em>more than</em> two thirds of the population think that licensed drivers should be required to retake their road test once they turn 65?</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Fireworks on July 4<m>^{\text{th}}</m></title>
+    <statement>
+      <p>A local news outlet reported that 56% of 600 randomly sampled Kansas residents planned to set off fireworks on July <m>4<rsup>th</rsup></m>. Determine the margin of error for the 56% point estimate using a 95% confidence level using a mathematical model. <xref ref="data:july4" /></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Proof of COVID-19 vaccination</title>
+    <statement>
+      <p>In the US, businesses and schools shut down due to the COVID-19 pandemic in March 2020, and a vaccine became publicly available for the first time in April 2021. That month, a Gallup poll surveyed a random sample of 3,731 US adults, asking how they felt about the COVID-19 vaccine requirement for air travel. The poll found that 57% said they would favor it. <xref ref="data:gallupcovidvaccine" /></p>
+      <p><ol marker="a.">
+        <li><p>Describe the population parameter of interest. What is the value of the point estimate of this parameter?</p></li>
+        <li><p>Check if the conditions required for constructing a confidence interval using a mathematical model based on these data are met.</p></li>
+        <li><p>Construct a 95% confidence interval for the proportion of US adults who favor requiring proof of COVID-19 vaccination for travel by airplane.</p></li>
+        <li><p>Without doing any calculations, describe what would happen to the confidence interval if we decided to use a higher confidence level.</p></li>
+        <li><p>Without doing any calculations, describe what would happen to the confidence interval if we used a larger sample.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Study abroad</title>
+    <statement>
+      <p>A survey on 1,509 high school seniors who took the SAT and who completed an optional web survey shows that 55% of high school seniors are fairly certain that they will participate in a study abroad program in college. <xref ref="data:studyAbroad" /></p>
+      <p><ol marker="a.">
+        <li><p>Is this sample a representative sample from the population of all high school seniors in the US? Explain your reasoning.</p></li>
+        <li><p>Suppose the conditions for inference are met, regardless of your answer to part (a). Using a mathematical model, construct a 90% confidence interval for the proportion of high school seniors (of those who took the SAT) who are fairly certain they will participate in a study abroad program in college, and interpret this interval in context.</p></li>
+        <li><p>What does <q>90% confidence</q> mean?</p></li>
+        <li><p>Based on this interval, would it be appropriate to claim that the majority of high school seniors are fairly certain that they will participate in a study abroad program in college?</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Legalization of marijuana, mathematical interval</title>
+    <statement>
+      <p>The General Social Survey asked a random sample of 1,563 US adults: <q>Do you think the use of marijuana should be made legal, or not?</q> 60% of the respondents said it should be made legal. <xref ref="data:gssgrass" /></p>
+      <p><ol marker="a.">
+        <li><p>Is 60% a sample statistic or a population parameter? Explain.</p></li>
+        <li><p>Using a mathematical model, construct a 95% confidence interval for the proportion of US adults who think marijuana should be made legal, and interpret it in the context of the data.</p></li>
+        <li><p>A critic points out that this 95% confidence interval is only accurate if the statistic follows a normal distribution, or if the normal model is a good approximation. Do the technical conditions hold for these data? Explain.</p></li>
+        <li><p>A news piece on this survey's findings states, <q>Majority of US adults think marijuana should be legalized.</q> Based on your confidence interval, is the news piece's statement justified?</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>National Health Plan, mathematical inference</title>
+    <statement>
+      <p>A Kaiser Family Foundation poll for a random sample of US adults in 2019 found that 79% of Democrats, 55% of Independents, and 24% of Republicans supported a generic <q>National Health Plan</q>. There were 347 Democrats, 298 Republicans, and 617 Independents surveyed. <xref ref="data:KFF2019nathealthplan" /></p>
+      <p><ol marker="a.">
+        <li><p>A political pundit on TV claims that a majority of Independents support a National Health Plan. Do these data provide strong evidence to support this type of statement? Your response should use a mathematical model.</p></li>
+        <li><p>Would you expect a confidence interval for the proportion of Independents who oppose the public option plan to include 0.5? Explain.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Is college worth it?</title>
+    <statement>
+      <p>Among a simple random sample of 331 American adults who do not have a four-year college degree and are not currently enrolled in school, 48% said they decided not to go to college because they could not afford school. <xref ref="data:collegeWorthIt" /></p>
+      <p><ol marker="a.">
+        <li><p>A newspaper article states that only a minority of the Americans who decide not to go to college do so because they cannot afford it and uses the point estimate from this survey as evidence. Conduct a hypothesis test to determine if these data provide strong evidence supporting this statement.</p></li>
+        <li><p>Would you expect a confidence interval for the proportion of American adults who decide not to go to college because they cannot afford it to include 0.5? Explain.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Taste test</title>
+    <statement>
+      <p>Some people claim that they can tell the difference between a diet soda and a regular soda in the first sip. A researcher wanting to test this claim randomly sampled 80 such people. He then filled 80 plain white cups with soda, half diet and half regular through random assignment, and asked each person to take one sip from their cup and identify the soda as diet or regular. 53 participants correctly identified the soda.</p>
+      <p><ol marker="a.">
+        <li><p>Do these data provide strong evidence that these people are able to detect the difference between diet and regular soda, in other words, are the results discernibly better than just random guessing? Your response should use a mathematical model.</p></li>
+        <li><p>Interpret the p-value in this context.</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Will the coronavirus bring the world closer together?</title>
+    <statement>
+      <p>In early 2020 the COVID-19 pandemic arrived in the US; by December 2020 the first COVID-19 vaccine was available. An April 2021 YouGov poll asked 4,265 UK adults whether they think the coronavirus bring the world closer together or leave us further apart. 12% of the respondents said it will bring the world closer together. 37% said it would leave us further apart, 39% said it won't make a difference and the remainder didn't have an opinion on the matter. <xref ref="data:yougovcovid" /></p>
+      <p><ol marker="a.">
+        <li><p>Calculate, using a mathematical model, a 90% confidence interval for the proportion of UK adults who think the coronavirus will bring the world closer together, and interpret the interval in context.</p></li>
+        <li><p>Suppose we wanted the margin of error for the 90% confidence level to be about 0.5%. How large of a sample size would you recommend for the poll?</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Quality control</title>
+    <statement>
+      <p>As part of a quality control process for computer chips, an engineer at a factory randomly samples 212 chips during a week of production to test the current rate of chips with severe defects. She finds that 27 of the chips are defective.</p>
+      <p><ol marker="a.">
+        <li><p>What population is under consideration in the dataset?</p></li>
+        <li><p>What parameter is being estimated?</p></li>
+        <li><p>What is the point estimate for the parameter?</p></li>
+        <li><p>What is the name of the statistic that can be used to measure the uncertainty of the point estimate?</p></li>
+        <li><p>Compute the value of the statistic from part (d) using a mathematical model.</p></li>
+        <li><p>The historical rate of defects is 10%. Should the engineer be surprised by the observed rate of defects during the current week?</p></li>
+        <li><p>Suppose the true population value was found to be 10%. If we use this proportion to recompute the value in part (d) using <m>p = 0.1</m> instead of <m>\hat{p}</m>, how much does the resulting value of the statistic change?</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Nearsighted children</title>
+    <statement>
+      <p>Nearsightedness (myopia) is a common vision condition in which you can see near objects clearly, but farther away objects blurry. It is believed that nearsightedness affects about 8% of all children. In a random sample of 194 children, 21 are nearsighted. Using a mathematical model, conduct a hypothesis test for the following question: do these data provide evidence that the 8% value is inaccurate?</p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Website registration</title>
+    <statement>
+      <p>A website is trying to increase registration for first-time visitors, exposing 1% of these visitors to a new site design. Of 752 randomly sampled visitors over a month who saw the new design, 64 registered.</p>
+      <p><ol marker="a.">
+        <li><p>Check the conditions for constructing a confidence interval for the proportion of first-time visitors of the site who would register under the new design using a mathematical model.</p></li>
+        <li><p>Compute the standard error which would describe the variability of the point estimate associated with repeated samples of size 752.</p></li>
+        <li><p>Construct and interpret a 90% confidence interval for the fraction of first-time visitors of the site who would register under the new design (assuming stable behaviors by new visitors over time).</p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+    <exercise>
+    <title>Coupons driving visits</title>
+    <statement>
+      <p>A store randomly samples 603 shoppers over the course of a year and finds that 142 of them made their visit because of a coupon they'd received in the mail. Using a mathematical model, construct a 95% confidence interval for the fraction of all shoppers during the year whose visit was because of a coupon they'd received in the mail.</p>
+    </statement>
+  </exercise>
+
+</exercises>

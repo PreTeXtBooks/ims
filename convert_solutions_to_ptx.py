@@ -130,28 +130,27 @@ def convert_solution_to_ptx(solution_text):
         # Build ordered list
         xml = '<p><ol marker="a.">\n'
         
-        # Process parts - they come in groups of 3: [prefix, marker, content]
-        i = 0
+        # Process parts - after split we get: ['prefix', '(a)', 'content-a', '(b)', 'content-b', ...]
+        # So skip the first part (usually empty), then alternate between markers and content
+        i = 1  # Start at first marker
         while i < len(parts):
-            if i + 2 < len(parts):
-                prefix = parts[i]
-                marker = parts[i + 1]
-                content = parts[i + 2]
-                
-                if re.match(r'\([a-z]\)', marker):
-                    # Clean content - remove trailing periods and extra spaces
-                    content = content.strip()
+            if i < len(parts) and re.match(r'\([a-z]\)', parts[i]):
+                # This is a marker
+                if i + 1 < len(parts):
+                    # Next part is content
+                    content = parts[i + 1].strip()
+                    # Remove trailing period
                     if content.endswith('.'):
                         content = content[:-1].strip()
                     
                     if content:
                         xml += f'  <li><p>{content}</p></li>\n'
                     
-                    i += 3
+                    i += 2  # Skip to next marker
                 else:
-                    i += 1
+                    break
             else:
-                break
+                i += 1
         
         xml += '</ol></p>'
         

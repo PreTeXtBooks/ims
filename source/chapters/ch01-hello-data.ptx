@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<chapter xml:id="sec-data-hello">
+<chapter xml:id="sec-data-hello" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Hello data</title>
   
   <introduction>
@@ -923,61 +923,10 @@
 
   </section>
 
-  <exercises xml:id="sec-chp1-exercises">
+  <section xml:id="sec-chp1-exercises">
     <title>Exercises</title>
-    
-    <p>
-      Answers to odd-numbered exercises can be found in Appendix A.
-    </p>
-
-    <exercise xml:id="ex-mcu-films">
-      <statement>
-        <p>
-          <alert>Marvel Cinematic Universe films.</alert> The data frame below contains information on Marvel Cinematic Universe films through the Infinity saga (a movie storyline spanning from Ironman in 2008 to Endgame in 2019).
-          Box office totals are given in millions of US Dollars.
-          How many observations and how many variables does this data frame have?
-        </p>
-        <p>
-          [Table showing MCU films data with columns for Title, Length (Hrs, Mins), Release Date, Opening Wknd US, and Gross (US, World)]
-        </p>
-      </statement>
-    </exercise>
-
-    <exercise xml:id="ex-cherry-blossom">
-      <statement>
-        <p>
-          <alert>Cherry Blossom Run.</alert> The data frame below contains information on runners in the 2017 Cherry Blossom Run, which is an annual road race that takes place in Washington, DC. Most runners participate in a 10-mile run while a smaller fraction take part in a 5k run or walk.
-          How many observations and how many variables does this data frame have?
-        </p>
-        <p>
-          [Table showing runners data with various variables]
-        </p>
-      </statement>
-    </exercise>
-
-    <exercise xml:id="ex-air-pollution">
-      <statement>
-        <p>
-          <alert>Air pollution and birth outcomes, study components.</alert> Researchers collected data to examine the relationship between air pollutants and preterm births in Southern California.
-          During the study, air pollution levels were measured by air quality monitoring stations.
-          Specifically, levels of carbon monoxide were recorded in parts per million, nitrogen dioxide and ozone in parts per hundred million, and inhalable particulate matter (PM<m>_{10}</m>) in <m>\mu g/m^3</m>.
-          Length of gestation data were collected on 143,196 births between the years 1989 and 1993, and air pollution exposure during gestation was calculated for each birth.
-          The analysis suggested that increased ambient PM<m>_{10}</m> and, to a lesser degree, CO concentrations may be associated with the occurrence of preterm births.
-        </p>
-        <p>
-          <ol>
-            <li><p>Identify the main research question of the study.</p></li>
-            <li><p>Who are the subjects in this study, and how many are included?</p></li>
-            <li><p>What are the variables in the study? Identify each variable as numerical or categorical. If numerical, state whether the variable is discrete or continuous. If categorical, state whether the variable is ordinal.</p></li>
-          </ol>
-        </p>
-      </statement>
-    </exercise>
-
-    <p>
-      <em>[Note: Additional exercises 4-20 from the original chapter would be included here. The complete conversion of all 20 exercises with their complex tables and R-generated content requires additional processing.]</em>
-    </p>
-
-  </exercises>
+    <p>Answers to odd-numbered exercises can be found in <xref ref="sec-exercise-solutions-01" />.</p>
+    <xi:include href="../exercises/_01-ex-data-hello.ptx" />
+  </section>
 
 </chapter>

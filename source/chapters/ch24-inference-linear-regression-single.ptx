@@ -684,7 +684,7 @@
 <section xml:id="sec-mathslope">
   <title>Mathematical model for testing the slope</title>
 
-<p>When certain technical conditions apply, it is convenient to use mathematical approximations to test and estimate the slope parameter. The approximations will build on the t-distribution which was described in <xref ref="sec-inference-one-mean" />. The mathematical model is often correct and is usually easy to implement computationally. The validity of the technical conditions will be considered in detail in <xref ref="sec-tech-cond-linmod" />.</p>
+<p>When certain technical conditions apply, it is convenient to use mathematical approximations to test and estimate the slope parameter. The approximations will build on the t-distribution which was described in <xref ref="ch19-inference-single-mean" />. The mathematical model is often correct and is usually easy to implement computationally. The validity of the technical conditions will be considered in detail in <xref ref="sec-tech-cond-linmod" />.</p>
 
 <p>In this section, we discuss uncertainty in the estimates of the slope and y-intercept for a regression line. Just as we identified standard errors for point estimates in previous chapters, we start by discussing standard errors for the slope and y-intercept estimates.</p>
 
@@ -988,7 +988,7 @@
 </ul>
 
 <ul>
-  <li><p><alert>Independent observations.</alert> Be cautious about applying regression to data that are sequential observations in time such as a stock price each day. Such data may have an underlying structure that should be considered in a different type of model and analysis. An example of a dataset where successive observations are not independent is shown in the fourth panel of <xref ref="fig-whatCanGoWrongWithLinearModel" />. There are also other instances where correlations within the data are important, which is further discussed in <xref ref="sec-inf-model-mlr" />.</p></li>
+  <li><p><alert>Independent observations.</alert> Be cautious about applying regression to data that are sequential observations in time such as a stock price each day. Such data may have an underlying structure that should be considered in a different type of model and analysis. An example of a dataset where successive observations are not independent is shown in the fourth panel of <xref ref="fig-whatCanGoWrongWithLinearModel" />. There are also other instances where correlations within the data are important, which is further discussed in <xref ref="ch25-inference-linear-regression-multiple" />.</p></li>
 </ul>
 
 <ul>
@@ -1233,7 +1233,7 @@
 <subsection xml:id="subsec-when-tech-cond-met">
   <title>What if all the technical conditions are met?</title>
 
-<p>When the technical conditions are met, the least squares regression model and inference is provided by virtually all statistical software. In addition to being ubiquitous, however, an additional advantage to the least squares regression model (and related inference) is that the linear model has important extensions (which are not trivial to implement with bootstrapping and randomization tests). In particular, random effects models, repeated measures, and interaction are all linear model extensions which require the above technical conditions. When the technical conditions hold, the extensions to the linear model can provide important insight into the data and research question at hand. We will discuss some of the extended modeling and associated inference in <xref ref="sec-inf-model-mlr" /> and <xref ref="sec-inf-model-logistic" />. Many of the techniques used to deal with technical condition violations are outside the scope of this text, but they are taught in universities in the very next class after this one. If you are working with linear models or are curious to learn more, we recommend that you continue learning about statistical methods applicable to a larger class of datasets.</p>
+<p>When the technical conditions are met, the least squares regression model and inference is provided by virtually all statistical software. In addition to being ubiquitous, however, an additional advantage to the least squares regression model (and related inference) is that the linear model has important extensions (which are not trivial to implement with bootstrapping and randomization tests). In particular, random effects models, repeated measures, and interaction are all linear model extensions which require the above technical conditions. When the technical conditions hold, the extensions to the linear model can provide important insight into the data and research question at hand. We will discuss some of the extended modeling and associated inference in <xref ref="ch25-inference-linear-regression-multiple" /> and <xref ref="sec-inf-model-logistic" />. Many of the techniques used to deal with technical condition violations are outside the scope of this text, but they are taught in universities in the very next class after this one. If you are working with linear models or are curious to learn more, we recommend that you continue learning about statistical methods applicable to a larger class of datasets.</p>
 
 </subsection>
 
@@ -1242,7 +1242,7 @@
 
 <p>Recall that early in the text we presented graphical techniques which communicated relationships across multiple variables. We also used modeling to formalize the relationships. Many chapters were dedicated to inferential methods which allowed claims about the population to be made based on samples of data. Not only did we present the mathematical model for each of the inferential techniques, but when appropriate, we also presented bootstrapping and permutation methods.</p>
 
-<p>In <xref ref="sec-inf-model-slr" /> we brought all of those ideas together by considering inferential claims on linear models through randomization tests, bootstrapping, and mathematical modeling. We continue to emphasize the importance of experimental design in making conclusions about research claims. In particular, recall that variability can come from different sources (e.g., random sampling vs. random allocation, see <xref ref="fig-randsampValloc" />).</p>
+<p>In <xref ref="ch24-inference-linear-regression-single" /> we brought all of those ideas together by considering inferential claims on linear models through randomization tests, bootstrapping, and mathematical modeling. We continue to emphasize the importance of experimental design in making conclusions about research claims. In particular, recall that variability can come from different sources (e.g., random sampling vs. random allocation, see <xref ref="fig-randsampValloc" />).</p>
 
 </subsection>
 

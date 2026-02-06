@@ -19,7 +19,7 @@
   <exercise>
     <title>Cuckoo bird egg lengths, randomize once</title>
     <statement>
-      <p>Cuckoo birds lay their eggs in other birds' nests, making them known as brood parasites. One question relates to whether the size of the cuckoo egg differs depending on the species of the host bird. <xref ref="Latter:1902" /> Consider the following plots, one represents the original data, the second represents data where the host species has been randomly assigned to the egg length.</p>
+      <p>Cuckoo birds lay their eggs in other birds' nests, making them known as brood parasites. One question relates to whether the size of the cuckoo egg differs depending on the species of the host bird. <xref ref="Latter-1902" /> Consider the following plots, one represents the original data, the second represents data where the host species has been randomly assigned to the egg length.</p>
       <figure xml:id="fig-22-ex-cuckoo-randomize">
         <image source="images/exercises/_22-ex-inference-many-means-03.png" width="90%" />
       </figure>
@@ -34,7 +34,7 @@
   <exercise>
     <title>Cuckoo bird egg lengths, randomization test</title>
     <statement>
-      <p>Cuckoo birds lay their eggs in other birds' nests, making them known as brood parasites. One question relates to whether the size of the cuckoo egg differs depending on the species of the host bird. <xref ref="Latter:1902" /> Using the randomization distribution of the F statistic (host species randomized to egg length), conduct a hypothesis test to evaluate if there is a difference, in the population, between the average egg lengths for different host bird species. Make sure to state your hypotheses clearly and interpret your results in context of the data.</p>
+      <p>Cuckoo birds lay their eggs in other birds' nests, making them known as brood parasites. One question relates to whether the size of the cuckoo egg differs depending on the species of the host bird. <xref ref="Latter-1902" /> Using the randomization distribution of the F statistic (host species randomized to egg length), conduct a hypothesis test to evaluate if there is a difference, in the population, between the average egg lengths for different host bird species. Make sure to state your hypotheses clearly and interpret your results in context of the data.</p>
       <figure xml:id="fig-22-ex-cuckoo-randomization">
         <image source="images/exercises/_22-ex-inference-many-means-04.png" width="75%" />
       </figure>
@@ -44,7 +44,7 @@
   <exercise>
     <title>Chicken diet and weight, many groups</title>
     <statement>
-      <p>An experiment was conducted to measure and compare the effectiveness of various feed supplements on the growth rate of chickens. Newly hatched chicks were randomly allocated into six groups, and each group was given a different feed supplement. Sample statistics and a visualization of the observed data are shown below. <xref ref="data:chickwts" /></p>
+      <p>An experiment was conducted to measure and compare the effectiveness of various feed supplements on the growth rate of chickens. Newly hatched chicks were randomly allocated into six groups, and each group was given a different feed supplement. Sample statistics and a visualization of the observed data are shown below. <xref ref="data-chickwts" /></p>
       <figure xml:id="fig-22-ex-chickwts">
         <image source="images/exercises/_22-ex-inference-many-means-05.png" width="90%" />
       </figure>
@@ -96,7 +96,7 @@
   <exercise>
     <title>Coffee, depression, and physical activity</title>
     <statement>
-      <p>Caffeine is the world's most widely used stimulant, with approximately 80% consumed in the form of coffee. Participants in a study investigating the relationship between coffee consumption and exercise were asked to report the number of hours they spent per week on moderate (e.g., brisk walking) and vigorous (e.g., strenuous sports and jogging) exercise. Based on these data the researchers estimated the total hours of metabolic equivalent tasks (MET) per week, a value always greater than 0. The table below gives summary statistics of MET for women in this study based on the amount of coffee consumed. <xref ref="Lucas:2011" /></p>
+      <p>Caffeine is the world's most widely used stimulant, with approximately 80% consumed in the form of coffee. Participants in a study investigating the relationship between coffee consumption and exercise were asked to report the number of hours they spent per week on moderate (e.g., brisk walking) and vigorous (e.g., strenuous sports and jogging) exercise. Based on these data the researchers estimated the total hours of metabolic equivalent tasks (MET) per week, a value always greater than 0. The table below gives summary statistics of MET for women in this study based on the amount of coffee consumed. <xref ref="Lucas-2011" /></p>
       <table xml:id="table-22-ex-coffee-summary">
         <title>Summary statistics of MET by coffee consumption</title>
         <tabular>
@@ -322,7 +322,7 @@
   <exercise>
     <title>Work hours and education</title>
     <statement>
-      <p>The General Social Survey collects data on demographics, education, and work, among many other characteristics of US residents. <xref ref="data:gss:2010" /> Using ANOVA, we can consider educational attainment levels for all 1,172 respondents at once. Below are the distributions of hours worked by educational attainment and relevant summary statistics that will be helpful in carrying out this analysis.</p>
+      <p>The General Social Survey collects data on demographics, education, and work, among many other characteristics of US residents. <xref ref="data-gss-2010" /> Using ANOVA, we can consider educational attainment levels for all 1,172 respondents at once. Below are the distributions of hours worked by educational attainment and relevant summary statistics that will be helpful in carrying out this analysis.</p>
       <figure xml:id="fig-22-ex-work-education">
         <image source="images/exercises/_22-ex-inference-many-means-10.png" width="90%" />
       </figure>
@@ -409,7 +409,7 @@
   <exercise>
     <title>Child care hours</title>
     <statement>
-      <p>The China Health and Nutrition Survey aims to examine the effects of the health, nutrition, and family planning policies and programs implemented by national and local governments. <xref ref="data:china" /> It, for example, collects information on number of hours Chinese parents spend taking care of their children under age 6. The side-by-side box plots below show the distribution of this variable by educational attainment of the parent. Also provided below is the ANOVA output for comparing average hours across educational attainment categories.</p>
+      <p>The China Health and Nutrition Survey aims to examine the effects of the health, nutrition, and family planning policies and programs implemented by national and local governments. <xref ref="data-china" /> It, for example, collects information on number of hours Chinese parents spend taking care of their children under age 6. The side-by-side box plots below show the distribution of this variable by educational attainment of the parent. Also provided below is the ANOVA output for comparing average hours across educational attainment categories.</p>
       <figure xml:id="fig-22-ex-child-care">
         <image source="images/exercises/_22-ex-inference-many-means-14.png" width="75%" />
       </figure>

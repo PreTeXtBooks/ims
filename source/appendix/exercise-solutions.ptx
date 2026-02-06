@@ -192,7 +192,7 @@
     </solution>
 
     <solution xml:id="sol-ch02-ex23">
-<p>Need randomization and blinding. One possible outline: (1) Prepare two cups for each participant, one containing regular Coke and the other containing Diet Coke. Make sure the cups ar identical and contain equal amounts of soda. Label the cups (regular) and B (diet). (Be sure to randomize A and B for each trial!) (2) Give each participant the two cups, one cup at a time, in random order, and ask the participant to record a value that indicates ho much she liked the beverage. Be sure that neither the participant nor the person handing out the cups knows the identity of th beverage to make this a double-blind experiment. (Answers may vary.)
+<p>Need randomization and blinding. One possible outline: (1) Prepare two cups for each participant, one containing regular Coke and the other containing Diet Coke. Make sure the cups are identical and contain equal amounts of soda. Label the cups (regular) and B (diet). (Be sure to randomize A and B for each trial!) (2) Give each participant the two cups, one cup at a time, in random order, and ask the participant to record a value that indicates how much she liked the beverage. Be sure that neither the participant nor the person handing out the cups knows the identity of the beverage to make this a double-blind experiment. (Answers may vary.)
 </p>
     </solution>
 
@@ -292,16 +292,7 @@
     </solution>
 
     <solution xml:id="sol-ch05-ex03">
-<p>The graph below shows a ramp up period. There may also be a period of exponential growth at the start before the size of the petri dish becomes a factor in slowing growth.
-
-    ```{r}
-    #| out-width: 30%
-    set.seed(2406)
-    par(mar = c(1.5, 1.5, 0.5, 0.5), mgp = c(0.3, 0.7, 0),  mfrow = c(1,1), cex.lab = 1.5)
-    curve(-1*dexp(x, rate = 4), lwd = 2, xlab = "time", ylab = "number of bacteria cells", axes = FALSE)
-    box()
-    ```
-
+<p>The graph below shows a ramp up period. There may also be a period of exponential growth at the start before the size of the petri dish becomes a factor in slowing growth. [Graph showing bacterial growth over time]
     </p>
     </solution>
 
@@ -487,7 +478,7 @@
     <solution xml:id="sol-ch07-ex23">
 <p><ol marker="a.">
   <li><p><m>\widehat{\texttt{poverty}} = 4.60 + 2.05 \times \texttt{unemployment\_rate}.</m></p></li>
-  <li><p>The model predicts a poverty rate of 4.60\% for counties with 0\% unemployment, on average. This is not a meaningful value as no counties have such low unexmployment, it just serves to adjust the height of the regression line</p></li>
+  <li><p>The model predicts a poverty rate of 4.60\% for counties with 0\% unemployment, on average. This is not a meaningful value as no counties have such low unemployment, it just serves to adjust the height of the regression line</p></li>
   <li><p>For each additional percentage increase in unemployment rate, poverty rate is predicted to be higher, on average, by 2.05\%</p></li>
   <li><p>Unemployment rate explains 46\% of the variability in poverty levels in US counties</p></li>
   <li><p><m>\sqrt{0.46} = 0.678.</m></p></li>
@@ -623,7 +614,7 @@
     <solution xml:id="sol-ch09-ex09">
 <p><ol marker="a.">
   <li><p>The AIC is smallest using the variables `sex`, `head_l`, `skull_w`, `total_l`, and `tail_l` to predict region (AIC = 83.52), so we would choose that model</p></li>
-  <li><p>If the metric is equivalent across two models with different numbers of variables, we usually want the model with smaller number of variables. Sometimes refered to as Occam's razor, the simplest explanation is often the one that will generalize most effectively</p></li>
+  <li><p>If the metric is equivalent across two models with different numbers of variables, we usually want the model with smaller number of variables. Sometimes referred to as Occam's razor, the simplest explanation is often the one that will generalize most effectively</p></li>
 </ol></p>
     </solution>
 
@@ -769,7 +760,7 @@ distributions that are not normal. However, we could not answer parts (d)-</p></
   <li><p><m>N(25, 2.78)</m></p></li>
   <li><p><m>Z = 1.08</m>, <m>P(Z &gt; 1.08) = 0.1401</m>. (c)The answers are very close because only the units were changed. (The only 
 reason why they differ at all because 28<m>^\circ</m> C is 82.4<m>^\circ</m> F, not precisely 83<m>^\circ</m> F.)</p></li>
-  <li><p>Since <m>IQR = Q3 - Q1</m>, we first need to find <m>Q3</m> and <m>Q1</m> and take the difference between the two. Remember that <m>Q3</m> is the <m>75^{th}</m> and <m>Q1</m> is the <m>25^{th}</m> percentile of a distribution. Q1 = 23.13, Q3 = 26.86, IQR = 26. 86 - 23.13 = 3.73</p></li>
+  <li><p>Since <m>IQR = Q3 - Q1</m>, we first need to find <m>Q3</m> and <m>Q1</m> and take the difference between the two. Remember that <m>Q3</m> is the <m>75^{th}</m> and <m>Q1</m> is the <m>25^{th}</m> percentile of a distribution. Q1 = 23.13, Q3 = 26.86, IQR = 26.86 - 23.13 = 3.73</p></li>
 </ol></p>
     </solution>
 
@@ -1076,21 +1067,7 @@ reason why they differ at all because 28<m>^\circ</m> C is 82.4<m>^\circ</m> F, 
 <p><ol marker="a.">
   <li><p>Two-way table is shown below. (b-i) <m>E_{row_1, col_1} = \frac{(row~1~total)\times(col~1~total)}{table~total} = 35</m>. This is lower than the observed value. (b-ii) <m>E_{row_2, col_2} = \frac{(row~2~total)\times(col~2~total)}{table~total} = 115</m>. This is lower than the observed value.
 
-    ```{r}
-    tribble(
-       ~Treatment, ~Yes, ~No, ~Total,
-       "Patch + support group", 40, 110, 150,
-       "Only patch", 30, 120, 150,
-       "Total", 70, 230, 300
-    ) |>
-       kbl(linesep = "", booktabs = TRUE, align = "lrrr") |>
-       kable_styling(bootstrap_options = c("striped", "condensed"), 
-                     latex_options = "HOLD_position", 
-                     full_width = FALSE) |>
-       column_spec(1, width = "10em") |>
-       column_spec(2:4, width = "5em") |>
-       add_header_above(c(" " = 1, "Quit" = 2, " " = 1))
-    ```</p></li>
+    [R code block removed]</p></li>
 </ol></p>
     </solution>
 

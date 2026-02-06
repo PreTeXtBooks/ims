@@ -1,0 +1,219 @@
+================================================================================
+FINAL VERIFICATION: Chapter 25 Conversion
+================================================================================
+
+File: source/chapters/ch25-inference-linear-regression-multiple.ptx
+Source: inf-model-mlr.qmd (837 lines)
+Output: 849 lines of PreTeXt XML
+
+================================================================================
+CONTENT COVERAGE CHECK
+================================================================================
+
+Source Lines | Content                                    | Status
+------------ | ------------------------------------------ | ------
+1-25         | Introduction and chapter overview          | ✓ Done
+26-128       | Multiple regression output from software   | ✓ Done
+129-372      | Multicollinearity section                  | ✓ Done
+373-806      | Cross-validation for prediction error      | ✓ Done
+807-830      | Chapter review section                     | ✓ Done
+831-837      | Exercises section                          | ✓ Done
+
+TOTAL COVERAGE: 837/837 lines (100%)
+
+================================================================================
+STRUCTURAL ELEMENTS CHECK
+================================================================================
+
+Element Type          | Count | Status
+--------------------- | ----- | ------
+Sections              | 5     | ✓ All present
+Subsections           | 3     | ✓ All present
+Figures               | 11    | ✓ All converted
+Tables                | 7     | ✓ All converted
+Code Listings         | 9     | ✓ All converted
+Worked Examples       | 2     | ✓ All converted
+Assemblages (boxes)   | 3     | ✓ All converted
+Data Notes            | 2     | ✓ All converted
+
+================================================================================
+XML VALIDATION CHECK
+================================================================================
+
+✓ Well-formed XML (validated with Python ElementTree)
+✓ Proper namespace declaration (xmlns:xi)
+✓ Correct chapter xml:id (sec-inf-model-mlr)
+✓ All opening tags have matching closing tags
+✓ Proper nesting of elements
+✓ No orphaned tags
+
+================================================================================
+CONTENT QUALITY CHECK
+================================================================================
+
+✓ All section titles match source
+✓ All figure captions preserved
+✓ All table titles preserved
+✓ Code blocks maintain R syntax
+✓ Math expressions properly tagged
+✓ Cross-references use correct syntax
+✓ URLs properly formatted
+✓ Footnotes included
+✓ Index terms added
+✓ Special characters escaped (&lt; &gt; &amp;)
+
+================================================================================
+DETAILED SECTION VERIFICATION
+================================================================================
+
+Section 1: Multiple regression output from software (sec-inf-mult-reg-soft)
+  ✓ Introduction to loans dataset
+  ✓ Data note with package links
+  ✓ Population model equation (multi-line)
+  ✓ Code listing for model fitting
+  ✓ Table tbl-loansmodel with coefficients
+  ✓ Estimated equation
+  ✓ Discussion of hypothesis testing
+  ✓ Three hypotheses for multiple predictors
+  ✓ Interpretation of p-values
+
+Section 2: Multicollinearity (sec-inf-mult-reg-collin)
+  ✓ Introduction to multicollinearity concept
+  ✓ Coin dish example description
+  ✓ Figure fig-money (sample coins)
+  ✓ Figure fig-coinfig (2 subplots in sidebyside)
+  ✓ Code listing for coin plots
+  ✓ Model 1: total_amount ~ number_of_coins
+    ✓ Equation
+    ✓ Code listing
+    ✓ Table tbl-coinhigh
+  ✓ Model 2: total_amount ~ number_of_low_coins
+    ✓ Equation
+    ✓ Code listing
+    ✓ Table tbl-coinlow
+  ✓ Worked Example 1: Same low coins, different total
+    ✓ Statement
+    ✓ Solution
+    ✓ Figure fig-lowsame
+  ✓ Worked Example 2: Same total, different low coins
+    ✓ Statement
+    ✓ Solution
+    ✓ Figure fig-totalsame
+  ✓ Model 3: total_amount ~ both predictors
+    ✓ Equation
+    ✓ Code listing
+    ✓ Table tbl-coinhighlow
+  ✓ Discussion of coefficient interpretation
+  ✓ Assemblage: Multicollinearity definition
+  ✓ Discussion of prediction vs interpretation
+
+Section 3: Cross-validation for prediction error (sec-inf-mult-reg-cv)
+  ✓ Introduction to cross-validation
+  ✓ Figure fig-cv (k-fold visualization)
+  ✓ Data note for penguins dataset
+  ✓ Description of two models
+  ✓ Assemblage: Prediction error definition
+  ✓ Subsection: Comparing two models
+    ✓ Smaller model description
+      ✓ Population equation
+      ✓ Fitted equation
+      ✓ Code listing
+      ✓ Table tbl-peng-lm-bill
+    ✓ Larger model description
+      ✓ Population equation (multi-line)
+      ✓ Fitted equation (multi-line)
+      ✓ Code listing
+      ✓ Table tbl-peng-lm-all
+    ✓ Cross-validation process description
+    ✓ Figure fig-massCV1 (smaller model CV)
+    ✓ Code listing for smaller model CV
+    ✓ Figure fig-peng-mass1 (smaller model results)
+    ✓ Discussion of CV SSE calculation
+    ✓ Assemblage: Cross-validation SSE definition
+    ✓ Figure fig-massCV2 (larger model CV)
+    ✓ Code listing for larger model CV
+    ✓ Figure fig-peng-mass2 (larger model results)
+    ✓ Comparison of models (CV SSE: 141,552,822 vs 27,728,698)
+    ✓ Discussion of results
+    ✓ Conclusion and recommendations
+
+Section 4: Chapter review (sec-chp25-review)
+  ✓ Subsection: Summary
+    ✓ Review of key concepts
+    ✓ Mention of multicollinearity
+    ✓ Discussion of interaction (not covered)
+  ✓ Subsection: Terms
+    ✓ Introduction to terms table
+    ✓ Table tbl-terms-chp-25 with 6 terms:
+      - inference on multiple linear regression
+      - predictor
+      - multiple predictors
+      - multicollinearity
+      - cross-validation
+      - prediction error
+
+Section 5: Exercises (sec-chp25-exercises)
+  ✓ Exercise section header
+  ✓ Reference to appendix
+  ✓ Placeholder for external content
+
+================================================================================
+COMPARISON WITH PATTERN FILE (ch07-linear-regression-single.ptx)
+================================================================================
+
+✓ Document structure matches (<?xml version...>, <chapter>, xmlns:xi)
+✓ Section structure matches (<section>, <subsection>)
+✓ Paragraph formatting matches (<p>)
+✓ Math formatting matches (<m>, <me>, <md><mrow>)
+✓ Code listing format matches (<listing><program language="r"><input>)
+✓ Figure format matches (<figure><caption><image>)
+✓ Table format matches (<table><title><tabular><row><cell>)
+✓ Example format matches (<example><statement><solution>)
+✓ Assemblage format matches (<assemblage><title>)
+✓ Cross-reference format matches (<xref ref="..."/>)
+✓ URL format matches (<url href="...">)
+
+================================================================================
+STATISTICS
+================================================================================
+
+Previous version:
+  - Lines: 68
+  - Coverage: ~9.6% (80/837 source lines)
+  - Sections: 1 placeholder only
+  
+New version:
+  - Lines: 849
+  - Coverage: 100% (837/837 source lines)
+  - Sections: 5 main sections + 3 subsections
+  - Increase: 781 lines (1147% increase)
+  
+Content added:
+  - 11 figures
+  - 7 tables
+  - 9 code listings
+  - 2 worked examples
+  - 3 assemblages
+  - 2 data notes
+  - ~200+ paragraphs
+  - Multiple math expressions
+  - Cross-references throughout
+
+================================================================================
+READY FOR PRODUCTION
+================================================================================
+
+✓ File is complete
+✓ File is valid XML
+✓ File follows project patterns
+✓ File is committed to git
+✓ Documentation created
+✓ Summary reports generated
+
+The conversion is ready for:
+  - PreTeXt compilation
+  - Integration testing
+  - Code review
+  - Publishing
+
+================================================================================

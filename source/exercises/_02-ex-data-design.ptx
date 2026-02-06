@@ -116,6 +116,11 @@
     <title>Internet use and life expectancy</title>
     <statement>
       <p>The following scatterplot was created as part of a study evaluating the relationship between estimated life expectancy at birth (as of 2014) and percentage of internet users (as of 2009) in 208 countries for which such data were available.</p>
+      <figure xml:id="fig-ex02-internet-life-exp">
+        <image source="images/fig-ex02-internet-life-exp.png" width="70%">
+          <description>Scatterplot showing the relationship between life expectancy (y-axis) and percentage of internet users (x-axis) for 208 countries. The plot shows a positive, non-linear relationship with life expectancy increasing as internet usage increases, but leveling off around 80 years.</description>
+        </image>
+      </figure>
       <p><ol marker="a.">
         <li>Describe the relationship between life expectancy and percentage of internet users.</li>
         <li>What type of study is this?</li>
@@ -315,6 +320,11 @@
     <title>Income and education in US counties</title>
     <statement>
       <p>The scatterplot below shows the relationship between per capita income (in thousands of dollars) and percent of population with a bachelor's degree in 3,142 counties in the US in 2019.</p>
+      <figure xml:id="fig-ex02-income-education">
+        <image source="images/fig-ex02-income-education.png" width="70%">
+          <description>Scatterplot showing the relationship between per capita income (y-axis, in thousands of dollars) and percent of population with a bachelor's degree (x-axis) for 3,142 US counties in 2019. The plot shows a positive relationship with income increasing as the percentage of people with bachelor's degrees increases.</description>
+        </image>
+      </figure>
       <p><ol marker="a.">
         <li>What are the explanatory and response variables?</li>
         <li>Describe the relationship between the two variables. Make sure to discuss unusual observations, if any.</li>

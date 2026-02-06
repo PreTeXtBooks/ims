@@ -6,7 +6,7 @@
 
 
 <introduction>
-  <p>We now extend the methods from <xref ref="sec-inference-one-mean"/> to apply confidence intervals and hypothesis tests to differences in population means that come from two groups, Group 1 and Group 2: <m>\mu_1 - \mu_2.</m></p>
+  <p>We now extend the methods from <xref ref="ch19-inference-single-mean"/> to apply confidence intervals and hypothesis tests to differences in population means that come from two groups, Group 1 and Group 2: <m>\mu_1 - \mu_2.</m></p>
   <p>In our investigations, we'll identify a reasonable point estimate of <m>\mu_1 - \mu_2</m> based on the sample, and you may have already guessed its form: <m>\bar{x}_1 - \bar{x}_2.</m> <idx><h>point estimate</h><h>difference in means</h></idx><idx><h>difference in means</h><h>point estimate</h></idx> Then we'll look at the inferential analysis in three different ways: using a randomization test, applying bootstrapping for interval estimates, and, if we verify that the point estimate can be modeled using a normal distribution, we compute the estimate's standard error and apply the mathematical framework.</p>
 </introduction>
 
@@ -133,7 +133,7 @@ ggplot(classdata, aes(x = exam, y = m1, color = exam)) +
   <title>Variability of the statistic</title>
 
 
-  <p>In <xref ref="sec-foundations-randomization"/>, the variability of the statistic (previously: <m>\hat{p}_1 - \hat{p}_2)</m> was visualized after shuffling the observations across the two treatment groups many times. The shuffling process implements the null hypothesis model (that there is no effect of the treatment). In the exam example, the null hypothesis is that exam A and exam B are equally difficult, so the average scores across the two tests should be the same. If the exams were equally difficult, <em>due to natural variability</em>, we would sometimes expect students to do slightly better on exam A <m>(\bar{x}_A > \bar{x}_B)</m> and sometimes expect students to do slightly better on exam B <m>(\bar{x}_B > \bar{x}_A).</m> The question at hand is: does <m>\bar{x}_A - \bar{x}_B=3.1</m> indicate that exam A is easier than exam B.</p>
+  <p>In <xref ref="ch11-hypothesis-testing-randomization"/>, the variability of the statistic (previously: <m>\hat{p}_1 - \hat{p}_2)</m> was visualized after shuffling the observations across the two treatment groups many times. The shuffling process implements the null hypothesis model (that there is no effect of the treatment). In the exam example, the null hypothesis is that exam A and exam B are equally difficult, so the average scores across the two tests should be the same. If the exams were equally difficult, <em>due to natural variability</em>, we would sometimes expect students to do slightly better on exam A <m>(\bar{x}_A > \bar{x}_B)</m> and sometimes expect students to do slightly better on exam B <m>(\bar{x}_B > \bar{x}_A).</m> The question at hand is: does <m>\bar{x}_A - \bar{x}_B=3.1</m> indicate that exam A is easier than exam B.</p>
 
 
   <p><xref ref="fig-rand2means"/> shows the process of randomizing the exam to the observed exam scores. If the null hypothesis is true, then the score on each exam should represent the true student ability on that material. It shouldn't matter whether they were given exam A or exam B. By reallocating which student got which exam, we are able to understand how the difference in average exam scores changes due only to natural variability. There is only one iteration of the randomization process in <xref ref="fig-rand2means"/>, leading to one simulated difference in average scores.</p>
@@ -793,7 +793,7 @@ SE \amp= \sqrt{\frac{5.17^2}{9} + \frac{2.76^2}{9}} = 1.95
   <title>Summary</title>
 
 
-  <p>In this chapter we extended the single mean inferential methods to questions of differences in means. You may have seen parallels from the chapters that extended a single proportion (<xref ref="sec-inference-one-prop"/>) to differences in proportions (<xref ref="sec-inference-two-props"/>). When considering differences in sample means (indeed, when considering many quantitative statistics), we use the t-distribution to describe the sampling distribution of the T score (the standardized difference in sample means). Ideas of confidence level and type of error which might occur from a hypothesis test conclusion are similar to those seen in other chapters (see <xref ref="sec-foundations-decision-errors"/>).</p>
+  <p>In this chapter we extended the single mean inferential methods to questions of differences in means. You may have seen parallels from the chapters that extended a single proportion (<xref ref="ch16-inference-single-proportion"/>) to differences in proportions (<xref ref="ch17-inference-two-proportions"/>). When considering differences in sample means (indeed, when considering many quantitative statistics), we use the t-distribution to describe the sampling distribution of the T score (the standardized difference in sample means). Ideas of confidence level and type of error which might occur from a hypothesis test conclusion are similar to those seen in other chapters (see <xref ref="ch14-decision-errors"/>).</p>
 
 
 </subsection>
@@ -831,7 +831,7 @@ make_terms_table(terms_chp_20)
   <title>Exercises</title>
 
 
-  <p>Answers to odd-numbered exercises can be found in <xref ref="sec-exercise-solutions-20"/>.</p>
+  <p>Answers to odd-numbered exercises can be found in ... .</p>
 
 
 <!-- TODO: Convert exercises/_20-ex-inference-two-means.qmd to PTX format -->

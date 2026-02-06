@@ -1135,12 +1135,8 @@ In short, there was a reduction of</p>
   <p>We can measure the variability in the <m>y</m> values by how far they tend to fall from their mean, <m>\bar{y}.</m> We define this value as the <alert>total sum of squares</alert><idx>total sum of squares</idx>, calculated using the formula below, where <m>y_i</m> represents each <m>y</m> value in the sample, and <m>\bar{y}</m> represents the mean of the <m>y</m> values in the sample.</p>
   <p><m>SST = (y_1 - \bar{y})^2 + (y_2 - \bar{y})^2 + \cdots + (y_n - \bar{y})^2.</m></p>
   <p>Left-over variability in the <m>y</m> values if we know <m>x</m> can be measured by the <alert>sum of squared errors</alert><idx>sum of squared errors</idx>, or sum of squared residuals, calculated using the formula below, where <m>\hat{y}_i</m> represents the predicted value of <m>y_i</m> based on the least squares regression.[^07-model-slr-9],</p>
-  <me>
-  \begin{aligned}
-  SSE &= (y_1 - \hat{y}_1)^2 + (y_2 - \hat{y}_2)^2 + \cdots + (y_n - \hat{y}_n)^2\\
-      &= e_{1}^2 + e_{2}^2 + \dots + e_{n}^2
-  \end{aligned}
-  </me>
+<p> <m>SSE &amp;= (y_1 - \hat{y}_1)^2 + (y_2 - \hat{y}_2)^2 + \cdots + (y_n - \hat{y}_n)^2 </m></p>
+<p><m> &amp;= e_{1}^2 + e_{2}^2 + \dots + e_{n}^2</m></p>
   <p>The coefficient of determination can then be calculated as</p>
   <p>
     <m>R^2 = \frac{SST - SSE}{SST} = 1 - \frac{SSE}{SST}</m>

@@ -185,6 +185,65 @@
           <em>Journal of the American Statistical Association</em>, 69:74-80.
           DOI: 10.1080/01621459.1974.10480130
         </biblio>
+        
+        <biblio type="raw" xml:id="biblio-Manson-2019">
+          Manson, J. E., et al. (2019).
+          Marine n-3 Fatty Acids and Prevention of Cardiovascular Disease and Cancer.
+          <em>New England Journal of Medicine</em>, 380(1):23-32.
+        </biblio>
+        
+        <biblio type="raw" xml:id="biblio-Rao-2021">
+          Rao, S., et al. (2021).
+          A third dose of SARS-CoV-2 vaccine increases neutralizing antibodies.
+          <em>medRxiv</em> preprint.
+        </biblio>
+        
+        <biblio type="raw" xml:id="biblio-Datoo-2021">
+          Datoo, M. S., et al. (2021).
+          Efficacy of a low-dose candidate malaria vaccine, R21 in adjuvant Matrix-M.
+          <em>The Lancet</em>, 397(10287):1809-1818.
+        </biblio>
+        
+        <biblio type="raw" xml:id="biblio-Lockman-2007">
+          Lockman, S., et al. (2007).
+          Nevirapine- versus Lopinavir/Ritonavir-Based Initial Therapy.
+          <em>Clinical Infectious Diseases</em>, 44(10):1334-1341.
+        </biblio>
+        
+        <biblio type="raw" xml:id="biblio-LoSassoMedicineGenderPayGap">
+          LoSasso, A. T., et al.
+          The $16,819 Pay Gap For Newly Trained Physicians.
+          <em>Health Affairs</em>.
+        </biblio>
+        
+        <biblio type="raw" xml:id="biblio-onlineharassment2021">
+          Pew Research Center (2021).
+          The State of Online Harassment.
+        </biblio>
+        
+        <biblio type="raw" xml:id="biblio-data-gallupcollegeimpact">
+          Gallup Poll.
+          College Impact on Life Satisfaction Survey.
+        </biblio>
+        
+        <biblio type="raw" xml:id="biblio-data-govtshuthown">
+          Survey USA.
+          Government Shutdown Survey (2018-2019).
+        </biblio>
+        
+        <biblio type="raw" xml:id="biblio-data-KFF2019nathealthplan">
+          Kaiser Family Foundation (2019).
+          National Health Insurance Survey.
+        </biblio>
+        
+        <biblio type="raw" xml:id="biblio-data-sleepCAandOR">
+          Sleep Study Data.
+          California and Oregon Sleep Survey.
+        </biblio>
+        
+        <biblio type="raw" xml:id="biblio-data-employmentDiabetes">
+          Employment and Diabetes Study Data.
+        </biblio>
       </references>
     </backmatter>
   </book>

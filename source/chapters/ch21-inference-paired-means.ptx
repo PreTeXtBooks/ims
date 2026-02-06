@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="sec-inference-paired-means" xmlns:xi="http://www.w3.org/2001/XInclude">
+<section xml:id="ch21-inference-paired-means" xmlns:xi="http://www.w3.org/2001/XInclude">
 
 <title>Inference for comparing paired means</title>
 
-
-
 <introduction>
-  <p>In <xref ref="sec-inference-two-means" /> analysis was done to compare the average population value across two different groups.</p>
+  <p>In <xref ref="ch20-inference-two-independent-means" /> analysis was done to compare the average population value across two different groups.</p>
   <p>Recall that one of the important conditions in doing a two-sample analysis is that the two groups are independent.</p>
   <p>Here, independence across groups means that knowledge of the observations in one group does not change what we would expect to happen in the other group.</p>
   <p>But what happens if the groups are <term>dependent</term>?</p>
@@ -15,7 +13,7 @@
 </introduction>
 
 
-<p>Paired data represent a particular type of experimental structure where the analysis is somewhat akin to a one-sample analysis (see <xref ref="sec-inference-one-mean" />) but has other features that resemble a two-sample analysis (see <xref ref="sec-inference-two-means" />). As with a two-sample analysis, quantitative measurements are made on each of two different levels of the explanatory variable. However, because the observational unit is <term>paired</term> across the two groups, the two measurements are subtracted such that only the difference is retained. <xref ref="tbl-pairedexamples" /> presents some examples of studies where paired designs were implemented.</p>
+<p>Paired data represent a particular type of experimental structure where the analysis is somewhat akin to a one-sample analysis (see <xref ref="ch19-inference-single-mean" />) but has other features that resemble a two-sample analysis (see <xref ref="ch20-inference-two-independent-means" />). As with a two-sample analysis, quantitative measurements are made on each of two different levels of the explanatory variable. However, because the observational unit is <term>paired</term> across the two groups, the two measurements are subtracted such that only the difference is retained. <xref ref="tbl-pairedexamples" /> presents some examples of studies where paired designs were implemented.</p>
 
 
 <table xml:id="tbl-pairedexamples">
@@ -56,7 +54,7 @@ paired_study_examples |&gt;
 </note>
 
 
-<p>It is worth noting that if mathematical modeling is chosen as the analysis tool, paired data inference on the difference in measurements will be identical to the one-sample mathematical techniques described in <xref ref="sec-inference-one-mean" />. However, recall from <xref ref="sec-inference-one-mean" /> that with pure one-sample data, the computational tools for hypothesis testing are not easy to implement and were not presented (although the bootstrap was presented as a computational approach for constructing a one sample confidence interval). With paired data, the randomization test fits nicely with the structure of the experiment and is presented here.</p>
+<p>It is worth noting that if mathematical modeling is chosen as the analysis tool, paired data inference on the difference in measurements will be identical to the one-sample mathematical techniques described in <xref ref="ch19-inference-single-mean" />. However, recall from <xref ref="ch19-inference-single-mean" /> that with pure one-sample data, the computational tools for hypothesis testing are not easy to implement and were not presented (although the bootstrap was presented as a computational approach for constructing a one sample confidence interval). With paired data, the randomization test fits nicely with the structure of the experiment and is presented here.</p>
 
 
 
@@ -594,7 +592,7 @@ ggplot(tires_shuffled, aes(x = stat)) +
   <title>Bootstrap confidence interval for the mean paired difference</title>
 
 
-<p>For both the bootstrap and the mathematical models applied to paired data, the analysis is virtually identical to the one-sample approach given in <xref ref="sec-inference-one-mean" />. The key to working with paired data (for bootstrapping and mathematical approaches) is to consider the measurement of interest to be the difference in measured values across the pair of observations.</p>
+<p>For both the bootstrap and the mathematical models applied to paired data, the analysis is virtually identical to the one-sample approach given in <xref ref="ch19-inference-single-mean" />. The key to working with paired data (for bootstrapping and mathematical approaches) is to consider the measurement of interest to be the difference in measured values across the pair of observations.</p>
 
 
 <p>\index{bootstrap!CI paired difference}\index{bootstrap CI paired difference}</p>
@@ -608,7 +606,7 @@ ggplot(tires_shuffled, aes(x = stat)) +
 <p>In an earlier edition of this textbook, we found that Amazon prices were, on average, lower than those of the UCLA Bookstore for UCLA courses in 2010. It's been several years, and many stores have adapted to the online market, so we wondered, how is the UCLA Bookstore doing today?</p>
 
 
-<p>We sampled 201 UCLA courses. Of those, 68 required books could be found on Amazon. A portion of the dataset from these courses is shown in <xref ref="tbl-textbooksDF" />, where prices are in US dollars.</p>
+<p>We sampled 201 UCLA courses. Of those, 68 required books could be found on Amazon, where prices are in US dollars.</p>
 
 
 
@@ -924,7 +922,7 @@ ucla_textbooks_f18 |&gt;
   <title>Summary</title>
 
 
-<p>Like the two independent sample procedures in <xref ref="sec-inference-two-means" />, the paired difference analysis can be done using a t-distribution. The randomization test applied to the paired differences is slightly different, however. Note that when randomizing under the paired setting, each null statistic is created by randomly assigning the group to a numerical outcome <term>within</term> the individual observational unit. The procedure for creating a confidence interval for the paired difference is almost identical to the confidence intervals created in <xref ref="sec-inference-one-mean" /> for a single mean.</p>
+<p>Like the two independent sample procedures in <xref ref="ch20-inference-two-independent-means" />, the paired difference analysis can be done using a t-distribution. The randomization test applied to the paired differences is slightly different, however. Note that when randomizing under the paired setting, each null statistic is created by randomly assigning the group to a numerical outcome <term>within</term> the individual observational unit. The procedure for creating a confidence interval for the paired difference is almost identical to the confidence intervals created in <xref ref="ch19-inference-single-mean" /> for a single mean.</p>
 
 
 </subsection>

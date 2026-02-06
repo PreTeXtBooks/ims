@@ -119,8 +119,8 @@ class QmdExerciseToPreTeXt:
         while i < len(lines):
             line = lines[i].rstrip()
             
-            # Skip vfill and clearpage commands
-            if line.strip() in ['\\vfill', '\\clearpage', '']:
+            # Skip vfill and clearpage commands and Quarto directives
+            if line.strip() in ['\\vfill', '\\clearpage', ''] or line.strip().startswith(':::'):
                 i += 1
                 continue
             

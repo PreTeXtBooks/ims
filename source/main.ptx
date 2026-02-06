@@ -221,6 +221,18 @@
           The State of Online Harassment.
         </biblio>
         
+        <biblio type="raw" xml:id="data-pewdiagnosis-2013">
+          Pew Research Center (2013).
+          The Diagnosis Difference.
+          <url href="https://www.openintro.org/go?id=textbook-pew-2013-diagnosis-difference">https://www.openintro.org/go?id=textbook-pew-2013-diagnosis-difference</url>
+        </biblio>
+        
+        <biblio type="raw" xml:id="data-socialmedianews-2022">
+          Pew Research Center (2022).
+          News consumption across digital platforms.
+          <url href="https://www.pewresearch.org/journalism/fact-sheet/news-platform-fact-sheet/pj_2022-09-20_news-platforms_0-03b/">https://www.pewresearch.org/journalism/fact-sheet/news-platform-fact-sheet/pj_2022-09-20_news-platforms_0-03b/</url>
+        </biblio>
+        
         <biblio type="raw" xml:id="biblio-data-gallupcollegeimpact">
           Gallup Poll.
           College Impact on Life Satisfaction Survey.

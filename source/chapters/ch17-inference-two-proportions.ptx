@@ -590,11 +590,17 @@
         You should be able to easily spot them as <alert>bolded text</alert>.
         <table xml:id="tbl-terms-chp-17">
         <title>Terms introduced in this chapter.</title>
-        <tabular>
-        <row><cell>point estimate</cell></row>
-        <row><cell>percentile interval</cell></row>
-        <row><cell>SE interval</cell></row>
-        <row><cell>pooled proportion estimate</cell></row>
+        <tabular halign="left">
+        <row>
+          <cell>point estimate</cell>
+          <cell>percentile interval</cell>
+          <cell>SE interval</cell>
+        </row>
+        <row>
+          <cell>SE difference in proportions</cell>
+          <cell>Z score two proportions</cell>
+          <cell>pooled proportion</cell>
+        </row>
         </tabular>
         </table>
         </subsection>

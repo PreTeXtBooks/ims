@@ -23,7 +23,7 @@
   <exercise>
     <title>Air pollution and birth outcomes, scope of inference</title>
     <statement>
-      <p>Researchers collected data to examine the relationship between air pollutants and preterm births in Southern California. During the study air pollution levels were measured by air quality monitoring stations. Length of gestation data were collected on 143,196 births between the years 1989 and 1993, and air pollution exposure during gestation was calculated for each birth. <xref ref="Ritz+Yu+Chapa+Fruin:2000" /></p>
+      <p>Researchers collected data to examine the relationship between air pollutants and preterm births in Southern California. During the study air pollution levels were measured by air quality monitoring stations. Length of gestation data were collected on 143,196 births between the years 1989 and 1993, and air pollution exposure during gestation was calculated for each birth. <xref ref="Ritz-Yu-Chapa-Fruin-2000" /></p>
       <p><ol marker="a.">
         <li>Identify the population of interest and the sample in this study.</li>
         <li>Comment on whether the results of the study can be generalized to the population, and if the findings of the study can be used to establish causal relationships.</li>
@@ -56,7 +56,7 @@
   <exercise>
     <title>Stealers, scope of inference</title>
     <statement>
-      <p>In a study of the relationship between socio-economic class and unethical behavior, 129 University of California undergraduates at Berkeley were asked to identify themselves as having low or high social-class by comparing themselves to others with the most (least) money, most (least) education, and most (least) respected jobs. They were also presented with a jar of individually wrapped candies and informed that the candies were for children in a nearby laboratory, but that they could take some if they wanted. After completing some unrelated tasks, participants reported the number of candies they had taken. It was found that those who were identified as upper-class took more candy than others. <xref ref="Piff:2012" /></p>
+      <p>In a study of the relationship between socio-economic class and unethical behavior, 129 University of California undergraduates at Berkeley were asked to identify themselves as having low or high social-class by comparing themselves to others with the most (least) money, most (least) education, and most (least) respected jobs. They were also presented with a jar of individually wrapped candies and informed that the candies were for children in a nearby laboratory, but that they could take some if they wanted. After completing some unrelated tasks, participants reported the number of candies they had taken. It was found that those who were identified as upper-class took more candy than others. <xref ref="Piff-2012" /></p>
       <p><ol marker="a.">
         <li>Identify the population of interest and the sample in this study.</li>
         <li>Comment on whether the results of the study can be generalized to the population, and if the findings of the study can be used to establish causal relationships.</li>
@@ -181,9 +181,9 @@
     <statement>
       <p>Below are excerpts from two articles published in the <em>NY Times</em>:</p>
       <p><ol marker="a.">
-        <li><p>An excerpt from an article titled <em>Risks: Smokers Found More Prone to Dementia</em> is below. Based on this study, can we conclude that smoking causes dementia later in life? Explain your reasoning. <xref ref="news:smokingDementia" /></p>
+        <li><p>An excerpt from an article titled <em>Risks: Smokers Found More Prone to Dementia</em> is below. Based on this study, can we conclude that smoking causes dementia later in life? Explain your reasoning. <xref ref="news-smokingDementia" /></p>
         <blockquote>Researchers analyzed data from 23,123 health plan members who participated in a voluntary exam and health behavior survey from 1978 to 1985, when they were 50-60 years old. 23 years later, about 25% of the group had dementia, including 1,136 with Alzheimer's disease and 416 with vascular dementia. After adjusting for other factors, the researchers concluded that pack-a-day smokers were 37% more likely than nonsmokers to develop dementia, and the risks went up with increased smoking; 44% for one to two packs a day; and twice the risk for more than two packs.</blockquote></li>
-        <li><p>An excerpt from an article titled <em>The School Bully Is Sleepy</em> is below. A friend of yours who read the article says, <q>The study shows that sleep disorders lead to bullying in school children.</q> Is this statement justified? If not, how best can you describe the conclusion that can be drawn from this study? <xref ref="news:bullySleep" /></p>
+        <li><p>An excerpt from an article titled <em>The School Bully Is Sleepy</em> is below. A friend of yours who read the article says, <q>The study shows that sleep disorders lead to bullying in school children.</q> Is this statement justified? If not, how best can you describe the conclusion that can be drawn from this study? <xref ref="news-bullySleep" /></p>
         <blockquote>The University of Michigan study, collected survey data from parents on each child's sleep habits and asked both parents and teachers to assess behavioral concerns. About a third of the students studied were identified by parents or teachers as having problems with disruptive behavior or bullying. The researchers found that children who had behavioral issues and those who were identified as bullies were twice as likely to have shown symptoms of sleep disorders.</blockquote></li>
       </ol></p>
     </statement>
@@ -224,7 +224,7 @@
   <exercise>
     <title>Vitamin supplements</title>
     <statement>
-      <p>To assess the effectiveness of taking large doses of vitamin C in reducing the duration of the common cold, researchers recruited 400 healthy volunteers from staff and students at a university. A quarter of the patients were assigned a placebo, and the rest were evenly divided between 1g Vitamin C, 3g Vitamin C, or 3g Vitamin C plus additives to be taken at onset of a cold for the following two days. All tablets had identical appearance and packaging. The nurses who handed the prescribed pills to the patients knew which patient received which treatment, but the researchers assessing the patients when they were sick did not. No statistically discernible differences were observed in any measure of cold duration or severity between the four groups, and the placebo group had the shortest duration of symptoms. <xref ref="Audera:2001" /></p>
+      <p>To assess the effectiveness of taking large doses of vitamin C in reducing the duration of the common cold, researchers recruited 400 healthy volunteers from staff and students at a university. A quarter of the patients were assigned a placebo, and the rest were evenly divided between 1g Vitamin C, 3g Vitamin C, or 3g Vitamin C plus additives to be taken at onset of a cold for the following two days. All tablets had identical appearance and packaging. The nurses who handed the prescribed pills to the patients knew which patient received which treatment, but the researchers assessing the patients when they were sick did not. No statistically discernible differences were observed in any measure of cold duration or severity between the four groups, and the placebo group had the shortest duration of symptoms. <xref ref="Audera-2001" /></p>
       <p><ol marker="a.">
         <li>Was this an experiment or an observational study? Why?</li>
         <li>What are the explanatory and response variables in this study?</li>

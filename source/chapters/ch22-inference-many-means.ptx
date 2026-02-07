@@ -636,13 +636,11 @@ anova(mod) |&gt;
 
 <ul>
   <li><p><term>Independence.</term> If the data are a simple random sample, this condition can be assumed to be satisfied.
-For processes and experiments, carefully consider whether the data may be independent (e.g., no pairing). For example, in the MLB data, the data were not sampled. However, there are not obvious reasons why independence would not hold for most or all observations.</p><li>
+For processes and experiments, carefully consider whether the data may be independent (e.g., no pairing). For example, in the MLB data, the data were not sampled. However, there are not obvious reasons why independence would not hold for most or all observations.</p></li>
   <li><p><term>Approximately normal.</term> As with one- and two-sample testing for means, the normality assumption is especially important when the sample size is quite small when it is ironically difficult to check for non-normality.
-A histogram of the observations from each group is shown in <xref ref="fig-mlbANOVADiagNormalityGroups" />. Since each of the groups we are considering have relatively large sample sizes, what we are looking for are major outliers. None are apparent, so this condition is reasonably met.</p>
-</p></li>
+A histogram of the observations from each group is shown in <xref ref="fig-mlbANOVADiagNormalityGroups" />. Since each of the groups we are considering have relatively large sample sizes, what we are looking for are major outliers. None are apparent, so this condition is reasonably met.</p></li>
 <li><p><term>Constant variance.</term> The last assumption is that the variance in the groups is about equal from one group to the next. This assumption can be checked by examining side-by-side box plots of the outcomes across the groups, as in <xref ref="fig-mlbANOVABoxPlot" />ANOVABoxPlot. In this case, the variability is similar in the four groups but not identical. We see in <xref ref="tbl-mlbHRPerABSummaryTable" />HRPerABSummaryTable that the standard deviation does not vary much from one group to the next.</p></li>
 </ul>
-
 
 <assemblage>
   <title><term>Diagnostics for an ANOVA analysis.</term></title>

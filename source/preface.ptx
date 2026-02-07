@@ -148,11 +148,23 @@
   </p>
   
   <p>
-    <em>Interactive R Tutorials.</em> The self-paced and interactive R tutorials were developed using the learnr R package, and only an internet browser is needed to complete them. You can access the full list of tutorials supporting this book at <url href="https://openintrostat.github.io/ims-tutorials">https://openintrostat.github.io/ims-tutorials</url>.
+    <em>Interactive R Tutorials.</em>
   </p>
   
   <p>
-    <em>R Labs.</em> Once you feel comfortable with the material in the tutorials, we also encourage you to apply what you've learned via the computational labs that are also linked at the end of each part. The labs consist of data analysis case studies, and they require access to R and RStudio. The first lab includes installation instructions. If you'd rather not install the software locally, you can also try Posit Cloud for free. You can access the full list of labs supporting this book at <url href="https://www.openintro.org/go?id=ims-r-labs">https://www.openintro.org/go?id=ims-r-labs</url>.
+    The self-paced and interactive R tutorials were developed using the learnr R package, and only an internet browser is needed to complete them. You can access the full list of tutorials supporting this book at <url href="https://openintrostat.github.io/ims-tutorials">https://openintrostat.github.io/ims-tutorials</url>.
+  </p>
+  
+  <p>
+    <em>R Labs.</em>
+  </p>
+  
+  <p>
+    Once you feel comfortable with the material in the tutorials, we also encourage you to apply what you've learned via the computational labs that are also linked at the end of each part. The labs consist of data analysis case studies, and they require access to R and RStudio. The first lab includes installation instructions. If you'd rather not install the software locally, you can also try Posit Cloud for free.
+  </p>
+  
+  <p>
+    You can access the full list of labs supporting this book at <url href="https://www.openintro.org/go?id=ims-r-labs">https://www.openintro.org/go?id=ims-r-labs</url>.
   </p>
   
   <p>

@@ -24,12 +24,7 @@
         </author>
       </titlepage>
 
-      <p>
-        Welcome to Introduction to Modern Statistics (Second Edition).
-      </p>
-      <p>
-        This PreTeXt version provides an accessible, interactive format for learning statistics.
-      </p>
+      <xi:include href="welcome.ptx" />
 
       <xi:include href="preface.ptx" />
     </frontmatter>

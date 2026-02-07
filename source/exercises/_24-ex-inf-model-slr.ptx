@@ -110,10 +110,13 @@
       <figure xml:id="fig-ex24-7-10">
         <image source="images/exercises/_24-ex-inf-model-slr-7-10.png" width="90%"/>
       </figure>
+      <figure xml:id="fig-ex24-7-11">
+        <image source="images/exercises/_24-ex-inf-model-slr-7-11.png" width="90%"/>
+      </figure>
       <p><ol marker="a.">
         <li>Using the histogram, approximate the standard error of the slope statistic (that is, quantify the variability of the slope statistic from sample to sample).</li>
         <li>Find a 98% bootstrap SE confidence interval for the slope parameter.</li>
-        <li>Interpret the confidence interval in the context of the problem. [See figure _24-ex-inf-model-slr-7-11.png]</li>
+        <li>Interpret the confidence interval in the context of the problem.</li>
       </ol></p>
     </statement>
   </exercise>
@@ -125,10 +128,13 @@
       <figure xml:id="fig-ex24-8-12">
         <image source="images/exercises/_24-ex-inf-model-slr-8-12.png" width="90%"/>
       </figure>
+      <figure xml:id="fig-ex24-8-13">
+        <image source="images/exercises/_24-ex-inf-model-slr-8-13.png" width="90%"/>
+      </figure>
       <p><ol marker="a.">
         <li>Using the histogram, approximate the standard error of the slope statistic (that is, quantify the variability of the slope statistic from sample to sample).</li>
         <li>Find a 95% bootstrap SE confidence interval for the slope parameter.</li>
-        <li>Interpret the confidence interval in the context of the problem. [See figure _24-ex-inf-model-slr-8-13.png]</li>
+        <li>Interpret the confidence interval in the context of the problem.</li>
       </ol></p>
     </statement>
   </exercise>
@@ -168,10 +174,13 @@
       <figure xml:id="fig-ex24-11-16">
         <image source="images/exercises/_24-ex-inf-model-slr-11-16.png" width="90%"/>
       </figure>
+      <figure xml:id="fig-ex24-11-17">
+        <image source="images/exercises/_24-ex-inf-model-slr-11-17.png" width="90%"/>
+      </figure>
       <p><ol marker="a.">
         <li>What are the null and alternative hypotheses for evaluating whether the slope of the model for predicting annual murder rate from poverty percentage is different than 0?</li>
         <li>Using the histogram which describes the distribution of slopes when the null hypothesis is true, find the p-value and conclude the hypothesis test in the context of the problem (use words like murder rate and poverty).</li>
-        <li>Is the conclusion based on the histogram of randomized slopes consistent with the conclusion which would have been obtained using the mathematical model? Explain your reasoning. [See figure _24-ex-inf-model-slr-11-17.png]</li>
+        <li>Is the conclusion based on the histogram of randomized slopes consistent with the conclusion which would have been obtained using the mathematical model? Explain your reasoning.</li>
       </ol></p>
     </statement>
   </exercise>

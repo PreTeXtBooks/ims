@@ -26,7 +26,6 @@
       The ideal world where sampling data is free or extremely cheap is almost never the case, and taking repeated samples from a population is usually impossible. So, instead of using a "resample from the population" approach, bootstrapping uses a "resample from the sample" approach.
       In this chapter we discuss in detail the bootstrapping process.
     </p>
-  </introduction>
 
   <p>
     As seen in <xref ref="ch11-hypothesis-testing-randomization" />, randomization is a statistical technique suitable for evaluating whether a difference in sample proportions is due to chance.
@@ -86,6 +85,7 @@
   <p>
     Our goal with bootstrapping will be to produce an interval estimate (a range of plausible values) for the population parameter.
   </p>
+  </introduction>
 
   <section xml:id="sec-case-study-med-consult">
     <title>Medical consultant case study</title>

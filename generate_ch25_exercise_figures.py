@@ -56,10 +56,10 @@ print("\n1. GPA, mathematical interval...")
 
 table_data = [
     ['term', 'estimate', 'std.error', 'statistic', 'p.value'],
-    ['(Intercept)', '3.447', '0.360', '9.579', '<0.0001'],
-    ['studyweek', '0.006', '0.006', '0.933', '0.3554'],
-    ['sleepnight', '-0.014', '0.049', '-0.293', '0.7707'],
-    ['out_mt2', '0.151', '0.098', '1.533', '0.1318']
+    ['(Intercept)', '3.508', '0.347', '10.114', '<0.0001'],
+    ['studyweek', '0.002', '0.004', '0.400', '0.6908'],
+    ['sleepnight', '0.000', '0.047', '0.008', '0.994'],
+    ['out_mt2', '0.151', '0.097', '1.551', '0.127']
 ]
 create_regression_table(table_data, 'Linear Model: gpa ~ studyweek + sleepnight + out_mt2',
                        os.path.join(output_dir, '_25-ex-inf-model-mlr-1-1.png'))
@@ -303,12 +303,12 @@ print("7. Baby's weight, mathematical test...")
 
 table_data_babies = [
     ['term', 'estimate', 'std.error', 'statistic', 'p.value'],
-    ['(Intercept)', '-0.13', '0.67', '-0.19', '0.8462'],
-    ['weeks', '0.26', '0.02', '15.75', '<0.0001'],
-    ['mage', '0.01', '0.01', '1.36', '0.1750'],
-    ['sexmale', '0.35', '0.07', '5.27', '<0.0001'],
-    ['visits', '0.02', '0.01', '1.41', '0.1600'],
-    ['habitsmok', '-0.43', '0.13', '-3.35', '0.0009']
+    ['(Intercept)', '-3.82', '0.57', '-6.73', '<0.0001'],
+    ['weeks', '0.26', '0.01', '18.93', '<0.0001'],
+    ['mage', '0.02', '0.01', '2.53', '0.0115'],
+    ['sexmale', '0.37', '0.07', '5.30', '<0.0001'],
+    ['visits', '0.02', '0.01', '2.09', '0.0373'],
+    ['habitsmoker', '-0.43', '0.13', '-3.41', '7e-04']
 ]
 create_regression_table(table_data_babies, 'Linear Model: weight ~ weeks + mage + sex + visits + habit',
                        os.path.join(output_dir, '_25-ex-inf-model-mlr-7-14.png'))

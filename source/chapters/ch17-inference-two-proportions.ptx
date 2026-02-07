@@ -641,7 +641,7 @@ First, we require a broader independence condition, and secondly, the success-fa
         </image>
         </figure>
         In both words and symbols provide the parameter and statistic of interest for this study.
-        Do you know the numerical value of either the parameter or statisic of interest?
+        Do you know the numerical value of either the parameter or statistic of interest?
         If so, provide the numerical value.
         The histogram above provides the sampling distribution (under randomization) for <m>\hat{p}_{malaria} - \hat{p}_{control}</m> under repeated null randomizations (<m>\hat{p}</m> is the proportion of children in the sample who contracted malaria).
         Estimate the standard error of <m>\hat{p}_{malaria} - \hat{p}_{control}</m> based on the randomization histogram.

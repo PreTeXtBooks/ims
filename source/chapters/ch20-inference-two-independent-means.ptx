@@ -797,7 +797,7 @@ SE \amp= \sqrt{\frac{5.17^2}{9} + \frac{2.76^2}{9}} = 1.95
 
   <p>The terms introduced in this chapter are presented in <xref ref="tbl-terms-chp-20"/>. If you're not sure what some of these terms mean, we recommend you go back in the text and review their definitions. You should be able to easily spot them as <alert>bolded text</alert>.</p>
 
-<table>
+<table xml:id="tbl-terms-chp-20">
   <title>Terms introduced in this chapter.</title>
   <tabular>
     <row><cell>point estimate, difference in means, SE difference in means</cell></row>

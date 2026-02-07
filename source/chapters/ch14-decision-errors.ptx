@@ -296,10 +296,7 @@ cpr_rand_dist |>
         <p>Then, suppose the sample difference was smaller than 0. In a one-sided test, we would set <m>H_A:</m> difference <m>&lt; 0.</m> If the observed difference falls in the lower 5% of the figure, we would reject <m>H_0.</m> That is, if <m>H_0</m> is true, then we would observe this situation about 5% of the time.</p>
         
         <p>By examining these two scenarios, we can determine that we will make a Type I error <m>5\%+5\%=10\%</m> of the time if we are allowed to swap to the <q>best</q> one-sided test for the data. This is twice the error rate we prescribed with our discernibility level: <m>\alpha=0.05</m>!</p>
-      </solution>
-    </example>
-    
-    <listing xml:id="listing-type1ErrorDoublingExample">
+          <listing xml:id="listing-type1ErrorDoublingExample">
       <caption><c>R</c> code for Type I error doubling visualization</caption>
       <program language="r">
         <code>
@@ -312,6 +309,9 @@ text(2.08, 0.21, "5%", cex = 1.2)
         </code>
       </program>
     </listing>
+</solution>
+
+    </example>
     
     <assemblage>
       <title>Hypothesis tests should be set up <em>before</em> seeing the data</title>

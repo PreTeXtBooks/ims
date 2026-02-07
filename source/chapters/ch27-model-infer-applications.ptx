@@ -26,35 +26,6 @@
       Notice that the condition and stock photo variables are <alert>indicator variables</alert><idx><h>variable</h><h>indicator</h></idx><idx>indicator variable</idx>, similar to <c>bankruptcy</c> in the <c>loans</c> dataset from <xref ref="ch25-inference-linear-regression-multiple" />.
     </p>
     
-    <listing xml:id="listing-mariokart-data-prep">
-      <caption>R code for preparing the mariokart data</caption>
-      <program language="r">
-        <input>
-mariokart &lt;- mariokart |&gt;
-  mutate(price = total_pr, cond_new = forcats::fct_rev(cond)) |&gt;
-  filter(price &lt; 100)
-        </input>
-      </program>
-    </listing>
-    
-    <listing xml:id="listing-tbl-mariokart-data-frame">
-      <caption>R code for <xref ref="tbl-mariokart-data-frame" /></caption>
-      <program language="r">
-        <input>
-mariokart |&gt;
-  select(price, cond_new, stock_photo, duration, wheels) |&gt;
-  slice_head(n = 4) |&gt;
-  kbl(linesep = "", booktabs = TRUE, row.names = FALSE, align = "ccccc") |&gt;
-  kable_styling(
-    bootstrap_options = c("striped", "condensed"), 
-    latex_options = c("striped"),
-    full_width = FALSE
-  ) |&gt;
-  column_spec(1:5, width = "7em")
-        </input>
-      </program>
-    </listing>
-    
     <table xml:id="tbl-mariokart-data-frame">
       <title>Top four rows of the <c>mariokart</c> dataset.</title>
       <tabular>
@@ -77,7 +48,7 @@ mariokart |&gt;
           <cell>used</cell>
           <cell>yes</cell>
           <cell>7</cell>
-          <cell>0</cell>
+          <cell>1</cell>
         </row>
         <row>
           <cell>45.50</cell>
@@ -95,33 +66,7 @@ mariokart |&gt;
         </row>
       </tabular>
     </table>
-    
-    <listing xml:id="listing-tbl-mariokart-var-def">
-      <caption>R code for creating variable definitions table</caption>
-      <program language="r">
-        <input>
-mariokart_var_def &lt;- tribble(
-  ~variable, ~description,
-  "price", "Final auction price plus shipping costs, in US dollars.",
-  "cond_new", "Indicator variable for if the game is new (1) or used (0).",
-  "stock_photo", "Indicator variable for if the auction's main photo is a stock photo.",
-  "duration", "The length of the auction, in days, taking values from 1 to 10.",
-  "wheels", "The number of Wii wheels included with the auction. A Wii wheel is an optional steering wheel accessory that holds the Wii controller."
-)
-
-mariokart_var_def |&gt;
-  kbl(linesep = "", booktabs = TRUE, col.names = c("Variable", "Description")) |&gt;
-  kable_styling(
-    bootstrap_options = c("striped", "condensed"),
-    latex_options = c("striped"), 
-    full_width = TRUE
-  ) |&gt;
-  column_spec(1, monospace = TRUE) |&gt;
-  column_spec(2, width = "30em")
-        </input>
-      </program>
-    </listing>
-    
+  
     <table xml:id="tbl-mariokart-var-def">
       <title>Variables and their descriptions for the <c>mariokart</c> dataset.</title>
       <tabular>
@@ -159,34 +104,10 @@ mariokart_var_def |&gt;
         In <xref ref="tbl-mariokart-model-output" /> we fit a mathematical linear regression model with the game's condition as a predictor of auction price.
       </p>
       
-      <me>E[\texttt{price}] = \beta_0 + \beta_1\times \texttt{cond\_new}</me>
+      <me>E[\texttt{price}] = \beta_0 + \beta_1\times \texttt{cond_new}</me>
       
       <p>Results of the model are summarized below:</p>
-      
-      <listing xml:id="listing-tbl-mariokart-model-output">
-        <caption>R code for simple linear model</caption>
-        <program language="r">
-          <input>
-mariokart &lt;- mariokart |&gt;
-  mutate(
-    cond_new = ifelse(cond_new == "used", 0 , 1),
-    stock_photo = ifelse(stock_photo == "yes", 1, 0)
-  )
-
-lm(price ~ cond_new, data = mariokart) |&gt; 
-  tidy() |&gt;
-  mutate(p.value = ifelse(p.value &lt; 0.0001, "&lt;0.0001", round(p.value, 4))) |&gt;
-  kbl(linesep = "", booktabs = TRUE, digits = 2, align = "lrrrr") |&gt;
-  kable_styling(
-    bootstrap_options = c("striped", "condensed"),
-    latex_options = c("striped")
-  ) |&gt;
-  column_spec(1, width = "10em", monospace = TRUE) |&gt;
-  column_spec(2:5, width = "5em")
-          </input>
-        </program>
-      </listing>
-      
+            
       <table xml:id="tbl-mariokart-model-output">
         <title>Summary of a linear model for predicting <c>price</c> based on <c>cond_new</c>.</title>
         <tabular>
@@ -199,14 +120,14 @@ lm(price ~ cond_new, data = mariokart) |&gt;
           </row>
           <row>
             <cell>(Intercept)</cell>
-            <cell>47.15</cell>
-            <cell>0.88</cell>
-            <cell>53.42</cell>
+            <cell>42.9</cell>
+            <cell>0.81</cell>
+            <cell>52.67</cell>
             <cell>&lt;0.0001</cell>
           </row>
           <row>
             <cell>cond_new</cell>
-            <cell>10.90</cell>
+            <cell>10.9</cell>
             <cell>1.26</cell>
             <cell>8.66</cell>
             <cell>&lt;0.0001</cell>
@@ -223,7 +144,7 @@ lm(price ~ cond_new, data = mariokart) |&gt;
         </statement>
         <solution>
           <p>
-            The equation for the line may be written as <m>\widehat{\texttt{price}} = 47.15 + 10.90\times \texttt{cond\_new}</m>.
+            The equation for the line may be written as <m>\widehat{\texttt{price}} = 47.15 + 10.90\times \texttt{cond_new}</m>.
             Examining the regression output in <xref ref="tbl-mariokart-model-output" /> we can see that the p-value for <c>cond_new</c> is very close to zero, indicating there is strong evidence that the coefficient is different from zero when using this one-variable model.
             The variable <c>cond_new</c> is a two-level categorical variable that takes value 1 when the game is new and value 0 when the game is used.
             This means the 10.90 model coefficient predicts a price of an extra $10.90 for those games that are new versus those that are used.
@@ -242,7 +163,7 @@ lm(price ~ cond_new, data = mariokart) |&gt;
       </p>
       
       <md>
-        <mrow>E[\texttt{price}] = \beta_0 \amp+ \beta_1 \times \texttt{cond\_new} + \beta_2\times \texttt{stock\_photo}</mrow>
+        <mrow>E[\texttt{price}] = \beta_0 \amp+ \beta_1 \times \texttt{cond_new} + \beta_2\times \texttt{stock_photo}</mrow>
         <mrow>\amp+ \beta_3 \times \texttt{duration} + \beta_4 \times  \texttt{wheels}</mrow>
       </md>
       
@@ -250,25 +171,7 @@ lm(price ~ cond_new, data = mariokart) |&gt;
         <xref ref="tbl-mariokart-full-model-output" /> summarizes the full model.
         Using the output, we identify the point estimates of each coefficient and the corresponding impact (measured with information on the standard error used to compute the p-value).
       </p>
-      
-      <listing xml:id="listing-tbl-mariokart-full-model-output">
-        <caption>R code for multiple linear model</caption>
-        <program language="r">
-          <input>
-lm(price ~ cond_new + stock_photo + duration + wheels, data = mariokart) |&gt; 
-  tidy() |&gt;
-  mutate(p.value = ifelse(p.value &lt; 0.0001, "&lt;0.0001", round(p.value, 4))) |&gt;
-  kbl(linesep = "", booktabs = TRUE, digits = 2, align = "lrrrr") |&gt;
-  kable_styling(
-    bootstrap_options = c("striped", "condensed"),
-    latex_options = c("striped")
-  ) |&gt;
-  column_spec(1, width = "10em", monospace = TRUE) |&gt;
-  column_spec(2:5, width = "5em")
-          </input>
-        </program>
-      </listing>
-      
+
       <table xml:id="tbl-mariokart-full-model-output">
         <title>Summary of a linear model for predicting <c>price</c> based on <c>cond_new</c>, <c>stock_photo</c>, <c>duration</c>, and <c>wheels</c>.</title>
         <tabular>
@@ -328,7 +231,7 @@ lm(price ~ cond_new + stock_photo + duration + wheels, data = mariokart) |&gt;
         </statement>
         <solution>
           <p>
-            <m>\widehat{\texttt{price}} = 36.21 + 5.13 \times \texttt{cond\_new} + 1.08 \times \texttt{stock\_photo} - 0.03 \times \texttt{duration} + 7.29 \times \texttt{wheels},</m> with 4 predictors but 5 coefficients (including the intercept).
+            <m>\widehat{\texttt{price}} = 36.21 + 5.13 \times \texttt{cond_new} + 1.08 \times \texttt{stock_photo} - 0.03 \times \texttt{duration} + 7.29 \times \texttt{wheels},</m> with 4 predictors but 5 coefficients (including the intercept).
           </p>
         </solution>
       </exercise>

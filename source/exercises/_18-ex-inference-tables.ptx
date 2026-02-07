@@ -3,7 +3,7 @@
 <exercises xml:id="exercises-18-inference-tables">
 
   <exercise>
-    <title>Quitters.</title>
+    <title>Quitters</title>
     <statement>
       <p>Does being part of a support group affect the ability of people to quit smoking?
 A county health department enrolled 300 smokers in a randomized experiment.
@@ -22,7 +22,7 @@ At the end of the study, 40 of the participants in the patch plus support group 
     </statement>
   </exercise>
   <exercise>
-    <title>Act on climate change.</title>
+    <title>Act on climate change</title>
     <statement>
       <p>The table below summarizes results from a Pew Research poll which asked respondents whether they have personally taken action to help address climate change within the last year and their generation.
 The differences in each generational group may be due to chance.
@@ -38,7 +38,7 @@ Complete the following computations under the null hypothesis of independence be
     </statement>
   </exercise>
   <exercise>
-    <title>Lizard habitats, data.</title>
+    <title>Lizard habitats, data</title>
     <statement>
       <p>In order to assess whether habitat conditions are related to the sunlight choices a lizard makes for resting, Western fence lizard (<em>Sceloporus occidentalis</em>) were observed across three different microhabitats.
 <xref ref="Adolph-1990" /> <xref ref="Asbury-2007" /></p>
@@ -54,7 +54,7 @@ From a first glance, does it seem as though the habitat and choice of sunlight m
     </statement>
   </exercise>
   <exercise>
-    <title>Disaggregating Asian American tobacco use, data.</title>
+    <title>Disaggregating Asian American tobacco use, data</title>
     <statement>
       <p>Understanding cultural differences in tobacco use across different demographic groups can lead to improved health care education and treatment.
 A recent study disaggregated tobacco use across Asian American ethnic groups including Asian-Indian (n = 4,373), Chinese (n = 4,736), and Filipino (n = 4,912), in comparison to non-Hispanic Whites (n = 275,025).
@@ -71,7 +71,7 @@ From a first glance, does it seem as though the Asian American ethnicity and cho
     </statement>
   </exercise>
   <exercise>
-    <title>Lizard habitats, randomize once.</title>
+    <title>Lizard habitats, randomize once</title>
     <statement>
       <p>In order to assess whether habitat conditions are related to the sunlight choices a lizard makes for resting, Western fence lizard (<em>Sceloporus occidentalis</em>) were observed across three different microhabitats.
 <xref ref="Adolph-1990" /> <xref ref="Asbury-2007" />
@@ -83,7 +83,7 @@ Explain your choice.</p>
     </statement>
   </exercise>
   <exercise>
-    <title>Disaggregating Asian American tobacco use, randomize once.</title>
+    <title>Disaggregating Asian American tobacco use, randomize once</title>
     <statement>
       <p>In a study that aims to disaggregate tobacco use across Asian American ethnic groups (Asian-Indian, Chinese, and Filipino, in comparison to non-Hispanic Whites), respondents were asked whether they smoke tobacco or not.
 <xref ref="Rao-2021" />
@@ -95,7 +95,7 @@ Explain your choice.</p>
     </statement>
   </exercise>
   <exercise>
-    <title>Lizard habitats, randomization test.</title>
+    <title>Lizard habitats, randomization test</title>
     <statement>
       <p>In order to assess whether habitat conditions are related to the sunlight choices a lizard makes for resting, Western fence lizard (<em>Sceloporus occidentalis</em>) were observed across three different microhabitats.
 <xref ref="Adolph-1990" /> <xref ref="Asbury-2007" />
@@ -112,7 +112,7 @@ To answer the question, state the null and alternative hypotheses, approximate t
     </statement>
   </exercise>
   <exercise>
-    <title>Disaggregating Asian American tobacco use, randomization test.</title>
+    <title>Disaggregating Asian American tobacco use, randomization test</title>
     <statement>
       <p>Understanding cultural differences in tobacco use across different demographic groups can lead to improved health care education and treatment.
 A recent study disaggregated tobacco use across Asian American ethnic groups including Asian-Indian (n = 4373), Chinese (n = 4736), and Filipino (n = 4912), in comparison to non-Hispanic Whites (n = 275,025).
@@ -131,7 +131,7 @@ To answer the question, state the null and alternative hypotheses, approximate t
     </statement>
   </exercise>
   <exercise>
-    <title>Lizard habitats, larger data.</title>
+    <title>Lizard habitats, larger data</title>
     <statement>
       <p>In order to assess whether habitat conditions are related to the sunlight choices a lizard makes for resting, Western fence lizard (<em>Sceloporus occidentalis</em>) were observed across three different microhabitats.
 <xref ref="Adolph-1990" /> <xref ref="Asbury-2007" /></p>
@@ -152,7 +152,7 @@ To answer the question, state the null and alternative hypotheses, approximate t
     </statement>
   </exercise>
   <exercise>
-    <title>Disaggregating Asian American tobacco use, smaller data.</title>
+    <title>Disaggregating Asian American tobacco use, smaller data</title>
     <statement>
       <p>Understanding cultural differences in tobacco use across different demographic groups can lead to improved health care education and treatment.
 A recent study disaggregated tobacco use across Asian American ethnic groups. <xref ref="Rao-2021" /></p>
@@ -173,7 +173,7 @@ To answer the question, state the null and alternative hypotheses, approximate t
     </statement>
   </exercise>
   <exercise>
-    <title>True / False, I.</title>
+    <title>True / False, I</title>
     <statement>
       <p>Determine if the statements below are true or false.
 For each false statement, suggest an alternative wording to make it a true statement.</p>
@@ -186,7 +186,7 @@ For each false statement, suggest an alternative wording to make it a true state
     </statement>
   </exercise>
   <exercise>
-    <title>True / False, II.</title>
+    <title>True / False, II</title>
     <statement>
       <p>Determine if the statements below are true or false.
 For each false statement, suggest an alternative wording to make it a true statement.</p>
@@ -199,7 +199,7 @@ For each false statement, suggest an alternative wording to make it a true state
     </statement>
   </exercise>
   <exercise>
-    <title>Sleep deprived transportation workers.</title>
+    <title>Sleep deprived transportation workers</title>
     <statement>
       <p>The National Sleep Foundation conducted a survey on the sleep habits of randomly sampled transportation workers and randomly sampled non-transportation workers that serve as a "control" for comparison.
 <xref ref="data-sleepTransport" />
@@ -208,7 +208,7 @@ Conduct a hypothesis test to evaluate if these data provide evidence of an assoc
     </statement>
   </exercise>
   <exercise>
-    <title>Parasitic worm.</title>
+    <title>Parasitic worm</title>
     <statement>
       <p>Lymphatic filariasis is a disease caused by a parasitic worm.
 Complications of the disease can lead to extreme swelling and other complications.
@@ -222,7 +222,7 @@ Use these results to evaluate the hypotheses from part (a), and provide a concl
     </statement>
   </exercise>
   <exercise>
-    <title>Shipping holiday gifts.</title>
+    <title>Shipping holiday gifts</title>
     <statement>
       <p>A local news survey asked 500 randomly sampled Los Angeles residents which shipping carrier they prefer to use for shipping holiday gifts.
 The table below shows the distribution of responses by age group as well as the expected counts for each cell (shown in italics).</p>
@@ -233,7 +233,7 @@ The table below shows the distribution of responses by age group as well as the 
     </statement>
   </exercise>
   <exercise>
-    <title>Coffee and depression.</title>
+    <title>Coffee and depression</title>
     <statement>
       <p>Researchers conducted a study investigating the relationship between caffeinated coffee consumption and risk of depression in women.
 They collected data on 50,739 women free of depression symptoms at the start of the study in the year 1996, and these women were followed through 2006.

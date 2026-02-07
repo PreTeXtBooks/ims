@@ -26,6 +26,9 @@
         <li><p>Describe a setup for a simulation that would be appropriate in this situation and how the p-value can be calculated using the simulation results.</p></li>
         <li><p>The histogram below shows the distribution of 1,000 <m>\hat{p}_{sim}</m>s under the null hypothesis. Estimate the p-value using the plot and use it to evaluate the hypotheses.</p></li>
       </ol></p>
+      <figure xml:id="fig-ex-16-3">
+        <image source="images/fig-ex-16-3.png" width="70%" />
+      </figure>
     </statement>
   </exercise>
 
@@ -39,6 +42,9 @@
         <li><p>The histogram below shows the distribution of 1,000 <m>\hat{p}_{sim}</m>s under the null hypothesis. Estimate the p-value using the plot and use it to evaluate the hypotheses.</p></li>
         <li><p>After performing this analysis, the consumer group releases the following news headline: <q>Infertility clinic falsely advertises better success rates</q>. Comment on the appropriateness of this statement.</p></li>
       </ol></p>
+      <figure xml:id="fig-ex-16-4">
+        <image source="images/fig-ex-16-4.png" width="70%" />
+      </figure>
     </statement>
   </exercise>
 
@@ -50,6 +56,9 @@
         <li><p>What are the null and alternative hypotheses for evaluating whether these data provide convincing evidence that cats have preference for one of the shapes</p></li>
         <li><p>A null hypothesis simulation (with 1,000 draws) was run, and the resulting null distribution is displayed in the histogram below. Find the p-value using this distribution and conclude the hypothesis test in the context of the problem.</p></li>
       </ol></p>
+      <figure xml:id="fig-ex-16-5">
+        <image source="images/fig-ex-16-5.png" width="70%" />
+      </figure>
     </statement>
   </exercise>
 
@@ -61,6 +70,9 @@
         <li><p>What are the null and alternative hypotheses for evaluating whether these data provide convincing evidence that, if voted on, marijuana would be legalized in the US.</p></li>
         <li><p>A null hypothesis simulation (with 1,000 draws) was run, and the resulting null distribution is displayed in the histogram below. Find the p-value using this distribution and conclude the hypothesis test in the context of the problem.</p></li>
       </ol></p>
+      <figure xml:id="fig-ex-16-6">
+        <image source="images/fig-ex-16-6.png" width="70%" />
+      </figure>
     </statement>
   </exercise>
 
@@ -75,6 +87,9 @@
         <li><p>In order to approach the problem using the mathematical model, is the success-failure condition met for this study? Explain.</p></li>
         <li><p>What features of the null distribution shown above tells us that the mathematical model should probably not be used?</p></li>
       </ol></p>
+      <figure xml:id="fig-ex-16-7">
+        <image source="images/fig-ex-16-7.png" width="70%" />
+      </figure>
     </statement>
   </exercise>
 
@@ -88,6 +103,9 @@
         <li><p>Do the mathematical model and simulated draws yield similar standard errors?</p></li>
         <li><p>In this setting (to test whether the true underlying population proportion is greater than 0.55), would there be a strong reason to choose the mathematical model over the simulated null hypothesis (or vice versa)?</p></li>
       </ol></p>
+      <figure xml:id="fig-ex-16-8">
+        <image source="images/fig-ex-16-8.png" width="70%" />
+      </figure>
     </statement>
   </exercise>
 
@@ -95,6 +113,9 @@
     <title>Statistics and employment, describe the bootstrap</title>
     <statement>
       <p>A large university knows that about 70% of the full-time students are employed at least 5 hours per week. The members of the Statistics Department wonder if the same proportion of their students work at least 5 hours per week. They randomly sample 25 majors and find that 15 of the students work 5 or more hours each week. Two sampling distributions are created to describe the variability in the proportion of statistics majors who work at least 5 hours per week. The null hypothesis simulation imposes a true population proportion of <m>p = 0.7</m> while the data bootstrap resamples from the actual data (which has 60% of the observations who work at least 5 hours per week).</p>
+      <figure xml:id="fig-ex-16-9">
+        <image source="images/fig-ex-16-9.png" width="70%" />
+      </figure>
       <p><ol marker="a.">
         <li><p>The sampling was done under two different settings to generate each of the distributions shown above. Describe the two different settings.</p></li>
         <li><p>Where are each of the two distributions centered? How do their centers compare?</p></li>
@@ -108,6 +129,9 @@
     <title>National Health Plan, simulated null hypothesis</title>
     <statement>
       <p>A Kaiser Family Foundation poll for a random sample of US adults in 2019 found that 79% of Democrats, 55% of Independents, and 24% of Republicans supported a generic <q>National Health Plan</q>. There were 347 Democrats, 298 Republicans, and 617 Independents surveyed. <xref ref="data-KFF2019nathealthplan" /> A political pundit on TV claims that a majority of Independents support a National Health Plan. Do these data provide strong evidence to support this type of statement? One approach to assessing the question of whether a majority of Independents support a National Health Plan is to simulate 1,000 draws from a null hypothesis with <m>p = 0.5</m> as the proportion of Independents in support.</p>
+      <figure xml:id="fig-ex-16-10">
+        <image source="images/fig-ex-16-10.png" width="70%" />
+      </figure> 
       <p><ol marker="a.">
         <li><p>The histogram above displays 1000 values of what?</p></li>
         <li><p>Is the observed proportion of Independents consistent with the null hypothesis simulated proportions under the setting where <m>p=0.5?</m></p></li>
@@ -121,6 +145,9 @@
     <title>Statistics and employment, use the bootstrap</title>
     <statement>
       <p>In a large university where 70% of the full-time students are employed at least 5 hours per week, the members of the Statistics Department wonder if the same proportion of their students work at least 5 hours per week. They randomly sample 25 majors and find that 15 of the students work 5 or more hours each week. Two sampling distributions are created to describe the variability in the proportion of statistics majors who work at least 5 hours per week. The null hypothesis distribution imposes a true population proportion of <m>p=0.7</m> while the data bootstrap resamples from the actual data (which has 60% of the observations who work at least 5 hours per week).</p>
+      <figure xml:id="fig-ex-16-11">
+        <image source="images/fig-ex-16-11.png" width="70%" />
+      </figure>
       <p><ol marker="a.">
         <li><p>Which distribution should be used to test whether the proportion of all statistics majors who work at least 5 hours per week is 70%? And which distribution should be used to find a confidence interval for the true proportion of statistics majors who work at least 5 hours per week?</p></li>
         <li><p>Using the appropriate histogram, test the claim that 70% of statistics majors, like their peers, work at least 5 hours per week. State the null and alternative hypotheses, find the p-value, and conclude the test in the context of the problem.</p></li>

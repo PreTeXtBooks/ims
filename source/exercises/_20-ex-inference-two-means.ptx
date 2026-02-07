@@ -3,7 +3,7 @@
 <exercises xml:id="exercises-20-inference-two-means">
 
   <exercise>
-    <title>Experimental baker.</title>
+    <title>Experimental baker</title>
     <statement>
       <p>A baker working on perfecting their bagel recipe is experimenting with active dry (AD) and instant (I) yeast. They bake a dozen bagels with each type of yeast and score each bagel on a scale of 1 to 10 on how well the bagels rise. They come up with the following set of hypotheses for evaluating whether there is a difference in the average rise of bagels baked with active dry and instant yeast. What is wrong with the hypotheses as stated?</p>
       <p><me>H_0: \bar{x}_{AD} \leq \bar{x}_{I} \quad \quad H_A: \bar{x}_{AD} &gt; \bar{x}_{I}</me></p>
@@ -14,14 +14,14 @@
   </exercise>
 
   <exercise>
-    <title>Fill in the blanks.</title>
+    <title>Fill in the blanks</title>
     <statement>
-      <p>We use a \_\_\_ to evaluate if data provide convincing evidence of a difference between two population means and we use a \_\_\_ to estimate this difference.</p>
+      <p>We use a ___ to evaluate if data provide convincing evidence of a difference between two population means and we use a ___ to estimate this difference.</p>
     </statement>
   </exercise>
 
   <exercise>
-    <title>Diamonds, randomization test.</title>
+    <title>Diamonds, randomization test</title>
     <statement>
       <p>The prices of diamonds go up as the carat weight increases, but the increase is not smooth. For example, the difference between the size of a 0.99 carat diamond and a 1 carat diamond is undetectable to the naked human eye, but the price of a 1 carat diamond tends to be much higher than the price of a 0.99 carat diamond. We have two random samples of diamonds: 23 0.99 carat diamonds and 23 1 carat diamonds. In order to be able to compare equivalent units, we first divide the price for each diamond by 100 times its weight in carats. That is, for a 0.99 carat diamond, we divide the price by 99 and for a 1 carat diamond, we divide it by 100. Then, we randomize the carat weight to the price values in order simulate the null distribution of differences in average prices of 0.99 carat and 1 carat diamonds. The null distribution (with 1,000 randomized differences) is shown below and depicts the distribution of differences in sample means (of price per carat) if there really was no difference in the population from which these diamonds came.</p>
       <p>Using the randomization distribution, conduct a hypothesis test to evaluate if there is a difference between the prices per carat of diamonds that weigh 0.99 carats and diamonds that weigh 1 carat. Make sure to state your hypotheses clearly and interpret your results in context of the data.</p>
@@ -32,14 +32,14 @@
   </exercise>
 
   <exercise>
-    <title>Lizards running, randomization test.</title>
+    <title>Lizards running, randomization test</title>
     <statement>
       <p>In order to assess physiological characteristics of common lizards, data on top speeds (in m/sec) measured on a laboratory race track for two species of lizards: Western fence lizard (Sceloporus occidentalis) and Sagebrush lizard (Sceloporus graciosus). The original observed difference in lizard speeds is <m>\bar{x}_{Western fence} - \bar{x}_{Sagebrush} = 0.7 \mbox{m/sec}.</m> The histogram below shows the distribution of average differences when speed has been randomly allocated across lizard species 1,000 times. Using the randomization distribution, conduct a hypothesis test to evaluate if there is a difference between the average speed of the Western fence lizard as compared to the Sagebrush lizard. Make sure to state your hypotheses clearly and interpret your results in context of the data.</p>
     </statement>
   </exercise>
 
   <exercise>
-    <title>Diamonds, bootstrap interval.</title>
+    <title>Diamonds, bootstrap interval</title>
     <statement>
       <p>We have data on two random samples of diamonds: 23 0.99 carat diamonds and 23 1 carat diamonds. Provided below is a histogram of bootstrap differences in means of price per carat of diamonds that weigh 0.99 carats and diamonds that weigh 1 carat.</p>
       <p><ol marker="a.">
@@ -56,7 +56,7 @@
   </exercise>
 
   <exercise>
-    <title>Lizards running, bootstrap interval.</title>
+    <title>Lizards running, bootstrap interval</title>
     <statement>
       <p>We have data on top speeds (in m/sec) measured on a laboratory race track for two species of lizards: Western fence lizard (Sceloporus occidentalis) and Sagebrush lizard (Sceloporus graciosus). The bootstrap distribution below describes the variability of difference in means captured from 1,000 bootstrap samples of the lizard data.</p>
       <p><ol marker="a.">
@@ -67,7 +67,7 @@
   </exercise>
 
   <exercise>
-    <title>Weight loss.</title>
+    <title>Weight loss</title>
     <statement>
       <p>You are reading an article in which the researchers have created a 95% confidence interval for the difference in average weight loss for two diets. They are 95% confident that the true difference in average weight loss over 6 months for the two diets is somewhere between (1 lb, 25 lbs). The authors claim that, "therefore diet A (<m>\bar{x}_A</m> = 20 lbs average loss) results in a much larger average weight loss as compared to diet B (<m>\bar{x}_B</m> = 7 lbs average loss)." Comment on the authors' claim.</p>
     </statement>
@@ -77,7 +77,7 @@
   </exercise>
 
   <exercise>
-    <title>Possible randomized means.</title>
+    <title>Possible randomized means</title>
     <statement>
       <p>Data were collected on data from two groups (A and B). There were 3 measurements taken on Group A and two measurements in Group B.</p>
       <p>If the data are (repeatedly) randomly allocated across the two conditions, provide the following: (1) the values which are assigned to group A, (2) the values which are assigned to group B, and (3) the difference in averages <m>(\bar{x}_A - \bar{x}_B)</m> for each of the following:</p>
@@ -91,7 +91,7 @@
   </exercise>
 
   <exercise>
-    <title>Diamonds, mathematical test.</title>
+    <title>Diamonds, mathematical test</title>
     <statement>
       <p>We have data on two random samples of diamonds: one with diamonds that weigh 0.99 carats and one with diamonds that weigh 1 carat. Each sample has 23 diamonds. Sample statistics for the price per carat of diamonds in each sample are provided below. Conduct a hypothesis test using a mathematical model to evaluate if there is a difference between the prices per carat of diamonds that weigh 0.99 carats and diamonds that weigh 1 carat Make sure to state your hypotheses clearly, check relevant conditions, and interpret your results in context of the data.</p>
     </statement>
@@ -101,14 +101,14 @@
   </exercise>
 
   <exercise>
-    <title>A/B testing.</title>
+    <title>A/B testing</title>
     <statement>
       <p>A/B testing is a user experience research methodology where two variants of a page are shown to users at random. A company wants to evaluate whether users will spend more time, on average, on Page A or Page B using an A/B test. Two user experience designers at the company, Lucie and Müge, are tasked with conducting the analysis of the data collected. They agree on how the null hypothesis should be set: on average, users spend the same amount of time on Page A and Page B. Lucie believes that Page B will provide a better experience for users and hence wants to use a one-tailed test, Müge believes that a two-tailed test would be a better choice. Which designer do you agree with, and why?</p>
     </statement>
   </exercise>
 
   <exercise>
-    <title>Diamonds, mathematical interval.</title>
+    <title>Diamonds, mathematical interval</title>
     <statement>
       <p>We have data on two random samples of diamonds: one with diamonds that weigh 0.99 carats and one with diamonds that weigh 1 carat. Each sample has 23 diamonds. Sample statistics for the price per carat of diamonds in each sample are provided below. Assuming that the conditions for conducting inference using a mathematical model are satisfied, construct a 95% confidence interval for the true population difference in prices per carat of diamonds that weigh 0.99 carats and 1 carat.</p>
     </statement>
@@ -118,7 +118,7 @@
   </exercise>
 
   <exercise>
-    <title>True / False: comparing means.</title>
+    <title>True / False: comparing means</title>
     <statement>
       <p>Determine if the following statements are true or false, and explain your reasoning for statements you identify as false.</p>
       <p><ol marker="a.">
@@ -130,7 +130,7 @@
   </exercise>
 
   <exercise>
-    <title>Difference of means.</title>
+    <title>Difference of means</title>
     <statement>
       <p>We collect two random samples from two different populations In each part below, consider the sample means <m>\bar{x}_1</m> and <m>\bar{x}_2</m> that we might observe from these two samples.</p>
       <p><ol marker="a.">
@@ -151,14 +151,14 @@
   </exercise>
 
   <exercise>
-    <title>Mindfulness intervention for nurses.</title>
+    <title>Mindfulness intervention for nurses</title>
     <statement>
       <p>In order to address extremely challenging and stressful situations for intensive care unit nurses, researchers ran a mindfulness-based intervention (MBI) study on 60 nurses working in three hospitals in El-Beheira, Egypt. The participants were randomly allocated to one of the two groups: the treatment group (MBI) received 8 MBI sessions and the control group received no intervention. The nurses' emotional exhaustion was measured using 9 items from a questionnaire of the Maslach Burnout Inventory-Human Services Survey for Medical Personnel; the questions are recorded on a Likert scale where 0 indicated "Never" and 6 indicates "Every day". Nurses in the treatment group had an emotional exhaustion score of 15.47, with a standard deviation of 4.44, and nurses in the control group had an emotional exhaustion score of 32.43, with a standard deviation of 8.87. Do these data provide convincing evidence that the emotional exhaustion decrease is different for the patients in the treatment group compared to the control group? Assume that conditions for conducting inference using mathematical models are satisfied.</p>
     </statement>
   </exercise>
 
   <exercise>
-    <title>Chicken diet: horsebean vs. linseed.</title>
+    <title>Chicken diet: horsebean vs. linseed</title>
     <statement>
       <p>Chicken farming is a multi-billion dollar industry, and any methods that increase the growth rate of young chicks can reduce consumer costs while increasing company profits, possibly by millions of dollars. An experiment was conducted to measure and compare the effectiveness of various feed supplements on the growth rate of chickens. Newly hatched chicks were randomly allocated into six groups, and each group was given a different feed supplement. In this exercise we consider chicks that were fed horsebean and linseed. Below are some summary statistics from this dataset along with box plots showing the distribution of weights by feed type.</p>
       <p><ol marker="a.">
@@ -179,14 +179,14 @@
   </exercise>
 
   <exercise>
-    <title>Fuel efficiency in the city.</title>
+    <title>Fuel efficiency in the city</title>
     <statement>
       <p>Each year the US Environmental Protection Agency (EPA) releases fuel economy data on cars manufactured in that year. Below are summary statistics on fuel efficiency (in miles/gallon) from random samples of cars with manual and automatic transmissions manufactured in 2021. Do these data provide strong evidence of a difference between the average fuel efficiency of cars with manual and automatic transmissions in terms of their average city mileage?</p>
     </statement>
   </exercise>
 
   <exercise>
-    <title>Chicken diet: casein vs. soybean.</title>
+    <title>Chicken diet: casein vs. soybean</title>
     <statement>
       <p>Casein is a common weight gain supplement for humans. Does it have an effect on chickens? An experiment was conducted to measure and compare the effectiveness of various feed supplements on the growth rate of chickens. Newly hatched chicks were randomly allocated into six groups, and each group was given a different feed supplement. In this exercise we consider chicks that were fed casein and soybean. Assume that the conditions for conducting inference using mathematical models are met, and using the data provided below, test the hypothesis that the average weight of chickens that were fed casein is different than the average weight of chickens that were fed soybean. If your hypothesis test yields a statistically discernible result, discuss whether the higher average weight of chickens can be attributed to the casein diet.</p>
     </statement>
@@ -196,14 +196,14 @@
   </exercise>
 
   <exercise>
-    <title>Fuel efficiency on the highway.</title>
+    <title>Fuel efficiency on the highway</title>
     <statement>
       <p>Each year the US Environmental Protection Agency (EPA) releases fuel economy data on cars manufactured in that year. Below are summary statistics on fuel efficiency (in miles/gallon) from random samples of cars with manual and automatic transmissions manufactured in 2021. Do these data provide strong evidence of a difference between the average fuel efficiency of cars with manual and automatic transmissions in terms of their average highway mileage?</p>
     </statement>
   </exercise>
 
   <exercise>
-    <title>Gaming, distracted eating, and intake.</title>
+    <title>Gaming, distracted eating, and intake</title>
     <statement>
       <p>A group of researchers who are interested in the possible effects of distracting stimuli during eating, such as an increase or decrease in the amount of food consumption, monitored food intake for a group of 44 patients who were randomized into two equal groups. The treatment group ate lunch while playing solitaire, and the control group ate lunch without any added distractions. Patients in the treatment group ate 52.1 grams of biscuits, with a standard deviation of 45.1 grams, and patients in the control group ate 27.1 grams of biscuits, with a standard deviation of 26.4 grams. Do these data provide convincing evidence that the average food intake (measured in amount of biscuits consumed) is different for the patients in the treatment group compared to the control group? Assume that conditions for conducting inference using mathematical models are satisfied.</p>
     </statement>
@@ -213,7 +213,7 @@
   </exercise>
 
   <exercise>
-    <title>Gaming, distracted eating, and recall.</title>
+    <title>Gaming, distracted eating, and recall</title>
     <statement>
       <p>A group of researchers who are interested in the possible effects of distracting stimuli during eating, such as an increase or decrease in the amount of food consumption, monitored food intake for a group of 44 patients who were randomized into two equal groups. The 22 patients in the treatment group who ate their lunch while playing solitaire were asked to do a serial-order recall of the food lunch items they ate. The average number of items recalled by the patients in this group was 4. 9, with a standard deviation of 1.8. The average number of items recalled by the patients in the control group (no distraction) was 6.1, with a standard deviation of 1.8. Do these data provide strong evidence that the average numbers of food items recalled by the patients in the treatment and control groups are different? Assume that conditions for conducting inference using mathematical models are satisfied.</p>
     </statement>

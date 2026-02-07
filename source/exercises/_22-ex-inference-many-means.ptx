@@ -45,6 +45,53 @@
     <title>Chicken diet and weight, many groups</title>
     <statement>
       <p>An experiment was conducted to measure and compare the effectiveness of various feed supplements on the growth rate of chickens. Newly hatched chicks were randomly allocated into six groups, and each group was given a different feed supplement. Sample statistics and a visualization of the observed data are shown below. <xref ref="data-chickwts" /></p>
+      <table xml:id="table-22-ex-chickwts-summary">
+        <title>Summary statistics for chicken weight by feed type</title>
+        <tabular halign="center">
+          <row header="yes" bottom="minor">
+            <cell>Feed type</cell>
+            <cell>Mean</cell>
+            <cell>SD</cell>
+            <cell>n</cell>
+          </row>
+          <row>
+            <cell>casein</cell>
+            <cell>323.58</cell>
+            <cell>64.43</cell>
+            <cell>12</cell>
+          </row>
+          <row>
+            <cell>horsebean</cell>
+            <cell>160.20</cell>
+            <cell>38.63</cell>
+            <cell>10</cell>
+          </row>
+          <row>
+            <cell>linseed</cell>
+            <cell>218.75</cell>
+            <cell>52.24</cell>
+            <cell>12</cell>
+          </row>
+          <row>
+            <cell>meatmeal</cell>
+            <cell>276.91</cell>
+            <cell>64.90</cell>
+            <cell>11</cell>
+          </row>
+          <row>
+            <cell>soybean</cell>
+            <cell>246.43</cell>
+            <cell>54.13</cell>
+            <cell>14</cell>
+          </row>
+          <row>
+            <cell>sunflower</cell>
+            <cell>328.92</cell>
+            <cell>48.84</cell>
+            <cell>12</cell>
+          </row>
+        </tabular>
+      </table>
       <figure xml:id="fig-22-ex-chickwts">
         <image source="images/exercises/_22-ex-inference-many-means-05.png" width="90%" />
       </figure>
@@ -323,6 +370,47 @@
     <title>Work hours and education</title>
     <statement>
       <p>The General Social Survey collects data on demographics, education, and work, among many other characteristics of US residents. <xref ref="data-gss-2010" /> Using ANOVA, we can consider educational attainment levels for all 1,172 respondents at once. Below are the distributions of hours worked by educational attainment and relevant summary statistics that will be helpful in carrying out this analysis.</p>
+      <table xml:id="table-22-ex-work-summary">
+        <title>Summary statistics for hours worked by educational attainment</title>
+        <tabular halign="center">
+          <row header="yes" bottom="minor">
+            <cell>Educational attainment</cell>
+            <cell>Mean</cell>
+            <cell>SD</cell>
+            <cell>n</cell>
+          </row>
+          <row>
+            <cell>Lt High School</cell>
+            <cell>38.7</cell>
+            <cell>15.8</cell>
+            <cell>121</cell>
+          </row>
+          <row>
+            <cell>High School</cell>
+            <cell>39.6</cell>
+            <cell>15.0</cell>
+            <cell>546</cell>
+          </row>
+          <row>
+            <cell>Junior College</cell>
+            <cell>41.4</cell>
+            <cell>18.1</cell>
+            <cell>97</cell>
+          </row>
+          <row>
+            <cell>Bachelor</cell>
+            <cell>42.5</cell>
+            <cell>13.6</cell>
+            <cell>253</cell>
+          </row>
+          <row>
+            <cell>Graduate</cell>
+            <cell>40.8</cell>
+            <cell>15.5</cell>
+            <cell>155</cell>
+          </row>
+        </tabular>
+      </table>
       <figure xml:id="fig-22-ex-work-education">
         <image source="images/exercises/_22-ex-inference-many-means-10.png" width="90%" />
       </figure>

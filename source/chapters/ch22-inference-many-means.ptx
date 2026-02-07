@@ -100,7 +100,85 @@ toy_anova |&gt;
 
 <table xml:id="tbl-mlbBat18DataFrame">
   <title>Six cases and some of the variables from the <c>mlb_players_18</c> data frame.</title>
-  <image source="images/tbl-mlbBat18DataFrame-1.png" width="70%" />
+  <tabular halign="left">
+    <row header="yes" bottom="minor">
+      <cell>name</cell>
+      <cell>team</cell>
+      <cell>position</cell>
+      <cell halign="right">AB</cell>
+      <cell halign="right">H</cell>
+      <cell halign="right">HR</cell>
+      <cell halign="right">RBI</cell>
+      <cell halign="right">AVG</cell>
+      <cell halign="right">OBP</cell>
+    </row>
+    <row>
+      <cell>Abreu, J</cell>
+      <cell>CWS</cell>
+      <cell>IF</cell>
+      <cell halign="right">499</cell>
+      <cell halign="right">132</cell>
+      <cell halign="right">22</cell>
+      <cell halign="right">78</cell>
+      <cell halign="right">0.265</cell>
+      <cell halign="right">0.325</cell>
+    </row>
+    <row>
+      <cell>Acuna Jr., R</cell>
+      <cell>ATL</cell>
+      <cell>OF</cell>
+      <cell halign="right">433</cell>
+      <cell halign="right">127</cell>
+      <cell halign="right">26</cell>
+      <cell halign="right">64</cell>
+      <cell halign="right">0.293</cell>
+      <cell halign="right">0.366</cell>
+    </row>
+    <row>
+      <cell>Adames, W</cell>
+      <cell>TB</cell>
+      <cell>IF</cell>
+      <cell halign="right">288</cell>
+      <cell halign="right">80</cell>
+      <cell halign="right">10</cell>
+      <cell halign="right">34</cell>
+      <cell halign="right">0.278</cell>
+      <cell halign="right">0.348</cell>
+    </row>
+    <row>
+      <cell>Adams, M</cell>
+      <cell>STL</cell>
+      <cell>IF</cell>
+      <cell halign="right">306</cell>
+      <cell halign="right">73</cell>
+      <cell halign="right">21</cell>
+      <cell halign="right">57</cell>
+      <cell halign="right">0.239</cell>
+      <cell halign="right">0.309</cell>
+    </row>
+    <row>
+      <cell>Adduci, J</cell>
+      <cell>DET</cell>
+      <cell>IF</cell>
+      <cell halign="right">176</cell>
+      <cell halign="right">47</cell>
+      <cell halign="right">3</cell>
+      <cell halign="right">21</cell>
+      <cell halign="right">0.267</cell>
+      <cell halign="right">0.290</cell>
+    </row>
+    <row>
+      <cell>Adrianza, E</cell>
+      <cell>MIN</cell>
+      <cell>IF</cell>
+      <cell halign="right">335</cell>
+      <cell halign="right">84</cell>
+      <cell halign="right">6</cell>
+      <cell halign="right">39</cell>
+      <cell halign="right">0.251</cell>
+      <cell halign="right">0.301</cell>
+    </row>
+  </tabular>
 </table>
 
 <listing xml:id="tbl-mlbBat18DataFrame-code">
@@ -125,7 +203,48 @@ mlb_players_18 |&gt;
 
 <table xml:id="tbl-mlbBat18Variables">
   <title>Variables and their descriptions for the <c>mlb_players_18</c> dataset.</title>
-  <image source="images/tbl-mlbBat18Variables-1.png" width="70%" />
+  <tabular halign="left">
+    <row header="yes" bottom="minor">
+      <cell>Variable</cell>
+      <cell>Description</cell>
+    </row>
+    <row>
+      <cell><c>name</c></cell>
+      <cell>Player name</cell>
+    </row>
+    <row>
+      <cell><c>team</c></cell>
+      <cell>The abbreviated name of the player's team</cell>
+    </row>
+    <row>
+      <cell><c>position</c></cell>
+      <cell>The player's primary field position (OF, IF, C)</cell>
+    </row>
+    <row>
+      <cell><c>AB</c></cell>
+      <cell>Number of opportunities at bat</cell>
+    </row>
+    <row>
+      <cell><c>H</c></cell>
+      <cell>Number of hits</cell>
+    </row>
+    <row>
+      <cell><c>HR</c></cell>
+      <cell>Number of home runs</cell>
+    </row>
+    <row>
+      <cell><c>RBI</c></cell>
+      <cell>Number of runs batted in</cell>
+    </row>
+    <row>
+      <cell><c>AVG</c></cell>
+      <cell>Batting average, which is equal to H/AB</cell>
+    </row>
+    <row>
+      <cell><c>OBP</c></cell>
+      <cell>On-base percentage, which is roughly equal to the fraction of times a player gets on base or hits a home run</cell>
+    </row>
+  </tabular>
 </table>
 
 <listing xml:id="tbl-mlbBat18Variables-code">
@@ -197,7 +316,32 @@ mlb_players_18_vars |&gt;
 
 <table xml:id="tbl-mlbHRPerABSummaryTable">
   <title>Summary statistics of on-base percentage, split by player position.</title>
-  <image source="images/tbl-mlbHRPerABSummaryTable-1.png" width="70%" />
+  <tabular halign="center">
+    <row header="yes" bottom="minor">
+      <cell>Position</cell>
+      <cell>n</cell>
+      <cell>Mean</cell>
+      <cell>SD</cell>
+    </row>
+    <row>
+      <cell>OF</cell>
+      <cell>160</cell>
+      <cell>0.320</cell>
+      <cell>0.043</cell>
+    </row>
+    <row>
+      <cell>IF</cell>
+      <cell>205</cell>
+      <cell>0.318</cell>
+      <cell>0.038</cell>
+    </row>
+    <row>
+      <cell>C</cell>
+      <cell>64</cell>
+      <cell>0.302</cell>
+      <cell>0.038</cell>
+    </row>
+  </tabular>
 </table>
 
 <listing xml:id="tbl-mlbHRPerABSummaryTable-code">
@@ -328,7 +472,40 @@ ggplot(mlb_players_18, aes(x = position, y = OBP)) +
 
 <table xml:id="tbl-summaryStatsForThreeVersionsOfExams">
   <title>Summary statistics of scores for each exam version.</title>
-  <image source="images/tbl-summaryStatsForThreeVersionsOfExams-1.png" width="70%" />
+  <tabular halign="center">
+    <row header="yes" bottom="minor">
+      <cell>Exam</cell>
+      <cell>n</cell>
+      <cell>Mean</cell>
+      <cell>SD</cell>
+      <cell>Min</cell>
+      <cell>Max</cell>
+    </row>
+    <row>
+      <cell>A</cell>
+      <cell>58</cell>
+      <cell>75.1</cell>
+      <cell>13.9</cell>
+      <cell>44</cell>
+      <cell>100</cell>
+    </row>
+    <row>
+      <cell>B</cell>
+      <cell>55</cell>
+      <cell>72.0</cell>
+      <cell>13.8</cell>
+      <cell>38</cell>
+      <cell>100</cell>
+    </row>
+    <row>
+      <cell>C</cell>
+      <cell>51</cell>
+      <cell>78.9</cell>
+      <cell>13.1</cell>
+      <cell>45</cell>
+      <cell>100</cell>
+    </row>
+  </tabular>
 </table>
 
 <listing xml:id="tbl-summaryStatsForThreeVersionsOfExams-code">
@@ -598,7 +775,32 @@ text(6.3, 0.3, "Small tail area", pos = 3)
 
 <table xml:id="tbl-anovaSummaryTableForOBPAgainstPosition">
   <title>ANOVA summary for testing whether the average on-base percentage differs across player positions.</title>
-  <image source="images/tbl-anovaSummaryTableForOBPAgainstPosition-1.png" width="70%" />
+  <tabular halign="left">
+    <row header="yes" bottom="minor">
+      <cell>term</cell>
+      <cell halign="right">df</cell>
+      <cell halign="right">sumsq</cell>
+      <cell halign="right">meansq</cell>
+      <cell halign="right">statistic</cell>
+      <cell halign="right">p.value</cell>
+    </row>
+    <row>
+      <cell><c>position</c></cell>
+      <cell halign="right">2</cell>
+      <cell halign="right">0.0161</cell>
+      <cell halign="right">0.0080</cell>
+      <cell halign="right">5.08</cell>
+      <cell halign="right">0.0066</cell>
+    </row>
+    <row>
+      <cell>Residuals</cell>
+      <cell halign="right">426</cell>
+      <cell halign="right">0.6740</cell>
+      <cell halign="right">0.0016</cell>
+      <cell halign="right"></cell>
+      <cell halign="right"></cell>
+    </row>
+  </tabular>
 </table>
 
 <listing xml:id="tbl-anovaSummaryTableForOBPAgainstPosition-code">
@@ -707,7 +909,33 @@ mlb_players_18 |&gt;
 
 <table xml:id="tbl-terms-chp-22">
   <title>Terms introduced in this chapter.</title>
-  <image source="images/tbl-terms-chp-22-1.png" width="70%" />
+  <tabular halign="left">
+    <row header="yes" bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell>analysis of variance</cell>
+      <cell>degrees of freedom</cell>
+      <cell>multiple comparisons</cell>
+    </row>
+    <row>
+      <cell>ANOVA</cell>
+      <cell>F-test</cell>
+      <cell>sum of squared error (SSE)</cell>
+    </row>
+    <row>
+      <cell>data fishing</cell>
+      <cell>mean square between groups (MSG)</cell>
+      <cell>sum of squares between groups (SSG)</cell>
+    </row>
+    <row>
+      <cell>data snooping</cell>
+      <cell>mean square error (MSE)</cell>
+      <cell>sum of squares total (SST)</cell>
+    </row>
+  </tabular>
 </table>
 
 <listing xml:id="tbl-terms-chp-22-code">

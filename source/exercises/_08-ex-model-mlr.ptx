@@ -71,7 +71,13 @@ p_life_confound2 &lt;-  meat |&gt;
           </input>
         </program>
       </listing>
-      
+
+      <figure xml:id="fig-ex8-3">
+        <image source="images/exercises/fig-ex8-3.png" width="90%">
+          <description>Figure for exercise 3</description>
+        </image>
+      </figure>
+
       <p><ol marker="a.">
         <li>
           <p>Describe the relationship between meat consumption and life expectancy.</p>
@@ -90,7 +96,13 @@ p_life_confound2 &lt;-  meat |&gt;
     <title>Arrival delays.</title>
     <statement>
       <p>Consider all of the flights out of New York City in 2013 that flew into Puerto Rico (BQN) or San Francisco (SFO) on the following two airlines: JetBlue (B6) or United Airlines (UA). We consider the relationship between day of the year and arrival delay (in minutes). Note that a negative arrival delay means that the flight arrived early. The figures display a least squares regression line for arrival delay versus time (day of the year).<fn>The <c>flights</c> data used in this exercise can be found in the <url href="https://github.com/tidyverse/nycflights13"><alert>nycflights13</alert></url> R package.</fn> </p>
-      
+
+      <figure xml:id="fig-ex8-4">
+        <image source="images/exercises/fig-ex8-4.png" width="90%">
+          <description>Figure for exercise 10</description>
+        </image>
+      </figure>
+
       <listing>
         <caption>R code to generate the figures</caption>
         <program language="r">
@@ -368,7 +380,13 @@ p_delay + p_delay_city
     <title>Movie returns by genre.</title>
     <statement>
       <p>A model was fit to predict return-on-investment (ROI) on movies based on release year and genre (Adventure, Action, Drama, Horror, and Comedy). The plots below show the predicted ROI vs. actual ROI for each of the genres separately. Do these figures support the comment in the FiveThirtyEight.com article that states, "The return-on-investment potential for horror movies is absurd." Note that the x-axis range varies for each plot. <xref ref="webpage-horrormovies"/> </p>
-      
+
+      <figure xml:id="fig-ex8-10">
+        <image source="images/exercises/fig-ex8-10.png" width="90%">
+          <description>Figure for exercise 10</description>
+        </image>
+      </figure>
+
       <listing>
         <caption>R code to generate the figure</caption>
         <program language="r">

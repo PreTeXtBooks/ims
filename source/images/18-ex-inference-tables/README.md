@@ -24,5 +24,8 @@ The following histogram images are needed for the exercises. These should show 1
 
 ## Notes
 
-These images should be downloaded from the URLs above and placed in this directory.
+These images should be downloaded from the URLs above and placed in this directory with .png extensions.
 They are Chi-squared randomization test histograms that visualize the null distribution.
+
+The current .txt files are placeholders marking where the images should go.
+Replace them with actual PNG images by downloading from the URLs above.

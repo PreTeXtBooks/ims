@@ -263,32 +263,53 @@ par(par_og) # restore original par
 
 <me>\begin{aligned}\log_e\bigg(\frac{\hat{p}}{1-\hat{p}}\bigg) = -2.05 &amp;-1.91 \times \texttt{to_multiple}\\&amp;+ 0.02 \times \texttt{cc} \\&amp;- 0.07 \times \texttt{dollar}\\&amp;+ 2.66 \times \texttt{urgent_subj}\end{aligned}</me>
 
-<listing xml:id="tbl-emaillogmodel">
-  <caption>Summary of a logistic model for predicting whether an email is spam based on the variables to_multiple, cc, dollar, and urgent_subj. Each of the variables has its own coefficient estimate and p-value.</caption>
-  <program language="r">
-    <input>
-#| label: tbl-emaillogmodel
-#| tbl-cap: |
-#|   Summary of a logistic model for predicting whether an email is spam based
-#|   on the variables to_multiple, cc, dollar, and urgent_subj. Each of the
-#|   variables has its own coefficient estimate and p-value.
-#| tbl-pos: H
-glm(spam ~ to_multiple + cc + dollar + urgent_subj, data = email, family = "binomial") |&gt;
-  tidy() |&gt;
-  mutate(p.value = ifelse(p.value &lt; .0001, "&lt;0.0001", round(p.value, 4))) |&gt;
-  kbl(
-    linesep = "", booktabs = TRUE,
-    digits = 2, align = "lrrrr"
-  ) |&gt;
-  kable_styling(
-    bootstrap_options = c("striped", "condensed"),
-    latex_options = c("striped")
-  ) |&gt;
-  column_spec(1, width = "15em", monospace = TRUE) |&gt;
-  column_spec(2:5, width = "5em")
-    </input>
-  </program>
-</listing>
+<table xml:id="tbl-emaillogmodel">
+  <title>Summary of a logistic model for predicting whether an email is spam based on the variables to_multiple, cc, dollar, and urgent_subj. Each of the variables has its own coefficient estimate and p-value.</title>
+  <tabular>
+    <row bottom="minor">
+      <cell>term</cell>
+      <cell right="minor">estimate</cell>
+      <cell>std.error</cell>
+      <cell>statistic</cell>
+      <cell>p.value</cell>
+    </row>
+    <row>
+      <cell>(Intercept)</cell>
+      <cell right="minor">-2.05</cell>
+      <cell>0.06</cell>
+      <cell>-34.67</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>to_multiple1</cell>
+      <cell right="minor">-1.91</cell>
+      <cell>0.30</cell>
+      <cell>-6.37</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>cc</cell>
+      <cell right="minor">0.02</cell>
+      <cell>0.02</cell>
+      <cell>1.16</cell>
+      <cell>0.245</cell>
+    </row>
+    <row>
+      <cell>dollar</cell>
+      <cell right="minor">-0.07</cell>
+      <cell>0.02</cell>
+      <cell>-3.38</cell>
+      <cell>7e-04</cell>
+    </row>
+    <row>
+      <cell>urgent_subj1</cell>
+      <cell right="minor">2.66</cell>
+      <cell>0.80</cell>
+      <cell>3.32</cell>
+      <cell>9e-04</cell>
+    </row>
+  </tabular>
+</table>
 
 <p>Not only does <xref ref="tbl-emaillogmodel" /> provide the estimates for the coefficients, it also provides information on the inference analysis (i.e., hypothesis testing) which is the focus of this chapter.</p>
 
@@ -324,32 +345,32 @@ glm(spam ~ to_multiple + cc + dollar + urgent_subj, data = email, family = "bino
 
 <me>\log_e\bigg(\frac{\hat{p}}{1-\hat{p}}\bigg) =  -2.12 + -1.81 \times \texttt{to_multiple}</me>
 
-<listing xml:id="tbl-emaillogmodel1">
-  <caption>The smaller model. Summary of a logistic model for predicting whether an email is spam based on only the predictor variable to_multiple. Each of the variables has its own coefficient estimate and p-value.</caption>
-  <program language="r">
-    <input>
-#| label: tbl-emaillogmodel1
-#| tbl-cap: |
-#|   The smaller model. Summary of a logistic model for predicting whether an
-#|   email is spam based on only the predictor variable to_multiple. Each of
-#|   the variables has its own coefficient estimate and p-value.
-#| tbl-pos: H
-glm(spam ~ to_multiple, data = email, family = "binomial") |&gt;
-  tidy() |&gt;
-  mutate(p.value = ifelse(p.value &lt; .0001, "&lt;0.0001", round(p.value, 4))) |&gt;
-  kbl(
-    linesep = "", booktabs = TRUE,
-    digits = 2, align = "lrrrr"
-  ) |&gt;
-  kable_styling(
-    bootstrap_options = c("striped", "condensed"),
-    latex_options = c("striped")
-  ) |&gt;
-  column_spec(1, width = "15em", monospace = TRUE) |&gt;
-  column_spec(2:5, width = "5em")
-    </input>
-  </program>
-</listing>
+<table xml:id="tbl-emaillogmodel1">
+  <title>The smaller model. Summary of a logistic model for predicting whether an email is spam based on only the predictor variable to_multiple. Each of the variables has its own coefficient estimate and p-value.</title>
+  <tabular>
+    <row bottom="minor">
+      <cell>term</cell>
+      <cell right="minor">estimate</cell>
+      <cell>std.error</cell>
+      <cell>statistic</cell>
+      <cell>p.value</cell>
+    </row>
+    <row>
+      <cell>(Intercept)</cell>
+      <cell right="minor">-2.12</cell>
+      <cell>0.06</cell>
+      <cell>-37.67</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>to_multiple1</cell>
+      <cell right="minor">-1.81</cell>
+      <cell>0.30</cell>
+      <cell>-6.09</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+  </tabular>
+</table>
 
 <p>For each cross-validated model, the coefficients change slightly, and the model is used to make independent predictions on the holdout sample. The model from the first cross-validation sample is given in <xref ref="fig-emailCV1" /> and can be compared to the coefficients in <xref ref="tbl-emaillogmodel1" />.</p>
 
@@ -358,40 +379,46 @@ glm(spam ~ to_multiple, data = email, family = "binomial") |&gt;
   <image source="images/emailCV1.png" width="90%" />
 </figure>
 
-<listing xml:id="tbl-email-spam">
-  <caption>The smaller model. One quarter at a time, the data were removed from the model building, and whether the email was spam (TRUE) or not (FALSE) was predicted. The logistic regression model was fit independently of the removed emails. Only <c>to_multiple</c> is used to predict whether the email is spam. Because we used a cutoff designed to identify spam emails, the accuracy of the non-spam email predictions is very low. <c>spamTP</c> is the proportion of true spam emails that were predicted to be spam. <c>notspamTP</c> is the proportion of true not spam emails that were predicted to be not spam.</caption>
-  <program language="r">
-    <input>
-#| label: tbl-email-spam
-#| tbl-cap: |
-#|   The smaller model. One quarter at a time, the data were removed from the
-#|   model building, and whether the email was spam (TRUE) or not (FALSE) was
-#|   predicted. The logistic regression model was fit independently of the
-#|   removed emails. Only `to_multiple` is used to predict whether the email is
-#|   spam. Because we used a cutoff designed to identify spam emails, the
-#|   accuracy of the non-spam email predictions is very low. `spamTP` is the
-#|   proportion of true spam emails that were predicted to be spam. `notspamTP`
-#|   is the proportion of true not spam emails that were predicted to be not spam.
-#| tbl-pos: H
-logCV1 |&gt;
-  group_by(fold) |&gt;
-  summarize(
-    count = n(),
-    accuracy = sum(obs == predspam) / n(),
-    notspamTP = sum(obs == 0 &amp; predspam == 0) / sum(obs == 0),
-    spamTP = sum(obs == 1 &amp; predspam == 1) / sum(obs == 1)
-  ) |&gt;
-  kbl(
-    linesep = "", booktabs = TRUE,
-    digits = 2
-  ) |&gt;
-  kable_styling(
-    bootstrap_options = c("striped", "condensed"),
-    latex_options = c("striped"), full_width = FALSE
-  )
-    </input>
-  </program>
-</listing>
+<table xml:id="tbl-email-spam">
+  <title>The smaller model. One quarter at a time, the data were removed from the model building, and whether the email was spam (TRUE) or not (FALSE) was predicted. The logistic regression model was fit independently of the removed emails. Only <c>to_multiple</c> is used to predict whether the email is spam. Because we used a cutoff designed to identify spam emails, the accuracy of the non-spam email predictions is very low. <c>spamTP</c> is the proportion of true spam emails that were predicted to be spam. <c>notspamTP</c> is the proportion of true not spam emails that were predicted to be not spam.</title>
+  <tabular>
+    <row bottom="minor">
+      <cell>fold</cell>
+      <cell right="minor">count</cell>
+      <cell>accuracy</cell>
+      <cell>notspamTP</cell>
+      <cell>spamTP</cell>
+    </row>
+    <row>
+      <cell>1st quarter</cell>
+      <cell right="minor">980</cell>
+      <cell>0.26</cell>
+      <cell>0.19</cell>
+      <cell>0.98</cell>
+    </row>
+    <row>
+      <cell>2nd quarter</cell>
+      <cell right="minor">981</cell>
+      <cell>0.23</cell>
+      <cell>0.15</cell>
+      <cell>0.96</cell>
+    </row>
+    <row>
+      <cell>3rd quarter</cell>
+      <cell right="minor">979</cell>
+      <cell>0.25</cell>
+      <cell>0.18</cell>
+      <cell>0.96</cell>
+    </row>
+    <row>
+      <cell>4th quarter</cell>
+      <cell right="minor">981</cell>
+      <cell>0.24</cell>
+      <cell>0.17</cell>
+      <cell>0.98</cell>
+    </row>
+  </tabular>
+</table>
 
 <p>Because the <c>email</c> dataset has a ratio of roughly 90% non-spam and 10% spam emails, a model which randomly guessed all non-spam would have an overall accuracy of 90%! Clearly, we would like to capture the information with the spam emails, so our interest is in the percent of spam emails which are identified as spam (see <xref ref="tbl-email-spam" />). Additionally, in the logistic regression model, we use a 10% cutoff to predict whether the email is spam. Fortunately, we have done a great job of predicting! However, the trade-off was that most of the non-spam emails are now predicted to be spam which is not acceptable for a prediction algorithm. Adding more variables to the model may help with both the spam and non-spam predictions.</p>
 
@@ -403,33 +430,81 @@ logCV1 |&gt;
 
 <me>\begin{aligned}\log_e\bigg(\frac{\hat{p}}{1-\hat{p}}\bigg) = -0.34 &amp;- 2.56 \times \texttt{to_multiple} + 0.20 \times \texttt{attach} + 1.73 \times \texttt{winner}_{yes} \\&amp;- 1.28 \times \texttt{format} - 2.86 \times \texttt{re_subj} + 0.00 \times \texttt{exclaim_mess} \\&amp;- 1.07 \times \texttt{number}_{small} - 0.42 \times \texttt{number}_{big}\end{aligned}</me>
 
-<listing xml:id="tbl-emaillogmodel2">
-  <caption>The larger model. Summary of a logistic model for predicting whether an email is spam based on the variables <c>to_multiple</c>, <c>attach</c>, <c>winner</c>, <c>format</c>, <c>re_subj</c>, <c>exclaim_mess</c>, and <c>number</c>. Each of the variables has its own coefficient estimate and p-value.</caption>
-  <program language="r">
-    <input>
-#| label: tbl-emaillogmodel2
-#| tbl-cap: |
-#|   The larger model. Summary of a logistic model for predicting whether an
-#|   email is spam based on the variables `to_multiple`, `attach`, `winner`,
-#|   `format`, `re_subj`, `exclaim_mess`, and `number`. Each of the variables
-#|   has its own coefficient estimate and p-value.
-#| tbl-pos: H
-glm(spam ~ to_multiple + attach + winner + format + re_subj + exclaim_mess + number, data = email, family = "binomial") |&gt;
-  tidy() |&gt;
-  mutate(p.value = ifelse(p.value &lt; .0001, "&lt;0.0001", round(p.value, 4))) |&gt;
-  kbl(
-    linesep = "", booktabs = TRUE,
-    digits = 2, align = "lrrrr"
-  ) |&gt;
-  kable_styling(
-    bootstrap_options = c("striped", "condensed"),
-    latex_options = c("striped")
-  ) |&gt;
-  column_spec(1, width = "15em", monospace = TRUE) |&gt;
-  column_spec(2:5, width = "5em")
-    </input>
-  </program>
-</listing>
+<table xml:id="tbl-emaillogmodel2">
+  <title>The larger model. Summary of a logistic model for predicting whether an email is spam based on the variables <c>to_multiple</c>, <c>attach</c>, <c>winner</c>, <c>format</c>, <c>re_subj</c>, <c>exclaim_mess</c>, and <c>number</c>. Each of the variables has its own coefficient estimate and p-value.</title>
+  <tabular>
+    <row bottom="minor">
+      <cell>term</cell>
+      <cell right="minor">estimate</cell>
+      <cell>std.error</cell>
+      <cell>statistic</cell>
+      <cell>p.value</cell>
+    </row>
+    <row>
+      <cell>(Intercept)</cell>
+      <cell right="minor">-0.34</cell>
+      <cell>0.11</cell>
+      <cell>-3.02</cell>
+      <cell>0.0025</cell>
+    </row>
+    <row>
+      <cell>to_multiple1</cell>
+      <cell right="minor">-2.56</cell>
+      <cell>0.31</cell>
+      <cell>-8.28</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>attach</cell>
+      <cell right="minor">0.20</cell>
+      <cell>0.06</cell>
+      <cell>3.29</cell>
+      <cell>0.001</cell>
+    </row>
+    <row>
+      <cell>winneryes</cell>
+      <cell right="minor">1.73</cell>
+      <cell>0.33</cell>
+      <cell>5.33</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>format1</cell>
+      <cell right="minor">-1.28</cell>
+      <cell>0.13</cell>
+      <cell>-9.80</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>re_subj1</cell>
+      <cell right="minor">-2.86</cell>
+      <cell>0.37</cell>
+      <cell>-7.83</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>exclaim_mess</cell>
+      <cell right="minor">0.00</cell>
+      <cell>0.00</cell>
+      <cell>0.26</cell>
+      <cell>0.7925</cell>
+    </row>
+    <row>
+      <cell>numbersmall</cell>
+      <cell right="minor">-1.07</cell>
+      <cell>0.14</cell>
+      <cell>-7.54</cell>
+      <cell>&lt;0.0001</cell>
+    </row>
+    <row>
+      <cell>numberbig</cell>
+      <cell right="minor">-0.42</cell>
+      <cell>0.20</cell>
+      <cell>-2.10</cell>
+      <cell>0.0357</cell>
+    </row>
+  </tabular>
+</table>
 
 <figure xml:id="fig-emailCV2">
   <caption>The larger model. The coefficients are estimated using the least squares model on 3/4 of the dataset with the seven specified predictor variables. Predictions are made on the remaining 1/4 of the observations. Note that the predictions are independent of the estimated model coefficients. The predictions are now much better for both the spam and the non-spam emails (than they were with a single predictor variable).</caption>
@@ -472,40 +547,46 @@ logCV2 &lt;- data.frame(
   </program>
 </listing>
 
-<listing xml:id="tbl-email-spam2">
-  <caption>The larger model. One quarter at a time, the data were removed from the model building, and whether the email was spam (TRUE) or not (FALSE) was predicted. The logistic regression model was fit independently of the removed emails. Now, the variables <c>to_multiple</c>, <c>attach</c>, <c>winner</c>, <c>format</c>, <c>re_subj</c>, <c>exclaim_mess</c>, and <c>number</c> are used to predict whether the email is  spam. <c>spamTP</c> is the proportion of true spam emails that were predicted to be spam. <c>notspamTP</c> is the proportion of true not spam emails that were predicted to be not spam.'</caption>
-  <program language="r">
-    <input>
-#| label: tbl-email-spam2
-#| tbl-cap: |
-#|   The larger model. One quarter at a time, the data were removed from the
-#|   model building, and whether the email was spam (TRUE) or not (FALSE) was
-#|   predicted. The logistic regression model was fit independently of the
-#|   removed emails. Now, the variables `to_multiple`, `attach`, `winner`,
-#|   `format`, `re_subj`, `exclaim_mess`, and `number` are used to predict
-#|   whether the email is  spam. `spamTP` is the proportion of true spam emails
-#|   that were predicted to be spam. `notspamTP` is the proportion of true not
-#|   spam emails that were predicted to be not spam.'
-#| tbl-pos: H
-logCV2 |&gt;
-  group_by(fold) |&gt;
-  summarize(
-    count = n(),
-    accuracy = sum(obs == predspam) / n(),
-    notspamTP = sum(obs == 0 &amp; predspam == 0) / sum(obs == 0),
-    spamTP = sum(obs == 1 &amp; predspam == 1) / sum(obs == 1)
-  ) |&gt;
-  kbl(
-    linesep = "", booktabs = TRUE,
-    digits = 2
-  ) |&gt;
-  kable_styling(
-    bootstrap_options = c("striped", "condensed"),
-    latex_options = c("striped"), full_width = FALSE
-  )
-    </input>
-  </program>
-</listing>
+<table xml:id="tbl-email-spam2">
+  <title>The larger model. One quarter at a time, the data were removed from the model building, and whether the email was spam (TRUE) or not (FALSE) was predicted. The logistic regression model was fit independently of the removed emails. Now, the variables <c>to_multiple</c>, <c>attach</c>, <c>winner</c>, <c>format</c>, <c>re_subj</c>, <c>exclaim_mess</c>, and <c>number</c> are used to predict whether the email is  spam. <c>spamTP</c> is the proportion of true spam emails that were predicted to be spam. <c>notspamTP</c> is the proportion of true not spam emails that were predicted to be not spam.</title>
+  <tabular>
+    <row bottom="minor">
+      <cell>fold</cell>
+      <cell right="minor">count</cell>
+      <cell>accuracy</cell>
+      <cell>notspamTP</cell>
+      <cell>spamTP</cell>
+    </row>
+    <row>
+      <cell>1st quarter</cell>
+      <cell right="minor">980</cell>
+      <cell>0.77</cell>
+      <cell>0.77</cell>
+      <cell>0.71</cell>
+    </row>
+    <row>
+      <cell>2nd quarter</cell>
+      <cell right="minor">981</cell>
+      <cell>0.80</cell>
+      <cell>0.81</cell>
+      <cell>0.70</cell>
+    </row>
+    <row>
+      <cell>3rd quarter</cell>
+      <cell right="minor">979</cell>
+      <cell>0.76</cell>
+      <cell>0.77</cell>
+      <cell>0.65</cell>
+    </row>
+    <row>
+      <cell>4th quarter</cell>
+      <cell right="minor">981</cell>
+      <cell>0.78</cell>
+      <cell>0.79</cell>
+      <cell>0.75</cell>
+    </row>
+  </tabular>
+</table>
 
 <p>Somewhat expected, the larger model (see <xref ref="tbl-email-spam2" />) was able to capture more nuance in the emails which lead to better predictions. However, it is not true that adding variables will always lead to better predictions, as correlated or noise variables may dampen the signal from the set of variables that truly predict the status. We encourage you to learn more about multiple variable models and cross-validation in your future exploration of statistical topics.</p>
 

@@ -1775,6 +1775,7 @@ m_full |&gt;
                 <ul>
                   <li><p>None dropped: 1862.8</p></li>
                   <li><p>Drop <c>to_multiple</c>: 2021.5</p></li>
+                  <li><p>Drop <c>cc</c>: 1862.4</p></li>
                   <li><p>Drop <c>attach</c>: 1871.2</p></li>
                   <li><p>Drop <c>dollar</c>: 1877.8</p></li>
                   <li><p>Drop <c>winner</c>: 1885.2</p></li>

@@ -28,6 +28,53 @@ At the end of the study, 40 of the participants in the patch plus support group 
 The differences in each generational group may be due to chance.
 Complete the following computations under the null hypothesis of independence between an individual's generation and whether they have personally taken action to help address climate change within the last year.
 <xref ref="pewclimatechange2021" /></p>
+
+      <table xml:id="tbl-climate-change-by-generation">
+        <title>Act on climate change by generation.</title>
+        <tgroup cols="4">
+          <thead>
+            <row>
+              <entry>Response</entry>
+              <entry>Yes</entry>
+              <entry>No</entry>
+              <entry>Total</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Gen Z</entry>
+              <entry>292</entry>
+              <entry>620</entry>
+              <entry>912</entry>
+            </row>
+            <row>
+              <entry>Millennial</entry>
+              <entry>885</entry>
+              <entry>2,275</entry>
+              <entry>3,160</entry>
+            </row>
+            <row>
+              <entry>Gen X</entry>
+              <entry>809</entry>
+              <entry>2,709</entry>
+              <entry>3,518</entry>
+            </row>
+            <row>
+              <entry>Boomer &amp; older</entry>
+              <entry>1,276</entry>
+              <entry>4,798</entry>
+              <entry>6,074</entry>
+            </row>
+            <row>
+              <entry>Total</entry>
+              <entry>3,262</entry>
+              <entry>10,402</entry>
+              <entry>13,664</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
       <p>If there is no relationship between age and action,</p>
       <p><ol marker="a.">
         <li><p>how many Gen Z'ers would you expect to have personally taken action to help address climate change within the last year?</p></li>
@@ -42,6 +89,52 @@ Complete the following computations under the null hypothesis of independence be
     <statement>
       <p>In order to assess whether habitat conditions are related to the sunlight choices a lizard makes for resting, Western fence lizard (<em>Sceloporus occidentalis</em>) were observed across three different microhabitats.
 <xref ref="Adolph-1990" /> <xref ref="Asbury-2007" /></p>
+
+      <table xml:id="tbl-lizard-habitats-data">
+        <title>Lizard habitats data.</title>
+        <tgroup cols="5">
+          <thead>
+            <row>
+              <entry>Habitat</entry>
+              <entry>Sun</entry>
+              <entry>Partial sun</entry>
+              <entry>Shade</entry>
+              <entry>Total</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Desert</entry>
+              <entry>16</entry>
+              <entry>32</entry>
+              <entry>71</entry>
+              <entry>119</entry>
+            </row>
+            <row>
+              <entry>Mountain</entry>
+              <entry>56</entry>
+              <entry>36</entry>
+              <entry>15</entry>
+              <entry>107</entry>
+            </row>
+            <row>
+              <entry>Valley</entry>
+              <entry>42</entry>
+              <entry>40</entry>
+              <entry>24</entry>
+              <entry>106</entry>
+            </row>
+            <row>
+              <entry>Total</entry>
+              <entry>114</entry>
+              <entry>108</entry>
+              <entry>110</entry>
+              <entry>332</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
       <p><ol marker="a.">
         <li><p>If the variables describing the habitat and the amount of sunlight are independent, what proportion of lizards (total) would be expected in each of the three sunlight categories?</p></li>
         <li><p>Given the proportions of each sunlight condition, how many lizards of each type would you expect to see in the sun?
@@ -60,6 +153,47 @@ From a first glance, does it seem as though the habitat and choice of sunlight m
 A recent study disaggregated tobacco use across Asian American ethnic groups including Asian-Indian (n = 4,373), Chinese (n = 4,736), and Filipino (n = 4,912), in comparison to non-Hispanic Whites (n = 275,025).
 The number of current smokers in each group was reported as Asian-Indian (n = 223), Chinese (n = 279), Filipino (n = 609), and non-Hispanic Whites (n = 50,880).
 <xref ref="Rao-2021" /></p>
+
+      <table xml:id="tbl-asian-american-tobacco-data">
+        <title>Disaggregating Asian American tobacco use data.</title>
+        <tgroup cols="4">
+          <thead>
+            <row>
+              <entry>Ethnicity</entry>
+              <entry>Non-smoking</entry>
+              <entry>Smoking</entry>
+              <entry>Total</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Asian-Indian</entry>
+              <entry>4,150</entry>
+              <entry>223</entry>
+              <entry>4,373</entry>
+            </row>
+            <row>
+              <entry>Chinese</entry>
+              <entry>4,457</entry>
+              <entry>279</entry>
+              <entry>4,736</entry>
+            </row>
+            <row>
+              <entry>Filipino</entry>
+              <entry>4,303</entry>
+              <entry>609</entry>
+              <entry>4,912</entry>
+            </row>
+            <row>
+              <entry>Total</entry>
+              <entry>12,910</entry>
+              <entry>1,111</entry>
+              <entry>14,021</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
       <p>In order to assess whether there is a difference in current smoking rates across three Asian American ethnic groups, the observed data is compared to the data that would be expected if there were no association between the variables.</p>
       <p><ol marker="a.">
         <li><p>If the variables on ethnicity and smoking status are independent, estimate the proportion of individuals (total) who smoke?</p></li>
@@ -77,6 +211,101 @@ From a first glance, does it seem as though the Asian American ethnicity and cho
 <xref ref="Adolph-1990" /> <xref ref="Asbury-2007" />
 Then, the data were randomized once, where sunlight preference was randomly assigned to the lizards across different sites.
 The original data are shown on the left and the results of the randomization is shown on the right.</p>
+
+      <p><em>Original data (same as in exercise 3)</em></p>
+
+      <table xml:id="tbl-lizard-habitats-original">
+        <title>Lizard habitats, original data.</title>
+        <tgroup cols="5">
+          <thead>
+            <row>
+              <entry>Habitat</entry>
+              <entry>Sun</entry>
+              <entry>Partial sun</entry>
+              <entry>Shade</entry>
+              <entry>Total</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Desert</entry>
+              <entry>16</entry>
+              <entry>32</entry>
+              <entry>71</entry>
+              <entry>119</entry>
+            </row>
+            <row>
+              <entry>Mountain</entry>
+              <entry>56</entry>
+              <entry>36</entry>
+              <entry>15</entry>
+              <entry>107</entry>
+            </row>
+            <row>
+              <entry>Valley</entry>
+              <entry>42</entry>
+              <entry>40</entry>
+              <entry>24</entry>
+              <entry>106</entry>
+            </row>
+            <row>
+              <entry>Total</entry>
+              <entry>114</entry>
+              <entry>108</entry>
+              <entry>110</entry>
+              <entry>332</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <p><em>Randomized data</em></p>
+
+      <table xml:id="tbl-lizard-habitats-randomized">
+        <title>Lizard habitats, randomized once.</title>
+        <tgroup cols="5">
+          <thead>
+            <row>
+              <entry>Habitat</entry>
+              <entry>Sun</entry>
+              <entry>Partial sun</entry>
+              <entry>Shade</entry>
+              <entry>Total</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Desert</entry>
+              <entry>40</entry>
+              <entry>39</entry>
+              <entry>40</entry>
+              <entry>119</entry>
+            </row>
+            <row>
+              <entry>Mountain</entry>
+              <entry>39</entry>
+              <entry>33</entry>
+              <entry>35</entry>
+              <entry>107</entry>
+            </row>
+            <row>
+              <entry>Valley</entry>
+              <entry>35</entry>
+              <entry>36</entry>
+              <entry>35</entry>
+              <entry>106</entry>
+            </row>
+            <row>
+              <entry>Total</entry>
+              <entry>114</entry>
+              <entry>108</entry>
+              <entry>110</entry>
+              <entry>332</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
       <p>Recall that the Chi-squared statistic <m>(X^2)</m> measures the difference between the expected and observed counts.
 Without calculating the actual statistic, report on whether the original data or the randomized data will have a larger Chi-squared statistic.
 Explain your choice.</p>
@@ -89,6 +318,91 @@ Explain your choice.</p>
 <xref ref="Rao-2021" />
 Then, the data were randomized once, where smoking status was randomly assigned to the participants across different ethnicities.
 The original data are shown on the left and the results of the randomization is shown on the right.</p>
+
+      <p><em>Original data</em></p>
+
+      <table xml:id="tbl-asian-tobacco-original">
+        <title>Asian American tobacco use, original data.</title>
+        <tgroup cols="4">
+          <thead>
+            <row>
+              <entry>Ethnicity</entry>
+              <entry>Non-smoking</entry>
+              <entry>Smoking</entry>
+              <entry>Total</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Asian-Indian</entry>
+              <entry>4,150</entry>
+              <entry>223</entry>
+              <entry>4,373</entry>
+            </row>
+            <row>
+              <entry>Chinese</entry>
+              <entry>4,457</entry>
+              <entry>279</entry>
+              <entry>4,736</entry>
+            </row>
+            <row>
+              <entry>Filipino</entry>
+              <entry>4,303</entry>
+              <entry>609</entry>
+              <entry>4,912</entry>
+            </row>
+            <row>
+              <entry>Total</entry>
+              <entry>12,910</entry>
+              <entry>1,111</entry>
+              <entry>14,021</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <p><em>Randomized data</em></p>
+
+      <table xml:id="tbl-asian-tobacco-randomized">
+        <title>Asian American tobacco use, randomized once.</title>
+        <tgroup cols="4">
+          <thead>
+            <row>
+              <entry>Ethnicity</entry>
+              <entry>Non-smoking</entry>
+              <entry>Smoking</entry>
+              <entry>Total</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Asian-Indian</entry>
+              <entry>4,015</entry>
+              <entry>358</entry>
+              <entry>4,373</entry>
+            </row>
+            <row>
+              <entry>Chinese</entry>
+              <entry>4,385</entry>
+              <entry>351</entry>
+              <entry>4,736</entry>
+            </row>
+            <row>
+              <entry>Filipino</entry>
+              <entry>4,510</entry>
+              <entry>402</entry>
+              <entry>4,912</entry>
+            </row>
+            <row>
+              <entry>Total</entry>
+              <entry>12,910</entry>
+              <entry>1,111</entry>
+              <entry>14,021</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
       <p>Recall that the Chi-squared statistic <m>(X^2)</m> measures the difference between the expected and observed counts.
 Without calculating the actual statistic, report on whether the original data or the randomized data will have a larger Chi-squared statistic.
 Explain your choice.</p>
@@ -100,6 +414,12 @@ Explain your choice.</p>
       <p>In order to assess whether habitat conditions are related to the sunlight choices a lizard makes for resting, Western fence lizard (<em>Sceloporus occidentalis</em>) were observed across three different microhabitats.
 <xref ref="Adolph-1990" /> <xref ref="Asbury-2007" />
 The original data were randomized 1,000 times (sunlight variable randomly assigned to the observations across different habitats), and the histogram of the Chi-squared statistic on each randomization is displayed.</p>
+
+      <figure xml:id="fig-lizard-randomization-test">
+        <caption>Histogram of 1,000 randomized Chi-squared statistics for lizard habitat data.</caption>
+        <image source="images/18-ex-inference-tables/lizard-randomization-test.png" width="80%" />
+      </figure>
+
       <p><ol marker="a.">
         <li><p>The histogram above describes the Chi-squared statistics for 1,000 different randomization datasets.
 When randomizing the data, is the imposed structure that the variables are independent or that the variables are associated?
@@ -119,6 +439,12 @@ A recent study disaggregated tobacco use across Asian American ethnic groups inc
 The number of current smokers in each group was reported as Asian-Indian (n = 223), Chinese (n = 279), Filipino (n = 609), and non-Hispanic Whites (n = 50,880).
 <xref ref="Rao-2021" />
 The original data were randomized 1000 times (smoking status randomly assigned to the observations across ethnicities), and the histogram of the Chi-squared statistic on each randomization is displayed.</p>
+
+      <figure xml:id="fig-asian-tobacco-randomization-test">
+        <caption>Histogram of 1,000 randomized Chi-squared statistics for Asian American tobacco use data.</caption>
+        <image source="images/18-ex-inference-tables/asian-tobacco-randomization-test.png" width="80%" />
+      </figure>
+
       <p><ol marker="a.">
         <li><p>The histogram above describes the Chi-squared statistics for 1000 different randomization datasets.
 When randomizing the data, is the imposed structure that the variables are independent or that the variables are associated?
@@ -137,7 +463,59 @@ To answer the question, state the null and alternative hypotheses, approximate t
 <xref ref="Adolph-1990" /> <xref ref="Asbury-2007" /></p>
       <p>Consider the situation where the dataset is 5 times <em>larger</em> than the original data (but have the same proportional representation in each category).
 The distribution of lizards in each of the sites resting in the sun, partial sun, and shade are as follows.</p>
+
+      <table xml:id="tbl-lizard-habitats-larger">
+        <title>Lizard habitats, larger data.</title>
+        <tgroup cols="5">
+          <thead>
+            <row>
+              <entry>Habitat</entry>
+              <entry>Sun</entry>
+              <entry>Partial sun</entry>
+              <entry>Shade</entry>
+              <entry>Total</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Desert</entry>
+              <entry>80</entry>
+              <entry>160</entry>
+              <entry>355</entry>
+              <entry>595</entry>
+            </row>
+            <row>
+              <entry>Mountain</entry>
+              <entry>280</entry>
+              <entry>180</entry>
+              <entry>75</entry>
+              <entry>535</entry>
+            </row>
+            <row>
+              <entry>Valley</entry>
+              <entry>210</entry>
+              <entry>200</entry>
+              <entry>120</entry>
+              <entry>530</entry>
+            </row>
+            <row>
+              <entry>Total</entry>
+              <entry>570</entry>
+              <entry>540</entry>
+              <entry>550</entry>
+              <entry>1,660</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
       <p>The larger dataset was randomized 1,000 times (sunlight preference randomly assigned to the observations across sites), and the histogram of the Chi-squared statistic on each randomization is displayed.</p>
+
+      <figure xml:id="fig-lizard-larger-data-randomization">
+        <caption>Histogram of 1,000 randomized Chi-squared statistics for larger lizard habitat dataset.</caption>
+        <image source="images/18-ex-inference-tables/lizard-larger-data-randomization.png" width="80%" />
+      </figure>
+
       <p><ol marker="a.">
         <li><p>The histogram above describes the Chi-squared statistics for 1,000 different randomization of the larger dataset.
 When randomizing the data, is the imposed structure that the variables are independent or that the variables are associated?
@@ -158,7 +536,54 @@ To answer the question, state the null and alternative hypotheses, approximate t
 A recent study disaggregated tobacco use across Asian American ethnic groups. <xref ref="Rao-2021" /></p>
       <p>Consider the situation where the dataset is 50 times <em>smaller</em> than the original data (but have the same proportional representation in each category).
 The distribution of smokers in each of the ethnicity groups in the smaller data are as follows.</p>
+
+      <table xml:id="tbl-asian-tobacco-smaller">
+        <title>Asian American tobacco use, smaller data.</title>
+        <tgroup cols="4">
+          <thead>
+            <row>
+              <entry>Ethnicity</entry>
+              <entry>Non-smoking</entry>
+              <entry>Smoking</entry>
+              <entry>Total</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Asian-Indian</entry>
+              <entry>83</entry>
+              <entry>4</entry>
+              <entry>87</entry>
+            </row>
+            <row>
+              <entry>Chinese</entry>
+              <entry>89</entry>
+              <entry>6</entry>
+              <entry>95</entry>
+            </row>
+            <row>
+              <entry>Filipino</entry>
+              <entry>86</entry>
+              <entry>12</entry>
+              <entry>98</entry>
+            </row>
+            <row>
+              <entry>Total</entry>
+              <entry>258</entry>
+              <entry>22</entry>
+              <entry>280</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
       <p>The smaller dataset was randomized 1,000 times (smoking status randomly assigned to the observations across ethnicities), and the histogram of the Chi-squared statistic on each randomization is displayed.</p>
+
+      <figure xml:id="fig-asian-tobacco-smaller-data-randomization">
+        <caption>Histogram of 1,000 randomized Chi-squared statistics for smaller Asian American tobacco use dataset.</caption>
+        <image source="images/18-ex-inference-tables/asian-tobacco-smaller-data-randomization.png" width="80%" />
+      </figure>
+
       <p><ol marker="a.">
         <li><p>The histogram above describes the Chi-squared statistics for 1,000 different randomization of the smaller dataset.
 When randomizing the data, is the imposed structure that the variables are independent or that the variables are associated?
@@ -205,6 +630,44 @@ For each false statement, suggest an alternative wording to make it a true state
 <xref ref="data-sleepTransport" />
 The results of the survey are shown below.
 Conduct a hypothesis test to evaluate if these data provide evidence of an association between sleep levels and profession.</p>
+
+      <table xml:id="tbl-sleep-deprived-transportation">
+        <title>Sleep deprived transportation workers.</title>
+        <tgroup cols="5">
+          <thead>
+            <row>
+              <entry>Profession</entry>
+              <entry>Less than 6 hours</entry>
+              <entry>6 to 8 hours</entry>
+              <entry>More than 8 hours</entry>
+              <entry>Total</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Non-transportation workers</entry>
+              <entry>35</entry>
+              <entry>193</entry>
+              <entry>64</entry>
+              <entry>292</entry>
+            </row>
+            <row>
+              <entry>Transportation workers</entry>
+              <entry>104</entry>
+              <entry>499</entry>
+              <entry>192</entry>
+              <entry>795</entry>
+            </row>
+            <row>
+              <entry>Total</entry>
+              <entry>139</entry>
+              <entry>692</entry>
+              <entry>256</entry>
+              <entry>1,087</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
     </statement>
   </exercise>
   <exercise>
@@ -214,6 +677,47 @@ Conduct a hypothesis test to evaluate if these data provide evidence of an assoc
 Complications of the disease can lead to extreme swelling and other complications.
 Here we consider results from a randomized experiment that compared three different drug treatment options to clear people of the this parasite, which people are working to eliminate entirely.
 The results for the second year of the study are given below: <xref ref="KingSuamani2018" /></p>
+
+      <table xml:id="tbl-parasitic-worm">
+        <title>Parasitic worm treatment outcomes.</title>
+        <tgroup cols="4">
+          <thead>
+            <row>
+              <entry>Treatment</entry>
+              <entry>Clear at Year 2</entry>
+              <entry>Not clear at Year 2</entry>
+              <entry>Total</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Three drugs</entry>
+              <entry>52</entry>
+              <entry>2</entry>
+              <entry>54</entry>
+            </row>
+            <row>
+              <entry>Two drugs</entry>
+              <entry>31</entry>
+              <entry>24</entry>
+              <entry>55</entry>
+            </row>
+            <row>
+              <entry>Two drugs annually</entry>
+              <entry>42</entry>
+              <entry>14</entry>
+              <entry>56</entry>
+            </row>
+            <row>
+              <entry>Total</entry>
+              <entry>125</entry>
+              <entry>40</entry>
+              <entry>165</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
       <p><ol marker="a.">
         <li><p>Set up hypotheses for evaluating whether there is any difference in the performance of the treatments, and also check conditions.</p></li>
         <li><p>Statistical software was used to run a Chi-square test, which output: <m>X^2 = 23.7 \quad df = 2 \quad \text{p-value} &lt; 0.0001</m>.
@@ -226,6 +730,87 @@ Use these results to evaluate the hypotheses from part (a), and provide a concl
     <statement>
       <p>A local news survey asked 500 randomly sampled Los Angeles residents which shipping carrier they prefer to use for shipping holiday gifts.
 The table below shows the distribution of responses by age group as well as the expected counts for each cell (shown in italics).</p>
+
+      <table xml:id="tbl-shipping-holiday-gifts">
+        <title>Shipping holiday gifts by age group.</title>
+        <tgroup cols="8">
+          <thead>
+            <row>
+              <entry>Shipping Carrier</entry>
+              <entry>18-34</entry>
+              <entry>35-44</entry>
+              <entry>45-54</entry>
+              <entry>55-64</entry>
+              <entry>65+</entry>
+              <entry>Not sure</entry>
+              <entry>Total</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>USPS</entry>
+              <entry>72</entry>
+              <entry>81</entry>
+              <entry>97</entry>
+              <entry>102</entry>
+              <entry>76</entry>
+              <entry>62</entry>
+              <entry>245</entry>
+            </row>
+            <row>
+              <entry>UPS</entry>
+              <entry>52</entry>
+              <entry>53</entry>
+              <entry>76</entry>
+              <entry>68</entry>
+              <entry>34</entry>
+              <entry>41</entry>
+              <entry>162</entry>
+            </row>
+            <row>
+              <entry>FedEx</entry>
+              <entry>31</entry>
+              <entry>21</entry>
+              <entry>24</entry>
+              <entry>27</entry>
+              <entry>9</entry>
+              <entry>16</entry>
+              <entry>64</entry>
+            </row>
+            <row>
+              <entry>Something else</entry>
+              <entry>7</entry>
+              <entry>5</entry>
+              <entry>6</entry>
+              <entry>7</entry>
+              <entry>3</entry>
+              <entry>4</entry>
+              <entry>16</entry>
+            </row>
+            <row>
+              <entry>Not sure</entry>
+              <entry>3</entry>
+              <entry>5</entry>
+              <entry>6</entry>
+              <entry>5</entry>
+              <entry>4</entry>
+              <entry>3</entry>
+              <entry>13</entry>
+            </row>
+            <row>
+              <entry>Total</entry>
+              <entry>165</entry>
+              <entry></entry>
+              <entry>209</entry>
+              <entry></entry>
+              <entry>126</entry>
+              <entry></entry>
+              <entry>500</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
       <p><ol marker="a.">
         <li><p>State the null and alternative hypotheses for testing for independence of age and preferred shipping method for holiday gifts among Los Angeles residents.</p></li>
         <li><p>Are the conditions for inference using a Chi-square test satisfied?</p></li>
@@ -240,6 +825,53 @@ They collected data on 50,739 women free of depression symptoms at the start of 
 The researchers used questionnaires to collect data on caffeinated coffee consumption, asked each individual about physician- diagnosed depression, and also asked about the use of antidepressants.
 The table below shows the distribution of incidences of depression by amount of caffeinated coffee consumption.
 <xref ref="Lucas-2011" /></p>
+
+      <table xml:id="tbl-coffee-depression">
+        <title>Coffee and depression.</title>
+        <tgroup cols="7">
+          <thead>
+            <row>
+              <entry>Caffeinated coffee consumption</entry>
+              <entry>&lt;/= 1 cup/week</entry>
+              <entry>2-6 cups/week</entry>
+              <entry>1 cup/day</entry>
+              <entry>2-3 cups/day</entry>
+              <entry>&gt;= 4 cups/day</entry>
+              <entry>Total</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>Yes (clinical depression)</entry>
+              <entry>670</entry>
+              <entry>373</entry>
+              <entry>905</entry>
+              <entry>564</entry>
+              <entry>95</entry>
+              <entry>2,607</entry>
+            </row>
+            <row>
+              <entry>No</entry>
+              <entry>11,545</entry>
+              <entry>6,244</entry>
+              <entry>16,329</entry>
+              <entry>11,726</entry>
+              <entry>2,288</entry>
+              <entry>48,132</entry>
+            </row>
+            <row>
+              <entry>Total</entry>
+              <entry>12,215</entry>
+              <entry>6,617</entry>
+              <entry>17,234</entry>
+              <entry>12,290</entry>
+              <entry>2,383</entry>
+              <entry>50,739</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
       <p><ol marker="a.">
         <li><p>What type of test is appropriate for evaluating if there is an association between coffee intake and depression?</p></li>
         <li><p>Write the hypotheses for the test you identified in part (a).</p></li>

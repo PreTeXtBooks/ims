@@ -462,9 +462,10 @@ x_{50} - \bar{x} \amp= 6.08 - 11.57 = -5.49
 
 <p>Like the mean, the population values for variance and standard deviation have special symbols: <m>\sigma^2</m> for the variance and <m>\sigma</m> for the standard deviation.</p>
 
-<p>:::</p>
-
-<p>:::</p>
+<figure xml:id="fig-sdRuleForIntRate">
+  <caption>For the interest rate variable, 34 of the 50 loans (68%) had interest rates within 1 standard deviation of the mean, and 48 of the 50 loans (96%) had rates within 2 standard deviations. Usually about 68% of the data are within 1 standard deviation of the mean and 95% within 2 standard deviations, though this is far from a hard rule. See also <xref ref="fig-severalDiffDistWithSdOf1" /> for more examples of how the empirical rule applies to different distribution shapes.</caption>
+  <image source="images/sdRuleForIntRate-1.png" width="70%" />
+</figure>
 
 <exercise>
   <statement>
@@ -563,7 +564,7 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
   </sidebyside>
 </figure>
 
-<p>The dark line inside the box represents the <alert>median</alert>, which splits the data in half. 50% of the data fall below this value and 50% fall above it. Since in the <c>loan50</c> dataset there are 50 observations (an even number), the median is defined as the average of the two observations closest to the <m>50^{th}</m> percentile. <xref ref="tbl-loan50-int-rate-sorted" /> shows all interest rates, arranged in ascending order. We can see that the <m>25^{th}</m> and the <m>26^{th}</m> values are both <c>r sort(loan50$interest_rate)[25]</c>, which corresponds to the thick line in  <xref ref="fig-loan-int-rate-boxplot-dotplot-2" />.</p>
+<p>The dark line inside the box represents the <alert>median</alert>, which splits the data in half. 50% of the data fall below this value and 50% fall above it. Since in the <c>loan50</c> dataset there are 50 observations (an even number), the median is defined as the average of the two observations closest to the <m>50^{th}</m> percentile. <xref ref="tbl-loan50-int-rate-sorted" /> shows all interest rates, arranged in ascending order. We can see that the <m>25^{th}</m> and the <m>26^{th}</m> values are both 10.90, which corresponds to the thick line in  <xref ref="fig-loan-int-rate-boxplot-dotplot-2" />.</p>
 
 <table xml:id="tbl-loan50-int-rate-sorted">
   <title>Interest rates from the <c>loan50</c> dataset, arranged in ascending order.</title>
@@ -676,12 +677,11 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
 
 <assemblage>
   <title>Outliers are extreme</title>
-  <p>An <alert>outlier</alert> is an observation that appears extreme relative to the rest of the data. Examining data for outliers serves many useful purposes, including:</p>
-  <ul>
-    <li><p>identifying strong skew in the distribution,</p></li>
-    <li><p>identifying possible data collection or data entry errors, and</p></li>
-    <li><p>providing insight into interesting properties of the data.</p></li>
-  </ul>
+  <p>An <alert>outlier</alert> is an observation that appears extreme relative to the rest of the data. Examining data for outliers serves many useful purposes, including:<ul>
+    <li>identifying strong skew in the distribution,</li>
+    <li>identifying possible data collection or data entry errors, and</li>
+    <li>providing insight into interesting properties of the data.</li>
+  </ul></p>
   <p>Keep in mind, however, that some datasets have a naturally long skew and outlying points do <alert>not</alert> represent any sort of problem in the dataset.</p>
 </assemblage>
 

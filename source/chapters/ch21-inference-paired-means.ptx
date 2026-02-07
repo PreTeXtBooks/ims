@@ -4,17 +4,14 @@
 <title>Inference for comparing paired means</title>
 
 <introduction>
-  <p>In <xref ref="ch20-inference-two-independent-means" /> analysis was done to compare the average population value across two different groups.</p>
-  <p>Recall that one of the important conditions in doing a two-sample analysis is that the two groups are independent.</p>
-  <p>Here, independence across groups means that knowledge of the observations in one group does not change what we would expect to happen in the other group.</p>
-  <p>But what happens if the groups are <term>dependent</term>?</p>
-  <p>Sometimes dependency is not something that can be addressed through a statistical method.</p>
-  <p>However, a particular dependency, <term>pairing</term>, can be modeled quite effectively using many of the same tools we have already covered in this text.</p>
-</introduction>
-
+  <p>In <xref ref="ch20-inference-two-independent-means" /> analysis was done to compare the average population value across two different groups.
+Recall that one of the important conditions in doing a two-sample analysis is that the two groups are independent.
+Here, independence across groups means that knowledge of the observations in one group does not change what we would expect to happen in the other group.
+But what happens if the groups are <term>dependent</term>?
+Sometimes dependency is not something that can be addressed through a statistical method.
+However, a particular dependency, <term>pairing</term>, can be modeled quite effectively using many of the same tools we have already covered in this text.</p>
 
 <p>Paired data represent a particular type of experimental structure where the analysis is somewhat akin to a one-sample analysis (see <xref ref="ch19-inference-single-mean" />) but has other features that resemble a two-sample analysis (see <xref ref="ch20-inference-two-independent-means" />). As with a two-sample analysis, quantitative measurements are made on each of two different levels of the explanatory variable. However, because the observational unit is <term>paired</term> across the two groups, the two measurements are subtracted such that only the difference is retained. <xref ref="tbl-pairedexamples" /> presents some examples of studies where paired designs were implemented.</p>
-
 
 <table xml:id="tbl-pairedexamples">
   <title>Examples of studies where a paired design is used to measure the difference in the measurement over two conditions.</title>
@@ -48,15 +45,13 @@ paired_study_examples |&gt;
 </listing>
 
 
-<note>
+<assemblage>
   <title><term>Paired data.</term></title>
   <p>Two sets of observations are <em>paired</em> if each observation in one set has a special correspondence or connection with exactly one observation in the other dataset.</p>
-</note>
-
-
+</assemblage>
 <p>It is worth noting that if mathematical modeling is chosen as the analysis tool, paired data inference on the difference in measurements will be identical to the one-sample mathematical techniques described in <xref ref="ch19-inference-single-mean" />. However, recall from <xref ref="ch19-inference-single-mean" /> that with pure one-sample data, the computational tools for hypothesis testing are not easy to implement and were not presented (although the bootstrap was presented as a computational approach for constructing a one sample confidence interval). With paired data, the randomization test fits nicely with the structure of the experiment and is presented here.</p>
 
-
+</introduction>
 
 <section>
   <title>Randomization test for the mean paired difference</title>
@@ -531,22 +526,6 @@ ggplot(
 
 <p>By repeating the randomization process, we can create a distribution of the average of the differences in tire treads, as seen in <xref ref="fig-pair-randomize" />. As expected (because the differences were generated under the null hypothesis), the center of the histogram is zero. A line has been drawn at the observed difference which is well outside the majority of the null differences simulated from natural variability by mixing up which the tire received Smooth Turn and which received Quick Spin. Because the observed statistic is so far away from the natural variability of the randomized differences, we are convinced that there is a difference between Smooth Turn and Quick Spin. Our conclusion is that the extra amount of average tire tread in Smooth Turn is due to more than just natural variability: we reject <m>H_0</m> and conclude that <m>\mu_{ST} \ne \mu_{QS}.</m></p>
 
-
-<figure xml:id="fig-pairrandfull">
-  <caption>process of randomizing across pairs.</caption>
-  <image source="images/fig-pairrandfull-1.png" width="70%" />
-</figure>
-
-<listing xml:id="fig-pairrandfull-code">
-  <caption>R code for fig-pairrandfull</caption>
-  <program language="r">
-    <input>
-include_graphics("images/pairrandfull.png")
-    </input>
-  </program>
-</listing>
-
-
 <figure xml:id="fig-pair-randomize">
   <caption>Histogram of 1,000 mean differences with tire brand randomly assigned across the two tread measurements (in cm) per pair.</caption>
   <image source="images/fig-pair-randomize-1.png" width="70%" />
@@ -591,13 +570,7 @@ ggplot(tires_shuffled, aes(x = stat)) +
 <section>
   <title>Bootstrap confidence interval for the mean paired difference</title>
 
-
 <p>For both the bootstrap and the mathematical models applied to paired data, the analysis is virtually identical to the one-sample approach given in <xref ref="ch19-inference-single-mean" />. The key to working with paired data (for bootstrapping and mathematical approaches) is to consider the measurement of interest to be the difference in measured values across the pair of observations.</p>
-
-
-<p>\index{bootstrap!CI paired difference}\index{bootstrap CI paired difference}</p>
-
-
 
 <subsection>
   <title>Observed data</title>
@@ -674,10 +647,6 @@ ucla_textbooks_f18 |&gt;
   </program>
 </listing>
 
-
-<p>\index{paired data}</p>
-
-
 <p>Each textbook has two corresponding prices in the dataset: one for the UCLA Bookstore and one for Amazon. When two sets of observations have this special correspondence, they are said to be <term>paired</term>.</p>
 
 
@@ -695,8 +664,9 @@ ucla_textbooks_f18 |&gt;
 
 
 <exercise>
-  <title>Using the histogram of bootstrapped difference in means, estimate the standard error of the mean of the sample differences, <m>\bar{x}_{diff}.</m></title>
+  <title>Checkpoint</title>
   <statement>
+<p>Using the histogram of bootstrapped difference in means, estimate the standard error of the mean of the sample differences, <m>\bar{x}_{diff}.</m></p>
     <p>Using the histogram of bootstrapped difference in means, estimate the standard error of the mean of the sample differences, <m>\bar{x}_{diff}.</m></p>
   </statement>
   <solution>
@@ -882,15 +852,15 @@ ucla_textbooks_f18 |&gt;
 <p>As mentioned previously, the methods applied to a difference will be identical to the one-sample techniques. Therefore, the full hypothesis test framework is presented as guided practices.</p>
 
 
-<note>
+<assemblage>
   <title><term>The test statistic for assessing a paired mean is a T.</term></title>
   <p>The T score is a ratio of how the sample mean difference varies from zero as compared to how the observations vary.</p>
-  <p>$<m>T = \frac{\bar{x}_{diff} - 0 }{s_{diff}/\sqrt{n_{diff}}}</m>$</p>
+  <p><m>T = \frac{\bar{x}_{diff} - 0 }{s_{diff}/\sqrt{n_{diff}}}</m></p>
   <p>When the null hypothesis is true and the conditions are met, T has a t-distribution with <m>df = n_{diff} - 1.</m></p>
   <p>Conditions:</p>
   <p>-   Independently sampled pairs.</p>
   <p>-   Large samples and no extreme outliers.</p>
-</note>
+</assemblage>
 
 
 
@@ -914,14 +884,10 @@ ucla_textbooks_f18 |&gt;
 <p>Recall that the margin of error is defined by the standard error. The margin of error for <m>\bar{x}_{diff}</m> can be directly obtained from <m>SE(\bar{x}_{diff}).</m></p>
 
 
-<note>
+<assemblage>
   <p><term>Margin of error for</term> <m>\bar{x}_{diff}.</m></p>
   <p>The margin of error is <m>t^\star_{df} \times s_{diff}/\sqrt{n_{diff}}</m> where <m>t^\star_{df}</m> is calculated from a specified percentile on the t-distribution with <em>df</em> degrees of freedom.</p>
-</note>
-
-
-<p>\index{t-CI!paired difference}</p>
-
+</assemblage>
 
 <example>
   <p>Create a 95% confidence interval for the average price difference between books at the UCLA bookstore and books on Amazon.</p>
@@ -940,9 +906,9 @@ ucla_textbooks_f18 |&gt;
 
 
 <exercise>
-  <title>We have convincing evidence that Amazon is, on average, less expensive.</title>
+  <title></title>
   <statement>
-    <p>How should this conclusion affect UCLA student buying habits?</p>
+    <p>We have convincing evidence that Amazon is, on average, less expensive. How should this conclusion affect UCLA student buying habits?</p>
     <p>Should UCLA students always buy their books on Amazon?</p>
   </statement>
   <solution>

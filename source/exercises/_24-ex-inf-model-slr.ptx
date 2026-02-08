@@ -324,7 +324,7 @@
     <title>Murders and poverty, mathematical test</title>
     <statement>
       <p>The table below shows the output of a linear model annual murders per million (<c>annual_murders_per_mil</c>) from percentage living in poverty (<c>perc_pov</c>) in a random sample of 20 metropolitan areas.</p>
-<table xml:id="tbl-reg-perc_pov-2">
+<table xml:id="tbl-reg-perc_pov-2-1">
   <title>Regression output for predicting outcome from perc_pov</title>
   <tabular halign="left">
     <row header="yes" bottom="medium">

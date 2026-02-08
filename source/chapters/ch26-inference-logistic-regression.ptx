@@ -16,47 +16,71 @@
   <p>The <url href="http://openintrostat.github.io/openintro/reference/email.html"><c>email</c></url> data can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</p>
 </note>
 
-<listing xml:id="code-resume-variables">
-  <caption>Variables and their descriptions for the <c>email</c> dataset. Many of the variables are indicator variables, meaning they take the value 1 if the specified characteristic is present and 0 otherwise.</caption>
-  <program language="r">
-    <input>
-#| label: code-resume-variables
-#| tbl-cap: |
-#|   Variables and their descriptions for the `email` dataset. Many of the
-#|   variables are indicator variables, meaning they take the value 1 if the
-#|   specified characteristic is present and 0 otherwise.
-email_variables &lt;- tribble(
-  ~variable, ~description,
-  "spam", "Indicator for whether the email was spam.",
-  "to_multiple", "Indicator for whether the email was addressed to more than one recipient.",
-  "from", "Whether the message was listed as from anyone (this is usually set by default for regular outgoing email).",
-  "cc", "Number of people cc'ed.",
-  "sent_email", "Indicator for whether the sender had been sent an email in the last 30 days.",
-  "attach", "The number of attached files.",
-  "dollar", "The number of times a dollar sign or the word “dollar” appeared in the email.",
-  "winner", "Indicates whether “winner” appeared in the email.",
-  "format", "Indicates whether the email was written using HTML (e.g., may have included bolding or active links).",
-  "re_subj", "Whether the subject started with “Re:”, “RE:”, “re:”, or “rE:”",
-  "exclaim_subj", "Whether there was an exclamation point in the subject.",
-  "urgent_subj", "Whether the word “urgent” was in the email subject.",
-  "exclaim_mess", "The number of exclamation points in the email message.",
-  "number", "Factor variable saying whether there was no number, a small number (under 1 million), or a big number."
-)
-
-email_variables |&gt;
-  kbl(
-    linesep = "", booktabs = TRUE,
-    col.names = c("Variable", "Description")
-  ) |&gt;
-  kable_styling(
-    bootstrap_options = c("striped", "condensed"),
-    latex_options = c("striped"), full_width = TRUE
-  ) |&gt;
-  column_spec(1, monospace = TRUE) |&gt;
-  column_spec(2, width = "30em")
-    </input>
-  </program>
-</listing>
+<table xml:id="tbl-resume-variables">
+  <title>Variables and their descriptions for the <c>email</c> dataset. Many of the variables are indicator variables, meaning they take the value 1 if the specified characteristic is present and 0 otherwise.</title>
+  <tabular halign="left">
+    <row header="yes" bottom="medium">
+      <cell>Variable</cell>
+      <cell>Description</cell>
+    </row>
+    <row>
+      <cell>spam</cell>
+      <cell>Indicator for whether the email was spam.</cell>
+    </row>
+    <row>
+      <cell>to_multiple</cell>
+      <cell>Indicator for whether the email was addressed to more than one recipient.</cell>
+    </row>
+    <row>
+      <cell>from</cell>
+      <cell>Whether the message was listed as from anyone (this is usually set by default for regular outgoing email).</cell>
+    </row>
+    <row>
+      <cell>cc</cell>
+      <cell>Number of people cc'ed.</cell>
+    </row>
+    <row>
+      <cell>sent_email</cell>
+      <cell>Indicator for whether the sender had been sent an email in the last 30 days.</cell>
+    </row>
+    <row>
+      <cell>attach</cell>
+      <cell>The number of attached files.</cell>
+    </row>
+    <row>
+      <cell>dollar</cell>
+      <cell>The number of times a dollar sign or the word <q>dollar</q> appeared in the email.</cell>
+    </row>
+    <row>
+      <cell>winner</cell>
+      <cell>Indicates whether <q>winner</q> appeared in the email.</cell>
+    </row>
+    <row>
+      <cell>format</cell>
+      <cell>Indicates whether the email was written using HTML (e.g., may have included bolding or active links).</cell>
+    </row>
+    <row>
+      <cell>re_subj</cell>
+      <cell>Whether the subject started with <q>Re:</q>, <q>RE:</q>, <q>re:</q>, or <q>rE:</q>.</cell>
+    </row>
+    <row>
+      <cell>exclaim_subj</cell>
+      <cell>Whether there was an exclamation point in the subject.</cell>
+    </row>
+    <row>
+      <cell>urgent_subj</cell>
+      <cell>Whether the word <q>urgent</q> was in the email subject.</cell>
+    </row>
+    <row>
+      <cell>exclaim_mess</cell>
+      <cell>The number of exclamation points in the email message.</cell>
+    </row>
+    <row>
+      <cell>number</cell>
+      <cell>Factor variable saying whether there was no number, a small number (under 1 million), or a big number.</cell>
+    </row>
+  </tabular>
+</table>
 </introduction>
 
 

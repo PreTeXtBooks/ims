@@ -621,13 +621,11 @@ First, we require a broader independence condition, and secondly, the success-fa
           <description>Histogram of 1,000 randomized differences in proportions for Asian-Indian vs Chinese smoking rates</description>
         </image>
         </figure>
-        In both words and symbols provide the parameter and statistic of interest for this study.
-        Do you know the numerical value of either the parameter or statistic of interest?
-        If so, provide the numerical value.
-        The histogram above provides the sampling distribution (under randomization) for <m>\hat{p}_{Asian-Indian} - \hat{p}_{Chinese}</m> under repeated null randomizations (<m>\hat{p}</m> is the proportion in the sample who are current smokers).
-        Estimate the standard error of <m>\hat{p}_{Asian-Indian} - \hat{p}_{Chinese}</m> based on the randomization histogram.
-        Consider the hypothesis test to determine if there is a difference in proportion of Asian-Indian Americans as compared to Chinese Americans who are current smokers.
-        Write out the null and alternative hypotheses, estimate a p-value using the randomization histogram, and conclude the test in the context of the problem.
+        <p><ol marker="a.">
+          <li><p>In both words and symbols provide the parameter and statistic of interest for this study. Do you know the numerical value of either the parameter or statistic of interest? If so, provide the numerical value.</p></li>
+          <li><p>The histogram above provides the sampling distribution (under randomization) for <m>\hat{p}_{Asian-Indian} - \hat{p}_{Chinese}</m> under repeated null randomizations (<m>\hat{p}</m> is the proportion in the sample who are current smokers). Estimate the standard error of <m>\hat{p}_{Asian-Indian} - \hat{p}_{Chinese}</m> based on the randomization histogram.</p></li>
+          <li><p>Consider the hypothesis test to determine if there is a difference in proportion of Asian-Indian Americans as compared to Chinese Americans who are current smokers. Write out the null and alternative hypotheses, estimate a p-value using the randomization histogram, and conclude the test in the context of the problem.</p></li>
+        </ol></p>
         </statement>
         </exercise>
         <exercise>
@@ -640,13 +638,11 @@ First, we require a broader independence condition, and secondly, the success-fa
           <description>Histogram of 1,000 randomized differences in proportions for malaria vaccine effectiveness</description>
         </image>
         </figure>
-        In both words and symbols provide the parameter and statistic of interest for this study.
-        Do you know the numerical value of either the parameter or statistic of interest?
-        If so, provide the numerical value.
-        The histogram above provides the sampling distribution (under randomization) for <m>\hat{p}_{malaria} - \hat{p}_{control}</m> under repeated null randomizations (<m>\hat{p}</m> is the proportion of children in the sample who contracted malaria).
-        Estimate the standard error of <m>\hat{p}_{malaria} - \hat{p}_{control}</m> based on the randomization histogram.
-        Consider the hypothesis test constructed to show a lower proportion of children contracting malaria on the malaria vaccine as compared to the control vaccine.
-        Write out the null and alternative hypotheses, estimate a p-value using the randomization histogram, and conclude the test in the context of the problem.
+        <p><ol marker="a.">
+          <li><p>In both words and symbols provide the parameter and statistic of interest for this study. Do you know the numerical value of either the parameter or statistic of interest? If so, provide the numerical value.</p></li>
+          <li><p>The histogram above provides the sampling distribution (under randomization) for <m>\hat{p}_{malaria} - \hat{p}_{control}</m> under repeated null randomizations (<m>\hat{p}</m> is the proportion of children in the sample who contracted malaria). Estimate the standard error of <m>\hat{p}_{malaria} - \hat{p}_{control}</m> based on the randomization histogram.</p></li>
+          <li><p>Consider the hypothesis test constructed to show a lower proportion of children contracting malaria on the malaria vaccine as compared to the control vaccine. Write out the null and alternative hypotheses, estimate a p-value using the randomization histogram, and conclude the test in the context of the problem.</p></li>
+        </ol></p>
         </statement>
         </exercise>
         <exercise>
@@ -659,12 +655,11 @@ First, we require a broader independence condition, and secondly, the success-fa
           <description>Histogram of 1,000 bootstrapped differences in proportions for Filipino vs Chinese smoking rates</description>
         </image>
         </figure>
-        Consider the bootstrap distribution of difference in sample proportions of current smokers (Filipino Americans minus Chinese Americans) in 1,000 bootstrap repetitions as above.
-        Estimate the standard error of the difference in sample proportions, as seen in the histogram.
-        Using the standard error from the bootstrap distribution, find a 95% bootstrap SE confidence interval for the true difference in proportion of current smokers (Filipino Americans minus Chinese Americans) in the population.
-        Interpret the interval in the context of the problem.
-        Using the entire bootstrap distribution, find a 95% bootstrap percentile confidence interval for the true difference in proportion of current smokers (Filipino Americans minus Chinese Americans) in the population.
-        Interpret the interval in the context of the problem.
+        <p><ol marker="a.">
+          <li><p>Consider the bootstrap distribution of difference in sample proportions of current smokers (Filipino Americans minus Chinese Americans) in 1,000 bootstrap repetitions as above. Estimate the standard error of the difference in sample proportions, as seen in the histogram.</p></li>
+          <li><p>Using the standard error from the bootstrap distribution, find a 95% bootstrap SE confidence interval for the true difference in proportion of current smokers (Filipino Americans minus Chinese Americans) in the population. Interpret the interval in the context of the problem.</p></li>
+          <li><p>Using the entire bootstrap distribution, find a 95% bootstrap percentile confidence interval for the true difference in proportion of current smokers (Filipino Americans minus Chinese Americans) in the population. Interpret the interval in the context of the problem.</p></li>
+        </ol></p>
         </statement>
         </exercise>
         <exercise>
@@ -677,12 +672,11 @@ First, we require a broader independence condition, and secondly, the success-fa
           <description>Histogram of 1,000 bootstrapped differences in proportions for malaria vaccine effectiveness</description>
         </image>
         </figure>
-        Consider the bootstrap distribution of difference in sample proportions of children who contracted malaria (malaria vaccine minus control vaccine) in 1000 bootstrap repetitions as above.
-        Estimate the standard error of the difference in sample proportions, as seen in the histogram.
-        Using the standard error from the bootstrap distribution, find a 95% bootstrap SE confidence interval for the true difference in proportion of children who contract malaria (malaria vaccine minus control vaccine) in the population.
-        Interpret the interval in the context of the problem.
-        Using the entire bootstrap distribution, find a 95% bootstrap percentile confidence interval for the true difference in proportion of children who contract malaria (malaria vaccine minus control vaccine) in the population.
-        Interpret the interval in the context of the problem.
+        <p><ol marker="a.">
+          <li><p>Consider the bootstrap distribution of difference in sample proportions of children who contracted malaria (malaria vaccine minus control vaccine) in 1000 bootstrap repetitions as above. Estimate the standard error of the difference in sample proportions, as seen in the histogram.</p></li>
+          <li><p>Using the standard error from the bootstrap distribution, find a 95% bootstrap SE confidence interval for the true difference in proportion of children who contract malaria (malaria vaccine minus control vaccine) in the population. Interpret the interval in the context of the problem.</p></li>
+          <li><p>Using the entire bootstrap distribution, find a 95% bootstrap percentile confidence interval for the true difference in proportion of children who contract malaria (malaria vaccine minus control vaccine) in the population. Interpret the interval in the context of the problem.</p></li>
+        </ol></p>
         </statement>
         </exercise>
         <exercise>
@@ -696,12 +690,11 @@ First, we require a broader independence condition, and secondly, the success-fa
           <description>Two histograms showing bootstrap (Method A) and permutation (Method B) distributions for COVID-19 degree completion survey</description>
         </image>
         </figure>
-        One of the histograms can be used to do a randomization test on whether the proportions of bachelor's and associate students who think the COVID-19 pandemic will negatively impact their ability to complete the degree.
-        The other histogram is a bootstrap distribution used to quantify the difference in the proportions of bachelor's and associate's students who feel this way.
-        Are the center and standard error of the two graphs approximately the same?
-        Explain.
-        Write a research question that can be addressed using the histogram generated with computational method A.
-        Write a research question that can addressed using the histogram generated with computational method B.
+        <p><ol marker="a.">
+          <li><p>One of the histograms can be used to do a randomization test on whether the proportions of bachelor's and associate students who think the COVID-19 pandemic will negatively impact their ability to complete the degree. The other histogram is a bootstrap distribution used to quantify the difference in the proportions of bachelor's and associate's students who feel this way. Are the center and standard error of the two graphs approximately the same? Explain.</p></li>
+          <li><p>Write a research question that can be addressed using the histogram generated with computational method A.</p></li>
+          <li><p>Write a research question that can addressed using the histogram generated with computational method B.</p></li>
+        </ol></p>
         </statement>
         </exercise>
         <exercise>
@@ -715,12 +708,11 @@ First, we require a broader independence condition, and secondly, the success-fa
           <description>Two histograms showing permutation (Method A) and bootstrap (Method B) distributions for renewable energy survey</description>
         </image>
         </figure>
-        One of the histograms can be used to do a randomization test on whether the proportions of Republicans and Democrats who think government regulations are necessary to encourage businesses and consumers to rely more on renewable energy sources are different.
-        The other histogram is a bootstrap distribution used to quantify the difference in the proportions of Republicans and Democrats who agree with this statement.
-        Are the center and standard error of the two graphs approximately the same?
-        Explain.
-        Write a research question that can addressed using the histogram generated with computational method A.
-        Write a research question that can addressed using the histogram generated with computational method B.
+        <p><ol marker="a.">
+          <li><p>One of the histograms can be used to do a randomization test on whether the proportions of Republicans and Democrats who think government regulations are necessary to encourage businesses and consumers to rely more on renewable energy sources are different. The other histogram is a bootstrap distribution used to quantify the difference in the proportions of Republicans and Democrats who agree with this statement. Are the center and standard error of the two graphs approximately the same? Explain.</p></li>
+          <li><p>Write a research question that can addressed using the histogram generated with computational method A.</p></li>
+          <li><p>Write a research question that can addressed using the histogram generated with computational method B.</p></li>
+        </ol></p>
         </statement>
         </exercise>
         <exercise>
@@ -732,10 +724,11 @@ First, we require a broader independence condition, and secondly, the success-fa
         Twenty-four weeks after starting the study treatment, each woman was tested to determine if the HIV infection was becoming worse (an outcome called <em>virologic failure</em>).
         Twenty-six of the 120 women treated with Nevaripine experienced virologic failure, while 10 of the 120 women treated with the other drug experienced virologic failure.
         <xref ref="biblio-Lockman-2007" />
-        Create a two-way table presenting the results of this study.
-        State appropriate hypotheses to test for difference in virologic failure rates between treatment groups.
-        Complete the hypothesis test and state an appropriate conclusion.
-        (Reminder: Verify any necessary conditions for the test.)
+        <p><ol marker="a.">
+          <li><p>Create a two-way table presenting the results of this study.</p></li>
+          <li><p>State appropriate hypotheses to test for difference in virologic failure rates between treatment groups.</p></li>
+          <li><p>Complete the hypothesis test and state an appropriate conclusion. (Reminder: Verify any necessary conditions for the test.)</p></li>
+        </ol></p>
         \vfill
         </statement>
         </exercise>
@@ -744,10 +737,12 @@ First, we require a broader independence condition, and secondly, the success-fa
         <alert>Supercommuters.</alert>The fraction of workers who are considered "supercommuters", because they commute more than 90 minutes to get to work, varies by state.
         Suppose the 1% of Nebraska residents and 6% of New York residents are supercommuters.
         Now suppose that we plan a study to survey 1000 people from each state, and we will compute the sample proportions <m>\hat{p}_{NE}</m> for Nebraska and <m>\hat{p}_{NY}</m> for New York.
-        What is the associated mean and standard deviation of <m>\hat{p}_{NE}</m> in repeated samples of size 1000?
-        What is the associated mean and standard deviation of <m>\hat{p}_{NY}</m> in repeated samples of size 1000?
-        Calculate and interpret the mean and standard deviation associated with the difference in sample proportions for the two groups, <m>\hat{p}_{NY} - \hat{p}_{NE}</m> in repeated samples of 1000 in each group.
-        How are the standard deviations from parts (a), (b), and (c) related?
+        <p><ol marker="a.">
+          <li><p>What is the associated mean and standard deviation of <m>\hat{p}_{NE}</m> in repeated samples of size 1000?</p></li>
+          <li><p>What is the associated mean and standard deviation of <m>\hat{p}_{NY}</m> in repeated samples of size 1000?</p></li>
+          <li><p>Calculate and interpret the mean and standard deviation associated with the difference in sample proportions for the two groups, <m>\hat{p}_{NY} - \hat{p}_{NE}</m> in repeated samples of 1000 in each group.</p></li>
+          <li><p>How are the standard deviations from parts (a), (b), and (c) related?</p></li>
+        </ol></p>
         \vfill
         </statement>
         </exercise>
@@ -757,9 +752,10 @@ First, we require a broader independence condition, and secondly, the success-fa
         There were 347 Democrats, 298 Republicans, and 617 Independents surveyed.
         79% of 347 Democrats and 55% of 617 Independents support a National Health Plan.
         <xref ref="biblio-data-KFF2019nathealthplan" />
-        Calculate a 95% confidence interval for the difference between the proportion of Democrats and Independents who support a National Health Plan <m>(p_{D} - p_{I})</m>, and interpret it in this context.
-        We have already checked conditions for you.
-        True or false: If we had picked a random Democrat and a random Independent at the time of this poll, it is more likely that the Democrat would support the National Health Plan than the Independent.
+        <p><ol marker="a.">
+          <li><p>Calculate a 95% confidence interval for the difference between the proportion of Democrats and Independents who support a National Health Plan <m>(p_{D} - p_{I})</m>, and interpret it in this context. We have already checked conditions for you.</p></li>
+          <li><p>True or false: If we had picked a random Democrat and a random Independent at the time of this poll, it is more likely that the Democrat would support the National Health Plan than the Independent.</p></li>
+        </ol></p>
         \vfill
         </statement>
         </exercise>
@@ -787,10 +783,10 @@ First, we require a broader independence condition, and secondly, the success-fa
         <statement>
         <alert>Sleep deprivation, CA vs. OR, hypothesis test.</alert>A CDC report on sleep deprivation rates shows that the proportion of California residents who reported insufficient rest or sleep during each of the preceding 30 days is 8.0%, while this proportion is 8.8% for Oregon residents.
         These data are based on simple random samples of 11,545 California and 4,691 Oregon residents.
-        Conduct a hypothesis test to determine if these data provide strong evidence that the rate of sleep deprivation is different for the two states.
-        (Reminder: Check conditions)
-        It is possible the conclusion of the test in part (a) is incorrect.
-        If this is the case, what type of error was made?
+        <p><ol marker="a.">
+          <li><p>Conduct a hypothesis test to determine if these data provide strong evidence that the rate of sleep deprivation is different for the two states. (Reminder: Check conditions)</p></li>
+          <li><p>It is possible the conclusion of the test in part (a) is incorrect. If this is the case, what type of error was made?</p></li>
+        </ol></p>
         \vfill
         </statement>
         </exercise>
@@ -798,15 +794,16 @@ First, we require a broader independence condition, and secondly, the success-fa
         <statement>
         <alert>Is yawning contagious?</alert>An experiment conducted by the MythBusters, a science entertainment TV program on the Discovery Channel, tested if a person can be subconsciously influenced into yawning if another person near them yawns.
         50 people were randomly assigned to two groups: 34 to a group where a person near them yawned (treatment) and 16 to a group where there wasn't a person yawning near them (control).
-        The visualization below displays how many participants yawned in each group.[^_17-ex-inference-two-props-1]
+        The visualization below displays how many participants yawned in each group.<fn>The <url href="http://openintrostat.github.io/openintro/reference/yawn.html"><c>yawn</c></url> data used in this exercise can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</fn>
         <figure xml:id="fig-ex17-13">
         <image source="images/exercises/_17-ex-inference-two-props-13.png" width="70%">
           <description>Stacked bar chart showing yawning outcomes for treatment and control groups</description>
         </image>
         </figure>
-        Suppose we are interested in estimating the difference in yawning rates between the control and treatment groups using a confidence interval.
-        Explain why we cannot construct such an interval using the normal approximation.
-        What might go wrong if we constructed the confidence interval despite this problem?
+        <p><ol marker="a.">
+          <li><p>Suppose we are interested in estimating the difference in yawning rates between the control and treatment groups using a confidence interval. Explain why we cannot construct such an interval using the normal approximation.</p></li>
+          <li><p>What might go wrong if we constructed the confidence interval despite this problem?</p></li>
+        </ol></p>
         \vfill
         </statement>
         </exercise>
@@ -816,16 +813,17 @@ First, we require a broader independence condition, and secondly, the success-fa
         Each patient entering the program was officially designated a heart transplant candidate, meaning that he was gravely ill and might benefit from a new heart.
         Patients were randomly assigned into treatment and control groups.
         Patients in the treatment group received a transplant, and those in the control group did not.
-        The visualization below displays how many patients survived and died in each group.[^_17-ex-inference-two-props-2]
+        The visualization below displays how many patients survived and died in each group.<fn>The <url href="http://openintrostat.github.io/openintro/reference/heart_transplant.html"><c>heart_transplant</c></url> data used in this exercise can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</fn>
         <figure xml:id="fig-ex17-14">
         <image source="images/exercises/_17-ex-inference-two-props-14.png" width="70%">
           <description>Stacked bar chart showing survival outcomes for heart transplant treatment and control groups</description>
         </image>
         </figure>
         [@Turnbull-Brown-Hu-1974]
-        Suppose we are interested in estimating the difference in survival rate between the control and treatment groups using a confidence interval.
-        Explain why we cannot construct such an interval using the normal approximation.
-        What might go wrong if we constructed the confidence interval despite this problem?
+        <p><ol marker="a.">
+          <li><p>Suppose we are interested in estimating the difference in survival rate between the control and treatment groups using a confidence interval. Explain why we cannot construct such an interval using the normal approximation.</p></li>
+          <li><p>What might go wrong if we constructed the confidence interval despite this problem?</p></li>
+        </ol></p>
         \vfill
         </statement>
         </exercise>
@@ -837,10 +835,12 @@ First, we require a broader independence condition, and secondly, the success-fa
         A 95% confidence interval for <m>(p_{\text{&lt;40K}} - p_{\text{&#8805;40K}})</m>, where <m>p</m> is the proportion of those who said the government shutdown has not at all affected them personally, is (-0.16, 0.02).
         Based on this information, determine if the following statements are true or false, and explain your reasoning if you identify the statement as false.
         <xref ref="biblio-data-govtshuthown" />
-        At the 5% discernibility level, the data provide convincing evidence of a real difference in the proportion who are not affected personally between Americans who make less than $40,000 annually and Americans who make $40,000 annually.
-        We are 95% confident that 16% more to 2% fewer Americans who make less than $40,000 per year are not at all personally affected by the government shutdown compared to those who make $40,000 or more per year.
-        A 90% confidence interval for <m>(p_{\text{&lt;40K}} - p_{\text{&#8805;40K}})</m> would be wider than the <m>(-0.16, 0.02)</m> interval.
-        A 95% confidence interval for <m>(p_{\text{&#8805;40K}} - p_{\text{&lt;40K}})</m> is (-0.02, 0.16).
+        <p><ol marker="a.">
+          <li><p>At the 5% discernibility level, the data provide convincing evidence of a real difference in the proportion who are not affected personally between Americans who make less than $40,000 annually and Americans who make $40,000 annually.</p></li>
+          <li><p>We are 95% confident that 16% more to 2% fewer Americans who make less than $40,000 per year are not at all personally affected by the government shutdown compared to those who make $40,000 or more per year.</p></li>
+          <li><p>A 90% confidence interval for <m>(p_{\text{&lt;40K}} - p_{\text{&#8805;40K}})</m> would be wider than the <m>(-0.16, 0.02)</m> interval.</p></li>
+          <li><p>A 95% confidence interval for <m>(p_{\text{&#8805;40K}} - p_{\text{&lt;40K}})</m> is (-0.02, 0.16).</p></li>
+        </ol></p>
         </statement>
         </exercise>
         <exercise>
@@ -849,11 +849,13 @@ First, we require a broader independence condition, and secondly, the success-fa
         A 95% confidence interval for the difference between the proportions of 18-29 year-olds and 30-49 year-olds who have personally experienced harassment online <m>(p_{18-29} - p_{30-49})</m> was calculated to be (0.115, 0.185).
         Based on this information, determine if the following statements are true or false, and explain your reasoning for each statement you identify as false.
         <xref ref="biblio-onlineharassment2021" />
-        We are 95% confident that the true proportion of 18-29 year-olds who have personally experienced harassment online is 11.5% to 18.5% lower than the true proportion of 30-49 year-olds who have personally experienced harassment online.
-        We are 95% confident that the true proportion of 18-29 year-olds who have personally experienced harassment online is 11.5% to 18.5% higher than the true proportion of 30-49 year-olds who have personally experienced harassment online.
-        95% of random samples will produce 95% confidence intervals that include the true difference between the population proportions of 18-29 year-olds and 30-49 year-olds who have personally experienced harassment online.
-        We can conclude that there is a discernible difference between the proportions of 18-29 year-olds and 30-49 year-olds who have personally experienced harassment online is too large to plausibly be due to chance, if in fact there is no difference between the two proportions.
-        The 90% confidence interval for <m>(p_{18-29} - p_{30-49})</m> cannot be calculated with only the information given in this exercise.
+        <p><ol marker="a.">
+          <li><p>We are 95% confident that the true proportion of 18-29 year-olds who have personally experienced harassment online is 11.5% to 18.5% lower than the true proportion of 30-49 year-olds who have personally experienced harassment online.</p></li>
+          <li><p>We are 95% confident that the true proportion of 18-29 year-olds who have personally experienced harassment online is 11.5% to 18.5% higher than the true proportion of 30-49 year-olds who have personally experienced harassment online.</p></li>
+          <li><p>95% of random samples will produce 95% confidence intervals that include the true difference between the population proportions of 18-29 year-olds and 30-49 year-olds who have personally experienced harassment online.</p></li>
+          <li><p>We can conclude that there is a discernible difference between the proportions of 18-29 year-olds and 30-49 year-olds who have personally experienced harassment online is too large to plausibly be due to chance, if in fact there is no difference between the two proportions.</p></li>
+          <li><p>The 90% confidence interval for <m>(p_{18-29} - p_{30-49})</m> cannot be calculated with only the information given in this exercise.</p></li>
+        </ol></p>
         \vfill
         </statement>
         </exercise>
@@ -862,9 +864,11 @@ First, we require a broader independence condition, and secondly, the success-fa
         <alert>Decision errors and comparing proportions I.</alert>In the following research studies, conclusions were made based on the data provided.
         It is always possible that the analysis conclusion could be wrong, although we will almost never actually know if an error has been made or not.
         For each study conclusion, specify which of a Type I or Type II error could have been made, and state the error in the context of the problem.
-        The malaria vaccine was seen to be effective at lowering the rate of contracting malaria (when compared to the control vaccine).
-        In the US population, Asian-Indian Americans and Chinese Americans are not observed to have different proportions of current smokers.
-        There is no evidence to claim a difference in the proportion of Americans who are not affected personally by a government shutdown when comparing Americans who make less than \<m>40,000 annually and Americans who make \</m>40,000 annually.
+        <p><ol marker="a.">
+          <li><p>The malaria vaccine was seen to be effective at lowering the rate of contracting malaria (when compared to the control vaccine).</p></li>
+          <li><p>In the US population, Asian-Indian Americans and Chinese Americans are not observed to have different proportions of current smokers.</p></li>
+          <li><p>There is no evidence to claim a difference in the proportion of Americans who are not affected personally by a government shutdown when comparing Americans who make less than \<m>40,000 annually and Americans who make \</m>40,000 annually.</p></li>
+        </ol></p>
         \vfill
         </statement>
         </exercise>
@@ -873,8 +877,10 @@ First, we require a broader independence condition, and secondly, the success-fa
         <alert>Decision errors and comparing proportions II.</alert>In the following research studies, conclusions were made based on the data provided.
         It is always possible that the analysis conclusion could be wrong, although we will almost never actually know if an error has been made or not.
         For each study conclusion, specify which of a Type I or Type II error could have been made, and state the error in the context of the problem.
-        Of registered voters in California, the proportion who report not knowing enough to voice an opinion on whether they support off shore drilling is different across those who have a college degree and those who do not.
-        In comparing Californians and Oregonians, there is no evidence to support a difference in the proportion of each who are sleep deprived.
+        <p><ol marker="a.">
+          <li><p>Of registered voters in California, the proportion who report not knowing enough to voice an opinion on whether they support off shore drilling is different across those who have a college degree and those who do not.</p></li>
+          <li><p>In comparing Californians and Oregonians, there is no evidence to support a difference in the proportion of each who are sleep deprived.</p></li>
+        </ol></p>
         \vfill
         </statement>
         </exercise>
@@ -907,11 +913,13 @@ First, we require a broader independence condition, and secondly, the success-fa
         Recall that in order to reject the null hypothesis that the two vaccines (malaria and control) are equivalent, we'd need the sample proportion to be about 2 standard errors below the hypothesized value of zero.
         Say that the true difference (in the population) is given as <m>\delta,</m> the sample sizes are the same in both groups <m>(n_{malaria} = n_{control}),</m> and the true proportion who contract malaria on the control vaccine is <m>p_{control} = 0.7.</m> If you ran your own study (in the future), how likely is it that you would get a difference in sample proportions that was sufficiently far from zero that you could reject under each of the conditions below.
         (<em>Hint:</em> Use the mathematical model.)
-        <m>\delta = -0.1</m> and <m>n_{malaria} = n_{control} = 20</m>
-        <m>\delta = -0.4</m> and <m>n_{malaria} = n_{control} = 20</m>
-        <m>\delta = -0.1</m> and <m>n_{malaria} = n_{control} = 100</m>
-        <m>\delta = -0.4</m> and <m>n_{malaria} = n_{control} = 100</m>
-        What can you conclude about values of <m>\delta</m> and the sample size?
+        <p><ol marker="a.">
+          <li><p><m>\delta = -0.1</m> and <m>n_{malaria} = n_{control} = 20</m></p></li>
+          <li><p><m>\delta = -0.4</m> and <m>n_{malaria} = n_{control} = 20</m></p></li>
+          <li><p><m>\delta = -0.1</m> and <m>n_{malaria} = n_{control} = 100</m></p></li>
+          <li><p><m>\delta = -0.4</m> and <m>n_{malaria} = n_{control} = 100</m></p></li>
+          <li><p>What can you conclude about values of <m>\delta</m> and the sample size?</p></li>
+        </ol></p>
         \vfill
         </statement>
         </exercise>
@@ -920,14 +928,12 @@ First, we require a broader independence condition, and secondly, the success-fa
         <alert>Diabetes and unemployment.</alert>A Gallup poll surveyed Americans about their employment status and whether they have diabetes.
         The survey results indicate that 1.5% of the 47,774 employed (full or part time) and 2.5% of the 5,855 unemployed 18-29 year-olds have diabetes.
         <xref ref="biblio-data-employmentDiabetes" />
-        Create a two-way table presenting the results of this study.
-        State appropriate hypotheses to test for difference in proportions of diabetes between employed and unemployed Americans.
-        The sample difference is about 1%.
-        If we completed the hypothesis test, we would find that the p-value is very small (about 0), meaning the difference is statistically discernible.
-        Use this result to explain the difference between statistically discernible and practically important findings.
+        <p><ol marker="a.">
+          <li><p>Create a two-way table presenting the results of this study.</p></li>
+          <li><p>State appropriate hypotheses to test for difference in proportions of diabetes between employed and unemployed Americans.</p></li>
+          <li><p>The sample difference is about 1%. If we completed the hypothesis test, we would find that the p-value is very small (about 0), meaning the difference is statistically discernible. Use this result to explain the difference between statistically discernible and practically important findings.</p></li>
+        </ol></p>
         \vfill
-        [^_17-ex-inference-two-props-1]: The <url href="http://openintrostat.github.io/openintro/reference/yawn.html"><c>yawn</c></url> data used in this exercise can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.
-        [^_17-ex-inference-two-props-2]: The <url href="http://openintrostat.github.io/openintro/reference/heart_transplant.html"><c>heart_transplant</c></url> data used in this exercise can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.
         </statement>
         </exercise>
 </exercises>

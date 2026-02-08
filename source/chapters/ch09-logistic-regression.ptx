@@ -997,6 +997,10 @@ resume_fit |&gt;
           in a histogram. The full logistic regression model and a reduced model after variable 
           selection are summarized in the tables below.
         </p>
+
+  <figure xml:id="fig-ex9-3">
+    <image source="images/exercises/fig-ex9-3.png" width="70%" />
+  </figure>
         
         <!-- R code for histograms -->
         <listing xml:id="list-possum-histograms">
@@ -1064,45 +1068,45 @@ glm(pop ~ sex + head_l + skull_w + total_l + tail_l,
             </row>
             <row>
               <cell>(Intercept)</cell>
-              <cell>-77.28</cell>
-              <cell>18.95</cell>
-              <cell>-4.08</cell>
-              <cell><m>&lt;0.0001</m></cell>
+              <cell>39.23</cell>
+              <cell>11.54</cell>
+              <cell>3.40</cell>
+              <cell><m>7e-04</m></cell>
             </row>
             <row>
               <cell>sexmale</cell>
-              <cell>-0.54</cell>
-              <cell>0.61</cell>
-              <cell>-0.88</cell>
-              <cell>0.3777</cell>
+              <cell>-1.24</cell>
+              <cell>0.67</cell>
+              <cell>-1.86</cell>
+              <cell>0.0632</cell>
             </row>
             <row>
               <cell>head_l</cell>
-              <cell>0.16</cell>
-              <cell>0.09</cell>
-              <cell>1.87</cell>
-              <cell>0.0610</cell>
+              <cell>-0.16</cell>
+              <cell>0.14</cell>
+              <cell>-1.16</cell>
+              <cell>0.248</cell>
             </row>
             <row>
               <cell>skull_w</cell>
-              <cell>0.32</cell>
-              <cell>0.16</cell>
-              <cell>2.01</cell>
-              <cell>0.0443</cell>
+              <cell>-0.20</cell>
+              <cell>0.13</cell>
+              <cell>-1.52</cell>
+              <cell>0.1294</cell>
             </row>
             <row>
               <cell>total_l</cell>
-              <cell>0.25</cell>
-              <cell>0.10</cell>
-              <cell>2.48</cell>
-              <cell>0.0132</cell>
+              <cell>0.65</cell>
+              <cell>0.15</cell>
+              <cell>4.24</cell>
+              <cell>0.0001</cell>
             </row>
             <row>
               <cell>tail_l</cell>
-              <cell>0.45</cell>
-              <cell>0.19</cell>
-              <cell>2.35</cell>
-              <cell>0.0188</cell>
+              <cell>-1.87</cell>
+              <cell>0.37</cell>
+              <cell>-5.00</cell>
+              <cell>0.0001</cell>
             </row>
           </tabular>
         </table>
@@ -1132,38 +1136,38 @@ glm(pop ~ sex + skull_w + total_l + tail_l,
             </row>
             <row>
               <cell>(Intercept)</cell>
-              <cell>-62.23</cell>
-              <cell>16.31</cell>
-              <cell>-3.82</cell>
-              <cell>0.0001</cell>
+              <cell>33.51</cell>
+              <cell>9.91</cell>
+              <cell>3.38</cell>
+              <cell>7e-04</cell>
             </row>
             <row>
               <cell>sexmale</cell>
-              <cell>-0.51</cell>
-              <cell>0.60</cell>
-              <cell>-0.85</cell>
-              <cell>0.3954</cell>
+              <cell>-1.42</cell>
+              <cell>0.65</cell>
+              <cell>-2.20</cell>
+              <cell>0.0278</cell>
             </row>
             <row>
               <cell>skull_w</cell>
-              <cell>0.33</cell>
-              <cell>0.16</cell>
-              <cell>2.09</cell>
-              <cell>0.0362</cell>
+              <cell>-0.28</cell>
+              <cell>0.12</cell>
+              <cell>-2.27</cell>
+              <cell>0.0231</cell>
             </row>
             <row>
               <cell>total_l</cell>
-              <cell>0.26</cell>
-              <cell>0.10</cell>
-              <cell>2.48</cell>
-              <cell>0.0130</cell>
+              <cell>0.57</cell>
+              <cell>0.13</cell>
+              <cell>4.30</cell>
+              <cell>0.0001</cell>
             </row>
             <row>
               <cell>tail_l</cell>
-              <cell>0.43</cell>
-              <cell>0.18</cell>
-              <cell>2.37</cell>
-              <cell>0.0178</cell>
+              <cell>-1.81</cell>
+              <cell>0.36</cell>
+              <cell>-5.02</cell>
+              <cell>0.0001</cell>
             </row>
           </tabular>
         </table>
@@ -1238,22 +1242,24 @@ orings |&gt;
             </row>
             <row>
               <cell>Temperature <m>(\degree\text{F})</m></cell>
-              <cell>66</cell>
-              <cell>70</cell>
-              <cell>69</cell>
-              <cell>68</cell>
-              <cell>67</cell>
-              <cell>72</cell>
-              <cell>73</cell>
-              <cell>70</cell>
+              <cell>53</cell>
               <cell>57</cell>
+              <cell>58</cell>
               <cell>63</cell>
+              <cell>66</cell>
+              <cell>67</cell>
+              <cell>67</cell>
+              <cell>67</cell>
+              <cell>68</cell>
+              <cell>69</cell>
               <cell>70</cell>
-              <cell>78</cell>
+              <cell>70</cell>
             </row>
             <row>
               <cell>Damaged</cell>
-              <cell>0</cell>
+              <cell>5</cell>
+              <cell>1</cell>
+              <cell>1</cell>
               <cell>1</cell>
               <cell>0</cell>
               <cell>0</cell>
@@ -1261,14 +1267,14 @@ orings |&gt;
               <cell>0</cell>
               <cell>0</cell>
               <cell>0</cell>
-              <cell>1</cell>
-              <cell>1</cell>
               <cell>1</cell>
               <cell>0</cell>
             </row>
             <row>
               <cell>Undamaged</cell>
-              <cell>6</cell>
+              <cell>1</cell>
+              <cell>5</cell>
+              <cell>5</cell>
               <cell>5</cell>
               <cell>6</cell>
               <cell>6</cell>
@@ -1276,8 +1282,6 @@ orings |&gt;
               <cell>6</cell>
               <cell>6</cell>
               <cell>6</cell>
-              <cell>5</cell>
-              <cell>5</cell>
               <cell>5</cell>
               <cell>6</cell>
             </row>
@@ -1314,45 +1318,45 @@ orings |&gt;
             </row>
             <row>
               <cell>Temperature <m>(\degree\text{F})</m></cell>
-              <cell>67</cell>
-              <cell>53</cell>
-              <cell>67</cell>
-              <cell>75</cell>
               <cell>70</cell>
-              <cell>81</cell>
-              <cell>76</cell>
-              <cell>79</cell>
+              <cell>70</cell>
+              <cell>72</cell>
+              <cell>73</cell>
+              <cell>75</cell>
               <cell>75</cell>
               <cell>76</cell>
-              <cell>58</cell>
+              <cell>76</cell>
+              <cell>78</cell>
+              <cell>79</cell>
+              <cell>81</cell>
             </row>
             <row>
               <cell>Damaged</cell>
-              <cell>0</cell>
-              <cell>2</cell>
-              <cell>0</cell>
-              <cell>0</cell>
-              <cell>0</cell>
-              <cell>0</cell>
+              <cell>1</cell>
               <cell>0</cell>
               <cell>0</cell>
               <cell>0</cell>
               <cell>0</cell>
               <cell>1</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>0</cell>
             </row>
             <row>
               <cell>Undamaged</cell>
-              <cell>6</cell>
-              <cell>4</cell>
-              <cell>6</cell>
-              <cell>6</cell>
-              <cell>6</cell>
-              <cell>6</cell>
+              <cell>5</cell>
               <cell>6</cell>
               <cell>6</cell>
               <cell>6</cell>
               <cell>6</cell>
               <cell>5</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
             </row>
           </tabular>
         </table>
@@ -1469,38 +1473,38 @@ openintro::possum |&gt;
             </row>
             <row>
               <cell>(Intercept)</cell>
-              <cell>-62.23</cell>
-              <cell>16.31</cell>
-              <cell>-3.82</cell>
-              <cell>0.0001</cell>
+              <cell>33.51</cell>
+              <cell>9.91</cell>
+              <cell>3.38</cell>
+              <cell>7e-04</cell>
             </row>
             <row>
               <cell>sexmale</cell>
-              <cell>-0.51</cell>
-              <cell>0.60</cell>
-              <cell>-0.85</cell>
-              <cell>0.3954</cell>
+              <cell>-1.42</cell>
+              <cell>0.65</cell>
+              <cell>-2.20</cell>
+              <cell>0.0278</cell>
             </row>
             <row>
               <cell>skull_w</cell>
-              <cell>0.33</cell>
-              <cell>0.16</cell>
-              <cell>2.09</cell>
-              <cell>0.0362</cell>
+              <cell>-0.28</cell>
+              <cell>0.12</cell>
+              <cell>-2.27</cell>
+              <cell>0.0231</cell>
             </row>
             <row>
               <cell>total_l</cell>
-              <cell>0.26</cell>
-              <cell>0.10</cell>
-              <cell>2.48</cell>
-              <cell>0.0130</cell>
+              <cell>0.57</cell>
+              <cell>0.13</cell>
+              <cell>4.30</cell>
+              <cell>0.0001</cell>
             </row>
             <row>
               <cell>tail_l</cell>
-              <cell>0.43</cell>
-              <cell>0.18</cell>
-              <cell>2.37</cell>
-              <cell>0.0178</cell>
+              <cell>-1.81</cell>
+              <cell>0.36</cell>
+              <cell>-5.02</cell>
+              <cell>0.0001</cell>
             </row>
           </tabular>
         </table>
@@ -1847,38 +1851,38 @@ glm(spam ~ to_multiple + winner + format + re_subj,
             </row>
             <row>
               <cell>(Intercept)</cell>
-              <cell>-2.46</cell>
-              <cell>0.08</cell>
-              <cell>-29.90</cell>
+              <cell>-0.81</cell>
+              <cell>0.09</cell>
+              <cell>-9.34</cell>
               <cell><m>&lt;0.0001</m></cell>
             </row>
             <row>
               <cell>to_multiple1</cell>
-              <cell>0.74</cell>
-              <cell>0.13</cell>
-              <cell>5.56</cell>
+              <cell>-2.64</cell>
+              <cell>0.30</cell>
+              <cell>-8.68</cell>
               <cell><m>&lt;0.0001</m></cell>
             </row>
             <row>
               <cell>winneryes</cell>
-              <cell>2.51</cell>
-              <cell>0.13</cell>
-              <cell>19.13</cell>
+              <cell>1.63</cell>
+              <cell>0.32</cell>
+              <cell>5.11</cell>
               <cell><m>&lt;0.0001</m></cell>
             </row>
             <row>
               <cell>format1</cell>
-              <cell>-0.81</cell>
-              <cell>0.13</cell>
-              <cell>-6.26</cell>
+              <cell>-1.59</cell>
+              <cell>0.12</cell>
+              <cell>-13.28</cell>
               <cell><m>&lt;0.0001</m></cell>
             </row>
             <row>
               <cell>re_subj1</cell>
-              <cell>0.37</cell>
-              <cell>0.13</cell>
-              <cell>2.80</cell>
-              <cell>0.0051</cell>
+              <cell>-3.05</cell>
+              <cell>0.36</cell>
+              <cell>-8.40</cell>
+              <cell><m>&lt;0.0001</m></cell>
             </row>
           </tabular>
         </table>
@@ -1960,15 +1964,15 @@ bind_rows(
             </row>
             <row>
               <cell>sex + head_l + skull_w + total_l + tail_l</cell>
-              <cell>89.5</cell>
+              <cell>84.2</cell>
             </row>
             <row>
               <cell>sex + skull_w + total_l + tail_l</cell>
-              <cell>91.2</cell>
+              <cell>83.5</cell>
             </row>
             <row>
               <cell>sex + head_l + total_l + tail_l</cell>
-              <cell>92.0</cell>
+              <cell>84.7</cell>
             </row>
           </tabular>
         </table>

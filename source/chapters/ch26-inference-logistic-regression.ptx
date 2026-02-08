@@ -16,7 +16,7 @@
   <p>The <url href="http://openintrostat.github.io/openintro/reference/email.html"><c>email</c></url> data can be found in the <url href="http://openintrostat.github.io/openintro"><alert>openintro</alert></url> R package.</p>
 </note>
 
-<table xml:id="tbl-resume-variables">
+<table xml:id="tbl-resume-variables-2">
   <title>Variables and their descriptions for the <c>email</c> dataset. Many of the variables are indicator variables, meaning they take the value 1 if the specified characteristic is present and 0 otherwise.</title>
   <tabular halign="left">
     <row header="yes" bottom="medium">

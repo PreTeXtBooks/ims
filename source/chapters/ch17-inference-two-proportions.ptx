@@ -227,7 +227,7 @@ So for a rough approximation, we will apply the 67-95-99.7 rule which tells us t
 A 95% confidence interval for <m>p_T - p_C</m> is given by:</p>
       
       <me>
-        \hat{p}_T - \hat{p}_C \pm 2 \cdot SE \rightarrow \ \ \ 14/40 - 11/50 \pm 2 \cdot <c>r cpr_boot_se</c> \ \ \  \rightarrow \ \ \  (<c>r cpr_boot_90_lower_se</c>, <c>r cpr_boot_90_upper_se</c>)
+        \hat{p}_T - \hat{p}_C \pm 2 \cdot SE \rightarrow \ \ \ 14/40 - 11/50 \pm 2 \cdot 0.098 \ \ \  \rightarrow \ \ \  (-0.067, 0.327)
       </me>
       
       <p>We are 95% confident that the true value of <m>p_T - p_C</m> is between <c>r cpr_boot_90_lower_se</c> and <c>r cpr_boot_90_upper_se</c>.

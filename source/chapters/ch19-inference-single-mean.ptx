@@ -474,8 +474,8 @@ qt(0.975, df = 18)
 
         <p>Based on a sample of <m>n</m> independent and nearly normal observations, a confidence interval for the population mean is</p>
 
-        <p><m>\text{point estimate} \ &amp;\pm\  t^{\star}_{df} \times SE</m></p>
-        <p><m>\bar{x} \ &amp;\pm\  t^{\star}_{df} \times \frac{s}{\sqrt{n}}</m></p>
+        <p><m>\text{point estimate} \pm\  t^{\star}_{df} \times SE</m></p>
+        <p><m>\bar{x} \pm\  t^{\star}_{df} \times \frac{s}{\sqrt{n}}</m></p>
 
         <p>where <m>\bar{x}</m> is the sample mean, <m>t^{\star}_{df}</m> corresponds to the confidence level and degrees of freedom <m>df,</m> and <m>SE</m> is the standard error as estimated by the sample.</p>
       </assemblage>

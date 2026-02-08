@@ -24,9 +24,36 @@
     <title>Baby's weight and father's age, randomization test</title>
     <statement>
       <p>US Department of Health and Human Services, Centers for Disease Control and Prevention collect information on births recorded in the country. The data used here are a random sample of 1000 births from 2014. Here, we study the relationship between the father's age and the weight of the baby. <xref ref="data-births14" /> Shown below are the linear model output for predicting baby's weight (in pounds) from father's age (in years) and the histogram of slopes from 1000 randomized datasets (1000 times, <c>weight</c> was permuted and regressed against <c>fage</c>). The red vertical line is drawn at the observed slope value which was produced in the linear model output.</p>
-      <figure xml:id="fig-ex24-2-2">
-        <image source="images/exercises/_24-ex-inf-model-slr-2-2.png" width="90%"/>
-      </figure>
+<table xml:id="tbl-reg-fage">
+  <title>Regression output for predicting outcome from fage</title>
+  <tabular halign="left">
+    <row header="yes" bottom="medium">
+      <cell>term</cell>
+      <cell right="minor">estimate</cell>
+      <cell right="minor">std.error</cell>
+      <cell right="minor">statistic</cell>
+      <cell>p.value</cell>
+    </row>
+
+    <row>
+      <cell>(Intercept)</cell>
+      <cell right="minor">7.101</cell>
+      <cell right="minor">0.199</cell>
+      <cell right="minor">35.674</cell>
+      <cell><m>\lt</m>0.0001</cell>
+    </row>
+
+    <row>
+      <cell>fage</cell>
+      <cell right="minor">0.005</cell>
+      <cell right="minor">0.006</cell>
+      <cell right="minor">0.757</cell>
+      <cell right="minor">0.4495</cell>
+    </row>
+
+  </tabular>
+</table>
+
       <figure xml:id="fig-ex24-2-3">
         <image source="images/exercises/_24-ex-inf-model-slr-2-3.png" width="90%"/>
       </figure>
@@ -64,9 +91,36 @@
       <figure xml:id="fig-ex24-4-6">
         <image source="images/exercises/_24-ex-inf-model-slr-4-6.png" width="90%"/>
       </figure>
-      <figure xml:id="fig-ex24-4-7">
-        <image source="images/exercises/_24-ex-inf-model-slr-4-7.png" width="90%"/>
-      </figure>
+<table xml:id="tbl-reg-fage-2">
+  <title>Regression output for predicting outcome from fage (model 2)</title>
+  <tabular halign="left">
+    <row header="yes" bottom="medium">
+      <cell>term</cell>
+      <cell right="minor">estimate</cell>
+      <cell right="minor">std.error</cell>
+      <cell right="minor">statistic</cell>
+      <cell>p.value</cell>
+    </row>
+
+    <row>
+      <cell>(Intercept)</cell>
+      <cell right="minor">7.1042</cell>
+      <cell right="minor">0.1936</cell>
+      <cell right="minor">36.698</cell>
+      <cell><m>\lt</m>0.0001</cell>
+    </row>
+
+    <row>
+      <cell>fage</cell>
+      <cell right="minor">0.0047</cell>
+      <cell right="minor">0.0061</cell>
+      <cell right="minor">0.779</cell>
+      <cell right="minor">0.4359</cell>
+    </row>
+
+  </tabular>
+</table>
+
       <p><ol marker="a.">
         <li>What is the predicted weight of a baby whose father is 30 years old?</li>
         <li>Do the data provide convincing evidence that the model for predicting baby weights from father's age has a slope different than 0? State the null and alternative hypotheses, report the p-value (using a mathematical model), and state your conclusion.</li>
@@ -107,9 +161,36 @@
     <title>Body measurements, standard error bootstrap interval</title>
     <statement>
       <p>A linear model is built to predict height based on shoulder girth (circumference of shoulders measured over deltoid muscles), both measured in centimeters. <xref ref="Heinz-2003" /> Shown below are the linear model output for predicting height from shoulder girth and the bootstrap distribution of the slope statistic from 1,000 different bootstrap samples of the data.</p>
-      <figure xml:id="fig-ex24-7-10">
-        <image source="images/exercises/_24-ex-inf-model-slr-7-10.png" width="90%"/>
-      </figure>
+<table xml:id="tbl-reg-sho_gi">
+  <title>Regression output for predicting outcome from sho_gi</title>
+  <tabular halign="left">
+    <row header="yes" bottom="medium">
+      <cell>term</cell>
+      <cell right="minor">estimate</cell>
+      <cell right="minor">std.error</cell>
+      <cell right="minor">statistic</cell>
+      <cell>p.value</cell>
+    </row>
+
+    <row>
+      <cell>(Intercept)</cell>
+      <cell right="minor">105.832</cell>
+      <cell right="minor">3.27</cell>
+      <cell right="minor">32.3</cell>
+      <cell><m>\lt</m>0.0001</cell>
+    </row>
+
+    <row>
+      <cell>sho_gi</cell>
+      <cell right="minor">0.604</cell>
+      <cell right="minor">0.03</cell>
+      <cell right="minor">20.0</cell>
+      <cell><m>\lt</m>0.0001</cell>
+    </row>
+
+  </tabular>
+</table>
+
       <figure xml:id="fig-ex24-7-11">
         <image source="images/exercises/_24-ex-inf-model-slr-7-11.png" width="90%"/>
       </figure>
@@ -125,9 +206,36 @@
     <title>Baby's weight and father's age, standard error bootstrap interval</title>
     <statement>
       <p>US Department of Health and Human Services, Centers for Disease Control and Prevention collect information on births recorded in the country. The data used here are a random sample of 1000 births from 2014. Here, we study the relationship between the father's age and the weight of the baby. <xref ref="data-births14" /> Shown below are the linear model output for predicting baby's weight (in pounds) from father's age (in years) and the the bootstrap distribution of the slope statistic from 1000 different bootstrap samples of the data.</p>
-      <figure xml:id="fig-ex24-8-12">
-        <image source="images/exercises/_24-ex-inf-model-slr-8-12.png" width="90%"/>
-      </figure>
+<table xml:id="tbl-reg-fage-repeat">
+  <title>Regression output for predicting outcome from fage</title>
+  <tabular halign="left">
+    <row header="yes" bottom="medium">
+      <cell>term</cell>
+      <cell right="minor">estimate</cell>
+      <cell right="minor">std.error</cell>
+      <cell right="minor">statistic</cell>
+      <cell>p.value</cell>
+    </row>
+
+    <row>
+      <cell>(Intercept)</cell>
+      <cell right="minor">7.101</cell>
+      <cell right="minor">0.199</cell>
+      <cell right="minor">35.674</cell>
+      <cell><m>\lt</m>0.0001</cell>
+    </row>
+
+    <row>
+      <cell>fage</cell>
+      <cell right="minor">0.005</cell>
+      <cell right="minor">0.006</cell>
+      <cell right="minor">0.757</cell>
+      <cell right="minor">0.4495</cell>
+    </row>
+
+  </tabular>
+</table>
+
       <figure xml:id="fig-ex24-8-13">
         <image source="images/exercises/_24-ex-inf-model-slr-8-13.png" width="90%"/>
       </figure>
@@ -171,9 +279,36 @@
     <title>Murders and poverty, randomization test</title>
     <statement>
       <p>The following regression output is for predicting annual murders per million (<c>annual_murders_per_mil</c>) from percentage living in poverty (<c>perc_pov</c>) in a random sample of 20 metropolitan areas. Shown below are the linear model output for predicting annual murders per million from percentage living in poverty for metropolitan areas and the histogram of slopes from 1000 randomized datasets (1000 times, <c>annual_murders_per_mil</c> was permuted and regressed against <c>perc_pov</c>). The red vertical line is drawn at the observed slope value which was produced in the linear model output.</p>
-      <figure xml:id="fig-ex24-11-16">
-        <image source="images/exercises/_24-ex-inf-model-slr-11-16.png" width="90%"/>
-      </figure>
+<table xml:id="tbl-reg-perc_pov">
+  <title>Regression output for predicting outcome from perc_pov</title>
+  <tabular halign="left">
+    <row header="yes" bottom="medium">
+      <cell>term</cell>
+      <cell right="minor">estimate</cell>
+      <cell right="minor">std.error</cell>
+      <cell right="minor">statistic</cell>
+      <cell>p.value</cell>
+    </row>
+
+    <row>
+      <cell>(Intercept)</cell>
+      <cell right="minor">-29.90</cell>
+      <cell right="minor">7.79</cell>
+      <cell right="minor">-3.84</cell>
+      <cell right="minor">0.0012</cell>
+    </row>
+
+    <row>
+      <cell>perc_pov</cell>
+      <cell right="minor">2.56</cell>
+      <cell right="minor">0.39</cell>
+      <cell right="minor">6.56</cell>
+      <cell><m>\lt</m>0.0001</cell>
+    </row>
+
+  </tabular>
+</table>
+
       <figure xml:id="fig-ex24-11-17">
         <image source="images/exercises/_24-ex-inf-model-slr-11-17.png" width="90%"/>
       </figure>
@@ -189,9 +324,37 @@
     <title>Murders and poverty, mathematical test</title>
     <statement>
       <p>The table below shows the output of a linear model annual murders per million (<c>annual_murders_per_mil</c>) from percentage living in poverty (<c>perc_pov</c>) in a random sample of 20 metropolitan areas.</p>
-      <figure xml:id="fig-ex24-12-18">
-        <image source="images/exercises/_24-ex-inf-model-slr-12-18.png" width="90%"/>
-      </figure>
+<table xml:id="tbl-reg-perc_pov-2">
+  <title>Regression output for predicting outcome from perc_pov</title>
+  <tabular halign="left">
+    <row header="yes" bottom="medium">
+      <cell>term</cell>
+      <cell right="minor">estimate</cell>
+      <cell right="minor">std.error</cell>
+      <cell right="minor">statistic</cell>
+      <cell>p.value</cell>
+    </row>
+
+    <row>
+      <cell>(Intercept)</cell>
+      <cell right="minor">-29.90</cell>
+      <cell right="minor">7.79</cell>
+      <cell right="minor">-3.84</cell>
+      <cell right="minor">0.0012</cell>
+    </row>
+
+    <row>
+      <cell>perc_pov</cell>
+      <cell right="minor">2.56</cell>
+      <cell right="minor">0.39</cell>
+      <cell right="minor">6.56</cell>
+      <cell><m>\lt</m>0.0001</cell>
+    </row>
+
+  </tabular>
+</table>
+`
+
       <p><ol marker="a.">
         <li>What are the hypotheses for evaluating whether the slope of the model predicting annual murder rate from poverty percentage is different than 0?</li>
         <li>State the conclusion of the hypothesis test from part (a) in context. What does this say about whether poverty percentage is a useful predictor of annual murder rate?</li>
@@ -219,9 +382,36 @@
     <title>Murders and poverty, standard error bootstrap interval</title>
     <statement>
       <p>A linear model is built to predict annual murders per million (<c>annual_murders_per_mil</c>) from percentage living in poverty (<c>perc_pov</c>) in a random sample of 20 metropolitan areas. Shown below are the standard linear model output for predicting annual murders per million from percentage living in poverty for metropolitan areas and the bootstrap distribution of the slope statistic from 1000 different bootstrap samples of the data.</p>
-      <figure xml:id="fig-ex24-14-20">
-        <image source="images/exercises/_24-ex-inf-model-slr-14-20.png" width="90%"/>
-      </figure>
+      <table xml:id="tbl-reg-perc_pov-2">
+  <title>Regression output for predicting outcome from perc_pov</title>
+  <tabular halign="left">
+    <row header="yes" bottom="medium">
+      <cell>term</cell>
+      <cell right="minor">estimate</cell>
+      <cell right="minor">std.error</cell>
+      <cell right="minor">statistic</cell>
+      <cell>p.value</cell>
+    </row>
+
+    <row>
+      <cell>(Intercept)</cell>
+      <cell right="minor">-29.90</cell>
+      <cell right="minor">7.79</cell>
+      <cell right="minor">-3.84</cell>
+      <cell right="minor">0.0012</cell>
+    </row>
+
+    <row>
+      <cell>perc_pov</cell>
+      <cell right="minor">2.56</cell>
+      <cell right="minor">0.39</cell>
+      <cell right="minor">6.56</cell>
+      <cell><m>\lt</m>0.0001</cell>
+    </row>
+
+  </tabular>
+</table>
+
       <figure xml:id="fig-ex24-14-21">
         <image source="images/exercises/_24-ex-inf-model-slr-14-21.png" width="90%"/>
       </figure>
@@ -239,6 +429,9 @@
       <p>The scatterplot below shows the annual murders per million vs. percentage living in poverty in a random sample of 20 metropolitan areas. The second figure plots residuals on the y-axis and percent living in poverty on the x-axis.</p>
       <figure xml:id="fig-ex24-15-22">
         <image source="images/exercises/_24-ex-inf-model-slr-15-22.png" width="90%"/>
+      </figure>
+      <figure xml:id="fig-ex24-15-22-2">
+        <image source="images/exercises/_24-ex-inf-model-slr-15-22-2.png" width="90%"/>
       </figure>
       <p><ol marker="a.">
         <li>For these data, <m>R^2</m> is 70.56%. What is the value of the correlation coefficient? How can you tell if it is positive or negative?</li>
@@ -270,6 +463,36 @@
       <figure xml:id="fig-ex24-17-24">
         <image source="images/exercises/_24-ex-inf-model-slr-17-24.png" width="90%"/>
       </figure>
+<table xml:id="tbl-reg-beers">
+  <title>Regression output for predicting outcome from beers</title>
+  <tabular halign="left">
+    <row header="yes" bottom="medium">
+      <cell>term</cell>
+      <cell right="minor">estimate</cell>
+      <cell right="minor">std.error</cell>
+      <cell right="minor">statistic</cell>
+      <cell>p.value</cell>
+    </row>
+
+    <row>
+      <cell>(Intercept)</cell>
+      <cell right="minor">-0.0127</cell>
+      <cell right="minor">0.0126</cell>
+      <cell right="minor">-1.00</cell>
+      <cell right="minor">0.332</cell>
+    </row>
+
+    <row>
+      <cell>beers</cell>
+      <cell right="minor">0.0180</cell>
+      <cell right="minor">0.0024</cell>
+      <cell right="minor">7.48</cell>
+      <cell><m>\lt</m>0.0001</cell>
+    </row>
+
+  </tabular>
+</table>
+
       <p><ol marker="a.">
         <li>Describe the relationship between the number of cans of beer and BAC.</li>
         <li>Write the equation of the regression line. Interpret the slope and intercept in context.</li>

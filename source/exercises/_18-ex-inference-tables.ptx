@@ -31,16 +31,13 @@ Complete the following computations under the null hypothesis of independence be
 
       <table xml:id="tbl-climate-change-by-generation">
         <title>Act on climate change by generation.</title>
-        <tgroup cols="4">
-          <thead>
+        <tabular>
             <row>
               <entry>Response</entry>
               <entry>Yes</entry>
               <entry>No</entry>
               <entry>Total</entry>
             </row>
-          </thead>
-          <tbody>
             <row>
               <entry>Gen Z</entry>
               <entry>292</entry>
@@ -71,8 +68,7 @@ Complete the following computations under the null hypothesis of independence be
               <entry>10,402</entry>
               <entry>13,664</entry>
             </row>
-          </tbody>
-        </tgroup>
+          </tabular>
       </table>
 
       <p>If there is no relationship between age and action,</p>
@@ -92,8 +88,7 @@ Complete the following computations under the null hypothesis of independence be
 
       <table xml:id="tbl-lizard-habitats-data">
         <title>Lizard habitats data.</title>
-        <tgroup cols="5">
-          <thead>
+        <tabular>
             <row>
               <entry>Habitat</entry>
               <entry>Sun</entry>
@@ -101,8 +96,6 @@ Complete the following computations under the null hypothesis of independence be
               <entry>Shade</entry>
               <entry>Total</entry>
             </row>
-          </thead>
-          <tbody>
             <row>
               <entry>Desert</entry>
               <entry>16</entry>
@@ -131,8 +124,7 @@ Complete the following computations under the null hypothesis of independence be
               <entry>110</entry>
               <entry>332</entry>
             </row>
-          </tbody>
-        </tgroup>
+          </tabular>
       </table>
 
       <p><ol marker="a.">
@@ -156,16 +148,13 @@ The number of current smokers in each group was reported as Asian-Indian (n = 22
 
       <table xml:id="tbl-asian-american-tobacco-data">
         <title>Disaggregating Asian American tobacco use data.</title>
-        <tgroup cols="4">
-          <thead>
+        <tabular>
             <row>
               <entry>Ethnicity</entry>
               <entry>Non-smoking</entry>
               <entry>Smoking</entry>
               <entry>Total</entry>
             </row>
-          </thead>
-          <tbody>
             <row>
               <entry>Asian-Indian</entry>
               <entry>4,150</entry>
@@ -190,8 +179,7 @@ The number of current smokers in each group was reported as Asian-Indian (n = 22
               <entry>1,111</entry>
               <entry>14,021</entry>
             </row>
-          </tbody>
-        </tgroup>
+          </tabular>
       </table>
 
       <p>In order to assess whether there is a difference in current smoking rates across three Asian American ethnic groups, the observed data is compared to the data that would be expected if there were no association between the variables.</p>
@@ -216,8 +204,7 @@ The original data are shown on the left and the results of the randomization is 
 
       <table xml:id="tbl-lizard-habitats-original">
         <title>Lizard habitats, original data.</title>
-        <tgroup cols="5">
-          <thead>
+        <tabular>
             <row>
               <entry>Habitat</entry>
               <entry>Sun</entry>
@@ -225,8 +212,6 @@ The original data are shown on the left and the results of the randomization is 
               <entry>Shade</entry>
               <entry>Total</entry>
             </row>
-          </thead>
-          <tbody>
             <row>
               <entry>Desert</entry>
               <entry>16</entry>
@@ -255,16 +240,14 @@ The original data are shown on the left and the results of the randomization is 
               <entry>110</entry>
               <entry>332</entry>
             </row>
-          </tbody>
-        </tgroup>
+          </tabular>
       </table>
 
       <p><em>Randomized data</em></p>
 
       <table xml:id="tbl-lizard-habitats-randomized">
         <title>Lizard habitats, randomized once.</title>
-        <tgroup cols="5">
-          <thead>
+        <tabular>
             <row>
               <entry>Habitat</entry>
               <entry>Sun</entry>
@@ -272,8 +255,6 @@ The original data are shown on the left and the results of the randomization is 
               <entry>Shade</entry>
               <entry>Total</entry>
             </row>
-          </thead>
-          <tbody>
             <row>
               <entry>Desert</entry>
               <entry>40</entry>
@@ -302,8 +283,7 @@ The original data are shown on the left and the results of the randomization is 
               <entry>110</entry>
               <entry>332</entry>
             </row>
-          </tbody>
-        </tgroup>
+          </tabular>
       </table>
 
       <p>Recall that the Chi-squared statistic <m>(X^2)</m> measures the difference between the expected and observed counts.
@@ -323,16 +303,13 @@ The original data are shown on the left and the results of the randomization is 
 
       <table xml:id="tbl-asian-tobacco-original">
         <title>Asian American tobacco use, original data.</title>
-        <tgroup cols="4">
-          <thead>
+        <tabular>
             <row>
               <entry>Ethnicity</entry>
               <entry>Non-smoking</entry>
               <entry>Smoking</entry>
               <entry>Total</entry>
             </row>
-          </thead>
-          <tbody>
             <row>
               <entry>Asian-Indian</entry>
               <entry>4,150</entry>
@@ -357,24 +334,20 @@ The original data are shown on the left and the results of the randomization is 
               <entry>1,111</entry>
               <entry>14,021</entry>
             </row>
-          </tbody>
-        </tgroup>
+          </tabular>
       </table>
 
       <p><em>Randomized data</em></p>
 
       <table xml:id="tbl-asian-tobacco-randomized">
         <title>Asian American tobacco use, randomized once.</title>
-        <tgroup cols="4">
-          <thead>
+        <tabular>
             <row>
               <entry>Ethnicity</entry>
               <entry>Non-smoking</entry>
               <entry>Smoking</entry>
               <entry>Total</entry>
             </row>
-          </thead>
-          <tbody>
             <row>
               <entry>Asian-Indian</entry>
               <entry>4,015</entry>
@@ -399,8 +372,7 @@ The original data are shown on the left and the results of the randomization is 
               <entry>1,111</entry>
               <entry>14,021</entry>
             </row>
-          </tbody>
-        </tgroup>
+          </tabular>
       </table>
 
       <p>Recall that the Chi-squared statistic <m>(X^2)</m> measures the difference between the expected and observed counts.
@@ -466,8 +438,7 @@ The distribution of lizards in each of the sites resting in the sun, partial sun
 
       <table xml:id="tbl-lizard-habitats-larger">
         <title>Lizard habitats, larger data.</title>
-        <tgroup cols="5">
-          <thead>
+        <tabular>
             <row>
               <entry>Habitat</entry>
               <entry>Sun</entry>
@@ -475,8 +446,6 @@ The distribution of lizards in each of the sites resting in the sun, partial sun
               <entry>Shade</entry>
               <entry>Total</entry>
             </row>
-          </thead>
-          <tbody>
             <row>
               <entry>Desert</entry>
               <entry>80</entry>
@@ -505,8 +474,7 @@ The distribution of lizards in each of the sites resting in the sun, partial sun
               <entry>550</entry>
               <entry>1,660</entry>
             </row>
-          </tbody>
-        </tgroup>
+          </tabular>
       </table>
 
       <p>The larger dataset was randomized 1,000 times (sunlight preference randomly assigned to the observations across sites), and the histogram of the Chi-squared statistic on each randomization is displayed.</p>
@@ -539,16 +507,13 @@ The distribution of smokers in each of the ethnicity groups in the smaller data 
 
       <table xml:id="tbl-asian-tobacco-smaller">
         <title>Asian American tobacco use, smaller data.</title>
-        <tgroup cols="4">
-          <thead>
+        <tabular>
             <row>
               <entry>Ethnicity</entry>
               <entry>Non-smoking</entry>
               <entry>Smoking</entry>
               <entry>Total</entry>
             </row>
-          </thead>
-          <tbody>
             <row>
               <entry>Asian-Indian</entry>
               <entry>83</entry>
@@ -573,8 +538,7 @@ The distribution of smokers in each of the ethnicity groups in the smaller data 
               <entry>22</entry>
               <entry>280</entry>
             </row>
-          </tbody>
-        </tgroup>
+          </tabular>
       </table>
 
       <p>The smaller dataset was randomized 1,000 times (smoking status randomly assigned to the observations across ethnicities), and the histogram of the Chi-squared statistic on each randomization is displayed.</p>
@@ -633,8 +597,7 @@ Conduct a hypothesis test to evaluate if these data provide evidence of an assoc
 
       <table xml:id="tbl-sleep-deprived-transportation">
         <title>Sleep deprived transportation workers.</title>
-        <tgroup cols="5">
-          <thead>
+        <tabular>
             <row>
               <entry>Profession</entry>
               <entry>Less than 6 hours</entry>
@@ -642,8 +605,6 @@ Conduct a hypothesis test to evaluate if these data provide evidence of an assoc
               <entry>More than 8 hours</entry>
               <entry>Total</entry>
             </row>
-          </thead>
-          <tbody>
             <row>
               <entry>Non-transportation workers</entry>
               <entry>35</entry>
@@ -665,8 +626,7 @@ Conduct a hypothesis test to evaluate if these data provide evidence of an assoc
               <entry>256</entry>
               <entry>1,087</entry>
             </row>
-          </tbody>
-        </tgroup>
+          </tabular>
       </table>
     </statement>
   </exercise>
@@ -680,16 +640,13 @@ The results for the second year of the study are given below: <xref ref="KingSua
 
       <table xml:id="tbl-parasitic-worm">
         <title>Parasitic worm treatment outcomes.</title>
-        <tgroup cols="4">
-          <thead>
+        <tabular>
             <row>
               <entry>Treatment</entry>
               <entry>Clear at Year 2</entry>
               <entry>Not clear at Year 2</entry>
               <entry>Total</entry>
             </row>
-          </thead>
-          <tbody>
             <row>
               <entry>Three drugs</entry>
               <entry>52</entry>
@@ -714,8 +671,7 @@ The results for the second year of the study are given below: <xref ref="KingSua
               <entry>40</entry>
               <entry>165</entry>
             </row>
-          </tbody>
-        </tgroup>
+          </tabular>
       </table>
 
       <p><ol marker="a.">
@@ -735,8 +691,7 @@ The table below shows the distribution of responses by age group as well as the 
         <title>Shipping holiday gifts by age group.</title>
         <!-- Note: The Total row intentionally has empty cells for certain age columns, 
              as these represent subtotals that are not aggregated in the source data. -->
-        <tgroup cols="8">
-          <thead>
+        <tabular>
             <row>
               <entry>Shipping Carrier</entry>
               <entry>18-34</entry>
@@ -747,8 +702,6 @@ The table below shows the distribution of responses by age group as well as the 
               <entry>Not sure</entry>
               <entry>Total</entry>
             </row>
-          </thead>
-          <tbody>
             <row>
               <entry>USPS</entry>
               <entry>72</entry>
@@ -809,8 +762,7 @@ The table below shows the distribution of responses by age group as well as the 
               <entry> </entry>
               <entry>500</entry>
             </row>
-          </tbody>
-        </tgroup>
+          </tabular>
       </table>
 
       <p><ol marker="a.">
@@ -830,8 +782,7 @@ The table below shows the distribution of incidences of depression by amount of 
 
       <table xml:id="tbl-coffee-depression">
         <title>Coffee and depression.</title>
-        <tgroup cols="7">
-          <thead>
+        <tabular>
             <row>
               <entry>Caffeinated coffee consumption</entry>
               <entry>≤ 1 cup/week</entry>
@@ -841,8 +792,6 @@ The table below shows the distribution of incidences of depression by amount of 
               <entry>≥ 4 cups/day</entry>
               <entry>Total</entry>
             </row>
-          </thead>
-          <tbody>
             <row>
               <entry>Yes (clinical depression)</entry>
               <entry>670</entry>
@@ -870,8 +819,7 @@ The table below shows the distribution of incidences of depression by amount of 
               <entry>2,383</entry>
               <entry>50,739</entry>
             </row>
-          </tbody>
-        </tgroup>
+          </tabular>
       </table>
 
       <p><ol marker="a.">

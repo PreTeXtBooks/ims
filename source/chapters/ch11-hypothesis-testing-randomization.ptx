@@ -118,8 +118,7 @@
     </ul></p>
 
     <assemblage>
-      <title>Important</title>
-      <p><alert>Hypothesis testing.</alert></p>
+      <title>Hypothesis testing</title>
       <p>These hypotheses are part of what is called a <alert>hypothesis test</alert>. A hypothesis test is a statistical technique used to evaluate competing claims using data. Often times, the null hypothesis takes a stance of <em>no difference</em> or <em>no effect</em>. This hypothesis assumes that any differences observed are due to the variability inherent in the population and could have occurred by random chance.</p>
       <p>If the null hypothesis and the data notably disagree, then we reject the null hypothesis in favor of the alternative hypothesis.</p>
       <p>There are many nuances to hypothesis testing, so do not worry if you don't feel like a master of hypothesis testing at the end of this section. We'll discuss these ideas and details many times in this chapter as well as in the chapters that follow.</p>
@@ -546,8 +545,7 @@ ggplot(opportunity_cost_rand_dist, aes(x = stat)) +
   <p>In the last two sections, we utilized a <alert>hypothesis test</alert>, which is a formal technique for evaluating two competing possibilities. In each scenario, we described a <alert>null hypothesis</alert>, which represented either a skeptical perspective or a perspective of no difference. We also laid out an <alert>alternative hypothesis</alert>, which represented a new perspective such as the possibility of a relationship between two variables or a treatment effect in an experiment. The alternative hypothesis is usually the reason the scientists set out to do the research in the first place.</p>
 
   <assemblage>
-    <title>Important</title>
-    <p><alert>Null and alternative hypotheses.</alert></p>
+    <title>Null and alternative hypotheses</title>
     <p>The <alert>null hypothesis</alert> <m>(H_0)</m> often represents either a skeptical perspective or a claim of <q>no difference</q> to be tested.</p>
     <p>The <alert>alternative hypothesis</alert> <m>(H_A)</m> represents an alternative claim under consideration and is often represented by a range of possible values for the value of interest.</p>
   </assemblage>
@@ -589,7 +587,7 @@ ggplot(opportunity_cost_rand_dist, aes(x = stat)) +
     <p>The 2-in-100 chance is what we call a <alert>p-value</alert>, which is a probability quantifying the strength of the evidence against the null hypothesis, given the observed data.</p>
 
     <assemblage>
-      <title>p-value.</title>
+      <title>p-value</title>
       <p>The <alert>p-value</alert> is the probability of observing data at least as favorable to the alternative hypothesis as our current dataset, if the null hypothesis were true. We typically use a summary statistic of the data, such as a difference in proportions, to help compute the p-value and evaluate the hypotheses. This summary value that is used to compute the p-value is often called the <alert>test statistic</alert>.</p>
     </assemblage>
 
@@ -609,7 +607,7 @@ ggplot(opportunity_cost_rand_dist, aes(x = stat)) +
     <p>Note that you may have heard the phrase <q>statistically significant</q> as a way to describe <q>statistically discernible.</q> Although in everyday language <q>significant</q> would indicate that a difference is large or meaningful, that is not necessarily the case here. The term <q>statistically discernible</q> indicates that the p-value from a study fell below the chosen discernibility level. For example, in the sex discrimination study, the p-value was found to be approximately 0.02. Using a discernibility level of <m>\alpha = 0.05,</m> we would say that the data provided statistically discernible evidence against the null hypothesis. However, this conclusion gives us no information regarding the size of the difference in promotion rates!</p>
 
     <assemblage>
-      <title>Statistical discernibility.</title>
+      <title>Statistical discernibility</title>
       <p>We say that the data provide <alert>statistically discernible</alert> evidence against the null hypothesis if the p-value is less than some predetermined threshold (e.g., 0.01, 0.05, 0.1).</p>
     </assemblage>
 

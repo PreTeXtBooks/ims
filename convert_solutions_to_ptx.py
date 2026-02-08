@@ -2,6 +2,15 @@
 """
 Convert Quarto solution files (.qmd) to PreTeXt XML format for Appendix A.
 This script reads solution files and generates PreTeXt <solution> elements.
+
+Usage:
+    python convert_solutions_to_ptx.py [base_path] [output_file]
+    
+    base_path: Path to the repository root (default: current directory)
+    output_file: Path for output XML file (default: base_path/converted_solutions.xml)
+
+Example:
+    python convert_solutions_to_ptx.py /path/to/repo /path/to/output.xml
 """
 
 import re
@@ -200,7 +209,14 @@ def generate_section_xml(chapter_num, solutions):
 
 def main():
     """Main conversion function."""
-    base_path = Path('/home/runner/work/ims/ims')
+    import sys
+    
+    # Use current directory as base path, or accept as command-line argument
+    if len(sys.argv) > 1:
+        base_path = Path(sys.argv[1])
+    else:
+        base_path = Path.cwd()
+    
     exercises_path = base_path / 'exercises'
     
     print("Converting Quarto solutions to PreTeXt XML format...")
@@ -236,8 +252,11 @@ def main():
         section_xml = generate_section_xml(chapter_num, solutions)
         all_sections.append(section_xml)
     
-    # Write output (for now, just to a file for review)
-    output_file = base_path / 'converted_solutions.xml'
+    # Write output (accept as second argument or use default)
+    if len(sys.argv) > 2:
+        output_file = Path(sys.argv[2])
+    else:
+        output_file = base_path / 'converted_solutions.xml'
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write('<?xml version="1.0" encoding="UTF-8" ?>\n\n')
         f.write('<appendix xml:id="appendix-exercise-solutions">\n')

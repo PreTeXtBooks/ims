@@ -590,7 +590,7 @@
     <title>Exercises</title>
     
     <p>
-      Answers to odd-numbered exercises can be found in the Appendix />.
+      Answers to odd-numbered exercises can be found in the <xref ref="sec-exercise-solutions-18"/>.
     </p>
 
     <xi:include href="../exercises/_18-ex-inference-tables.ptx" />

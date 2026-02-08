@@ -53,37 +53,37 @@
   <title>Summary of the iPod study, where a question was posed to the study participant who acted.</title>
   <tabular>
       <row>
-        <entry>Question</entry>
-        <entry>Disclose problem</entry>
-        <entry>Hide problem</entry>
-        <entry>Total</entry>
+        <cell>Question</cell>
+        <cell>Disclose problem</cell>
+        <cell>Hide problem</cell>
+        <cell>Total</cell>
       </row>
       <row>
-        <entry>General</entry>
-        <entry>2</entry>
-        <entry>71</entry>
-        <entry>73</entry>
-      </row>
-
-      <row>
-        <entry>Positive assumption</entry>
-        <entry>23</entry>
-        <entry>50</entry>
-        <entry>73</entry>
+        <cell>General</cell>
+        <cell>2</cell>
+        <cell>71</cell>
+        <cell>73</cell>
       </row>
 
       <row>
-        <entry>Negative assumption</entry>
-        <entry>36</entry>
-        <entry>37</entry>
-        <entry>73</entry>
+        <cell>Positive assumption</cell>
+        <cell>23</cell>
+        <cell>50</cell>
+        <cell>73</cell>
       </row>
 
       <row>
-        <entry>Total</entry>
-        <entry>61</entry>
-        <entry>158</entry>
-        <entry>219</entry>
+        <cell>Negative assumption</cell>
+        <cell>36</cell>
+        <cell>37</cell>
+        <cell>73</cell>
+      </row>
+
+      <row>
+        <cell>Total</cell>
+        <cell>61</cell>
+        <cell>158</cell>
+        <cell>219</cell>
       </row>
     </tabular>
 </table>
@@ -148,37 +148,37 @@
 
   <tabular>
       <row>
-        <entry>Question</entry>
-        <entry>Disclose problem<br/>(Observed / Expected)</entry>
-        <entry>Hide problem<br/>(Observed / Expected)</entry>
-        <entry>Total</entry>
+        <cell>Question</cell>
+        <cell>Disclose problem<br/>(Observed / Expected)</cell>
+        <cell>Hide problem<br/>(Observed / Expected)</cell>
+        <cell>Total</cell>
       </row>
       <row>
-        <entry>General</entry>
-        <entry>2<br/>(20.33)</entry>
-        <entry>71<br/>(52.67)</entry>
-        <entry>73</entry>
-      </row>
-
-      <row>
-        <entry>Positive assumption</entry>
-        <entry>23<br/>(20.33)</entry>
-        <entry>50<br/>(52.67)</entry>
-        <entry>73</entry>
+        <cell>General</cell>
+        <cell>2<br/>(20.33)</cell>
+        <cell>71<br/>(52.67)</cell>
+        <cell>73</cell>
       </row>
 
       <row>
-        <entry>Negative assumption</entry>
-        <entry>36<br/>(20.33)</entry>
-        <entry>37<br/>(52.67)</entry>
-        <entry>73</entry>
+        <cell>Positive assumption</cell>
+        <cell>23<br/>(20.33)</cell>
+        <cell>50<br/>(52.67)</cell>
+        <cell>73</cell>
       </row>
 
       <row>
-        <entry>Total</entry>
-        <entry>61</entry>
-        <entry>158</entry>
-        <entry>219</entry>
+        <cell>Negative assumption</cell>
+        <cell>36<br/>(20.33)</cell>
+        <cell>37<br/>(52.67)</cell>
+        <cell>73</cell>
+      </row>
+
+      <row>
+        <cell>Total</cell>
+        <cell>61</cell>
+        <cell>158</cell>
+        <cell>219</cell>
       </row>
     </tabular>
 </table>
@@ -263,37 +263,37 @@
 
   <tabular>
       <row>
-        <entry>Question</entry>
-        <entry>Disclose problem</entry>
-        <entry>Hide problem</entry>
-        <entry>Total</entry>
+        <cell>Question</cell>
+        <cell>Disclose problem</cell>
+        <cell>Hide problem</cell>
+        <cell>Total</cell>
       </row>
       <row>
-        <entry>General</entry>
-        <entry>29</entry>
-        <entry>44</entry>
-        <entry>73</entry>
-      </row>
-
-      <row>
-        <entry>Positive assumption</entry>
-        <entry>15</entry>
-        <entry>58</entry>
-        <entry>73</entry>
+        <cell>General</cell>
+        <cell>29</cell>
+        <cell>44</cell>
+        <cell>73</cell>
       </row>
 
       <row>
-        <entry>Negative assumption</entry>
-        <entry>17</entry>
-        <entry>56</entry>
-        <entry>73</entry>
+        <cell>Positive assumption</cell>
+        <cell>15</cell>
+        <cell>58</cell>
+        <cell>73</cell>
       </row>
 
       <row>
-        <entry>Total</entry>
-        <entry>61</entry>
-        <entry>158</entry>
-        <entry>219</entry>
+        <cell>Negative assumption</cell>
+        <cell>17</cell>
+        <cell>56</cell>
+        <cell>73</cell>
+      </row>
+
+      <row>
+        <cell>Total</cell>
+        <cell>61</cell>
+        <cell>158</cell>
+        <cell>219</cell>
       </row>
     </tabular>
 </table>

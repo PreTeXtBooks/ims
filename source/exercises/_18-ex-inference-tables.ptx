@@ -33,40 +33,40 @@ Complete the following computations under the null hypothesis of independence be
         <title>Act on climate change by generation.</title>
         <tabular>
             <row>
-              <entry>Response</entry>
-              <entry>Yes</entry>
-              <entry>No</entry>
-              <entry>Total</entry>
+              <cell>Response</cell>
+              <cell>Yes</cell>
+              <cell>No</cell>
+              <cell>Total</cell>
             </row>
             <row>
-              <entry>Gen Z</entry>
-              <entry>292</entry>
-              <entry>620</entry>
-              <entry>912</entry>
+              <cell>Gen Z</cell>
+              <cell>292</cell>
+              <cell>620</cell>
+              <cell>912</cell>
             </row>
             <row>
-              <entry>Millennial</entry>
-              <entry>885</entry>
-              <entry>2,275</entry>
-              <entry>3,160</entry>
+              <cell>Millennial</cell>
+              <cell>885</cell>
+              <cell>2,275</cell>
+              <cell>3,160</cell>
             </row>
             <row>
-              <entry>Gen X</entry>
-              <entry>809</entry>
-              <entry>2,709</entry>
-              <entry>3,518</entry>
+              <cell>Gen X</cell>
+              <cell>809</cell>
+              <cell>2,709</cell>
+              <cell>3,518</cell>
             </row>
             <row>
-              <entry>Boomer &amp; older</entry>
-              <entry>1,276</entry>
-              <entry>4,798</entry>
-              <entry>6,074</entry>
+              <cell>Boomer &amp; older</cell>
+              <cell>1,276</cell>
+              <cell>4,798</cell>
+              <cell>6,074</cell>
             </row>
             <row>
-              <entry>Total</entry>
-              <entry>3,262</entry>
-              <entry>10,402</entry>
-              <entry>13,664</entry>
+              <cell>Total</cell>
+              <cell>3,262</cell>
+              <cell>10,402</cell>
+              <cell>13,664</cell>
             </row>
           </tabular>
       </table>
@@ -90,39 +90,39 @@ Complete the following computations under the null hypothesis of independence be
         <title>Lizard habitats data.</title>
         <tabular>
             <row>
-              <entry>Habitat</entry>
-              <entry>Sun</entry>
-              <entry>Partial sun</entry>
-              <entry>Shade</entry>
-              <entry>Total</entry>
+              <cell>Habitat</cell>
+              <cell>Sun</cell>
+              <cell>Partial sun</cell>
+              <cell>Shade</cell>
+              <cell>Total</cell>
             </row>
             <row>
-              <entry>Desert</entry>
-              <entry>16</entry>
-              <entry>32</entry>
-              <entry>71</entry>
-              <entry>119</entry>
+              <cell>Desert</cell>
+              <cell>16</cell>
+              <cell>32</cell>
+              <cell>71</cell>
+              <cell>119</cell>
             </row>
             <row>
-              <entry>Mountain</entry>
-              <entry>56</entry>
-              <entry>36</entry>
-              <entry>15</entry>
-              <entry>107</entry>
+              <cell>Mountain</cell>
+              <cell>56</cell>
+              <cell>36</cell>
+              <cell>15</cell>
+              <cell>107</cell>
             </row>
             <row>
-              <entry>Valley</entry>
-              <entry>42</entry>
-              <entry>40</entry>
-              <entry>24</entry>
-              <entry>106</entry>
+              <cell>Valley</cell>
+              <cell>42</cell>
+              <cell>40</cell>
+              <cell>24</cell>
+              <cell>106</cell>
             </row>
             <row>
-              <entry>Total</entry>
-              <entry>114</entry>
-              <entry>108</entry>
-              <entry>110</entry>
-              <entry>332</entry>
+              <cell>Total</cell>
+              <cell>114</cell>
+              <cell>108</cell>
+              <cell>110</cell>
+              <cell>332</cell>
             </row>
           </tabular>
       </table>
@@ -150,34 +150,34 @@ The number of current smokers in each group was reported as Asian-Indian (n = 22
         <title>Disaggregating Asian American tobacco use data.</title>
         <tabular>
             <row>
-              <entry>Ethnicity</entry>
-              <entry>Non-smoking</entry>
-              <entry>Smoking</entry>
-              <entry>Total</entry>
+              <cell>Ethnicity</cell>
+              <cell>Non-smoking</cell>
+              <cell>Smoking</cell>
+              <cell>Total</cell>
             </row>
             <row>
-              <entry>Asian-Indian</entry>
-              <entry>4,150</entry>
-              <entry>223</entry>
-              <entry>4,373</entry>
+              <cell>Asian-Indian</cell>
+              <cell>4,150</cell>
+              <cell>223</cell>
+              <cell>4,373</cell>
             </row>
             <row>
-              <entry>Chinese</entry>
-              <entry>4,457</entry>
-              <entry>279</entry>
-              <entry>4,736</entry>
+              <cell>Chinese</cell>
+              <cell>4,457</cell>
+              <cell>279</cell>
+              <cell>4,736</cell>
             </row>
             <row>
-              <entry>Filipino</entry>
-              <entry>4,303</entry>
-              <entry>609</entry>
-              <entry>4,912</entry>
+              <cell>Filipino</cell>
+              <cell>4,303</cell>
+              <cell>609</cell>
+              <cell>4,912</cell>
             </row>
             <row>
-              <entry>Total</entry>
-              <entry>12,910</entry>
-              <entry>1,111</entry>
-              <entry>14,021</entry>
+              <cell>Total</cell>
+              <cell>12,910</cell>
+              <cell>1,111</cell>
+              <cell>14,021</cell>
             </row>
           </tabular>
       </table>
@@ -206,39 +206,39 @@ The original data are shown on the left and the results of the randomization is 
         <title>Lizard habitats, original data.</title>
         <tabular>
             <row>
-              <entry>Habitat</entry>
-              <entry>Sun</entry>
-              <entry>Partial sun</entry>
-              <entry>Shade</entry>
-              <entry>Total</entry>
+              <cell>Habitat</cell>
+              <cell>Sun</cell>
+              <cell>Partial sun</cell>
+              <cell>Shade</cell>
+              <cell>Total</cell>
             </row>
             <row>
-              <entry>Desert</entry>
-              <entry>16</entry>
-              <entry>32</entry>
-              <entry>71</entry>
-              <entry>119</entry>
+              <cell>Desert</cell>
+              <cell>16</cell>
+              <cell>32</cell>
+              <cell>71</cell>
+              <cell>119</cell>
             </row>
             <row>
-              <entry>Mountain</entry>
-              <entry>56</entry>
-              <entry>36</entry>
-              <entry>15</entry>
-              <entry>107</entry>
+              <cell>Mountain</cell>
+              <cell>56</cell>
+              <cell>36</cell>
+              <cell>15</cell>
+              <cell>107</cell>
             </row>
             <row>
-              <entry>Valley</entry>
-              <entry>42</entry>
-              <entry>40</entry>
-              <entry>24</entry>
-              <entry>106</entry>
+              <cell>Valley</cell>
+              <cell>42</cell>
+              <cell>40</cell>
+              <cell>24</cell>
+              <cell>106</cell>
             </row>
             <row>
-              <entry>Total</entry>
-              <entry>114</entry>
-              <entry>108</entry>
-              <entry>110</entry>
-              <entry>332</entry>
+              <cell>Total</cell>
+              <cell>114</cell>
+              <cell>108</cell>
+              <cell>110</cell>
+              <cell>332</cell>
             </row>
           </tabular>
       </table>
@@ -249,39 +249,39 @@ The original data are shown on the left and the results of the randomization is 
         <title>Lizard habitats, randomized once.</title>
         <tabular>
             <row>
-              <entry>Habitat</entry>
-              <entry>Sun</entry>
-              <entry>Partial sun</entry>
-              <entry>Shade</entry>
-              <entry>Total</entry>
+              <cell>Habitat</cell>
+              <cell>Sun</cell>
+              <cell>Partial sun</cell>
+              <cell>Shade</cell>
+              <cell>Total</cell>
             </row>
             <row>
-              <entry>Desert</entry>
-              <entry>40</entry>
-              <entry>39</entry>
-              <entry>40</entry>
-              <entry>119</entry>
+              <cell>Desert</cell>
+              <cell>40</cell>
+              <cell>39</cell>
+              <cell>40</cell>
+              <cell>119</cell>
             </row>
             <row>
-              <entry>Mountain</entry>
-              <entry>39</entry>
-              <entry>33</entry>
-              <entry>35</entry>
-              <entry>107</entry>
+              <cell>Mountain</cell>
+              <cell>39</cell>
+              <cell>33</cell>
+              <cell>35</cell>
+              <cell>107</cell>
             </row>
             <row>
-              <entry>Valley</entry>
-              <entry>35</entry>
-              <entry>36</entry>
-              <entry>35</entry>
-              <entry>106</entry>
+              <cell>Valley</cell>
+              <cell>35</cell>
+              <cell>36</cell>
+              <cell>35</cell>
+              <cell>106</cell>
             </row>
             <row>
-              <entry>Total</entry>
-              <entry>114</entry>
-              <entry>108</entry>
-              <entry>110</entry>
-              <entry>332</entry>
+              <cell>Total</cell>
+              <cell>114</cell>
+              <cell>108</cell>
+              <cell>110</cell>
+              <cell>332</cell>
             </row>
           </tabular>
       </table>
@@ -305,34 +305,34 @@ The original data are shown on the left and the results of the randomization is 
         <title>Asian American tobacco use, original data.</title>
         <tabular>
             <row>
-              <entry>Ethnicity</entry>
-              <entry>Non-smoking</entry>
-              <entry>Smoking</entry>
-              <entry>Total</entry>
+              <cell>Ethnicity</cell>
+              <cell>Non-smoking</cell>
+              <cell>Smoking</cell>
+              <cell>Total</cell>
             </row>
             <row>
-              <entry>Asian-Indian</entry>
-              <entry>4,150</entry>
-              <entry>223</entry>
-              <entry>4,373</entry>
+              <cell>Asian-Indian</cell>
+              <cell>4,150</cell>
+              <cell>223</cell>
+              <cell>4,373</cell>
             </row>
             <row>
-              <entry>Chinese</entry>
-              <entry>4,457</entry>
-              <entry>279</entry>
-              <entry>4,736</entry>
+              <cell>Chinese</cell>
+              <cell>4,457</cell>
+              <cell>279</cell>
+              <cell>4,736</cell>
             </row>
             <row>
-              <entry>Filipino</entry>
-              <entry>4,303</entry>
-              <entry>609</entry>
-              <entry>4,912</entry>
+              <cell>Filipino</cell>
+              <cell>4,303</cell>
+              <cell>609</cell>
+              <cell>4,912</cell>
             </row>
             <row>
-              <entry>Total</entry>
-              <entry>12,910</entry>
-              <entry>1,111</entry>
-              <entry>14,021</entry>
+              <cell>Total</cell>
+              <cell>12,910</cell>
+              <cell>1,111</cell>
+              <cell>14,021</cell>
             </row>
           </tabular>
       </table>
@@ -343,34 +343,34 @@ The original data are shown on the left and the results of the randomization is 
         <title>Asian American tobacco use, randomized once.</title>
         <tabular>
             <row>
-              <entry>Ethnicity</entry>
-              <entry>Non-smoking</entry>
-              <entry>Smoking</entry>
-              <entry>Total</entry>
+              <cell>Ethnicity</cell>
+              <cell>Non-smoking</cell>
+              <cell>Smoking</cell>
+              <cell>Total</cell>
             </row>
             <row>
-              <entry>Asian-Indian</entry>
-              <entry>4,015</entry>
-              <entry>358</entry>
-              <entry>4,373</entry>
+              <cell>Asian-Indian</cell>
+              <cell>4,015</cell>
+              <cell>358</cell>
+              <cell>4,373</cell>
             </row>
             <row>
-              <entry>Chinese</entry>
-              <entry>4,385</entry>
-              <entry>351</entry>
-              <entry>4,736</entry>
+              <cell>Chinese</cell>
+              <cell>4,385</cell>
+              <cell>351</cell>
+              <cell>4,736</cell>
             </row>
             <row>
-              <entry>Filipino</entry>
-              <entry>4,510</entry>
-              <entry>402</entry>
-              <entry>4,912</entry>
+              <cell>Filipino</cell>
+              <cell>4,510</cell>
+              <cell>402</cell>
+              <cell>4,912</cell>
             </row>
             <row>
-              <entry>Total</entry>
-              <entry>12,910</entry>
-              <entry>1,111</entry>
-              <entry>14,021</entry>
+              <cell>Total</cell>
+              <cell>12,910</cell>
+              <cell>1,111</cell>
+              <cell>14,021</cell>
             </row>
           </tabular>
       </table>
@@ -440,39 +440,39 @@ The distribution of lizards in each of the sites resting in the sun, partial sun
         <title>Lizard habitats, larger data.</title>
         <tabular>
             <row>
-              <entry>Habitat</entry>
-              <entry>Sun</entry>
-              <entry>Partial sun</entry>
-              <entry>Shade</entry>
-              <entry>Total</entry>
+              <cell>Habitat</cell>
+              <cell>Sun</cell>
+              <cell>Partial sun</cell>
+              <cell>Shade</cell>
+              <cell>Total</cell>
             </row>
             <row>
-              <entry>Desert</entry>
-              <entry>80</entry>
-              <entry>160</entry>
-              <entry>355</entry>
-              <entry>595</entry>
+              <cell>Desert</cell>
+              <cell>80</cell>
+              <cell>160</cell>
+              <cell>355</cell>
+              <cell>595</cell>
             </row>
             <row>
-              <entry>Mountain</entry>
-              <entry>280</entry>
-              <entry>180</entry>
-              <entry>75</entry>
-              <entry>535</entry>
+              <cell>Mountain</cell>
+              <cell>280</cell>
+              <cell>180</cell>
+              <cell>75</cell>
+              <cell>535</cell>
             </row>
             <row>
-              <entry>Valley</entry>
-              <entry>210</entry>
-              <entry>200</entry>
-              <entry>120</entry>
-              <entry>530</entry>
+              <cell>Valley</cell>
+              <cell>210</cell>
+              <cell>200</cell>
+              <cell>120</cell>
+              <cell>530</cell>
             </row>
             <row>
-              <entry>Total</entry>
-              <entry>570</entry>
-              <entry>540</entry>
-              <entry>550</entry>
-              <entry>1,660</entry>
+              <cell>Total</cell>
+              <cell>570</cell>
+              <cell>540</cell>
+              <cell>550</cell>
+              <cell>1,660</cell>
             </row>
           </tabular>
       </table>
@@ -509,34 +509,34 @@ The distribution of smokers in each of the ethnicity groups in the smaller data 
         <title>Asian American tobacco use, smaller data.</title>
         <tabular>
             <row>
-              <entry>Ethnicity</entry>
-              <entry>Non-smoking</entry>
-              <entry>Smoking</entry>
-              <entry>Total</entry>
+              <cell>Ethnicity</cell>
+              <cell>Non-smoking</cell>
+              <cell>Smoking</cell>
+              <cell>Total</cell>
             </row>
             <row>
-              <entry>Asian-Indian</entry>
-              <entry>83</entry>
-              <entry>4</entry>
-              <entry>87</entry>
+              <cell>Asian-Indian</cell>
+              <cell>83</cell>
+              <cell>4</cell>
+              <cell>87</cell>
             </row>
             <row>
-              <entry>Chinese</entry>
-              <entry>89</entry>
-              <entry>6</entry>
-              <entry>95</entry>
+              <cell>Chinese</cell>
+              <cell>89</cell>
+              <cell>6</cell>
+              <cell>95</cell>
             </row>
             <row>
-              <entry>Filipino</entry>
-              <entry>86</entry>
-              <entry>12</entry>
-              <entry>98</entry>
+              <cell>Filipino</cell>
+              <cell>86</cell>
+              <cell>12</cell>
+              <cell>98</cell>
             </row>
             <row>
-              <entry>Total</entry>
-              <entry>258</entry>
-              <entry>22</entry>
-              <entry>280</entry>
+              <cell>Total</cell>
+              <cell>258</cell>
+              <cell>22</cell>
+              <cell>280</cell>
             </row>
           </tabular>
       </table>
@@ -599,32 +599,32 @@ Conduct a hypothesis test to evaluate if these data provide evidence of an assoc
         <title>Sleep deprived transportation workers.</title>
         <tabular>
             <row>
-              <entry>Profession</entry>
-              <entry>Less than 6 hours</entry>
-              <entry>6 to 8 hours</entry>
-              <entry>More than 8 hours</entry>
-              <entry>Total</entry>
+              <cell>Profession</cell>
+              <cell>Less than 6 hours</cell>
+              <cell>6 to 8 hours</cell>
+              <cell>More than 8 hours</cell>
+              <cell>Total</cell>
             </row>
             <row>
-              <entry>Non-transportation workers</entry>
-              <entry>35</entry>
-              <entry>193</entry>
-              <entry>64</entry>
-              <entry>292</entry>
+              <cell>Non-transportation workers</cell>
+              <cell>35</cell>
+              <cell>193</cell>
+              <cell>64</cell>
+              <cell>292</cell>
             </row>
             <row>
-              <entry>Transportation workers</entry>
-              <entry>104</entry>
-              <entry>499</entry>
-              <entry>192</entry>
-              <entry>795</entry>
+              <cell>Transportation workers</cell>
+              <cell>104</cell>
+              <cell>499</cell>
+              <cell>192</cell>
+              <cell>795</cell>
             </row>
             <row>
-              <entry>Total</entry>
-              <entry>139</entry>
-              <entry>692</entry>
-              <entry>256</entry>
-              <entry>1,087</entry>
+              <cell>Total</cell>
+              <cell>139</cell>
+              <cell>692</cell>
+              <cell>256</cell>
+              <cell>1,087</cell>
             </row>
           </tabular>
       </table>
@@ -642,34 +642,34 @@ The results for the second year of the study are given below: <xref ref="KingSua
         <title>Parasitic worm treatment outcomes.</title>
         <tabular>
             <row>
-              <entry>Treatment</entry>
-              <entry>Clear at Year 2</entry>
-              <entry>Not clear at Year 2</entry>
-              <entry>Total</entry>
+              <cell>Treatment</cell>
+              <cell>Clear at Year 2</cell>
+              <cell>Not clear at Year 2</cell>
+              <cell>Total</cell>
             </row>
             <row>
-              <entry>Three drugs</entry>
-              <entry>52</entry>
-              <entry>2</entry>
-              <entry>54</entry>
+              <cell>Three drugs</cell>
+              <cell>52</cell>
+              <cell>2</cell>
+              <cell>54</cell>
             </row>
             <row>
-              <entry>Two drugs</entry>
-              <entry>31</entry>
-              <entry>24</entry>
-              <entry>55</entry>
+              <cell>Two drugs</cell>
+              <cell>31</cell>
+              <cell>24</cell>
+              <cell>55</cell>
             </row>
             <row>
-              <entry>Two drugs annually</entry>
-              <entry>42</entry>
-              <entry>14</entry>
-              <entry>56</entry>
+              <cell>Two drugs annually</cell>
+              <cell>42</cell>
+              <cell>14</cell>
+              <cell>56</cell>
             </row>
             <row>
-              <entry>Total</entry>
-              <entry>125</entry>
-              <entry>40</entry>
-              <entry>165</entry>
+              <cell>Total</cell>
+              <cell>125</cell>
+              <cell>40</cell>
+              <cell>165</cell>
             </row>
           </tabular>
       </table>
@@ -693,74 +693,74 @@ The table below shows the distribution of responses by age group as well as the 
              as these represent subtotals that are not aggregated in the source data. -->
         <tabular>
             <row>
-              <entry>Shipping Carrier</entry>
-              <entry>18-34</entry>
-              <entry>35-44</entry>
-              <entry>45-54</entry>
-              <entry>55-64</entry>
-              <entry>65+</entry>
-              <entry>Not sure</entry>
-              <entry>Total</entry>
+              <cell>Shipping Carrier</cell>
+              <cell>18-34</cell>
+              <cell>35-44</cell>
+              <cell>45-54</cell>
+              <cell>55-64</cell>
+              <cell>65+</cell>
+              <cell>Not sure</cell>
+              <cell>Total</cell>
             </row>
             <row>
-              <entry>USPS</entry>
-              <entry>72</entry>
-              <entry>81</entry>
-              <entry>97</entry>
-              <entry>102</entry>
-              <entry>76</entry>
-              <entry>62</entry>
-              <entry>245</entry>
+              <cell>USPS</cell>
+              <cell>72</cell>
+              <cell>81</cell>
+              <cell>97</cell>
+              <cell>102</cell>
+              <cell>76</cell>
+              <cell>62</cell>
+              <cell>245</cell>
             </row>
             <row>
-              <entry>UPS</entry>
-              <entry>52</entry>
-              <entry>53</entry>
-              <entry>76</entry>
-              <entry>68</entry>
-              <entry>34</entry>
-              <entry>41</entry>
-              <entry>162</entry>
+              <cell>UPS</cell>
+              <cell>52</cell>
+              <cell>53</cell>
+              <cell>76</cell>
+              <cell>68</cell>
+              <cell>34</cell>
+              <cell>41</cell>
+              <cell>162</cell>
             </row>
             <row>
-              <entry>FedEx</entry>
-              <entry>31</entry>
-              <entry>21</entry>
-              <entry>24</entry>
-              <entry>27</entry>
-              <entry>9</entry>
-              <entry>16</entry>
-              <entry>64</entry>
+              <cell>FedEx</cell>
+              <cell>31</cell>
+              <cell>21</cell>
+              <cell>24</cell>
+              <cell>27</cell>
+              <cell>9</cell>
+              <cell>16</cell>
+              <cell>64</cell>
             </row>
             <row>
-              <entry>Something else</entry>
-              <entry>7</entry>
-              <entry>5</entry>
-              <entry>6</entry>
-              <entry>7</entry>
-              <entry>3</entry>
-              <entry>4</entry>
-              <entry>16</entry>
+              <cell>Something else</cell>
+              <cell>7</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+              <cell>7</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+              <cell>16</cell>
             </row>
             <row>
-              <entry>Not sure</entry>
-              <entry>3</entry>
-              <entry>5</entry>
-              <entry>6</entry>
-              <entry>5</entry>
-              <entry>4</entry>
-              <entry>3</entry>
-              <entry>13</entry>
+              <cell>Not sure</cell>
+              <cell>3</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+              <cell>5</cell>
+              <cell>4</cell>
+              <cell>3</cell>
+              <cell>13</cell>
             </row>
             <row>
-              <entry>Total</entry>
-              <entry>165</entry>
-              <entry> </entry>
-              <entry>209</entry>
-              <entry> </entry>
-              <entry>126</entry>
-              <entry> </entry>
-              <entry>500</entry>
+              <cell>Total</cell>
+              <cell>165</cell>
+              <cell> </cell>
+              <cell>209</cell>
+              <cell> </cell>
+              <cell>126</cell>
+              <cell> </cell>
+              <cell>500</cell>
             </row>
           </tabular>
       </table>
@@ -784,40 +784,40 @@ The table below shows the distribution of incidences of depression by amount of 
         <title>Coffee and depression.</title>
         <tabular>
             <row>
-              <entry>Caffeinated coffee consumption</entry>
-              <entry>≤ 1 cup/week</entry>
-              <entry>2-6 cups/week</entry>
-              <entry>1 cup/day</entry>
-              <entry>2-3 cups/day</entry>
-              <entry>≥ 4 cups/day</entry>
-              <entry>Total</entry>
+              <cell>Caffeinated coffee consumption</cell>
+              <cell>≤ 1 cup/week</cell>
+              <cell>2-6 cups/week</cell>
+              <cell>1 cup/day</cell>
+              <cell>2-3 cups/day</cell>
+              <cell>≥ 4 cups/day</cell>
+              <cell>Total</cell>
             </row>
             <row>
-              <entry>Yes (clinical depression)</entry>
-              <entry>670</entry>
-              <entry>373</entry>
-              <entry>905</entry>
-              <entry>564</entry>
-              <entry>95</entry>
-              <entry>2,607</entry>
+              <cell>Yes (clinical depression)</cell>
+              <cell>670</cell>
+              <cell>373</cell>
+              <cell>905</cell>
+              <cell>564</cell>
+              <cell>95</cell>
+              <cell>2,607</cell>
             </row>
             <row>
-              <entry>No</entry>
-              <entry>11,545</entry>
-              <entry>6,244</entry>
-              <entry>16,329</entry>
-              <entry>11,726</entry>
-              <entry>2,288</entry>
-              <entry>48,132</entry>
+              <cell>No</cell>
+              <cell>11,545</cell>
+              <cell>6,244</cell>
+              <cell>16,329</cell>
+              <cell>11,726</cell>
+              <cell>2,288</cell>
+              <cell>48,132</cell>
             </row>
             <row>
-              <entry>Total</entry>
-              <entry>12,215</entry>
-              <entry>6,617</entry>
-              <entry>17,234</entry>
-              <entry>12,290</entry>
-              <entry>2,383</entry>
-              <entry>50,739</entry>
+              <cell>Total</cell>
+              <cell>12,215</cell>
+              <cell>6,617</cell>
+              <cell>17,234</cell>
+              <cell>12,290</cell>
+              <cell>2,383</cell>
+              <cell>50,739</cell>
             </row>
           </tabular>
       </table>

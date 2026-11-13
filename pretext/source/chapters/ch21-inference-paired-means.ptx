@@ -15,13 +15,42 @@ However, a particular dependency, <term>pairing</term>, can be modeled quite eff
 
 <table xml:id="tbl-pairedexamples">
   <title>Examples of studies where a paired design is used to measure the difference in the measurement over two conditions</title>
-  <image source="images/tbl-pairedexamples-1.png" width="70%" />
+  <tabular halign="left">
+    <col width="20%" />
+    <col width="27%" />
+    <col width="30%" />
+    <col width="23%" />
+    <row header="yes" bottom="minor">
+      <cell>Observational unit</cell>
+      <cell>Comparison groups</cell>
+      <cell>Measurement</cell>
+      <cell>Value of interest</cell>
+    </row>
+    <row>
+      <cell>Car</cell>
+      <cell>Smooth Turn vs Quick Spin</cell>
+      <cell>amount of tire tread after 1,000 miles</cell>
+      <cell>difference in tread</cell>
+    </row>
+    <row>
+      <cell>Textbook</cell>
+      <cell>UCLA vs Amazon</cell>
+      <cell>price of new text</cell>
+      <cell>difference in price</cell>
+    </row>
+    <row>
+      <cell>Individual person</cell>
+      <cell>Pre-course vs Post-course</cell>
+      <cell>exam score</cell>
+      <cell>difference in score</cell>
+    </row>
+  </tabular>
 </table>
 
 <listing xml:id="tbl-pairedexamples-code">
   <caption>R code for tbl-pairedexamples</caption>
   <program language="r">
-    <input>
+    <code>
 paired_study_examples &lt;- tribble(
   ~variable, ~col1, ~col2, ~col3,
   "Car", "Smooth Turn vs Quick Spin", "amount of tire tread after 1,000 miles", "difference in tread",
@@ -40,7 +69,7 @@ paired_study_examples |&gt;
     full_width = FALSE
   ) |&gt;
   column_spec(1:3, width = "8em")
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -91,7 +120,7 @@ paired_study_examples |&gt;
 <listing xml:id="fig-tiredata-code">
   <caption>R code for fig-tiredata</caption>
   <program language="r">
-    <input>
+    <code>
 set.seed(47)
 brandA &lt;- rnorm(25, 0.310, 0.003)
 brandB &lt;- rnorm(25, 0.308, 0.003)
@@ -139,7 +168,7 @@ ggplot(tires, aes(
     y = NULL,
     title = "Original data"
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -176,7 +205,7 @@ ggplot(tires, aes(
 <listing xml:id="fig-tiredata4-code">
   <caption>R code for fig-tiredata4</caption>
   <program language="r">
-    <input>
+    <code>
 set.seed(47)
 permdata &lt;- tires |&gt;
   group_by(car) |&gt;
@@ -233,7 +262,7 @@ shuffbrand4 &lt;- permdata |&gt;
   labs(color = NULL, shape = NULL)
 
 origplot4 + shuffbrand4
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -246,7 +275,7 @@ origplot4 + shuffbrand4
 <listing xml:id="fig-tiredata5-code">
   <caption>R code for fig-tiredata5</caption>
   <program language="r">
-    <input>
+    <code>
 origplot5 &lt;- tires |&gt;
   filter(car == "car 5") |&gt;
   ggplot(aes(
@@ -298,7 +327,7 @@ shuffbrand5 &lt;- permdata |&gt;
   labs(color = NULL, shape = NULL)
 
 origplot5 + shuffbrand5
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -314,7 +343,7 @@ origplot5 + shuffbrand5
 <listing xml:id="fig-tiredataPerm-code">
   <caption>R code for fig-tiredataPerm</caption>
   <program language="r">
-    <input>
+    <code>
 origplot &lt;- tires |&gt;
   ggplot(aes(
     x = brand, y = tread,
@@ -362,7 +391,7 @@ shuffbrand &lt;- permdata |&gt;
 
 origplot
 shuffbrand
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -378,7 +407,7 @@ shuffbrand
 <listing xml:id="fig-tiredataPermSort-code">
   <caption>R code for fig-tiredataPermSort</caption>
   <program language="r">
-    <input>
+    <code>
 permed_means &lt;- permdata |&gt;
   group_by(random_brand) |&gt;
   summarize(mean_tread = round(mean(tread), 4)) |&gt;
@@ -412,7 +441,7 @@ shuffbrandfull &lt;- permdata |&gt;
 
 shuffbrand
 shuffbrandfull
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -428,7 +457,7 @@ shuffbrandfull
 <listing xml:id="fig-tiredatarand1-code">
   <caption>R code for fig-tiredatarand1</caption>
   <program language="r">
-    <input>
+    <code>
 set.seed(47)
 tires1 &lt;- tires |&gt;
   group_by(car) |&gt;
@@ -462,7 +491,7 @@ ggplot(
     x = "Brand of tires, randomly assigned (2)",
     y = NULL
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -478,7 +507,7 @@ ggplot(
 <listing xml:id="fig-tiredatarand2-code">
   <caption>R code for fig-tiredatarand2</caption>
   <program language="r">
-    <input>
+    <code>
 set.seed(4747)
 tires2 &lt;- tires |&gt;
   group_by(car) |&gt;
@@ -513,7 +542,7 @@ ggplot(
     x = "Brand of tires, randomly assigned (3)",
     y = NULL
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -534,7 +563,7 @@ ggplot(
 <listing xml:id="fig-pair-randomize-code">
   <caption>R code for fig-pair-randomize</caption>
   <program language="r">
-    <input>
+    <code>
 set.seed(474756)
 tires_shuffled &lt;- tires |&gt;
   pivot_wider(
@@ -558,7 +587,7 @@ ggplot(tires_shuffled, aes(x = stat)) +
     xintercept = mean(brandA) - mean(brandB),
     color = IMSCOL["red", "full"]
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -632,7 +661,7 @@ ggplot(tires_shuffled, aes(x = stat)) +
 <listing xml:id="tbl-textbooksDF-code">
   <caption>R code for tbl-textbooksDF</caption>
   <program language="r">
-    <input>
+    <code>
 ucla_textbooks_f18 |&gt;
   select(subject, course_num, bookstore_new, amazon_new) |&gt;
   mutate(price_diff = bookstore_new - amazon_new) |&gt;
@@ -643,7 +672,7 @@ ucla_textbooks_f18 |&gt;
     bootstrap_options = c("striped", "condensed"),
     latex_options = c("striped"), full_width = FALSE
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -670,8 +699,8 @@ ucla_textbooks_f18 |&gt;
     <p>Using the histogram of bootstrapped difference in means, estimate the standard error of the mean of the sample differences, <m>\bar{x}_{diff}.</m></p>
   </statement>
   <solution>
-    <p>The bootstrapped differences in sample means vary roughly from 0.7 to 7.5, a range of \$6.80.</p>
-    <p>Although the bootstrap distribution is not symmetric, we use the empirical rule (that with bell-shaped distributions, most observations are within two standard errors of the center), the standard error of the mean differences is approximately \$1.70.</p>
+    <p>The bootstrapped differences in sample means vary roughly from 0.7 to 7.5, a range of $6.80.</p>
+    <p>Although the bootstrap distribution is not symmetric, we use the empirical rule (that with bell-shaped distributions, most observations are within two standard errors of the center), the standard error of the mean differences is approximately $1.70.</p>
     <p>You might note that the standard error calculation given in <xref ref="sec-mathpaired" /> is <m>SE(\bar{x}_{diff}) = \sqrt{s^2_{diff}/n_{diff}} = \sqrt{13.4^2/68} = \$1.62</m> (values from <xref ref="sec-mathpaired" />), very close to the bootstrap approximation.</p>
   </solution>
 </exercise>
@@ -691,7 +720,7 @@ ucla_textbooks_f18 |&gt;
 <listing xml:id="fig-pairboot-code">
   <caption>R code for fig-pairboot</caption>
   <program language="r">
-    <input>
+    <code>
 diff_price &lt;- ucla_textbooks_f18 |&gt;
   select(subject, course_num, bookstore_new, amazon_new) |&gt;
   mutate(price_diff = bookstore_new - amazon_new) |&gt;
@@ -753,7 +782,7 @@ boot_diff |&gt;
     legend.position = c(0.925, 0.8),
     legend.background = element_rect(color = "white")
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -813,7 +842,7 @@ A histogram of the differences is shown in <xref ref="fig-textbooksDF" /></p>
 <listing xml:id="tbl-textbooksSummaryStats-code">
   <caption>R code for tbl-textbooksSummaryStats</caption>
   <program language="r">
-    <input>
+    <code>
 ucla_textbooks_f18 |&gt;
   summarise(
     n = n(),
@@ -832,7 +861,7 @@ ucla_textbooks_f18 |&gt;
   column_spec(1, width = "8em") |&gt;
   column_spec(2, width = "8em") |&gt;
   column_spec(3, width = "8em")
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -903,14 +932,14 @@ ucla_textbooks_f18 |&gt;
   <p>------------------------------------------------------------------------</p>
   <p>Conditions have already been verified and the standard error computed in a previous Example.</p>
   <p>To find the confidence interval, identify <m>t^{\star}_{67}</m> using statistical software or the <m>t</m>-table <m>(t^{\star}_{67} = 2.00),</m> and plug it, the point estimate, and the standard error into the confidence interval formula:</p>
-  <me><![CDATA[
+  <md><![CDATA[
 \begin{aligned}
 \text{point estimate} \ &\pm \ t^{\star}_{67} \ \times \ SE \\
 3.58 \ &\pm \ 2.00 \ \times \ 1.63 \\
 (0.32 \ &, \ 6.84)
 \end{aligned}
-  ]]></me>
-  <p>We are 95% confident that the UCLA Bookstore is, on average, between \<m>0.32 and \</m>6.84 more expensive than Amazon for UCLA course books.</p>
+  ]]></md>
+  <p>We are 95% confident that the UCLA Bookstore is, on average, between $0.32 and $6.84 more expensive than Amazon for UCLA course books.</p>
 </example>
 
 
@@ -981,9 +1010,9 @@ ucla_textbooks_f18 |&gt;
 <listing xml:id="tbl-terms-chp-21-code">
   <caption>R code for tbl-terms-chp-21</caption>
   <program language="r">
-    <input>
+    <code>
 make_terms_table(terms_chp_21)
-    </input>
+    </code>
   </program>
 </listing>
 

@@ -151,7 +151,7 @@ ggplot(loan50, aes(x = interest_rate)) +
 <assemblage>
   <title>Mean</title>
   <p>The sample mean can be calculated as the sum of the observed values divided by the number of observations:
-  <me>\bar{x} = \frac{x_1 + x_2 + \cdots + x_n}{n}</me></p>
+  <md>\bar{x} = \frac{x_1 + x_2 + \cdots + x_n}{n}</md></p>
 </assemblage>
 
 <exercise>
@@ -223,7 +223,7 @@ ggplot(loan50, aes(x = interest_rate)) +
   </statement>
   <solution>
     <p>Emilio opened a food truck last year where he sells burritos, and his business has stabilized over the last 3 months. Over that 3-month period, he has made $11,000 while working 625 hours. Emilio's average hourly earnings provides a useful statistic for evaluating whether his venture is, at least from a financial perspective, worth it:
-    <me>\frac{\$11000}{625\text{ hours}} = \$17.60\text{ per hour}</me>
+    <md>\frac{\$11000}{625\text{ hours}} = \$17.60\text{ per hour}</md>
     By knowing his average hourly wage, Emilio now has put his earnings into a standard unit that is easier to compare with many other jobs that he might consider.</p>
   </solution>
 </example>
@@ -433,7 +433,7 @@ x_{50} - \bar{x} \amp= 6.08 - 11.57 = -5.49
 
 <p>If we square these deviations and then take an average, the result is equal to the sample <alert>variance</alert>, denoted by <m>s^2</m>:</p>
 
-<me>s^2 = \frac{(-0.67)^2 + (-1.65)^2 + (14.73)^2 + \cdots + (-5.49)^2}{50 - 1} = \frac{0.45 + 2.72 + \cdots + 30.14}{49} = 26.21</me>
+<md>s^2 = \frac{(-0.67)^2 + (-1.65)^2 + (14.73)^2 + \cdots + (-5.49)^2}{50 - 1} = \frac{0.45 + 2.72 + \cdots + 30.14}{49} = 26.21</md>
 
 <p>We divide by <m>n - 1,</m> rather than dividing by <m>n,</m> when computing a sample's variance. There's some mathematical nuance here, but the end result is that doing this makes this statistic slightly more reliable and useful.</p>
 
@@ -442,12 +442,12 @@ x_{50} - \bar{x} \amp= 6.08 - 11.57 = -5.49
 <assemblage>
   <title>Standard deviation</title>
   <p>The sample standard deviation can be calculated as the square root of the sum of the squared distance of each value from the mean divided by the number of observations minus one:
-  <me>s = \sqrt{\frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1}}</me></p>
+  <md>s = \sqrt{\frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1}}</md></p>
 </assemblage>
 
 <p>The <alert>standard deviation</alert> is defined as the square root of the variance:</p>
 
-<me>s = \sqrt{26.21} = 5.12</me>
+<md>s = \sqrt{26.21} = 5.12</md>
 
 <p>While often omitted, a subscript of <m>_x</m> may be added to the variance and standard deviation, i.e., <m>s_x^2</m> and <m>s_x^{},</m> if it is useful as a reminder that these are the variance and standard deviation of the observations represented by <m>x_1,</m> <m>x_2,</m> ..., <m>x_n.</m></p>
 
@@ -546,18 +546,14 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
 
 <figure xml:id="fig-loan-int-rate-boxplot-dotplot">
   <caption>Distribution of interest rates from the <c>loan50</c> dataset.</caption>
-  <sidebyside widths="100%">
-    <figure xml:id="fig-loan-int-rate-boxplot-dotplot-1">
-      <caption>Dot plot</caption>
-      <image source="images/fig-loan-int-rate-boxplot-dotplot-1.png" />
-    </figure>
-  </sidebyside>
-  <sidebyside widths="100%">
-    <figure xml:id="fig-loan-int-rate-boxplot-dotplot-2">
-      <caption>Box plot</caption>
-      <image source="images/fig-loan-int-rate-boxplot-dotplot-2.png" />
-    </figure>
-  </sidebyside>
+  <figure xml:id="fig-loan-int-rate-boxplot-dotplot-1">
+    <caption>Dot plot</caption>
+    <image source="images/fig-loan-int-rate-boxplot-dotplot-1.png" />
+  </figure>
+  <figure xml:id="fig-loan-int-rate-boxplot-dotplot-2">
+    <caption>Box plot</caption>
+    <image source="images/fig-loan-int-rate-boxplot-dotplot-2.png" />
+  </figure>
 </figure>
 
 <p>The dark line inside the box represents the <alert>median</alert>, which splits the data in half. 50% of the data fall below this value and 50% fall above it. Since in the <c>loan50</c> dataset there are 50 observations (an even number), the median is defined as the average of the two observations closest to the <m>50^{th}</m> percentile. <xref ref="tbl-loan50-int-rate-sorted" /> shows all interest rates, arranged in ascending order. We can see that the <m>25^{th}</m> and the <m>26^{th}</m> values are both 10.90, which corresponds to the thick line in  <xref ref="fig-loan-int-rate-boxplot-dotplot-2" />.</p>
@@ -733,24 +729,18 @@ ggplot(dists_mean0_sd1, aes(x = x)) +
 
 <figure xml:id="fig-loan-int-rate-robust-ex">
   <caption>Dot plots of the original interest rate data and two modified datasets.</caption>
-  <sidebyside widths="100%">
-    <figure xml:id="fig-loan-int-rate-robust-ex-1">
-      <caption>Original data</caption>
-      <image source="images/fig-loan-int-rate-robust-ex-1.png" />
-    </figure>
-  </sidebyside>
-  <sidebyside widths="100%">
-    <figure xml:id="fig-loan-int-rate-robust-ex-2">
-      <caption>Move 26.3% to 15%</caption>
-      <image source="images/fig-loan-int-rate-robust-ex-2.png" />
-    </figure>
-  </sidebyside>
-  <sidebyside widths="100%">
-    <figure xml:id="fig-loan-int-rate-robust-ex-3">
-      <caption>Move 26.3% to 35%</caption>
-      <image source="images/fig-loan-int-rate-robust-ex-3.png" />
-    </figure>
-  </sidebyside>
+  <figure xml:id="fig-loan-int-rate-robust-ex-1">
+    <caption>Original data</caption>
+    <image source="images/fig-loan-int-rate-robust-ex-1.png" />
+  </figure>
+  <figure xml:id="fig-loan-int-rate-robust-ex-2">
+    <caption>Move 26.3% to 15%</caption>
+    <image source="images/fig-loan-int-rate-robust-ex-2.png" />
+  </figure>
+  <figure xml:id="fig-loan-int-rate-robust-ex-3">
+    <caption>Move 26.3% to 35%</caption>
+    <image source="images/fig-loan-int-rate-robust-ex-3.png" />
+  </figure>
 </figure>
 
 <exercise>
@@ -924,7 +914,7 @@ ggplot(county, aes(y = pop_change, x = log(pop2010, base = 10))) +
 <section xml:id="mapping-data">
   <title>Mapping data</title>
 
-<p>The <c>county</c> dataset offers many numerical variables that we could plot using dot plots, scatterplots, or box plots, but they can miss the true nature of the data as geographic. When we encounter geographic data, we should create an <alert>intensity map</alert>, where colors are used to show higher and lower values of a variable. <xref ref="fig-county-intensity-maps" /> shows intensity maps for poverty rate in percent (<c>poverty</c>), unemployment rate in percent (<c>unemployment_rate</c>), homeownership rate in percent (<c>homeownership</c>), and median household income in \$1000s (<c>median_hh_income</c>). The color key indicates which colors correspond to which values. The intensity maps are not generally very helpful for getting precise values in any given county, but they are very helpful for seeing geographic trends and generating interesting research questions or hypotheses.</p>
+<p>The <c>county</c> dataset offers many numerical variables that we could plot using dot plots, scatterplots, or box plots, but they can miss the true nature of the data as geographic. When we encounter geographic data, we should create an <alert>intensity map</alert>, where colors are used to show higher and lower values of a variable. <xref ref="fig-county-intensity-maps" /> shows intensity maps for poverty rate in percent (<c>poverty</c>), unemployment rate in percent (<c>unemployment_rate</c>), homeownership rate in percent (<c>homeownership</c>), and median household income in $1000s (<c>median_hh_income</c>). The color key indicates which colors correspond to which values. The intensity maps are not generally very helpful for getting precise values in any given county, but they are very helpful for seeing geographic trends and generating interesting research questions or hypotheses.</p>
 
 <figure xml:id="fig-county-intensity-maps">
   <caption>Intensity maps of US counties</caption>

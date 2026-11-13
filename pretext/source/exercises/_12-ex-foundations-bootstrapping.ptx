@@ -51,7 +51,7 @@
     <title>Bootstrap distributions of <m>\hat{p}</m>, I</title>
     <statement>
       <p>Each of the following four distributions was created using a different dataset. Each dataset was based on <m>n=23</m> observations. The original datasets had the following proportions of successes:</p>
-      <me>\hat{p} = 0.13 \quad \hat{p} = 0.22 \quad \hat{p} = 0.30 \quad \hat{p} = 0.43</me>
+      <md>\hat{p} = 0.13 \quad \hat{p} = 0.22 \quad \hat{p} = 0.30 \quad \hat{p} = 0.43</md>
 
       <figure xml:id="fig-ch12-exercises-4">
         <image source="images/fig-11-4.png" width="100%" />

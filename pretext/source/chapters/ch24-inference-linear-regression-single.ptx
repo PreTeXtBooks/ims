@@ -21,12 +21,12 @@
 
 <p>We start the chapter with a hypothetical example describing the linear relationship between dollars spent advertising for a chain sandwich restaurant and monthly revenue. The hypothetical example serves the purpose of illustrating how a linear model varies from sample to sample. Because we have made up the example and the data (and the entire population), we can take many many samples from the population to visualize the variability. Note that in real life, we always have exactly one sample (that is, one dataset), and through the inference process, we imagine what might have happened had we taken a different sample. The change from sample to sample leads to an understanding of how the single observed dataset is different from the population of values, which is typically the fundamental goal of inference.</p>
 
-<p>Consider the following hypothetical population of all of the sandwich stores of a particular chain seen in <xref ref="fig-sandpop" />. In this made-up world, the CEO actually has all the relevant data, which is why they can plot it here. The CEO is omniscient and can write down the population model which describes the true population relationship between the advertising dollars and revenue. There appears to be a linear relationship between advertising dollars and revenue (both in \$1,000).</p>
+<p>Consider the following hypothetical population of all of the sandwich stores of a particular chain seen in <xref ref="fig-sandpop" />. In this made-up world, the CEO actually has all the relevant data, which is why they can plot it here. The CEO is omniscient and can write down the population model which describes the true population relationship between the advertising dollars and revenue. There appears to be a linear relationship between advertising dollars and revenue (both in $1,000).</p>
 
 <listing xml:id="listing-fig-sandpop">
   <caption><c>R</c> code to generate <xref ref="fig-sandpop" /></caption>
   <program language="r">
-    <input>
+    <code>
       set.seed(4747)
       popsize &lt;- 1000
       ad &lt;- rnorm(popsize, 4, 1)
@@ -44,7 +44,7 @@
           subtitle = "Hypothetical population"
         ) +
         coord_cartesian(ylim = c(0, 65))
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -53,9 +53,9 @@
   <image source="images/fig-sandpop-1.png" width="70%" />
 </figure>
 
-<p>You may remember from <xref ref="sec-model-slr" /> that the population model is: <me>y = \beta_0 + \beta_1 x + \varepsilon.</me></p>
+<p>You may remember from <xref ref="sec-model-slr" /> that the population model is: <md>y = \beta_0 + \beta_1 x + \varepsilon.</md></p>
 
-<p>Again, the omniscient CEO (with the full population information) can write down the true population model as: <me>\texttt{expected revenue} = 11.23 + 4.8 \times \texttt{advertising}.</me></p>
+<p>Again, the omniscient CEO (with the full population information) can write down the true population model as: <md>\texttt{expected revenue} = 11.23 + 4.8 \times \texttt{advertising}.</md></p>
 
 </subsection>
 
@@ -66,14 +66,14 @@
 
 <p>As with any numerical characteristic which describes a subset of the population, the estimated slope of a sample will vary from sample to sample. Consider the linear model which describes revenue (in $1,000) based on advertising dollars (in $1,000).</p>
 
-<p>The least squares regression model uses the data to find a sample linear fit: <me>\hat{y} = b_0 + b_1 x.</me></p>
+<p>The least squares regression model uses the data to find a sample linear fit: <md>\hat{y} = b_0 + b_1 x.</md></p>
 
 <p>Two random samples of 20 stores shows different least squares regression lines in <xref ref="fig-sand-samp-1" /> and <xref ref="fig-sand-samp-2" />, depending on which observations are selected. Both trends are similar to those seen in <xref ref="fig-sandpop" />, which describes the population.</p>
 
 <listing>
   <caption><c>R</c> code</caption>
   <program language="r">
-    <input>
+    <code>
       set.seed(470)
       sandwich2 &lt;- sandwich |&gt;
         sample_n(size = 20)
@@ -81,14 +81,14 @@
         sample_n(size = 20)
       sandwich_many &lt;- sandwich |&gt;
         rep_sample_n(size = 20, replace = FALSE, reps = 50)
-    </input>
+    </code>
   </program>
 </listing>
 
 <listing xml:id="listing-fig-sand-samp">
   <caption><c>R</c> code to generate <xref ref="fig-sand-samp" /></caption>
   <program language="r">
-    <input>
+    <code>
       ggplot(sandwich2, aes(x = ad, y = rev)) +
         geom_point(size = 3, fill = IMSCOL["green", "full"], color = "#FFFFFF", shape = 22) +
         geom_smooth(method = "lm", se = FALSE, fullrange = TRUE, color = IMSCOL["green", "full"]) +
@@ -113,7 +113,7 @@
           subtitle = "Another random sample of 20 stores"
         ) +
         coord_cartesian(ylim = c(0, 65))
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -136,7 +136,7 @@
 <listing xml:id="listing-fig-sand-samp12">
   <caption><c>R</c> code to generate <xref ref="fig-sand-samp12" /></caption>
   <program language="r">
-    <input>
+    <code>
       ggplot() +
         geom_point(data = sandwich2, aes(x = ad, y = rev),
                    size = 3, shape = 22,
@@ -159,7 +159,7 @@
           subtitle = "Two random samples of 20 stores"
         ) +
         coord_cartesian(ylim = c(0, 65))
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -173,7 +173,7 @@
 <listing xml:id="listing-fig-slopes">
   <caption><c>R</c> code to generate <xref ref="fig-slopes" /></caption>
   <program language="r">
-    <input>
+    <code>
       ggplot() +
         geom_smooth(
           data = sandwich_many, aes(x = ad, y = rev, group = replicate),
@@ -193,7 +193,7 @@
           subtitle = "Many random samples of 20 stores"
         ) +
         coord_cartesian(ylim = c(0, 65))
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -202,14 +202,14 @@
   <image source="images/fig-slopes-1.png" width="70%" />
 </figure>
 
-<p>You might notice in <xref ref="fig-slopes" /> that the <m>\hat{y}</m> values given by the lines are much more consistent in the middle of the dataset than at the ends. The reason is that the data itself anchors the lines in such a way that the line must pass through the center of the data cloud. The effect of the fan-shaped lines is that predicted revenue for advertising close to \<m>4,000 will be much more precise than the revenue predictions made for \</m>1,000 or \$7,000 of advertising.</p>
+<p>You might notice in <xref ref="fig-slopes" /> that the <m>\hat{y}</m> values given by the lines are much more consistent in the middle of the dataset than at the ends. The reason is that the data itself anchors the lines in such a way that the line must pass through the center of the data cloud. The effect of the fan-shaped lines is that predicted revenue for advertising close to $4,000 will be much more precise than the revenue predictions made for $1,000 or $7,000 of advertising.</p>
 
 <p>The distribution of slopes (for samples of size <m>n=20</m>) can be seen in <xref ref="fig-sand20lm" />.</p>
 
 <listing xml:id="listing-fig-sand20lm">
   <caption><c>R</c> code to generate <xref ref="fig-sand20lm" /></caption>
   <program language="r">
-    <input>
+    <code>
       sandwich_many_lm &lt;- sandwich_many |&gt;
         group_by(replicate) |&gt;
         do(tidy(lm(rev ~ ad, data = .))) |&gt;
@@ -222,7 +222,7 @@
           title = "Chain sandwich store",
           subtitle = "Many random samples of 20 stores"
         )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -254,7 +254,7 @@
 <listing xml:id="listing-fig-babyweight">
   <caption><c>R</c> code to generate <xref ref="fig-babyweight" /></caption>
   <program language="r">
-    <input>
+    <code>
       set.seed(47)
       births14_100 &lt;- births14 |&gt;
         drop_na() |&gt;
@@ -277,7 +277,7 @@
         ylab("Weight of baby")
       p_gained + p_mage + p_visits + p_weeks +
         plot_layout(ncol = 2)
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -302,7 +302,7 @@
 <listing xml:id="listing-fig-permweightScatter">
   <caption><c>R</c> code to generate <xref ref="fig-permweightScatter" /></caption>
   <program language="r">
-    <input>
+    <code>
       set.seed(4747)
       ggplot(births14_100) +
         geom_point(aes(x = weeks, y = weight)) +
@@ -318,7 +318,7 @@
           y = "Permuted weight of baby (lbs)",
           title = "Permuted data"
         )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -344,7 +344,7 @@
 <listing xml:id="listing-tbl-ls-births">
   <caption><c>R</c> code</caption>
   <program language="r">
-    <input>
+    <code>
       lm(weight ~ weeks, data = births14_100) |&gt;
         tidy() |&gt;
         mutate(p.value = ifelse(p.value &lt; 0.0001, "&lt;0.0001", round(p.value, 4))) |&gt;
@@ -354,7 +354,7 @@
                       latex_options = c("striped")) |&gt;
         column_spec(1, width = "10em", monospace = TRUE) |&gt;
         column_spec(2:5, width = "5em")
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -395,7 +395,7 @@
 <listing xml:id="listing-fig-permweekslm">
   <caption><c>R</c> code to generate <xref ref="fig-permweekslm" /></caption>
   <program language="r">
-    <input>
+    <code>
       set.seed(470)
       ggplot(births14_100, aes(x = weeks, y = sample(weight))) +
         geom_point() +
@@ -413,7 +413,7 @@
           x = "Length of gestation (weeks)",
           title = "Second permutation of weight"
         )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -441,7 +441,7 @@
 <listing xml:id="listing-fig-nulldistBirths">
   <caption><c>R</c> code to generate <xref ref="fig-nulldistBirths" /></caption>
   <program language="r">
-    <input>
+    <code>
       perm_slope &lt;- births14_100 |&gt;
         specify(weight ~ weeks) |&gt;
         hypothesize(null = "independence") |&gt;
@@ -455,7 +455,7 @@
         geom_histogram() +
         geom_vline(xintercept = obs_slope, color = IMSCOL["red", "full"]) +
         labs(x = "Randomly generated slopes", y = "Count")
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -483,7 +483,7 @@
 <listing>
   <caption><c>R</c> code</caption>
   <program language="r">
-    <input>
+    <code>
       set.seed(4747)
       births4 &lt;- births14_100 |&gt;
         sample_n(size = 100, replace = TRUE)
@@ -491,14 +491,14 @@
         sample_n(size = 100, replace = TRUE)
       births_many_BS &lt;- births14_100 |&gt;
         rep_sample_n(size = 100, replace = TRUE, reps = 50)
-    </input>
+    </code>
   </program>
 </listing>
 
 <listing xml:id="listing-fig-magePlot">
   <caption><c>R</c> code to generate <xref ref="fig-magePlot" /></caption>
   <program language="r">
-    <input>
+    <code>
       ggplot(births14_100) +
         geom_point(aes(x = mage, y = weight)) +
         geom_smooth(aes(x = mage, y = weight),
@@ -506,7 +506,7 @@
           fullrange = TRUE,
         ) +
         labs(x = "Mother's age", y = "Weight of baby")
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -518,7 +518,7 @@
 <listing xml:id="listing-tbl-ls-births-mage">
   <caption><c>R</c> code</caption>
   <program language="r">
-    <input>
+    <code>
       lm(weight ~ mage, data = births14_100) |&gt;
         tidy() |&gt;
         mutate(p.value = ifelse(p.value &lt; 0.0001, "&lt;0.0001", round(p.value, 4))) |&gt;
@@ -528,7 +528,7 @@
                       latex_options = c("striped")) |&gt;
         column_spec(1, width = "10em", monospace = TRUE) |&gt;
         column_spec(2:5, width = "5em")
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -569,7 +569,7 @@
 <listing xml:id="listing-fig-birth2BS">
   <caption><c>R</c> code to generate <xref ref="fig-birth2BS" /></caption>
   <program language="r">
-    <input>
+    <code>
       ggplot(births14_100) +
         geom_point(aes(x = mage, y = weight), alpha = 0.4) +
         geom_smooth(aes(x = mage, y = weight),
@@ -594,7 +594,7 @@
         geom_point(x = 29, y = 9, color = IMSCOL["green", "full"], pch = 1, size = 8) +
         geom_point(x = 20, y = 6, color = IMSCOL["red", "full"], pch = 1, size = 8) +
         geom_point(x = 39, y = 9, pch = 1, size = 8)
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -617,14 +617,14 @@
 <listing xml:id="listing-fig-birthBS">
   <caption><c>R</c> code to generate <xref ref="fig-birthBS" /></caption>
   <program language="r">
-    <input>
+    <code>
       ggplot(births_many_BS, aes(x = mage, y = weight, group = replicate)) +
         geom_smooth(method = "lm", se = FALSE, color = IMSCOL["blue", "f2"], fullrange = TRUE) +
         labs(
           x = "Mother's age",
           y = "Weight of baby"
         )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -638,7 +638,7 @@
 <listing xml:id="listing-fig-mageBSslopes">
   <caption><c>R</c> code to generate <xref ref="fig-mageBSslopes" /></caption>
   <program language="r">
-    <input>
+    <code>
       set.seed(47)
       births_many_BS_1000 &lt;- births14_100 |&gt;
         rep_sample_n(size = 100, replace = TRUE, reps = 1000)
@@ -659,7 +659,7 @@
           y = NULL
         ) +
         theme(axis.text.y = element_blank())
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -704,7 +704,7 @@
 
 <p><xref ref="fig-unemploymentAndChangeInHouse" /> shows these data and the least-squares regression line:</p>
 
-<p><me>\begin{aligned} &amp;\texttt{percent change in House seats for President's party}  \\ &amp;\qquad\qquad= -7.36 - 0.89 \times \texttt{(unemployment rate)} \end{aligned}</me></p>
+<p><md>\begin{aligned} &amp;\texttt{percent change in House seats for President's party}  \\ &amp;\qquad\qquad= -7.36 - 0.89 \times \texttt{(unemployment rate)} \end{aligned}</md></p>
 
 <p>We consider the percent change in the number of seats of the President's party (e.g., percent change in the number of seats for Republicans in 2018) against the unemployment rate.</p>
 
@@ -713,7 +713,7 @@
 <listing xml:id="listing-fig-unemploymentAndChangeInHouse">
   <caption><c>R</c> code to generate <xref ref="fig-unemploymentAndChangeInHouse" /></caption>
   <program language="r">
-    <input>
+    <code>
       years_to_label &lt;- c(2019, 2003, 1995, 1983, 2011, 1899)
       midterms_house_with_labels &lt;- midterms_house |&gt;
         mutate(
@@ -741,7 +741,7 @@
           legend.position = c(0.8, 0.8),
           legend.background = element_rect(color = "white")
         )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -782,7 +782,7 @@
 <listing xml:id="listing-tbl-midtermUnempRegTable">
   <caption><c>R</c> code</caption>
   <program language="r">
-    <input>
+    <code>
       d &lt;- midterms_house
       th &lt;- !d$year %in% c(1935, 1939)
       lm(house_change ~ unemp, d[th, ]) |&gt;
@@ -794,7 +794,7 @@
                       latex_options = c("striped")) |&gt;
         column_spec(1, width = "10em", monospace = TRUE) |&gt;
         column_spec(2:5, width = "5em")
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -831,14 +831,14 @@
   </statement>
   <solution>
     <p>The entries in the first column represent the least squares estimates, <m>b_0</m> and <m>b_1</m>, and the values in the second column correspond to the standard errors of each estimate. Using the estimates, we could write the equation for the least square regression line as</p>
-    <p><me>\hat{y} = -7.36 - 0.89 x</me></p>
+    <p><md>\hat{y} = -7.36 - 0.89 x</md></p>
     <p>where <m>\hat{y}</m> in this case represents the predicted change in the number of seats for the president's party, and <m>x</m> represents the unemployment rate.</p>
   </solution>
 </example>
 
 <p>We previously used a <m>t</m>-test statistic for hypothesis testing in the context of numerical data. Regression is very similar. In the hypotheses we consider, the null value for the slope is 0, so we can compute the test statistic using the T score formula:</p>
 
-<p><me>T \ = \ \frac{\text{estimate} - \text{null value}}{\text{SE}} = \ \frac{-0.89 - 0}{0.835} = \ -1.07</me></p>
+<p><md>T \ = \ \frac{\text{estimate} - \text{null value}}{\text{SE}} = \ \frac{-0.89 - 0}{0.835} = \ -1.07</md></p>
 
 <p>The T score we calculated corresponds to the third column of <xref ref="tbl-midtermUnempRegTable" />.</p>
 
@@ -877,7 +877,7 @@
 <listing xml:id="listing-tbl-rOutputForIncomeAidLSRLineInInferenceSection">
   <caption><c>R</c> code</caption>
   <program language="r">
-    <input>
+    <code>
       elmhurst |&gt;
         mutate(
           gift_aid = gift_aid * 1000,
@@ -892,7 +892,7 @@
                       latex_options = c("striped")) |&gt;
         column_spec(1, width = "10em", monospace = TRUE) |&gt;
         column_spec(2:5, width = "5em")
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -953,7 +953,7 @@
 <assemblage>
   <p><alert>Confidence intervals for coefficients.</alert></p>
   <p>Confidence intervals for model coefficients (e.g., the intercept or the slope) can be computed using the <m>t</m>-distribution:</p>
-  <p><me>b_i \ \pm\ t_{df}^{\star} \times SE_{b_{i}}</me></p>
+  <p><md>b_i \ \pm\ t_{df}^{\star} \times SE_{b_{i}}</md></p>
   <p>where <m>t_{df}^{\star}</m> is the appropriate <m>t^{\star}</m> cutoff corresponding to the confidence level with the model's degrees of freedom, <m>df = n - 2</m>.</p>
 </assemblage>
 
@@ -964,7 +964,7 @@
   <solution>
     <p>The point estimate is -0.0431 and the standard error is <m>SE = 0.0108</m>. When constructing a confidence interval for a model coefficient, we generally use a <m>t</m>-distribution. The degrees of freedom for the distribution are noted in the regression output, <m>df = 48</m>, allowing us to identify <m>t_{48}^{\star} = 2.01</m> for use in the confidence interval.</p>
     <p>We can now construct the confidence interval in the usual way:</p>
-    <p><me>\begin{aligned} \text{point estimate} &amp;\pm t_{48}^{\star} \times SE \\ -0.0431 &amp;\pm 2.01 \times 0.0108 \\ (-0.0648 &amp;, -0.0214) \end{aligned}</me></p>
+    <p><md>\begin{aligned} \text{point estimate} &amp;\pm t_{48}^{\star} \times SE \\ -0.0431 &amp;\pm 2.01 \times 0.0108 \\ (-0.0648 &amp;, -0.0214) \end{aligned}</md></p>
     <p>We are 95% confident that for an additional one unit (i.e., $1000 increase) in family income, the university's gift aid is predicted to decrease on average by $21.40 to $64.80.</p>
   </solution>
 </example>
@@ -998,7 +998,7 @@
 <listing xml:id="listing-fig-whatCanGoWrongWithLinearModel">
   <caption><c>R</c> code to generate <xref ref="fig-whatCanGoWrongWithLinearModel" /></caption>
   <program language="r">
-    <input>
+    <code>
       par_og &lt;- par(no.readonly = TRUE) # save original par
       par(mar = rep(1.2, 4))
       source("helpers/helper-makeTubeAdv.R")
@@ -1164,7 +1164,7 @@
       mtext("Residual", side=2, line=0.1)
       makeTubeAdv(x, y, col =  IMSCOL["lgray", "f2"])
       #par(par_og) # restore original par
-    </input>
+    </code>
   </program>
 </listing>
 

@@ -1,0 +1,84 @@
+name: Build PDF (LaTeX)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: pdf-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PreTeXt CLI
+        run: |
+          pip install -r pretext/requirements.txt
+
+      - name: Install TeX Live (XeLaTeX)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-xetex \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            texlive-plain-generic \
+            lmodern
+
+      - name: Convert PreTeXt to LaTeX
+        run: |
+          cd pretext
+          # pretext exits non-zero if the conversion reports errors
+          pretext build print-latex
+          test -f output/print-latex/main.tex
+
+      - name: Compile PDF with XeLaTeX
+        run: |
+          cd pretext/output/print-latex
+          # Two passes so cross-references and the table of contents resolve.
+          # -halt-on-error makes any LaTeX error fail the job.
+          for pass in 1 2; do
+            echo "::group::xelatex pass $pass"
+            xelatex -interaction=nonstopmode -halt-on-error main.tex > /dev/null || {
+              echo "::endgroup::"
+              echo "::error::LaTeX error on pass $pass"
+              grep -n -A12 '^!' main.log || tail -n 80 main.log
+              exit 1
+            }
+            echo "::endgroup::"
+          done
+          if grep -q '^!' main.log; then
+            grep -n -A12 '^!' main.log
+            exit 1
+          fi
+          echo "Undefined references (warnings):"
+          grep -c 'undefined' main.log || true
+          test -f main.pdf
+
+      - name: Upload PDF
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ims-pdf
+          path: |
+            pretext/output/print-latex/main.pdf
+            pretext/output/print-latex/main.log
+          if-no-files-found: warn

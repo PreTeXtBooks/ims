@@ -12,6 +12,7 @@
       <source>source/main.ptx</source>
       <publication>publication/publication.ptx</publication>
       <output-dir>output/web</output-dir>
+      <xsl>xsl/custom-web.xsl</xsl>
       <stringparam key="html.css.extra" value="external/custom-styles.css"/>
       <stringparam key="html.js.extra" value="external/custom-footer.js"/>
     </target>
@@ -42,12 +43,9 @@
       <latex>latex</latex>
       <pdflatex>pdflatex</pdflatex>
       <xelatex>xelatex</xelatex>
-      <pdfsvg>pdf2svg</pdfsvg>
       <asy>asy</asy>
       <sage>sage</sage>
-      <pdfpng>convert</pdfpng>
       <pdfeps>pdftops</pdfeps>
       <node>node</node>
-      <liblouis>file2brl</liblouis>
     </executables>
 </project>

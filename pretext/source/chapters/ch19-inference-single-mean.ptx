@@ -32,9 +32,9 @@
       <listing xml:id="code-aa-cars-data">
         <caption>Creating the Awesome Auto car data</caption>
         <program language="r">
-          <input>
+          <code>
 aa_cars &lt;- data.frame(price = c(18300, 20100, 9600, 10700, 27000))
-          </input>
+          </code>
         </program>
       </listing>
 
@@ -91,7 +91,7 @@ aa_cars &lt;- data.frame(price = c(18300, 20100, 9600, 10700, 27000))
 
       <p>As seen in <xref ref="sec-two-prop-boot-ci"/>, another method for creating bootstrap confidence intervals directly uses a calculation of the variability of the bootstrap statistics (here, the bootstrap means). If the bootstrap distribution is relatively symmetric and bell-shaped, then the 95% bootstrap SE confidence interval can be constructed with the formula familiar from the mathematical models in previous chapters:</p>
 
-      <me>\mbox{point estimate} \pm 2 \cdot SE_{BS}</me>
+      <md>\mbox{point estimate} \pm 2 \cdot SE_{BS}</md>
 
       <p>The number 2 is an approximation connected to the "95%" part of the confidence interval (remember the 68-95-99.7 rule). As will be seen in <xref ref="sec-one-mean-math"/>, a new distribution (the <m>t</m>-distribution) will be applied to most mathematical inference on numerical variables. However, because bootstrapping is not grounded in the same theory as the mathematical approach given in this text, we stick with the standard normal quantiles (in R use the function <c>qnorm()</c> to find normal percentiles other than 95%) for different confidence percentages.</p>
 
@@ -181,7 +181,7 @@ aa_cars &lt;- data.frame(price = c(18300, 20100, 9600, 10700, 27000))
       <assemblage xml:id="clt-mean">
         <title>Central Limit Theorem for the sample mean</title>
         <p>When we collect a sufficiently large sample of <m>n</m> independent observations from a population with mean <m>\mu</m> and standard deviation <m>\sigma,</m> the sampling distribution of <m>\bar{x}</m> will be nearly normal with</p>
-        <p><me>\text{Mean} = \mu \qquad \text{Standard Error }(SE) = \frac{\sigma}{\sqrt{n}}</me></p>
+        <p><md>\text{Mean} = \mu \qquad \text{Standard Error }(SE) = \frac{\sigma}{\sqrt{n}}</md></p>
       </assemblage>
 
       <p>Before diving into confidence intervals and hypothesis tests using <m>\bar{x},</m> we first need to cover two topics:</p>
@@ -251,7 +251,7 @@ aa_cars &lt;- data.frame(price = c(18300, 20100, 9600, 10700, 27000))
 
       <p>In practice, we cannot directly calculate the standard error for <m>\bar{x}</m> since we do not know the population standard deviation, <m>\sigma.</m> We encountered a similar issue when computing the standard error for a sample proportion, which relied on the population proportion, <m>p.</m> Our solution in the proportion context was to use the sample value in place of the population value when computing the standard error. We'll employ a similar strategy for computing the standard error of <m>\bar{x},</m> using the sample standard deviation <m>s</m> in place of <m>\sigma:</m></p>
 
-      <me>SE = \frac{\sigma}{\sqrt{n}} \approx \frac{s}{\sqrt{n}}</me>
+      <md>SE = \frac{\sigma}{\sqrt{n}} \approx \frac{s}{\sqrt{n}}</md>
 
       <p>This strategy tends to work well when we have a lot of data and can estimate <m>\sigma</m> using <m>s</m> accurately. However, the estimate is less precise with smaller samples, and this leads to problems when using the normal distribution to model <m>\bar{x}.</m></p>
 
@@ -301,10 +301,10 @@ aa_cars &lt;- data.frame(price = c(18300, 20100, 9600, 10700, 27000))
           <listing xml:id="code-pt-example-1">
             <caption>Using pt() to find probability under the t-distribution</caption>
             <program language="r">
-              <input>
+              <code>
 # use pt() to find probability under the t-distribution
 pt(-2.10, df = 18)
-              </input>
+              </code>
             </program>
           </listing>
         </solution>
@@ -320,10 +320,10 @@ pt(-2.10, df = 18)
           <listing xml:id="code-pt-example-2">
             <caption>Using pt() to find probability under the t-distribution</caption>
             <program language="r">
-              <input>
+              <code>
 # use pt() to find probability under the t-distribution
 1 - pt(1.65, df = 20)
-              </input>
+              </code>
             </program>
           </listing>
         </solution>
@@ -344,10 +344,10 @@ pt(-2.10, df = 18)
           <listing xml:id="code-pt-example-3">
             <caption>Using pt() to find probability under the t-distribution</caption>
             <program language="r">
-              <input>
+              <code>
 # use pt() to find probability under the t-distribution
 pt(-3, df = 2) + (1 - pt(3, df = 2))
-              </input>
+              </code>
             </program>
           </listing>
         </solution>
@@ -436,11 +436,11 @@ pt(-3, df = 2) + (1 - pt(3, df = 2))
           <listing xml:id="code-qt-dolphin">
             <caption>Using qt() to find the t-cutoff (with 95% in the middle)</caption>
             <program language="r">
-              <input>
+              <code>
 # use qt() to find the t-cutoff (with 95% in the middle)
 qt(0.025, df = 18)
 qt(0.975, df = 18)
-              </input>
+              </code>
             </program>
           </listing>
         </solution>
@@ -499,11 +499,11 @@ qt(0.975, df = 18)
           <listing xml:id="code-qt-croaker">
             <caption>Using qt() to find the t-cutoff (with 90% in the middle)</caption>
             <program language="r">
-              <input>
+              <code>
 # use qt() to find the t-cutoff (with 90% in the middle)
 qt(0.05, df = 14)
 qt(0.95, df = 14)
-              </input>
+              </code>
             </program>
           </listing>
         </solution>
@@ -546,7 +546,7 @@ qt(0.95, df = 14)
         <title>The test statistic for assessing a single mean is a T</title>
         <p>The T score is a ratio of how the sample mean differs from the hypothesized mean as compared to how the observations vary.</p>
 
-        <p><me>T = \frac{\bar{x} - \mbox{null value}}{s/\sqrt{n}}</me></p>
+        <p><md>T = \frac{\bar{x} - \mbox{null value}}{s/\sqrt{n}}</md></p>
 
         <p>When the null hypothesis is true and the conditions are met, T has a t-distribution with <m>df = n - 1.</m></p>
 
@@ -595,21 +595,21 @@ qt(0.95, df = 14)
         <solution>
           <p>To find the test statistic (T score), we first must determine the standard error:</p>
 
-          <me>SE = 16.6 / \sqrt{100} = 1.66</me>
+          <md>SE = 16.6 / \sqrt{100} = 1.66</md>
 
           <p>Now we can compute the <alert>T score</alert> using the sample mean (98.8), null value (93.29), and <m>SE:</m></p>
 
-          <me>T = \frac{98.8 - 93.29}{1.66} = 3.32</me>
+          <md>T = \frac{98.8 - 93.29}{1.66} = 3.32</md>
 
           <p>For <m>df = 100 - 1 = 99,</m> we can determine using statistical software (or a <m>t</m>-table) that the one-tail area is 0.000631, which we double to get the p-value: 0.00126.</p>
 
           <listing xml:id="code-pt-cherry">
             <caption>Using pt() to find the left tail and multiply by 2 to get both tails</caption>
             <program language="r">
-              <input>
+              <code>
 # use pt() to find the left tail and multiply by 2 to get both tails
 (1 - pt(3.32, df = 99)) * 2
-              </input>
+              </code>
             </program>
           </listing>
 

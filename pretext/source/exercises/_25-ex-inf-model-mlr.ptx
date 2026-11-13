@@ -359,7 +359,7 @@
         <mrow>\amp + \beta_5 \times \texttt{visits}+ \beta_6 \times \texttt{gained}</mrow>
         <mrow>\amp + \beta_7 \times \texttt{habit}</mrow>
       </md>
-      <me>E[\texttt{weight}] = \beta_0 + \beta_1\times \texttt{weeks} + \beta_2\times \texttt{mature}</me>
+      <md>E[\texttt{weight}] = \beta_0 + \beta_1\times \texttt{weeks} + \beta_2\times \texttt{mature}</md>
       <figure xml:id="fig-ex25-11-22">
         <image source="images/exercises/_25-ex-inf-model-mlr-11-22.png" width="90%"/>
       </figure>
@@ -380,7 +380,7 @@
         <mrow>\amp + \beta_3 \times \texttt{spring} + \beta_4 \times \texttt{weekday}</mrow>
         <mrow>\amp + \beta_5 \times \texttt{cloudcover}+ \beta_6 \times \texttt{precip}</mrow>
       </md>
-      <me>E[\texttt{volume}] = \beta_0 + \beta_1\times \texttt{hightemp} + \beta_2\times \texttt{precip}</me>
+      <md>E[\texttt{volume}] = \beta_0 + \beta_1\times \texttt{hightemp} + \beta_2\times \texttt{precip}</md>
       <figure xml:id="fig-ex25-12-23">
         <image source="images/exercises/_25-ex-inf-model-mlr-12-23.png" width="90%"/>
       </figure>

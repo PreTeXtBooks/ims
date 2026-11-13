@@ -172,9 +172,9 @@ A normal distribution with mean <m>19</m> and standard deviation <m>4</m> is sho
 
     <p>If a normal distribution has mean <m>\mu</m> and standard deviation <m>\sigma,</m> we may write the distribution as <m>N(\mu, \sigma).</m> The two distributions in <xref ref="fig-twoSampleNormalsStacked" /> can be written as</p>
 
-    <me>
+    <md>
       N(\mu = 0, \sigma = 1)\quad\text{and}\quad N(\mu = 19, \sigma = 4)
-    </me>
+    </md>
 
     <p>Because the mean and standard deviation describe a normal distribution exactly, they are called the distribution's <alert>parameters</alert>.</p>
 
@@ -229,15 +229,15 @@ If the observation is one standard deviation above the mean, its Z score is 1.
 If it is 1.5 standard deviations <em>below</em> the mean, then its Z score is -1.5.
 If <m>x</m> is an observation from a distribution <m>N(\mu, \sigma),</m> we define the Z score mathematically as</p>
 
-    <me>
+    <md>
       Z = \frac{x-\mu}{\sigma}
-    </me>
+    </md>
 
     <p>Using <m>\mu_{SAT}=1500,</m> <m>\sigma_{SAT}=300,</m> and <m>x_{Nel}=1800,</m> we find Nel's Z score:</p>
 
-    <me>
+    <md>
       Z_{Nel} = \frac{x_{Nel} - \mu_{SAT}}{\sigma_{SAT}} = \frac{1800-1500}{300} = 1
-    </me>
+    </md>
 
     <assemblage>
       <p><alert>The Z score.</alert></p>
@@ -406,9 +406,9 @@ To remember the <c>pnorm()</c> function as providing a probability from a given 
 
         <p>With <m>\mu=1500,</m> <m>\sigma=300,</m> and the cutoff value <m>x=1630,</m> the Z score is computed as</p>
 
-        <me>
+        <md>
           Z = \frac{x - \mu}{\sigma} = \frac{1630 - 1500}{300} = \frac{130}{300} = 0.43
-        </me>
+        </md>
 
         <p>We use software to find the percentile of <m>Z=0.43,</m> which yields 0.6664.</p>
 
@@ -474,9 +474,9 @@ The picture will provide an estimate of the probability.</p>
 
         <p>The mean <m>\mu=1500,</m> the standard deviation <m>\sigma=300,</m> and the cutoff for the tail area <m>x=1400</m> are used to compute the Z score:</p>
 
-        <me>
+        <md>
           Z = \frac{x - \mu}{\sigma} = \frac{1400 - 1500}{300} = -0.33
-        </me>
+        </md>
 
         <p>Statistical software can be used to find the proportion of the <m>N(0,1)</m> curve to the left of <m>-0.33</m> which is 0.3707.</p>
 
@@ -519,10 +519,10 @@ The picture will provide an estimate of the probability.</p>
       <statement>
       <p>Stuart earned an SAT score of 2100.</p>
       <p>Draw a picture for each part.</p>
-      <ol>
+      <p><ol>
         <li><p>What is their percentile?</p></li>
         <li><p>What percent of SAT takers did better than Stuart?</p></li>
-      </ol>
+      </ol></p>
       </statement>
       <solution>
       <p>Numerical answers: (a) 0.9772.</p>
@@ -612,9 +612,9 @@ What if you would like to know the observation corresponding to a particular per
 
         <p>Knowing <m>Z_{Yousef}=-0.25</m> and the population parameters <m>\mu=70</m> and <m>\sigma=3.3</m> inches, the Z score formula can be set up to determine Yousef's unknown height, labeled <m>x_{Yousef}</m>:</p>
 
-        <me>
+        <md>
           -0.253 = Z_{Yousef} = \frac{x_{Yousef} - \mu}{\sigma} = \frac{x_{Yousef} - 70}{3.3}
-        </me>
+        </md>
 
         <p>Solving for <m>x_{Yousef}</m> yields the height 69.2 inches.</p>
 
@@ -658,9 +658,9 @@ What if you would like to know the observation corresponding to a particular per
 
         <p>Using <c>qnorm()</c>, the <m>82^{nd}</m> percentile corresponds to <m>Z=0.92.</m> Finally, the height <m>x</m> is found using the Z score formula with the known mean <m>\mu,</m> standard deviation <m>\sigma,</m> and Z score <m>Z=0.92</m>:</p>
 
-        <me>
+        <md>
           0.92 = Z = \frac{x-\mu}{\sigma} = \frac{x - 70}{3.3}
-        </me>
+        </md>
 
         <p>This yields 73.04 inches or about 6'1" as the height at the <m>82^{nd}</m> percentile.</p>
 
@@ -671,10 +671,10 @@ What if you would like to know the observation corresponding to a particular per
       <title>Guided Practice</title>
       <statement>
       <p>Using Z scores, answer the following questions.</p>
-      <ol>
+      <p><ol>
         <li><p>What is the <m>95^{th}</m> percentile for SAT scores?</p></li>
         <li><p>What is the <m>97.5^{th}</m> percentile of the male heights? As always with normal probability problems, first draw a picture.</p></li>
-      </ol>
+      </ol></p>
       </statement>
       <solution>
       <p>Remember: draw a picture first, then find the Z score.</p>
@@ -687,10 +687,10 @@ What if you would like to know the observation corresponding to a particular per
       <title>Guided Practice</title>
       <statement>
       <p>Using Z scores, answer the following questions.</p>
-      <ol>
+      <p><ol>
         <li><p>What is the probability that a randomly selected male adult is at least 6'2" (74 inches)?</p></li>
         <li><p>What is the probability that a male adult is shorter than 5'9" (69 inches)?</p></li>
-      </ol>
+      </ol></p>
       </statement>
       <solution>
       <p>Numerical answers: (a) 0.1131.</p>
@@ -935,9 +935,9 @@ Here we want to find the area of the tail beyond 0.2, representing the p-value.<
     <p>Next, we can calculate the Z score using the observed difference, 0.20, and the two model parameters.
 The standard error, <m>SE = 0.078,</m> is the equivalent of the model's standard deviation.</p>
 
-    <me>
+    <md>
       Z = \frac{\text{observed difference} - 0}{SE} = \frac{0.20 - 0}{0.078} = 2.56
-    </me>
+    </md>
 
     <p>We can either use statistical software or look up <m>Z = 2.56</m> in the normal probability table to determine the right tail area: 0.0052, which is about the same as what we got for the right tail using the randomization approach (0.006).</p>
 
@@ -1007,9 +1007,9 @@ In fact, the normal distribution only sort-of fits this model.</p>
 
     <p>Next, we can calculate the Z score using the observed complication rate, <m>\hat{p} = 0.048</m> along with the mean and standard deviation of the normal model. Here again, we use the standard error for the standard deviation.</p>
 
-    <me>
+    <md>
       Z = \frac{\hat{p} - p_0}{SE_{\hat{p}}} = \frac{0.048 - 0.10}{0.038} = -1.37
-    </me>
+    </md>
 
     <p>Identifying <m>Z = -1.37</m> using statistical software or in the normal probability table, we can determine that the left tail area is 0.0853 which is the estimated p-value for the hypothesis test.
 There is a small problem: the p-value of 0.0853 is almost 30% smaller than the simulation p-value of 0.1222 which will be calculated in <xref ref="ch16-inference-single-proportion" />.</p>
@@ -1094,9 +1094,9 @@ Here, we use the value 1.96 to be slightly more precise.</p>
       <solution>
         <p>Since we're told the point estimate can be modeled with a normal distribution:</p>
 
-        <me>
+        <md>
           \text{point estimate} \pm 1.96 \times SE = 0.20 \pm 1.96 \times 0.078 = (0.047, 0.353)
-        </me>
+        </md>
 
         <p>We are 95% confident that the video purchase rate resulting from the treatment is between 4.7% and 35.3% lower than in the control group.</p>
 
@@ -1189,9 +1189,9 @@ Here, we use the value 1.96 to be slightly more precise.</p>
       <solution>
         <p>The conditions for applying the normal model have already been verified, so we can proceed to the construction of the confidence interval:</p>
 
-        <me>
+        <md>
           \text{point estimate} \pm 1.96 \times SE = 0.090 \pm 1.96 \times 0.028 = (0.035, 0.145)
-        </me>
+        </md>
 
         <p>We are 95% confident that implanting a stent in a stroke patient's brain increased the risk of stroke within 30 days by a rate of 0.035 to 0.145.</p>
 

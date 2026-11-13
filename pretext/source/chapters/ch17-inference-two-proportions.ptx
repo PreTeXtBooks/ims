@@ -216,9 +216,9 @@ The interval shows that we do not have much definitive evidence of the effect of
 The resulting interval is called the <alert>SE interval</alert><idx>SE interval</idx><idx><h>bootstrap</h><h>SE interval</h></idx>.
 <xref ref="sec-math-2prop" /> details the mathematical model for the standard error of the difference in sample proportions, but the bootstrap distribution typically does an excellent job of estimating the variability of the sampling distribution of the sample statistic.</p>
       
-      <me>
+      <md>
         SE(\hat{p}_T - \hat{p}_C) \approx SE(\hat{p}_{T, boot} - \hat{p}_{C, boot}) = <c>r cpr_boot_se</c>
-      </me>
+      </md>
       
       <p>The variability of the difference in proportions was calculated in R using the <c>sd()</c> function, but any statistical software will calculate the standard deviation of the differences, here, the exact quantity we hope to approximate.</p>
       
@@ -226,9 +226,9 @@ The resulting interval is called the <alert>SE interval</alert><idx>SE interval<
 So for a rough approximation, we will apply the 67-95-99.7 rule which tells us that 95% of observed differences should be roughly no farther than 2 SE from the true parameter (difference in proportions).
 A 95% confidence interval for <m>p_T - p_C</m> is given by:</p>
       
-      <me>
+      <md>
         \hat{p}_T - \hat{p}_C \pm 2 \cdot SE \rightarrow \ \ \ 14/40 - 11/50 \pm 2 \cdot 0.098 \ \ \  \rightarrow \ \ \  (-0.067, 0.327)
-      </me>
+      </md>
       
       <p>We are 95% confident that the true value of <m>p_T - p_C</m> is between <c>-0.067</c> and <c>0.327</c>.
 Again, the wide confidence interval that contains zero indicates that the study provides very little evidence about the effectiveness of blood thinners.
@@ -283,13 +283,13 @@ First, we require a broader independence condition, and secondly, the success-fa
         
         <p>When these conditions are satisfied, the standard error of <m>\hat{p}_1 - \hat{p}_2</m> is:</p>
         
-        <p><me>SE(\hat{p}_1 - \hat{p}_2) = \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}</me></p>
+        <p><md>SE(\hat{p}_1 - \hat{p}_2) = \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}</md></p>
         
         <p>where <m>p_1</m> and <m>p_2</m> represent the population proportions, and <m>n_1</m> and <m>n_2</m> represent the sample sizes.</p>
         
         <p>Note that in most cases, the standard error is approximated using the observed data:</p>
         
-        <p><me>SE(\hat{p}_1 - \hat{p}_2) = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}</me></p>
+        <p><md>SE(\hat{p}_1 - \hat{p}_2) = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}</md></p>
         
         <p>where <m>\hat{p}_1</m> and <m>\hat{p}_2</m> represent the observed sample proportions, and <m>n_1</m> and <m>n_2</m> represent the sample sizes.</p>
       </assemblage>
@@ -327,7 +327,7 @@ First, we require a broader independence condition, and secondly, the success-fa
         
         <p>When the conditions for the normal model are met, the <alert>variability</alert> of the difference in proportions, <m>\hat{p}_1 -\hat{p}_2,</m> is well described by:</p>
         
-        <p><me>SE(\hat{p}_1 -\hat{p}_2) = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}</me></p>
+        <p><md>SE(\hat{p}_1 -\hat{p}_2) = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}</md></p>
       </assemblage>
       
         <example>
@@ -354,11 +354,11 @@ First, we require a broader independence condition, and secondly, the success-fa
           <p>
             We'll use <m>p_T</m> for the survival rate in the treatment group and <m>p_C</m> for the control group:
           </p>
-          <me>\hat{p}_{T} - \hat{p}_{C} = \frac{14}{40} - \frac{11}{50}  = 0.35 - 0.22 = 0.13</me>
+          <md>\hat{p}_{T} - \hat{p}_{C} = \frac{14}{40} - \frac{11}{50}  = 0.35 - 0.22 = 0.13</md>
           <p>
             As with the one-sample proportion case, we use the sample estimates of each proportion in the formula in the confidence interval context:
           </p>
-          <me>SE \approx \sqrt{\frac{0.35 (1 - 0.35)}{40} + \frac{0.22 (1 - 0.22)}{50}}  = 0.095</me>
+          <md>SE \approx \sqrt{\frac{0.35 (1 - 0.35)}{40} + \frac{0.22 (1 - 0.22)}{50}}  = 0.095</md>
           <p>
             For a 90% confidence interval, we use <m>z^{\star} = 1.65</m>:
           </p>
@@ -428,15 +428,15 @@ First, we require a broader independence condition, and secondly, the success-fa
 <assemblage>
 <title>Use the pooled proportion when <m>H_0</m> is <m>p_1 - p_2 = 0.</m></title>
         <p>When the null hypothesis is that the proportions are equal, use the pooled proportion <m>(\hat{p}_{\textit{pool}})</m> of successes to verify the success-failure condition and estimate the standard error:</p>
-        <p><me>\hat{p}_{\textit{pool}} = \frac{\text{number of successes}}{\text{number of cases}} = \frac{\hat{p}_1 n_1 + \hat{p}_2 n_2}{n_1 + n_2}</me></p>
+        <p><md>\hat{p}_{\textit{pool}} = \frac{\text{number of successes}}{\text{number of cases}} = \frac{\hat{p}_1 n_1 + \hat{p}_2 n_2}{n_1 + n_2}</md></p>
         <p>Similarly, <m>\hat{p}_2 n_2</m> represents the number of successes in sample 2.</p>
         </assemblage>
 
 <assemblage>
 <title>The test statistic for assessing two proportions is a Z.</title>
         <p>The Z score<idx><h>Z score</h><h>difference in proportions</h></idx><idx><h>difference in proportions</h><h>Z score</h></idx> is a ratio of how the two sample proportions differ as compared to the expected variability of difference between the proportions.</p>
-        <p><me>Z = \frac{(\hat{p}_1 - \hat{p}_2) - 0}{\sqrt{\hat{p}_{pool}(1-\hat{p}_{pool}) \bigg(\frac{1}{n_1} + \frac{1}{n_2} \bigg)}}
-      </me></p>
+        <p><md>Z = \frac{(\hat{p}_1 - \hat{p}_2) - 0}{\sqrt{\hat{p}_{pool}(1-\hat{p}_{pool}) \bigg(\frac{1}{n_1} + \frac{1}{n_2} \bigg)}}
+      </md></p>
         <p>See the box below for calculation of the pooled proportion of successes.</p>
 <p>Conditions:</p>
         <p>-   Independent observations</p>
@@ -531,12 +531,12 @@ First, we require a broader independence condition, and secondly, the success-fa
         </statement>
         <solution>
           <p>The point estimate of the difference in breast cancer death rates is</p>
-          <me>\hat{p}_{MGM} - \hat{p}_{C} = \frac{500}{500 + 44{,}425} - \frac{505}{505 + 44{,}405} = 0.01113 - 0.01125 = -0.00012</me>
+          <md>\hat{p}_{MGM} - \hat{p}_{C} = \frac{500}{500 + 44{,}425} - \frac{505}{505 + 44{,}405} = 0.01113 - 0.01125 = -0.00012</md>
           <p>
             The breast cancer death rate in the mammogram group was 0.012% less than in the control group.
             Next, the standard error is calculated <em>using the pooled proportion,</em> <m>\hat{p}_{\textit{pool}}:</m>
           </p>
-          <me>SE = \sqrt{\frac{\hat{p}_{\textit{pool}}(1-\hat{p}_{\textit{pool}})}{n_{MGM}} + \frac{\hat{p}_{\textit{pool}}(1-\hat{p}_{\textit{pool}})}{n_{C}}}= 0.00070</me>
+          <md>SE = \sqrt{\frac{\hat{p}_{\textit{pool}}(1-\hat{p}_{\textit{pool}})}{n_{MGM}} + \frac{\hat{p}_{\textit{pool}}(1-\hat{p}_{\textit{pool}})}{n_{C}}}= 0.00070</md>
         </solution>
         </example>
 
@@ -546,7 +546,7 @@ First, we require a broader independence condition, and secondly, the success-fa
         </statement>
         <solution>
         <p>We first compute a test statistic and draw a picture:</p>
-        <p><me>Z = \frac{\text{point estimate} - \text{null value}}{SE} = \frac{-0.00012 - 0}{0.00070} = -0.17</me></p>
+        <p><md>Z = \frac{\text{point estimate} - \text{null value}}{SE} = \frac{-0.00012 - 0}{0.00070} = -0.17</md></p>
         <p>par(mar = c(2, 0, 0, 0))</p>
         <p>normTail(L = -0.17, U = 0.17, col = IMSCOL["blue", "full"])</p>
         <p>The lower tail area is 0.4325, which we double to get the p-value: 0.8650.
@@ -833,14 +833,14 @@ First, we require a broader independence condition, and secondly, the success-fa
         <alert>Government shutdown.</alert>The United States federal government shutdown of 2018--2019 occurred from December 22, 2018 until January 25, 2019, a span of 35 days.
         <alert>Government shutdown.</alert> The United States federal government shutdown of 2018--2019 occurred from December 22, 2018 until January 25, 2019, a span of 35 days.
         A Survey USA poll of 614 randomly sampled Americans during this time period reported that 48% of those who make less than $40,000 per year and 55% of those who make $40,000 or more per year said the government shutdown has not at all affected them personally.
-        A 95% confidence interval for <m>(p_{\text{&lt;40K}} - p_{\text{&#8805;40K}})</m>, where <m>p</m> is the proportion of those who said the government shutdown has not at all affected them personally, is (-0.16, 0.02).
+        A 95% confidence interval for <m>(p_{\text{&lt;40K}} - p_{\geq 40\text{K}})</m>, where <m>p</m> is the proportion of those who said the government shutdown has not at all affected them personally, is (-0.16, 0.02).
         Based on this information, determine if the following statements are true or false, and explain your reasoning if you identify the statement as false.
         <xref ref="biblio-data-govtshuthown" />
         <p><ol marker="a.">
           <li><p>At the 5% discernibility level, the data provide convincing evidence of a real difference in the proportion who are not affected personally between Americans who make less than $40,000 annually and Americans who make $40,000 annually.</p></li>
           <li><p>We are 95% confident that 16% more to 2% fewer Americans who make less than $40,000 per year are not at all personally affected by the government shutdown compared to those who make $40,000 or more per year.</p></li>
-          <li><p>A 90% confidence interval for <m>(p_{\text{&lt;40K}} - p_{\text{&#8805;40K}})</m> would be wider than the <m>(-0.16, 0.02)</m> interval.</p></li>
-          <li><p>A 95% confidence interval for <m>(p_{\text{&#8805;40K}} - p_{\text{&lt;40K}})</m> is (-0.02, 0.16).</p></li>
+          <li><p>A 90% confidence interval for <m>(p_{\text{&lt;40K}} - p_{\geq 40\text{K}})</m> would be wider than the <m>(-0.16, 0.02)</m> interval.</p></li>
+          <li><p>A 95% confidence interval for <m>(p_{\geq 40\text{K}} - p_{\text{&lt;40K}})</m> is (-0.02, 0.16).</p></li>
         </ol></p>
         </statement>
         </exercise>

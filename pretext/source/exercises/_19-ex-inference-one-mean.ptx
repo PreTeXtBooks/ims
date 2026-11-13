@@ -225,7 +225,7 @@
         <li>95% of adults in the US consume between 440 and 520 cans of soda per year.</li>
         <li>There is a 95% probability that the true population average per adult yearly soda consumption is between 440 and 520 cans.</li>
         <li>The true population average per adult yearly soda consumption is between 440 and 520 cans, with 95% confidence.</li>
-        <li>The average soda consumption of the people who were sampled is between 440 and 520 cans of soda per year, with 95% confidence. \vspace{-1mm}</li>
+        <li>The average soda consumption of the people who were sampled is between 440 and 520 cans of soda per year, with 95% confidence.</li>
       </ol></p>
     </statement>
   </exercise>
@@ -239,7 +239,7 @@
         <li>The probability that the average weight of all cereal boxes is greater than 10 oz is 0.23.</li>
         <li>Because the p-value is 0.23, the average weight of all cereal boxes is 10 oz.</li>
         <li>Because the p-value is small, the population average must be just barely above 10 oz.</li>
-        <li>If <m>H_0</m> is true, the probability of observing another sample with an average as or more extreme as the data is 0.23. \vspace{-1mm}</li>
+        <li>If <m>H_0</m> is true, the probability of observing another sample with an average as or more extreme as the data is 0.23.</li>
       </ol></p>
     </statement>
   </exercise>
@@ -247,14 +247,14 @@
   <exercise>
     <title>Working backwards, I</title>
     <statement>
-      <p>A 95% confidence interval for a population mean, <m>\mu</m>, is given as (18.985, 21.015). The population distribution is approximately normal and the population standard deviation is unknown. This confidence interval is based on a simple random sample of 36 observations. Assuming that all conditions necessary for inference are satisfied, and using the <m>t</m>-distribution, calculate the sample mean, the margin of error, and the sample standard deviation. \vspace{-1mm}</p>
+      <p>A 95% confidence interval for a population mean, <m>\mu</m>, is given as (18.985, 21.015). The population distribution is approximately normal and the population standard deviation is unknown. This confidence interval is based on a simple random sample of 36 observations. Assuming that all conditions necessary for inference are satisfied, and using the <m>t</m>-distribution, calculate the sample mean, the margin of error, and the sample standard deviation.</p>
     </statement>
   </exercise>
 
   <exercise>
     <title>Working backwards, II</title>
     <statement>
-      <p>A 90% confidence interval for a population mean is (65, 77). The population distribution is approximately normal and the population standard deviation is unknown. This confidence interval is based on a simple random sample of 25 observations. Assuming that all conditions necessary for inference are satisfied, and using the <m>t</m>-distribution, calculate the sample mean, the margin of error, and the sample standard deviation. \vspace{-1mm}</p>
+      <p>A 90% confidence interval for a population mean is (65, 77). The population distribution is approximately normal and the population standard deviation is unknown. This confidence interval is based on a simple random sample of 25 observations. Assuming that all conditions necessary for inference are satisfied, and using the <m>t</m>-distribution, calculate the sample mean, the margin of error, and the sample standard deviation.</p>
     </statement>
   </exercise>
 

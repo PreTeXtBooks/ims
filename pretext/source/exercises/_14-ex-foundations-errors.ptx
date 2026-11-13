@@ -59,7 +59,7 @@
     <title>Online communication</title>
     <statement>
       <p>A study suggests that 60% of college student spend 10 or more hours per week communicating with others online. You believe that this is incorrect and decide to collect your own sample for a hypothesis test. You randomly sample 160 students from your dorm and find that 70% spent 10 or more hours a week communicating with others online. A friend of yours, who offers to help you with the hypothesis test, comes up with the following set of hypotheses. Indicate any errors you see.</p>
-      <me>H_0: \hat{p} &lt; 0.6 \quad \quad H_A: \hat{p} > 0.7</me>
+      <md>H_0: \hat{p} &lt; 0.6 \quad \quad H_A: \hat{p} > 0.7</md>
     </statement>
   </exercise>
 
@@ -99,7 +99,7 @@
     <title>Hypothesis statements</title>
     <statement>
       <p>For each of the research claims below, fill in the value and the direction of the null and alternative hypotheses. That is, complete all aspects of the following hypothesis statements. Additionally, for each item, describe <m>p</m> in words.</p>
-      <me>H_0: p \_\_\_\_  \_\_\_\_ \quad \quad H_A: p \_\_\_\_  \_\_\_\_</me>
+      <md>H_0: p \_\_\_\_  \_\_\_\_ \quad \quad H_A: p \_\_\_\_  \_\_\_\_</md>
       <p><ol marker="a.">
         <li>On a pre-test to assess knowledge of the upcoming material, a professor wants to determine if their students know, on average, more than if they were just randomly guessing. The pre-test is 30 multiple choice questions, where each question has 5 possible responses.</li>
         <li>A standard treatment is known to reduce blood pressure in 32% of patients. A clinical trial is conducted to assess whether a new medical intervention will produce results which are different than the standard treatment, in terms of the percent of patients who will have reduced blood pressure.</li>

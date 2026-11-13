@@ -173,7 +173,7 @@ We will refer to this modified dataset as <c>loans</c>.</p>
 
 <p>Let's start by fitting a linear regression model for interest rate with a single predictor indicating whether a person has a bankruptcy in their record:</p>
 
-<me>\widehat{\texttt{interest\_rate}} = 12.34 + 0.74 \times \texttt{bankruptcy}</me>
+<md>\widehat{\texttt{interest\_rate}} = 12.34 + 0.74 \times \texttt{bankruptcy}</md>
 
 <p>Results of this model are shown in <xref ref="tbl-int-rate-bankruptcy" />.</p>
 
@@ -288,7 +288,7 @@ m_verified_income |>
   <solution>
     <p>When <c>verified_income</c> takes a value of <c>Not Verified</c>, then both indicator functions in the equation for the linear model are set to 0:</p>
 
-<me>\widehat{\texttt{interest\_rate}} = 11.10 + 1.42 \times 0 + 3.25 \times 0 = 11.10</me>
+<md>\widehat{\texttt{interest\_rate}} = 11.10 + 1.42 \times 0 + 3.25 \times 0 = 11.10</md>
 
     <p>The average interest rate for these borrowers is 11.1%.</p>
 
@@ -304,7 +304,7 @@ m_verified_income |>
   <solution>
     <p>When <c>verified_income</c> takes a value of <c>Source Verified</c>, then the corresponding variable takes a value of 1 while the other is 0:</p>
 
-<me>\widehat{\texttt{interest\_rate}} = 11.10 + 1.42 \times 1 + 3.25 \times 0 = 12.52</me>
+<md>\widehat{\texttt{interest\_rate}} = 11.10 + 1.42 \times 1 + 3.25 \times 0 = 12.52</md>
 
     <p>The average interest rate for these borrowers is 12.52%.</p>
 
@@ -389,7 +389,7 @@ We want to construct a model that accounts not only for any past bankruptcy or w
 Notice that there are two coefficients for <c>verified_income</c> and two coefficients for <c>issue_month</c>, since both are 3-level categorical variables.
 We calculate <m>b_0</m>, <m>b_1</m>, <m>b_2</m>, <m>\cdots</m>, <m>b_9</m> the same way as we did in the case of a model with a single predictor -- we select values that minimize the sum of the squared residuals:</p>
 
-<me>SSE = e_1^2 + e_2^2 + \dots + e_{10000}^2 = \sum_{i=1}^{10000} e_i^2 = \sum_{i=1}^{10000} \left(y_i - \hat{y}_i\right)^2</me>
+<md>SSE = e_1^2 + e_2^2 + \dots + e_{10000}^2 = \sum_{i=1}^{10000} e_i^2 = \sum_{i=1}^{10000} \left(y_i - \hat{y}_i\right)^2</md>
 
 <p>where <m>y_i</m> and <m>\hat{y}_i</m> represent the observed interest rates and their estimated values according to the model, respectively.
 10,000 residuals are calculated, one for each observation.
@@ -544,10 +544,10 @@ While it is impossible to prevent multicollinearity from arising in observationa
 
 <p>We first used <m>R^2</m> in <xref ref="sec-r-squared" /> to determine the amount of variability in the response that was explained by the model:</p>
 
-<me>
+<md>
 R^2 = 1 - \frac{\text{variability in residuals}}{\text{variability in the outcome}}
     = 1 - \frac{Var(e_i)}{Var(y_i)}
-</me>
+</md>
 
 <p>where <m>e_i</m> represents the residuals of the model and <m>y_i</m> the outcomes.</p>
 

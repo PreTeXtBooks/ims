@@ -301,9 +301,9 @@ resume_variables |&gt;
     The predictor variables are represented as follows: <m>x_{1,i}</m> is the value of variable 1 for observation <m>i</m>, <m>x_{2,i}</m> is the value of variable 2 for observation <m>i</m>, and so on.
   </p>
 
-  <me>
+  <md>
     transformation(p_i) = \beta_0 + \beta_1 x_{1,i} + \beta_2 x_{2,i} + \cdots + \beta_k x_{k,i}
-  </me>
+  </md>
 
   <p>
     We want to choose a <alert>transformation</alert> in the equation that makes practical and mathematical sense.
@@ -314,18 +314,18 @@ resume_variables |&gt;
     A common transformation for <m>p_i</m> is the <alert>logit transformation</alert>, which may be written as
   </p>
 
-  <me>
+  <md>
     logit(p_i) = \log_{e}\left( \frac{p_i}{1-p_i} \right)
-  </me>
+  </md>
 
   <p>
     The <alert>logit transformation</alert> is shown in <xref ref="fig-logit-transformation" />.
     Below, we rewrite the equation relating <m>Y_i</m> to its predictors using the logit transformation of <m>p_i</m>:
   </p>
 
-  <me>
+  <md>
     \log_{e}\left( \frac{p_i}{1-p_i} \right) = \beta_0 + \beta_1 x_{1,i} + \beta_2 x_{2,i} + \cdots + \beta_k x_{k,i}
-  </me>
+  </md>
 
   <listing xml:id="listing-logit-transformation">
     <caption>R code for creating the logit transformation plot</caption>
@@ -422,7 +422,7 @@ ggplot(logit_df_line, aes(x = lp, y = p)) +
         This variable indicates whether the applicant had any type of honors listed on their resume, such as employee of the month.
         A logistic regression model was fit using statistical software and the following model was found:
       </p>
-      <me>\log_e \left( \frac{\widehat{p}_i}{1-\widehat{p}_i} \right) = -2.4998 + 0.8668 \times \texttt{honors}</me>
+      <md>\log_e \left( \frac{\widehat{p}_i}{1-\widehat{p}_i} \right) = -2.4998 + 0.8668 \times \texttt{honors}</md>
       <p>
         a. If a resume is randomly selected from the study and it does not have any honors listed, what is the probability it resulted in a callback?
       </p>
@@ -1006,7 +1006,7 @@ resume_fit |&gt;
         <listing xml:id="list-possum-histograms">
           <caption>R code to generate histograms of possum variables</caption>
           <program language="r">
-            <input>
+            <code>
 possum &lt;- openintro::possum |&gt;
   mutate(
     sex = ifelse(sex == "m", "male", "female"),
@@ -1039,7 +1039,7 @@ hist_pop &lt;- ggplot(possum, aes(x = pop)) +
 
 hist_sex + hist_head + hist_skull + hist_total + hist_tail + hist_pop +
   plot_layout(ncol = 3)
-            </input>
+            </code>
           </program>
         </listing>
         
@@ -1047,12 +1047,12 @@ hist_sex + hist_head + hist_skull + hist_total + hist_tail + hist_pop +
         <listing xml:id="list-possum-full-model">
           <caption>Full logistic regression model with all predictors</caption>
           <program language="r">
-            <input>
+            <code>
 glm(pop ~ sex + head_l + skull_w + total_l + tail_l, 
     data = possum, family = "binomial") |&gt;
   tidy() |&gt;
   mutate(p.value = ifelse(p.value &lt; .0001, "&lt;0.0001", round(p.value, 4)))
-            </input>
+            </code>
           </program>
         </listing>
         
@@ -1115,12 +1115,12 @@ glm(pop ~ sex + head_l + skull_w + total_l + tail_l,
         <listing xml:id="list-possum-reduced-model">
           <caption>Reduced logistic regression model without head_l</caption>
           <program language="r">
-            <input>
+            <code>
 glm(pop ~ sex + skull_w + total_l + tail_l, 
     data = possum, family = "binomial") |&gt;
   tidy() |&gt;
   mutate(p.value = ifelse(p.value &lt; .0001, "&lt;0.0001", round(p.value, 4)))
-            </input>
+            </code>
           </program>
         </listing>
         
@@ -1214,11 +1214,11 @@ glm(pop ~ sex + skull_w + total_l + tail_l,
         <listing xml:id="list-orings-data-1">
           <caption>O-ring data (missions 1-12)</caption>
           <program language="r">
-            <input>
+            <code>
 orings |&gt;
   slice_head(n = 12) |&gt;
   t()
-            </input>
+            </code>
           </program>
         </listing>
         
@@ -1241,7 +1241,7 @@ orings |&gt;
               <cell>12</cell>
             </row>
             <row>
-              <cell>Temperature <m>(\degree\text{F})</m></cell>
+              <cell>Temperature <m>(^\circ\text{F})</m></cell>
               <cell>53</cell>
               <cell>57</cell>
               <cell>58</cell>
@@ -1291,11 +1291,11 @@ orings |&gt;
         <listing xml:id="list-orings-data-2">
           <caption>O-ring data (missions 13-23)</caption>
           <program language="r">
-            <input>
+            <code>
 orings |&gt;
   slice_tail(n = 11) |&gt;
   t()
-            </input>
+            </code>
           </program>
         </listing>
         
@@ -1317,7 +1317,7 @@ orings |&gt;
               <cell>23</cell>
             </row>
             <row>
-              <cell>Temperature <m>(\degree\text{F})</m></cell>
+              <cell>Temperature <m>(^\circ\text{F})</m></cell>
               <cell>70</cell>
               <cell>70</cell>
               <cell>72</cell>
@@ -1365,7 +1365,7 @@ orings |&gt;
         <listing xml:id="list-orings-model">
           <caption>Logistic regression model for O-ring damage</caption>
           <program language="r">
-            <input>
+            <code>
 orings |&gt;
   pivot_longer(cols = c(damaged, undamaged), 
                names_to = "outcome", values_to = "n") |&gt;
@@ -1374,7 +1374,7 @@ orings |&gt;
   glm(outcome ~ temperature, data = _, family = "binomial") |&gt;
   tidy() |&gt;
   mutate(p.value = ifelse(p.value &lt; .0001, "&lt;0.0001", round(p.value, 4)))
-            </input>
+            </code>
           </program>
         </listing>
         
@@ -1448,7 +1448,7 @@ orings |&gt;
         <listing xml:id="list-possum-prediction-model">
           <caption>Logistic regression model for possum classification</caption>
           <program language="r">
-            <input>
+            <code>
 openintro::possum |&gt;
   mutate(
     sex = ifelse(sex == "m", "male", "female"),
@@ -1457,7 +1457,7 @@ openintro::possum |&gt;
   glm(pop ~ sex + skull_w + total_l + tail_l, data = _, family = "binomial") |&gt;
   tidy() |&gt;
   mutate(p.value = ifelse(p.value &lt; .0001, "&lt;0.0001", round(p.value, 4)))
-            </input>
+            </code>
           </program>
         </listing>
         
@@ -1549,7 +1549,7 @@ openintro::possum |&gt;
         <listing xml:id="list-challenger-plot">
           <caption>Plot of O-ring damage probability vs temperature</caption>
           <program language="r">
-            <input>
+            <code>
 orings |&gt;
   pivot_longer(cols = c(damaged, undamaged), 
                names_to = "outcome", values_to = "n") |&gt;
@@ -1563,7 +1563,7 @@ orings |&gt;
     y = "Probability of damage"
   ) +
   lims(x = c(50,85))
-            </input>
+            </code>
           </program>
         </listing>
         
@@ -1579,9 +1579,9 @@ orings |&gt;
                 The data provided in the previous exercise are shown in the plot. The logistic model 
                 fit to these data may be written as
               </p>
-              <me>
+              <md>
                 \log\left( \frac{\hat{p}}{1 - \hat{p}} \right) = 11.6630 - 0.2162\times \texttt{temperature}
-              </me>
+              </md>
               <p>
                 where <m>\hat{p}</m> is the model-estimated probability that an O-ring will become 
                 damaged. Use the model to calculate the probability that an O-ring will become damaged 
@@ -1627,7 +1627,7 @@ orings |&gt;
         <listing xml:id="list-spam-full-model">
           <caption>Full logistic regression model for spam filtering</caption>
           <program language="r">
-            <input>
+            <code>
 m_full &lt;- glm(spam ~ to_multiple + cc + attach + dollar +
   winner + inherit + password + format +
   re_subj + exclaim_subj + sent_email,
@@ -1636,7 +1636,7 @@ m_full &lt;- glm(spam ~ to_multiple + cc + attach + dollar +
 m_full |&gt;
   tidy() |&gt;
   mutate(p.value = ifelse(p.value &lt; .0001, "&lt;0.0001", round(p.value, 4)))
-            </input>
+            </code>
           </program>
         </listing>
         
@@ -1830,12 +1830,12 @@ m_full |&gt;
         <listing xml:id="list-spam-prediction-model">
           <caption>Logistic regression model for spam prediction</caption>
           <program language="r">
-            <input>
+            <code>
 glm(spam ~ to_multiple + winner + format + re_subj,
   data = email, family = "binomial") |&gt;
   tidy() |&gt;
   mutate(p.value = ifelse(p.value &lt; .0001, "&lt;0.0001", round(p.value, 4)))
-            </input>
+            </code>
           </program>
         </listing>
         
@@ -1937,7 +1937,7 @@ glm(spam ~ to_multiple + winner + format + re_subj,
         <listing xml:id="list-possum-aic-comparison">
           <caption>Comparison of three logistic regression models via AIC</caption>
           <program language="r">
-            <input>
+            <code>
 pop_m1 &lt;- glm(pop ~ sex + head_l + skull_w + total_l + tail_l, 
               data = possum, family = "binomial")
 pop_m2 &lt;- glm(pop ~ sex + skull_w + total_l + tail_l, 
@@ -1951,7 +1951,7 @@ bind_rows(
   glance(pop_m2) |&gt; select(AIC) |&gt; mutate(formula = "sex + skull_w + total_l + tail_l"),
   glance(pop_m3) |&gt; select(AIC) |&gt; mutate(formula = "sex + head_l + total_l + tail_l")
 )
-            </input>
+            </code>
           </program>
         </listing>
         

@@ -13,7 +13,7 @@
   <!-- stored or created.  Directories are relative to the main -->
   <!-- source PreTeXt file                                      -->
   <source>
-    <directories external="." generated="../generated-assets"/>
+    <directories generated="../generated-assets"/>
   </source>
 
   <numbering>
@@ -65,7 +65,7 @@
     <!-- HTML theme colors for modern PreTeXt styling         -->
     <css theme="default-modern"
       primary-color="#44575E"
-      secondary-color="#F37021"
+      secondary-color="#BF4F0E"
       primary-color-dark="#649BA3" />
     <!-- Enable interactive code blocks and code highlighting -->
     <calculator model="none"/>

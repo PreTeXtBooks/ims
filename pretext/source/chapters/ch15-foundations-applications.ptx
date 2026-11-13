@@ -67,7 +67,7 @@
     <listing xml:id="listing-tbl-foundations-summary-code">
       <caption>R code for creating the inference methods summary table</caption>
       <program language="r">
-        <input>
+        <code>
 inference_method_summary_table |>
   filter(question != "What are the technical conditions?") |>
   kbl(
@@ -81,7 +81,7 @@ inference_method_summary_table |>
   ) |>
   column_spec(1, width = "8em") |>
   add_header_above(c("", "Answer" = 3))
-        </input>
+        </code>
       </program>
     </listing>
     
@@ -352,12 +352,12 @@ We computationally generate the randomization distribution, though usually, it's
       
       <p>
         Repeating the simulation on a computer, we get another difference due to chance:
-        <me>\frac{2}{6} - \frac{9}{14} = -0.310</me>
+        <md>\frac{2}{6} - \frac{9}{14} = -0.310</md>
       </p>
       
       <p>
         And another:
-        <me>\frac{3}{6} - \frac{8}{14} = -0.071</me>
+        <md>\frac{3}{6} - \frac{8}{14} = -0.071</md>
       </p>
       
       <p>
@@ -378,7 +378,7 @@ We computationally generate the randomization distribution, though usually, it's
       <listing xml:id="listing-fig-malaria-rand-dot-plot-code">
         <caption>R code for creating the randomization distribution dot plot</caption>
         <program language="r">
-          <input>
+          <code>
 set.seed(19)
 malaria |>
   specify(response = outcome, explanatory = treatment, success = "infection") |>
@@ -396,7 +396,7 @@ malaria |>
     axis.ticks.y = element_blank()
   ) +
   gghighlight(stat >= 0.643)
-          </input>
+          </code>
         </program>
       </listing>
       

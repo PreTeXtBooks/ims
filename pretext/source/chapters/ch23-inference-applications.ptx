@@ -239,7 +239,7 @@
         <li><p>Verify conditions for using the <m>t</m>-distribution. (See above.)</p></li>
         <li><p>Compute the point estimate of interest, the standard error, the degrees of freedom, and <m>t^{\star}_{df}</m>.</p></li>
         <li><p>Calculate the confidence interval using the general formula:
-        <me>\text{point estimate } \pm t_{df}^{\star} SE</me></p></li>
+        <md>\text{point estimate } \pm t_{df}^{\star} SE</md></p></li>
         <li><p>Put the conclusions in context and in plain language so even non-statisticians and data scientists can understand the results.</p></li>
       </ul>
     </p>

@@ -104,7 +104,7 @@
         In <xref ref="tbl-mariokart-model-output" /> we fit a mathematical linear regression model with the game's condition as a predictor of auction price.
       </p>
       
-      <me>E[\texttt{price}] = \beta_0 + \beta_1\times \texttt{cond\_new}</me>
+      <md>E[\texttt{price}] = \beta_0 + \beta_1\times \texttt{cond\_new}</md>
       
       <p>Results of the model are summarized below:</p>
             
@@ -295,7 +295,7 @@
       <listing xml:id="listing-fig-mariokart-rand-dist">
         <caption>R code for <xref ref="fig-mariokart-rand-dist" /></caption>
         <program language="r">
-          <input>
+          <code>
 set.seed(47)
 mariokart |&gt;
   specify(price ~ cond_new) |&gt;
@@ -311,7 +311,7 @@ mariokart |&gt;
     ) +
   geom_vline(xintercept = 10.9, color = IMSCOL["red","full"], size = 1) +
   theme(plot.title.position = "plot")
-          </input>
+          </code>
         </program>
       </listing>
       
@@ -377,7 +377,7 @@ mariokart |&gt;
       <listing xml:id="listing-fig-mariokart-boot-dist">
         <caption>R code for <xref ref="fig-mariokart-boot-dist" /></caption>
         <program language="r">
-          <input>
+          <code>
 set.seed(47)
 mariokart |&gt;
   specify(price ~ cond_new) |&gt;
@@ -391,7 +391,7 @@ mariokart |&gt;
     y = "Count"
     ) +
   theme(plot.title.position = "plot")
-          </input>
+          </code>
         </program>
       </listing>
       
@@ -474,7 +474,7 @@ mariokart |&gt;
       <listing xml:id="listing-fig-mariokart-cv-residuals">
         <caption>R code for <xref ref="fig-mariokart-cv-residuals" /></caption>
         <program language="r">
-          <input>
+          <code>
 set.seed(4)
 mario_CV1 &lt;- train(price ~ cond_new,
   data = mariokart,
@@ -547,7 +547,7 @@ mario_CV2$pred |&gt;
   annotate(geom = "text", x = 55, y = 25, label = paste("CV SSE =", SSE_CV2)) +
   labs(title = "Model with four predictors") +
   scale_color_openintro("three")
-          </input>
+          </code>
         </program>
       </listing>
       

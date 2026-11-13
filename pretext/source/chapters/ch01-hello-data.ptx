@@ -791,7 +791,7 @@
           We also use the terms <alert>explanatory</alert> and <alert>response</alert> to describe variables where the <alert>response</alert> might be predicted using the <alert>explanatory</alert> even if there is no causal relationship.
         </p>
         <p>
-          <me>\text{explanatory variable} \rightarrow \text{\em might affect} \rightarrow \text{response variable}</me>
+          <md>\text{explanatory variable} \rightarrow \textit{might affect} \rightarrow \text{response variable}</md>
         </p>
         <p>
           For many pairs of variables, there is no hypothesized relationship, and these labels would not be applied to either variable in such cases.

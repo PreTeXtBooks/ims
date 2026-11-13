@@ -428,7 +428,7 @@
   <exercise xml:id="ex-uk-baby-names">
     <title>UK baby names</title>
     <statement>
-      <p>The visualization below shows the number of baby girls born in the United Kingdom (comprised of England <ampersand/> Wales, Northern Ireland, and Scotland) who were given the name "Fiona" over the years.</p>
+      <p>The visualization below shows the number of baby girls born in the United Kingdom (comprised of England &amp; Wales, Northern Ireland, and Scotland) who were given the name "Fiona" over the years.</p>
       
       <figure xml:id="fig-uk-baby-names">
         <caption>Number of baby girls named Fiona by nation</caption>

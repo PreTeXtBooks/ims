@@ -40,7 +40,7 @@
 <listing xml:id="listing-loansmodel-code">
   <caption>R code for fitting the loans multiple regression model</caption>
   <program language="r">
-    <input>
+    <code>
 loans &lt;- loans_full_schema |&gt;
   mutate(
     credit_util = total_credit_utilized / total_credit_limit,
@@ -64,7 +64,7 @@ lm(interest_rate ~ debt_to_income + term + credit_checks, data = loans) |&gt;
   ) |&gt;
   column_spec(1, width = "10em", monospace = TRUE) |&gt;
   column_spec(2:5, width = "5em")
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -111,7 +111,7 @@ lm(interest_rate ~ debt_to_income + term + credit_checks, data = loans) |&gt;
 
 <p>The estimated equation for the regression model may be written as a model with three predictor variables:</p>
 
-<me>\widehat{\texttt{interest\_rate}} = 4.31 + 0.041 \times \texttt{debt\_to\_income} + 0.16 \times \texttt{term} + 0.25 \times \texttt{credit\_checks}</me>
+<md>\widehat{\texttt{interest\_rate}} = 4.31 + 0.041 \times \texttt{debt\_to\_income} + 0.16 \times \texttt{term} + 0.25 \times \texttt{credit\_checks}</md>
 
 <p>Not only does <xref ref="tbl-loansmodel" /> provide the estimates for the coefficients, it also provides information on the inference analysis (i.e., hypothesis testing) which is the focus of this chapter.</p>
 
@@ -180,7 +180,7 @@ The number of low coins is the number of coins minus the number of quarters (a q
 <listing xml:id="listing-coinfig-code">
   <caption>R code for creating coin amount plots</caption>
   <program language="r">
-    <input>
+    <code>
 # Data are simulated
 money &lt;- tibble(
   number_of_coins = c(9, 10, 3, 5, 10, 37, 28, 9, 11, 4, 6, 17, 15, 7, 9, 1, 5, 9, 36, 30, 47, 13, 5, 7, 18, 16),
@@ -195,7 +195,7 @@ ggplot(money, aes(y = total_amount, x = number_of_coins)) +
 ggplot(money, aes(y = total_amount, x = number_of_low_coins)) +
   geom_point() +
   labs(x = "Number of low coins", y = "Total amount (USD)")
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -203,12 +203,12 @@ ggplot(money, aes(y = total_amount, x = number_of_low_coins)) +
 <p>For every additional coin in the dish, we would predict that the student had US$0.13 more.</p>
 <p>The <m>b_1 = 0.13</m> coefficient has a small p-value associated with it, suggesting we would not have seen data like this if <c>number_of_coins</c> and <c>total_amount</c> of money were not linearly related.</p>
 
-<me>\widehat{\texttt{total\_amount}} = 0.55 + 0.13 \times \texttt{number\_of\_coins}</me>
+<md>\widehat{\texttt{total\_amount}} = 0.55 + 0.13 \times \texttt{number\_of\_coins}</md>
 
 <listing xml:id="listing-coinhigh-code">
   <caption>R code for linear model with total number of coins</caption>
   <program language="r">
-    <input>
+    <code>
 lm(total_amount ~ number_of_coins, data = money) |&gt;
   tidy() |&gt;
   mutate(p.value = ifelse(p.value &lt; .0001, "&lt;0.0001", round(p.value, 4))) |&gt;
@@ -222,7 +222,7 @@ lm(total_amount ~ number_of_coins, data = money) |&gt;
   ) |&gt;
   column_spec(1, width = "10em", monospace = TRUE) |&gt;
   column_spec(2:5, width = "5em")
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -257,12 +257,12 @@ lm(total_amount ~ number_of_coins, data = money) |&gt;
 <p>For every additional low coin in the dish, we would predict that the student had US$0.02 more.</p>
 <p>The <m>b_1 = 0.02</m> coefficient has a large p-value associated with it, suggesting we could easily have seen data like ours even if the <c>number_of_low_coins</c> and <c>total_amount</c> of money are not at all linearly related.</p>
 
-<me>\widehat{\texttt{total\_amount}} = 2.28 + 0.02 \times \texttt{number\_of\_low\_coins}</me>
+<md>\widehat{\texttt{total\_amount}} = 2.28 + 0.02 \times \texttt{number\_of\_low\_coins}</md>
 
 <listing xml:id="listing-coinlow-code">
   <caption>R code for linear model with number of low coins</caption>
   <program language="r">
-    <input>
+    <code>
 lm(total_amount ~ number_of_low_coins, data = money) |&gt;
   tidy() |&gt;
   mutate(p.value = ifelse(p.value &lt; .0001, "&lt;0.0001", round(p.value, 4))) |&gt;
@@ -276,7 +276,7 @@ lm(total_amount ~ number_of_low_coins, data = money) |&gt;
   ) |&gt;
   column_spec(1, width = "10em", monospace = TRUE) |&gt;
   column_spec(2:5, width = "5em")
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -355,7 +355,7 @@ It makes sense that the variable describing the <c>number_of_low_coins</c> provi
 <listing xml:id="listing-coinhighlow-code">
   <caption>R code for linear model with both predictors</caption>
   <program language="r">
-    <input>
+    <code>
 lm(total_amount ~ number_of_coins + number_of_low_coins, data = money) |&gt;
   tidy() |&gt;
   mutate(p.value = ifelse(p.value &lt; .0001, "&lt;0.0001", round(p.value, 4))) |&gt;
@@ -369,7 +369,7 @@ lm(total_amount ~ number_of_coins + number_of_low_coins, data = money) |&gt;
   ) |&gt;
   column_spec(1, width = "10em", monospace = TRUE) |&gt;
   column_spec(2:5, width = "5em")
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -458,7 +458,7 @@ The second model predicts <c>body_mass_g</c> by using <c>bill_length_mm</c>, <c>
 <assemblage>
   <title>Prediction error</title>
   <p>The predicted error (also previously called the <alert>residual</alert>) is the difference between the observed value and the predicted value (from the regression model).</p>
-  <p><me>\text{prediction error}_i = e_i = y_i - \hat{y}_i</me></p>
+  <p><md>\text{prediction error}_i = e_i = y_i - \hat{y}_i</md></p>
 </assemblage>
 
 <p>The presentation below (see the comparison of <xref ref="fig-peng-mass1" /> and <xref ref="fig-peng-mass2" />) shows that the model with more variables predicts <c>body_mass_g</c> with much smaller errors (predicted minus actual body mass) than the model which uses only <c>bill_length_g</c>.
@@ -488,7 +488,7 @@ However, in this section, we will go beyond the use of p-values to consider inde
 <listing xml:id="listing-peng-lm-bill-code">
   <caption>R code for smaller penguin model</caption>
   <program language="r">
-    <input>
+    <code>
 lm(body_mass_g ~ bill_length_mm, data = penguins) |&gt;
   tidy() |&gt;
   mutate(p.value = ifelse(p.value &lt; .0001, "&lt;0.0001", round(p.value, 4))) |&gt;
@@ -502,7 +502,7 @@ lm(body_mass_g ~ bill_length_mm, data = penguins) |&gt;
   ) |&gt;
   column_spec(1, width = "10em", monospace = TRUE) |&gt;
   column_spec(2:5, width = "5em")
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -553,7 +553,7 @@ lm(body_mass_g ~ bill_length_mm, data = penguins) |&gt;
 <listing xml:id="listing-peng-lm-all-code">
   <caption>R code for larger penguin model</caption>
   <program language="r">
-    <input>
+    <code>
 lm(body_mass_g ~ bill_length_mm + bill_depth_mm + flipper_length_mm + sex + species, data = penguins) |&gt;
   tidy() |&gt;
   mutate(p.value = ifelse(p.value &lt; .0001, "&lt;0.0001", round(p.value, 4))) |&gt;
@@ -567,7 +567,7 @@ lm(body_mass_g ~ bill_length_mm + bill_depth_mm + flipper_length_mm + sex + spec
   ) |&gt;
   column_spec(1, width = "10em", monospace = TRUE) |&gt;
   column_spec(2:5, width = "5em")
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -652,7 +652,7 @@ We see that the predictions are scattered which shows a good model fit but that 
 <listing xml:id="listing-peng-mass1-code">
   <caption>R code for cross-validation with smaller model</caption>
   <program language="r">
-    <input>
+    <code>
 set.seed(47)
 penguins &lt;- penguins |&gt; na.omit()
 
@@ -694,7 +694,7 @@ data.frame(
     x = "Predicted body mass (g)",
     y = "Prediction error (g)"
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -711,7 +711,7 @@ For the model using only <c>bill_length_mm</c> to predict <c>body_mass_g</c>, th
   <title>Cross-validation SSE</title>
   <p>The prediction error from the cross-validated model can be used to calculate a single numerical summary of the model.</p>
   <p>The cross-validation SSE is the sum of squared cross-validation prediction errors.</p>
-  <p><me>\mbox{CV SSE} = \sum_{i=1}^n (\hat{y}_{cv,i} - y_i)^2</me></p>
+  <p><md>\mbox{CV SSE} = \sum_{i=1}^n (\hat{y}_{cv,i} - y_i)^2</md></p>
 </assemblage>
 
 <p>The same process is repeated for the larger number of explanatory variables.
@@ -726,7 +726,7 @@ Note that the coefficients estimated for the first cross-validation model (in <x
 <listing xml:id="listing-peng-mass2-code">
   <caption>R code for cross-validation with larger model</caption>
   <program language="r">
-    <input>
+    <code>
 data.frame(
   predicted = lm(body_mass_g ~ bill_length_mm + bill_depth_mm + flipper_length_mm + sex + species, data = penguins[-penguinfolds$Fold1, ]) |&gt;
     predict(newdata = penguins[penguinfolds$Fold1, c("bill_length_mm", "bill_depth_mm", "flipper_length_mm", "sex", "species")]),
@@ -763,7 +763,7 @@ data.frame(
     x = "Predicted body mass (g)",
     y = "Prediction error (g)"
   )
-    </input>
+    </code>
   </program>
 </listing>
 

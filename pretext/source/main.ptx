@@ -2,6 +2,7 @@
 
 <pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
   <docinfo>
+    <directories external="."/>
     <macros>
       \newcommand{\N}{\mathbb N}
       \newcommand{\Z}{\mathbb Z}
@@ -15,13 +16,17 @@
     <subtitle>Second Edition</subtitle>
 
     <frontmatter xml:id="frontmatter">
-      <titlepage>
+      <bibinfo>
         <author>
           <personname>Mine Çetinkaya-Rundel</personname>
         </author>
         <author>
           <personname>Johanna Hardin</personname>
         </author>
+      </bibinfo>
+
+      <titlepage>
+        <titlepage-items/>
       </titlepage>
 
       <xi:include href="welcome.ptx" />

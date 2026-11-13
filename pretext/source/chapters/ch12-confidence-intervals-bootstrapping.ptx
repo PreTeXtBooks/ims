@@ -150,7 +150,7 @@
         </p>
         
         <p>
-          <me>\hat{p} = 3 / 62 = 0.048~\text{is used to estimate}~p</me>
+          <md>\hat{p} = 3 / 62 = 0.048~\text{is used to estimate}~p</md>
         </p>
       </assemblage>
     </subsection>
@@ -378,7 +378,7 @@ ggplot(bsprop_med, aes(x = bsprop)) +
       </p>
       
       <p>
-        <me>0.0417 \quad 0.025 \quad 0.025 \quad 0.0083 \quad 0.05 \quad 0.0333 \quad 0.025 \quad 0 \quad 0.0083 \quad 0</me>
+        <md>0.0417 \quad 0.025 \quad 0.025 \quad 0.0083 \quad 0.05 \quad 0.0333 \quad 0.025 \quad 0 \quad 0.0083 \quad 0</md>
       </p>
       
       <p>

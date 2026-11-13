@@ -112,7 +112,7 @@
 <listing xml:id="listing-single-scatter">
   <caption>R code for scatterplots of price versus predictor variables</caption>
   <program language="r">
-    <input>
+    <code>
 pr_bed &lt;- ggplot(duke_forest, aes(x = bed, y = price)) +
   geom_point(alpha = 0.8) +
   labs(
@@ -169,7 +169,7 @@ pr_lot &lt;- ggplot(duke_forest, aes(x = lot, y = price)) +
 
 pr_bed + pr_bath + pr_area + pr_year + pr_cool + pr_lot +
   plot_layout(ncol = 2)
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -259,7 +259,7 @@ pr_bed + pr_bath + pr_area + pr_year + pr_cool + pr_lot +
 <listing xml:id="listing-price-resid-slr">
   <caption>R code for residual plot for the model predicting sale price from area</caption>
   <program language="r">
-    <input>
+    <code>
 duke_forest |&gt;
   lm(price ~ area, data = _) |&gt;
   augment() |&gt;
@@ -272,7 +272,7 @@ duke_forest |&gt;
   geom_hline(yintercept = 0, linetype = "dashed") +
   scale_x_continuous(labels = label_dollar(scale = 1/1000, suffix = "K")) +
   scale_y_continuous(labels = label_dollar(scale = 1/1000, suffix = "K"))
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -501,7 +501,7 @@ duke_forest |&gt;
 <listing xml:id="listing-price-resid-mlr-nobed">
   <caption>R code for residual plot for the model predicting sale price from all predictors except number of bedrooms</caption>
   <program language="r">
-    <input>
+    <code>
 m_full_no_bed |&gt;
   augment() |&gt;
   ggplot(aes(x = .fitted, y = .resid)) +
@@ -513,7 +513,7 @@ m_full_no_bed |&gt;
   geom_hline(yintercept = 0, linetype = "dashed") +
   scale_x_continuous(labels = label_dollar(scale = 1/1000, suffix = "K")) +
   scale_y_continuous(labels = label_dollar(scale = 1/1000, suffix = "K"))
-    </input>
+    </code>
   </program>
 </listing>
 

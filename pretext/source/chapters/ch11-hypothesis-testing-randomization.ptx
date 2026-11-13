@@ -398,7 +398,7 @@ ggplot(opportunity_cost, aes(y = fct_rev(group), fill = fct_rev(decision))) +
 
     <p>We can construct a point estimate for this difference as (<m>T</m> for treatment and <m>C</m> for control):</p>
 
-    <me>\hat{p}_{T} - \hat{p}_{C} = \frac{34}{75} - \frac{19}{75} = 0.453 - 0.253 = 0.200</me>
+    <md>\hat{p}_{T} - \hat{p}_{C} = \frac{34}{75} - \frac{19}{75} = 0.453 - 0.253 = 0.200</md>
 
     <p>The proportion of students who chose not to buy the video was 20 percentage points higher in the treatment group than the control group. Is this 20% difference between the two groups so prominent that it is unlikely to have occurred from chance alone, if there is no difference between the spending habits of the two groups?</p>
   </subsection>
@@ -466,7 +466,7 @@ ggplot(opportunity_cost, aes(y = fct_rev(group), fill = fct_rev(decision))) +
 
     <p>From this table, we can compute a difference that occurred from the first shuffle of the data (i.e., from chance alone):</p>
 
-    <me>\hat{p}_{T, shfl1} - \hat{p}_{C, shfl1} = \frac{24}{75} - \frac{29}{75} = 0.32 - 0.387 = - 0.067</me>
+    <md>\hat{p}_{T, shfl1} - \hat{p}_{C, shfl1} = \frac{24}{75} - \frac{29}{75} = 0.32 - 0.387 = - 0.067</md>
 
     <p>Just one simulation will not be enough to get a sense of what sorts of differences would happen from chance alone.</p>
 
@@ -866,22 +866,22 @@ ggplot(opportunity_cost_rand_dist, aes(x = stat)) +
       </table>
 
       <p><ol>
-        <li>Determine if each of the following statements is true or false. If false, explain why. <em>Be careful:</em> The reasoning may be wrong even if the statement's conclusion is correct. In such cases, the statement should be considered false.
-          <ol>
+        <li><p>Determine if each of the following statements is true or false. If false, explain why. <em>Be careful:</em> The reasoning may be wrong even if the statement's conclusion is correct. In such cases, the statement should be considered false.</p>
+          <p><ol>
             <li>Since more patients on Pioglitazone had cardiovascular problems (5,386 vs. 2,593), we can conclude that the rate of cardiovascular problems for those on a Pioglitazone treatment is higher.</li>
             <li>The data suggest that diabetic patients who are taking Rosiglitazone are more likely to have cardiovascular problems since the rate of incidence was (2,593 / 67,593 = 0.038) 3.8% for patients on this treatment, while it was only (5,386 / 159,978 = 0.034) 3.4% for patients on Pioglitazone.</li>
             <li>The fact that the rate of incidence is higher for the Rosiglitazone group proves that Rosiglitazone causes serious cardiovascular problems.</li>
             <li>Based on the information provided so far, we cannot tell if the difference between the rates of incidences is due to a relationship between the two variables or due to chance.</li>
-          </ol>
+          </ol></p>
         </li>
         <li>What proportion of all patients had cardiovascular problems?</li>
         <li>If the type of treatment and having cardiovascular problems were independent, how many patients in the Rosiglitazone group would we expect to have had cardiovascular problems?</li>
-        <li>We can investigate the relationship between outcome and treatment in this study using a randomization technique. While in reality we would carry out the simulations required for randomization using statistical software, suppose we actually simulate using index cards. In order to simulate from the independence model, which states that the outcomes were independent of the treatment, we write whether each patient had a cardiovascular problem on cards, shuffled all the cards together, then deal them into two groups of size 67,593 and 159,978. We repeat this simulation 100 times and each time record the difference between the proportions of cards that say <q>Yes</q> in the Rosiglitazone and Pioglitazone groups. Use the histogram of these differences in proportions to answer the following questions.
-          <ol>
+        <li><p>We can investigate the relationship between outcome and treatment in this study using a randomization technique. While in reality we would carry out the simulations required for randomization using statistical software, suppose we actually simulate using index cards. In order to simulate from the independence model, which states that the outcomes were independent of the treatment, we write whether each patient had a cardiovascular problem on cards, shuffled all the cards together, then deal them into two groups of size 67,593 and 159,978. We repeat this simulation 100 times and each time record the difference between the proportions of cards that say <q>Yes</q> in the Rosiglitazone and Pioglitazone groups. Use the histogram of these differences in proportions to answer the following questions.</p>
+          <p><ol>
             <li>What are the claims being tested?</li>
             <li>Compared to the number calculated in part (b), which would provide more support for the alternative hypothesis, <em>higher</em> or <em>lower</em> proportion of patients with cardiovascular problems in the Rosiglitazone group?</li>
             <li>What do the simulation results suggest about the relationship between taking Rosiglitazone and having cardiovascular problems in diabetic patients?</li>
-          </ol>
+          </ol></p>
         </li>
       </ol></p>
 
@@ -926,16 +926,16 @@ ggplot(opportunity_cost_rand_dist, aes(x = stat)) +
         <li>Does the stacked bar plot indicate that survival is independent of whether the patient got a transplant? Explain your reasoning.</li>
         <li>What do the box plots suggest about the efficacy of heart transplants.</li>
         <li>What proportions of patients in the treatment and control groups died?</li>
-        <li>One approach for investigating whether the treatment is discernably effective is randomization testing.
-          <ol>
+        <li><p>One approach for investigating whether the treatment is discernably effective is randomization testing.</p>
+          <p><ol>
             <li>What are the claims being tested?</li>
-            <li>The paragraph below describes the set up for a randomization test, if we were to do it without using statistical software. Fill in the blanks with a number or phrase.
+            <li><p>The paragraph below describes the set up for a randomization test, if we were to do it without using statistical software. Fill in the blanks with a number or phrase.</p>
               <blockquote>
                 <p>We write <em>alive</em> on _______ cards representing patients who were alive at the end of the study, and <em>deceased</em> on _______ cards representing patients who were not. Then, we shuffle these cards and split them into two groups: one group of size _______ representing treatment, and another group of size _______ representing control. We calculate the difference between the proportion of <em>deceased</em> cards in the treatment and control groups (treatment - control) and record this value. We repeat this 100 times to build a distribution centered at _______. Lastly, we calculate the proportion of simulations where the simulated differences in proportions are _______. If this proportion is low, we conclude that it is unlikely to have observed such an outcome by chance and that the null hypothesis should be rejected in favor of the alternative.</p>
               </blockquote>
             </li>
             <li>What do the simulation results shown below suggest about the effectiveness of heart transplants?</li>
-          </ol>
+          </ol></p>
         </li>
       </ol></p>
 

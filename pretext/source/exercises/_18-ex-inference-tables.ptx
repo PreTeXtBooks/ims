@@ -764,11 +764,11 @@ The table below shows the distribution of incidences of depression by amount of 
         <tabular>
             <row>
               <cell>Caffeinated coffee consumption</cell>
-              <cell>≤ 1 cup/week</cell>
+              <cell><m>\leq</m> 1 cup/week</cell>
               <cell>2-6 cups/week</cell>
               <cell>1 cup/day</cell>
               <cell>2-3 cups/day</cell>
-              <cell>≥ 4 cups/day</cell>
+              <cell><m>\geq</m> 4 cups/day</cell>
               <cell>Total</cell>
             </row>
             <row>

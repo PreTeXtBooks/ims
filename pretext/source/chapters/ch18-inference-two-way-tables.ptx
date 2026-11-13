@@ -149,28 +149,28 @@
   <tabular>
       <row>
         <cell>Question</cell>
-        <cell>Disclose problem<br/>(Observed / Expected)</cell>
-        <cell>Hide problem<br/>(Observed / Expected)</cell>
+        <cell><line>Disclose problem</line><line>(Observed / Expected)</line></cell>
+        <cell><line>Hide problem</line><line>(Observed / Expected)</line></cell>
         <cell>Total</cell>
       </row>
       <row>
         <cell>General</cell>
-        <cell>2<br/>(20.33)</cell>
-        <cell>71<br/>(52.67)</cell>
+        <cell><line>2</line><line>(20.33)</line></cell>
+        <cell><line>71</line><line>(52.67)</line></cell>
         <cell>73</cell>
       </row>
 
       <row>
         <cell>Positive assumption</cell>
-        <cell>23<br/>(20.33)</cell>
-        <cell>50<br/>(52.67)</cell>
+        <cell><line>23</line><line>(20.33)</line></cell>
+        <cell><line>50</line><line>(52.67)</line></cell>
         <cell>73</cell>
       </row>
 
       <row>
         <cell>Negative assumption</cell>
-        <cell>36<br/>(20.33)</cell>
-        <cell>37<br/>(52.67)</cell>
+        <cell><line>36</line><line>(20.33)</line></cell>
+        <cell><line>37</line><line>(52.67)</line></cell>
         <cell>73</cell>
       </row>
 
@@ -215,7 +215,7 @@
         <p>
           To calculate the expected count for the <m>i^{th}</m> row and <m>j^{th}</m> column, compute
         </p>
-        <p><me>\text{Expected Count}_{\text{row }i,\text{ col }j} = \frac{(\text{row $i$ total}) \times (\text{column $j$ total})}{\text{table total}}</me></p>
+        <p><md>\text{Expected Count}_{\text{row }i,\text{ col }j} = \frac{(\text{row $i$ total}) \times (\text{column $j$ total})}{\text{table total}}</md></p>
       </assemblage>
     </subsection>
 
@@ -239,7 +239,7 @@
         Adding the computed value for each cell gives the chi-squared test statistic <m>X^2:</m>
       </p>
 
-      <me>X^2 = 16.53 + 0.35 + \dots + 4.66 = 40.13</me>
+      <md>X^2 = 16.53 + 0.35 + \dots + 4.66 = 40.13</md>
 
       <p>
         Is 40.13 a big number?
@@ -320,7 +320,7 @@
         Adding the computed value for each cell gives the chi-squared test statistic <m>X^2:</m>
       </p>
 
-      <me>X^2 = 3.7 + 1.4 + \dots + 0.211 = 8</me>
+      <md>X^2 = 3.7 + 1.4 + \dots + 0.211 = 8</md>
     </subsection>
 
     <subsection xml:id="subsec-observed-vs-null-chisq">
@@ -383,7 +383,7 @@
         <p>
           The <m>X^2</m> statistic is a ratio of how the observed counts vary from the expected counts as compared to the expected counts (which are a measure of how large the sample size is).
         </p>
-        <me>X^2 = \sum_{i,j} \frac{(\text{observed count} - \text{expected count})^2}{\text{expected count}}</me>
+        <md>X^2 = \sum_{i,j} \frac{(\text{observed count} - \text{expected count})^2}{\text{expected count}}</md>
         <p>
           When the null hypothesis is true and the conditions are met, <m>X^2</m> has a Chi-squared distribution with <m>df = (r-1) \times (c-1).</m>
         </p>
@@ -420,9 +420,9 @@
       </p>
 
       <program language="r">
-        <input>
+        <code>
 1 - pchisq(40.13, df = 2)
-        </input>
+        </code>
       </program>
 
       <example>

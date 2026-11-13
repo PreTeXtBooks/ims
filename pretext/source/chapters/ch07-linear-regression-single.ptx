@@ -30,7 +30,7 @@
 <listing xml:id="listing-perfLinearModel-code">
   <caption>R code for creating the perfect linear model plot</caption>
   <program language="r">
-    <input>
+    <code>
 
 target &lt;- simulated_scatter |&gt;
   filter(group == 4)
@@ -43,7 +43,7 @@ ggplot(target, aes(x = x, y = y)) +
     x = "Number of Target Corporation stocks to purchase",
     y = "Total cost of the\nshare purchase"
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -54,7 +54,7 @@ ggplot(target, aes(x = x, y = y)) +
 
 <p>Linear regression is the statistical method for fitting a line to data where the relationship between two variables, <m>x</m> and <m>y,</m> can be modeled by a straight line with some error:</p>
 
-<me>y = b_0 + b_1 \ x + e</me>
+<md>y = b_0 + b_1 \ x + e</md>
 
 <p>The values <m>b_0</m> and <m>b_1</m> represent the model's intercept and slope, respectively, and the error is represented by <m>e.</m>
 These values are calculated based on the data, i.e., they are sample statistics.
@@ -74,7 +74,7 @@ As we move forward in this chapter, we will learn about criteria for line-fittin
 <listing xml:id="listing-imperfLinearModel-code">
   <caption>R code for creating three scatterplots with linear models</caption>
   <program language="r">
-    <input>
+    <code>
 
 neg &lt;- simulated_scatter |&gt; filter(group == 1)
 pos &lt;- simulated_scatter |&gt; filter(group == 2)
@@ -96,7 +96,7 @@ p_ran &lt;- ggplot(ran, aes(x = x, y = y)) +
   labs(x = NULL, y = NULL)
 
 p_neg + p_pos + p_ran
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -112,7 +112,7 @@ We discuss nonlinear trends in this chapter and the next, but details of fitting
 <listing xml:id="listing-notGoodAtAllForALinearModel-code">
   <caption>R code for nonlinear relationship plot</caption>
   <program language="r">
-    <input>
+    <code>
 
 bad &lt;- simulated_scatter |&gt; filter(group == 5)
 
@@ -123,7 +123,7 @@ ggplot(bad, aes(x = x, y = y)) +
     x = "Angle of Incline (Degrees)",
     y = "Distance Traveled (m)"
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -144,10 +144,10 @@ We consider two of these measurements: the total length of each possum, from hea
 <listing xml:id="listing-brushtail-possum-image">
   <caption>R code for loading possum image</caption>
   <program language="r">
-    <input>
+    <code>
 
 knitr::include_graphics("images/brushtail-possum/brushtail-possum.jpg")
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -169,7 +169,7 @@ While the relationship is not perfectly linear, it could be helpful to partially
 <listing xml:id="listing-scattHeadLTotalL-code">
   <caption>R code for possum scatterplot with highlighted point</caption>
   <program language="r">
-    <input>
+    <code>
 
 ggplot(possum, aes(x = total_l, y = head_l)) +
   geom_point(alpha = 0.7, size = 2) +
@@ -183,7 +183,7 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
     color = IMSCOL["red", "full"], 
     size = 5, shape = "circle open", stroke = 2
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -198,7 +198,7 @@ In this example, we will use the total length as the predictor variable, <m>x,</
 <listing xml:id="listing-scattHeadLTotalLLine-code">
   <caption>R code for possum scatterplot with linear model</caption>
   <program language="r">
-    <input>
+    <code>
 
 ggplot(possum, aes(x = total_l, y = head_l)) +
   geom_point(alpha = 0.7, size = 2) +
@@ -207,7 +207,7 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
     y = "Head Length (mm)"
   ) +
   geom_smooth(method = "lm", se = FALSE)
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -218,13 +218,13 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
 
 <p>The equation for this line is</p>
 
-<me>\hat{y} = 41 + 0.59x</me>
+<md>\hat{y} = 41 + 0.59x</md>
 
 <p>A "hat" on <m>y</m> is used to signify that this is an estimate.
 We can use this line to discuss properties of possums.
 For instance, the equation predicts a possum with a total length of 80 cm will have a head length of</p>
 
-<me>\hat{y} = 41 + 0.59 \times 80 = 88.2</me>
+<md>\hat{y} = 41 + 0.59 \times 80 = 88.2</md>
 
 <p>The estimate may be viewed as an average: the equation predicts that possums with a total length of 80 cm will have an average head length of 88.2 mm.
 Absent further information about an 80 cm possum, the prediction for head length that uses the average is a reasonable estimate.</p>
@@ -239,7 +239,7 @@ It's harder to tell if age changes the relationship between total length and hea
 <listing xml:id="listing-scattHeadLTotalL-sex-age-code">
   <caption>R code for possum plots by sex and age</caption>
   <program language="r">
-    <input>
+    <code>
 
 p_sex &lt;- ggplot(possum, aes(x = total_l, y = head_l, shape = sex, color = sex)) +
   geom_point(alpha = 0.8, size = 2) +
@@ -264,7 +264,7 @@ p_age &lt;- ggplot(possum, aes(x = total_l, y = head_l, color = age)) +
 
 p_sex
 p_age
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -292,7 +292,7 @@ Before we get there, we first need to better understand how to best build a line
 
 <p><alert>Residuals</alert><idx>residuals</idx> are the leftover variation in the data after accounting for the model fit:</p>
 
-<me>\text{Data} = \text{Fit} + \text{Residual}</me>
+<md>\text{Data} = \text{Fit} + \text{Residual}</md>
 
 <p>Each observation will have a residual, and three of the residuals for the linear model we fit for the possum data are shown in <xref ref="fig-scattHeadLTotalLLine-highlighted" />.
 If an observation is above the regression line, then its residual, the vertical distance from the observation to the line, is positive.
@@ -306,7 +306,7 @@ For example, the residual for the observation marked by a pink triangle is large
 <listing xml:id="listing-scattHeadLTotalLLine-highlighted-code">
   <caption>R code for possum plot with highlighted residuals</caption>
   <program language="r">
-    <input>
+    <code>
 
 mod &lt;- lm(head_l ~ total_l, data = possum)
 preds &lt;- predict(mod, data.frame(total_l = c(76, 85, 95.5)))
@@ -342,7 +342,7 @@ ggplot(possum, aes(x = total_l, y = head_l)) +
   geom_segment(aes(x = 95.5, y = preds[3], xend = 95.5, yend = obs[3] + 0.5),
     color = IMSCOL["pink", "full"], inherit.aes = FALSE
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -401,7 +401,7 @@ For instance, the point <m>(85.0, 98.6)</m> (marked by the blue diamond) had a p
 <listing xml:id="listing-scattHeadLTotalLResidualPlot-code">
   <caption>R code for residual plot</caption>
   <program language="r">
-    <input>
+    <code>
 
 m_head_total &lt;- lm(head_l ~ total_l, data = possum)
 m_head_total_aug &lt;- augment(m_head_total)
@@ -452,7 +452,7 @@ ggplot(m_head_total_aug, aes(x = .fitted, y = .resid)) +
     ),
     color = IMSCOL["pink", "full"], inherit.aes = FALSE
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -468,7 +468,7 @@ ggplot(m_head_total_aug, aes(x = .fitted, y = .resid)) +
     <p>Can you identify any patterns in the residuals?</p>
     
     <program language="r">
-  <input>
+  <code>
 
 neg_lin &lt;- simulated_scatter |&gt; filter(group == 6)
 neg_cur &lt;- simulated_scatter |&gt; filter(group == 7)
@@ -522,7 +522,7 @@ p_neg_lin + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
   p_neg_lin_res + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
   p_neg_cur_res + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) + p_random_res +
   plot_layout(ncol = 3, heights = c(2, 1))
-        </input>
+        </code>
 </program>
     
     <figure xml:id="sampleLinesAndResPlots">
@@ -564,7 +564,7 @@ It would be useful if we could quantify the strength of these linear relationshi
 <p>We can compute the correlation using a formula, just as we did with the sample mean and standard deviation.
 The formula for correlation, however, is rather complex<fn>Formally, we can compute the correlation for observations <m>(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)</m> using the formula</fn>, and like with other statistics, we generally perform the calculations on a computer or calculator.</p>
 
-<me>r = \frac{1}{n-1} \sum_{i=1}^{n} \frac{x_i-\bar{x}}{s_x}\frac{y_i-\bar{y}}{s_y}</me>
+<md>r = \frac{1}{n-1} \sum_{i=1}^{n} \frac{x_i-\bar{x}}{s_x}\frac{y_i-\bar{y}}{s_y}</md>
 
 <p>where <m>\bar{x},</m> <m>\bar{y},</m> <m>s_x,</m> and <m>s_y</m> are the sample means and standard deviations for each variable.
 <xref ref="fig-posNegCorPlots" /> shows eight plots and their corresponding correlations.
@@ -576,7 +576,7 @@ If there is no apparent linear relationship between the variables, then the corr
 <listing xml:id="listing-posNegCorPlots-code">
   <caption>R code for correlation plots with positive and negative relationships</caption>
   <program language="r">
-    <input>
+    <code>
 
 library(ggpubr) # Adding here instead of _common.R to avoid collision with ggimage
 
@@ -595,7 +595,7 @@ simulated_scatter |&gt;
     aes(label = paste("r", ..r.., sep = "~`=`~")), 
     geom = "label"
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -610,7 +610,7 @@ Nonlinear trends, even when strong, sometimes produce correlations that do not r
 <listing xml:id="listing-corForNonLinearPlots-code">
   <caption>R code for nonlinear relationship correlation plots</caption>
   <program language="r">
-    <input>
+    <code>
 
 simulated_scatter |&gt;
   filter(group %in% 17:19) |&gt;
@@ -627,7 +627,7 @@ simulated_scatter |&gt;
     aes(label = paste("r", ..r.., sep = "~`=`~")),
     geom = "label"
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -658,14 +658,15 @@ simulated_scatter |&gt;
     </statement>
   <solution>
     <p>The order of most negative correlation to most positive correlation is:</p>
-    <p>\vspace{-2mm}</p>
-    <me>A \rightarrow D \rightarrow B \rightarrow C \rightarrow E \rightarrow F</me>
-    <p>-   Plot A - bananas vs. potatoes: <c>r round(cor(crops_country<m>prop_potatoes, crops_country</m>prop_bananas, use = "pairwise.complete.obs"), digits = 2)</c></p>
-    <p>-   Plot B - cassava vs. soybeans: <c>r round(cor(crops_country<m>prop_soybeans, crops_country</m>prop_cassava, use = "pairwise.complete.obs"), digits = 2)</c></p>
-    <p>-   Plot C - cassava vs. maize: <c>r round(cor(crops_country<m>prop_maize, crops_country</m>prop_cassava, use = "pairwise.complete.obs"), digits = 2)</c></p>
-    <p>-   Plot D - cocoa vs. bananas: <c>r round(cor(crops_country<m>prop_cocoa, crops_country</m>prop_bananas, use = "pairwise.complete.obs"), digits = 2)</c></p>
-    <p>-   Plot E - peas vs. barley: <c>r round(cor(crops_country<m>prop_peas, crops_country</m>prop_barley, use = "pairwise.complete.obs"), digits = 2)</c></p>
-    <p>-   Plot F - wheat vs. barley: <c>r round(cor(crops_country<m>prop_wheat, crops_country</m>prop_barley, use = "pairwise.complete.obs"), digits = 2)</c></p>
+    <md>A \rightarrow D \rightarrow B \rightarrow C \rightarrow E \rightarrow F</md>
+    <p><ul>
+      <li><p>Plot A - bananas vs. potatoes: <m>r = -0.62</m></p></li>
+      <li><p>Plot B - cassava vs. soybeans: <m>r = -0.21</m></p></li>
+      <li><p>Plot C - cassava vs. maize: <m>r = -0.26</m></p></li>
+      <li><p>Plot D - cocoa vs. bananas: <m>r = 0.22</m></p></li>
+      <li><p>Plot E - peas vs. barley: <m>r = 0.31</m></p></li>
+      <li><p>Plot F - wheat vs. barley: <m>r = 0.21</m></p></li>
+    </ul></p>
   </solution>
 </example>
 
@@ -681,7 +682,7 @@ The only visual change to the plot is the axis <em>labeling</em> of the points.<
 <listing xml:id="listing-bdims-units-code">
   <caption>R code for comparing metric and imperial unit plots</caption>
   <program language="r">
-    <input>
+    <code>
 
 p_1 &lt;- ggplot(bdims, aes(x = hgt, y = wgt)) +
   geom_point(alpha = 0.8) +
@@ -706,7 +707,7 @@ p_2 &lt;- bdims |&gt;
 
 p_1
 p_2
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -755,7 +756,7 @@ The line follows a negative trend in the data; students who have higher family i
 <listing xml:id="listing-elmhurstScatterWLine-code">
   <caption>R code for Elmhurst gift aid scatterplot</caption>
   <program language="r">
-    <input>
+    <code>
 
 ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
   geom_point(size = 2) +
@@ -766,7 +767,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
     x = "Family income",
     y = "Gift aid from university"
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -785,7 +786,7 @@ Mathematically, we want a line that has small residuals.
 But beyond the mathematical reasons, hopefully it also makes sense intuitively that whatever line we fit, the residuals should be small (i.e., the points should be close to the line).
 The first option that may come to mind is to minimize the sum of the residual magnitudes:</p>
 
-<me>|e_1| + |e_2| + \dots + |e_n|</me>
+<md>|e_1| + |e_2| + \dots + |e_n|</md>
 
 <p>which we could accomplish with a computer program.</p>
 
@@ -794,7 +795,7 @@ The first option that may come to mind is to minimize the sum of the residual ma
 <listing xml:id="listing-elmhurstScatterW2Lines-code">
   <caption>R code for comparing two line-fitting methods</caption>
   <program language="r">
-    <input>
+    <code>
 
 ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
   geom_point(alpha = 0.8) +
@@ -806,7 +807,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
     x = "Family income",
     y = "Gift aid from university"
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -817,7 +818,7 @@ ggplot(elmhurst, aes(x = family_income, y = gift_aid)) +
 
 <p>However, a more common practice is to choose the line that minimizes the sum of the squared residuals:</p>
 
-<me>e_{1}^2 + e_{2}^2 + \dots + e_{n}^2</me>
+<md>e_{1}^2 + e_{2}^2 + \dots + e_{n}^2</md>
 
 <p>The line that minimizes this least squares criterion is represented as the solid line in <xref ref="fig-elmhurstScatterW2Lines" /> and is commonly called the <alert>least squares line</alert><idx>least squares line</idx>.
 The following are three possible reasons to choose the least squares option instead of trying to minimize the sum of residual magnitudes without any squaring:</p>
@@ -838,7 +839,7 @@ The following are three possible reasons to choose the least squares option inst
 
 <p>For the Elmhurst data, we could write the equation of the least squares regression line as</p>
 
-<me>\widehat{\texttt{aid}} = \beta_0 + \beta_{1}\times \texttt{family\_income}</me>
+<md>\widehat{\texttt{aid}} = \beta_0 + \beta_{1}\times \texttt{family\_income}</md>
 
 <p>Here the equation is set up to predict gift aid based on a student's family income, which would be useful to students considering Elmhurst.
 These two values, <m>\beta_0</m> and <m>\beta_1,</m> are the parameters of the regression line.</p>
@@ -887,7 +888,7 @@ The first 5 rows of this dataset are given in <xref ref="tbl-elmhurst-data" />.<
 
 <p>We can see that family income is recorded in a variable called <c>family_income</c> and gift aid from university is recorded in a variable called <c>gift_aid</c>.
 For now, we won't worry about the <c>price_paid</c> variable.
-We should also note that these data are from the 2011-2012 academic year, and all monetary amounts are given in $1,000s, i.e., the family income of the first student in the data shown in <xref ref="tbl-elmhurst-data" /> is $92,920 and they received a gift aid of \$21,700.
+We should also note that these data are from the 2011-2012 academic year, and all monetary amounts are given in $1,000s, i.e., the family income of the first student in the data shown in <xref ref="tbl-elmhurst-data" /> is $92,920 and they received a gift aid of $21,700.
 (The data source states that all numbers have been rounded to the nearest whole dollar.)</p>
 
 <p>Statistical software is usually used to compute the least squares line and the typical output generated as a result of fitting regression models looks like the one shown in <xref ref="tbl-rOutputForIncomeAidLSRLine" />.
@@ -932,13 +933,13 @@ Interpreting parameters in a regression model is often one of the most important
   </statement>
   <solution>
     <p>Interpreting the slope parameter is helpful in almost any application.</p>
-    <p>For each additional \$1,000 of family income, we would expect a student to receive a net difference of <m>1,000 \times (-0.0431) = -\$43.10</m> in aid on average, i.e., \$43.10 <em>less</em>.</p>
+    <p>For each additional $1,000 of family income, we would expect a student to receive a net difference of <m>1,000 \times (-0.0431) = -\$43.10</m> in aid on average, i.e., $43.10 <em>less</em>.</p>
     <p>Note that a higher family income corresponds to less aid because the coefficient of family income is negative in the model.</p>
     <p>We must be cautious in this interpretation: while there is a real association, we cannot interpret a causal connection between the variables because these data are observational.</p>
     <p>That is, increasing a particular student's family income may not cause the student's aid to drop.</p>
     <p>(Although it would be reasonable to contact the college and ask if the relationship is causal, i.e., if Elmhurst College's aid decisions are partially based on students' family income.)</p>
-    <p>The estimated intercept <m>b_0</m> = <c>r m_ga_fi_int</c> describes the average aid if a student's family had no income, \$<c>r format(round(m_ga_fi_int*1000,0), scientific = FALSE, big.mark = ",")</c>.</p>
-    <p>The meaning of the intercept is relevant to this application since the family income for some students at Elmhurst is \$0.</p>
+    <p>The estimated intercept <m>b_0</m> = <c>r m_ga_fi_int</c> describes the average aid if a student's family had no income, $<c>r format(round(m_ga_fi_int*1000,0), scientific = FALSE, big.mark = ",")</c>.</p>
+    <p>The meaning of the intercept is relevant to this application since the family income for some students at Elmhurst is $0.</p>
     <p>In other applications, the intercept may have little or no practical value if there are no observations where <m>x</m> is near zero.</p>
   </solution>
 </example>
@@ -961,7 +962,7 @@ Interpreting parameters in a regression model is often one of the most important
   <li><p>The slope of the least squares line can be estimated by</p></li>
 </ol>
 
-<me>b_1 = \frac{s_y}{s_x} r</me>
+<md>b_1 = \frac{s_y}{s_x} r</md>
 
 <p>where <m>r</m> is the correlation between the two variables, and <m>s_x</m> and <m>s_y</m> are the sample standard deviations of the predictor and outcome, respectively.</p>
 
@@ -969,7 +970,7 @@ Interpreting parameters in a regression model is often one of the most important
   <li><p>If <m>\bar{x}</m> is the sample mean of the predictor variable and <m>\bar{y}</m> is the sample mean of the outcome variable, then the point <m>(\bar{x}, \bar{y})</m> falls on the least squares line.</p></li>
 </ol>
 
-<p><xref ref="tbl-summaryStatsElmhurstRegr" /> shows the sample means for the family income and gift aid as \$101,780 and \$19,940, respectively.</p>
+<p><xref ref="tbl-summaryStatsElmhurstRegr" /> shows the sample means for the family income and gift aid as $101,780 and $19,940, respectively.</p>
 
 <p>We could plot the point <m>(102, 19.9)</m> on <xref ref="fig-elmhurstScatterWLine" /> to verify it falls on the least squares line (the solid line).</p>
 
@@ -1006,13 +1007,13 @@ Interpreting parameters in a regression model is often one of the most important
   </statement>
   <solution>
     <p>Compute the slope using the summary statistics from <xref ref="tbl-summaryStatsElmhurstRegr" />:</p>
-    <me>b_1 = \frac{s_y}{s_x} r = \frac{5.46}{63.2}(-0.499) = -0.0431</me>
+    <md>b_1 = \frac{s_y}{s_x} r = \frac{5.46}{63.2}(-0.499) = -0.0431</md>
   </solution>
 </example>
 
 <p>You might recall the form of a line from math class, which we can use to find the model fit, including the estimate of <m>b_0.</m> Given the slope of a line and a point on the line, <m>(x_0, y_0),</m> the equation for the line can be written as</p>
 
-<me>y - y_0 = slope\times (x - x_0)</me>
+<md>y - y_0 = slope\times (x - x_0)</md>
 
 <assemblage>
   <p><alert>Identifying the least squares line from summary statistics.</alert></p>
@@ -1028,14 +1029,12 @@ Interpreting parameters in a regression model is often one of the most important
   </statement>
   <solution>
     <p>Apply the point-slope equation using <m>(102, 19.9)</m> and the slope <m>b_1 = -0.0431</m>:</p>
-    <p>\vspace{-5mm}</p>
     <md>
       <mrow>y - y_0  &amp;= b_1 (x - x_0)</mrow>
       <mrow>y - 19.9 &amp;= -0.0431 (x - 102)</mrow>
     </md>
     <p>Expanding the right side and then adding 19.9 to each side, the equation simplifies:</p>
-    <p>\vspace{-5mm}</p>
-    <me>\widehat{\texttt{aid}} = 24.3 - 0.0431 \times \texttt{family\_income}</me>
+    <md>\widehat{\texttt{aid}} = 24.3 - 0.0431 \times \texttt{family\_income}</md>
     <p>Here we have replaced <m>y</m> with <m>\widehat{\texttt{aid}}</m> and <m>x</m> with <m>\texttt{family\_income}</m> to put the equation in context.</p>
     <p>The final least squares equation should always include a "hat" on the variable being predicted, whether it is a generic <m><c>y</c></m> or a named variable like <m><c>aid</c></m>.</p>
   </solution>
@@ -1067,14 +1066,13 @@ For example, we do not know how the data outside of our limited window will beha
 
 <example>
   <statement>
-    <p>Use the model <m>\widehat{\texttt{aid}} = 24.3 - 0.0431 \times \texttt{family\_income}</m> to estimate the aid of another first-year student whose family had income of \$1 million.</p>
+    <p>Use the model <m>\widehat{\texttt{aid}} = 24.3 - 0.0431 \times \texttt{family\_income}</m> to estimate the aid of another first-year student whose family had income of $1 million.</p>
   </statement>
   <solution>
-    <p>We want to calculate the aid for a family with \$1 million income.</p>
-    <p>Note that in our model this will be represented as 1,000 since the data are in \$1,000s.</p>
-    <p>\vspace{-5mm}</p>
-    <me>24.3 - 0.0431 \times 1000 = -18.8</me>
-    <p>The model predicts this student will have -\$18,800 in aid (!).</p>
+    <p>We want to calculate the aid for a family with $1 million income.</p>
+    <p>Note that in our model this will be represented as 1,000 since the data are in $1,000s.</p>
+    <md>24.3 - 0.0431 \times 1000 = -18.8</md>
+    <p>The model predicts this student will have -$18,800 in aid (!).</p>
     <p>However, Elmhurst College does not offer <em>negative aid</em> where they select some students to pay extra on top of tuition to attend.</p>
   </solution>
 </example>
@@ -1109,7 +1107,7 @@ In short, there was a reduction of</p>
 
 <p>It turns out that <m>R^2</m> corresponds exactly to the squared value of the correlation:</p>
 
-<me>r = -0.499 \rightarrow R^2 = 0.25</me>
+<md>r = -0.499 \rightarrow R^2 = 0.25</md>
 
 <exercise>
   <statement>
@@ -1151,7 +1149,7 @@ In short, there was a reduction of</p>
   </statement>
   <solution>
     <p>Since we know <m>SSE</m> and <m>SST,</m> we can calculate <m>R^2</m> as</p>
-    <me>R^2 = 1 - \frac{SSE}{SST} = 1 - \frac{1098}{1461} = 0.25,</me>
+    <md>R^2 = 1 - \frac{SSE}{SST} = 1 - \frac{1098}{1461} = 0.25,</md>
     <p>the same value we found when we squared the correlation: <m>R^2 = (-0.499)^2 = 0.25.</m></p>
   </solution>
 </example>
@@ -1172,12 +1170,12 @@ Here we want to predict total price based on game condition, which takes values 
 </note>
 
 <p>A plot of the auction data is shown in <xref ref="fig-marioKartNewUsed" />.
-Note that the original dataset contains some Mario Kart games being sold at prices above \$100 but for this analysis we have limited our focus to the <c>r nrow(mariokart_lt100)</c> Mario Kart games that were sold below \$100.</p>
+Note that the original dataset contains some Mario Kart games being sold at prices above $100 but for this analysis we have limited our focus to the <c>r nrow(mariokart_lt100)</c> Mario Kart games that were sold below $100.</p>
 
 <listing xml:id="listing-marioKartNewUsed-code">
   <caption>R code for Mario Kart price by condition plot</caption>
   <program language="r">
-    <input>
+    <code>
 
 mariokart_lt100 |&gt;
   filter(total_pr &lt; 100) |&gt;
@@ -1194,7 +1192,7 @@ mariokart_lt100 |&gt;
     x = "Condition",
     y = "Total price"
   )
-    </input>
+    </code>
   </program>
 </listing>
 
@@ -1207,7 +1205,7 @@ mariokart_lt100 |&gt;
 We will do so using an <alert>indicator variable</alert><idx><h>variable</h><h>indicator</h></idx><idx>indicator variable</idx> called <c>condnew</c>, which takes value 1 when the game is new and 0 when the game is used.
 Using this indicator variable, the linear model may be written as</p>
 
-<me>\widehat{\texttt{price}} = b_0 + b_1 \times \texttt{condnew}</me>
+<md>\widehat{\texttt{price}} = b_0 + b_1 \times \texttt{condnew}</md>
 
 <p>The parameter estimates are given in <xref ref="tbl-marioKartNewUsedRegrSummary" />.</p>
 
@@ -1240,7 +1238,7 @@ Using this indicator variable, the linear model may be written as</p>
 
 <p>Using values from <xref ref="tbl-marioKartNewUsedRegrSummary" />, the model equation can be summarized as</p>
 
-<me>\widehat{\texttt{price}} = 42.87 + 10.90 \times \texttt{condnew}</me>
+<md>\widehat{\texttt{price}} = 42.87 + 10.90 \times \texttt{condnew}</md>
 
 <example>
   <statement>
@@ -1248,8 +1246,8 @@ Using this indicator variable, the linear model may be written as</p>
   </statement>
   <solution>
     <p>The intercept is the estimated price when <c>condnew</c> has a value 0, i.e., when the game is in used condition.</p>
-    <p>That is, the average selling price of a used version of the game is \$42.9.</p>
-    <p>The slope indicates that, on average, new games sell for about \$10.9 more than used games.</p>
+    <p>That is, the average selling price of a used version of the game is $42.9.</p>
+    <p>The slope indicates that, on average, new games sell for about $10.9 more than used games.</p>
   </solution>
 </example>
 
@@ -1312,7 +1310,7 @@ If the points are in-line with the bivariate model, they will not influence the 
 <listing xml:id="listing-outlier-plots-code">
   <caption>R code for creating outlier diagnostic plots</caption>
   <program language="r">
-  <input>
+  <code>
 
 # abc
 d1 &lt;- simulated_scatter |&gt;
@@ -1521,7 +1519,7 @@ p_4 + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
   p_4_res + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) +
   p_5_res + theme(plot.margin = unit(c(0, 10, 5, 0), "pt")) + p_6_res +
   plot_layout(ncol = 3, heights = c(2, 1))
-    </input>
+    </code>
   </program>
 </listing>
 
